@@ -29,12 +29,12 @@ describe('buttons: new warning-outline variant, link variant fixes, group layout
     expect(reverseHover).toMatch(/text-decoration:\s*none/);
   });
 
-  it('link variant underline is thin, and focus drops the underline and corner radius', () => {
+  it('link variant underline is thin, and focus drops the underline and corner radius (even while pressed, so it applies on mousedown not just mouseup)', () => {
     const base = block(css, '\\.nhsw-button--link');
     expect(base).toMatch(/text-decoration-thickness:\s*1px/);
     expect(base).toMatch(/text-underline-offset:\s*0\.12em/);
 
-    const focus = block(css, '\\.nhsw-button--link:focus:not\\(:active\\)');
+    const focus = block(css, '\\.nhsw-button--link:focus');
     expect(focus).toMatch(/border-radius:\s*0/);
     expect(focus).toMatch(/text-decoration:\s*none/);
   });

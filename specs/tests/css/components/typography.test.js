@@ -43,4 +43,16 @@ describe('typography classes apply the token-driven mobile/tablet values', () =>
       expect(rule).toMatch(/font-family:\s*Roboto,\s*Arial,\s*sans-serif/);
     },
   );
+
+  it.each([
+    ['nhsw-caption-xl', '1.375rem'],
+    ['nhsw-caption-l', '1.1875rem'],
+    ['nhsw-caption-m', '1rem'],
+    ['nhsw-caption-s', '0.875rem'],
+  ])('.%s is %s, regular weight, secondary (grey) colour, not responsive', (className, fontSize) => {
+    const rule = block(css, `\\.${className}`);
+    expect(rule).toMatch(new RegExp(`font-size:\\s*${fontSize.replace('.', '\\.')}`));
+    expect(rule).toMatch(/font-weight:\s*400/);
+    expect(rule).toMatch(/color:\s*#4c6272/);
+  });
 });

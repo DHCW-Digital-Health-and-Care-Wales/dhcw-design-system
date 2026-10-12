@@ -29,7 +29,8 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="fu-overview" open_url="/examples/file-upload-default.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-file-upload"&gt;
+  {% capture html_sample %}{% raw %}&lt;h2 class="nhsw-h2"&gt;Upload a file&lt;/h2&gt;
+&lt;div class="nhsw-file-upload"&gt;
   &lt;span class="nhsw-file-upload__status"&gt;No file chosen&lt;/span&gt;
   &lt;div class="nhsw-file-upload__actions"&gt;
     &lt;input class="nhsw-file-upload__input" id="file-upload-1" name="file-upload-1" type="file"&gt;
@@ -39,6 +40,7 @@ tabs:
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "file-upload/macro.njk" import nhswFileUpload %}
 
+&lt;h2 class="nhsw-h2"&gt;Upload a file&lt;/h2&gt;
 {{ nhswFileUpload({
   id: "file-upload-1",
   name: "file-upload-1",
@@ -104,7 +106,8 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="fu-mobile" open_url="/examples/file-upload-reverse.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-file-upload nhsw-file-upload--reverse"&gt;
+  {% capture html_sample %}{% raw %}&lt;h2 class="nhsw-h2"&gt;Upload a file&lt;/h2&gt;
+&lt;div class="nhsw-file-upload nhsw-file-upload--reverse"&gt;
   &lt;span class="nhsw-file-upload__status"&gt;No file chosen&lt;/span&gt;
   &lt;div class="nhsw-file-upload__actions"&gt;
     &lt;input class="nhsw-file-upload__input" id="file-upload-mobile" name="file-upload-mobile" type="file"&gt;
@@ -112,7 +115,8 @@ tabs:
     &lt;span class="nhsw-file-upload__hint"&gt;or drop file&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswFileUpload({
+  {% capture njk_sample %}{% raw %}&lt;h2 class="nhsw-h2"&gt;Upload a file&lt;/h2&gt;
+{{ nhswFileUpload({
   id: "file-upload-mobile",
   name: "file-upload-mobile",
   classes: "nhsw-file-upload--reverse"

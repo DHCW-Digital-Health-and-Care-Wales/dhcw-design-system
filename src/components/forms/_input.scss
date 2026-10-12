@@ -2,6 +2,15 @@
 
 $nhsw-input-character-unit: 1.25rem;
 
+// box-sizing: border-box means width includes padding and border, so a flat
+// characters * unit calc leaves less room for typed content than the number
+// of characters implies. Add that fixed overhead back so the content area
+// itself holds the stated character count: 8px padding + 2px border on each
+// side. The focus state adds its extra border weight via an inset box-shadow
+// rather than a wider border, so this doesn't need to account for a focus-only
+// increase.
+$nhsw-input-horizontal-overhead: 20px;
+
 $nhsw-input-character-widths: (
   "20": 20,
   "10": 10,
@@ -46,7 +55,7 @@ $nhsw-input-character-widths: (
 
   @each $name, $characters in $nhsw-input-character-widths {
     &--width-#{$name} {
-      width: calc(#{$characters} * #{$nhsw-input-character-unit});
+      width: calc(#{$characters} * #{$nhsw-input-character-unit} + #{$nhsw-input-horizontal-overhead});
       max-width: 100%;
     }
   }

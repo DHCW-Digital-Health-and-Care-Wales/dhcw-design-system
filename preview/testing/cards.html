@@ -16,6 +16,7 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/cards.html' | relative_url }}" target="_blank" rel="noopener">Open the Cards documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/card-basic.html' | relative_url }}" target="_blank" rel="noopener">card-basic.html</a>, <a class="nhsw-link" href="{{ '/examples/card-chevron.html' | relative_url }}" target="_blank" rel="noopener">card-chevron.html</a>, <a class="nhsw-link" href="{{ '/examples/card-icon.html' | relative_url }}" target="_blank" rel="noopener">card-icon.html</a>, <a class="nhsw-link" href="{{ '/examples/card-image.html' | relative_url }}" target="_blank" rel="noopener">card-image.html</a>, <a class="nhsw-link" href="{{ '/examples/card-links.html' | relative_url }}" target="_blank" rel="noopener">card-links.html</a>, <a class="nhsw-link" href="{{ '/examples/card-actions.html' | relative_url }}" target="_blank" rel="noopener">card-actions.html</a>, <a class="nhsw-link" href="{{ '/examples/card-grid.html' | relative_url }}" target="_blank" rel="noopener">card-grid.html</a>, <a class="nhsw-link" href="{{ '/examples/card-nonclickable.html' | relative_url }}" target="_blank" rel="noopener">card-nonclickable.html</a>, <a class="nhsw-link" href="{{ '/examples/card-stat.html' | relative_url }}" target="_blank" rel="noopener">card-stat.html</a></p>
 </div>
@@ -58,40 +59,40 @@ extra_scripts:
           <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-3-hint">Given a grid of cards. When viewed on a mobile-width screen. Then they stack into a single column without overlapping or clipped text.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
-            <div class="nhsw-grid-row">
-              <div class="nhsw-grid-column-one-half">
+            <ul class="nhsw-grid-row nhsw-card-group" role="list">
+              <li class="nhsw-grid-column-one-half nhsw-card-group__item">
                 <div class="nhsw-card nhsw-card--chevron">
                   <h3 class="nhsw-card__title">
                     <a class="nhsw-card__title-link" href="#">Card Title</a>
                   </h3>
                   <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-              </div>
-              <div class="nhsw-grid-column-one-half">
+              </li>
+              <li class="nhsw-grid-column-one-half nhsw-card-group__item">
                 <div class="nhsw-card nhsw-card--chevron">
                   <h3 class="nhsw-card__title">
                     <a class="nhsw-card__title-link" href="#">Card Title</a>
                   </h3>
                   <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-              </div>
-              <div class="nhsw-grid-column-one-half">
+              </li>
+              <li class="nhsw-grid-column-one-half nhsw-card-group__item">
                 <div class="nhsw-card nhsw-card--chevron">
                   <h3 class="nhsw-card__title">
                     <a class="nhsw-card__title-link" href="#">Card Title</a>
                   </h3>
                   <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-              </div>
-              <div class="nhsw-grid-column-one-half">
+              </li>
+              <li class="nhsw-grid-column-one-half nhsw-card-group__item">
                 <div class="nhsw-card nhsw-card--chevron">
                   <h3 class="nhsw-card__title">
                     <a class="nhsw-card__title-link" href="#">Card Title</a>
                   </h3>
                   <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
         </div>
@@ -117,40 +118,40 @@ extra_scripts:
           <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-5-hint">Given cards grouped together for navigation. When a screen reader reads them. Then they're announced as a list of options, not as unrelated content.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
-            <div class="nhsw-grid-row">
-              <div class="nhsw-grid-column-one-half">
+            <ul class="nhsw-grid-row nhsw-card-group" role="list">
+              <li class="nhsw-grid-column-one-half nhsw-card-group__item">
                 <div class="nhsw-card nhsw-card--chevron">
                   <h3 class="nhsw-card__title">
                     <a class="nhsw-card__title-link" href="#">Card Title</a>
                   </h3>
                   <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-              </div>
-              <div class="nhsw-grid-column-one-half">
+              </li>
+              <li class="nhsw-grid-column-one-half nhsw-card-group__item">
                 <div class="nhsw-card nhsw-card--chevron">
                   <h3 class="nhsw-card__title">
                     <a class="nhsw-card__title-link" href="#">Card Title</a>
                   </h3>
                   <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-              </div>
-              <div class="nhsw-grid-column-one-half">
+              </li>
+              <li class="nhsw-grid-column-one-half nhsw-card-group__item">
                 <div class="nhsw-card nhsw-card--chevron">
                   <h3 class="nhsw-card__title">
                     <a class="nhsw-card__title-link" href="#">Card Title</a>
                   </h3>
                   <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-              </div>
-              <div class="nhsw-grid-column-one-half">
+              </li>
+              <li class="nhsw-grid-column-one-half nhsw-card-group__item">
                 <div class="nhsw-card nhsw-card--chevron">
                   <h3 class="nhsw-card__title">
                     <a class="nhsw-card__title-link" href="#">Card Title</a>
                   </h3>
                   <p class="nhsw-card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
         </div>
@@ -158,6 +159,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="cards-manual-6" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-6-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-6">Heading level matches the surrounding page structure</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-6-hint">Given a card with its heading level overridden (e.g. h3 instead of h2). Then the rendered heading tag matches what was specified, keeping the page outline correct.</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/card-heading-level.html' | relative_url }}" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="cards-manual-7" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-7-hint">
@@ -176,6 +178,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="cards-manual-8" name="cards-manual-tests" type="checkbox" aria-describedby="cards-manual-8-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="cards-manual-8">Clicking the card and link behave consistently</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="cards-manual-8-hint">Given a clickable card containing a title link. When either the card body or the title is selected. Then the same destination is opened.</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/card-clickable.html' | relative_url }}" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-card nhsw-card--chevron">

@@ -12,7 +12,7 @@ test.describe('Homepage', () => {
     await page.goto('/index.html');
     const cards = page.locator('section[aria-label="Design system sections"] .nhsw-card');
     await expect(cards).toHaveCount(3);
-    await expect(cards).toContainText(['Design principles', 'Content guide', 'Styles', 'Components', 'Patterns']);
+    await expect(cards).toContainText(['Design principles', 'Styles', 'Components']);
   });
 
   test('closing section is titled "Support", not "Contact us"', async ({ page }) => {
@@ -30,6 +30,8 @@ test.describe('Homepage', () => {
     await page.goto('/index.html');
     const footerLinks = page.locator('.nhsw-site-footer__links a');
     await expect(footerLinks).toHaveCount(5);
-    await expect(page.locator('.nhsw-site-footer__licence-badge')).toHaveText('OGL');
+    const badge = page.locator('.nhsw-site-footer__licence-badge');
+    await expect(badge).toHaveAttribute('src', /ogl-logo\.svg$/);
+    await expect(badge).toBeVisible();
   });
 });

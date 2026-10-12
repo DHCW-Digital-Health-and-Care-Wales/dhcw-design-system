@@ -27,7 +27,7 @@ Please note that our organisation is called Digital Health and Care Wales, so br
 
 ### Form spacing
 - Form group margin-bottom: 16px (mobile), 24px (tablet+)
-- Label margin-bottom: 4px
+- Label margin-bottom: 0 if immediately followed by a hint (the hint's own margin-bottom provides the gap), 16px otherwise
 - Hint margin-bottom: 16px
 - Error message margin-bottom: 16px
 - Between form sections (e.g. after a group of fields before a new heading): 40px

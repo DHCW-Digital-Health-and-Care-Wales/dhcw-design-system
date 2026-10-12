@@ -51,6 +51,21 @@ Feature: Tag — automated coverage
         | red        |
         | orange     |
         | yellow     |
+
+  Rule: A two-part tag is announced as one phrase
+
+    @automated
+    # specs/tests/njk/tag-group.test.js, specs/tests/markup/tag-groups.test.js
+    Scenario: Every two-part tag carries its hidden announcement text
+      Given the nhswTagGroup macro, and every tag group in the preview pages and code samples
+      Then each group has visually hidden "Tag: " first and ": " between its two tags
+      And its text reads "Tag: <category>: <status>"
+
+    @automated
+    # specs/tests/css/components/tag.test.js
+    Scenario: The hidden text does not break the flush join between the two parts
+      Given a tag group whose first child is visually hidden text
+      Then the border between the two tags is still removed, using :first-of-type
 ```
 
 ## Manual test scenarios
@@ -72,9 +87,10 @@ Feature: Tag — manual verification
 
   @manual
   Scenario: Two-part tag reads sensibly together
-    Given a two-part tag
+    Given a two-part tag, e.g. "Flu" and "Due vaccination"
     When a screen reader reads it
-    Then both parts are announced in a way that makes sense together
+    Then it is announced as one phrase, "Tag: Flu: Due vaccination"
+    And it is clear from the announcement that it is a tag and that both parts belong together
 
   @manual
   Scenario: Tags inside a summary list stay aligned

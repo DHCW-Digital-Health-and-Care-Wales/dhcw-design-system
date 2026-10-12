@@ -1,0 +1,39 @@
+---
+layout: example
+title: File upload with an error example
+---
+<h1 class="nhsw-h2">Upload your document</h1>
+<p class="nhsw-body-s">Demo only: submitting without choosing a file reloads this page with an error, the way a service would render it on the server. To see the error straight away, <a class="nhsw-link" href="?submitted=1">open the page with the error</a>.</p>
+
+<form method="get" action="" novalidate>
+  <input type="hidden" name="submitted" value="1">
+
+  <div class="nhsw-form-group" id="fu-group">
+    <label class="nhsw-label" for="fu-file">Upload your referral letter</label>
+    <p class="nhsw-error-message" id="fu-error" hidden><span class="nhsw-visually-hidden">Error: </span>Select a file to upload</p>
+    <div class="nhsw-file-upload">
+      <span class="nhsw-file-upload__status">No file chosen</span>
+      <div class="nhsw-file-upload__actions">
+        <input class="nhsw-file-upload__input" id="fu-file" name="file" type="file" aria-describedby="fu-error">
+        <label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button" for="fu-file">Choose file</label>
+        <span class="nhsw-file-upload__hint">or drop file</span>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="nhsw-button nhsw-button--primary nhsw-button--inline">Upload</button>
+</form>
+
+<script>
+  // Demo only: shows the error state when the page "reloads" with no file chosen.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (!params.has('submitted') || (params.get('file') || '') !== '') return;
+    var input = document.getElementById('fu-file');
+    document.getElementById('fu-group').classList.add('nhsw-form-group--error');
+    document.getElementById('fu-error').hidden = false;
+    input.classList.add('nhsw-is-invalid');
+    input.setAttribute('aria-invalid', 'true');
+    input.setAttribute('aria-describedby', 'fu-error');
+  }());
+</script>

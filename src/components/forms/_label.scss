@@ -1,15 +1,18 @@
 @use "../../tokens/colours" as c;
 @use "../../tokens/typography" as t;
-@use "../../tokens/spacing" as s;
 @use "../../utilities/breakpoints" as b;
 
 .nhsw-label {
   display: block;
-  margin-bottom: s.$nhsw-label-margin-bottom;
+  margin-bottom: 16px;
   color: c.$nhsw-colour-text-primary;
   font-size: t.$nhsw-font-size-body-small;
   font-weight: t.$nhsw-font-weight-bold;
   line-height: t.$nhsw-line-height-body-small;
+
+  &:has(+ .nhsw-hint) {
+    margin-bottom: 0;
+  }
 
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-body;

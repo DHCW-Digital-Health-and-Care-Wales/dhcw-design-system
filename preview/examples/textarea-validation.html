@@ -1,0 +1,36 @@
+---
+layout: example
+title: Textarea with an error example
+---
+<h1 class="nhsw-h2">Tell us more</h1>
+<p class="nhsw-body-s">Demo only: submitting with the box empty reloads this page with an error, the way a service would render it on the server. To see the error straight away, <a class="nhsw-link" href="?submitted=1">open the page with the error</a>.</p>
+
+<form method="get" action="" novalidate>
+  <input type="hidden" name="submitted" value="1">
+
+  <div class="nhsw-form-group" id="tv-group">
+    <label class="nhsw-label" for="tv-reason">Provide a reason for continuing</label>
+    <p class="nhsw-error-message" id="tv-error" hidden><span class="nhsw-visually-hidden">Error: </span>Enter a reason for continuing</p>
+    <textarea class="nhsw-textarea" id="tv-reason" name="reason" rows="5" aria-describedby="tv-error tv-count" data-max-length="150" data-max-length-target="tv-count"></textarea>
+    <div class="nhsw-hint nhsw-textarea__count" id="tv-count">You have 150 characters remaining</div>
+  </div>
+
+  <button type="submit" class="nhsw-button nhsw-button--primary nhsw-button--inline">Continue</button>
+</form>
+
+<script>
+  // Demo only: shows the error state when the page "reloads" with the box empty.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (!params.has('submitted')) return;
+    var value = params.get('reason') || '';
+    var textarea = document.getElementById('tv-reason');
+    textarea.value = value;
+    if (value.trim() !== '') return;
+    document.getElementById('tv-group').classList.add('nhsw-form-group--error');
+    document.getElementById('tv-error').hidden = false;
+    textarea.classList.add('nhsw-is-invalid');
+    textarea.setAttribute('aria-invalid', 'true');
+    textarea.setAttribute('aria-describedby', 'tv-error tv-count');
+  }());
+</script>

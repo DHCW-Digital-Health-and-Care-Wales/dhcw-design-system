@@ -37,6 +37,10 @@
   font-style: normal;
 }
 
+.nhsw-warning-callout__heading-text {
+  min-width: 0;
+}
+
 .nhsw-warning-callout__content {
   position: relative;
   z-index: 1;

@@ -82,12 +82,6 @@ Feature: Table — manual verification
     Then each row's data is still clearly labelled and readable, not just a wall of numbers
 
   @manual
-  Scenario: Session-row icons aren't read aloud by a screen reader
-    Given a table using the session-row icon variant
-    When a screen reader reads a row
-    Then the decorative icon isn't read out as text
-
-  @manual
   Scenario: Keyboard focus is visible on interactive table content
     Given a table containing interactive elements (links, buttons, or actions)
     When a keyboard user tabs through them

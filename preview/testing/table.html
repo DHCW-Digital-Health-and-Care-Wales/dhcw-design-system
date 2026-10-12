@@ -16,12 +16,13 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/table.html' | relative_url }}" target="_blank" rel="noopener">Open the Table documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/table-basic.html' | relative_url }}" target="_blank" rel="noopener">table-basic.html</a>, <a class="nhsw-link" href="{{ '/examples/table-caption.html' | relative_url }}" target="_blank" rel="noopener">table-caption.html</a>, <a class="nhsw-link" href="{{ '/examples/table-numeric.html' | relative_url }}" target="_blank" rel="noopener">table-numeric.html</a>, <a class="nhsw-link" href="{{ '/examples/table-missing-data.html' | relative_url }}" target="_blank" rel="noopener">table-missing-data.html</a>, <a class="nhsw-link" href="{{ '/examples/table-session-row.html' | relative_url }}" target="_blank" rel="noopener">table-session-row.html</a>, <a class="nhsw-link" href="{{ '/examples/table-session-row-location.html' | relative_url }}" target="_blank" rel="noopener">table-session-row-location.html</a>, <a class="nhsw-link" href="{{ '/examples/table-responsive.html' | relative_url }}" target="_blank" rel="noopener">table-responsive.html</a></p>
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="table">
-  <p class="nhsw-body"><strong data-tracker-count>0 of 11 checks complete</strong></p>
+  <p class="nhsw-body"><strong data-tracker-count>0 of 10 checks complete</strong></p>
 
   <fieldset class="nhsw-fieldset">
     <legend class="nhsw-fieldset__legend nhsw-h2">Manual test scenarios</legend>
@@ -208,31 +209,8 @@ extra_scripts:
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="table-manual-6" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-6-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-6">Session-row icons aren't read aloud by a screen reader</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-6-hint">Given a table using the session-row icon variant. When a screen reader reads a row. Then the decorative icon isn't read out as text.</div>
-        <div class="nhsw-example-preview" style="margin: 12px 0 0;">
-          <div class="nhsw-example-preview__body">
-            <a class="nhsw-session-row" href="#">
-              <div class="nhsw-session-row__main">
-                <span class="nhsw-session-row__title">Children routine imms morning</span>
-                <span class="nhsw-session-row__meta">8am to 5pm &nbsp;|&nbsp; Recurring session</span>
-              </div>
-              <div class="nhsw-session-row__detail">Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus</div>
-              <div class="nhsw-session-row__badges">
-                <span class="nhsw-session-row__badge">To do<br>21 of 87</span>
-                <span class="nhsw-session-row__badge">Free<br>11</span>
-              </div>
-              <svg class="nhsw-session-row__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true">
-                <path d="M9 6l6 6-6 6" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="table-manual-7" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-7-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-7">Keyboard focus is visible on interactive table content</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-7-hint">Given a table containing interactive elements (links, buttons, or actions). When a keyboard user tabs through them. Then each interactive element displays a clear visible focus indicator.</div>
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-6">Keyboard focus is visible on interactive table content</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-6-hint">Given a table containing interactive elements (links, buttons, or actions). When a keyboard user tabs through them. Then each interactive element displays a clear visible focus indicator.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <table class="nhsw-table">
@@ -256,9 +234,9 @@ extra_scripts:
         </div>
         </div>
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="table-manual-8" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-8-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-8">Tables remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-8-hint">Given a table. When browser zoom is increased to 200% or 400%. Then the table remains readable and usable without loss of information.</div>
+          <input class="nhsw-checkboxes__input" id="table-manual-7" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-7-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-7">Tables remain usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-7-hint">Given a table. When browser zoom is increased to 200% or 400%. Then the table remains readable and usable without loss of information.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <table class="nhsw-table">
@@ -280,9 +258,9 @@ extra_scripts:
         </div>
         </div>
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="table-manual-9" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-9-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-9">Long cell content wraps correctly</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-9-hint">Given a table containing long cell values. When viewed on a narrow screen or at high zoom levels. Then cell content wraps correctly without overlapping, clipping or becoming unreadable.</div>
+          <input class="nhsw-checkboxes__input" id="table-manual-8" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-8-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-8">Long cell content wraps correctly</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-8-hint">Given a table containing long cell values. When viewed on a narrow screen or at high zoom levels. Then cell content wraps correctly without overlapping, clipping or becoming unreadable.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div style="max-width: 300px;">
@@ -306,9 +284,9 @@ extra_scripts:
         </div>
         </div>
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="table-manual-10" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-10-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-10">Long column headings remain readable</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-10-hint">Given a table with long column headers. When viewed on a small screen. Then the headers remain readable and continue to identify the associated data correctly.</div>
+          <input class="nhsw-checkboxes__input" id="table-manual-9" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-9-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-9">Long column headings remain readable</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-9-hint">Given a table with long column headers. When viewed on a small screen. Then the headers remain readable and continue to identify the associated data correctly.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div style="max-width: 300px;">
@@ -332,9 +310,9 @@ extra_scripts:
         </div>
         </div>
         <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="table-manual-11" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-11-hint">
-          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-11">Data remains associated after responsive transformation</label>
-          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-11-hint">Given the responsive table variant. When viewed on a narrow screen. Then each value remains clearly associated with its row or column heading.</div>
+          <input class="nhsw-checkboxes__input" id="table-manual-10" name="table-manual-tests" type="checkbox" aria-describedby="table-manual-10-hint">
+          <label class="nhsw-label nhsw-checkboxes__label" for="table-manual-10">Data remains associated after responsive transformation</label>
+          <div class="nhsw-hint nhsw-checkboxes__hint" id="table-manual-10-hint">Given the responsive table variant. When viewed on a narrow screen. Then each value remains clearly associated with its row or column heading.</div>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div style="max-width: 300px;">

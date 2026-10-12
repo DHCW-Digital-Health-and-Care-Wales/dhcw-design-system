@@ -17,7 +17,8 @@ title: Conditionally revealing radios example
       <div class="nhsw-radios__conditional" id="conditional-hpv-ready">
         <div class="nhsw-form-group">
           <label class="nhsw-label" for="hpv-ready-reason">Give details</label>
-          <textarea class="nhsw-textarea" id="hpv-ready-reason" name="hpv-ready-reason" rows="3"></textarea>
+          <textarea class="nhsw-textarea" id="hpv-ready-reason" name="hpv-ready-reason" rows="3" aria-describedby="hpv-ready-reason-count" data-max-length="150" data-max-length-target="hpv-ready-reason-count"></textarea>
+          <div class="nhsw-hint nhsw-textarea__count" id="hpv-ready-reason-count">You have 150 characters remaining</div>
         </div>
       </div>
     </div>

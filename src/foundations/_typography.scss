@@ -95,6 +95,46 @@
   }
 }
 
+@mixin nhsw-caption-xl {
+  @include nhsw-font-base;
+  color: c.$nhsw-colour-text-secondary;
+  font-size: t.$nhsw-font-size-h3-mobile;
+  line-height: t.$nhsw-line-height-h3-mobile;
+  font-weight: t.$nhsw-font-weight-regular;
+  margin: 0 0 8px;
+  display: block;
+}
+
+@mixin nhsw-caption-l {
+  @include nhsw-font-base;
+  color: c.$nhsw-colour-text-secondary;
+  font-size: t.$nhsw-font-size-h4-mobile;
+  line-height: t.$nhsw-line-height-h4-mobile;
+  font-weight: t.$nhsw-font-weight-regular;
+  margin: 0 0 8px;
+  display: block;
+}
+
+@mixin nhsw-caption-m {
+  @include nhsw-font-base;
+  color: c.$nhsw-colour-text-secondary;
+  font-size: t.$nhsw-font-size-h5-mobile;
+  line-height: t.$nhsw-line-height-h5-mobile;
+  font-weight: t.$nhsw-font-weight-regular;
+  margin: 0 0 8px;
+  display: block;
+}
+
+@mixin nhsw-caption-s {
+  @include nhsw-font-base;
+  color: c.$nhsw-colour-text-secondary;
+  font-size: t.$nhsw-font-size-body-extra-small;
+  line-height: t.$nhsw-line-height-body-extra-small;
+  font-weight: t.$nhsw-font-weight-regular;
+  margin: 0 0 8px;
+  display: block;
+}
+
 @mixin nhsw-body {
   @include nhsw-font-base;
   font-size: t.$nhsw-font-size-body-mobile;

@@ -65,7 +65,7 @@ Feature: Warning callout — manual verification
   Scenario: Doesn't rely on colour alone to signal a warning (WCAG 2.2 SC 1.4.1)
     Given a warning callout
     Then it combines an icon and text with the yellow colouring, not colour by itself
-    And hidden "Warning" text is present for screen reader users
+    And hidden "Important" text is present for screen reader users, unless the heading already contains "important" or "warning"
 
   @manual
   Scenario: Warning icon is easy to see against its background (WCAG 2.2 SC 1.4.11)

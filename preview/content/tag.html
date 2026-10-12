@@ -157,25 +157,30 @@ tabs:
   <h3 class="nhsw-h3">Two-part tags</h3>
   <p class="nhsw-body">Use two-part (compound) tags when you need to combine a category name with its status. They are useful in complex views where users need to quickly understand both what something is and its current state.</p>
   <p class="nhsw-body">For example, in a vaccination service, a tag could show a vaccine type on the left, such as "Flu", "HPV" or "MMRV", and its status on the right, such as "Due vaccination", "Vaccinated", "Needs triage" or "Had a refusal".</p>
+  <p class="nhsw-body">Include visually hidden text so that screen readers announce the two parts as one tag. Put <code>Tag: </code> before the first part and <code>: </code> between the two parts, so that "Flu" and "Due vaccination" are read as "Tag: Flu: Due vaccination". The Nunjucks <code>nhswTagGroup</code> macro adds this for you.</p>
 
   {% capture example_body %}{% raw %}
     <p class="nhsw-body">
-      <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">Flu</strong><strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong></span><br><br>
-      <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">HPV</strong><strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong></span><br><br>
-      <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><strong class="nhsw-tag nhsw-tag--blue">Needs triage</strong></span><br><br>
-      <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><strong class="nhsw-tag nhsw-tag--yellow">Had a refusal</strong></span>
+      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">Flu</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong></span><br><br>
+      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">HPV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong></span><br><br>
+      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--blue">Needs triage</strong></span><br><br>
+      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--yellow">Had a refusal</strong></span>
     </p>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tag-tint" open_url="/examples/tag-colour-tint.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;span class="nhsw-tag-group"&gt;
+  &lt;span class="nhsw-visually-hidden"&gt;Tag: &lt;/span&gt;
   &lt;strong class="nhsw-tag nhsw-tag--white"&gt;Flu&lt;/strong&gt;
+  &lt;span class="nhsw-visually-hidden"&gt;: &lt;/span&gt;
   &lt;strong class="nhsw-tag nhsw-tag--green"&gt;Due vaccination&lt;/strong&gt;
 &lt;/span&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}&lt;span class="nhsw-tag-group"&gt;
-  {{ nhswTag({ text: "Flu", classes: "nhsw-tag--white" }) }}
-  {{ nhswTag({ text: "Due vaccination", classes: "nhsw-tag--green" }) }}
-&lt;/span&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "tag/macro.njk" import nhswTagGroup %}
+
+{{ nhswTagGroup({
+  category: { text: "Flu", classes: "nhsw-tag--white" },
+  status: { text: "Due vaccination", classes: "nhsw-tag--green" }
+}) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-tint" html=html_sample njk=njk_sample toggleable=true %}
 
   <div class="nhsw-tabs__pagination">

@@ -4,10 +4,57 @@
   params:
     text        string  - tag text (used if html is not set)
     html        string  - tag HTML (takes precedence over text)
+    colour      string|false - colour name: "white", "grey", "green", "aqua-green", "blue",
+                           "purple", "pink", "red", "orange", "yellow" or "dhcw-blue".
+                           Ignored if classes already contains a colour modifier.
+                           Pass false for no colour (nhsw-tag--no-colour)
+    border      false   - pass false to remove the border (nhsw-tag--no-border)
+    id          string  - id on the tag
     classes     string  - extra classes, e.g. colour modifiers like
                            "nhsw-tag--green", "nhsw-tag--red", "nhsw-tag--dhcw-blue"
     attributes  object  - extra HTML attributes
 #}
 {%- macro nhswTag(params) -%}
-<strong class="nhsw-tag{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.html | safe if params.html else params.text }}</strong>
+{%- set classes = params.classes or "" -%}
+{%- set colourClass = "" -%}
+{%- if params.colour and params.colour in ["white", "grey", "green", "aqua-green", "blue", "purple", "pink", "red", "orange", "yellow", "dhcw-blue"] and not (
+  "nhsw-tag--white" in classes or
+  "nhsw-tag--grey" in classes or
+  "nhsw-tag--green" in classes or
+  "nhsw-tag--aqua-green" in classes or
+  "nhsw-tag--blue" in classes or
+  "nhsw-tag--purple" in classes or
+  "nhsw-tag--pink" in classes or
+  "nhsw-tag--red" in classes or
+  "nhsw-tag--orange" in classes or
+  "nhsw-tag--yellow" in classes or
+  "nhsw-tag--dhcw-blue" in classes
+) -%}
+{%- set colourClass = " nhsw-tag--" ~ params.colour -%}
+{%- endif -%}
+{%- set noColourClass = " nhsw-tag--no-colour" if params.colour === false and not ("nhsw-tag--no-colour" in classes) else "" -%}
+{%- set noBorderClass = " nhsw-tag--no-border" if params.border === false and not ("nhsw-tag--no-border" in classes) else "" -%}
+<strong class="nhsw-tag{{ colourClass }}{{ noColourClass }}{{ noBorderClass }}{% if params.classes %} {{ params.classes }}{% endif %}"{% if params.id %} id="{{ params.id }}"{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.html | safe if params.html else params.text }}</strong>
+{%- endmacro -%}
+
+{#
+  nhswTagGroup(params)
+
+  A two-part (compound) tag, e.g. a category with its status. Screen readers
+  read it as one phrase, "Tag: Flu: Due vaccination", using visually hidden
+  text, so the two parts are announced as a tag and as belonging together.
+
+  params:
+    category    object  (required) - first part, takes the same params as nhswTag
+                                      (text, html, colour, border, id, classes, attributes),
+                                      usually with colour "white"
+    status      object  (required) - second part, takes the same params as nhswTag
+    prefixText  string  - visually-hidden text announced before the tag, defaults to
+                           "Tag"; pass "" to omit
+    classes     string  - extra classes on the group
+    attributes  object  - extra HTML attributes on the group
+#}
+{%- macro nhswTagGroup(params) -%}
+{%- set prefixText = "Tag" if params.prefixText == undefined else params.prefixText -%}
+<span class="nhsw-tag-group{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{% if prefixText %}<span class="nhsw-visually-hidden">{{ prefixText }}: </span>{% endif %}{{ nhswTag(params.category) }}<span class="nhsw-visually-hidden">: </span>{{ nhswTag(params.status) }}</span>
 {%- endmacro -%}

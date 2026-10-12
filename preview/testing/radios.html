@@ -16,6 +16,7 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/forms/radios.html' | relative_url }}" target="_blank" rel="noopener">Open the Radios documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/radios-default.html' | relative_url }}" target="_blank" rel="noopener">radios-default.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-error.html' | relative_url }}" target="_blank" rel="noopener">radios-error.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-inline.html' | relative_url }}" target="_blank" rel="noopener">radios-inline.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-hints.html' | relative_url }}" target="_blank" rel="noopener">radios-hints.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-divider.html' | relative_url }}" target="_blank" rel="noopener">radios-divider.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-conditional.html' | relative_url }}" target="_blank" rel="noopener">radios-conditional.html</a>, <a class="nhsw-link" href="{{ '/examples/radios-small.html' | relative_url }}" target="_blank" rel="noopener">radios-small.html</a></p>
 </div>
@@ -76,7 +77,8 @@ extra_scripts:
                   <div class="nhsw-radios__conditional" id="conditional-hpv-ready-radios-s2">
                     <div class="nhsw-form-group">
                       <label class="nhsw-label" for="hpv-ready-reason-radios-s2">Give details</label>
-                      <textarea class="nhsw-textarea" id="hpv-ready-reason-radios-s2" name="hpv-ready-reason-radios-s2" rows="3"></textarea>
+                      <textarea class="nhsw-textarea" id="hpv-ready-reason-radios-s2" name="hpv-ready-reason-radios-s2" rows="3" aria-describedby="hpv-ready-reason-radios-s2-count" data-max-length="150" data-max-length-target="hpv-ready-reason-radios-s2-count"></textarea>
+                      <div class="nhsw-hint nhsw-textarea__count" id="hpv-ready-reason-radios-s2-count">You have 150 characters remaining</div>
                     </div>
                   </div>
                 </div>
@@ -119,6 +121,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="radios-manual-4" name="radios-manual-tests" type="checkbox" aria-describedby="radios-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="radios-manual-4">Smaller variant is still easy to select accurately</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="radios-manual-4-hint">Given the smaller radios variant. Then the circle and its hit area are still comfortable to select.</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/radios-small.html' | relative_url }}" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-form-group">
@@ -333,7 +336,8 @@ extra_scripts:
                   <div class="nhsw-radios__conditional" id="conditional-hpv-ready-radios-s12">
                     <div class="nhsw-form-group">
                       <label class="nhsw-label" for="hpv-ready-reason-radios-s12">Give details</label>
-                      <textarea class="nhsw-textarea" id="hpv-ready-reason-radios-s12" name="hpv-ready-reason-radios-s12" rows="3"></textarea>
+                      <textarea class="nhsw-textarea" id="hpv-ready-reason-radios-s12" name="hpv-ready-reason-radios-s12" rows="3" aria-describedby="hpv-ready-reason-radios-s12-count" data-max-length="150" data-max-length-target="hpv-ready-reason-radios-s12-count"></textarea>
+                      <div class="nhsw-hint nhsw-textarea__count" id="hpv-ready-reason-radios-s12-count">You have 150 characters remaining</div>
                     </div>
                   </div>
                 </div>

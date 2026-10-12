@@ -14,10 +14,10 @@ describe('summary card header, body and subheader structure', () => {
     expect(card).toMatch(/margin:\s*0 0 24px/);
   });
 
-  it('header pads 16px/24px with a grey bottom border and a white background', () => {
+  it('header pads 16px/24px with a white background and no bottom border', () => {
     const header = block(css, '\\.nhsw-summary-card__header');
     expect(header).toMatch(/padding:\s*16px 24px/);
-    expect(header).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+    expect(header).not.toMatch(/border-bottom/);
     expect(header).toMatch(/background-color:\s*#ffffff/);
   });
 

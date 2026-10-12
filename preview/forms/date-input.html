@@ -96,7 +96,7 @@ tabs:
       <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-error-hint dob-error-message">
         <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
         <div class="nhsw-hint" id="dob-error-hint">For example, 15 3 1984</div>
-        <p class="nhsw-error-message" id="dob-error-message">The date of birth must be in the past</p>
+        <p class="nhsw-error-message" id="dob-error-message"><span class="nhsw-visually-hidden">Error: </span>The date of birth must be in the past</p>
         <div class="nhsw-date-input">
           <div class="nhsw-date-input__item">
             <label class="nhsw-label nhsw-date-input__label" for="dob-error-day">Day</label>
@@ -115,13 +115,34 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="di-error-1" open_url="/examples/date-input-error-1.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;input id="dob-error-day" name="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswDateInput({
+    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-error-hint dob-error-message"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;What is your date of birth?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="dob-error-hint"&gt;For example, 15 3 1984&lt;/div&gt;
+  &lt;p class="nhsw-error-message" id="dob-error-message"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;The date of birth must be in the past&lt;/p&gt;
+  &lt;div class="nhsw-date-input"&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-error-day"&gt;Day&lt;/label&gt;
+      &lt;input id="dob-error-day" name="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1" aria-invalid="true"&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-error-month"&gt;Month&lt;/label&gt;
+      &lt;input id="dob-error-month" name="dob-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12" aria-invalid="true"&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-error-year"&gt;Year&lt;/label&gt;
+      &lt;input id="dob-error-year" name="dob-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" value="2000" aria-invalid="true"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "date-input/macro.njk" import nhswDateInput %}
+
+{{ nhswDateInput({
   id: "dob-error",
   namePrefix: "dob-error",
   fieldset: { legend: { text: "What is your date of birth?", classes: "nhsw-h2" } },
   hint: { text: "For example, 15 3 1984" },
-  errorMessage: { text: "The date of birth must be in the past" }
+  errorMessage: { text: "The date of birth must be in the past" },
+  values: { day: "1", month: "12", year: "2000" }
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="di-error-1" html=html_sample njk=njk_sample toggleable=true %}
   </section>
@@ -133,7 +154,7 @@ tabs:
       <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-year-error-hint dob-year-error-message">
         <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
         <div class="nhsw-hint" id="dob-year-error-hint">For example, 15 3 1984</div>
-        <p class="nhsw-error-message" id="dob-year-error-message">The date of birth must include a year</p>
+        <p class="nhsw-error-message" id="dob-year-error-message"><span class="nhsw-visually-hidden">Error: </span>The date of birth must include a year</p>
         <div class="nhsw-date-input">
           <div class="nhsw-date-input__item">
             <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-day">Day</label>
@@ -152,13 +173,35 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="di-error-2" open_url="/examples/date-input-error-2.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;input id="dob-year-error-year" name="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" aria-invalid="true"&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswDateInput({
+    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-year-error-hint dob-year-error-message"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;What is your date of birth?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="dob-year-error-hint"&gt;For example, 15 3 1984&lt;/div&gt;
+  &lt;p class="nhsw-error-message" id="dob-year-error-message"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;The date of birth must include a year&lt;/p&gt;
+  &lt;div class="nhsw-date-input"&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-year-error-day"&gt;Day&lt;/label&gt;
+      &lt;input id="dob-year-error-day" name="dob-year-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1"&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-year-error-month"&gt;Month&lt;/label&gt;
+      &lt;input id="dob-year-error-month" name="dob-year-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12"&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-date-input__item"&gt;
+      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-year-error-year"&gt;Year&lt;/label&gt;
+      &lt;input id="dob-year-error-year" name="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" aria-invalid="true"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "date-input/macro.njk" import nhswDateInput %}
+
+{{ nhswDateInput({
   id: "dob-year-error",
   namePrefix: "dob-year-error",
   fieldset: { legend: { text: "What is your date of birth?", classes: "nhsw-h2" } },
   hint: { text: "For example, 15 3 1984" },
-  errorMessage: { text: "The date of birth must include a year" }
+  errorMessage: { text: "The date of birth must include a year" },
+  errorFields: ["year"],
+  values: { day: "1", month: "12" }
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="di-error-2" html=html_sample njk=njk_sample toggleable=true %}
   </section>

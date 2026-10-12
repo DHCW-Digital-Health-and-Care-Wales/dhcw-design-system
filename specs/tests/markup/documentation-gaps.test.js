@@ -5,7 +5,7 @@ import path from 'node:path';
 const projectRoot = path.resolve(import.meta.dirname, '../../..');
 
 function findDocPages() {
-  const dirs = ['actions', 'callouts', 'components', 'content', 'forms', 'site'];
+  const dirs = ['actions', 'callouts', 'components', 'content', 'forms', 'get-started', 'site'];
   const files = [];
   for (const dir of dirs) {
     const full = path.join(projectRoot, 'preview', dir);
@@ -19,15 +19,6 @@ function findDocPages() {
   return files.sort();
 }
 
-// Pages where an example-preview.html include is intentionally not paired
-// with a code-viewer.html include, because the code was already taught by an
-// earlier example on the same page (see the page for the reasoning):
-//  - panel.html: white/navy pairs after the "Blue background" section reuse
-//    the --navy modifier code shown there; only the white variant repeats code.
-const KNOWN_EXCEPTIONS = new Set([
-  'preview/content/panel.html',
-]);
-
 describe('every live component preview has a matching code sample', () => {
   const pages = findDocPages();
 
@@ -35,12 +26,6 @@ describe('every live component preview has a matching code sample', () => {
     const text = fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
     const previewCount = (text.match(/\{%\s*include\s+example-preview\.html/g) || []).length;
     const codeViewerCount = (text.match(/\{%\s*include\s+code-viewer\.html/g) || []).length;
-
-    if (KNOWN_EXCEPTIONS.has(relativePath)) {
-      // still assert code-viewer isn't accidentally removed entirely
-      expect(codeViewerCount).toBeGreaterThan(0);
-      return;
-    }
 
     expect(codeViewerCount).toBe(previewCount);
   });

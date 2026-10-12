@@ -16,6 +16,7 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/breadcrumb.html' | relative_url }}" target="_blank" rel="noopener">Open the Breadcrumb documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/breadcrumb-default.html' | relative_url }}" target="_blank" rel="noopener">breadcrumb-default.html</a>, <a class="nhsw-link" href="{{ '/examples/breadcrumb-dark.html' | relative_url }}" target="_blank" rel="noopener">breadcrumb-dark.html</a></p>
 </div>
@@ -158,6 +159,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="breadcrumb-manual-8" name="breadcrumb-manual-tests" type="checkbox" aria-describedby="breadcrumb-manual-8-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="breadcrumb-manual-8">Long breadcrumb labels remain readable</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="breadcrumb-manual-8-hint">Given a breadcrumb item with an unusually long, unbroken label (a full service or department name). Then it breaks onto multiple lines within its own space rather than overflowing the page sideways.</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/breadcrumb-long-label.html' | relative_url }}" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <nav class="nhsw-breadcrumb" aria-label="breadcrumb">
@@ -290,6 +292,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <h2 class="nhsw-h2">Additional implementation advice</h2>
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">

@@ -56,7 +56,7 @@
 {%- endif %}
     </div>
 {%- if item.conditional %}
-    <div class="nhsw-checkboxes__conditional" id="{{ conditionalId }}">{{ item.conditional.html | safe if item.conditional.html else item.conditional.text }}</div>
+    <div class="nhsw-checkboxes__conditional" id="{{ conditionalId }}" aria-live="polite">{{ item.conditional.html | safe if item.conditional.html else item.conditional.text }}</div>
 {%- endif %}
 {%- endif %}
 {%- endfor %}

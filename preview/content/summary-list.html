@@ -51,23 +51,66 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="sl-overview" open_url="/examples/summary-card-actions.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;dl class="nhsw-summary-list"&gt;
-  &lt;div class="nhsw-summary-list__row"&gt;
-    &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
-    &lt;dd class="nhsw-summary-list__value"&gt;Carys Jenkins&lt;/dd&gt;
-    &lt;dd class="nhsw-summary-list__actions"&gt;
-      &lt;a class="nhsw-link" href="/change-name"&gt;Change&lt;span class="nhsw-visually-hidden"&gt; name&lt;/span&gt;&lt;/a&gt;
-    &lt;/dd&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-summary-card"&gt;
+  &lt;div class="nhsw-summary-card__header"&gt;
+    &lt;h2 class="nhsw-h3 nhsw-summary-card__title"&gt;Carys Jenkins&lt;/h2&gt;
+    &lt;ul class="nhsw-summary-card__actions"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/cancel"&gt;Cancel&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="/reschedule"&gt;Reschedule&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
   &lt;/div&gt;
-&lt;/dl&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{% from "summary-list/macro.njk" import nhswSummaryList %}
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;dl class="nhsw-summary-list"&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;Carys Jenkins&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;
+          &lt;a class="nhsw-link" href="/change-name"&gt;Change&lt;span class="nhsw-visually-hidden"&gt; name&lt;/span&gt;&lt;/a&gt;
+        &lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Appointment date&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;15 March 2027&lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;
+          &lt;a class="nhsw-link" href="/change-date"&gt;Change&lt;span class="nhsw-visually-hidden"&gt; appointment date&lt;/span&gt;&lt;/a&gt;
+        &lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-list__row"&gt;
+        &lt;dt class="nhsw-summary-list__key"&gt;Contact details&lt;/dt&gt;
+        &lt;dd class="nhsw-summary-list__value"&gt;
+          &lt;p&gt;07700 900362&lt;/p&gt;
+          &lt;p&gt;carys.jenkins@example.com&lt;/p&gt;
+        &lt;/dd&gt;
+        &lt;dd class="nhsw-summary-list__actions"&gt;
+          &lt;a class="nhsw-link" href="/change-contact-details"&gt;Change&lt;span class="nhsw-visually-hidden"&gt; contact details&lt;/span&gt;&lt;/a&gt;
+        &lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "summary-card/macro.njk" import nhswSummaryCard %}
 
-{{ nhswSummaryList({
+{{ nhswSummaryCard({
+  title: "Carys Jenkins",
+  actions: [
+    { text: "Cancel", href: "/cancel" },
+    { text: "Reschedule", href: "/reschedule" }
+  ],
   rows: [
     {
       key: { text: "Name" },
       value: { text: "Carys Jenkins" },
       actions: { items: [ { href: "/change-name", text: "Change", visuallyHiddenText: "name" } ] }
+    },
+    {
+      key: { text: "Appointment date" },
+      value: { text: "15 March 2027" },
+      actions: { items: [ { href: "/change-date", text: "Change", visuallyHiddenText: "appointment date" } ] }
+    },
+    {
+      key: { text: "Contact details" },
+      value: { html: "&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;carys.jenkins@example.com&lt;/p&gt;" },
+      actions: { items: [ { href: "/change-contact-details", text: "Change", visuallyHiddenText: "contact details" } ] }
     }
   ]
 }) }}{% endraw %}{% endcapture %}
@@ -334,7 +377,9 @@ tabs:
     &lt;dd class="nhsw-summary-list__value"&gt;&lt;p&gt;07700 900362&lt;/p&gt;&lt;p&gt;carys.jenkins@example.com&lt;/p&gt;&lt;/dd&gt;
   &lt;/div&gt;
 &lt;/dl&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswSummaryList({
+    {% capture njk_sample %}{% raw %}{% from "summary-list/macro.njk" import nhswSummaryList %}
+
+{{ nhswSummaryList({
   classes: "nhsw-summary-list--no-border",
   rows: [
     { key: { text: "Name" }, value: { text: "Carys Jenkins" } },

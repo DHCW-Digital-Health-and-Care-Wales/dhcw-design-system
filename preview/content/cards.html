@@ -411,111 +411,111 @@ tabs:
   <p class="nhsw-body">Card navigation spaces out items when there is content to arrange them evenly.</p>
 
   {% capture example_body %}{% raw %}
-    <div class="nhsw-grid-row">
-      <div class="nhsw-grid-column-one-half">
+    <ul class="nhsw-grid-row nhsw-card-group" role="list">
+      <li class="nhsw-grid-column-one-half nhsw-card-group__item">
         <div class="nhsw-card nhsw-card--chevron">
           <h3 class="nhsw-card__title">
             <a class="nhsw-card__title-link" href="#">Manage appointments</a>
           </h3>
           <p class="nhsw-card__description">View, change or cancel your upcoming appointments.</p>
         </div>
-      </div>
-      <div class="nhsw-grid-column-one-half">
+      </li>
+      <li class="nhsw-grid-column-one-half nhsw-card-group__item">
         <div class="nhsw-card nhsw-card--chevron">
           <h3 class="nhsw-card__title">
             <a class="nhsw-card__title-link" href="#">Immunisation records</a>
           </h3>
           <p class="nhsw-card__description">Check your vaccination history and upcoming immunisations.</p>
         </div>
-      </div>
-      <div class="nhsw-grid-column-one-half">
+      </li>
+      <li class="nhsw-grid-column-one-half nhsw-card-group__item">
         <div class="nhsw-card nhsw-card--chevron">
           <h3 class="nhsw-card__title">
             <a class="nhsw-card__title-link" href="#">Test results</a>
           </h3>
           <p class="nhsw-card__description">View your recent test results and related information.</p>
         </div>
-      </div>
-      <div class="nhsw-grid-column-one-half">
+      </li>
+      <li class="nhsw-grid-column-one-half nhsw-card-group__item">
         <div class="nhsw-card nhsw-card--chevron">
           <h3 class="nhsw-card__title">
             <a class="nhsw-card__title-link" href="#">Contact details</a>
           </h3>
           <p class="nhsw-card__description">Update your contact address, phone number and communication preferences.</p>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="card-grouping" open_url="/examples/card-grid.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-grid-row"&gt;
-  &lt;div class="nhsw-grid-column-one-half"&gt;
+  {% capture html_sample %}{% raw %}&lt;ul class="nhsw-grid-row nhsw-card-group" role="list"&gt;
+  &lt;li class="nhsw-grid-column-one-half nhsw-card-group__item"&gt;
     &lt;div class="nhsw-card nhsw-card--chevron"&gt;
       &lt;h3 class="nhsw-card__title"&gt;
         &lt;a class="nhsw-card__title-link" href="/appointments"&gt;Manage appointments&lt;/a&gt;
       &lt;/h3&gt;
       &lt;p class="nhsw-card__description"&gt;View, change or cancel your upcoming appointments.&lt;/p&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="nhsw-grid-column-one-half"&gt;
+  &lt;/li&gt;
+  &lt;li class="nhsw-grid-column-one-half nhsw-card-group__item"&gt;
     &lt;div class="nhsw-card nhsw-card--chevron"&gt;
       &lt;h3 class="nhsw-card__title"&gt;
         &lt;a class="nhsw-card__title-link" href="/immunisations"&gt;Immunisation records&lt;/a&gt;
       &lt;/h3&gt;
       &lt;p class="nhsw-card__description"&gt;Check your vaccination history and upcoming immunisations.&lt;/p&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="nhsw-grid-column-one-half"&gt;
+  &lt;/li&gt;
+  &lt;li class="nhsw-grid-column-one-half nhsw-card-group__item"&gt;
     &lt;div class="nhsw-card nhsw-card--chevron"&gt;
       &lt;h3 class="nhsw-card__title"&gt;
         &lt;a class="nhsw-card__title-link" href="/test-results"&gt;Test results&lt;/a&gt;
       &lt;/h3&gt;
       &lt;p class="nhsw-card__description"&gt;View your recent test results and related information.&lt;/p&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class="nhsw-grid-column-one-half"&gt;
+  &lt;/li&gt;
+  &lt;li class="nhsw-grid-column-one-half nhsw-card-group__item"&gt;
     &lt;div class="nhsw-card nhsw-card--chevron"&gt;
       &lt;h3 class="nhsw-card__title"&gt;
         &lt;a class="nhsw-card__title-link" href="/contact-details"&gt;Contact details&lt;/a&gt;
       &lt;/h3&gt;
       &lt;p class="nhsw-card__description"&gt;Update your contact address, phone number and communication preferences.&lt;/p&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}&lt;div class="nhsw-grid-row"&gt;
-  &lt;div class="nhsw-grid-column-one-half"&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;ul class="nhsw-grid-row nhsw-card-group" role="list"&gt;
+  &lt;li class="nhsw-grid-column-one-half nhsw-card-group__item"&gt;
     {{ nhswCard({
       title: "Manage appointments",
       titleHref: "/appointments",
       description: "View, change or cancel your upcoming appointments.",
       classes: "nhsw-card--chevron"
     }) }}
-  &lt;/div&gt;
-  &lt;div class="nhsw-grid-column-one-half"&gt;
+  &lt;/li&gt;
+  &lt;li class="nhsw-grid-column-one-half nhsw-card-group__item"&gt;
     {{ nhswCard({
       title: "Immunisation records",
       titleHref: "/immunisations",
       description: "Check your vaccination history and upcoming immunisations.",
       classes: "nhsw-card--chevron"
     }) }}
-  &lt;/div&gt;
-  &lt;div class="nhsw-grid-column-one-half"&gt;
+  &lt;/li&gt;
+  &lt;li class="nhsw-grid-column-one-half nhsw-card-group__item"&gt;
     {{ nhswCard({
       title: "Test results",
       titleHref: "/test-results",
       description: "View your recent test results and related information.",
       classes: "nhsw-card--chevron"
     }) }}
-  &lt;/div&gt;
-  &lt;div class="nhsw-grid-column-one-half"&gt;
+  &lt;/li&gt;
+  &lt;li class="nhsw-grid-column-one-half nhsw-card-group__item"&gt;
     {{ nhswCard({
       title: "Contact details",
       titleHref: "/contact-details",
       description: "Update your contact address, phone number and communication preferences.",
       classes: "nhsw-card--chevron"
     }) }}
-  &lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
+  &lt;/li&gt;
+&lt;/ul&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="card-grouping" html=html_sample njk=njk_sample toggleable=true %}
 
   <div class="nhsw-tabs__pagination">

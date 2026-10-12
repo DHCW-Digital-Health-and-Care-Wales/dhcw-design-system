@@ -5,6 +5,7 @@
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
+  overflow-x: auto;
   margin-bottom: 40px;
   font-size: 1rem;
   line-height: 1.5;
@@ -95,6 +96,8 @@
     padding: 8px 16px 8px 0;
     text-align: left;
     vertical-align: top;
+    word-break: break-word;
+    overflow-wrap: break-word;
     border-bottom: 1px solid c.$nhsw-colour-border-grey;
 
     @include b.nhsw-from-tablet {

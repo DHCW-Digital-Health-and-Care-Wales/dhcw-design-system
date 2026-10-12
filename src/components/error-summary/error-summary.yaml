@@ -2,8 +2,10 @@ name: Error summary
 macro: nhswErrorSummary
 description: >
   A summary of validation errors shown at the top of a page, linking to each
-  erroring field. Should receive programmatic focus on form submit (it has
-  tabindex="-1" for that purpose).
+  erroring field. nhsw-behaviours.js moves focus to it when the page loads
+  with it (the macro adds data-module="nhsw-error-summary"), so keyboard and
+  screen reader users are told straight away, and a link in it focuses the
+  field it points at.
 params:
   - name: titleText
     type: string
@@ -19,6 +21,12 @@ params:
     type: array
     required: true
     description: "[{ text, html, href }]"
+  - name: disableAutoFocus
+    type: boolean
+    required: false
+    description: >
+      Set true so the summary does not take focus when the page loads
+      (adds data-disable-auto-focus="true").
   - name: descriptionText
     type: string
     required: false

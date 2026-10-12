@@ -1,0 +1,32 @@
+---
+layout: example
+title: Clickable cards example
+---
+<h1 class="nhsw-h2">Clickable cards</h1>
+<p class="nhsw-body">Select anywhere on a card, or its title. Both should open the same destination. The destination is shown below.</p>
+
+<div class="nhsw-card nhsw-card--chevron" id="cc-one">
+  <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#opened-immunisation-records">Immunisation records</a></h3>
+  <p class="nhsw-card__description">Check your vaccination history and upcoming immunisations.</p>
+</div>
+
+<div class="nhsw-card nhsw-card--chevron" id="cc-two">
+  <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#opened-test-results">Test results</a></h3>
+  <p class="nhsw-card__description">View your recent test results and related information.</p>
+</div>
+
+<p class="nhsw-body" id="cc-destination" role="status">No card opened yet.</p>
+
+<script>
+  // Demo only: shows which destination was opened, using the page address.
+  (function () {
+    var status = document.getElementById('cc-destination');
+    function show() {
+      status.textContent = window.location.hash
+        ? 'Destination opened: ' + window.location.hash.replace('#opened-', '')
+        : 'No card opened yet.';
+    }
+    window.addEventListener('hashchange', show);
+    show();
+  }());
+</script>

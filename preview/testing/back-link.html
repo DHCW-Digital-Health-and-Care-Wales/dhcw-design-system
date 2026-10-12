@@ -16,6 +16,7 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/back-link.html' | relative_url }}" target="_blank" rel="noopener">Open the Back link documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/back-link-default.html' | relative_url }}" target="_blank" rel="noopener">back-link-default.html</a>, <a class="nhsw-link" href="{{ '/examples/back-link-dark.html' | relative_url }}" target="_blank" rel="noopener">back-link-dark.html</a></p>
 </div>
@@ -52,6 +53,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="back-link-manual-3" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-3">Enough space around it that you don't tap the wrong thing (WCAG 2.2 SC 2.5.8)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-3-hint">Given a back link placed near other links or buttons. Then there is enough space that you can't easily tap the wrong one.</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/back-link-button.html' | relative_url }}" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <a class="nhsw-back-link" href="#">Back</a>
@@ -62,6 +64,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="back-link-manual-4" name="back-link-manual-tests" type="checkbox" aria-describedby="back-link-manual-4-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="back-link-manual-4">"Back link as a button" performs an action, not a navigation</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="back-link-manual-4-hint">Given the "back link as a button" variant. When it's activated. Then it performs an action (e.g. clears something) rather than loading a new page.</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/back-link-button.html' | relative_url }}" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <button type="button" class="nhsw-back-link nhsw-back-link--button">Back</button>
@@ -147,6 +150,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <h2 class="nhsw-h2">Additional implementation advice</h2>
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">

@@ -24,6 +24,15 @@ Feature: Inset text — automated coverage
       Given the compiled CSS for .nhsw-inset-text
       Then it has an 8px solid gold (#aa8630) border-left
 
+  Rule: Inset text is announced as set apart, as in NHS.UK
+
+    @automated
+    # specs/tests/njk/inset-text.test.js, specs/tests/markup/inset-text-hidden-text.test.js
+    Scenario: Every inset text starts with visually hidden "Information: "
+      Given the nhswInsetText macro, and every inset text in the preview pages and code samples
+      Then the first thing inside it is a visually hidden "Information: "
+      And it does not rely on role="note", which screen readers do not reliably announce
+
   Rule: Documented classes stay honest against the compiled stylesheet
 
     @automated
@@ -49,7 +58,8 @@ Feature: Inset text — manual verification
   Scenario: Screen reader users are told it's set apart, not just shown visually (WCAG 2.2 SC 1.3.1)
     Given inset text that relies on its border and indent to stand out
     When a screen reader reads it
-    Then the user is told this content is set apart from the main body copy
+    Then the user is told this content is set apart from the main body copy, e.g. it is read as "Information: ..."
+    And a sentence that wraps onto a second line is read as two lines by NVDA in browse mode, which is expected, not a split in the markup
 
   @manual
   Scenario: "With heading" variant renders the heading clearly

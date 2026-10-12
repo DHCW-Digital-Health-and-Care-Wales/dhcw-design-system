@@ -49,9 +49,28 @@ describe('tag centres multi-line text and can be grouped with no gap between two
     expect(base).toMatch(/text-align:\s*center/);
   });
 
-  it('a tag-group removes the border between its first and second tag so they sit flush', () => {
-    const firstChild = block(css, '\\.nhsw-tag-group \\.nhsw-tag:first-child');
-    expect(firstChild).toMatch(/border-right:\s*none/);
+  it('no-colour removes the fill and text colour, keeping a light grey border (matches NHS.UK tag--no-colour)', () => {
+    const variant = block(css, '\\.nhsw-tag--no-colour');
+    expect(variant).toMatch(/background-color:\s*transparent/);
+    expect(variant).toMatch(/border-color:\s*#aeb7bd/);
+    expect(variant).toMatch(/color:\s*inherit/);
+  });
+
+  it('no-border makes the border transparent, so the tag keeps its size (matches NHS.UK tag--no-border)', () => {
+    const variant = block(css, '\\.nhsw-tag--no-border');
+    expect(variant).toMatch(/border-color:\s*transparent/);
+  });
+
+  it('no-colour and no-border come after every colour variant, so they win when combined with one', () => {
+    const lastColour = css.indexOf('.nhsw-tag--dhcw-blue');
+    expect(css.indexOf('.nhsw-tag--no-colour')).toBeGreaterThan(lastColour);
+    expect(css.indexOf('.nhsw-tag--no-border')).toBeGreaterThan(css.indexOf('.nhsw-tag--no-colour'));
+  });
+
+  it('a tag-group removes the border between its first and second tag so they sit flush, even though visually hidden text now comes before the first tag', () => {
+    expect(css).not.toMatch(/\.nhsw-tag-group \.nhsw-tag:first-child/);
+    const firstTag = block(css, '\\.nhsw-tag-group \\.nhsw-tag:first-of-type');
+    expect(firstTag).toMatch(/border-right:\s*none/);
   });
 });
 

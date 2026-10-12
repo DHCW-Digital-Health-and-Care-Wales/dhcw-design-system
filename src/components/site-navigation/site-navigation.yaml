@@ -3,7 +3,10 @@ macro: nhswSiteNavigation
 description: >
   Primary navigation for the site header, rendered as a horizontal list of
   links. Supports a current-page state and per-item badges, and a reverse
-  variant for use on dark header backgrounds.
+  variant for use on dark header backgrounds. By default the navigation is
+  hidden on small screens. The overflow menu variant keeps it available on
+  small screens and at high zoom: items that do not fit the available width
+  move into a "More" menu.
 params:
   - name: items
     type: array
@@ -16,6 +19,24 @@ params:
     type: string
     required: false
     description: aria-label for the nav element. Defaults to "Primary navigation".
+  - name: overflowMenu
+    type: boolean
+    required: false
+    description: >
+      Set true for the overflow menu variant. The navigation is never hidden on
+      small screens, and items that do not fit move into a "More" menu, which
+      nhsw-behaviours.js shows only when items overflow. Adds the
+      nhsw-site-header__nav--overflow class and a hidden menu item.
+  - name: toggleMenuText
+    type: string
+    required: false
+    description: Text of the button that opens the overflow menu. Defaults to "More".
+  - name: toggleMenuVisuallyHiddenText
+    type: string
+    required: false
+    description: >
+      Screen-reader-only text announced before the menu button text. Defaults
+      to "Browse".
   - name: classes
     type: string
     required: false
@@ -35,6 +56,17 @@ examples:
           current: true
         - text: "Navigation Item 2"
           href: "/item-2"
+  - name: overflow-menu
+    data:
+      items:
+        - text: "Navigation Item 1"
+          href: "/item-1"
+          current: true
+        - text: "Navigation Item 2"
+          href: "/item-2"
+        - text: "Navigation Item 3"
+          href: "/item-3"
+      overflowMenu: true
   - name: reverse
     data:
       items:

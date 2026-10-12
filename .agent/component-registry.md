@@ -308,7 +308,8 @@ Supports:
 - nhsw-tabs__list
 - nhsw-tabs__tab (+ --selected)
 - nhsw-tabs__panel (+ --hidden)
-- nhsw-tabs__count, __pagination, __pagination-link — styled in Sass for a scrollable-tabs-with-count pattern, but not currently emitted by the macro; only relevant to hand-authored markup
+- nhsw-tabs__pagination, __pagination-link
+- count badge: pass `count` on an item to render an `nhsw-tag nhsw-tag--blue` badge after the tab label (reuses the Tag component, not a tabs-specific class)
 
 ## nhsw-tag
 Status indicator tag.
@@ -325,6 +326,8 @@ Supports:
 - nhsw-tag--orange
 - nhsw-tag--yellow
 - nhsw-tag--dhcw-blue
+- nhsw-tag--no-colour (transparent background, grey border, inherited text colour)
+- nhsw-tag--no-border (transparent border)
 - nhsw-tag-group (wraps multiple tags with consistent spacing)
 
 ## nhsw-timeout-modal
@@ -457,6 +460,11 @@ Supports:
 - nhsw-site-header__nav-link (+ --current)
 - nhsw-site-header__nav-badge
 - nhsw-site-header__nav--reverse
+- nhsw-site-header__nav--overflow (variant: never hidden on small screens; items that do not fit move into a "More" menu)
+- nhsw-site-header__nav--enhanced (added by the behaviour script: the bar stops wrapping and overflow goes to the menu)
+- nhsw-site-header__menu (hidden list item holding the "More" button, shown by the script when items overflow)
+- nhsw-site-header__menu-toggle
+- nhsw-site-header__menu-list (the drop-down of items that did not fit)
 
 Requires:
 - nhsw-site-header

@@ -27,6 +27,8 @@
   margin: 0 0 16px;
   color: c.$nhsw-colour-text-exceptional;
   font-size: 1.5rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
 
   &--l {
     font-size: 2rem;

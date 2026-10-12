@@ -15,4 +15,10 @@
     font-size: 1.1875rem;
     line-height: 1.47368;
   }
+
+  // display: block would otherwise override the browser's rule for the hidden
+  // attribute, so an error message that is hidden until needed would still show
+  &[hidden] {
+    display: none;
+  }
 }

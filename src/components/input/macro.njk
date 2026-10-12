@@ -25,7 +25,11 @@
     maxlength       integer  - adds maxlength; also enables the character-count hint unless
                                characterCount is explicitly false
     characterCount  bool     - set false to add maxlength without the character-count hint
-    characterCountMessage  string - override the character-count hint text
+    characterCountMessage  string - override the initial count text, "You have N characters
+                               remaining". It is what assistive technology reads when the
+                               field is focused. nhsw-behaviours.js hides it visually, keeps its
+                               text current, and adds a visible count and a polite live region
+                               beside it
     disabled        bool
     readonly        bool
     prefix          object   - { text, html } - rendered before the input (nhsw-input-wrapper)
@@ -70,7 +74,7 @@
   {{ inputEl | safe }}
 {%- endif %}
 {%- if hasCharacterCount %}
-  {{ nhswHint({ text: params.characterCountMessage or ("You have " ~ params.maxlength ~ " characters remaining"), id: countId, attributes: { "aria-live": "polite" } }) }}
+  {{ nhswHint({ text: params.characterCountMessage or ("You have " ~ params.maxlength ~ " characters remaining"), id: countId }) }}
 {%- endif %}
 </div>
 {%- endmacro -%}

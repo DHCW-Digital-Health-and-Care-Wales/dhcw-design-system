@@ -1,7 +1,10 @@
 name: Tag
 macro: nhswTag
 description: >
-  A small piece of inline text, often used to indicate status.
+  A small piece of inline text, often used to indicate status. For a two-part
+  tag, such as a category with its status, use the nhswTagGroup macro in the
+  same file: it adds visually hidden text so screen readers announce
+  "Tag: Flu: Due vaccination" as one phrase.
 params:
   - name: text
     type: string
@@ -11,6 +14,21 @@ params:
     type: string
     required: false
     description: Tag HTML. Takes precedence over text, e.g. for multi-line content with <br>.
+  - name: colour
+    type: string|false
+    required: false
+    description: >
+      Colour name: white, grey, green, aqua-green, blue, purple, pink, red,
+      orange, yellow or dhcw-blue. Ignored if classes already contains a colour
+      modifier. Pass false for no colour (nhsw-tag--no-colour).
+  - name: border
+    type: boolean
+    required: false
+    description: Pass false to remove the border (nhsw-tag--no-border).
+  - name: id
+    type: string
+    required: false
+    description: Id for the tag.
   - name: classes
     type: string
     required: false
@@ -34,6 +52,24 @@ examples:
     data:
       text: "Inactive"
       classes: "nhsw-tag--grey"
+  - name: colour
+    data:
+      text: "Completed"
+      colour: "green"
+  - name: no-colour
+    data:
+      text: "Not started"
+      colour: false
+  - name: no-border
+    data:
+      text: "Pending"
+      colour: "grey"
+      border: false
+  - name: with-id
+    data:
+      text: "Urgent"
+      colour: "red"
+      id: "urgent-tag"
   - name: multi-line
     data:
       html: "Active<br>28 of 80"

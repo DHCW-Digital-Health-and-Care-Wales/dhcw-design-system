@@ -20,7 +20,7 @@ tabs:
     <div class="nhsw-warning-callout">
       <h3 class="nhsw-warning-callout__heading">
         <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
-        School, nursery or work
+        <span class="nhsw-warning-callout__heading-text"><span class="nhsw-visually-hidden">Important: </span>School, nursery or work</span>
       </h3>
       <div class="nhsw-warning-callout__content">
         <p class="nhsw-body">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p>
@@ -32,7 +32,7 @@ tabs:
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-warning-callout"&gt;
   &lt;h3 class="nhsw-warning-callout__heading"&gt;
     &lt;span class="nhsw-warning-callout__icon" aria-hidden="true"&gt;!&lt;/span&gt;
-    School, nursery or work
+    &lt;span class="nhsw-warning-callout__heading-text"&gt;&lt;span class="nhsw-visually-hidden"&gt;Important: &lt;/span&gt;School, nursery or work&lt;/span&gt;
   &lt;/h3&gt;
   &lt;div class="nhsw-warning-callout__content"&gt;
     &lt;p class="nhsw-body"&gt;Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.&lt;/p&gt;
@@ -84,7 +84,7 @@ tabs:
 
   <p class="nhsw-body">Ensure warning icons and visual indicators have sufficient contrast against surrounding colours. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.11: Non-text Contrast, level AA</a>.</p>
 
-  <p class="nhsw-body">Include hidden text such as "Warning" so assistive technologies can identify the content as a warning. You might need to rewrite the hidden text to make it appropriate for your context. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">Include hidden text such as "Important" so assistive technologies can identify the content as a warning. You might need to rewrite the hidden text to make it appropriate for your context. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Warning callouts in the NHS England Design System</a>.</p>
@@ -107,7 +107,7 @@ tabs:
       <div class="nhsw-warning-callout nhsw-warning-callout--important">
         <h3 class="nhsw-warning-callout__heading">
           <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
-          Important information
+          <span class="nhsw-warning-callout__heading-text">Important information</span>
         </h3>
         <div class="nhsw-warning-callout__content">
           <p class="nhsw-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at libero nisi. Suspendisse nec fringilla dolor, et euismod dolor. Fusce fermentum cursus nunc, quis sodales nunc gravida a. Fusce fermentum ipsum quam, a malesuada elit ullamcorper non.</p>
@@ -119,7 +119,7 @@ tabs:
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-warning-callout nhsw-warning-callout--important"&gt;
   &lt;h3 class="nhsw-warning-callout__heading"&gt;
     &lt;span class="nhsw-warning-callout__icon" aria-hidden="true"&gt;!&lt;/span&gt;
-    Important information
+    &lt;span class="nhsw-warning-callout__heading-text"&gt;Important information&lt;/span&gt;
   &lt;/h3&gt;
   &lt;div class="nhsw-warning-callout__content"&gt;
     &lt;p class="nhsw-body"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at libero nisi. Suspendisse nec fringilla dolor, et euismod dolor. Fusce fermentum cursus nunc, quis sodales nunc gravida a. Fusce fermentum ipsum quam, a malesuada elit ullamcorper non.&lt;/p&gt;

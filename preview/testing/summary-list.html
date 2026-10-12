@@ -16,8 +16,9 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/summary-list.html' | relative_url }}" target="_blank" rel="noopener">Open the Summary list documentation page</a></p>
-  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/summary-card-actions.html' | relative_url }}" target="_blank" rel="noopener">summary-card-actions.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-card-no-actions.html' | relative_url }}" target="_blank" rel="noopener">summary-card-no-actions.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-list-no-border.html' | relative_url }}" target="_blank" rel="noopener">summary-list-no-border.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-cards-grouped.html' | relative_url }}" target="_blank" rel="noopener">summary-cards-grouped.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-list-immunisations.html' | relative_url }}" target="_blank" rel="noopener">summary-list-immunisations.html</a></p>
+  <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/summary-card-actions.html' | relative_url }}" target="_blank" rel="noopener">summary-card-actions.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-card-no-actions.html' | relative_url }}" target="_blank" rel="noopener">summary-card-no-actions.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-card-header-variants.html' | relative_url }}" target="_blank" rel="noopener">summary-card-header-variants.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-list-no-border.html' | relative_url }}" target="_blank" rel="noopener">summary-list-no-border.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-cards-grouped.html' | relative_url }}" target="_blank" rel="noopener">summary-cards-grouped.html</a>, <a class="nhsw-link" href="{{ '/examples/summary-list-immunisations.html' | relative_url }}" target="_blank" rel="noopener">summary-list-immunisations.html</a></p>
 </div>
 
 <div class="nhsw-form-group" data-module="nhsw-test-tracker" data-tracker-key="summary-list">
@@ -316,6 +317,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <h2 class="nhsw-h2">Additional implementation advice</h2>
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">

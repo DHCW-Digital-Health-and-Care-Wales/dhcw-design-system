@@ -1,5 +1,6 @@
 @use "../../tokens/colours" as c;
 @use "../../foundations/input-base" as base;
+@use "../../utilities/breakpoints" as b;
 
 $nhsw-select-min-width: 12rem;
 $nhsw-select-icon-width: 10px;
@@ -29,10 +30,15 @@ $nhsw-select-widths: (
   @include nhsw-select-arrow;
 
   width: auto;
-  min-width: $nhsw-select-min-width;
   max-width: 100%;
   padding: $nhsw-select-padding-y $nhsw-select-padding-right $nhsw-select-padding-y $nhsw-select-padding-left;
   cursor: pointer;
+
+  // A minimum width beats max-width, so cap it at the container's width too:
+  // otherwise the select spills out of a column narrower than its minimum width.
+  @include b.nhsw-from-tablet {
+    min-width: min(#{$nhsw-select-min-width}, 100%);
+  }
 
   &--full {
     width: 100%;
@@ -40,7 +46,9 @@ $nhsw-select-widths: (
 
   @each $name, $width in $nhsw-select-widths {
     &--#{$name} {
-      min-width: $width;
+      @include b.nhsw-from-tablet {
+        min-width: min(#{$width}, 100%);
+      }
     }
   }
 

@@ -1,0 +1,40 @@
+---
+layout: example
+title: Site navigation current page example
+---
+<p class="nhsw-body">The current page, <strong>Navigation Item 1</strong>, should be easy to tell apart from the other items without relying on colour. Switch on the greyscale view to check.</p>
+<p class="nhsw-body"><button type="button" class="nhsw-button nhsw-button--secondary nhsw-button--inline" id="nc-toggle" aria-pressed="false">Greyscale view: off</button></p>
+
+<nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+  <div class="nhsw-site-header__nav-container">
+    <ul class="nhsw-site-header__nav-list">
+      <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+      <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+      <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<h2 class="nhsw-h3">On a dark background</h2>
+<nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation (dark)">
+  <div class="nhsw-site-header__nav-container">
+    <ul class="nhsw-site-header__nav-list">
+      <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+      <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+      <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Demo only: removes colour from the page so you can check what remains.
+  (function () {
+    var button = document.getElementById('nc-toggle');
+    button.addEventListener('click', function () {
+      var on = button.getAttribute('aria-pressed') !== 'true';
+      button.setAttribute('aria-pressed', on ? 'true' : 'false');
+      button.textContent = 'Greyscale view: ' + (on ? 'on' : 'off');
+      document.documentElement.style.filter = on ? 'grayscale(1)' : '';
+    });
+  }());
+</script>

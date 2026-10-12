@@ -16,6 +16,7 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/content/tag.html' | relative_url }}" target="_blank" rel="noopener">Open the Tag documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/tag-status.html' | relative_url }}" target="_blank" rel="noopener">tag-status.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-two-status.html' | relative_url }}" target="_blank" rel="noopener">tag-two-status.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-all-colours.html' | relative_url }}" target="_blank" rel="noopener">tag-all-colours.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-colour-solid.html' | relative_url }}" target="_blank" rel="noopener">tag-colour-solid.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-colour-tint.html' | relative_url }}" target="_blank" rel="noopener">tag-colour-tint.html</a>, <a class="nhsw-link" href="{{ '/examples/tag-summary-list.html' | relative_url }}" target="_blank" rel="noopener">tag-summary-list.html</a></p>
 </div>
@@ -82,7 +83,7 @@ extra_scripts:
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <p class="nhsw-body">
-              <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">Flu</strong><strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong></span>
+              <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">Flu</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong></span>
             </p>
           </div>
         </div>
@@ -177,7 +178,7 @@ extra_scripts:
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <p class="nhsw-body">
-              <span class="nhsw-tag-group"><strong class="nhsw-tag nhsw-tag--white">HPV</strong><strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong></span>
+              <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">HPV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong></span>
             </p>
           </div>
         </div>
@@ -191,6 +192,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <h2 class="nhsw-h2">Additional implementation advice</h2>
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">

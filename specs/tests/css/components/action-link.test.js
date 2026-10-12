@@ -63,7 +63,7 @@ describe('action link matches Figma Action link component (icon+text row)', () =
 
   it('visited state recolours the link itself, not a descendant (required for :visited to apply at all)', () => {
     const visited = block(css, '\\.nhsw-action-link:visited');
-    expect(visited).toMatch(/color:\s*#212b32/);
+    expect(visited).toMatch(/color:\s*#7c2855/);
   });
 
   it('active state underlines the text', () => {

@@ -23,7 +23,7 @@ container: fluid
   <div class="nhsw-example-preview__body">
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="es-full-name">Full name</label>
-      <p class="nhsw-error-message" id="es-full-name-error">Enter your full name</p>
+      <p class="nhsw-error-message" id="es-full-name-error"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
       <input class="nhsw-input nhsw-is-invalid" id="es-full-name" name="es-full-name" type="text" aria-describedby="es-full-name-error" aria-invalid="true">
     </div>
   </div>
@@ -34,9 +34,9 @@ container: fluid
   <div class="nhsw-example-preview__body">
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="es-ta-reason">Provide a reason for continuing</label>
-      <p class="nhsw-error-message" id="es-ta-reason-error">Error the clinical decision</p>
+      <p class="nhsw-error-message" id="es-ta-reason-error"><span class="nhsw-visually-hidden">Error: </span>Error the clinical decision</p>
       <textarea id="es-ta-reason" name="es-ta-reason" class="nhsw-textarea nhsw-is-invalid" aria-invalid="true" aria-describedby="es-ta-reason-error es-ta-reason-count" data-max-length="150" data-max-length-target="es-ta-reason-count"></textarea>
-      <div class="nhsw-hint nhsw-textarea__count" id="es-ta-reason-count" aria-live="polite">You have 150 characters remaining</div>
+      <div class="nhsw-hint nhsw-textarea__count" id="es-ta-reason-count">You have 150 characters remaining</div>
     </div>
   </div>
 </div>
@@ -47,7 +47,7 @@ container: fluid
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="es-select">Choose region</label>
       <div class="nhsw-hint" id="es-select-hint">This can be different to what you selected before</div>
-      <p class="nhsw-error-message" id="es-select-error">Choose a region</p>
+      <p class="nhsw-error-message" id="es-select-error"><span class="nhsw-visually-hidden">Error: </span>Choose a region</p>
       <select id="es-select" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="es-select-hint es-select-error">
         <option>Choose region</option>
         <option>North Wales</option>
@@ -66,7 +66,7 @@ container: fluid
       <fieldset class="nhsw-fieldset" aria-describedby="es-name-change-hint es-name-change-error">
         <legend class="nhsw-fieldset__legend nhsw-h2">Have you changed your name?</legend>
         <div class="nhsw-hint" id="es-name-change-hint">This includes changing your last name or spelling your name differently</div>
-        <p class="nhsw-error-message" id="es-name-change-error">Select yes if you have changed your name</p>
+        <p class="nhsw-error-message" id="es-name-change-error"><span class="nhsw-visually-hidden">Error: </span>Select yes if you have changed your name</p>
         <div class="nhsw-radios">
           <div class="nhsw-radios__item">
             <input class="nhsw-radios__input" id="es-name-change-yes" name="es-name-change" type="radio" value="yes" aria-invalid="true">
@@ -89,7 +89,7 @@ container: fluid
       <fieldset class="nhsw-fieldset" aria-describedby="es-contact-hint es-contact-error">
         <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
         <div class="nhsw-hint" id="es-contact-hint">Select all options that are relevant to you</div>
-        <p class="nhsw-error-message" id="es-contact-error">Select how you want to be contacted</p>
+        <p class="nhsw-error-message" id="es-contact-error"><span class="nhsw-visually-hidden">Error: </span>Select how you want to be contacted</p>
         <div class="nhsw-checkboxes">
           <div class="nhsw-checkboxes__item">
             <input class="nhsw-checkboxes__input" id="es-contact-1" name="es-contact" type="checkbox" value="email" aria-invalid="true">
@@ -116,7 +116,7 @@ container: fluid
       <fieldset class="nhsw-fieldset" role="group" aria-describedby="es-dob-error-hint es-dob-error-message">
         <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
         <div class="nhsw-hint" id="es-dob-error-hint">For example, 15 3 1984</div>
-        <p class="nhsw-error-message" id="es-dob-error-message">The date of birth must be in the past</p>
+        <p class="nhsw-error-message" id="es-dob-error-message"><span class="nhsw-visually-hidden">Error: </span>The date of birth must be in the past</p>
         <div class="nhsw-date-input">
           <div class="nhsw-date-input__item">
             <label class="nhsw-label nhsw-date-input__label" for="es-dob-day">Day</label>

@@ -2,10 +2,18 @@
 
 .nhsw-input-wrapper {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: stretch;
+  max-width: 100%;
 
   .nhsw-input {
     flex: 0 1 auto;
+    min-width: 0;
+
+    &:focus {
+      position: relative;
+      z-index: 1;
+    }
   }
 
   &__prefix,
@@ -13,6 +21,8 @@
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    flex: 0 1 auto;
+    min-width: 0;
     padding: 8px 12px;
     border: 2px solid c.$nhsw-colour-input-border;
     background-color: c.$nhsw-colour-border-grey;
@@ -21,7 +31,6 @@
     font-size: 1.1875rem;
     font-weight: 400;
     line-height: 24px;
-    white-space: nowrap;
   }
 
   &__prefix {

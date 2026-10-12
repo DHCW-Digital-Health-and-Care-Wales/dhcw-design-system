@@ -7,3 +7,6 @@ destination: _site
 # step, so this stays correct whether the repo is renamed or gets a custom
 # domain later.
 baseurl: ""
+
+clarity_enabled: false
+clarity_project_id: yrumq6ag2q

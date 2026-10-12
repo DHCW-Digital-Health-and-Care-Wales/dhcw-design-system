@@ -19,7 +19,7 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label nhsw-label--xl" for="ti-ov-name">What is your full name?</label>
-      <input id="ti-ov-name" name="ti-ov-name" class="nhsw-input" type="text" value="Text">
+      <input id="ti-ov-name" name="ti-ov-name" class="nhsw-input" type="text">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-overview" open_url="/examples/input-page-question.html" body=example_body %}
@@ -61,7 +61,7 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label nhsw-label--xl" for="ti-how-name">What is your full name?</label>
-      <input id="ti-how-name" name="ti-how-name" class="nhsw-input" type="text" value="Text">
+      <input id="ti-how-name" name="ti-how-name" class="nhsw-input" type="text">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-page-question" open_url="/examples/input-page-question.html" body=example_body %}
@@ -83,7 +83,7 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label" for="ti-multi-name">What is your full name?</label>
-      <input id="ti-multi-name" name="ti-multi-name" class="nhsw-input" type="text" value="Text">
+      <input id="ti-multi-name" name="ti-multi-name" class="nhsw-input" type="text">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-multi-question" open_url="/examples/input-multi-question.html" body=example_body %}
@@ -108,36 +108,63 @@ tabs:
     {% capture example_body %}{% raw %}
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-20">20 character width</label>
-        <input id="fw-20" name="fw-20" class="nhsw-input nhsw-input--width-20" type="text" value="Text">
+        <input id="fw-20" name="fw-20" class="nhsw-input nhsw-input--width-20" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-10">10 character width</label>
-        <input id="fw-10" name="fw-10" class="nhsw-input nhsw-input--width-10" type="text" value="Text">
+        <input id="fw-10" name="fw-10" class="nhsw-input nhsw-input--width-10" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-5">5 character width</label>
-        <input id="fw-5" name="fw-5" class="nhsw-input nhsw-input--width-5" type="text" value="Text">
+        <input id="fw-5" name="fw-5" class="nhsw-input nhsw-input--width-5" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-4">4 character width</label>
-        <input id="fw-4" name="fw-4" class="nhsw-input nhsw-input--width-4" type="text" value="Text">
+        <input id="fw-4" name="fw-4" class="nhsw-input nhsw-input--width-4" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-3">3 character width</label>
-        <input id="fw-3" name="fw-3" class="nhsw-input nhsw-input--width-3" type="text" value="Text">
+        <input id="fw-3" name="fw-3" class="nhsw-input nhsw-input--width-3" type="text">
       </div>
       <div class="nhsw-form-group">
         <label class="nhsw-label" for="fw-2">2 character width</label>
-        <input id="fw-2" name="fw-2" class="nhsw-input nhsw-input--width-2" type="text" value="Te">
+        <input id="fw-2" name="fw-2" class="nhsw-input nhsw-input--width-2" type="text">
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="ti-fixed" open_url="/examples/input-fixed-widths.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="fw-20"&gt;20 character width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--width-20" id="fw-20" name="fw-20" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
   &lt;label class="nhsw-label" for="fw-10"&gt;10 character width&lt;/label&gt;
   &lt;input class="nhsw-input nhsw-input--width-10" id="fw-10" name="fw-10" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="fw-5"&gt;5 character width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--width-5" id="fw-5" name="fw-5" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="fw-4"&gt;4 character width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--width-4" id="fw-4" name="fw-4" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="fw-3"&gt;3 character width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--width-3" id="fw-3" name="fw-3" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="fw-2"&gt;2 character width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--width-2" id="fw-2" name="fw-2" type="text"&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "fw-10", label: { text: "10 character width" }, classes: "nhsw-input--width-10" }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "input/macro.njk" import nhswInput %}
+
+{{ nhswInput({ id: "fw-20", label: { text: "20 character width" }, classes: "nhsw-input--width-20" }) }}
+{{ nhswInput({ id: "fw-10", label: { text: "10 character width" }, classes: "nhsw-input--width-10" }) }}
+{{ nhswInput({ id: "fw-5", label: { text: "5 character width" }, classes: "nhsw-input--width-5" }) }}
+{{ nhswInput({ id: "fw-4", label: { text: "4 character width" }, classes: "nhsw-input--width-4" }) }}
+{{ nhswInput({ id: "fw-3", label: { text: "3 character width" }, classes: "nhsw-input--width-3" }) }}
+{{ nhswInput({ id: "fw-2", label: { text: "2 character width" }, classes: "nhsw-input--width-2" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ti-fixed" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
@@ -175,10 +202,37 @@ tabs:
     {% include example-preview.html id="ti-fluid" open_url="/examples/input-fluid-widths.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="flw-full"&gt;Full width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--full" id="flw-full" name="flw-full" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="flw-34"&gt;Three-quarters width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--three-quarters" id="flw-34" name="flw-34" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
   &lt;label class="nhsw-label" for="flw-23"&gt;Two-thirds width&lt;/label&gt;
   &lt;input class="nhsw-input nhsw-input--two-thirds" id="flw-23" name="flw-23" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="flw-12"&gt;One-half width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--half" id="flw-12" name="flw-12" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="flw-14"&gt;One-quarter width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--quarter" id="flw-14" name="flw-14" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="flw-13"&gt;One-third width&lt;/label&gt;
+  &lt;input class="nhsw-input nhsw-input--third" id="flw-13" name="flw-13" type="text"&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "flw-23", label: { text: "Two-thirds width" }, classes: "nhsw-input--two-thirds" }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "input/macro.njk" import nhswInput %}
+
+{{ nhswInput({ id: "flw-full", label: { text: "Full width" }, classes: "nhsw-input--full" }) }}
+{{ nhswInput({ id: "flw-34", label: { text: "Three-quarters width" }, classes: "nhsw-input--three-quarters" }) }}
+{{ nhswInput({ id: "flw-23", label: { text: "Two-thirds width" }, classes: "nhsw-input--two-thirds" }) }}
+{{ nhswInput({ id: "flw-12", label: { text: "One-half width" }, classes: "nhsw-input--half" }) }}
+{{ nhswInput({ id: "flw-14", label: { text: "One-quarter width" }, classes: "nhsw-input--quarter" }) }}
+{{ nhswInput({ id: "flw-13", label: { text: "One-third width" }, classes: "nhsw-input--third" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ti-fluid" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
@@ -189,14 +243,19 @@ tabs:
     <div class="nhsw-form-group">
       <label class="nhsw-label" for="ti-hint">10 character width</label>
       <div class="nhsw-hint" id="ti-hint-hint">Hint text goes here</div>
-      <input id="ti-hint" name="ti-hint" class="nhsw-input nhsw-input--width-10" type="text" value="Text" aria-describedby="ti-hint-hint">
+      <input id="ti-hint" name="ti-hint" class="nhsw-input nhsw-input--width-10" type="text" aria-describedby="ti-hint-hint">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="ti-hint" open_url="/examples/input-hint.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-hint" id="field-hint"&gt;Hint text goes here&lt;/div&gt;
-&lt;input class="nhsw-input nhsw-input--width-10" id="field" name="field" aria-describedby="field-hint" type="text"&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "field", label: { text: "10 character width" }, hint: { text: "Hint text goes here" }, classes: "nhsw-input--width-10" }) }}{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="field"&gt;10 character width&lt;/label&gt;
+  &lt;div class="nhsw-hint" id="field-hint"&gt;Hint text goes here&lt;/div&gt;
+  &lt;input class="nhsw-input nhsw-input--width-10" id="field" name="field" aria-describedby="field-hint" type="text"&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "input/macro.njk" import nhswInput %}
+
+{{ nhswInput({ id: "field", label: { text: "10 character width" }, hint: { text: "Hint text goes here" }, classes: "nhsw-input--width-10" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-hint" html=html_sample njk=njk_sample toggleable=true %}
 
   <h3 class="nhsw-h3">Do not disable copy and paste</h3>

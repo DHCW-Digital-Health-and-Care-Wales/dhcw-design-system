@@ -10,6 +10,10 @@
   margin-bottom: 2rem;
   box-sizing: border-box;
 
+  // Long unbroken text, such as an email address or a long word, wraps inside the
+  // card instead of pushing out of it (and off the page at high zoom).
+  overflow-wrap: anywhere;
+
   &:has(.nhsw-card__title-link) {
     box-shadow: 0 4px 0 c.$nhsw-colour-border-grey;
   }
@@ -183,4 +187,15 @@
 
 .nhsw-card:has(.nhsw-card__title-link:hover).nhsw-card--chevron .nhsw-card__title-link::before {
   background-color: c.$nhsw-colour-link-visited;
+}
+
+.nhsw-card-group {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nhsw-card-group__item {
+  list-style: none;
 }

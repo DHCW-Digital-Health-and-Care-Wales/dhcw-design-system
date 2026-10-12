@@ -39,17 +39,19 @@ Feature: Tabs — automated coverage
 
     @automated
     # specs/tests/js/docs-behaviors.test.js
-    Scenario: ArrowRight moves focus to the next tab and wraps at the end
-      Given the last tab is focused
+    Scenario: ArrowRight moves focus to the next tab and stops at the last tab (no wrapping, as in NHS.UK)
+      Given a tab other than the last is focused
       When ArrowRight is pressed
-      Then focus and selection move to the first tab
+      Then focus and selection move to the next tab
+      And pressing it again on the last tab leaves focus and selection where they are
 
     @automated
     # specs/tests/js/docs-behaviors.test.js
-    Scenario: ArrowLeft moves focus to the previous tab and wraps at the start
-      Given the first tab is focused
+    Scenario: ArrowLeft moves focus to the previous tab and stops at the first tab (no wrapping, as in NHS.UK)
+      Given a tab other than the first is focused
       When ArrowLeft is pressed
-      Then focus and selection move to the last tab
+      Then focus and selection move to the previous tab
+      And pressing it again on the first tab leaves focus and selection where they are
 
     @automated
     # specs/tests/js/docs-behaviors.test.js
@@ -57,6 +59,53 @@ Feature: Tabs — automated coverage
       Given a tab is focused
       When an unrelated key (e.g. Tab) is pressed
       Then the currently selected tab does not change
+
+  Rule: Keyboard and focus behaviour matches the NHS.UK tabs
+
+    @automated
+    # specs/tests/js/behaviours.test.js, specs/e2e/tabs.spec.js
+    Scenario: Only the selected tab is a tab stop (roving tabindex)
+      Given a tabs component with "One" selected
+      Then "One" has tabindex="0" and every other tab has tabindex="-1"
+      When another tab is selected
+      Then the tab stop moves to that tab
+
+    @automated
+    # specs/tests/js/behaviours.test.js, specs/e2e/tabs.spec.js
+    Scenario: Up and Down arrows are not intercepted
+      Given a tab is focused
+      When ArrowUp or ArrowDown is pressed
+      Then the selection and focus do not change
+      And the key is not prevented, so a screen reader can read down into the panel
+
+  Rule: Small screens show all content, as in NHS.UK
+
+    @automated
+    # specs/tests/js/behaviours.test.js, specs/e2e/tabs.spec.js, specs/tests/css/components/tabs.test.js
+    Scenario: Below the tablet breakpoint the tabs are switched off
+      Given a viewport narrower than 40.0625em
+      Then the tablist, tab and tabpanel roles, aria-selected, aria-controls and tabindex are removed
+      And every panel is shown
+      And the tabs are laid out as a plain list of links
+      When a tab is pressed
+      Then focus moves to its section and every panel stays visible
+
+    @automated
+    # specs/tests/js/behaviours.test.js, specs/e2e/tabs.spec.js
+    Scenario: Resizing across the breakpoint switches the tabs on and off
+      Given tabs switched off on a small screen
+      When the window is widened past the breakpoint
+      Then the tab roles and a single visible panel return, with the previously selected tab selected
+      And no duplicate event listeners build up as the window is resized back and forth
+
+  Rule: Tabs that do not fit wrap instead of scrolling, as in NHS.UK
+
+    @automated
+    # specs/tests/css/components/tabs.test.js, specs/e2e/tabs.spec.js
+    Scenario: A tab strip that is too wide for its box wraps onto more rows
+      Given tabs shown as tabs (at or above the tablet breakpoint) in a narrow column
+      Then the tabs wrap onto further rows
+      And the tab list never has a horizontal or vertical scrollbar
 
   Rule: Nested tabs are scoped correctly
 

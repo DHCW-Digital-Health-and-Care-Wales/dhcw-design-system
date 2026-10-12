@@ -1,0 +1,42 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-cookie-banner {
+  padding: 1.5rem 0 0.5rem;
+  background-color: c.$nhsw-colour-background-white;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.nhsw-cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.nhsw-cookie-banner__confirmation {
+  margin: 0 0 1rem;
+}
+
+.nhsw-cookie-settings-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: c.$nhsw-colour-link;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: c.$nhsw-colour-link-hover;
+  }
+
+  &:focus {
+    background-color: c.$nhsw-colour-focus;
+    color: c.$nhsw-colour-focus-text;
+    outline: 3px solid c.$nhsw-colour-focus;
+  }
+}

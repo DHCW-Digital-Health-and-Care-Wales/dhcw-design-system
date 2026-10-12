@@ -75,6 +75,11 @@ describe('site header nav matches Figma Service navigation component', () => {
     expect(badge).not.toMatch(/color/);
   });
 
+  it('nav badge sits 0.8rem to the right of the link text', () => {
+    const badge = block(css, '\\.nhsw-site-header__nav-badge');
+    expect(badge).toMatch(/margin-left:\s*0\.8rem/);
+  });
+
   it('nav list items are flexed too, so the link fills the item fully instead of leaving an inline-strut gap below it', () => {
     const li = block(css, '\\.nhsw-site-header__nav-list li');
     expect(li).toMatch(/display:\s*flex/);
@@ -116,5 +121,30 @@ describe('site header top bar', () => {
     expect(button).toMatch(/background-color:\s*#005aa8/);
     const hover = block(css, '\\.nhsw-site-header__search-button:hover');
     expect(hover).toMatch(/background-color:\s*#003087/);
+  });
+
+  it('search input focus adds a black inset border alongside the yellow outline, raised above the adjacent button so it is not painted over', () => {
+    const focus = block(css, '\\.nhsw-site-header__search-input:focus');
+    expect(focus).toMatch(/outline:\s*3px solid #ffeb3b/);
+    expect(focus).toMatch(/box-shadow:\s*inset 0 0 0 4px #212b32/);
+    expect(focus).toMatch(/position:\s*relative/);
+    expect(focus).toMatch(/z-index:\s*1/);
+  });
+
+  it('brand vertically centres the logo and title against each other', () => {
+    const brand = block(css, '\\.nhsw-site-header__brand\\b');
+    expect(brand).toMatch(/align-items:\s*center/);
+  });
+
+  it('title can wrap onto multiple lines: min-width: 0 overrides the flex-item default that would otherwise force it to overflow instead of wrapping', () => {
+    const title = block(css, '\\.nhsw-site-header__title\\b');
+    expect(title).toMatch(/min-width:\s*0/);
+    expect(title).toMatch(/overflow-wrap:\s*break-word/);
+  });
+
+  it('search box is hidden below the 40rem breakpoint, not stacked full-width', () => {
+    expect(css).toMatch(
+      /@media \(max-width: 40rem\) \{[\s\S]*?\.nhsw-site-header__search \{\s*display: none;\s*\}\s*\}/,
+    );
   });
 });

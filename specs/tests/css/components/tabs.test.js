@@ -52,12 +52,19 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     expect(focusText).toMatch(/background-color:\s*#ffeb3b/);
     expect(focusText).toMatch(/color:\s*#0b0c0c/);
     // Matches the 3px focus underline used on .nhsw-card__title-link:focus.
+    expect(focusText).toMatch(/text-decoration:\s*underline/);
     expect(focusText).toMatch(/text-decoration-thickness:\s*3px/);
   });
 
   it('tab text carries the default underline, not the button itself', () => {
     const text = block(css, '\\.nhsw-tabs__tab-text');
     expect(text).toMatch(/text-decoration:\s*underline/);
+  });
+
+  it('the tab list wraps tabs onto further rows when they do not fit, and never scrolls (NHS.UK floats its tabs, so they wrap too)', () => {
+    const list = block(css, '\\.nhsw-tabs__list');
+    expect(list).toMatch(/flex-wrap:\s*wrap/);
+    expect(list).not.toMatch(/overflow/);
   });
 
   it('the tab list top-aligns items, so an unselected tab stays shorter and leaves a gap above the border-bottom line', () => {
@@ -70,12 +77,6 @@ describe('tabs: hover removes the underline (not the background), focus highligh
   it('the visible tab box is drawn by ::before, filling whatever height the (variably-padded) button ends up with', () => {
     const before = block(css, '\\.nhsw-tabs__tab::before');
     expect(before).toMatch(/inset:\s*0/);
-  });
-
-  it('count badge is a bordered, link-coloured inline label', () => {
-    const count = block(css, '\\.nhsw-tabs__count');
-    expect(count).toMatch(/border:\s*1px solid #005aa8/);
-    expect(count).toMatch(/color:\s*#005aa8/);
   });
 
   it('tab list has a grey bottom border, and the unselected tab background is drawn the same grey', () => {
@@ -100,3 +101,44 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     expect(pagination).toMatch(/border-top:\s*1px solid #d8dde0/);
   });
 });
+
+describe('tabs below the tablet breakpoint: a list of jump links with every panel shown, as in NHS.UK', () => {
+  let css = '';
+  let small = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/tabs";`);
+    const start = css.indexOf('@media (max-width: 40.0624em)');
+    small = start === -1 ? '' : css.slice(start);
+  });
+
+  it('uses the media query that ends exactly where the script and the tablet breakpoint begin (40.0625em)', () => {
+    expect(small).not.toBe('');
+  });
+
+  it('the list stops being a horizontal tab strip and becomes a plain list', () => {
+    const list = block(small, '\\s*\\.nhsw-tabs__list');
+    expect(list).toMatch(/display:\s*block/);
+    expect(list).toMatch(/border-bottom:\s*0/);
+    expect(list).not.toMatch(/overflow/);
+  });
+
+  it('tabs lose their drawn tab box, selected or not, and read as links', () => {
+    expect(small).toMatch(/\.nhsw-tabs__tab::before,\s*\.nhsw-tabs__tab--selected::before\s*\{[^}]*content:\s*none/);
+    const tab = block(small, '\\s*\\.nhsw-tabs__tab,\\s*\\.nhsw-tabs__tab--selected');
+    expect(tab).toMatch(/color:\s*#005aa8/);
+    expect(tab).toMatch(/margin-bottom:\s*0/);
+  });
+
+  it('the selected tab text keeps its underline, because there is no selected tab to mark', () => {
+    const text = block(small, '\\s*\\.nhsw-tabs__tab-text,\\s*\\.nhsw-tabs__tab--selected \\.nhsw-tabs__tab-text');
+    expect(text).toMatch(/text-decoration:\s*underline/);
+  });
+
+  it('stacked panels get a top border so each section is separated, and a jumped-to panel shows no focus ring', () => {
+    const panel = block(small, '\\s*\\.nhsw-tabs__panel');
+    expect(panel).toMatch(/border-top:\s*1px solid #d8dde0/);
+    expect(block(small, '\\s*\\.nhsw-tabs__panel:focus')).toMatch(/outline:\s*none/);
+  });
+});
+

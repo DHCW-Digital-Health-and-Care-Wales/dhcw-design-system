@@ -6,13 +6,20 @@
     html        string  - inset HTML, used as-is. Takes precedence over text.
                            Include your own heading (e.g. <h3 class="nhsw-h3">) and
                            <p class="nhsw-body"> tags as needed.
+    visuallyHiddenText  string - screen-reader-only text announced before the content, so users
+                           are told it is set apart from the main body copy. Defaults to
+                           "Information"; pass "" to omit
     classes     string  - extra classes, e.g. "nhsw-inset-text--navy",
                            "nhsw-inset-text--blue", "nhsw-inset-text--grey",
                            "nhsw-inset-text--red", "nhsw-inset-text--yellow"
     attributes  object  - extra HTML attributes
 #}
 {%- macro nhswInsetText(params) -%}
+{%- set hiddenText = "Information" if params.visuallyHiddenText == undefined else params.visuallyHiddenText -%}
 <div class="nhsw-inset-text{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- if hiddenText %}
+  <span class="nhsw-visually-hidden">{{ hiddenText }}: </span>
+{%- endif %}
 {%- if params.html %}
   {{ params.html | safe }}
 {%- else %}

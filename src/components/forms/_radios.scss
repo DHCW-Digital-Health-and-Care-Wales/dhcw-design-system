@@ -14,8 +14,12 @@
     padding-left: 52px;
     position: relative;
 
-    &:hover {
-      background-color: c.$nhsw-colour-background-grey;
+    &:hover .nhsw-radios__label::before {
+      box-shadow: 0 0 0 4px c.$nhsw-colour-choice-hover-ring;
+    }
+
+    &:hover .nhsw-radios__input:focus + .nhsw-radios__label::before {
+      box-shadow: 0 0 0 4px c.$nhsw-colour-focus, 0 0 0 8px c.$nhsw-colour-choice-hover-ring;
     }
   }
 
@@ -40,8 +44,14 @@
     }
   }
 
+  &__label.nhsw-label {
+    margin-bottom: 0;
+  }
+
   &__label {
     display: inline-block;
+    min-width: 0;
+    overflow-wrap: break-word;
     padding: 8px 16px 0 0;
     cursor: pointer;
     -ms-user-select: none;
@@ -79,6 +89,8 @@
   &__hint {
     display: block;
     width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
     padding: 0 16px 4px 0;
     margin: 0;
     color: c.$nhsw-colour-text-secondary;
@@ -89,7 +101,7 @@
 
   &__divider {
     width: 40px;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
     color: c.$nhsw-colour-text-primary;
     font-size: 1.1875rem;
     font-weight: 400;
@@ -99,11 +111,15 @@
   &__conditional {
     margin-bottom: 16px;
     margin-left: 18px;
-    padding-left: 20px;
+    padding-left: 30px;
     border-left: 4px solid c.$nhsw-colour-border-secondary;
 
     &--hidden {
       display: none;
+    }
+
+    .nhsw-label {
+      font-weight: t.$nhsw-font-weight-regular;
     }
   }
 

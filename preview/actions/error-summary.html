@@ -27,25 +27,40 @@ tabs:
     <h2 class="nhsw-h2">Your details</h2>
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="full-name">Full name</label>
-      <p class="nhsw-error-message" id="full-name-error">Enter your full name</p>
+      <p class="nhsw-error-message" id="full-name-error"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
       <input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-overview" open_url="/examples/error-summary-default.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#full-name"&gt;Enter your full name&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;h2 class="nhsw-h2"&gt;Your details&lt;/h2&gt;
+&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
+  &lt;label class="nhsw-label" for="full-name"&gt;Full name&lt;/label&gt;
+  &lt;p class="nhsw-error-message" id="full-name-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Enter your full name&lt;/p&gt;
+  &lt;input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true"&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "error-summary/macro.njk" import nhswErrorSummary %}
+{% from "input/macro.njk" import nhswInput %}
 
 {{ nhswErrorSummary({
   titleText: "There is a problem",
   errorList: [
     { text: "Enter your full name", href: "#full-name" }
   ]
+}) }}
+
+&lt;h2 class="nhsw-h2"&gt;Your details&lt;/h2&gt;
+{{ nhswInput({
+  id: "full-name",
+  label: { text: "Full name" },
+  errorMessage: { text: "Enter your full name" }
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="es-overview" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -59,7 +74,7 @@ tabs:
   <ul class="nhsw-body">
     <li>add "Error: " to the beginning of the <code>&lt;title&gt;</code> so screen readers read it out as soon as possible</li>
     <li>show an error summary at the top of a page</li>
-    <li>move the keyboard focus to the error summary (the NHS.UK frontend JavaScript will do this for you)</li>
+    <li>move the keyboard focus to the error summary (<code>nhsw-behaviours.js</code> does this for you when the summary has <code>data-module="nhsw-error-summary"</code>, which the macro adds)</li>
     <li>include the heading "There is a problem"</li>
     <li>link to each of the answers that have validation errors</li>
     <li>show the same error messages next to the inputs with errors</li>
@@ -83,7 +98,7 @@ tabs:
       <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint dob-error">
         <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
         <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
-        <p class="nhsw-error-message" id="dob-error">The date of birth must include a year</p>
+        <p class="nhsw-error-message" id="dob-error"><span class="nhsw-visually-hidden">Error: </span>The date of birth must include a year</p>
         <div class="nhsw-date-input">
           <div class="nhsw-date-input__item">
             <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
@@ -103,17 +118,50 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-date" open_url="/examples/error-summary-date.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-date" role="alert" tabindex="-1"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-date" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-date"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#dob-year"&gt;Date of birth must include a year&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
+  &lt;fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint dob-error"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;What is your date of birth?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="dob-hint"&gt;For example, 15 3 1984&lt;/div&gt;
+    &lt;p class="nhsw-error-message" id="dob-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;The date of birth must include a year&lt;/p&gt;
+    &lt;div class="nhsw-date-input"&gt;
+      &lt;div class="nhsw-date-input__item"&gt;
+        &lt;label class="nhsw-label nhsw-date-input__label" for="dob-day"&gt;Day&lt;/label&gt;
+        &lt;input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1"&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-date-input__item"&gt;
+        &lt;label class="nhsw-label nhsw-date-input__label" for="dob-month"&gt;Month&lt;/label&gt;
+        &lt;input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12"&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-date-input__item"&gt;
+        &lt;label class="nhsw-label nhsw-date-input__label" for="dob-year"&gt;Year&lt;/label&gt;
+        &lt;input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" aria-invalid="true"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
+  {% capture njk_sample %}{% raw %}{% from "date-input/macro.njk" import nhswDateInput %}
+
+{{ nhswErrorSummary({
   titleText: "There is a problem",
   errorList: [
     { text: "Date of birth must include a year", href: "#dob-year" }
   ]
+}) }}
+
+{{ nhswDateInput({
+  id: "dob",
+  fieldset: { legend: { text: "What is your date of birth?" } },
+  hint: { text: "For example, 15 3 1984" },
+  errorMessage: { text: "The date of birth must include a year" },
+  errorFields: ["year"],
+  values: { day: "1", month: "12" }
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="es-date" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -133,7 +181,7 @@ tabs:
       <fieldset class="nhsw-fieldset" aria-describedby="contact-hint contact-error">
         <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
         <div class="nhsw-hint" id="contact-hint">Select all options that are relevant to you</div>
-        <p class="nhsw-error-message" id="contact-error">Select how you want to be contacted</p>
+        <p class="nhsw-error-message" id="contact-error"><span class="nhsw-visually-hidden">Error: </span>Select how you want to be contacted</p>
         <div class="nhsw-checkboxes">
           <div class="nhsw-checkboxes__item">
             <input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email">
@@ -153,16 +201,52 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-checkboxes" open_url="/examples/error-summary-checkboxes.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-checkboxes" role="alert" tabindex="-1"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-checkboxes" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-checkboxes"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#contact-1"&gt;Select how you want to be contacted&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
+  &lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint contact-error"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="contact-hint"&gt;Select all options that are relevant to you&lt;/div&gt;
+    &lt;p class="nhsw-error-message" id="contact-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select how you want to be contacted&lt;/p&gt;
+    &lt;div class="nhsw-checkboxes"&gt;
+      &lt;div class="nhsw-checkboxes__item"&gt;
+        &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email"&gt;
+        &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-checkboxes__item"&gt;
+        &lt;input class="nhsw-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone"&gt;
+        &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-2"&gt;Phone&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-checkboxes__item"&gt;
+        &lt;input class="nhsw-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text"&gt;
+        &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-3"&gt;Text message&lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/fieldset&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
+  {% capture njk_sample %}{% raw %}{% from "checkboxes/macro.njk" import nhswCheckboxes %}
+
+{{ nhswErrorSummary({
   titleText: "There is a problem",
   errorList: [
     { text: "Select how you want to be contacted", href: "#contact-1" }
+  ]
+}) }}
+
+{{ nhswCheckboxes({
+  name: "contact",
+  fieldset: { legend: { text: "How do you want to be contacted about this?" } },
+  hint: { text: "Select all options that are relevant to you" },
+  errorMessage: { text: "Select how you want to be contacted" },
+  items: [
+    { text: "Email", value: "email" },
+    { text: "Phone", value: "phone" },
+    { text: "Text message", value: "text" }
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="es-checkboxes" html=html_sample njk=njk_sample toggleable=true %}
@@ -183,23 +267,37 @@ tabs:
     <h2 class="nhsw-h2">Your details</h2>
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="full-name">Full name</label>
-      <p class="nhsw-error-message" id="full-name-error">Enter your full name</p>
+      <p class="nhsw-error-message" id="full-name-error"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
       <input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-timeout" open_url="/examples/error-summary-timeout.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-timeout"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#full-name"&gt;Your login attempt timed out. Login will start from the beginning.&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;h2 class="nhsw-h2"&gt;Your details&lt;/h2&gt;
+&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
+  &lt;label class="nhsw-label" for="full-name"&gt;Full name&lt;/label&gt;
+  &lt;p class="nhsw-error-message" id="full-name-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Enter your full name&lt;/p&gt;
+  &lt;input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true"&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
   titleText: "There is a problem",
   errorList: [
     { text: "Your login attempt timed out. Login will start from the beginning.", href: "#full-name" }
   ]
+}) }}
+
+&lt;h2 class="nhsw-h2"&gt;Your details&lt;/h2&gt;
+{{ nhswInput({
+  id: "full-name",
+  label: { text: "Full name" },
+  errorMessage: { text: "Enter your full name" }
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="es-timeout" html=html_sample njk=njk_sample toggleable=true %}
 

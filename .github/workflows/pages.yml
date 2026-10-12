@@ -47,7 +47,10 @@ jobs:
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build --destination preview/_site --baseurl "${{ steps.pages.outputs.base_path }}"
+          CLARITY_ENABLED: ${{ vars.CLARITY_ENABLED }}
+        run: |
+          echo "clarity_enabled: ${CLARITY_ENABLED:-false}" > _config.analytics.yml
+          bundle exec jekyll build --config _config.yml,_config.analytics.yml --destination preview/_site --baseurl "${{ steps.pages.outputs.base_path }}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

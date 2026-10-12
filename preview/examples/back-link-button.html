@@ -1,0 +1,38 @@
+---
+layout: example
+title: Back link as a button example
+---
+<h1 class="nhsw-h2">Edit your notes</h1>
+<p class="nhsw-body">This example shows the back link used as a button. It performs an action on the page instead of loading a new page. Press <strong>Back</strong> to clear the notes field.</p>
+
+<div class="nhsw-form-group">
+  <label class="nhsw-label" for="bl-notes">Notes</label>
+  <input class="nhsw-input" id="bl-notes" name="bl-notes" type="text" value="Draft notes for this patient">
+</div>
+
+<p class="nhsw-body">
+  <button type="button" class="nhsw-back-link nhsw-back-link--button" id="bl-back">Back</button>
+  <a class="nhsw-link" href="#bl-help">Help with notes</a>
+  <a class="nhsw-link" href="#bl-privacy">Privacy</a>
+</p>
+
+<p class="nhsw-body"><button type="button" class="nhsw-button nhsw-button--primary nhsw-button--inline" id="bl-save">Save notes</button></p>
+
+<p class="nhsw-body" id="bl-status" role="status">Nothing has happened yet.</p>
+<p class="nhsw-body-s">Page address: <code id="bl-address"></code></p>
+
+<script>
+  // Demo only: shows that the button performs an action without leaving the page.
+  (function () {
+    var address = document.getElementById('bl-address');
+    var before = window.location.href;
+    address.textContent = before;
+    document.getElementById('bl-back').addEventListener('click', function () {
+      document.getElementById('bl-notes').value = '';
+      document.getElementById('bl-status').textContent =
+        window.location.href === before
+          ? 'The Back button cleared the notes field. The page did not change.'
+          : 'The page address changed, so this was a navigation.';
+    });
+  }());
+</script>

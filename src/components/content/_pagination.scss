@@ -94,6 +94,8 @@
   font-weight: 700;
   line-height: 1.4;
   display: block;
+  word-break: break-word;
+  overflow-wrap: break-word;
 
   @include b.nhsw-from-tablet {
     font-size: 1.5rem;
@@ -184,6 +186,7 @@
 
   .nhsw-pagination__list {
     display: flex;
+    flex-wrap: wrap;
     align-items: stretch;
     justify-content: center;
     gap: 0;

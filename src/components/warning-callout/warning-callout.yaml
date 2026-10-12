@@ -26,6 +26,14 @@ params:
     type: string
     required: false
     description: Extra classes, e.g. nhsw-warning-callout--important.
+  - name: headingPrefixText
+    type: string
+    required: false
+    description: >
+      Screen-reader-only text announced before the heading, followed by a
+      colon. Defaults to "Important", unless the heading already contains
+      "important" or "warning", in which case no prefix is added. Pass an
+      empty string to omit it, or other text to replace "Important".
   - name: attributes
     type: object
     required: false

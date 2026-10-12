@@ -10,8 +10,6 @@ $nhsw-colour-expander-hover: #7c2855;
   border-bottom-width: 4px;
 
   &:hover {
-    border-color: $nhsw-colour-expander-hover;
-
     .nhsw-expander__link-text {
       color: $nhsw-colour-expander-hover;
       text-decoration: none;

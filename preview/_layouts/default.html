@@ -11,6 +11,7 @@
   {% if page.extra_head %}{{ page.extra_head }}{% endif %}
 </head>
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
+  {% if site.clarity_enabled %}{% include cookie-banner.html %}{% endif %}
   <a class="nhsw-skip-link" href="#maincontent">Skip to main content</a>
   {% include site-header.html %}
   {% include primary-nav.html %}
@@ -23,6 +24,7 @@
 
   <script src="{{ '/dist/nhsw-behaviours.js' | relative_url }}"></script>
   <script src="{{ '/assets/nhsw-docs.js' | relative_url }}"></script>
+  {% if site.clarity_enabled %}<script src="{{ '/assets/nhsw-cookie-consent.js' | relative_url }}"></script>{% endif %}
   {% if page.extra_scripts %}
     {% for s in page.extra_scripts %}<script src="{{ s | relative_url }}"></script>
     {% endfor %}

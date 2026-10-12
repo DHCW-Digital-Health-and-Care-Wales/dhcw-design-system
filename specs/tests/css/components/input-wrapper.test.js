@@ -43,4 +43,10 @@ describe('input wrapper prefix/suffix styling', () => {
     const shared = block(css, '\\.nhsw-input-wrapper__prefix,\\s*\\.nhsw-input-wrapper__suffix');
     expect(shared).toMatch(/font-family:\s*inherit/);
   });
+
+  it('a focused input is raised above its prefix/suffix siblings, so its outline is not painted over by the suffix', () => {
+    const focus = block(css, '\\.nhsw-input-wrapper \\.nhsw-input:focus');
+    expect(focus).toMatch(/position:\s*relative/);
+    expect(focus).toMatch(/z-index:\s*1/);
+  });
 });

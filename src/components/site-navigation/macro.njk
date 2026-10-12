@@ -4,16 +4,27 @@
   params:
     items       array   - required, [{ text, href, current, badge }]
     ariaLabel   string  - defaults to "Primary navigation"
+    overflowMenu                  bool   - set true for the overflow menu variant: the navigation is
+                                           never hidden on a small screen or at high zoom, and items
+                                           that do not fit move into a "More" menu. The menu button
+                                           stays hidden until nhsw-behaviours.js finds items that
+                                           overflow. Without it the navigation is hidden on small
+                                           screens, as before
+    toggleMenuText                string - text of the menu button, defaults to "More"
+    toggleMenuVisuallyHiddenText  string - screen-reader-only text before it, defaults to "Browse"
     classes     string  - extra classes, e.g. "nhsw-site-header__nav--reverse"
     attributes  object  - extra HTML attributes
 #}
 {%- macro nhswSiteNavigation(params) -%}
-<nav class="nhsw-site-header__nav{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="{{ params.ariaLabel or 'Primary navigation' }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+<nav class="nhsw-site-header__nav{% if params.overflowMenu %} nhsw-site-header__nav--overflow{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}" aria-label="{{ params.ariaLabel or 'Primary navigation' }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
   <div class="nhsw-site-header__nav-container">
     <ul class="nhsw-site-header__nav-list">
 {%- for item in (params.items or []) %}
-      <li><a class="nhsw-site-header__nav-link{% if item.current %} nhsw-site-header__nav-link--current{% endif %}" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}><span>{{ item.text }}</span>{% if item.badge %}<span class="nhsw-site-header__nav-badge">{{ item.badge }}</span>{% endif %}</a></li>
+      <li><a class="nhsw-site-header__nav-link{% if item.current %} nhsw-site-header__nav-link--current{% endif %}" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}><span>{{ item.text }}</span>{% if item.badge != undefined and item.badge != null %}<span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">{{ item.badge }}</span>{% endif %}</a></li>
 {%- endfor %}
+{%- if params.overflowMenu %}
+      <li class="nhsw-site-header__menu" hidden><button type="button" class="nhsw-site-header__menu-toggle nhsw-site-header__nav-link" aria-expanded="false"><span><span class="nhsw-visually-hidden">{{ params.toggleMenuVisuallyHiddenText or 'Browse' }} </span>{{ params.toggleMenuText or 'More' }}</span></button></li>
+{%- endif %}
     </ul>
   </div>
 </nav>

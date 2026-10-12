@@ -13,7 +13,7 @@
     border-bottom: 1px solid c.$nhsw-colour-border-grey;
     padding: 8px 0;
 
-    @include b.nhsw-from-tablet {
+    @include b.nhsw-from-desktop {
       flex-wrap: nowrap;
       padding: 12px 0;
     }
@@ -25,7 +25,7 @@
     font-weight: 700;
     width: 100%;
 
-    @include b.nhsw-from-tablet {
+    @include b.nhsw-from-desktop {
       width: 30%;
       padding-bottom: 0;
     }
@@ -38,7 +38,7 @@
     word-break: break-word;
     overflow-wrap: break-word;
 
-    @include b.nhsw-from-tablet {
+    @include b.nhsw-from-desktop {
       flex: 1;
       padding-bottom: 0;
     }
@@ -58,7 +58,7 @@
     text-align: left;
     width: 100%;
 
-    @include b.nhsw-from-tablet {
+    @include b.nhsw-from-desktop {
       width: auto;
       text-align: right;
       white-space: nowrap;

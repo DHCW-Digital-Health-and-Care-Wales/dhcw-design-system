@@ -13,4 +13,9 @@ describe('error-message margin-bottom reduced to 8px', () => {
     const error = block(css, '\\.nhsw-error-message');
     expect(error).toMatch(/color:\s*#d5281b/);
   });
+
+  it('an error message with the hidden attribute stays hidden, despite display: block, so it can be revealed only when needed', () => {
+    const css = compileProbe(`@use "components/forms/error-message";`);
+    expect(block(css, '\\.nhsw-error-message\\[hidden\\]')).toMatch(/display:\s*none/);
+  });
 });

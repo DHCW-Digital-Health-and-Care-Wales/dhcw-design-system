@@ -4,12 +4,13 @@
     <ul class="nhsw-site-footer__links">
       <li><a class="nhsw-link" href="{{ '/accessibility-statement.html' | relative_url }}">Accessibility statement</a></li>
       <li><a class="nhsw-link" href="{{ '/cookie-policy.html' | relative_url }}">Cookie policy</a></li>
+      {% if site.clarity_enabled %}<li><button type="button" class="nhsw-cookie-settings-link" data-cookie-settings>Cookie settings</button></li>{% endif %}
       <li><a class="nhsw-link" href="{{ '/privacy-policy.html' | relative_url }}">Privacy policy</a></li>
       <li><a class="nhsw-link" href="{{ '/terms-of-use.html' | relative_url }}">Terms of use</a></li>
       <li><a class="nhsw-link" href="{{ '/site-map.html' | relative_url }}">Site map</a></li>
     </ul>
     <div class="nhsw-site-footer__licence">
-      <span class="nhsw-site-footer__licence-badge" aria-hidden="true">OGL</span>
+      <img class="nhsw-site-footer__licence-badge" src="{{ '/assets/ogl-logo.svg' | relative_url }}" alt="" width="50" height="25" aria-hidden="true">
       <p class="nhsw-body-s nhsw-site-footer__licence-text">All content is available under the <a class="nhsw-link" href="#">Open Government License v3.0</a>, except where otherwise stated.</p>
     </div>
     <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
@@ -21,6 +22,7 @@
     <ul class="nhsw-site-footer__links">
       <li><a class="nhsw-link" href="{{ '/accessibility-statement.html' | relative_url }}">Accessibility statement</a></li>
       <li><a class="nhsw-link" href="#">Service guidance (opens in a new tab)</a></li>
+      {% if site.clarity_enabled %}<li><button type="button" class="nhsw-cookie-settings-link" data-cookie-settings>Cookie settings</button></li>{% endif %}
     </ul>
     <p class="nhsw-body-s nhsw-site-footer__copyright">&copy; Digital Health and Care Wales</p>
   </div>

@@ -139,13 +139,20 @@
             color: c.$nhsw-colour-link-hover;
         }
 
-        &:focus:not(:active) {
+        &:focus {
             border-radius: 0;
             text-decoration: none;
         }
 
         &:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
             box-shadow: none;
+        }
+
+        &:focus:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
+            background-color: c.$nhsw-colour-focus;
+            color: c.$nhsw-colour-text-primary;
+            border-color: transparent;
+            box-shadow: 0 2px 0 c.$nhsw-colour-border-primary;
         }
 
         &.nhsw-button--reverse {

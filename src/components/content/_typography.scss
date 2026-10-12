@@ -30,6 +30,22 @@ body {
   @include type.nhsw-heading-xs;
 }
 
+.nhsw-caption-xl {
+  @include type.nhsw-caption-xl;
+}
+
+.nhsw-caption-l {
+  @include type.nhsw-caption-l;
+}
+
+.nhsw-caption-m {
+  @include type.nhsw-caption-m;
+}
+
+.nhsw-caption-s {
+  @include type.nhsw-caption-s;
+}
+
 .nhsw-body {
   @include type.nhsw-body;
 }

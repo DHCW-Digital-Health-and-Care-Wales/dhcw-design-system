@@ -16,6 +16,7 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/file-upload.html' | relative_url }}" target="_blank" rel="noopener">Open the File upload documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/file-upload-default.html' | relative_url }}" target="_blank" rel="noopener">file-upload-default.html</a>, <a class="nhsw-link" href="{{ '/examples/file-upload-reverse.html' | relative_url }}" target="_blank" rel="noopener">file-upload-reverse.html</a></p>
 </div>
@@ -192,6 +193,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="file-upload-manual-10" name="file-upload-manual-tests" type="checkbox" aria-describedby="file-upload-manual-10-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="file-upload-manual-10">Error state is clearly indicated (WCAG 2.2 SC 1.4.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="file-upload-manual-10-hint">Given a file upload with an error. Then the box shows a red border and an error message is displayed above it, so the error isn't conveyed by colour alone.</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/file-upload-validation.html' | relative_url }}?submitted=1" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-form-group nhsw-form-group--error">
@@ -218,6 +220,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <h2 class="nhsw-h2">Additional implementation advice</h2>
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">

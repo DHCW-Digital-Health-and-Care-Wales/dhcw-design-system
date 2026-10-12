@@ -16,6 +16,7 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/error-summary.html' | relative_url }}" target="_blank" rel="noopener">Open the Error summary documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/error-summary-default.html' | relative_url }}" target="_blank" rel="noopener">error-summary-default.html</a>, <a class="nhsw-link" href="{{ '/examples/error-summary-date.html' | relative_url }}" target="_blank" rel="noopener">error-summary-date.html</a>, <a class="nhsw-link" href="{{ '/examples/error-summary-checkboxes.html' | relative_url }}" target="_blank" rel="noopener">error-summary-checkboxes.html</a>, <a class="nhsw-link" href="{{ '/examples/error-summary-timeout.html' | relative_url }}" target="_blank" rel="noopener">error-summary-timeout.html</a></p>
 </div>
@@ -42,7 +43,7 @@ extra_scripts:
             <h2 class="nhsw-h2">Your details</h2>
             <div class="nhsw-form-group nhsw-form-group--error">
               <label class="nhsw-label" for="full-name-error-summary-s1">Full name</label>
-              <p class="nhsw-error-message" id="full-name-error-error-summary-s1">Enter your full name</p>
+              <p class="nhsw-error-message" id="full-name-error-error-summary-s1"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
               <input class="nhsw-input" id="full-name-error-summary-s1" name="full-name-error-summary-s1" type="text" aria-describedby="full-name-error-error-summary-s1" aria-invalid="true">
             </div>
           </div>
@@ -64,7 +65,7 @@ extra_scripts:
             <h2 class="nhsw-h2">Your details</h2>
             <div class="nhsw-form-group nhsw-form-group--error">
               <label class="nhsw-label" for="full-name-error-summary-s2">Full name</label>
-              <p class="nhsw-error-message" id="full-name-error-error-summary-s2">Enter your full name</p>
+              <p class="nhsw-error-message" id="full-name-error-error-summary-s2"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
               <input class="nhsw-input" id="full-name-error-summary-s2" name="full-name-error-summary-s2" type="text" aria-describedby="full-name-error-error-summary-s2" aria-invalid="true">
             </div>
           </div>
@@ -74,6 +75,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="error-summary-manual-3" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-3-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-3">Keyboard focus moves to the error summary (WCAG 2.2 SC 3.3.1)</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-3-hint">Given a form submitted with errors. When the page reloads. Then keyboard focus moves to the error summary so users are immediately aware of the errors. The component ships <code>tabindex="-1"</code> for exactly this purpose — check the example below has it, then confirm the real service actually calls <code>.focus()</code> on reload (that part is the service's own JS/server-rendering, not something the component can guarantee alone).</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/error-summary-validation.html' | relative_url }}?submitted=1" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s3" role="alert" tabindex="-1">
@@ -155,7 +157,7 @@ extra_scripts:
           <div class="nhsw-example-preview__body">
             <div class="nhsw-form-group nhsw-form-group--error">
               <label class="nhsw-label" for="full-name-error-summary-s8">Full name</label>
-              <p class="nhsw-error-message" id="full-name-error-error-summary-s8">Enter your full name</p>
+              <p class="nhsw-error-message" id="full-name-error-error-summary-s8"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
               <input class="nhsw-input" id="full-name-error-summary-s8" name="full-name-error-summary-s8" type="text" aria-describedby="full-name-error-error-summary-s8" aria-invalid="true">
             </div>
           </div>
@@ -175,7 +177,7 @@ extra_scripts:
             </div>
             <div class="nhsw-form-group nhsw-form-group--error" style="margin-top: 16px;">
               <label class="nhsw-label" for="full-name-error-summary-s9">Full name</label>
-              <p class="nhsw-error-message" id="full-name-error-error-summary-s9">Enter your full name</p>
+              <p class="nhsw-error-message" id="full-name-error-error-summary-s9"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
               <input class="nhsw-input" id="full-name-error-summary-s9" name="full-name-error-summary-s9" type="text" aria-describedby="full-name-error-error-summary-s9" aria-invalid="true">
             </div>
           </div>
@@ -185,6 +187,7 @@ extra_scripts:
           <input class="nhsw-checkboxes__input" id="error-summary-manual-10" name="error-summary-manual-tests" type="checkbox" aria-describedby="error-summary-manual-10-hint">
           <label class="nhsw-label nhsw-checkboxes__label" for="error-summary-manual-10">Errors appear in the same order as the form fields</label>
           <div class="nhsw-hint nhsw-checkboxes__hint" id="error-summary-manual-10-hint">Given a form with multiple errors. When the error summary is displayed. Then the errors are listed in the same order as the corresponding fields on the page — this helps users navigate efficiently. The component itself just renders <code>errorList</code> in the order given, so the service must build that list in field order.</div>
+          <p class="nhsw-body"><a class="nhsw-link" href="{{ '/examples/error-summary-validation.html' | relative_url }}?submitted=1" target="_blank" rel="noopener">Open an example to check this scenario (opens in a new tab)</a></p>
         <div class="nhsw-example-preview" style="margin: 12px 0 0;">
           <div class="nhsw-example-preview__body">
             <div class="nhsw-error-summary" aria-labelledby="error-summary-title-error-summary-s10" role="alert" tabindex="-1">
@@ -207,6 +210,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <h2 class="nhsw-h2">Additional implementation advice</h2>
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">

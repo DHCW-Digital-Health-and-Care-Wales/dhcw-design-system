@@ -10,7 +10,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
     padding-left: 52px;
     position: relative;
 
@@ -40,8 +40,14 @@
     }
   }
 
+  &__label.nhsw-label {
+    margin-bottom: 0;
+  }
+
   &__label {
     display: inline-block;
+    min-width: 0;
+    overflow-wrap: break-word;
     padding: 8px 16px 0 0;
     cursor: pointer;
     -ms-user-select: none;
@@ -81,6 +87,8 @@
   &__hint {
     display: block;
     width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
     padding: 0 16px 4px 0;
     margin: 0;
     color: c.$nhsw-colour-text-secondary;
@@ -101,11 +109,15 @@
   &__conditional {
     margin-bottom: 16px;
     margin-left: 18px;
-    padding-left: 20px;
+    padding-left: 30px;
     border-left: 4px solid c.$nhsw-colour-border-secondary;
 
     &--hidden {
       display: none;
+    }
+
+    .nhsw-label {
+      font-weight: t.$nhsw-font-weight-regular;
     }
   }
 
@@ -120,6 +132,8 @@
   }
 
   &--small {
+    margin-top: 8px;
+
     .nhsw-checkboxes__item {
       min-height: 24px;
       padding-left: 32px;

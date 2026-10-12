@@ -38,10 +38,10 @@ params:
     type: object
     required: false
     description: >
-      { text, href, badge } renders an open-licence line (e.g. Open
+      { text, href, badgeSrc } renders an open-licence line (e.g. Open
       Government Licence v3.0) below the links, above the copyright, each as
-      its own full-width row. badge defaults to "OGL". Mutually exclusive
-      with organisation/versionText/navigation.
+      its own full-width row. badgeSrc defaults to "/assets/ogl-logo.svg".
+      Mutually exclusive with organisation/versionText/navigation.
   - name: classes
     type: string
     required: false

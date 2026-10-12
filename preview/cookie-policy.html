@@ -36,6 +36,37 @@ breadcrumb_parent_url: /index.html
 <p class="nhsw-body">The information collected helps us improve the website and the services we provide.</p>
 <p class="nhsw-body">You can choose whether to accept analytics cookies when you visit our website. If you change your mind, you can update your cookie preferences at any time.</p>
 
+<p class="nhsw-body">We use Microsoft Clarity to collect this information. Clarity records how pages are used, including clicks, scrolling and mouse movements, and is provided by Microsoft. Clarity only runs if you accept analytics cookies.</p>
+{% if site.clarity_enabled %}<p class="nhsw-body">You can change your choice at any time using the <button type="button" class="nhsw-cookie-settings-link" data-cookie-settings>Cookie settings</button> link.</p>{% endif %}
+
+<table class="nhsw-table">
+  <caption class="nhsw-table__caption nhsw-table__caption--m">Analytics cookies set by Microsoft Clarity</caption>
+  <thead class="nhsw-table__head">
+    <tr class="nhsw-table__row">
+      <th scope="col" class="nhsw-table__header">Name</th>
+      <th scope="col" class="nhsw-table__header">Purpose</th>
+      <th scope="col" class="nhsw-table__header">Expires</th>
+    </tr>
+  </thead>
+  <tbody class="nhsw-table__body">
+    <tr class="nhsw-table__row">
+      <td class="nhsw-table__cell">_clck</td>
+      <td class="nhsw-table__cell">Stores the Clarity user ID and preferences so that your visits are recognised as coming from the same person</td>
+      <td class="nhsw-table__cell">1 year</td>
+    </tr>
+    <tr class="nhsw-table__row">
+      <td class="nhsw-table__cell">_clsk</td>
+      <td class="nhsw-table__cell">Connects multiple page views by a user into a single Clarity session recording</td>
+      <td class="nhsw-table__cell">1 day</td>
+    </tr>
+    <tr class="nhsw-table__row">
+      <td class="nhsw-table__cell">nhsw_cookie_consent</td>
+      <td class="nhsw-table__cell">Remembers your cookie choice (stored in your browser's local storage)</td>
+      <td class="nhsw-table__cell">Until you clear your browser data</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 class="nhsw-h2">Managing cookies</h2>
 <p class="nhsw-body">Most web browsers allow you to control cookies through your browser settings.</p>
 <p class="nhsw-body">To find out more about cookies, including how to see what cookies have been set, visit:</p>

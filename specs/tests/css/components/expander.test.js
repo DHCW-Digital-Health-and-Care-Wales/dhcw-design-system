@@ -40,9 +40,9 @@ describe('expander hover/focus states and default appearance', () => {
     expect(base).toMatch(/border-bottom-width:\s*4px/);
   });
 
-  it('hover recolours the link text, icon and border together, and removes the underline', () => {
+  it('hover recolours the link text and icon, without changing the border colour', () => {
     const hover = block(css, '\\.nhsw-expander:hover');
-    expect(hover).toMatch(/border-color:\s*#7c2855/);
+    expect(hover).not.toMatch(/border-color/);
     const hoverText = block(css, '\\.nhsw-expander:hover \\.nhsw-expander__link-text');
     expect(hoverText).toMatch(/color:\s*#7c2855/);
     expect(hoverText).toMatch(/text-decoration:\s*none/);

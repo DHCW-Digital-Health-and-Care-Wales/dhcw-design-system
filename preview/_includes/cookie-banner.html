@@ -1,0 +1,18 @@
+<div class="nhsw-cookie-banner" id="nhsw-cookie-banner" role="region" aria-label="Cookies on the Design System website" data-module="nhsw-cookie-consent" data-clarity-id="{{ site.clarity_project_id }}" hidden>
+  <div class="nhsw-width-container">
+    <div data-cookie-prompt>
+      <h2 class="nhsw-h3">Cookies on the NHSW Design System</h2>
+      <p class="nhsw-body">We've put some small files called cookies on your device to make our site work.</p>
+      <p class="nhsw-body">We'd also like to use analytics cookies. These send anonymous information about how our site is used to a service called Microsoft Clarity. We use this information to improve our site.</p>
+      <p class="nhsw-body">Let us know if this is OK. We'll save your choice in your browser. You can <a class="nhsw-link" href="{{ '/cookie-policy.html' | relative_url }}">read more about our cookies</a> before you choose.</p>
+      <div class="nhsw-cookie-banner__actions">
+        <button type="button" class="nhsw-button nhsw-button--primary nhsw-button--inline" data-cookie-choice="accepted">I'm OK with analytics cookies</button>
+        <button type="button" class="nhsw-button nhsw-button--primary nhsw-button--inline" data-cookie-choice="rejected">Do not use analytics cookies</button>
+      </div>
+    </div>
+    <div data-cookie-confirmation hidden>
+      <p class="nhsw-body nhsw-cookie-banner__confirmation" tabindex="-1" data-cookie-message></p>
+      <button type="button" class="nhsw-button nhsw-button--secondary nhsw-button--inline" data-cookie-hide>Hide this message</button>
+    </div>
+  </div>
+</div>

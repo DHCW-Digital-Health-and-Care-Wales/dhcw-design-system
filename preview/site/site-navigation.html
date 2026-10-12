@@ -59,8 +59,8 @@ tabs:
 
   <h2 class="nhsw-h2">How to use site navigation</h2>
   <p class="nhsw-body">Site navigation is a set of links that acts as the main navigation for a website or service. It appears consistently across pages and provides access to the main sections of the service.</p>
-  <p class="nhsw-body">Place site navigation at the top of the page. On smaller screens, it displays as an expandable menu button.</p>
-  <p class="nhsw-body">Place links to your most important top-level sections first. When there is not enough space to show all links, they will be moved into the "More" drop-down list.</p>
+  <p class="nhsw-body">Place site navigation at the top of the page. On smaller screens it is hidden, unless you use the overflow menu variant, which keeps it available as an expandable menu button.</p>
+  <p class="nhsw-body">Place links to your most important top-level sections first. With the overflow menu variant, when there is not enough space to show all links, they are moved into the "More" drop-down list.</p>
   <p class="nhsw-body">Highlight the section the user is currently viewing to help them understand where they are within the service.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
@@ -136,11 +136,18 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="sn-tag" open_url="/examples/site-navigation-tag.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;
-  &lt;span&gt;Navigation Item 3&lt;/span&gt;
-  &lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;
-&lt;/a&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Navigation Item 3&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "site-navigation/macro.njk" import nhswSiteNavigation %}
+
+{{ nhswSiteNavigation({
   items: [
     { text: "Navigation Item 1", href: "/item-1", current: true },
     { text: "Navigation Item 2", href: "/item-2" },
@@ -185,6 +192,49 @@ tabs:
   classes: "nhsw-site-header__nav--reverse"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-tag-dark" html=html_sample njk=njk_sample toggleable=true %}
+  </section>
+
+  <section class="preview-section">
+    <h3 class="nhsw-h3">Site navigation with an overflow menu</h3>
+    <p class="nhsw-body">By default, site navigation is hidden on small screens. Use the overflow menu variant when users still need the navigation on a small screen, or when they zoom in. Links that do not fit move into a "More" menu, and the "More" button only appears when it is needed.</p>
+    <p class="nhsw-body">Make your browser window narrower to see links move into the menu.</p>
+
+    {% capture example_body %}{% raw %}
+      <nav class="nhsw-site-header__nav nhsw-site-header__nav--overflow" aria-label="Primary navigation">
+        <div class="nhsw-site-header__nav-container">
+          <ul class="nhsw-site-header__nav-list">
+            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+            <li class="nhsw-site-header__menu" hidden><button type="button" class="nhsw-site-header__menu-toggle nhsw-site-header__nav-link" aria-expanded="false"><span><span class="nhsw-visually-hidden">Browse </span>More</span></button></li>
+          </ul>
+        </div>
+      </nav>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="sn-overflow" open_url="/examples/site-navigation-overflow.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--overflow" aria-label="Primary navigation"&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Navigation Item 3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li class="nhsw-site-header__menu" hidden&gt;&lt;button type="button" class="nhsw-site-header__menu-toggle nhsw-site-header__nav-link" aria-expanded="false"&gt;&lt;span&gt;&lt;span class="nhsw-visually-hidden"&gt;Browse &lt;/span&gt;More&lt;/span&gt;&lt;/button&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
+  items: [
+    { text: "Navigation Item 1", href: "/item-1", current: true },
+    { text: "Navigation Item 2", href: "/item-2" },
+    { text: "Navigation Item 3", href: "/item-3" }
+  ],
+  overflowMenu: true
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="sn-overflow" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">This variant needs the <code>nhsw-behaviours.js</code> script, which works out which links fit and moves the rest into the menu. Without it, the links wrap onto more lines and the "More" button stays hidden.</p>
+    <p class="nhsw-body">Users can open the menu with the keyboard, and close it with the Escape key. An open menu pushes the content below it down instead of covering it.</p>
   </section>
 
   <div class="nhsw-tabs__pagination">

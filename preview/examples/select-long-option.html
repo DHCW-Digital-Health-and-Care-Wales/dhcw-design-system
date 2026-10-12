@@ -1,0 +1,27 @@
+---
+layout: example
+title: Select with long options example
+---
+<h1 class="nhsw-h2">Choose a pharmacy</h1>
+<p class="nhsw-body">Each select below already has a long option chosen. In a wide column the whole value should be readable. In a narrow column or on a small screen a native select cannot wrap its text, so check the value is still understandable and that nothing spills out of its column.</p>
+
+<div class="nhsw-form-group">
+  <label class="nhsw-label" for="sl-wide">Pharmacy in a wide column</label>
+  <select class="nhsw-select nhsw-select--full" id="sl-wide" name="sl-wide">
+    <option>Please select</option>
+    <option selected>Berrylands Pharmacy, 123 Ewell Road, Surbiton, Surrey, KT6 6EZ</option>
+    <option>Another pharmacy with a long name and a long address, Cardiff, CF10 1AA</option>
+  </select>
+</div>
+
+<div class="nhsw-grid-row">
+  <div class="nhsw-grid-column-one-third">
+    <div class="nhsw-form-group">
+      <label class="nhsw-label" for="sl-narrow">Pharmacy in a narrow column</label>
+      <select class="nhsw-select nhsw-select--xl" id="sl-narrow" name="sl-narrow">
+        <option>Please select</option>
+        <option selected>Berrylands Pharmacy, 123 Ewell Road, Surbiton, Surrey, KT6 6EZ (open late on weekdays, Welsh speaking staff available)</option>
+      </select>
+    </div>
+  </div>
+</div>

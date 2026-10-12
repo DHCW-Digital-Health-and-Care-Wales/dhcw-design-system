@@ -4,11 +4,13 @@
 
   params:
     idPrefix    string  - prefix for generated tab/panel ids, defaults to "tabs"
-    items       array   - list of { label, html, text, id }. label is the tab
-                           button text. html/text is the panel content (html takes
-                           precedence). id, if given, is used to build stable ids
-                           ("{idPrefix}-tab-{id}" / "{idPrefix}-panel-{id}");
-                           otherwise the 1-based loop index is used.
+    items       array   - list of { label, html, text, id, count }. label is the
+                           tab button text. count, if given, renders a badge
+                           after the label. html/text is the panel content
+                           (html takes precedence). id, if given, is used to
+                           build stable ids ("{idPrefix}-tab-{id}" /
+                           "{idPrefix}-panel-{id}"); otherwise the 1-based loop
+                           index is used.
     classes     string  - extra classes
     attributes  object  - extra HTML attributes
 #}
@@ -21,7 +23,7 @@
 {%- set tabId = idPrefix ~ "-tab-" ~ suffix %}
 {%- set panelId = idPrefix ~ "-panel-" ~ suffix %}
     <li role="presentation">
-      <button class="nhsw-tabs__tab{% if loop.first %} nhsw-tabs__tab--selected{% endif %}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="{{ panelId }}" id="{{ tabId }}">{{ item.label }}</button>
+      <button class="nhsw-tabs__tab{% if loop.first %} nhsw-tabs__tab--selected{% endif %}" role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" aria-controls="{{ panelId }}" id="{{ tabId }}"><span class="nhsw-tabs__tab-text">{{ item.label }}</span>{% if item.count %} <strong class="nhsw-tag nhsw-tag--blue">{{ item.count }}</strong>{% endif %}</button>
     </li>
 {%- endfor %}
   </ul>

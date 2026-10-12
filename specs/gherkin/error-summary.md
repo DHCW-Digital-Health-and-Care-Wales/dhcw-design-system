@@ -85,7 +85,32 @@ Feature: Error summary — automated coverage
     Scenario: Checkbox group errors stay wrapped in fieldset + legend
       Given error-summary-checkboxes.html
       Then the .nhsw-checkboxes group sits inside a <fieldset> with a <legend>
+
+  Rule: Focus moves to the error summary and from it to the field, as in NHS.UK
+
+    @automated
+    # specs/tests/js/behaviours.test.js, specs/tests/njk/error-summary.test.js, specs/e2e/scenario-examples.spec.js
+    Scenario: Keyboard focus moves to the error summary when the page loads with errors (SCEN-ERROR-003)
+      Given an error summary marked data-module="nhsw-error-summary" (the macro adds it)
+      When the page loads
+      Then the summary takes focus
+      And a summary without data-module, or with data-disable-auto-focus="true", does not
+
+    @automated
+    # specs/tests/js/behaviours.test.js, specs/e2e/scenario-examples.spec.js
+    Scenario: A link in the summary focuses the field it points at
+      Given an error summary link that points at a field, or the first option of a radio or checkbox group
+      When the link is selected
+      Then the field takes focus and its label or group legend is scrolled into view
+
+    @automated
+    # specs/e2e/scenario-examples.spec.js
+    Scenario: Errors are listed in the same order as the form fields (SCEN-ERROR-010)
+      Given error-summary-validation.html with several fields in error
+      Then the summary links are in the same order as their fields in the form
 ```
+
+> Example page for the manual checks: `preview/examples/error-summary-validation.html` (open it with `?submitted=1` to see the errors straight away).
 
 ## Manual test scenarios
 

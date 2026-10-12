@@ -75,4 +75,26 @@ describe('checkboxes: regular-weight labels, centred tick, row hover, thicker fo
     const divider = block(css, '\\.nhsw-checkboxes__divider');
     expect(divider).toMatch(/color:\s*#212b32/);
   });
+
+  it('items are spaced 6px apart, narrower than the 16px used elsewhere', () => {
+    const item = block(css, '\\.nhsw-checkboxes__item\\b');
+    expect(item).toMatch(/margin-bottom:\s*6px/);
+  });
+
+  it('the label itself carries no bottom margin, so item spacing is controlled only by the item, not by the shared .nhsw-label hint-aware margin', () => {
+    const label = block(css, '\\.nhsw-checkboxes__label\\.nhsw-label');
+    expect(label).toMatch(/margin-bottom:\s*0/);
+  });
+
+  it('conditional content indents 52px total (margin + border + padding), aligning with the 52px item label', () => {
+    const conditional = block(css, '\\.nhsw-checkboxes__conditional\\b');
+    expect(conditional).toMatch(/margin-left:\s*18px/);
+    expect(conditional).toMatch(/padding-left:\s*30px/);
+    expect(conditional).toMatch(/border-left:\s*4px/);
+  });
+
+  it('a nested field label inside conditional content is regular weight, matching the checkbox label rather than the bold default', () => {
+    const conditionalLabel = block(css, '\\.nhsw-checkboxes__conditional \\.nhsw-label');
+    expect(conditionalLabel).toMatch(/font-weight:\s*400/);
+  });
 });

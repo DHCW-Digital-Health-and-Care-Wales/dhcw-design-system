@@ -8,11 +8,11 @@
                              only meaningful alongside links mode
     organisation   string  - org/version mode (mutually exclusive with links/navigation)
     versionText    string  - org/version mode (mutually exclusive with links/navigation)
-    licence        object  - { text, href, badge } open-licence mode: renders links,
-                              then a licence line (badge + text with a link at href),
+    licence        object  - { text, href, badgeSrc } open-licence mode: renders links,
+                              then a licence line (OGL logo + text with a link at href),
                               then copyright, each as their own full-width row.
-                              badge defaults to "OGL". Mutually exclusive with
-                              organisation/versionText/navigation.
+                              badgeSrc defaults to "/assets/ogl-logo.svg". Mutually
+                              exclusive with organisation/versionText/navigation.
     classes        string  - extra classes
     attributes     object  - extra HTML attributes
 
@@ -40,7 +40,7 @@
 {%- endfor %}
     </ul>
     <div class="nhsw-site-footer__licence">
-      <span class="nhsw-site-footer__licence-badge" aria-hidden="true">{{ params.licence.badge or "OGL" }}</span>
+      <img class="nhsw-site-footer__licence-badge" src="{{ params.licence.badgeSrc or '/assets/ogl-logo.svg' }}" alt="" width="50" height="25" aria-hidden="true">
       <p class="nhsw-body-s nhsw-site-footer__licence-text">All content is available under the <a class="nhsw-link" href="{{ params.licence.href }}">{{ params.licence.text }}</a>, except where otherwise stated.</p>
     </div>
     <p class="nhsw-body-s nhsw-site-footer__copyright">{{ params.copyrightText or "&copy; Digital Health and Care Wales" | safe }}</p>

@@ -11,6 +11,7 @@ extra_scripts:
 <p class="nhsw-body">Manual QA checklist for the skip link component. These scenarios are not exercised by the automated suite (<code>npm test</code>) — see <code>specs/gherkin/skip-link.md</code> for the full Gherkin source, including what <em>is</em> already covered automatically.</p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><strong>This page only has one skip link — this page's own.</strong> Unlike the other components in this checklist, a skip link only makes sense as a single, page-level instance, so the checks below don't repeat a separate boxed-in example under each one. Test every scenario against the real skip link built into this page: it's the very first focusable thing, before the header, and it jumps to the main content area you're reading right now (<code>#maincontent</code>) — exactly like it would on any real page in a service. Press Tab from a fresh page load (before clicking anywhere on the page) to reveal it.</p>
 </div>
 
@@ -20,6 +21,7 @@ extra_scripts:
 </p>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <p class="nhsw-body"><a class="nhsw-link" href="{{ '/actions/skip-link.html' | relative_url }}" target="_blank" rel="noopener">Open the Skip link documentation page</a></p>
   <p class="nhsw-body"><strong>Live example fixtures:</strong> <a class="nhsw-link" href="{{ '/examples/skip-link-default.html' | relative_url }}" target="_blank" rel="noopener">skip-link-default.html</a></p>
 </div>
@@ -64,6 +66,7 @@ extra_scripts:
 </div>
 
 <div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
   <h2 class="nhsw-h2">Additional implementation advice</h2>
   <p class="nhsw-body">These aren't testable against the isolated component in this library — they depend on how the page or service around it is actually built (form re-submission, cross-page consistency, backend session timing, and so on). The component library can describe and support the pattern, but only the real integration can prove it's correct. Worth checking whenever a service uses this component.</p>
   <ul class="nhsw-body">

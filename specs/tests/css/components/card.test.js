@@ -85,4 +85,21 @@ describe('card hover/focus states, chevron icon and actions header', () => {
     const preview = block(css, '\\.nhsw-card__preview\\b');
     expect(preview).toMatch(/border:\s*1px solid #d8dde0/);
   });
+
+  it('card group list drops the default list padding, bullets and vertical margin so a ul/li grid lays out like the old div grid', () => {
+    const group = block(css, '\\.nhsw-card-group\\b');
+    expect(group).toMatch(/padding:\s*0/);
+    expect(group).toMatch(/list-style:\s*none/);
+    expect(group).toMatch(/margin-top:\s*0/);
+    expect(group).toMatch(/margin-bottom:\s*0/);
+    expect(group).not.toMatch(/margin-left|margin-right/);
+  });
+
+  it('card group item has no list marker', () => {
+    expect(block(css, '\\.nhsw-card-group__item')).toMatch(/list-style:\s*none/);
+  });
+
+  it('long unbroken text such as an email address wraps inside the card, so it never pushes out of it', () => {
+    expect(block(css, '\\.nhsw-card\\b')).toMatch(/overflow-wrap:\s*anywhere/);
+  });
 });

@@ -13,9 +13,10 @@ params:
     type: array
     required: true
     description: >
-      List of { label, html, text, id }. label is the tab button text.
-      html/text is the panel content (html takes precedence). id, if given,
-      is used to build stable ids; otherwise the 1-based loop index is used.
+      List of { label, html, text, id, count }. label is the tab button
+      text. count, if given, renders a badge after the label. html/text is
+      the panel content (html takes precedence). id, if given, is used to
+      build stable ids; otherwise the 1-based loop index is used.
   - name: classes
     type: string
     required: false
@@ -36,3 +37,9 @@ examples:
       items:
         - { label: "Overview", text: "Overview content" }
         - { label: "Examples", text: "Examples content" }
+  - name: with-count
+    data:
+      idPrefix: "demo"
+      items:
+        - { label: "Past day", id: "day", count: "112", html: "Panel 1 content" }
+        - { label: "Past week", id: "week", html: "Panel 2 content" }

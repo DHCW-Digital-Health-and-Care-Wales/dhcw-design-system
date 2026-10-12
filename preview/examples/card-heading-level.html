@@ -1,0 +1,44 @@
+---
+layout: example
+title: Card heading levels example
+---
+<h1 class="nhsw-h1">Your health services</h1>
+
+<h2 class="nhsw-h2">Appointments</h2>
+<p class="nhsw-body">Under an h2, a card uses the default heading level 3.</p>
+<div class="nhsw-card" id="hl-default">
+  <h3 class="nhsw-card__title">Default heading level (h3)</h3>
+  <p class="nhsw-card__description">Rendered with headingLevel left out, so it is an h3 under the h2 above.</p>
+</div>
+
+<h2 class="nhsw-h2">Records</h2>
+<h3 class="nhsw-h3">Vaccinations</h3>
+<p class="nhsw-body">Under an h3, a card overrides its heading level to 4.</p>
+<div class="nhsw-card" id="hl-four">
+  <h4 class="nhsw-card__title">Overridden heading level (h4)</h4>
+  <p class="nhsw-card__description">Rendered with headingLevel: 4, so it is an h4 under the h3 above.</p>
+</div>
+
+<p class="nhsw-body">Directly under the page's h1, with no section heading, a card uses level 2.</p>
+<div class="nhsw-card" id="hl-two">
+  <h2 class="nhsw-card__title">Overridden heading level (h2)</h2>
+  <p class="nhsw-card__description">Rendered with headingLevel: 2.</p>
+</div>
+
+<h2 class="nhsw-h2">Heading outline of this page</h2>
+<p class="nhsw-body">Built from the headings above, so you can check that the levels keep the page outline correct.</p>
+<ol class="nhsw-body" id="hl-outline"></ol>
+
+<script>
+  // Demo only: lists the page's headings in order, with their level.
+  (function () {
+    var list = document.getElementById('hl-outline');
+    var skip = list.previousElementSibling.previousElementSibling;
+    document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach(function (heading) {
+      if (heading === skip) return;
+      var item = document.createElement('li');
+      item.textContent = heading.tagName.toLowerCase() + ': ' + heading.textContent;
+      list.appendChild(item);
+    });
+  }());
+</script>

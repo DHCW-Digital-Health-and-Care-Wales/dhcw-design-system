@@ -2,15 +2,20 @@
 
 .nhsw-tag {
   display: inline-block;
+  max-width: 100%;
+  margin: 0 4px 4px 0;
   padding: 4px 8px;
   border: 1px solid #183154;
   background-color: #183154;
   color: c.$nhsw-colour-text-exceptional;
   font-size: 0.875rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
   text-align: center;
   text-decoration: none;
+  vertical-align: middle;
+  word-break: break-word;
+  overflow-wrap: break-word;
   outline: 2px solid transparent;
   outline-offset: -2px;
 
@@ -79,6 +84,16 @@
     border-color: #004281;
     color: c.$nhsw-colour-text-exceptional;
   }
+
+  &--no-colour {
+    background-color: transparent;
+    border-color: #aeb7bd;
+    color: inherit;
+  }
+
+  &--no-border {
+    border-color: transparent;
+  }
 }
 
 .nhsw-tag-group {
@@ -89,7 +104,7 @@
     margin: 0;
   }
 
-  .nhsw-tag:first-child {
+  .nhsw-tag:first-of-type {
     border-right: none;
   }
 }

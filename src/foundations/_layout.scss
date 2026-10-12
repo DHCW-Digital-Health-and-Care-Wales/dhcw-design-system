@@ -1,8 +1,8 @@
 @use "../tokens/spacing" as s;
 @use "../utilities/breakpoints" as b;
 
-@mixin nhsw-container {
-  max-width: s.$nhsw-page-width;
+@mixin nhsw-container($max-width: s.$nhsw-page-width) {
+  max-width: $max-width;
   margin-left: s.$nhsw-container-margin-mobile;
   margin-right: s.$nhsw-container-margin-mobile;
 

@@ -60,10 +60,29 @@ Feature: Textarea — automated coverage
   Rule: Character counter behaviour (data-max-length)
 
     @automated
-    # specs/tests/js/docs-behaviors.test.js
+    # specs/tests/js/behaviours.test.js
+    Scenario: The live region is created by script, not written into the page
+      Given a textarea with data-max-length="10" and a count element with no aria-live
+      When nhsw-behaviours.js runs
+      Then exactly one visually hidden aria-live="polite" region exists
+      And the visible count is aria-hidden="true"
+      And the original count element stays as the textarea's aria-describedby description, visually hidden
+      And the hard maxlength attribute is removed
+
+    @automated
+    # specs/tests/js/behaviours.test.js
+    Scenario: The live region only announces once typing has paused
+      Given a focused textarea with data-max-length="10"
+      When the user types
+      Then the live region is not written to on each keystroke
+      And once typing has paused for 500ms it is updated, checked every 1000ms (as in NHS.UK)
+      And it stops checking when the field loses focus
+
+    @automated
+    # specs/tests/js/behaviours.test.js
     Scenario: Full count shown with no input
       Given a textarea with data-max-length="10"
-      Then the counter reads "You have 10 characters remaining"
+      Then the visible counter reads "You have 10 characters remaining"
 
     @automated
     # specs/tests/js/docs-behaviors.test.js
@@ -148,7 +167,9 @@ Feature: Textarea — manual verification
   Scenario: Character counter is available to screen reader users
     Given a textarea with a character counter
     When a screen reader user enters text
-    Then the remaining or exceeded character count is communicated appropriately
+    Then the remaining or exceeded character count is announced once typing pauses, not on every keystroke
+    And reading the whole page does not jump to or announce the count
+    And moving back into the field reads the current count as part of its description
 
   @manual
   Scenario: Character counter remains readable at longer lengths

@@ -65,7 +65,11 @@ params:
   - name: characterCountMessage
     type: string
     required: false
-    description: Override the character-count hint text.
+    description: >
+      Override the initial count text, "You have N characters remaining", which
+      assistive technology reads when the field is focused. nhsw-behaviours.js
+      hides it visually, keeps it current, and adds a visible count and a polite
+      live region.
   - name: disabled
     type: boolean
     required: false

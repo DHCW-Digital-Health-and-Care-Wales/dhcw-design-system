@@ -1,5 +1,6 @@
 @use "../../tokens/colours" as c;
 @use "../../utilities/focus-ring" as u;
+@use "../../utilities/breakpoints" as b;
 
 .nhsw-example-preview {
   min-width: 0;
@@ -24,11 +25,22 @@
 
   &__body {
     position: relative;
-    padding: 32px 24px;
+    padding: 16px;
     background-color: c.$nhsw-colour-background-white;
+
+    @include b.nhsw-from-tablet {
+      padding: 32px 24px;
+    }
 
     &--dark {
       background-color: c.$nhsw-colour-background-blue;
+    }
+
+    // The example sits inline in the docs page, so a navigation demo would
+    // vanish whenever the window is narrower than the component's own breakpoint.
+    // Keep it in view; the example opened in a new tab behaves as the real thing.
+    .nhsw-site-header__nav {
+      display: block;
     }
   }
 

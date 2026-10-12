@@ -2,7 +2,6 @@
 
 .nhsw-site-footer {
   margin-top: 4rem;
-  border-top: 0.25rem solid #005eb8;
   background-color: c.$nhsw-colour-background-white;
 }
 
@@ -39,28 +38,24 @@
 
 .nhsw-site-footer__copyright {
   margin: 0;
+  color: c.$nhsw-colour-text-secondary;
 }
 
 .nhsw-site-footer__licence {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  margin: 0 0 1rem;
+  margin: 0 0 3rem;
 }
 
 .nhsw-site-footer__licence-badge {
   flex: 0 0 auto;
-  padding: 2px 6px;
-  border: 1px solid c.$nhsw-colour-text-primary;
-  color: c.$nhsw-colour-text-primary;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.4;
 }
 
 .nhsw-site-footer__licence-text {
   margin: 0;
   color: c.$nhsw-colour-text-secondary;
+  font-size: 1.1875rem;
 }
 
 .nhsw-site-footer__org {

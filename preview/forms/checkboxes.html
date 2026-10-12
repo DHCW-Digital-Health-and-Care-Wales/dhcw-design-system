@@ -88,7 +88,7 @@ tabs:
     <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
       <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
       <div class="nhsw-hint" id="cb-contact3-hint">Select all options that are relevant to you</div>
-      <p class="nhsw-error-message" id="cb-contact3-error">Select how you want to be contacted</p>
+      <p class="nhsw-error-message" id="cb-contact3-error"><span class="nhsw-visually-hidden">Error: </span>Select how you want to be contacted</p>
       <div class="nhsw-checkboxes">
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="cb-contact3-1" name="cb-contact3" type="checkbox" value="email" aria-invalid="true">
@@ -110,7 +110,7 @@ tabs:
   {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint contact-error"&gt;
   &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
   &lt;div class="nhsw-hint" id="contact-hint"&gt;Select all options that are relevant to you&lt;/div&gt;
-  &lt;p class="nhsw-error-message" id="contact-error"&gt;Select how you want to be contacted&lt;/p&gt;
+  &lt;p class="nhsw-error-message" id="contact-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select how you want to be contacted&lt;/p&gt;
   &lt;div class="nhsw-checkboxes"&gt;
     &lt;div class="nhsw-checkboxes__item"&gt;
       &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" aria-invalid="true"&gt;
@@ -245,16 +245,37 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="cb-hints" open_url="/examples/checkboxes-hints.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes__item"&gt;
-  &lt;input class="nhsw-checkboxes__input" id="condition-4" name="condition" type="checkbox" value="diabetes" aria-describedby="condition-4-hint"&gt;
-  &lt;label class="nhsw-label nhsw-checkboxes__label" for="condition-4"&gt;Diabetes&lt;/label&gt;
-  &lt;div class="nhsw-hint nhsw-checkboxes__hint" id="condition-4-hint"&gt;including type 1, type 2, and gestational diabetes&lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="conditions-hint"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;What medical conditions do you have?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="conditions-hint"&gt;Select 1 or more&lt;/div&gt;
+  &lt;div class="nhsw-checkboxes"&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="condition-1" name="condition" type="checkbox" value="alzheimers"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="condition-1"&gt;Alzheimer's disease or dementia&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="condition-2" name="condition" type="checkbox" value="asthma"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="condition-2"&gt;Asthma&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="condition-3" name="condition" type="checkbox" value="cancer"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="condition-3"&gt;Cancer&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="condition-4" name="condition" type="checkbox" value="diabetes" aria-describedby="condition-4-hint"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="condition-4"&gt;Diabetes&lt;/label&gt;
+      &lt;div class="nhsw-hint nhsw-checkboxes__hint" id="condition-4-hint"&gt;including type 1, type 2, and gestational diabetes&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
   name: "condition",
   fieldset: { legend: { text: "What medical conditions do you have?" } },
   hint: { text: "Select 1 or more" },
   items: [
+    { text: "Alzheimer's disease or dementia", value: "alzheimers", id: "condition-1" },
+    { text: "Asthma", value: "asthma", id: "condition-2" },
+    { text: "Cancer", value: "cancer", id: "condition-3" },
     { text: "Diabetes", value: "diabetes", id: "condition-4", hint: { text: "including type 1, type 2, and gestational diabetes" } }
   ]
 }) }}{% endraw %}{% endcapture %}
@@ -297,16 +318,37 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="cb-none" open_url="/examples/checkboxes-none.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes__divider"&gt;or&lt;/div&gt;
-&lt;div class="nhsw-checkboxes__item"&gt;
-  &lt;input class="nhsw-checkboxes__input" id="symptoms-none" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive&gt;
-  &lt;label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none"&gt;No, I do not have any of these symptoms&lt;/label&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="symptoms-hint"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Do you have any of these symptoms?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="symptoms-hint"&gt;Select all the symptoms you have&lt;/div&gt;
+  &lt;div class="nhsw-checkboxes"&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="symptoms-1" name="symptoms" type="checkbox" value="sore-throat"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="symptoms-1"&gt;Sore throat&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="symptoms-2" name="symptoms" type="checkbox" value="runny-nose"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="symptoms-2"&gt;Runny nose&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="symptoms-3" name="symptoms" type="checkbox" value="joint-pain"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="symptoms-3"&gt;Muscle or joint pain&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__divider"&gt;or&lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="symptoms-none" name="symptoms" type="checkbox" value="none" data-checkbox-exclusive&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="symptoms-none"&gt;No, I do not have any of these symptoms&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
   name: "symptoms",
   fieldset: { legend: { text: "Do you have any of these symptoms?" } },
   hint: { text: "Select all the symptoms you have" },
   items: [
+    { text: "Sore throat", value: "sore-throat", id: "symptoms-1" },
+    { text: "Runny nose", value: "runny-nose", id: "symptoms-2" },
+    { text: "Muscle or joint pain", value: "joint-pain", id: "symptoms-3" },
     { divider: "or" },
     { text: "No, I do not have any of these symptoms", value: "none", id: "symptoms-none", behaviour: "exclusive" }
   ]
@@ -330,7 +372,7 @@ tabs:
             <input class="nhsw-checkboxes__input" id="cb-contact2-1" name="cb-contact2" type="checkbox" value="email" data-aria-controls="conditional-cb2-1" checked>
             <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-1">Email</label>
           </div>
-          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-1">
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-1" aria-live="polite">
             <div class="nhsw-form-group">
               <label class="nhsw-label" for="cb2-email">Email address</label>
               <input class="nhsw-input" id="cb2-email" name="cb2-email" type="email">
@@ -340,7 +382,7 @@ tabs:
             <input class="nhsw-checkboxes__input" id="cb-contact2-2" name="cb-contact2" type="checkbox" value="phone" data-aria-controls="conditional-cb2-2" checked>
             <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-2">Phone</label>
           </div>
-          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-2">
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-2" aria-live="polite">
             <div class="nhsw-form-group">
               <label class="nhsw-label" for="cb2-phone">Phone number</label>
               <input class="nhsw-input" id="cb2-phone" name="cb2-phone" type="tel">
@@ -350,7 +392,7 @@ tabs:
             <input class="nhsw-checkboxes__input" id="cb-contact2-3" name="cb-contact2" type="checkbox" value="text" data-aria-controls="conditional-cb2-3" checked>
             <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact2-3">Text message</label>
           </div>
-          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-3">
+          <div class="nhsw-checkboxes__conditional" id="conditional-cb2-3" aria-live="polite">
             <div class="nhsw-form-group">
               <label class="nhsw-label" for="cb2-mobile">Mobile phone number</label>
               <input class="nhsw-input" id="cb2-mobile" name="cb2-mobile" type="tel">
@@ -361,26 +403,72 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="cb-conditional" open_url="/examples/checkboxes-conditional.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes__item"&gt;
-  &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" data-aria-controls="conditional-contact-1"&gt;
-  &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
-&lt;/div&gt;
-&lt;div class="nhsw-checkboxes__conditional" id="conditional-contact-1"&gt;
-  &lt;div class="nhsw-form-group"&gt;
-    &lt;label class="nhsw-label" for="email"&gt;Email address&lt;/label&gt;
-    &lt;input class="nhsw-input" id="email" name="email" type="email"&gt;
+    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
+  &lt;div class="nhsw-hint" id="contact-hint"&gt;Select all options that are relevant to you&lt;/div&gt;
+  &lt;div class="nhsw-checkboxes"&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" data-aria-controls="conditional-contact-1" checked&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__conditional" id="conditional-contact-1" aria-live="polite"&gt;
+      &lt;div class="nhsw-form-group"&gt;
+        &lt;label class="nhsw-label" for="email"&gt;Email address&lt;/label&gt;
+        &lt;input class="nhsw-input" id="email" name="email" type="email"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone" data-aria-controls="conditional-contact-2" checked&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-2"&gt;Phone&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__conditional" id="conditional-contact-2" aria-live="polite"&gt;
+      &lt;div class="nhsw-form-group"&gt;
+        &lt;label class="nhsw-label" for="phone"&gt;Phone number&lt;/label&gt;
+        &lt;input class="nhsw-input" id="phone" name="phone" type="tel"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text" data-aria-controls="conditional-contact-3" checked&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-3"&gt;Text message&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__conditional" id="conditional-contact-3" aria-live="polite"&gt;
+      &lt;div class="nhsw-form-group"&gt;
+        &lt;label class="nhsw-label" for="mobile"&gt;Mobile phone number&lt;/label&gt;
+        &lt;input class="nhsw-input" id="mobile" name="mobile" type="tel"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
   name: "contact",
   fieldset: { legend: { text: "How do you want to be contacted about this?" } },
+  hint: { text: "Select all options that are relevant to you" },
   items: [
     {
       text: "Email",
       value: "email",
       id: "contact-1",
+      checked: true,
       conditional: {
         html: "&lt;div class=\"nhsw-form-group\"&gt;&lt;label class=\"nhsw-label\" for=\"email\"&gt;Email address&lt;/label&gt;&lt;input class=\"nhsw-input\" id=\"email\" name=\"email\" type=\"email\"&gt;&lt;/div&gt;"
+      }
+    },
+    {
+      text: "Phone",
+      value: "phone",
+      id: "contact-2",
+      checked: true,
+      conditional: {
+        html: "&lt;div class=\"nhsw-form-group\"&gt;&lt;label class=\"nhsw-label\" for=\"phone\"&gt;Phone number&lt;/label&gt;&lt;input class=\"nhsw-input\" id=\"phone\" name=\"phone\" type=\"tel\"&gt;&lt;/div&gt;"
+      }
+    },
+    {
+      text: "Text message",
+      value: "text",
+      id: "contact-3",
+      checked: true,
+      conditional: {
+        html: "&lt;div class=\"nhsw-form-group\"&gt;&lt;label class=\"nhsw-label\" for=\"mobile\"&gt;Mobile phone number&lt;/label&gt;&lt;input class=\"nhsw-input\" id=\"mobile\" name=\"mobile\" type=\"tel\"&gt;&lt;/div&gt;"
       }
     }
   ]
@@ -419,24 +507,27 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="cb-small" open_url="/examples/checkboxes-small.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-checkboxes nhsw-checkboxes--small"&gt;
-  &lt;div class="nhsw-checkboxes__item"&gt;
-    &lt;input class="nhsw-checkboxes__input" id="setting-1" name="setting" type="checkbox" value="ambulance"&gt;
-    &lt;label class="nhsw-label nhsw-checkboxes__label" for="setting-1"&gt;Ambulance or urgent and emergency care&lt;/label&gt;
+    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset"&gt;
+  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Care setting&lt;/legend&gt;
+  &lt;div class="nhsw-checkboxes nhsw-checkboxes--small"&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="setting-1" name="setting" type="checkbox" value="ambulance"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="setting-1"&gt;Ambulance or urgent and emergency care&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="setting-2" name="setting" type="checkbox" value="care-home"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="setting-2"&gt;Care home&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="setting-3" name="setting" type="checkbox" value="community"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="setting-3"&gt;Community health&lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-checkboxes__item"&gt;
+      &lt;input class="nhsw-checkboxes__input" id="setting-4" name="setting" type="checkbox" value="dentistry"&gt;
+      &lt;label class="nhsw-label nhsw-checkboxes__label" for="setting-4"&gt;Dentistry&lt;/label&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="nhsw-checkboxes__item"&gt;
-    &lt;input class="nhsw-checkboxes__input" id="setting-2" name="setting" type="checkbox" value="care-home"&gt;
-    &lt;label class="nhsw-label nhsw-checkboxes__label" for="setting-2"&gt;Care home&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="nhsw-checkboxes__item"&gt;
-    &lt;input class="nhsw-checkboxes__input" id="setting-3" name="setting" type="checkbox" value="community"&gt;
-    &lt;label class="nhsw-label nhsw-checkboxes__label" for="setting-3"&gt;Community health&lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class="nhsw-checkboxes__item"&gt;
-    &lt;input class="nhsw-checkboxes__input" id="setting-4" name="setting" type="checkbox" value="dentistry"&gt;
-    &lt;label class="nhsw-label nhsw-checkboxes__label" for="setting-4"&gt;Dentistry&lt;/label&gt;
-  &lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
+&lt;/fieldset&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
   name: "setting",
   fieldset: { legend: { text: "Care setting" } },

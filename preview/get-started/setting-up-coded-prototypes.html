@@ -27,3 +27,9 @@ breadcrumb_parent_url: /index.html
   <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Save and continue</button>
 {% endcapture %}
 {% include example-preview.html id="gs-using-components" open_url="/examples/button-primary.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button"&gt;Save and continue&lt;/button&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "button/macro.njk" import nhswButton %}
+
+{{ nhswButton({ text: "Save and continue", classes: "nhsw-button--primary nhsw-button--inline" }) }}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="gs-using-components" html=html_sample njk=njk_sample toggleable=true %}

@@ -7,13 +7,27 @@
     text         string  - content text, wrapped in <p class="nhsw-body"> (used if html is not set)
     html         string  - content HTML (takes precedence over text), rendered as-is
     classes      string  - extra classes, e.g. "nhsw-warning-callout--important"
+    headingPrefixText string - screen-reader-only prefix before the heading. Defaults to
+                              "Important", so NVDA and other screen readers announce
+                              that the heading introduces a callout. No prefix is added
+                              when the heading already contains "important" or
+                              "warning" (it would just repeat itself). Pass "" to omit
+                              the prefix, or text to replace "Important".
     attributes   object  - extra HTML attributes
 #}
 {%- macro nhswWarningCallout(params) -%}
+{%- set headingPlain = ((params.headingHtml | striptags) if params.headingHtml else params.heading) | string | lower -%}
+{%- if params.headingPrefixText != undefined -%}
+{%- set prefixText = params.headingPrefixText -%}
+{%- elif "important" in headingPlain or "warning" in headingPlain -%}
+{%- set prefixText = "" -%}
+{%- else -%}
+{%- set prefixText = "Important" -%}
+{%- endif -%}
 <div class="nhsw-warning-callout{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
   <h3 class="nhsw-warning-callout__heading">
     <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
-    {{ params.headingHtml | safe if params.headingHtml else params.heading }}
+    <span class="nhsw-warning-callout__heading-text">{% if prefixText %}<span class="nhsw-visually-hidden">{{ prefixText }}: </span>{% endif %}{{ params.headingHtml | safe if params.headingHtml else params.heading }}</span>
   </h3>
   <div class="nhsw-warning-callout__content">
 {%- if params.html %}

@@ -27,7 +27,7 @@ describe('radios match Figma Radios component (40x40px circle)', () => {
   });
 });
 
-describe('radios: regular-weight labels, tighter item spacing, row hover, thicker focus border, matching hint/divider colours', () => {
+describe('radios: regular-weight labels, tighter item spacing, no row hover wash, thicker focus border, matching hint/divider colours', () => {
   let css = '';
 
   beforeAll(() => {
@@ -39,9 +39,24 @@ describe('radios: regular-weight labels, tighter item spacing, row hover, thicke
     expect(item).toMatch(/margin-bottom:\s*6px/);
   });
 
-  it('item row highlights on hover', () => {
+  it('the label itself carries no bottom margin, so item spacing is controlled only by the item, not by the shared .nhsw-label hint-aware margin', () => {
+    const label = block(css, '\\.nhsw-radios__label\\.nhsw-label');
+    expect(label).toMatch(/margin-bottom:\s*0/);
+  });
+
+  it('item row has no hover background wash', () => {
     const hover = block(css, '\\.nhsw-radios__item:hover');
-    expect(hover).toMatch(/background-color:\s*#f0f4f5/);
+    expect(hover).toBe('');
+  });
+
+  it('hovering the item rings just the circle with a grey shadow, not a background wash', () => {
+    const hoverRing = block(css, '\\.nhsw-radios__item:hover \\.nhsw-radios__label::before');
+    expect(hoverRing).toMatch(/box-shadow:\s*0 0 0 4px #afb8bf/);
+  });
+
+  it('hovering a focused item layers the grey ring around the outside of the yellow focus ring (4px yellow, then grey out to 8px)', () => {
+    const combined = block(css, '\\.nhsw-radios__item:hover \\.nhsw-radios__input:focus \\+ \\.nhsw-radios__label::before');
+    expect(combined).toMatch(/box-shadow:\s*0 0 0 4px #ffeb3b,\s*0 0 0 8px #afb8bf/);
   });
 
   it('focus adds a thicker near-black border alongside the yellow ring', () => {
@@ -66,5 +81,22 @@ describe('radios: regular-weight labels, tighter item spacing, row hover, thicke
     expect(hint).toMatch(/font-size:\s*1\.1875rem/);
     const divider = block(css, '\\.nhsw-radios__divider');
     expect(divider).toMatch(/color:\s*#212b32/);
+  });
+
+  it('divider margin-bottom matches the 6px item spacing, not the old 16px', () => {
+    const divider = block(css, '\\.nhsw-radios__divider');
+    expect(divider).toMatch(/margin-bottom:\s*6px/);
+  });
+
+  it('conditional content indents 52px total (margin + border + padding), aligning with the 52px item label', () => {
+    const conditional = block(css, '\\.nhsw-radios__conditional\\b');
+    expect(conditional).toMatch(/margin-left:\s*18px/);
+    expect(conditional).toMatch(/padding-left:\s*30px/);
+    expect(conditional).toMatch(/border-left:\s*4px/);
+  });
+
+  it('a nested field label inside conditional content is regular weight, matching the radio label rather than the bold default', () => {
+    const conditionalLabel = block(css, '\\.nhsw-radios__conditional \\.nhsw-label');
+    expect(conditionalLabel).toMatch(/font-weight:\s*400/);
   });
 });

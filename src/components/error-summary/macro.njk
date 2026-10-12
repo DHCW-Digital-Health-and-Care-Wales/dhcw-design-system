@@ -1,13 +1,14 @@
 {#
   nhswErrorSummary(params) - a summary of validation errors, linking to each
-  erroring field. tabindex="-1" lets JS programmatically focus the summary on
-  submit.
+  erroring field. nhsw-behaviours.js moves focus to the summary when the page
+  loads with it (data-module="nhsw-error-summary"), and a link focuses its field.
 
   params:
     titleText          string  - defaults to "There is a problem"
     titleId            string  - defaults to "error-summary-title"; used for both the
                                   <h2> id and the root's aria-labelledby
     errorList          array   - [{ text, html, href }]
+    disableAutoFocus   bool    - set true so the summary does not take focus when the page loads
     descriptionText    string  - optional paragraph rendered between the title and the list
     descriptionHtml    string  - takes precedence over descriptionText
     classes            string  - extra classes on the root
@@ -15,7 +16,7 @@
 #}
 {%- macro nhswErrorSummary(params) -%}
 {%- set titleId = params.titleId or "error-summary-title" -%}
-<div class="nhsw-error-summary{% if params.classes %} {{ params.classes }}{% endif %}" aria-labelledby="{{ titleId }}" role="alert" tabindex="-1"{% for attrName, attrValue in (params.attributes or {}) %} {{ attrName }}="{{ attrValue }}"{% endfor %}>
+<div class="nhsw-error-summary{% if params.classes %} {{ params.classes }}{% endif %}" aria-labelledby="{{ titleId }}" role="alert" tabindex="-1" data-module="nhsw-error-summary"{% if params.disableAutoFocus %} data-disable-auto-focus="true"{% endif %}{% for attrName, attrValue in (params.attributes or {}) %} {{ attrName }}="{{ attrValue }}"{% endfor %}>
   <h2 class="nhsw-h3 nhsw-error-summary__title" id="{{ titleId }}">{{ params.titleText or "There is a problem" }}</h2>
 {%- if params.descriptionHtml or params.descriptionText %}
   <p>{{ params.descriptionHtml | safe if params.descriptionHtml else params.descriptionText }}</p>

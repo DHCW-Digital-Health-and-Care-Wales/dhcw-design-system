@@ -165,6 +165,23 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="pn-small-navy" open_url="/examples/panel-navy.html" body=example_body %}
 
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
+  &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
+    &lt;path d="M4 12l5 5L20 6" /&gt;
+  &lt;/svg&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;div class="nhsw-panel__body"&gt;
+    Your reference number&lt;br&gt;
+    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswPanel({
+  titleText: "Application complete",
+  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
+  classes: "nhsw-panel--navy"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="pn-small-navy" html=html_sample njk=njk_sample toggleable=true %}
+
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
   &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
     &lt;path d="M4 12l5 5L20 6" /&gt;
@@ -207,6 +224,21 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="pn-no-icon-navy" open_url="/examples/panel-navy.html" body=example_body %}
 
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
+  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;Application complete&lt;/h1&gt;
+  &lt;div class="nhsw-panel__body"&gt;
+    Your reference number&lt;br&gt;
+    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswPanel({
+  titleText: "Application complete",
+  titleSize: "l",
+  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
+  classes: "nhsw-panel--navy"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="pn-no-icon-navy" html=html_sample njk=njk_sample toggleable=true %}
+
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
   &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;Application complete&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
@@ -246,6 +278,20 @@ tabs:
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="pn-no-icon-small-navy" open_url="/examples/panel-navy.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;div class="nhsw-panel__body"&gt;
+    Your reference number&lt;br&gt;
+    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswPanel({
+  titleText: "Application complete",
+  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
+  classes: "nhsw-panel--navy"
+}) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="pn-no-icon-small-navy" html=html_sample njk=njk_sample toggleable=true %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
   &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;

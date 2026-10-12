@@ -1,0 +1,101 @@
+---
+layout: example
+title: Error summary with validation example
+---
+<h1 class="nhsw-h2">Register your details</h1>
+<p class="nhsw-body-s">Demo only: submitting the form reloads this page, and the script below adds the errors the way a service would render them on the server. To see the errors straight away, <a class="nhsw-link" href="?submitted=1">open the page with errors</a>.</p>
+
+<div id="ev-summary-slot"></div>
+
+<form method="get" action="" novalidate id="ev-form">
+  <input type="hidden" name="submitted" value="1">
+
+  <div class="nhsw-form-group" id="ev-name-group">
+    <label class="nhsw-label" for="ev-name">Full name</label>
+    <p class="nhsw-error-message" id="ev-name-error" hidden><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
+    <input class="nhsw-input" id="ev-name" name="name" type="text" aria-describedby="ev-name-error">
+  </div>
+
+  <div class="nhsw-form-group" id="ev-nhs-group">
+    <label class="nhsw-label" for="ev-nhs">NHS number</label>
+    <p class="nhsw-error-message" id="ev-nhs-error" hidden><span class="nhsw-visually-hidden">Error: </span>Enter your 10 digit NHS number</p>
+    <input class="nhsw-input nhsw-input--width-10" id="ev-nhs" name="nhs" type="text" inputmode="numeric" aria-describedby="ev-nhs-error">
+  </div>
+
+  <div class="nhsw-form-group" id="ev-contact-group">
+    <fieldset class="nhsw-fieldset" id="ev-contact-fieldset" aria-describedby="ev-contact-error">
+      <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted?</legend>
+      <p class="nhsw-error-message" id="ev-contact-error" hidden><span class="nhsw-visually-hidden">Error: </span>Select how you want to be contacted</p>
+      <div class="nhsw-radios">
+        <div class="nhsw-radios__item">
+          <input class="nhsw-radios__input" id="ev-contact" name="contact" type="radio" value="email">
+          <label class="nhsw-label nhsw-radios__label" for="ev-contact">Email</label>
+        </div>
+        <div class="nhsw-radios__item">
+          <input class="nhsw-radios__input" id="ev-contact-2" name="contact" type="radio" value="phone">
+          <label class="nhsw-label nhsw-radios__label" for="ev-contact-2">Phone</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="nhsw-form-group" id="ev-message-group">
+    <label class="nhsw-label" for="ev-message">Message</label>
+    <p class="nhsw-error-message" id="ev-message-error" hidden><span class="nhsw-visually-hidden">Error: </span>Enter a message</p>
+    <textarea class="nhsw-textarea" id="ev-message" name="message" rows="4" aria-describedby="ev-message-error"></textarea>
+  </div>
+
+  <button type="submit" class="nhsw-button nhsw-button--primary nhsw-button--inline">Continue</button>
+</form>
+
+<script>
+  // Demo only. This runs before nhsw-behaviours.js, so when the page "reloads" with
+  // errors the summary is already there for the script to move focus to.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (!params.has('submitted')) return;
+
+    var fields = [
+      { id: 'ev-name', group: 'ev-name-group', error: 'ev-name-error', valid: function (v) { return v.trim() !== ''; } },
+      { id: 'ev-nhs', group: 'ev-nhs-group', error: 'ev-nhs-error', valid: function (v) { return /^\d{10}$/.test(v.replace(/\s/g, '')); } },
+      { id: 'ev-contact', group: 'ev-contact-group', error: 'ev-contact-error', radios: true, valid: function (v) { return v !== ''; } },
+      { id: 'ev-message', group: 'ev-message-group', error: 'ev-message-error', valid: function (v) { return v.trim() !== ''; } }
+    ];
+    var inputs = { 'ev-name': 'name', 'ev-nhs': 'nhs', 'ev-contact': 'contact', 'ev-message': 'message' };
+    var errors = [];
+
+    fields.forEach(function (field) {
+      var value = params.get(inputs[field.id]) || '';
+      var element = document.getElementById(field.id);
+      if (field.radios) {
+        document.querySelectorAll('input[name="contact"]').forEach(function (radio) { radio.checked = radio.value === value; });
+      } else {
+        element.value = value;
+      }
+      if (field.valid(value)) return;
+
+      var message = document.getElementById(field.error);
+      message.hidden = false;
+      document.getElementById(field.group).classList.add('nhsw-form-group--error');
+      if (field.radios) {
+        document.getElementById('ev-contact-fieldset').setAttribute('aria-describedby', field.error);
+      } else {
+        element.classList.add('nhsw-is-invalid');
+        element.setAttribute('aria-invalid', 'true');
+        element.setAttribute('aria-describedby', field.error);
+      }
+      errors.push({ href: '#' + field.id, text: message.textContent.replace('Error: ', '') });
+    });
+
+    if (!errors.length) return;
+    var summary = document.createElement('div');
+    summary.className = 'nhsw-error-summary';
+    summary.setAttribute('aria-labelledby', 'error-summary-title');
+    summary.setAttribute('role', 'alert');
+    summary.setAttribute('tabindex', '-1');
+    summary.setAttribute('data-module', 'nhsw-error-summary');
+    summary.innerHTML = '<h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title">There is a problem</h2><ul class="nhsw-error-summary__list">' +
+      errors.map(function (e) { return '<li><a class="nhsw-link nhsw-error-summary__link" href="' + e.href + '">' + e.text + '</a></li>'; }).join('') + '</ul>';
+    document.getElementById('ev-summary-slot').appendChild(summary);
+  }());
+</script>

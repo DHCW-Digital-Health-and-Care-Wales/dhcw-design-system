@@ -43,6 +43,59 @@ Feature: Site navigation — automated coverage
     Scenario: The tag badge next to a nav item has no bespoke colours of its own
       Given the compiled CSS for .nhsw-site-header__nav-badge
       Then it only supplies spacing — its colour comes from pairing it with a real .nhsw-tag class in markup
+
+  Rule: The default navigation is unchanged, and example boxes keep it in view
+
+    @automated
+    # specs/tests/css/components/site-navigation-menu.test.js, specs/e2e/site-navigation.spec.js
+    Scenario: The default navigation is hidden on a small screen, as before
+      Given a default site navigation on a viewport narrower than 40rem
+      Then it is hidden
+
+    @automated
+    # specs/tests/css/components/site-navigation-menu.test.js, specs/e2e/site-navigation.spec.js
+    Scenario: A navigation demo inside an example box on the component page stays in view when the window narrows
+      Given the "Open this example in a new tab" example box on the component page
+      When the window is narrower than 40rem
+      Then the navigation demo inside the box is still visible
+      And the example opened in a new tab is the real component, so it is hidden on a small screen
+
+  Rule: The overflow menu variant never disappears; items that do not fit move into a "More" menu, as in NHS.UK
+
+    @automated
+    # specs/tests/js/behaviours.test.js, specs/e2e/site-navigation.spec.js
+    Scenario: Items that do not fit move into the "More" menu
+      Given an overflow menu navigation whose items are wider than the available space
+      Then the items that do not fit move, in order, into the "More" menu
+      And the "More" button is shown
+      And when everything fits again the items return to the bar and the button is hidden again
+
+    @automated
+    # specs/e2e/site-navigation.spec.js
+    Scenario: The overflow menu variant is still available at 400% zoom (a 320px wide viewport)
+      Given an overflow menu navigation on a viewport 320px wide
+      Then it is visible, every item is reachable through the "More" menu, and the page does not scroll sideways
+
+    @automated
+    # specs/tests/js/behaviours.test.js, specs/e2e/site-navigation.spec.js
+    Scenario: The menu can be used from the keyboard and closed with Escape
+      Given the "More" menu is open
+      When Escape is pressed
+      Then the menu closes, aria-expanded becomes "false", and focus returns to the button if it was in the menu
+      And a click outside the navigation, or on a link in the menu, also closes it
+
+    @automated
+    # specs/tests/css/components/site-navigation-menu.test.js, specs/e2e/site-navigation.spec.js
+    Scenario: An open menu pushes the content below it down instead of covering it
+      Given the "More" menu is open
+      Then the navigation grows by the height of the menu
+
+    @automated
+    # specs/tests/njk/site-navigation.test.js, specs/tests/markup/site-navigation-menu.test.js
+    Scenario: Only the overflow menu variant carries the hidden "More" menu item
+      Given the nhswSiteNavigation macro with overflowMenu: true, and every navigation in the preview pages and code samples
+      Then the nav has the --overflow class and its list ends with a hidden menu item holding a "Browse More" button with aria-expanded="false"
+      And a navigation without the --overflow class has neither
 ```
 
 ## Manual test scenarios
@@ -100,7 +153,7 @@ Feature: Site navigation — manual verification
 
   @manual
   Scenario: Site navigation remains usable at 200% and 400% zoom (WCAG 2.2 SC 1.4.10)
-    Given a site navigation component
+    Given a site navigation using the overflow menu variant
     When browser zoom is increased to 200% or 400%
     Then navigation items remain readable and operable without loss of information
 
@@ -112,7 +165,7 @@ Feature: Site navigation — manual verification
 
   @manual
   Scenario: Navigation adapts correctly on small screens
-    Given a site navigation component
+    Given a site navigation using the overflow menu variant
     When viewed on a mobile-width screen
     Then all navigation options remain accessible without clipping or horizontal scrolling
 

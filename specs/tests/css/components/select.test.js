@@ -34,4 +34,13 @@ describe('select shares the standard input styling (border, background, placehol
     const select = block(css, '\\.nhsw-select\\b');
     expect(select).toMatch(/font-family:\s*inherit/);
   });
+
+  it('never grows wider than its container: a minimum width beats max-width, so each minimum is capped at 100%', () => {
+    expect(css).toMatch(/\.nhsw-select\s*\{[^}]*max-width:\s*100%/);
+    expect(css).toMatch(/\.nhsw-select\s*\{[^}]*min-width:\s*min\(12rem,\s*100%\)/);
+    for (const [name, width] of [['xs', '4rem'], ['s', '8rem'], ['m', '12rem'], ['l', '16rem'], ['xl', '24rem']]) {
+      expect(css, `--${name}`).toMatch(new RegExp(`\\.nhsw-select--${name}\\s*\\{[^}]*min-width:\\s*min\\(${width},\\s*100%\\)`));
+    }
+    expect(css).not.toMatch(/min-width:\s*(?:4|8|12|16|24)rem\s*;/);
+  });
 });

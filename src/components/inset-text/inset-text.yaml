@@ -15,6 +15,13 @@ params:
       Inset HTML, used as-is instead of text. Takes precedence over text.
       Use this to include a heading (e.g. <h3 class="nhsw-h3">) before the
       paragraph.
+  - name: visuallyHiddenText
+    type: string
+    required: false
+    description: >
+      Screen-reader-only text announced before the content, followed by a
+      colon, so users are told it is set apart from the main body copy.
+      Defaults to "Information". Pass an empty string to omit it.
   - name: classes
     type: string
     required: false

@@ -74,12 +74,18 @@
 
 .nhsw-layout {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   min-height: 60vh;
 }
 
 .nhsw-layout__content {
-  flex: 1;
+  flex: 1 1 15rem;
   min-width: 0;
-  padding: 2.5rem 2.5rem 2.5rem 1.25rem;
+  padding: 1.25rem 1rem;
+
+  @include b.nhsw-from-tablet {
+    min-width: 15rem;
+    padding: 2.5rem 2.5rem 2.5rem 1.25rem;
+  }
 }

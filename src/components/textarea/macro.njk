@@ -20,7 +20,11 @@
     maxlength       integer  - adds maxlength; enables the character-count hint unless
                                characterCount is explicitly false
     characterCount  bool     - set false to add maxlength without the character-count hint
-    characterCountMessage  string - override the character-count hint text
+    characterCountMessage  string - override the initial count text, "You have N characters
+                               remaining". It is what assistive technology reads when the
+                               field is focused. nhsw-behaviours.js hides it visually, keeps its
+                               text current, and adds a visible count and a polite live region
+                               beside it
     disabled        bool
     readonly        bool
     formGroup       object   - { classes } - extra classes on the wrapping nhsw-form-group
@@ -48,7 +52,7 @@
 {%- endif %}
   <textarea class="nhsw-textarea{% if params.errorMessage %} nhsw-is-invalid{% endif %}{% if params.classes %} {{ params.classes }}{% endif %}" id="{{ params.id }}" name="{{ name }}" rows="{{ params.rows or 5 }}"{% if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}{% if params.errorMessage %} aria-invalid="true"{% endif %}{% if params.autocomplete %} autocomplete="{{ params.autocomplete }}"{% endif %}{% if params.spellcheck != undefined %} spellcheck="{{ params.spellcheck }}"{% endif %}{% if params.maxlength %} maxlength="{{ params.maxlength }}"{% endif %}{% if hasCharacterCount %} data-max-length="{{ params.maxlength }}" data-max-length-target="{{ countId }}"{% endif %}{% if params.disabled %} disabled{% endif %}{% if params.readonly %} readonly{% endif %}{% for attrName, attrValue in (params.attributes or {}) %} {{ attrName }}="{{ attrValue }}"{% endfor %}>{{ params.value }}</textarea>
 {%- if hasCharacterCount %}
-  {{ nhswHint({ text: params.characterCountMessage or ("You have " ~ params.maxlength ~ " characters remaining"), id: countId, classes: "nhsw-textarea__count", attributes: { "aria-live": "polite" } }) }}
+  {{ nhswHint({ text: params.characterCountMessage or ("You have " ~ params.maxlength ~ " characters remaining"), id: countId, classes: "nhsw-textarea__count" }) }}
 {%- endif %}
 </div>
 {%- endmacro -%}
