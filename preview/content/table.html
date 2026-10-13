@@ -168,27 +168,27 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
-      <caption class="nhsw-table__caption nhsw-table__caption--m">Prescription prepayment certificate (PPC) charges</caption>
+      <caption class="nhsw-table__caption nhsw-table__caption--m">Vaccination uptake</caption>
       <thead class="nhsw-table__head">
         <tr class="nhsw-table__row">
-          <th scope="col" class="nhsw-table__header">Item</th>
-          <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">Current charge</th>
-          <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">New charge</th>
+          <th scope="col" class="nhsw-table__header">Group</th>
+          <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">Eligible people</th>
+          <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">Vaccinated</th>
         </tr>
       </thead>
       <tbody class="nhsw-table__body">
         <tr class="nhsw-table__row">
-          <th scope="row" class="nhsw-table__header">3-month</th>
+          <th scope="row" class="nhsw-table__header">Aged 65 and over</th>
           <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;31.25</td>
           <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;32.05</td>
         </tr>
         <tr class="nhsw-table__row">
-          <th scope="row" class="nhsw-table__header">12-month</th>
+          <th scope="row" class="nhsw-table__header">At-risk adults</th>
           <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;111.60</td>
           <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;114.50</td>
         </tr>
         <tr class="nhsw-table__row">
-          <th scope="row" class="nhsw-table__header">HRT</th>
+          <th scope="row" class="nhsw-table__header">Healthcare staff</th>
           <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;19.30</td>
           <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;19.80</td>
         </tr>
@@ -198,43 +198,43 @@ tabs:
   {% include example-preview.html id="tbl-numeric" open_url="/examples/table-numeric.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Prescription prepayment certificate (PPC) charges&lt;/caption&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Vaccination uptake&lt;/caption&gt;
   &lt;thead class="nhsw-table__head"&gt;
     &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="col" class="nhsw-table__header"&gt;Item&lt;/th&gt;
-      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;Current charge&lt;/th&gt;
-      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;New charge&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Group&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;Eligible people&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;Vaccinated&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody class="nhsw-table__body"&gt;
     &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="row" class="nhsw-table__header"&gt;3-month&lt;/th&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;Aged 65 and over&lt;/th&gt;
       &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;31.25&lt;/td&gt;
       &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;32.05&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="row" class="nhsw-table__header"&gt;12-month&lt;/th&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;At-risk adults&lt;/th&gt;
       &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;111.60&lt;/td&gt;
       &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;114.50&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="row" class="nhsw-table__header"&gt;HRT&lt;/th&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;Healthcare staff&lt;/th&gt;
       &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;19.30&lt;/td&gt;
       &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;19.80&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswTable({
-  caption: "Prescription prepayment certificate (PPC) charges",
+  caption: "Vaccination uptake",
   head: [
-    { text: "Item" },
-    { text: "Current charge", format: "numeric" },
-    { text: "New charge", format: "numeric" }
+    { text: "Group" },
+    { text: "Eligible people", format: "numeric" },
+    { text: "Vaccinated", format: "numeric" }
   ],
   rows: [
-    [ { text: "3-month" }, { text: "£31.25", format: "numeric" }, { text: "£32.05", format: "numeric" } ],
-    [ { text: "12-month" }, { text: "£111.60", format: "numeric" }, { text: "£114.50", format: "numeric" } ],
-    [ { text: "HRT" }, { text: "£19.30", format: "numeric" }, { text: "£19.80", format: "numeric" } ]
+    [ { text: "Aged 65 and over" }, { text: "25,430", format: "numeric" }, { text: "20,782", format: "numeric" } ],
+    [ { text: "At-risk adults" }, { text: "14,215", format: "numeric" }, { text: "10,663", format: "numeric" } ],
+    [ { text: "Healthcare staff" }, { text: "8,942", format: "numeric" }, { text: "7,481", format: "numeric" } ]
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tbl-numeric" html=html_sample njk=njk_sample toggleable=true %}
