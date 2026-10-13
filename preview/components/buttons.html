@@ -47,7 +47,7 @@ tabs:
     <li>from one flat content page to another</li>
     <li>to external websites</li>
   </ul>
-  <p class="nhsw-body">Try not to have multiple buttons on a page. Follow <a class="nhsw-link" href="#">GOV.UK guidance on structuring forms and starting with one thing per page</a>.</p>
+  <p class="nhsw-body">Try not to have multiple buttons on a page. Follow <a class="nhsw-link" href="https://www.gov.uk/service-manual/design/form-structure#start-with-one-thing-per-page">GOV.UK guidance on structuring forms and starting with one thing per page</a>.</p>
 
   <h2 class="nhsw-h2">How to use a button</h2>
   <p class="nhsw-body">Align the primary action button to the left edge of your form. On smaller screens, such as on mobile, buttons stretch across the screen's width.</p>
@@ -55,16 +55,16 @@ tabs:
   <h3 class="nhsw-h3">Button text</h3>
   <p class="nhsw-body">Write button text in sentence case, describing the action it performs. For example:</p>
   <ul class="nhsw-body">
-    <li>"Start now" on the <a class="nhsw-link" href="#">start page</a> of your service</li>
+    <li>"Start now" on the start page of your service</li>
     <li>"Log in" to an account a user has already created</li>
     <li>"Continue" whether the service saves or does not save a user's information</li>
     <li>"Save and continue" when the service saves a user's information but your research shows you need to reassure them that it does</li>
     <li>"Save and come back later" when a user can save their information and come back later</li>
     <li>"Add another" to add another item to a list or group</li>
     <li>"Pay" to make a payment</li>
-    <li>"Confirm and send" on a <a class="nhsw-link" href="#">check answers page</a> that does not have any legal content a user must agree to</li>
-    <li>"Confirm and save" on a <a class="nhsw-link" href="#">check answers page</a> on a staff-facing service where data is not being sent to another person or system</li>
-    <li>"Accept and send" on a <a class="nhsw-link" href="#">check answers page</a> that has legal content a user must agree to</li>
+    <li>"Confirm and send" on a check answers page that does not have any legal content a user must agree to</li>
+    <li>"Confirm and save" on a check answers page on a staff-facing service where data is not being sent to another person or system</li>
+    <li>"Accept and send" on a check answers page that has legal content a user must agree to</li>
     <li>"Log out" when a user is logged in to an account</li>
   </ul>
   <p class="nhsw-body">You may need to include more or different words to better describe the action. For example, "Add another address" and "Accept and book the appointment".</p>
@@ -82,16 +82,17 @@ tabs:
   <p class="nhsw-body">In the case of slow connections, aim to give the user information about what's happening, for example by showing a loading spinner or a modal, before using data-prevent-double-click.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
+  
+  <p class="nhsw-body">Make sure all users can see the button. The background colour must have a contrast ratio of at least 3:1 with white. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast">WCAG 2.2 Success Criterion 1.4.11 Non-text Contrast, level AA</a>.</p>
 
-  <p class="nhsw-body">Do not decrease the height or clickable area of buttons. Larger touch targets help users select buttons accurately. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.5.8 Target Size, level AA</a>.</p>
+  <p class="nhsw-body">Do not rely on colour alone to convey meaning. Use clear text labels so all users can understand the purpose of a button, regardless of how they perceive colour. This supports <a class="nhsw-link" href="https://www.w3.org/TR/WCAG22/#use-of-color">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
 
-  <p class="nhsw-body">Do not rely on colour alone to convey meaning. Use clear text labels so all users can understand the purpose of a button, regardless of how they perceive colour. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
+  <p class="nhsw-body">Do not decrease the height or clickable area of buttons. Larger touch targets help users select buttons accurately. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">WCAG 2.2 Success Criterion 2.5.8 Target Size, level AA</a>.</p>
 
-  <p class="nhsw-body">Make sure all users can see the button. The background colour must have a contrast ratio of at least 3:1 with white. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.11 Non-text Contrast, level AA</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Buttons in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Buttons on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/button/">Buttons in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/34">Buttons on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -266,7 +267,6 @@ tabs:
       <li>all other button types would be too visually prominent</li>
       <li>the user is being taken to another page to perform an action</li>
     </ul>
-    <p class="nhsw-body">For example, the <a class="nhsw-link" href="#">add more fields pattern</a> uses buttons styled as links for users to change or delete fields.</p>
 
     <h4 class="nhsw-h4">When to use a button versus a hyperlink</h4>
     <p class="nhsw-body">You should use a:</p>
