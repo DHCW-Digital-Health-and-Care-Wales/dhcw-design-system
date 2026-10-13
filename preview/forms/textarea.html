@@ -142,7 +142,7 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="ta-reason-err">Provide a reason for continuing</label>
-      <p class="nhsw-error-message" id="ta-reason-err-error"><span class="nhsw-visually-hidden">Error: </span>Error the clinical decision</p>
+      <p class="nhsw-error-message" id="ta-reason-err-error"><span class="nhsw-visually-hidden">Error: </span>Enter the clinical decision</p>
       <textarea id="ta-reason-err" name="ta-reason-err" class="nhsw-textarea nhsw-is-invalid" aria-invalid="true" aria-describedby="ta-reason-err-error ta-reason-err-count" data-max-length="150" data-max-length-target="ta-reason-err-count"></textarea>
       <div class="nhsw-hint nhsw-textarea__count" id="ta-reason-err-count">You have 150 characters remaining</div>
     </div>
@@ -151,7 +151,7 @@ tabs:
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
   &lt;label class="nhsw-label" for="reason"&gt;Provide a reason for continuing&lt;/label&gt;
-  &lt;p class="nhsw-error-message" id="reason-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Error the clinical decision&lt;/p&gt;
+  &lt;p class="nhsw-error-message" id="reason-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Enter the clinical decision&lt;/p&gt;
   &lt;textarea id="reason" name="reason" class="nhsw-textarea nhsw-is-invalid" aria-invalid="true" aria-describedby="reason-error reason-count" data-max-length="150" data-max-length-target="reason-count"&gt;&lt;/textarea&gt;
   &lt;div class="nhsw-hint nhsw-textarea__count" id="reason-count"&gt;You have 150 characters remaining&lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
@@ -160,7 +160,7 @@ tabs:
 {{ nhswTextarea({
   id: "reason",
   label: { text: "Provide a reason for continuing" },
-  errorMessage: { text: "Error the clinical decision" },
+  errorMessage: { text: "Enter the clinical decision" },
   maxlength: 150
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ta-error" html=html_sample njk=njk_sample toggleable=true %}
