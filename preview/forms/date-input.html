@@ -70,7 +70,7 @@ tabs:
   <p class="nhsw-body">Use date input to help users enter a date they are likely to know, like their date of birth.</p>
 
   <h2 class="nhsw-h2">When not to use date input</h2>
-  <p class="nhsw-body">Do not use date input if users are unlikely to know the exact date you're asking about. Read more in the <a class="nhsw-link" href="#">Ask users for dates pattern</a>.</p>
+  <p class="nhsw-body">Do not use date input if users are unlikely to know the exact date you're asking about.</p>
 
   <h2 class="nhsw-h2">How to use date input</h2>
   <p class="nhsw-body">Date input consists of 3 fields to let users enter a day, month and year.</p>
@@ -80,8 +80,8 @@ tabs:
   <p class="nhsw-body">Never automatically tab users between the fields of the date input because this can be confusing and may clash with normal keyboard controls.</p>
 
   <h3 class="nhsw-h3">If you're asking more than one question on the page</h3>
-  <p class="nhsw-body">If you're asking more than one question on the page, do not set the contents of the <code>&lt;legend&gt;</code> as the page heading. Read more about <a class="nhsw-link" href="#">asking multiple questions on question pages</a>.</p>
-  <p class="nhsw-body">Follow <a class="nhsw-link" href="#">GOV.UK guidance on error messages for date inputs</a>.</p>
+  <p class="nhsw-body">If you're asking more than one question on the page, do not set the contents of the <code>&lt;legend&gt;</code> as the page heading. Read more on the GOV.UK Design System about <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/question-pages/#asking-multiple-questions-on-a-page">asking multiple questions on question pages</a>.</p>
+  <p class="nhsw-body">Follow <a class="nhsw-link" href="https://design-system.service.gov.uk/components/date-input#error-messages">GOV.UK guidance on error messages for date inputs</a>.</p>
 
   <h3 class="nhsw-h3">Use the autocomplete attribute for a date of birth</h3>
   <p class="nhsw-body">Use the <code>autocomplete</code> attribute on the date input component when you're asking for a date of birth. This lets browsers autofill the information on a user's behalf if they've entered it previously.</p>
@@ -145,6 +145,8 @@ tabs:
   values: { day: "1", month: "12", year: "2000" }
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="di-error-1" html=html_sample njk=njk_sample toggleable=true %}
+      <p class="nhsw-body">Use this error message when a user has entered a date, but the date does not meet the validation rules.</p>
+
   </section>
 
   <section class="preview-section">
@@ -204,6 +206,9 @@ tabs:
   values: { day: "1", month: "12" }
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="di-error-2" html=html_sample njk=njk_sample toggleable=true %}
+
+          <p class="nhsw-body">Use this error message when a user has not entered all parts of the date. The message should tell the user which part is missing.</p>
+
   </section>
 
   <h2 class="nhsw-h2">Accessibility</h2>

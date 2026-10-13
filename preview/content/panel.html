@@ -107,7 +107,7 @@ tabs:
         <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
           <path d="M4 12l5 5L20 6" />
         </svg>
-        <h1 class="nhsw-panel__title">Application complete</h1>
+        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -120,18 +120,21 @@ tabs:
   &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
     &lt;path d="M4 12l5 5L20 6" /&gt;
   &lt;/svg&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "Application complete",
+  titleText: "You’ll receive an update within 5 working days",
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
   classes: "nhsw-panel--navy"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-navy" html=html_sample njk=njk_sample toggleable=true %}
+
+      <p class="nhsw-body">Use a blue panel to highlight important information and guidance that users should be aware of. This may be used instead of a green panel, which usually indicates that a user has completed a task successfully.</p>
+
   </section>
 
   <section class="preview-section">
@@ -156,7 +159,7 @@ tabs:
         <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
           <path d="M4 12l5 5L20 6" />
         </svg>
-        <h1 class="nhsw-panel__title">Application complete</h1>
+        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -169,14 +172,14 @@ tabs:
   &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
     &lt;path d="M4 12l5 5L20 6" /&gt;
   &lt;/svg&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "Application complete",
+  titleText: "You’ll receive an update within 5 working days",
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
   classes: "nhsw-panel--navy"
 }) }}{% endraw %}{% endcapture %}
@@ -197,6 +200,9 @@ tabs:
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-small" html=html_sample njk=njk_sample toggleable=true %}
+
+          <p class="nhsw-body">Use a smaller panel when space is limited. It offers a more compact alternative to a standard panel.</p>
+
   </section>
 
   <section class="preview-section">
@@ -215,7 +221,7 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-panel nhsw-panel--navy">
-        <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+        <h1 class="nhsw-panel__title nhsw-panel__title--l">You’ll receive an update within 5 working days</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -225,14 +231,14 @@ tabs:
     {% include example-preview.html id="pn-no-icon-navy" open_url="/examples/panel-navy.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
-  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "Application complete",
+  titleText: "You’ll receive an update within 5 working days",
   titleSize: "l",
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
   classes: "nhsw-panel--navy"
@@ -252,6 +258,9 @@ tabs:
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-no-icon" html=html_sample njk=njk_sample toggleable=true %}
+
+<p class="nhsw-body">Use a panel without an icon when you need to highlight information without indicating a specific status, such as success, warning or error.</p>
+
   </section>
 
   <section class="preview-section">
@@ -270,7 +279,7 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-panel nhsw-panel--navy">
-        <h1 class="nhsw-panel__title">Application complete</h1>
+        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -280,14 +289,14 @@ tabs:
     {% include example-preview.html id="pn-no-icon-small-navy" open_url="/examples/panel-navy.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "Application complete",
+  titleText: "You’ll receive an update within 5 working days",
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
   classes: "nhsw-panel--navy"
 }) }}{% endraw %}{% endcapture %}
@@ -305,6 +314,9 @@ tabs:
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-no-icon-small" html=html_sample njk=njk_sample toggleable=true %}
+<p class="nhsw-body">Use a smaller panel when space is limited or the content needs less prominence than a standard panel. It does not include an icon, making it suitable for general information and guidance.</p>
+
+    
   </section>
 
   <div class="nhsw-tabs__pagination">
