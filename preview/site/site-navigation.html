@@ -20,9 +20,9 @@ tabs:
     <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
       <div class="nhsw-site-header__nav-container">
         <ul class="nhsw-site-header__nav-list">
-          <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
-          <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+          <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Departments</span></a></li>
+          <li><a class="nhsw-site-header__nav-link" href="#"><span>Locations</span></a></li>
+          <li><a class="nhsw-site-header__nav-link" href="#"><span>Patient portal</span></a></li>
         </ul>
       </div>
     </nav>
@@ -32,9 +32,9 @@ tabs:
   {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
   &lt;div class="nhsw-site-header__nav-container"&gt;
     &lt;ul class="nhsw-site-header__nav-list"&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Navigation Item 3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Departments&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Locations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Patient portal&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
@@ -42,9 +42,9 @@ tabs:
 
 {{ nhswSiteNavigation({
   items: [
-    { text: "Navigation Item 1", href: "/item-1", current: true },
-    { text: "Navigation Item 2", href: "/item-2" },
-    { text: "Navigation Item 3", href: "/item-3" }
+    { text: "Departments", href: "/item-1", current: true },
+    { text: "Locations", href: "/item-2" },
+    { text: "Patient portal", href: "/item-3" }
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="sn-overview" html=html_sample njk=njk_sample toggleable=true %}
@@ -91,9 +91,9 @@ tabs:
       <nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation">
         <div class="nhsw-site-header__nav-container">
           <ul class="nhsw-site-header__nav-list">
-            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Departments</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Locations</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Patient portal</span></a></li>
           </ul>
         </div>
       </nav>
@@ -103,21 +103,23 @@ tabs:
     {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation"&gt;
   &lt;div class="nhsw-site-header__nav-container"&gt;
     &lt;ul class="nhsw-site-header__nav-list"&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Navigation Item 3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Departments&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Locations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Patient portal&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
   items: [
-    { text: "Navigation Item 1", href: "/item-1", current: true },
-    { text: "Navigation Item 2", href: "/item-2" },
-    { text: "Navigation Item 3", href: "/item-3" }
+    { text: "Departments", href: "/item-1", current: true },
+    { text: "Locations", href: "/item-2" },
+    { text: "Patient portal", href: "/item-3" }
   ],
   classes: "nhsw-site-header__nav--reverse"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-dark" html=html_sample njk=njk_sample toggleable=true %}
+      <p class="nhsw-body">Use this variant when site navigation appears on a dark background.</p>
+      <p class="nhsw-body">This variant adjusts the navigation styling to maintain readability, contrast and accessibility while preserving the same navigation structure and behaviour.</p>
   </section>
 
   <section class="preview-section">
@@ -127,9 +129,9 @@ tabs:
       <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
         <div class="nhsw-site-header__nav-container">
           <ul class="nhsw-site-header__nav-list">
-            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">0</span></a></li>
+            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Departments</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Locations</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Patient portal</span><span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">0</span></a></li>
           </ul>
         </div>
       </nav>
@@ -139,9 +141,9 @@ tabs:
     {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
   &lt;div class="nhsw-site-header__nav-container"&gt;
     &lt;ul class="nhsw-site-header__nav-list"&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Navigation Item 3&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Departments&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Locations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Patient portal&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
@@ -149,9 +151,9 @@ tabs:
 
 {{ nhswSiteNavigation({
   items: [
-    { text: "Navigation Item 1", href: "/item-1", current: true },
-    { text: "Navigation Item 2", href: "/item-2" },
-    { text: "Navigation Item 3", href: "/item-3", badge: 0 }
+    { text: "Departments", href: "/item-1", current: true },
+    { text: "Locations", href: "/item-2" },
+    { text: "Patient portal", href: "/item-3", badge: 0 }
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-tag" html=html_sample njk=njk_sample toggleable=true %}
@@ -160,9 +162,9 @@ tabs:
       <nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation">
         <div class="nhsw-site-header__nav-container">
           <ul class="nhsw-site-header__nav-list">
-            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span><span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">5</span></a></li>
+            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Departments</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Locations</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Patient portal</span><span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge">5</span></a></li>
           </ul>
         </div>
       </nav>
@@ -172,11 +174,11 @@ tabs:
     {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--reverse" aria-label="Primary navigation"&gt;
   &lt;div class="nhsw-site-header__nav-container"&gt;
     &lt;ul class="nhsw-site-header__nav-list"&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Departments&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Locations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;
         &lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;
-          &lt;span&gt;Navigation Item 3&lt;/span&gt;
+          &lt;span&gt;Patient portal&lt;/span&gt;
           &lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;
         &lt;/a&gt;
       &lt;/li&gt;
@@ -185,13 +187,23 @@ tabs:
 &lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
   items: [
-    { text: "Navigation Item 1", href: "/item-1", current: true },
-    { text: "Navigation Item 2", href: "/item-2" },
-    { text: "Navigation Item 3", href: "/item-3", badge: 5 }
+    { text: "Departments", href: "/item-1", current: true },
+    { text: "Locations", href: "/item-2" },
+    { text: "Patient portal", href: "/item-3", badge: 5 }
   ],
   classes: "nhsw-site-header__nav--reverse"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-tag-dark" html=html_sample njk=njk_sample toggleable=true %}
+   <p class="nhsw-body">Use this variant when you need to highlight additional information about a navigation item. Tags help users quickly identify items that may require attention without changing the navigation structure.</p>p>
+    <p class="nhsw-body">Tags can be used to show:</p>
+    <ul class=nhsw-body>
+      <li>the number of unread notifications</li>
+      <li>new messages</li>
+      <li>outstanding tasks</li>
+      <li>available updates</li>
+
+    </ul>
+    
   </section>
 
   <section class="preview-section">
@@ -203,9 +215,9 @@ tabs:
       <nav class="nhsw-site-header__nav nhsw-site-header__nav--overflow" aria-label="Primary navigation">
         <div class="nhsw-site-header__nav-container">
           <ul class="nhsw-site-header__nav-list">
-            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Navigation Item 1</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 2</span></a></li>
-            <li><a class="nhsw-site-header__nav-link" href="#"><span>Navigation Item 3</span></a></li>
+            <li><a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"><span>Departments</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Locations</span></a></li>
+            <li><a class="nhsw-site-header__nav-link" href="#"><span>Patient portal</span></a></li>
             <li class="nhsw-site-header__menu" hidden><button type="button" class="nhsw-site-header__menu-toggle nhsw-site-header__nav-link" aria-expanded="false"><span><span class="nhsw-visually-hidden">Browse </span>More</span></button></li>
           </ul>
         </div>
@@ -216,18 +228,18 @@ tabs:
     {% capture html_sample %}{% raw %}&lt;nav class="nhsw-site-header__nav nhsw-site-header__nav--overflow" aria-label="Primary navigation"&gt;
   &lt;div class="nhsw-site-header__nav-container"&gt;
     &lt;ul class="nhsw-site-header__nav-list"&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Navigation Item 1&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Navigation Item 2&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Navigation Item 3&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="/item-1" aria-current="page"&gt;&lt;span&gt;Departments&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-2"&gt;&lt;span&gt;Locations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="/item-3"&gt;&lt;span&gt;Patient portal&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
       &lt;li class="nhsw-site-header__menu" hidden&gt;&lt;button type="button" class="nhsw-site-header__menu-toggle nhsw-site-header__nav-link" aria-expanded="false"&gt;&lt;span&gt;&lt;span class="nhsw-visually-hidden"&gt;Browse &lt;/span&gt;More&lt;/span&gt;&lt;/button&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswSiteNavigation({
   items: [
-    { text: "Navigation Item 1", href: "/item-1", current: true },
-    { text: "Navigation Item 2", href: "/item-2" },
-    { text: "Navigation Item 3", href: "/item-3" }
+    { text: "Departments", href: "/item-1", current: true },
+    { text: "Locations", href: "/item-2" },
+    { text: "Patient portal", href: "/item-3" }
   ],
   overflowMenu: true
 }) }}{% endraw %}{% endcapture %}
