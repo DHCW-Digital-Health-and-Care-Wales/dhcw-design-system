@@ -40,7 +40,6 @@ tabs:
 
   <h2 class="nhsw-h2">When not to use inset text</h2>
   <p class="nhsw-body">Do not use inset text in transactional pages. This has not yet been tested by us or NHS England.</p>
-  <p class="nhsw-body">Do not use inset text if you need to tell a user to contact their GP or get medical help. Use the pattern to <a class="nhsw-link" href="#">help users decide when and where to get care (care cards)</a> instead.</p>
   <p class="nhsw-body">Some users don't notice inset text on complex pages or near to other prominent elements, so we avoid using it for very important information that users need to see.</p>
   <p class="nhsw-body">Use a <a class="nhsw-link" href="{{ '/callouts/warning-callout.html' | relative_url }}">warning callout</a> instead if the information:</p>
   <ul class="nhsw-body">
@@ -54,11 +53,11 @@ tabs:
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">Some users may not be able to identify inset text from surrounding content using visual styling alone. To help screen reader users understand that the content is different from the main body text, include hidden text like <code style="color: #d4351c;">&lt;span class="nhsw-visually-hidden"&gt;Information: &lt;/span&gt;</code> at the start of the inset text to let users with screen readers know that this is different to the body text. The <code style="color: #d4351c;">nhswInsetText</code> Nunjucks macro adds it for you. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">Some users may not be able to identify inset text from surrounding content using visual styling alone. To help screen reader users understand that the content is different from the main body text, include hidden text like <code style="color: #d4351c;">&lt;span class="nhsw-visually-hidden"&gt;Information: &lt;/span&gt;</code> at the start of the inset text to let users with screen readers know that this is different to the body text. The <code style="color: #d4351c;">nhswInsetText</code> Nunjucks macro adds it for you. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Inset text in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Inset text on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/inset-text/">Inset text in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/136">Inset text on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -92,6 +91,7 @@ tabs:
   html: "&lt;h3 class=\"nhsw-h3\"&gt;Note&lt;/h3&gt;&lt;p class=\"nhsw-body\"&gt;It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.&lt;/p&gt;"
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="inset-heading" html=html_sample njk=njk_sample toggleable=true %}
+  <p class="nhsw-body">Use a heading if it helps users quickly identify the purpose of the inset text.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
