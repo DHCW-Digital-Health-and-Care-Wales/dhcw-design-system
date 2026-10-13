@@ -46,12 +46,11 @@ tabs:
   <p class="nhsw-body">Do not use a card to highlight content on a page of long form content.</p>
   <p class="nhsw-body">Before using a card, consider using:</p>
   <ul class="nhsw-body">
-    <li>the care card pattern to help users decide when and where to get care</li>
     <li><a class="nhsw-link" href="{{ '/content/details.html' | relative_url }}">details</a></li>
     <li><a class="nhsw-link" href="{{ '/actions/expander.html' | relative_url }}">an expander</a></li>
     <li><a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}">inset text</a></li>
     <li><a class="nhsw-link" href="{{ '/content/tabs.html' | relative_url }}">tabs</a></li>
-    <li>a warning callout</li>
+    <li><a class="nhsw-link" href="{{ '/callouts/tabs.html' | relative_url }}">a warning callout</a></li>
   </ul>
 
   <h2 class="nhsw-h2">How to use cards</h2>
@@ -62,7 +61,7 @@ tabs:
 
   <h3 class="nhsw-h3">Heading level and size</h3>
 
-  <p class="nhsw-body"><a class="nhsw-link" href="#">Use headings correctly</a> to reflect the page structure. If you need to, change the level of the heading. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">Follow NHS England's guidance on<a class="nhsw-link" href="https://service-manual.nhs.uk/accessibility/design#use-headings-correctly">using headings correctly</a> to reflect the page structure. If you need to, change the level of the heading. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
   <p class="nhsw-body">Here's an example of replacing the default <code>h2</code> heading with an <code>h3</code>.</p>
 
   {% capture example_body %}{% raw %}
@@ -132,8 +131,8 @@ tabs:
   {% include code-viewer.html id="card-heading-sizes" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Cards in NHS England Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Cards on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/card">Cards in NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/nhsuk/nhsuk-service-manual-community-backlog/issues/159">Cards on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -192,7 +191,6 @@ tabs:
 
     <p class="nhsw-body">The chevron icon helps users know the card will take them to more content. The size of the card helps these links be more frequently noted or more important than other topics signposted by secondary links.</p>
     <p class="nhsw-body">There is only a clickable version of this card.</p>
-    <p class="nhsw-body">Read about how to use cards with chevrons in the hub page pattern.</p>
   </section>
 
   <section class="preview-section">
@@ -313,9 +311,10 @@ tabs:
 
     <p class="nhsw-body">Consider using these components instead:</p>
     <ul class="nhsw-body">
-      <li>a card to help users decide when and where to get care (TBA)</li>
-      <li>inset text</li>
-      <li>a warning callout</li>
+
+   <li><a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}">inset text</a></li>
+    <li><a class="nhsw-link" href="{{ '/callouts/tabs.html' | relative_url }}">a warning callout</a></li>
+      
     </ul>
   </section>
 
