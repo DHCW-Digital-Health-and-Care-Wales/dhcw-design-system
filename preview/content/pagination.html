@@ -121,11 +121,11 @@ tabs:
   <p class="nhsw-body">The pagination component is wrapped in a <code style="color: #d4351c;">&lt;nav&gt;</code> element to show that they are navigation links. It has an <code style="color: #d4351c;">&lt;aria-label&gt;</code> attribute with the value <code style="color: #d4351c;">Pagination</code>. Screen readers that support this attribute will read this.</p>
   <p class="nhsw-body">A visually hidden heading, <code style="color: #d4351c;">Pagination</code>, is also included so screen reader users can identify the purpose of the navigation when navigating by headings.</p>
   <p class="nhsw-body">The link for the current page uses <code style="color: #d4351c;">aria-current="page"</code> to indicate the user's current location within the pagination.</p>
-  <p class="nhsw-body">This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a> by ensuring that relationships, structure and state are available to assistive technologies.</p>
+  <p class="nhsw-body">This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a> by ensuring that relationships, structure and state are available to assistive technologies.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Pagination in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Pagination on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/pagination/">Pagination in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/77">Pagination on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -142,7 +142,6 @@ tabs:
   <section class="preview-section">
     <h3 class="nhsw-h3">For navigating between content pages</h3>
     <p class="nhsw-body">Use pagination at the bottom of pages of content to allow users to navigate around a topic that's divided into multiple pages (up to 8 pages).</p>
-    <p class="nhsw-body">If you're using pagination at the bottom of content pages, you should also use a <a class="nhsw-link" href="#">contents list</a> at the top of the page. The 2 components make up the <a class="nhsw-link" href="#">mini-hub pattern</a>.</p>
 
     {% capture example_body %}{% raw %}
       <nav class="nhsw-pagination" role="navigation" aria-label="Pagination">
