@@ -1737,6 +1737,12 @@ body {
 .nhsw-expander:hover .nhsw-expander__icon {
   background-color: #7c2855;
 }
+.nhsw-expander:has(> .nhsw-expander__button:focus) {
+  border-top-color: #4c6272;
+  border-right-color: #4c6272;
+  border-left-color: #4c6272;
+  box-shadow: inset 0 -1px 0 #4c6272;
+}
 .nhsw-expander--reverse {
   background-color: transparent;
   border-color: #ffffff;
@@ -1776,7 +1782,7 @@ body {
 }
 .nhsw-expander__button:focus .nhsw-expander__heading {
   background-color: #ffeb3b;
-  border-bottom: max(4px, 0.25rem) solid #212b32;
+  box-shadow: inset 0 -4px 0 #212b32;
 }
 .nhsw-expander__button:focus .nhsw-expander__link-text {
   color: #0b0c0c;

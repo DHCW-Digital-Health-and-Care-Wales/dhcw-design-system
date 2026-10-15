@@ -55,7 +55,8 @@ describe('expander hover/focus states and default appearance', () => {
     expect(focusButton).toMatch(/outline:\s*none/);
     const focusHeading = block(css, '\\.nhsw-expander__button:focus \\.nhsw-expander__heading');
     expect(focusHeading).toMatch(/background-color:\s*#ffeb3b/);
-    expect(focusHeading).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
+    expect(focusHeading).toMatch(/box-shadow:\s*inset 0 -4px 0 #212b32/);
+    expect(focusHeading).not.toMatch(/border/);
   });
 
   it('focus turns the link text and icon near-black and removes the underline, keeping the yellow heading highlight', () => {

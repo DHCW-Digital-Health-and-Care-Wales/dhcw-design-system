@@ -1,5 +1,4 @@
 @use "../../tokens/colours" as c;
-@use "../../utilities/focus-ring" as u;
 
 $nhsw-colour-expander-hover: #7c2855;
 $nhsw-colour-expander-hover-border: #4c6272;
@@ -24,6 +23,13 @@ $nhsw-colour-expander-hover-border: #4c6272;
     .nhsw-expander__icon {
       background-color: $nhsw-colour-expander-hover;
     }
+  }
+
+  &:has(> .nhsw-expander__button:focus) {
+    border-top-color: $nhsw-colour-expander-hover-border;
+    border-right-color: $nhsw-colour-expander-hover-border;
+    border-left-color: $nhsw-colour-expander-hover-border;
+    box-shadow: inset 0 -1px 0 $nhsw-colour-expander-hover-border;
   }
 
   &--reverse {
@@ -70,7 +76,8 @@ $nhsw-colour-expander-hover-border: #4c6272;
     outline: none;
 
     .nhsw-expander__heading {
-      @include u.nhsw-link-focus-state;
+      background-color: c.$nhsw-colour-focus;
+      box-shadow: inset 0 -4px 0 c.$nhsw-colour-text-primary;
     }
 
     .nhsw-expander__link-text {
