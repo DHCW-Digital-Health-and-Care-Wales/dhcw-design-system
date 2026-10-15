@@ -345,8 +345,21 @@
   // screen or at high zoom. The menu button stays hidden while everything fits.
   document.querySelectorAll('.nhsw-site-header__nav').forEach(function (nav) {
     var list = nav.querySelector('.nhsw-site-header__nav-list');
+    if (!list || nav.classList.contains('nhsw-site-header__nav--no-menu')) return;
+
+    // A navigation written without the menu item (static HTML) gets one, so every
+    // navigation has the "More" menu by default
     var menu = nav.querySelector('.nhsw-site-header__menu');
-    var toggle = menu && menu.querySelector('.nhsw-site-header__menu-toggle');
+    if (!menu) {
+      menu = document.createElement('li');
+      menu.className = 'nhsw-site-header__menu';
+      menu.setAttribute('hidden', '');
+      menu.innerHTML =
+        '<button type="button" class="nhsw-site-header__menu-toggle nhsw-site-header__nav-link" aria-expanded="false">' +
+        '<span><span class="nhsw-visually-hidden">Browse </span>More</span></button>';
+      list.appendChild(menu);
+    }
+    var toggle = menu.querySelector('.nhsw-site-header__menu-toggle');
     if (!list || !menu || !toggle) return;
 
     var items = Array.prototype.filter.call(list.children, function (item) {

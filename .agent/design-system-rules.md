@@ -72,6 +72,7 @@ Please note that our organisation is called Digital Health and Care Wales, so br
 - Invent new component classes unless the request asks for a new component
 - Use placeholder CSS
 - Use rem or em for spacing values — use px to match the layout spec
+- Change the written content of existing pages (headings, descriptions, guidance text, lists, links) outside the example areas unless explicitly asked to, and never as a side effect of another task. Report wording you think is wrong instead of editing it
 
 ## Accessibility rules
 - Every input must have a visible label

@@ -198,3 +198,25 @@ describe('button colour coverage (Figma tokens)', () => {
     expect(warningActive).toMatch(/box-shadow:\s*0 2px 0 #0e1b2f/);
   });
 });
+
+describe('button width follows the screen size', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/actions/button";`);
+  });
+
+  it('a button is full width by default, which is what applies on a narrow screen', () => {
+    expect(css).toMatch(/\.nhsw-button\s*\{\s*width:\s*100%/);
+  });
+
+  it('the inline modifier opts out of full width, so the button keeps its natural width on mobile', () => {
+    expect(block(css, '\.nhsw-button--inline')).toMatch(/width:\s*auto/);
+  });
+
+  it('from 40rem a button goes back to its natural width, and the full modifier keeps it full width at every size', () => {
+    expect(css).toMatch(/@media \(min-width: 40rem\)\s*\{\s*\.nhsw-button\s*\{\s*width:\s*auto/);
+    expect(css).toMatch(/@media \(min-width: 40rem\)\s*\{[\s\S]*?\.nhsw-button--full\s*\{\s*width:\s*100%/);
+  });
+});
+

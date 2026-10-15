@@ -23,10 +23,10 @@ params:
     type: boolean
     required: false
     description: >
-      Set true for the overflow menu variant. The navigation is never hidden on
-      small screens, and items that do not fit move into a "More" menu, which
-      nhsw-behaviours.js shows only when items overflow. Adds the
-      nhsw-site-header__nav--overflow class and a hidden menu item.
+      Defaults to true. The navigation is never hidden on small screens, and
+      items that do not fit move into a "More" menu, which nhsw-behaviours.js
+      shows only when items overflow. Pass false to opt out: the navigation
+      is then hidden on small screens (nhsw-site-header__nav--no-menu).
   - name: toggleMenuText
     type: string
     required: false
@@ -56,7 +56,7 @@ examples:
           current: true
         - text: "Navigation Item 2"
           href: "/item-2"
-  - name: overflow-menu
+  - name: without-menu
     data:
       items:
         - text: "Navigation Item 1"
@@ -66,7 +66,7 @@ examples:
           href: "/item-2"
         - text: "Navigation Item 3"
           href: "/item-3"
-      overflowMenu: true
+      overflowMenu: false
   - name: reverse
     data:
       items:

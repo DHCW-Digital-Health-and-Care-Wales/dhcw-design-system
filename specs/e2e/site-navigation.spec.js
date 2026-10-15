@@ -5,20 +5,34 @@ const barLinks = (page) => page.locator(`${NAV} .nhsw-site-header__nav-list > li
 const menuLinks = (page) => page.locator(`${NAV} .nhsw-site-header__menu-list a`);
 const toggle = (page) => page.locator(`${NAV} .nhsw-site-header__menu-toggle`);
 
-test.describe('Site navigation by default: unchanged, hidden on small screens', () => {
-  test('shows all of the items on a wide screen, with no "More" button', async ({ page }) => {
+test.describe('Site navigation by default: never hidden, with a "More" menu', () => {
+  test('shows all of the items on a wide screen, with the "More" button hidden', async ({ page }) => {
     await page.setViewportSize({ width: 1000, height: 700 });
     await page.goto('/examples/site-navigation-default.html');
 
     await expect(barLinks(page)).toHaveCount(3);
-    await expect(toggle(page)).toHaveCount(0);
+    await expect(toggle(page)).toBeHidden();
   });
 
-  test('is hidden on a small screen, as before', async ({ page }) => {
+  test('is still there on a small screen, with the items that do not fit moved into "More"', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 700 });
     await page.goto('/examples/site-navigation-default.html');
 
+    await expect(page.locator(NAV)).toBeVisible();
+    await expect(toggle(page)).toBeVisible();
+    await toggle(page).click();
+    await expect(menuLinks(page).first()).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+  });
+
+  test('opting out (nav--no-menu) hides the navigation on a small screen, as it used to', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 700 });
+    await page.goto('/examples/site-navigation-no-menu.html');
     await expect(page.locator(NAV)).toBeHidden();
+    await expect(toggle(page)).toHaveCount(0);
+
+    await page.setViewportSize({ width: 1000, height: 700 });
+    await expect(page.locator(NAV)).toBeVisible();
   });
 });
 
@@ -33,9 +47,9 @@ test.describe('Site navigation inside the example boxes on the component page', 
     await expect(demo.locator('.nhsw-site-header__nav-link').first()).toBeVisible();
   });
 
-  test('the example opened in a new tab is the real component, so it is hidden on a small screen', async ({ page }) => {
+  test('the example opened in a new tab is also visible on a small screen', async ({ page }) => {
     await page.goto('/examples/site-navigation-default.html');
-    await expect(page.locator(NAV)).toBeHidden();
+    await expect(page.locator(NAV)).toBeVisible();
   });
 });
 

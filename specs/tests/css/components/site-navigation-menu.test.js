@@ -1,33 +1,33 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { compileProbe, block } from '../../support/compile-scss.js';
 
-describe('site navigation: the default is unchanged, and the overflow menu variant is opt-in (as in the NHS.UK header)', () => {
+describe('site navigation: the "More" overflow menu is the default, as in the NHS.UK header', () => {
   let css = '';
 
   beforeAll(() => {
     css = compileProbe(`@use "components/site/header";`);
   });
 
-  it('the default navigation is still hidden below 40rem, exactly as before', () => {
-    expect(css).toMatch(/@media \(max-width: 40rem\)\s*\{\s*\.nhsw-site-header__nav\s*\{[^}]*display:\s*none/);
+  it('the navigation is never hidden on a small screen, which is what keeps it available at 400% zoom', () => {
+    expect(block(css, '\.nhsw-site-header__nav')).not.toMatch(/display:\s*none/);
+    expect(css).not.toMatch(/@media \(max-width: 40rem\)\s*\{\s*\.nhsw-site-header__nav\s*\{[^}]*display:\s*none/);
   });
 
-  it('the default navigation has no border and its list is not positioned, so nothing about it changed', () => {
-    expect(block(css, '\\.nhsw-site-header__nav')).not.toMatch(/border/);
-    expect(block(css, '\\.nhsw-site-header__nav-list')).not.toMatch(/position/);
+  it('the navigation has a zero-width bottom border in its own colour, which the script grows to make room for an open menu', () => {
+    expect(block(css, '\.nhsw-site-header__nav')).toMatch(/border:\s*0 solid #ffffff/);
+    expect(block(css, '\.nhsw-site-header__nav--reverse')).toMatch(/border-color:\s*#1b365d/);
   });
 
-  it('the overflow variant is never hidden, which is what keeps it available at 400% zoom', () => {
-    expect(css).toMatch(/@media \(max-width: 40rem\)\s*\{[^}]*\.nhsw-site-header__nav--overflow\s*\{[^}]*display:\s*block/);
+  it('the list is positioned, so the menu can sit directly under it', () => {
+    expect(block(css, '\.nhsw-site-header__nav \.nhsw-site-header__nav-list')).toMatch(/position:\s*relative/);
   });
 
-  it('the overflow variant has a zero-width bottom border in its own colour, which the script grows to make room for an open menu', () => {
-    expect(block(css, '\\.nhsw-site-header__nav--overflow')).toMatch(/border:\s*0 solid #ffffff/);
-    expect(block(css, '\\.nhsw-site-header__nav--reverse\\.nhsw-site-header__nav--overflow')).toMatch(/border-color:\s*#1b365d/);
+  it('opting out (nav--no-menu) hides the navigation below 40rem, as the navigation used to behave', () => {
+    expect(css).toMatch(/@media \(max-width: 40rem\)\s*\{\s*\.nhsw-site-header__nav--no-menu\s*\{[^}]*display:\s*none/);
   });
 
-  it('the overflow variant positions its list, so the menu can sit directly under it', () => {
-    expect(block(css, '\\.nhsw-site-header__nav--overflow \\.nhsw-site-header__nav-list')).toMatch(/position:\s*relative/);
+  it('no longer needs an overflow modifier class', () => {
+    expect(css).not.toContain('nhsw-site-header__nav--overflow');
   });
 
   it('once the script is running the bar stops wrapping, so overflow goes to the menu instead of a second row', () => {

@@ -142,9 +142,20 @@ describe('site header top bar', () => {
     expect(title).toMatch(/overflow-wrap:\s*break-word/);
   });
 
-  it('search box is hidden below the 40rem breakpoint, not stacked full-width', () => {
-    expect(css).toMatch(
-      /@media \(max-width: 40rem\) \{[\s\S]*?\.nhsw-site-header__search \{\s*display: none;\s*\}\s*\}/,
-    );
+  it('the search box is never hidden: it takes the full width on its own row on a small screen', () => {
+    expect(css).not.toMatch(/\.nhsw-site-header__search\s*\{\s*display:\s*none/);
+    expect(css).toMatch(/@media \(max-width: 40rem\)\s*\{[\s\S]*?\.nhsw-site-header__search\s*\{[^}]*flex-basis:\s*100%/);
+  });
+
+  it('the row wraps, with the logo and name growing to fill it and the search box wrapping below when it no longer fits (as in the NHS.UK header)', () => {
+    expect(block(css, '\.nhsw-site-header__top')).toMatch(/flex-flow:\s*row wrap/);
+    expect(block(css, '\.nhsw-site-header__brand')).toMatch(/flex:\s*999 1 13\.75rem/);
+    expect(block(css, '\.nhsw-site-header__search')).toMatch(/flex:\s*1 1 18rem/);
+  });
+
+  it('the service name wraps in balanced lines, up to 54 characters wide', () => {
+    const title = block(css, '\.nhsw-site-header__title');
+    expect(title).toMatch(/max-width:\s*54ch/);
+    expect(title).toMatch(/text-wrap:\s*balance/);
   });
 });

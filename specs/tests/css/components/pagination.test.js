@@ -134,3 +134,36 @@ describe('numbered pagination: on mobile, previous/next sit at the top with the 
     expect(fromTablet).toMatch(/\.nhsw-pagination--numbered \.nhsw-pagination__list\s*\{\s*order:\s*initial;\s*flex-basis:\s*auto/);
   });
 });
+
+describe('numbered pagination on a narrow screen reduces to Previous, first, current, last and Next', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/pagination";`);
+  });
+
+  const narrow = (selectorPart) => new RegExp(String.raw`@media \(max-width: 40\.0624em\)\s*\{[\s\S]*?${selectorPart}`);
+
+  it('only applies below the tablet breakpoint', () => {
+    expect(css).toMatch(narrow(String.raw`\.nhsw-pagination--numbered \.nhsw-pagination__item:not\(\.nhsw-pagination__item--current\):not\(\.nhsw-pagination__item--ellipsis\):not\(:first-child\):not\(:last-child\)\s*\{\s*display:\s*none`));
+  });
+
+  it('hides only the pages in between: never the first, last, current or an ellipsis', () => {
+    const rule = css.match(/\.nhsw-pagination--numbered \.nhsw-pagination__item:not\([^{]*\{\s*display:\s*none/)[0];
+    for (const kept of ['--current', '--ellipsis', ':first-child', ':last-child']) {
+      expect(rule, kept).toContain(`:not(${kept.startsWith(':') ? kept : '.nhsw-pagination__item' + kept})`);
+    }
+  });
+
+  it('draws an ellipsis marker where hidden pages sit beside the current page with no ellipsis already between them', () => {
+    expect(css).toMatch(/:first-child \+ \.nhsw-pagination__item[^{]*\+ \.nhsw-pagination__item--current::before/);
+    expect(css).toMatch(/\.nhsw-pagination__item--current \+ \.nhsw-pagination__item[^{]*:last-child::before/);
+    expect(css).toMatch(/content:\s*"…"/);
+  });
+
+  it('keeps the wide-screen layout untouched: the in-between pages are not hidden above the breakpoint', () => {
+    const outsideMedia = css.replace(/@media[^{]*\{[\s\S]*?\}\s*\}/g, '');
+    expect(outsideMedia).not.toMatch(/\.nhsw-pagination__item:not\([^{]*\{\s*display:\s*none/);
+  });
+});
+

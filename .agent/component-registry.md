@@ -455,7 +455,7 @@ Pass `phaseBanner` (`{ tag, text, html }`) to show an Alpha/Beta `nhsw-phase-ban
 - nhsw-site-header__account, __user, __user-icon, __user-name, __logout
 
 ## nhsw-site-header__nav
-Primary navigation row (macro: `nhswSiteNavigation`, `src/components/site-navigation/`) — hidden below the tablet breakpoint, where `nhsw-bottom-nav` takes over instead. Callable standalone, or via `nhswHeader`'s `nav` param.
+Primary navigation row (macro: `nhswSiteNavigation`, `src/components/site-navigation/`) — never hidden: items that do not fit move into a "More" menu, as in the NHS.UK header. Pass `overflowMenu: false` to hide it below the tablet breakpoint instead. Callable standalone, or via `nhswHeader`'s `nav` param.
 
 Supports:
 - nhsw-site-header__nav-container
@@ -463,7 +463,7 @@ Supports:
 - nhsw-site-header__nav-link (+ --current)
 - nhsw-site-header__nav-badge
 - nhsw-site-header__nav--reverse
-- nhsw-site-header__nav--overflow (variant: never hidden on small screens; items that do not fit move into a "More" menu)
+- nhsw-site-header__nav--no-menu (opt-out: hides the navigation on small screens instead of moving items that do not fit into the "More" menu, which is the default)
 - nhsw-site-header__nav--enhanced (added by the behaviour script: the bar stops wrapping and overflow goes to the menu)
 - nhsw-site-header__menu (hidden list item holding the "More" button, shown by the script when items overflow)
 - nhsw-site-header__menu-toggle

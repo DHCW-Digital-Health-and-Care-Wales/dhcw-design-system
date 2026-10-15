@@ -34,6 +34,14 @@ When asked to create a page:
 - Do not invent colours, typography, spacing or one-off CSS.
 - Use existing tokens and classes.
 
+## Existing page content
+
+Do not change the written content of existing pages unless you are explicitly asked to, and do not do it as a side effect of another task. This covers headings, descriptions, intro and guidance text, lists, links and any other wording outside the example areas (the previews and their code samples).
+
+- Change styles, markup structure, classes and example areas as the task requires, but leave the surrounding words as they are.
+- If you think wording is wrong or out of date, say so in your summary instead of editing it.
+- New pages and new sections the request asks for are fine to write, using the supplied content.
+
 ## Layout guidelines
 
 Follow the spacing and breakpoint rules in `.agent/design-system-rules.md`. Key rules:

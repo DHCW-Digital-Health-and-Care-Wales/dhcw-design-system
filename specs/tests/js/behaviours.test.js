@@ -797,15 +797,31 @@ describe.each(BUILDS)('nhsw-behaviours.js (%s)', (label, SCRIPT) => {
       expect(toggle().getAttribute('aria-expanded')).toBe('false');
     });
 
-    it('leaves a navigation without the menu markup alone', () => {
+    it('adds the menu item to a navigation written without it, so every navigation has the menu by default', () => {
       setBody(`
         <nav class="nhsw-site-header__nav">
           <ul class="nhsw-site-header__nav-list"><li><a class="nhsw-site-header__nav-link" href="/1">One</a></li></ul>
         </nav>
       `);
       runScript(SCRIPT);
+      expect(nav().classList.contains('nhsw-site-header__nav--enhanced')).toBe(true);
+      const created = document.querySelector('.nhsw-site-header__menu');
+      expect(created).not.toBeNull();
+      expect(created.hasAttribute('hidden')).toBe(true);
+      const button = created.querySelector('.nhsw-site-header__menu-toggle');
+      expect(button.getAttribute('aria-expanded')).toBe('false');
+      expect(button.textContent.replace(/\s+/g, ' ').trim()).toBe('Browse More');
+    });
+
+    it('leaves a navigation that opted out (nav--no-menu) alone', () => {
+      setBody(`
+        <nav class="nhsw-site-header__nav nhsw-site-header__nav--no-menu">
+          <ul class="nhsw-site-header__nav-list"><li><a class="nhsw-site-header__nav-link" href="/1">One</a></li></ul>
+        </nav>
+      `);
+      runScript(SCRIPT);
       expect(nav().classList.contains('nhsw-site-header__nav--enhanced')).toBe(false);
-      expect(menuList()).toBeNull();
+      expect(document.querySelector('.nhsw-site-header__menu')).toBeNull();
     });
   });
 

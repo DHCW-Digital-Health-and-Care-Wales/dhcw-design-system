@@ -17,16 +17,16 @@ tabs:
 <div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
-    <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Save and continue</button>
+    <button class="nhsw-button nhsw-button--primary" type="button">Save and continue</button>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="btn-overview" open_url="/examples/button-primary.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button"&gt;Save and continue&lt;/button&gt;{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--primary" type="button"&gt;Save and continue&lt;/button&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "button/macro.njk" import nhswButton %}
 
 {{ nhswButton({
   text: "Save and continue",
-  classes: "nhsw-button--primary nhsw-button--inline"
+  classes: "nhsw-button--primary"
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="btn-overview" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -109,14 +109,14 @@ tabs:
     <h3 class="nhsw-h3">Primary buttons</h3>
 
     {% capture example_body %}{% raw %}
-      <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Save and continue</button>
+      <button class="nhsw-button nhsw-button--primary" type="button">Save and continue</button>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-primary" open_url="/examples/button-primary.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button"&gt;Save and continue&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--primary" type="button"&gt;Save and continue&lt;/button&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswButton({
   text: "Save and continue",
-  classes: "nhsw-button--primary nhsw-button--inline"
+  classes: "nhsw-button--primary"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-primary" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -129,14 +129,14 @@ tabs:
     <h3 class="nhsw-h3">Secondary buttons</h3>
 
     {% capture example_body %}{% raw %}
-      <button class="nhsw-button nhsw-button--outline nhsw-button--inline" type="button">Continue</button>
+      <button class="nhsw-button nhsw-button--outline" type="button">Continue</button>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-secondary" open_url="/examples/button-secondary.html" body=example_body dark=true %}
 
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--outline nhsw-button--inline" type="button"&gt;Continue&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--outline" type="button"&gt;Continue&lt;/button&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswButton({
   text: "Continue",
-  classes: "nhsw-button--outline nhsw-button--inline"
+  classes: "nhsw-button--outline"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-secondary" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -154,14 +154,14 @@ tabs:
     <h3 class="nhsw-h3">Exception buttons</h3>
 
     {% capture example_body %}{% raw %}
-      <button class="nhsw-button nhsw-button--exceptional nhsw-button--inline" type="button">Exception desktop</button>
+      <button class="nhsw-button nhsw-button--exceptional" type="button">Exception desktop</button>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-exceptional" open_url="/examples/button-exceptional.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--exceptional nhsw-button--inline" type="button"&gt;Exception desktop&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--exceptional" type="button"&gt;Exception desktop&lt;/button&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswButton({
   text: "Exception desktop",
-  classes: "nhsw-button--exceptional nhsw-button--inline"
+  classes: "nhsw-button--exceptional"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-exceptional" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -177,14 +177,14 @@ tabs:
     <h3 class="nhsw-h3">Warning buttons</h3>
 
     {% capture example_body %}{% raw %}
-      <button class="nhsw-button nhsw-button--warning nhsw-button--inline" type="button">Archive record</button>
+      <button class="nhsw-button nhsw-button--warning" type="button">Archive record</button>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-warning" open_url="/examples/button-warning.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--warning nhsw-button--inline" type="button"&gt;Archive record&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--warning" type="button"&gt;Archive record&lt;/button&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswButton({
   text: "Archive record",
-  classes: "nhsw-button--warning nhsw-button--inline"
+  classes: "nhsw-button--warning"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-warning" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -198,14 +198,14 @@ tabs:
     <h3 class="nhsw-h3">Small delete buttons</h3>
 
     {% capture example_body %}{% raw %}
-      <button class="nhsw-button nhsw-button--warning-outline nhsw-button--small nhsw-button--inline" type="button">Delete</button>
+      <button class="nhsw-button nhsw-button--warning-outline nhsw-button--small" type="button">Delete</button>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-warning-outline" open_url="/examples/button-warning-outline.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--warning-outline nhsw-button--small nhsw-button--inline" type="button"&gt;Delete&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--warning-outline nhsw-button--small" type="button"&gt;Delete&lt;/button&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswButton({
   text: "Delete",
-  classes: "nhsw-button--warning-outline nhsw-button--small nhsw-button--inline"
+  classes: "nhsw-button--warning-outline nhsw-button--small"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-warning-outline" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -217,18 +217,18 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-button-group">
-        <button class="nhsw-button nhsw-button--primary nhsw-button--small nhsw-button--inline" type="button">Update results</button>
-        <button class="nhsw-button nhsw-button--secondary nhsw-button--small nhsw-button--inline" type="button">Clear filters</button>
+        <button class="nhsw-button nhsw-button--primary nhsw-button--small" type="button">Update results</button>
+        <button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button">Clear filters</button>
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-small" open_url="/examples/button-small.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-button-group"&gt;
-  &lt;button class="nhsw-button nhsw-button--primary nhsw-button--small nhsw-button--inline" type="button"&gt;Update results&lt;/button&gt;
-  &lt;button class="nhsw-button nhsw-button--secondary nhsw-button--small nhsw-button--inline" type="button"&gt;Clear filters&lt;/button&gt;
+  &lt;button class="nhsw-button nhsw-button--primary nhsw-button--small" type="button"&gt;Update results&lt;/button&gt;
+  &lt;button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button"&gt;Clear filters&lt;/button&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Update results", classes: "nhsw-button--primary nhsw-button--small nhsw-button--inline" }) }}
-{{ nhswButton({ text: "Clear filters", classes: "nhsw-button--secondary nhsw-button--small nhsw-button--inline" }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Update results", classes: "nhsw-button--primary nhsw-button--small" }) }}
+{{ nhswButton({ text: "Clear filters", classes: "nhsw-button--secondary nhsw-button--small" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-small" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Use smaller buttons sparingly. First try using a standard button.</p>
@@ -245,18 +245,18 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-button-group">
-        <button class="nhsw-button nhsw-button--outline nhsw-button--inline" type="button">Continue</button>
+        <button class="nhsw-button nhsw-button--outline" type="button">Continue</button>
         <button class="nhsw-button nhsw-button--link nhsw-button--reverse" type="button">Cancel</button>
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-link" open_url="/examples/button-link.html" body=example_body dark=true %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-button-group"&gt;
-  &lt;button class="nhsw-button nhsw-button--outline nhsw-button--inline" type="button"&gt;Continue&lt;/button&gt;
+  &lt;button class="nhsw-button nhsw-button--outline" type="button"&gt;Continue&lt;/button&gt;
   &lt;button class="nhsw-button nhsw-button--link nhsw-button--reverse" type="button"&gt;Cancel&lt;/button&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}&lt;div class="nhsw-button-group"&gt;
-  {{ nhswButton({ text: "Continue", classes: "nhsw-button--outline nhsw-button--inline" }) }}
+  {{ nhswButton({ text: "Continue", classes: "nhsw-button--outline" }) }}
   {{ nhswButton({ text: "Cancel", classes: "nhsw-button--link nhsw-button--reverse" }) }}
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-link" html=html_sample njk=njk_sample toggleable=true %}
@@ -281,18 +281,18 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-button-group">
-        <button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button">Continue</button>
-        <button class="nhsw-button nhsw-button--secondary nhsw-button--inline" type="button">Secondary-white desktop</button>
+        <button class="nhsw-button nhsw-button--primary" type="button">Continue</button>
+        <button class="nhsw-button nhsw-button--secondary" type="button">Secondary-white desktop</button>
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-grouping" open_url="/examples/button-grouping.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-button-group"&gt;
-  &lt;button class="nhsw-button nhsw-button--primary nhsw-button--inline" type="button"&gt;Continue&lt;/button&gt;
-  &lt;button class="nhsw-button nhsw-button--secondary nhsw-button--inline" type="button"&gt;Secondary-white desktop&lt;/button&gt;
+  &lt;button class="nhsw-button nhsw-button--primary" type="button"&gt;Continue&lt;/button&gt;
+  &lt;button class="nhsw-button nhsw-button--secondary" type="button"&gt;Secondary-white desktop&lt;/button&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Continue", classes: "nhsw-button--primary nhsw-button--inline" }) }}
-{{ nhswButton({ text: "Secondary-white desktop", classes: "nhsw-button--secondary nhsw-button--inline" }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Continue", classes: "nhsw-button--primary" }) }}
+{{ nhswButton({ text: "Secondary-white desktop", classes: "nhsw-button--secondary" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-grouping" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Use a button group when 2 or more buttons are placed together. The buttons will display side by side on wider screens. On smaller screens, such as on mobile, they'll appear above each other.</p>

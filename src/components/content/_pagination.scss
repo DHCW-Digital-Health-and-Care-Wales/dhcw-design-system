@@ -264,3 +264,42 @@
     }
   }
 }
+
+// On a narrow screen the numbered pagination shows only the Previous link, the first
+// page, the current page, the last page and the Next link, with ellipses for the
+// gaps. Pure CSS: the pages in between are hidden, and where hidden pages sit right
+// next to the current page without an ellipsis, a gap marker is drawn instead.
+$nhsw-pagination-plain-item: ":not(.nhsw-pagination__item--current):not(.nhsw-pagination__item--ellipsis)";
+
+@mixin nhsw-pagination-gap-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 45px;
+  min-height: 45px;
+  padding: 10px 4px;
+  box-sizing: border-box;
+  color: c.$nhsw-colour-text-secondary;
+  content: "\2026";
+}
+
+@include b.nhsw-below-tablet {
+  .nhsw-pagination--numbered {
+    .nhsw-pagination__item#{$nhsw-pagination-plain-item}:not(:first-child):not(:last-child) {
+      display: none;
+    }
+
+    .nhsw-pagination__item--current,
+    .nhsw-pagination__item#{$nhsw-pagination-plain-item}:last-child {
+      display: flex;
+      align-items: center;
+    }
+
+    .nhsw-pagination__item#{$nhsw-pagination-plain-item}:first-child + .nhsw-pagination__item#{$nhsw-pagination-plain-item} + .nhsw-pagination__item--current::before,
+    .nhsw-pagination__item#{$nhsw-pagination-plain-item}:first-child + .nhsw-pagination__item#{$nhsw-pagination-plain-item} + .nhsw-pagination__item#{$nhsw-pagination-plain-item} + .nhsw-pagination__item--current::before,
+    .nhsw-pagination__item--current + .nhsw-pagination__item#{$nhsw-pagination-plain-item} + .nhsw-pagination__item#{$nhsw-pagination-plain-item}:last-child::before,
+    .nhsw-pagination__item--current + .nhsw-pagination__item#{$nhsw-pagination-plain-item} + .nhsw-pagination__item#{$nhsw-pagination-plain-item} + .nhsw-pagination__item#{$nhsw-pagination-plain-item}:last-child::before {
+      @include nhsw-pagination-gap-marker;
+    }
+  }
+}
