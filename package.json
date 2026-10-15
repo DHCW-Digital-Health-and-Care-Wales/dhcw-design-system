@@ -1,6 +1,6 @@
 {
   "name": "dhcw-design-system",
-  "version": "0.1.42",
+  "version": "0.1.47",
   "private": true,
   "scripts": {
     "test": "vitest run",
