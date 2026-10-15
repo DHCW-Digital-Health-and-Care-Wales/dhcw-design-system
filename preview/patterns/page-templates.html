@@ -1,0 +1,959 @@
+---
+layout: simple
+title: Page templates
+container: fluid
+side_nav_data: styles_nav
+breadcrumb_parent_title: Patterns
+breadcrumb_parent_url: /patterns.html
+---
+<h1 class="nhsw-h1">Page templates</h1>
+<p class="nhsw-body nhsw-body--secondary">Updated in March 2026</p>
+<p class="nhsw-caption-xl">Use page templates to create consistent layouts across Digital Health and Care Wales services.</p>
+
+<p class="nhsw-body">Templates help you:</p>
+<ul class="nhsw-body">
+  <li>prototype and test pages quickly</li>
+  <li>create consistent user experiences across services</li>
+  <li>use familiar layouts and navigation patterns that meet user expectations</li>
+</ul>
+
+<h2 class="nhsw-h2">Page template structure</h2>
+<p class="nhsw-body">Templates show how design system components and patterns work together to create a page.</p>
+
+<h3 class="nhsw-h3">Top</h3>
+<p class="nhsw-body">Contains components that are common across the service, such as:</p>
+<ul class="nhsw-body">
+  <li><a class="nhsw-link" href="{{ '/components/header.html' | relative_url }}">site header</a></li>
+  <li><a class="nhsw-link" href="{{ '/components/skip-link.html' | relative_url }}">skip links</a></li>
+  <li><a class="nhsw-link" href="{{ '/components/site-navigation.html' | relative_url }}">site navigation</a></li>
+</ul>
+
+<h3 class="nhsw-h3">Main content</h3>
+<p class="nhsw-body">Contains the primary page content. Use the <a class="nhsw-link" href="#">layout component</a> to control page width and content structure.</p>
+<ul class="nhsw-body">
+  <li>bottom - for the <a class="nhsw-link" href="{{ '/components/footer.html' | relative_url }}">site footer</a>, which is anchored to the bottom of the browser window</li>
+</ul>
+
+<h3 class="nhsw-h3">Bottom</h3>
+<p class="nhsw-body">Contains the <a class="nhsw-link" href="{{ '/components/footer.html' | relative_url }}">footer</a> and supporting links, such as accessibility, privacy and cookie information.</p>
+
+<h2 class="nhsw-h2">Background colour</h2>
+<p class="nhsw-body">Page templates use the <code class="nhsw-code">$nhswales-page-background-grey</code> background colour. The <a class="nhsw-link" href="https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide">British Dyslexia Association's style guide</a> recommends dark text on a light, but not white, background.</p>
+<p class="nhsw-body">This helps:</p>
+<ul class="nhsw-body">
+  <li>reduce visual glare</li>
+  <li>support users who prefer lower contrast backgrounds</li>
+  <li>make important components stand out, like warning callouts</li>
+</ul>
+
+<h2 class="nhsw-h2" id="public-facing-page-templates">Public-facing page templates</h2>
+<p class="nhsw-body">Public-facing templates are designed for patients, carers and members of the public.</p>
+<p class="nhsw-body">They use top navigation and familiar content layouts to support browsing, finding information and accessing services.</p>
+
+<h3 class="nhsw-h3">Default page template</h3>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-default.html' | relative_url }}" title="Default page template example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-default" open_url="/examples/page-template-default.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;&lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    &lt;h1 class="nhsw-h1"&gt;Default page template&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container"&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="/"&gt;
+        &lt;span class="nhsw-site-header__logo"&gt;
+          &lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;
+        &lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    &lt;h1 class="nhsw-h1"&gt;Default page template&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container"&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;&amp;copy; Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-default" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Full width</h3>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-full-width.html' | relative_url }}" title="Full width example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-full-width" open_url="/examples/page-template-full-width.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-phase-banner nhsw-phase-banner--reverse"&gt;
+      &lt;div class="nhsw-phase-banner__container"&gt;
+        &lt;p class="nhsw-phase-banner__content"&gt;&lt;strong class="nhsw-phase-banner__tag"&gt;Alpha&lt;/strong&gt;&lt;span class="nhsw-phase-banner__text"&gt;This is a new service. Help us improve it and give your feedback by email.&lt;/span&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;&lt;span class="nhsw-site-header__user"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"&gt;&lt;/rect&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;&lt;a class="nhsw-site-header__logout" href="#"&gt;Log out&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Schools&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Children&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"&gt;&lt;span&gt;Sessions&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Vaccines&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Unmatched responses&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;School moves&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Reports&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Imports&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Team&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+    &lt;h1 class="nhsw-h1"&gt;Full width&lt;/h1&gt;
+    &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+    &lt;ul class="nhsw-site-footer__links"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Site map&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="nhsw-site-footer__licence"&gt;
+      &lt;img class="nhsw-site-footer__licence-badge" src="/assets/ogl-logo.svg" alt="" width="50" height="25" aria-hidden="true"&gt;
+      &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="#"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "header/macro.njk" import nhswHeader %}
+{% from "back-link/macro.njk" import nhswBackLink %}
+{% from "footer/macro.njk" import nhswFooter %}
+
+{{ nhswHeader({
+  serviceName: "Service name",
+  search: false,
+  phaseBanner: { tag: "Alpha", text: "This is a new service. Help us improve it and give your feedback by email." },
+  user: { name: "Jane Doe", logoutHref: "#" },
+  nav: {
+    items: [
+      { text: "Schools", href: "#" },
+      { text: "Children", href: "#" },
+      { text: "Sessions", href: "#", current: true },
+      { text: "Vaccines", href: "#" },
+      { text: "Unmatched responses", href: "#", badge: 5 },
+      { text: "School moves", href: "#", badge: 4 },
+      { text: "Reports", href: "#" },
+      { text: "Imports", href: "#", badge: 0 },
+      { text: "Team", href: "#" }
+    ]
+  }
+}) }}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    {{ nhswBackLink({ href: "#" }) }}
+    &lt;h1 class="nhsw-h1"&gt;Full width&lt;/h1&gt;
+    &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+{{ nhswFooter({
+  links: [
+    { text: "Accessibility statement", href: "#" },
+    { text: "Cookie policy", href: "#" },
+    { text: "Privacy policy", href: "#" },
+    { text: "Terms of use", href: "#" },
+    { text: "Site map", href: "#" }
+  ],
+  licence: { text: "Open Government Licence v3.0", href: "#" }
+}) }}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-full-width" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">One-half</h3>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-one-half.html' | relative_url }}" title="One-half example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-one-half" open_url="/examples/page-template-one-half.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-phase-banner nhsw-phase-banner--reverse"&gt;
+      &lt;div class="nhsw-phase-banner__container"&gt;
+        &lt;p class="nhsw-phase-banner__content"&gt;&lt;strong class="nhsw-phase-banner__tag"&gt;Alpha&lt;/strong&gt;&lt;span class="nhsw-phase-banner__text"&gt;This is a new service. Help us improve it and give your feedback by email.&lt;/span&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;&lt;span class="nhsw-site-header__user"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"&gt;&lt;/rect&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;&lt;a class="nhsw-site-header__logout" href="#"&gt;Log out&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Schools&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Children&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"&gt;&lt;span&gt;Sessions&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Vaccines&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Unmatched responses&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;School moves&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Reports&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Imports&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Team&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+    &lt;div class="nhsw-grid-row"&gt;
+      &lt;div class="nhsw-grid-column-one-half"&gt;
+        &lt;h1 class="nhsw-h1"&gt;One-half&lt;/h1&gt;
+        &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+    &lt;ul class="nhsw-site-footer__links"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Site map&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="nhsw-site-footer__licence"&gt;
+      &lt;img class="nhsw-site-footer__licence-badge" src="/assets/ogl-logo.svg" alt="" width="50" height="25" aria-hidden="true"&gt;
+      &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="#"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "header/macro.njk" import nhswHeader %}
+{% from "back-link/macro.njk" import nhswBackLink %}
+{% from "footer/macro.njk" import nhswFooter %}
+
+{{ nhswHeader({
+  serviceName: "Service name",
+  search: false,
+  phaseBanner: { tag: "Alpha", text: "This is a new service. Help us improve it and give your feedback by email." },
+  user: { name: "Jane Doe", logoutHref: "#" },
+  nav: {
+    items: [
+      { text: "Schools", href: "#" },
+      { text: "Children", href: "#" },
+      { text: "Sessions", href: "#", current: true },
+      { text: "Vaccines", href: "#" },
+      { text: "Unmatched responses", href: "#", badge: 5 },
+      { text: "School moves", href: "#", badge: 4 },
+      { text: "Reports", href: "#" },
+      { text: "Imports", href: "#", badge: 0 },
+      { text: "Team", href: "#" }
+    ]
+  }
+}) }}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    {{ nhswBackLink({ href: "#" }) }}
+    &lt;div class="nhsw-grid-row"&gt;
+      &lt;div class="nhsw-grid-column-one-half"&gt;
+        &lt;h1 class="nhsw-h1"&gt;One-half&lt;/h1&gt;
+        &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+{{ nhswFooter({
+  links: [
+    { text: "Accessibility statement", href: "#" },
+    { text: "Cookie policy", href: "#" },
+    { text: "Privacy policy", href: "#" },
+    { text: "Terms of use", href: "#" },
+    { text: "Site map", href: "#" }
+  ],
+  licence: { text: "Open Government Licence v3.0", href: "#" }
+}) }}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-one-half" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Two-thirds</h3>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-two-thirds.html' | relative_url }}" title="Two-thirds example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-two-thirds" open_url="/examples/page-template-two-thirds.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-phase-banner nhsw-phase-banner--reverse"&gt;
+      &lt;div class="nhsw-phase-banner__container"&gt;
+        &lt;p class="nhsw-phase-banner__content"&gt;&lt;strong class="nhsw-phase-banner__tag"&gt;Alpha&lt;/strong&gt;&lt;span class="nhsw-phase-banner__text"&gt;This is a new service. Help us improve it and give your feedback by email.&lt;/span&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;&lt;span class="nhsw-site-header__user"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"&gt;&lt;/rect&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;&lt;a class="nhsw-site-header__logout" href="#"&gt;Log out&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Schools&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Children&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"&gt;&lt;span&gt;Sessions&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Vaccines&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Unmatched responses&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;School moves&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Reports&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Imports&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Team&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+    &lt;div class="nhsw-grid-row"&gt;
+      &lt;div class="nhsw-grid-column-two-thirds"&gt;
+        &lt;h1 class="nhsw-h1"&gt;Two-thirds&lt;/h1&gt;
+        &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+    &lt;ul class="nhsw-site-footer__links"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Site map&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="nhsw-site-footer__licence"&gt;
+      &lt;img class="nhsw-site-footer__licence-badge" src="/assets/ogl-logo.svg" alt="" width="50" height="25" aria-hidden="true"&gt;
+      &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="#"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "header/macro.njk" import nhswHeader %}
+{% from "back-link/macro.njk" import nhswBackLink %}
+{% from "footer/macro.njk" import nhswFooter %}
+
+{{ nhswHeader({
+  serviceName: "Service name",
+  search: false,
+  phaseBanner: { tag: "Alpha", text: "This is a new service. Help us improve it and give your feedback by email." },
+  user: { name: "Jane Doe", logoutHref: "#" },
+  nav: {
+    items: [
+      { text: "Schools", href: "#" },
+      { text: "Children", href: "#" },
+      { text: "Sessions", href: "#", current: true },
+      { text: "Vaccines", href: "#" },
+      { text: "Unmatched responses", href: "#", badge: 5 },
+      { text: "School moves", href: "#", badge: 4 },
+      { text: "Reports", href: "#" },
+      { text: "Imports", href: "#", badge: 0 },
+      { text: "Team", href: "#" }
+    ]
+  }
+}) }}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    {{ nhswBackLink({ href: "#" }) }}
+    &lt;div class="nhsw-grid-row"&gt;
+      &lt;div class="nhsw-grid-column-two-thirds"&gt;
+        &lt;h1 class="nhsw-h1"&gt;Two-thirds&lt;/h1&gt;
+        &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+{{ nhswFooter({
+  links: [
+    { text: "Accessibility statement", href: "#" },
+    { text: "Cookie policy", href: "#" },
+    { text: "Privacy policy", href: "#" },
+    { text: "Terms of use", href: "#" },
+    { text: "Site map", href: "#" }
+  ],
+  licence: { text: "Open Government Licence v3.0", href: "#" }
+}) }}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-two-thirds" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">One-third</h3>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-one-third.html' | relative_url }}" title="One-third example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-one-third" open_url="/examples/page-template-one-third.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-phase-banner nhsw-phase-banner--reverse"&gt;
+      &lt;div class="nhsw-phase-banner__container"&gt;
+        &lt;p class="nhsw-phase-banner__content"&gt;&lt;strong class="nhsw-phase-banner__tag"&gt;Alpha&lt;/strong&gt;&lt;span class="nhsw-phase-banner__text"&gt;This is a new service. Help us improve it and give your feedback by email.&lt;/span&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;&lt;span class="nhsw-site-header__user"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"&gt;&lt;/rect&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;&lt;a class="nhsw-site-header__logout" href="#"&gt;Log out&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Schools&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Children&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"&gt;&lt;span&gt;Sessions&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Vaccines&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Unmatched responses&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;School moves&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Reports&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Imports&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Team&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+    &lt;div class="nhsw-grid-row"&gt;
+      &lt;div class="nhsw-grid-column-one-third"&gt;
+        &lt;h1 class="nhsw-h1"&gt;One-third&lt;/h1&gt;
+        &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+    &lt;ul class="nhsw-site-footer__links"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Site map&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="nhsw-site-footer__licence"&gt;
+      &lt;img class="nhsw-site-footer__licence-badge" src="/assets/ogl-logo.svg" alt="" width="50" height="25" aria-hidden="true"&gt;
+      &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="#"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "header/macro.njk" import nhswHeader %}
+{% from "back-link/macro.njk" import nhswBackLink %}
+{% from "footer/macro.njk" import nhswFooter %}
+
+{{ nhswHeader({
+  serviceName: "Service name",
+  search: false,
+  phaseBanner: { tag: "Alpha", text: "This is a new service. Help us improve it and give your feedback by email." },
+  user: { name: "Jane Doe", logoutHref: "#" },
+  nav: {
+    items: [
+      { text: "Schools", href: "#" },
+      { text: "Children", href: "#" },
+      { text: "Sessions", href: "#", current: true },
+      { text: "Vaccines", href: "#" },
+      { text: "Unmatched responses", href: "#", badge: 5 },
+      { text: "School moves", href: "#", badge: 4 },
+      { text: "Reports", href: "#" },
+      { text: "Imports", href: "#", badge: 0 },
+      { text: "Team", href: "#" }
+    ]
+  }
+}) }}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    {{ nhswBackLink({ href: "#" }) }}
+    &lt;div class="nhsw-grid-row"&gt;
+      &lt;div class="nhsw-grid-column-one-third"&gt;
+        &lt;h1 class="nhsw-h1"&gt;One-third&lt;/h1&gt;
+        &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+{{ nhswFooter({
+  links: [
+    { text: "Accessibility statement", href: "#" },
+    { text: "Cookie policy", href: "#" },
+    { text: "Privacy policy", href: "#" },
+    { text: "Terms of use", href: "#" },
+    { text: "Site map", href: "#" }
+  ],
+  licence: { text: "Open Government Licence v3.0", href: "#" }
+}) }}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-one-third" html=html_sample njk=njk_sample toggleable=true %}
+
+
+<h2 class="nhsw-h2">Customising page templates</h2>
+<p class="nhsw-body">Templates can be customised using predefined variables and optional components.</p>
+<p class="nhsw-body">Customisation should support user needs while maintaining consistency across services.</p>
+<p class="nhsw-body">For example, you can add:</p>
+<ul class="nhsw-body">
+  <li><a class="nhsw-link" href="{{ '/components/site-navigation.html' | relative_url }}">site navigation</a></li>
+  <li>account information</li>
+  <li><a class="nhsw-link" href="{{ '/components/phase-banner.html' | relative_url }}">phase banner</a></li>
+  <li><a class="nhsw-link" href="{{ '/components/breadcrumb.html' | relative_url }}">breadcrumbs</a></li>
+  <li><a class="nhsw-link" href="{{ '/components/footer.html' | relative_url }}">site footer</a></li>
+</ul>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-customised-content.html' | relative_url }}" title="Customised content page template example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-customised" open_url="/examples/page-template-customised-content.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-phase-banner nhsw-phase-banner--reverse"&gt;
+      &lt;div class="nhsw-phase-banner__container"&gt;
+        &lt;p class="nhsw-phase-banner__content"&gt;&lt;strong class="nhsw-phase-banner__tag"&gt;Alpha&lt;/strong&gt;&lt;span class="nhsw-phase-banner__text"&gt;This is a new service. Help us improve it and give your feedback by email.&lt;/span&gt;&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;&lt;span class="nhsw-site-header__user"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"&gt;&lt;/rect&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;&lt;a class="nhsw-site-header__logout" href="#"&gt;Log out&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;nav class="nhsw-site-header__nav" aria-label="Primary navigation"&gt;
+  &lt;div class="nhsw-site-header__nav-container"&gt;
+    &lt;ul class="nhsw-site-header__nav-list"&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Schools&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Children&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link nhsw-site-header__nav-link--current" href="#" aria-current="page"&gt;&lt;span&gt;Sessions&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Vaccines&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Unmatched responses&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;5&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;School moves&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;4&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Reports&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Imports&lt;/span&gt;&lt;span class="nhsw-tag nhsw-tag--blue nhsw-site-header__nav-badge"&gt;0&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-site-header__nav-link" href="#"&gt;&lt;span&gt;Team&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    &lt;nav class="nhsw-breadcrumb" aria-label="breadcrumb"&gt;
+      &lt;p class="nhsw-breadcrumb__mobile-back"&gt;&lt;a class="nhsw-back-link" href="#"&gt;Back to Level&lt;/a&gt;&lt;/p&gt;
+      &lt;ol class="nhsw-breadcrumb__list"&gt;
+        &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="#"&gt;Level&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="#"&gt;Level&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="#"&gt;Level&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="#"&gt;Level&lt;/a&gt;&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/nav&gt;
+    &lt;h1 class="nhsw-h1"&gt;Customised content page template&lt;/h1&gt;
+    &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+&lt;footer class="nhsw-site-footer"&gt;
+  &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+    &lt;ul class="nhsw-site-footer__links"&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Site map&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="nhsw-site-footer__licence"&gt;
+      &lt;img class="nhsw-site-footer__licence-badge" src="/assets/ogl-logo.svg" alt="" width="50" height="25" aria-hidden="true"&gt;
+      &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="#"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "header/macro.njk" import nhswHeader %}
+{% from "breadcrumb/macro.njk" import nhswBreadcrumb %}
+{% from "footer/macro.njk" import nhswFooter %}
+
+{{ nhswHeader({
+  serviceName: "Service name",
+  search: false,
+  phaseBanner: { tag: "Alpha", text: "This is a new service. Help us improve it and give your feedback by email." },
+  user: { name: "Jane Doe", logoutHref: "#" },
+  nav: {
+    items: [
+      { text: "Schools", href: "#" },
+      { text: "Children", href: "#" },
+      { text: "Sessions", href: "#", current: true },
+      { text: "Vaccines", href: "#" },
+      { text: "Unmatched responses", href: "#", badge: 5 },
+      { text: "School moves", href: "#", badge: 4 },
+      { text: "Reports", href: "#" },
+      { text: "Imports", href: "#", badge: 0 },
+      { text: "Team", href: "#" }
+    ]
+  }
+}) }}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-width-container"&gt;
+    {{ nhswBreadcrumb({
+      items: [
+        { text: "Level", href: "#" },
+        { text: "Level", href: "#" },
+        { text: "Level", href: "#" },
+        { text: "Level", href: "#" }
+      ]
+    }) }}
+    &lt;h1 class="nhsw-h1"&gt;Customised content page template&lt;/h1&gt;
+    &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/main&gt;
+
+{{ nhswFooter({
+  links: [
+    { text: "Accessibility statement", href: "#" },
+    { text: "Cookie policy", href: "#" },
+    { text: "Privacy policy", href: "#" },
+    { text: "Terms of use", href: "#" },
+    { text: "Site map", href: "#" }
+  ],
+  licence: { text: "Open Government Licence v3.0", href: "#" }
+}) }}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-customised" html=html_sample njk=njk_sample toggleable=true %}
+
+<h2 class="nhsw-h2" id="dashboard-page-templates">Dashboard page templates</h2>
+<p class="nhsw-body">Dashboard templates are designed for staff who use health and care systems as part of their work.</p>
+<p class="nhsw-body">They use left-hand navigation to support task-based workflows, access to tools and movement between related areas of a service.</p>
+
+<h3 class="nhsw-h3">Default dashboard</h3>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-dashboard-default.html' | relative_url }}" title="Default dashboard example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-dashboard-default" open_url="/examples/page-template-dashboard-default.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;div class="nhsw-dashboard"&gt;
+  &lt;div class="nhsw-dashboard__sidebar"&gt;
+    &lt;a class="nhsw-dashboard__brand" href="/"&gt;&lt;img src="/assets/dhcw-icon.svg" alt=""&gt;&lt;span&gt;Service name&lt;/span&gt;&lt;/a&gt;
+    &lt;nav aria-label="Service navigation"&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link nhsw-dashboard__nav-link--current" href="#" aria-current="page"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Home&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;School immunisations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Locations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM9 13c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4zm7 0c-.4 0-.8 0-1.2.1 1.2.9 2 2.2 2 3.9v2h5v-2c0-2.5-3-4-5.8-4z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Patient search&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M10 3a7 7 0 1 0 4.2 12.6l5.1 5.1 1.4-1.4-5.1-5.1A7 7 0 0 0 10 3zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Advanced Patient Search&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 10h14v10H5V10z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Bookings&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M3 5h18v14H3V5zm2 2v.5l7 4.5 7-4.5V7l-7 4.5L5 7z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Correspondence&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;User Defaults&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-dashboard__main"&gt;
+    &lt;div class="nhsw-dashboard__topbar"&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z"&gt;&lt;/path&gt;&lt;/svg&gt;No Location Set&lt;/span&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"&gt;&lt;/path&gt;&lt;/svg&gt;Jane Doe&lt;/span&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"&gt;&lt;/path&gt;&lt;/svg&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;a class="nhsw-dashboard__exit nhsw-link" href="#"&gt;Exit&lt;/a&gt;&lt;/div&gt;
+    &lt;main class="nhsw-dashboard__content" id="maincontent"&gt;
+      &lt;h1 class="nhsw-h1"&gt;Default page template&lt;/h1&gt;
+    &lt;/main&gt;
+    &lt;footer class="nhsw-site-footer"&gt;
+      &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+        &lt;ul class="nhsw-site-footer__links"&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Site map&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="nhsw-site-footer__licence"&gt;
+          &lt;img class="nhsw-site-footer__licence-badge" src="/assets/ogl-logo.svg" alt="" width="50" height="25" aria-hidden="true"&gt;
+          &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="#"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "dashboard/macro.njk" import nhswDashboard %}
+
+{% call nhswDashboard({
+  serviceName: "Service name",
+  nav: [
+    { items: [
+      { text: "Home", href: "#", icon: "home", current: true },
+      { text: "School immunisations", href: "#", icon: "school" }
+    ] },
+    { items: [
+      { text: "Locations", href: "#", icon: "building" },
+      { text: "Patient search", href: "#", icon: "people" },
+      { text: "Advanced Patient Search", href: "#", icon: "search" }
+    ] },
+    { items: [
+      { text: "Bookings", href: "#", icon: "calendar" },
+      { text: "Correspondence", href: "#", icon: "envelope" },
+      { text: "User Defaults", href: "#", icon: "user" }
+    ] }
+  ],
+  topbar: {
+    chips: [
+      { text: "No Location Set", icon: "building" },
+      { text: "Jane Doe", icon: "user" },
+      { text: "Aneurin Bevan University Health Board", icon: "pin" }
+    ],
+    exit: { text: "Exit", href: "#" }
+  }
+}) %}
+  &lt;h1 class="nhsw-h1"&gt;Default page template&lt;/h1&gt;
+{% endcall %}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-dashboard-default" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Transactional page</h3>
+<p class="nhsw-body">Use transactional pages when users need to complete a specific task, such as:</p>
+<ul class="nhsw-body">
+  <li>searching for a patient</li>
+  <li>booking an appointment</li>
+  <li>completing a form</li>
+  <li>updating information</li>
+</ul>
+<p class="nhsw-body">The template uses a <a class="nhsw-link" href="{{ '/components/back-link.html' | relative_url }}">back link</a> component.</p>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-dashboard-transactional.html' | relative_url }}" title="Transactional page example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-dashboard-transactional" open_url="/examples/page-template-dashboard-transactional.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;div class="nhsw-dashboard"&gt;
+  &lt;div class="nhsw-dashboard__sidebar"&gt;
+    &lt;a class="nhsw-dashboard__brand" href="/"&gt;&lt;img src="/assets/dhcw-icon.svg" alt=""&gt;&lt;span&gt;Service name&lt;/span&gt;&lt;/a&gt;
+    &lt;nav aria-label="Service navigation"&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link nhsw-dashboard__nav-link--current" href="#" aria-current="page"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Home&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;School immunisations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Locations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM9 13c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4zm7 0c-.4 0-.8 0-1.2.1 1.2.9 2 2.2 2 3.9v2h5v-2c0-2.5-3-4-5.8-4z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Patient search&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M10 3a7 7 0 1 0 4.2 12.6l5.1 5.1 1.4-1.4-5.1-5.1A7 7 0 0 0 10 3zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Advanced Patient Search&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 10h14v10H5V10z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Bookings&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M3 5h18v14H3V5zm2 2v.5l7 4.5 7-4.5V7l-7 4.5L5 7z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Correspondence&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;User Defaults&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-dashboard__main"&gt;
+    &lt;div class="nhsw-dashboard__topbar"&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z"&gt;&lt;/path&gt;&lt;/svg&gt;No Location Set&lt;/span&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"&gt;&lt;/path&gt;&lt;/svg&gt;Jane Doe&lt;/span&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"&gt;&lt;/path&gt;&lt;/svg&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;a class="nhsw-dashboard__exit nhsw-link" href="#"&gt;Exit&lt;/a&gt;&lt;/div&gt;
+    &lt;main class="nhsw-dashboard__content" id="maincontent"&gt;
+      &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+      &lt;h1 class="nhsw-h1"&gt;Transactional page template&lt;/h1&gt;
+      &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer class="nhsw-site-footer"&gt;
+      &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+        &lt;ul class="nhsw-site-footer__links"&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Site map&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="nhsw-site-footer__licence"&gt;
+          &lt;img class="nhsw-site-footer__licence-badge" src="/assets/ogl-logo.svg" alt="" width="50" height="25" aria-hidden="true"&gt;
+          &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="#"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "dashboard/macro.njk" import nhswDashboard %}
+{% from "back-link/macro.njk" import nhswBackLink %}
+
+{% call nhswDashboard({
+  serviceName: "Service name",
+  nav: [
+    { items: [
+      { text: "Home", href: "#", icon: "home", current: true },
+      { text: "School immunisations", href: "#", icon: "school" }
+    ] },
+    { items: [
+      { text: "Locations", href: "#", icon: "building" },
+      { text: "Patient search", href: "#", icon: "people" },
+      { text: "Advanced Patient Search", href: "#", icon: "search" }
+    ] },
+    { items: [
+      { text: "Bookings", href: "#", icon: "calendar" },
+      { text: "Correspondence", href: "#", icon: "envelope" },
+      { text: "User Defaults", href: "#", icon: "user" }
+    ] }
+  ],
+  topbar: {
+    chips: [
+      { text: "No Location Set", icon: "building" },
+      { text: "Jane Doe", icon: "user" },
+      { text: "Aneurin Bevan University Health Board", icon: "pin" }
+    ],
+    exit: { text: "Exit", href: "#" }
+  }
+}) %}
+  {{ nhswBackLink({ href: "#" }) }}
+  &lt;h1 class="nhsw-h1"&gt;Transactional page template&lt;/h1&gt;
+  &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+{% endcall %}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-dashboard-transactional" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Content page</h3>
+<p class="nhsw-body">Use content pages to provide information, guidance or support.</p>
+<p class="nhsw-body">Content pages can include <a class="nhsw-link" href="{{ '/components/breadcrumb.html' | relative_url }}">breadcrumbs</a> to help users understand where they are within a service.</p>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-dashboard-content.html' | relative_url }}" title="Content page example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="pt-dashboard-content" open_url="/examples/page-template-dashboard-content.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;div class="nhsw-dashboard"&gt;
+  &lt;div class="nhsw-dashboard__sidebar"&gt;
+    &lt;a class="nhsw-dashboard__brand" href="/"&gt;&lt;img src="/assets/dhcw-icon.svg" alt=""&gt;&lt;span&gt;Service name&lt;/span&gt;&lt;/a&gt;
+    &lt;nav aria-label="Service navigation"&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link nhsw-dashboard__nav-link--current" href="#" aria-current="page"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Home&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;School immunisations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Locations&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM9 13c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4zm7 0c-.4 0-.8 0-1.2.1 1.2.9 2 2.2 2 3.9v2h5v-2c0-2.5-3-4-5.8-4z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Patient search&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M10 3a7 7 0 1 0 4.2 12.6l5.1 5.1 1.4-1.4-5.1-5.1A7 7 0 0 0 10 3zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Advanced Patient Search&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 10h14v10H5V10z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Bookings&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M3 5h18v14H3V5zm2 2v.5l7 4.5 7-4.5V7l-7 4.5L5 7z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;Correspondence&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link" href="#"&gt;&lt;svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"&gt;&lt;/path&gt;&lt;/svg&gt;&lt;span&gt;User Defaults&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-dashboard__main"&gt;
+    &lt;div class="nhsw-dashboard__topbar"&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z"&gt;&lt;/path&gt;&lt;/svg&gt;No Location Set&lt;/span&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"&gt;&lt;/path&gt;&lt;/svg&gt;Jane Doe&lt;/span&gt;&lt;span class="nhsw-dashboard__chip"&gt;&lt;svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;rect width="24" height="24" rx="3" fill="#005aa8"&gt;&lt;/rect&gt;&lt;path transform="translate(4 4) scale(.667)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"&gt;&lt;/path&gt;&lt;/svg&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;a class="nhsw-dashboard__exit nhsw-link" href="#"&gt;Exit&lt;/a&gt;&lt;/div&gt;
+    &lt;main class="nhsw-dashboard__content" id="maincontent"&gt;
+      &lt;nav class="nhsw-breadcrumb" aria-label="breadcrumb"&gt;
+        &lt;p class="nhsw-breadcrumb__mobile-back"&gt;&lt;a class="nhsw-back-link" href="#"&gt;Back to Level&lt;/a&gt;&lt;/p&gt;
+        &lt;ol class="nhsw-breadcrumb__list"&gt;
+          &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="#"&gt;Level&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="#"&gt;Level&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="#"&gt;Level&lt;/a&gt;&lt;/li&gt;
+          &lt;li class="nhsw-breadcrumb__list-item"&gt;&lt;a class="nhsw-breadcrumb__link" href="#"&gt;Level&lt;/a&gt;&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/nav&gt;
+      &lt;h1 class="nhsw-h1"&gt;Content page template&lt;/h1&gt;
+      &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer class="nhsw-site-footer"&gt;
+      &lt;div class="nhsw-site-footer__container nhsw-site-footer__container--stacked"&gt;
+        &lt;ul class="nhsw-site-footer__links"&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Accessibility statement&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Cookie policy&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Privacy policy&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Terms of use&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a class="nhsw-link" href="#"&gt;Site map&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div class="nhsw-site-footer__licence"&gt;
+          &lt;img class="nhsw-site-footer__licence-badge" src="/assets/ogl-logo.svg" alt="" width="50" height="25" aria-hidden="true"&gt;
+          &lt;p class="nhsw-body-s nhsw-site-footer__licence-text"&gt;All content is available under the &lt;a class="nhsw-link" href="#"&gt;Open Government Licence v3.0&lt;/a&gt;, except where otherwise stated.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p class="nhsw-body-s nhsw-site-footer__copyright"&gt;© Digital Health and Care Wales&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "dashboard/macro.njk" import nhswDashboard %}
+{% from "breadcrumb/macro.njk" import nhswBreadcrumb %}
+
+{% call nhswDashboard({
+  serviceName: "Service name",
+  nav: [
+    { items: [
+      { text: "Home", href: "#", icon: "home", current: true },
+      { text: "School immunisations", href: "#", icon: "school" }
+    ] },
+    { items: [
+      { text: "Locations", href: "#", icon: "building" },
+      { text: "Patient search", href: "#", icon: "people" },
+      { text: "Advanced Patient Search", href: "#", icon: "search" }
+    ] },
+    { items: [
+      { text: "Bookings", href: "#", icon: "calendar" },
+      { text: "Correspondence", href: "#", icon: "envelope" },
+      { text: "User Defaults", href: "#", icon: "user" }
+    ] }
+  ],
+  topbar: {
+    chips: [
+      { text: "No Location Set", icon: "building" },
+      { text: "Jane Doe", icon: "user" },
+      { text: "Aneurin Bevan University Health Board", icon: "pin" }
+    ],
+    exit: { text: "Exit", href: "#" }
+  }
+}) %}
+  {{ nhswBreadcrumb({
+    items: [
+      { text: "Level", href: "#" },
+      { text: "Level", href: "#" },
+      { text: "Level", href: "#" },
+      { text: "Level", href: "#" }
+    ]
+  }) }}
+  &lt;h1 class="nhsw-h1"&gt;Content page template&lt;/h1&gt;
+  &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
+{% endcall %}{% endraw %}{% endcapture %}
+{% include code-viewer.html id="pt-dashboard-content" html=html_sample njk=njk_sample toggleable=true %}
+
+<h2 class="nhsw-h2">Help improve this pattern</h2>
+<p class="nhsw-body"><a class="nhsw-link" href="mailto:dhcw.ucd@wales.nhs.uk">Email the design system team</a> if you have research findings, usability insights or implementation feedback from using these templates.</p>
+
+<p class="nhsw-body"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>

@@ -44,6 +44,14 @@
     }
   }
 
+  &__frame {
+    display: block;
+    width: 100%;
+    height: 560px;
+    border: 1px solid c.$nhsw-colour-border-grey;
+    background-color: c.$nhsw-colour-background-white;
+  }
+
   &__footer-button {
     display: inline-block;
     background: none;

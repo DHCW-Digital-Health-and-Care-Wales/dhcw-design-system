@@ -1,0 +1,73 @@
+name: Dashboard
+macro: nhswDashboard
+description: >
+  The page shell for staff-facing dashboard services: left-hand navigation with
+  icons, a top bar showing the user's location and account, the page content
+  and the footer. Use it with the call block: nhswDashboard wraps the page
+  content.
+params:
+  - name: serviceName
+    type: string
+    required: true
+    description: The service name shown at the top of the left-hand navigation.
+  - name: serviceUrl
+    type: string
+    required: false
+    description: href for the service name link. Defaults to "/".
+  - name: logoSrc
+    type: string
+    required: false
+    description: Logo icon src. Defaults to "/assets/dhcw-icon.svg".
+  - name: nav
+    type: array
+    required: true
+    description: >
+      Groups of links, each group separated by a divider:
+      [{ items: [{ text, href, icon, current }] }]. icon is one of home,
+      school, building, people, search, calendar, envelope or user.
+  - name: ariaLabel
+    type: string
+    required: false
+    description: Accessible name for the navigation. Defaults to "Service navigation".
+  - name: topbar
+    type: object
+    required: false
+    description: >
+      { chips: [{ text, icon }], exit: { text, href } }. A chip icon is one of
+      user, building or pin.
+  - name: footer
+    type: object
+    required: false
+    description: Parameters passed to nhswFooter. Defaults to the open licence footer.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    call: true
+    content: '<h1 class="nhsw-h1">Default page template</h1>'
+    data:
+      serviceName: "Service name"
+      nav:
+        - items:
+            - { text: "Home", href: "/", icon: "home", current: true }
+            - { text: "School immunisations", href: "/schools", icon: "school" }
+        - items:
+            - { text: "Locations", href: "/locations", icon: "building" }
+            - { text: "Patient search", href: "/patients", icon: "people" }
+            - { text: "Advanced Patient Search", href: "/advanced", icon: "search" }
+        - items:
+            - { text: "Bookings", href: "/bookings", icon: "calendar" }
+            - { text: "Correspondence", href: "/correspondence", icon: "envelope" }
+            - { text: "User Defaults", href: "/defaults", icon: "user" }
+      topbar:
+        chips:
+          - { text: "No Location Set", icon: "building" }
+          - { text: "Jane Doe", icon: "user" }
+          - { text: "Aneurin Bevan University Health Board", icon: "pin" }
+        exit: { text: "Exit", href: "/exit" }

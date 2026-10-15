@@ -1,0 +1,70 @@
+{%- from "footer/macro.njk" import nhswFooter -%}
+
+{% set nhswDashboardIcons = {
+  home: "M12 3 2 12h3v8h5v-6h4v6h5v-8h3z",
+  school: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z",
+  building: "M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z",
+  people: "M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM9 13c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4zm7 0c-.4 0-.8 0-1.2.1 1.2.9 2 2.2 2 3.9v2h5v-2c0-2.5-3-4-5.8-4z",
+  search: "M10 3a7 7 0 1 0 4.2 12.6l5.1 5.1 1.4-1.4-5.1-5.1A7 7 0 0 0 10 3zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z",
+  calendar: "M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 10h14v10H5V10z",
+  envelope: "M3 5h18v14H3V5zm2 2v.5l7 4.5 7-4.5V7l-7 4.5L5 7z",
+  user: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z",
+  pin: "M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+} %}
+
+{#
+  nhswDashboard(params) - use with {% call nhswDashboard({...}) %}page content{% endcall %}
+
+  The dashboard page shell used by staff-facing services: a left-hand navigation,
+  a top bar with the user's location and account, the page content, and the footer.
+
+  params:
+    serviceName  string  - required, the service name shown at the top of the left-hand navigation
+    serviceUrl   string  - href for the service name link, defaults to "/"
+    logoSrc      string  - defaults to "/assets/dhcw-icon.svg"
+    nav          array   - required, groups of links: [{ items: [{ text, href, icon, current }] }].
+                           icon is one of home, school, building, people, search, calendar,
+                           envelope, user
+    ariaLabel    string  - accessible name for the navigation, defaults to "Service navigation"
+    topbar       object  - { chips: [{ text, icon }], exit: { text, href } }. chip icon is one
+                           of user, building, pin
+    footer       object  - parameters passed to nhswFooter, defaults to the open licence footer
+    classes      string  - extra classes
+    attributes   object  - extra HTML attributes
+#}
+{%- macro nhswDashboard(params) -%}
+<div class="nhsw-dashboard{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <div class="nhsw-dashboard__sidebar">
+    <a class="nhsw-dashboard__brand" href="{{ params.serviceUrl or '/' }}">
+      <img src="{{ params.logoSrc or '/assets/dhcw-icon.svg' }}" alt="">
+      <span>{{ params.serviceName }}</span>
+    </a>
+    <nav aria-label="{{ params.ariaLabel or 'Service navigation' }}">
+{%- for group in params.nav %}
+      <ul class="nhsw-dashboard__nav-group">
+{%- for item in group.items %}
+        <li><a class="nhsw-dashboard__nav-link{% if item.current %} nhsw-dashboard__nav-link--current{% endif %}" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>
+{%- if item.icon %}<svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="{{ nhswDashboardIcons[item.icon] }}"/></svg>{% endif %}<span>{{ item.text }}</span></a></li>
+{%- endfor %}
+      </ul>
+{%- endfor %}
+    </nav>
+  </div>
+  <div class="nhsw-dashboard__main">
+{%- if params.topbar %}
+    <div class="nhsw-dashboard__topbar">
+{%- for chip in (params.topbar.chips or []) %}
+      <span class="nhsw-dashboard__chip"><svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="3" fill="#005aa8"/><path transform="translate(4 4) scale(.667)" fill="#fff" d="{{ nhswDashboardIcons[chip.icon] }}"/></svg>{{ chip.text }}</span>
+{%- endfor %}
+{%- if params.topbar.exit %}
+      <a class="nhsw-dashboard__exit nhsw-link" href="{{ params.topbar.exit.href or '#' }}">{{ params.topbar.exit.text or "Exit" }}</a>
+{%- endif %}
+    </div>
+{%- endif %}
+    <main class="nhsw-dashboard__content" id="maincontent">
+      {{ caller() }}
+    </main>
+    {{ nhswFooter(params.footer or { links: [{ text: "Accessibility statement", href: "#" }, { text: "Cookie policy", href: "#" }, { text: "Privacy policy", href: "#" }, { text: "Terms of use", href: "#" }, { text: "Site map", href: "#" }], licence: { text: "Open Government Licence v3.0", href: "#" } }) }}
+  </div>
+</div>
+{%- endmacro -%}

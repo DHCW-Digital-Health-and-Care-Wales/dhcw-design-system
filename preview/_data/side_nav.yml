@@ -12,6 +12,9 @@
   url: /components/cards.html
 - title: Checkboxes
   url: /components/checkboxes.html
+- title: Dashboard
+  url: /components/dashboard.html
+  testing: false
 - title: Date input
   url: /components/date-input.html
 - title: Details
@@ -38,6 +41,9 @@
   url: /components/pagination.html
 - title: Panel
   url: /components/panel.html
+- title: Phase banner
+  url: /components/phase-banner.html
+  testing: false
 - title: Radios
   url: /components/radios.html
 - title: Search

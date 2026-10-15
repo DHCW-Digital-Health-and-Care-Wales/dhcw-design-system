@@ -1,0 +1,49 @@
+---
+layout: template
+title: Transactional page template
+---
+<div class="nhsw-dashboard">
+  <div class="nhsw-dashboard__sidebar">
+    <a class="nhsw-dashboard__brand" href="/"><img src="{{ '/assets/dhcw-icon.svg' | relative_url }}" alt=""><span>Service name</span></a>
+    <nav aria-label="Service navigation">
+      <ul class="nhsw-dashboard__nav-group">
+        <li><a class="nhsw-dashboard__nav-link nhsw-dashboard__nav-link--current" href="#" aria-current="page"><svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 2 12h3v8h5v-6h4v6h5v-8h3z"></path></svg><span>Home</span></a></li>
+        <li><a class="nhsw-dashboard__nav-link" href="#"><svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3 1 9l11 6 9-4.91V17h2V9L12 3z"></path></svg><span>School immunisations</span></a></li>
+      </ul>
+      <ul class="nhsw-dashboard__nav-group">
+        <li><a class="nhsw-dashboard__nav-link" href="#"><svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z"></path></svg><span>Locations</span></a></li>
+        <li><a class="nhsw-dashboard__nav-link" href="#"><svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM9 13c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4zm7 0c-.4 0-.8 0-1.2.1 1.2.9 2 2.2 2 3.9v2h5v-2c0-2.5-3-4-5.8-4z"></path></svg><span>Patient search</span></a></li>
+        <li><a class="nhsw-dashboard__nav-link" href="#"><svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 3a7 7 0 1 0 4.2 12.6l5.1 5.1 1.4-1.4-5.1-5.1A7 7 0 0 0 10 3zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"></path></svg><span>Advanced Patient Search</span></a></li>
+      </ul>
+      <ul class="nhsw-dashboard__nav-group">
+        <li><a class="nhsw-dashboard__nav-link" href="#"><svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 10h14v10H5V10z"></path></svg><span>Bookings</span></a></li>
+        <li><a class="nhsw-dashboard__nav-link" href="#"><svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 5h18v14H3V5zm2 2v.5l7 4.5 7-4.5V7l-7 4.5L5 7z"></path></svg><span>Correspondence</span></a></li>
+        <li><a class="nhsw-dashboard__nav-link" href="#"><svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"></path></svg><span>User Defaults</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="nhsw-dashboard__main">
+    <div class="nhsw-dashboard__topbar"><span class="nhsw-dashboard__chip"><svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="3" fill="#005aa8"></rect><path transform="translate(4 4) scale(.667)" fill="#fff" d="M4 21V3h10v6h6v12H4zm3-3h2v-2H7v2zm0-4h2v-2H7v2zm0-4h2V8H7v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2zm0-4h2V8h-2v2zm4 8h2v-2h-2v2zm0-4h2v-2h-2v2z"></path></svg>No Location Set</span><span class="nhsw-dashboard__chip"><svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="3" fill="#005aa8"></rect><path transform="translate(4 4) scale(.667)" fill="#fff" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"></path></svg>Jane Doe</span><span class="nhsw-dashboard__chip"><svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="3" fill="#005aa8"></rect><path transform="translate(4 4) scale(.667)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"></path></svg>Aneurin Bevan University Health Board</span><a class="nhsw-dashboard__exit nhsw-link" href="#">Exit</a></div>
+    <main class="nhsw-dashboard__content" id="maincontent">
+      <a class="nhsw-back-link" href="#">Back</a>
+      <h1 class="nhsw-h1">Transactional page template</h1>
+      <p class="nhsw-body">Page content</p>
+    </main>
+    <footer class="nhsw-site-footer">
+      <div class="nhsw-site-footer__container nhsw-site-footer__container--stacked">
+        <ul class="nhsw-site-footer__links">
+          <li><a class="nhsw-link" href="#">Accessibility statement</a></li>
+          <li><a class="nhsw-link" href="#">Cookie policy</a></li>
+          <li><a class="nhsw-link" href="#">Privacy policy</a></li>
+          <li><a class="nhsw-link" href="#">Terms of use</a></li>
+          <li><a class="nhsw-link" href="#">Site map</a></li>
+        </ul>
+        <div class="nhsw-site-footer__licence">
+          <img class="nhsw-site-footer__licence-badge" src="{{ '/assets/ogl-logo.svg' | relative_url }}" alt="" width="50" height="25" aria-hidden="true">
+          <p class="nhsw-body-s nhsw-site-footer__licence-text">All content is available under the <a class="nhsw-link" href="#">Open Government Licence v3.0</a>, except where otherwise stated.</p>
+        </div>
+        <p class="nhsw-body-s nhsw-site-footer__copyright">© Digital Health and Care Wales</p>
+      </div>
+    </footer>
+  </div>
+</div>

@@ -72,6 +72,33 @@
   }
 }
 
+.nhsw-side-nav__item {
+  position: relative;
+
+  &--active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 4px;
+    background-color: c.$nhsw-colour-link;
+  }
+}
+
+.nhsw-side-nav__link--group::before {
+  display: none;
+}
+
+.nhsw-side-nav__sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
 .nhsw-layout {
   display: flex;
   flex-wrap: wrap;

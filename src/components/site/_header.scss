@@ -74,6 +74,48 @@
   }
 }
 
+.nhsw-site-header__account {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nhsw-site-header__user {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px 4px 4px;
+  background-color: #004281;
+  color: c.$nhsw-colour-text-exceptional;
+  font-size: 0.875rem;
+  line-height: 20px;
+}
+
+.nhsw-site-header__user-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.nhsw-site-header__logout {
+  color: c.$nhsw-colour-text-exceptional;
+  font-size: 0.875rem;
+  line-height: 20px;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+    background-color: c.$nhsw-colour-focus;
+    color: c.$nhsw-colour-text-primary;
+    text-decoration: none;
+    box-shadow: 0 -2px c.$nhsw-colour-focus, 0 4px c.$nhsw-colour-text-primary;
+  }
+}
+
 .nhsw-site-header__search {
   display: flex;
   flex: 0 1 18rem;

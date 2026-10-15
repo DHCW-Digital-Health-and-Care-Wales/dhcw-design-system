@@ -1,0 +1,72 @@
+---
+layout: component
+title: Dashboard
+container: fluid
+updated: October 2026
+intro: Use the dashboard page shell for staff-facing services that need left-hand navigation, a top bar and a footer.
+tabs:
+  - id: how-to-use
+    label: "How to use"
+---
+
+<!-- How to use -->
+<div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
+
+  {% capture example_body %}
+    <iframe class="nhsw-example-preview__frame" src="{{ '/examples/page-template-dashboard-default.html' | relative_url }}" title="Dashboard example" loading="lazy"></iframe>
+  {% endcapture %}
+  {% include example-preview.html id="dashboard-overview" open_url="/examples/page-template-dashboard-default.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-dashboard"&gt;
+  &lt;div class="nhsw-dashboard__sidebar"&gt;
+    &lt;a class="nhsw-dashboard__brand" href="/"&gt;
+      &lt;img src="/assets/dhcw-icon.svg" alt=""&gt;
+      &lt;span&gt;Service name&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;nav aria-label="Service navigation"&gt;
+      &lt;ul class="nhsw-dashboard__nav-group"&gt;
+        &lt;li&gt;&lt;a class="nhsw-dashboard__nav-link nhsw-dashboard__nav-link--current" href="#" aria-current="page"&gt;&lt;span&gt;Home&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-dashboard__main"&gt;
+    &lt;div class="nhsw-dashboard__topbar"&gt;
+      &lt;span class="nhsw-dashboard__chip"&gt;Jane Doe&lt;/span&gt;
+      &lt;a class="nhsw-dashboard__exit nhsw-link" href="#"&gt;Exit&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;main class="nhsw-dashboard__content" id="maincontent"&gt;
+      &lt;h1 class="nhsw-h1"&gt;Page title&lt;/h1&gt;
+    &lt;/main&gt;
+    &lt;!-- footer --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "dashboard/macro.njk" import nhswDashboard %}
+
+{% call nhswDashboard({
+  serviceName: "Service name",
+  nav: [
+    { items: [
+      { text: "Home", href: "#", icon: "home", current: true },
+      { text: "Patient search", href: "#", icon: "people" }
+    ] }
+  ],
+  topbar: {
+    chips: [{ text: "Jane Doe", icon: "user" }],
+    exit: { text: "Exit", href: "#" }
+  }
+}) %}
+  <h1 class="nhsw-h1">Page title</h1>
+{% endcall %}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="dashboard-overview" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h2 class="nhsw-h2">When to use the dashboard</h2>
+  <p class="nhsw-body">Use the dashboard for staff who use health and care systems as part of their work. It supports task-based workflows and movement between related areas of a service.</p>
+  <p class="nhsw-body">For public-facing services, use the top navigation templates instead. See <a class="nhsw-link" href="{{ '/patterns/page-templates.html' | relative_url }}">page templates</a>.</p>
+
+  <h2 class="nhsw-h2">How to use the dashboard</h2>
+  <p class="nhsw-body">Group related links in the left-hand navigation. Each group is separated by a divider. Mark the current page with <code class="nhsw-code">aria-current="page"</code>.</p>
+  <p class="nhsw-body">Use the top bar to show where the user is working, who they are signed in as, and a way to exit.</p>
+
+  <h2 class="nhsw-h2">Accessibility</h2>
+  <p class="nhsw-body">Give the left-hand navigation an accessible name, such as "Service navigation". Navigation icons are decorative and hidden from screen readers, so every link must have visible text.</p>
+</div>

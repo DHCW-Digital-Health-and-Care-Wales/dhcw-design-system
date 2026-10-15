@@ -7,7 +7,7 @@
 {% if page.url contains "/get-started/" %}{% assign nav_active = "get-started" %}{% endif %}
 {% if page.url == "/content-guide.html" %}{% assign nav_active = "content-guide" %}{% endif %}
 {% if page.url == "/styles.html" or page.url contains "/styles/" %}{% assign nav_active = "styles" %}{% endif %}
-{% if page.url == "/patterns.html" %}{% assign nav_active = "patterns" %}{% endif %}
+{% if page.url == "/patterns.html" or page.url contains "/patterns/" %}{% assign nav_active = "patterns" %}{% endif %}
 {% if page.layout == "workshop" %}{% assign nav_active = "contribution" %}{% endif %}
 {% if page.layout == "home" %}{% assign nav_active = "none" %}{% endif %}
 

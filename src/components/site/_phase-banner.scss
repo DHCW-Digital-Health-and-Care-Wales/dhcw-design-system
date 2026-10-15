@@ -1,0 +1,70 @@
+@use "../../tokens/colours" as c;
+@use "../../utilities/breakpoints" as b;
+
+$nhsw-colour-phase-banner-tag-border: #004281;
+$nhsw-colour-phase-banner-tag-background: #cce0f1;
+
+.nhsw-phase-banner {
+  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+  color: c.$nhsw-colour-text-primary;
+
+  &__container {
+    padding: 10px 16px;
+
+    @include b.nhsw-from-tablet {
+      padding: 10px 40px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 20px;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 24px;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border: 1px solid $nhsw-colour-phase-banner-tag-border;
+    background-color: $nhsw-colour-phase-banner-tag-background;
+    color: $nhsw-colour-phase-banner-tag-border;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 22px;
+  }
+
+  &__text {
+    min-width: 0;
+  }
+
+  &--reverse {
+    border-bottom: 0;
+    color: c.$nhsw-colour-text-exceptional;
+
+    .nhsw-phase-banner__container {
+      padding: 8px 0 0;
+    }
+
+    .nhsw-phase-banner__content {
+      font-size: 0.875rem;
+      line-height: 20px;
+    }
+
+    .nhsw-phase-banner__tag {
+      padding: 0 8px;
+      border-color: $nhsw-colour-phase-banner-tag-border;
+      background-color: $nhsw-colour-phase-banner-tag-border;
+      color: c.$nhsw-colour-text-exceptional;
+      font-size: 0.75rem;
+      line-height: 18px;
+    }
+
+    .nhsw-link {
+      color: c.$nhsw-colour-text-exceptional;
+    }
+  }
+}

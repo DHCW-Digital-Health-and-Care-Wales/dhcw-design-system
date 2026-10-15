@@ -44,6 +44,18 @@ params:
       nav, if set). html/text is the hero body (html takes precedence);
       action renders a secondary inline button; centered adds
       nhsw-site-header__container--centered on the hero's own container.
+  - name: phaseBanner
+    type: object
+    required: false
+    description: >
+      { tag, text, html } - renders a phase banner, for example Alpha, at the
+      top of the header, inside the dark band.
+  - name: user
+    type: object
+    required: false
+    description: >
+      { name, logoutText, logoutHref } - shows the signed-in user and a log out
+      link on the right of the header. logoutText defaults to "Log out".
   - name: classes
     type: string
     required: false
@@ -85,3 +97,23 @@ examples:
             current: true
           - text: "Prescriptions"
             href: "/prescriptions"
+  - name: service-with-user
+    data:
+      serviceName: "Service name"
+      search: false
+      phaseBanner:
+        tag: "Alpha"
+        text: "This is a new service. Help us improve it and give your feedback by email."
+      user:
+        name: "Jane Doe"
+        logoutHref: "/logout"
+      nav:
+        items:
+          - text: "Schools"
+            href: "/schools"
+          - text: "Sessions"
+            href: "/sessions"
+            current: true
+          - text: "Unmatched responses"
+            href: "/responses"
+            badge: 5

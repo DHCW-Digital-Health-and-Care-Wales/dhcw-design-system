@@ -9,7 +9,12 @@
 - title: Layout
   url: "#"
 - title: Page templates
-  url: "#"
+  url: /patterns/page-templates.html
+  children:
+    - title: Public facing page template
+      url: /patterns/page-templates.html#public-facing-page-templates
+    - title: Dashboard page template
+      url: /patterns/page-templates.html#dashboard-page-templates
 - title: Typography
   url: /styles/typography.html
 - title: WCAG 2.2 Guidance

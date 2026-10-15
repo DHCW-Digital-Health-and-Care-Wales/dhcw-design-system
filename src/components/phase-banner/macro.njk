@@ -1,0 +1,21 @@
+{#
+  nhswPhaseBanner(params)
+
+  params:
+    tag         string  - the phase, defaults to "Beta" (e.g. "Alpha")
+    text        string  - banner text (used if html is not set)
+    html        string  - banner HTML (takes precedence), e.g. with a feedback link
+    classes     string  - extra classes, e.g. "nhsw-phase-banner--reverse" for use
+                          inside the dark header
+    attributes  object  - extra HTML attributes
+#}
+{%- macro nhswPhaseBanner(params) -%}
+<div class="nhsw-phase-banner{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+  <div class="nhsw-phase-banner__container">
+    <p class="nhsw-phase-banner__content">
+      <strong class="nhsw-phase-banner__tag">{{ params.tag or "Beta" }}</strong>
+      <span class="nhsw-phase-banner__text">{{ params.html | safe if params.html else params.text }}</span>
+    </p>
+  </div>
+</div>
+{%- endmacro -%}

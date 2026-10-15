@@ -451,6 +451,9 @@ Requires:
 
 Pass a `nav` param (`{ items, ariaLabel, classes, attributes }`) and `nhswHeader` renders `nhswSiteNavigation` for you immediately after the header, rather than needing a separate call.
 
+Pass `phaseBanner` (`{ tag, text, html }`) to show an Alpha/Beta `nhsw-phase-banner--reverse` inside the dark header, and `user` (`{ name, logoutText, logoutHref }`) to show the signed-in user and a log out link on the right:
+- nhsw-site-header__account, __user, __user-icon, __user-name, __logout
+
 ## nhsw-site-header__nav
 Primary navigation row (macro: `nhswSiteNavigation`, `src/components/site-navigation/`) — hidden below the tablet breakpoint, where `nhsw-bottom-nav` takes over instead. Callable standalone, or via `nhswHeader`'s `nav` param.
 
@@ -468,3 +471,36 @@ Supports:
 
 Requires:
 - nhsw-site-header
+
+## nhsw-phase-banner
+Phase banner (macro: `nhswPhaseBanner`, `src/components/phase-banner/`): a phase tag such as Beta or Alpha followed by a sentence and a feedback link. The docs site includes it under the primary navigation on every page via `preview/_includes/phase-banner.html`.
+
+Supports:
+- nhsw-phase-banner__container, __content, __tag, __text
+- nhsw-phase-banner--reverse (inside the dark header, white text and a solid blue tag)
+
+## nhsw-dashboard
+Dashboard page shell (macro: `nhswDashboard`, `src/components/dashboard/`, used with `{% call %}`): left-hand navigation with icons, a top bar with location/user chips and an Exit link, the page content and the footer. Used by the dashboard page templates.
+
+Supports:
+- nhsw-dashboard__sidebar, __brand, __nav-group, __nav-link (+ --current), __nav-icon
+- nhsw-dashboard__main, __topbar, __chip, __chip-icon, __exit, __content
+
+Requires:
+- nhsw-site-footer (rendered through `nhswFooter`)
+
+## nhsw-side-nav (nested items)
+The docs side navigation accepts `children` on an item in its data file. When the item is the current page, its children are listed beneath it behind an em dash and the active group gets a single left bar.
+
+Supports:
+- nhsw-side-nav__item (+ --active), __sublist, __link--group, __link--child
+
+## nhsw-type-specimen
+Fixed-size heading specimens for the Typography page (`nhsw-type-specimen--desktop-h1` to `--mobile-h5`): they show a heading size regardless of the viewport.
+
+## nhsw-colour-swatch
+Colour swatches for the Colours page (`nhsw-colour-swatches` wrapper, `nhsw-colour-swatch` with `__name`, `__hex` and one modifier per colour).
+
+## nhsw-code
+Inline code in the destructive red colour, used for code and variable names in documentation text.
+

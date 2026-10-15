@@ -58,6 +58,7 @@ body {
   color: c.$nhsw-colour-text-secondary;
 }
 
-.nhsw-caption-xl + .nhsw-h2 {
+.nhsw-caption-xl + .nhsw-h2,
+.nhsw-caption-xl + .nhsw-body {
   margin-top: 40px;
 }

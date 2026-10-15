@@ -1247,7 +1247,8 @@ body {
   color: #4c6272;
 }
 
-.nhsw-caption-xl + .nhsw-h2 {
+.nhsw-caption-xl + .nhsw-h2,
+.nhsw-caption-xl + .nhsw-body {
   margin-top: 40px;
 }
 
@@ -2819,6 +2820,13 @@ body {
 .nhsw-example-preview__body .nhsw-site-header__nav {
   display: block;
 }
+.nhsw-example-preview__frame {
+  display: block;
+  width: 100%;
+  height: 560px;
+  border: 1px solid #d8dde0;
+  background-color: #ffffff;
+}
 .nhsw-example-preview__footer-button {
   display: inline-block;
   background: none;
@@ -3768,6 +3776,46 @@ body {
     font-size: 1.625rem;
   }
 }
+.nhsw-site-header__account {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nhsw-site-header__user {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px 4px 4px;
+  background-color: #004281;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 20px;
+}
+
+.nhsw-site-header__user-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.nhsw-site-header__logout {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 20px;
+  text-decoration: underline;
+}
+.nhsw-site-header__logout:hover {
+  text-decoration: none;
+}
+.nhsw-site-header__logout:focus {
+  outline: none;
+  background-color: #ffeb3b;
+  color: #212b32;
+  text-decoration: none;
+  box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+}
+
 .nhsw-site-header__search {
   display: flex;
   flex: 0 1 18rem;
@@ -4059,6 +4107,186 @@ body {
     display: none;
   }
 }
+.nhsw-phase-banner {
+  border-bottom: 1px solid #d8dde0;
+  color: #212b32;
+}
+.nhsw-phase-banner__container {
+  padding: 10px 16px;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-phase-banner__container {
+    padding: 10px 40px;
+  }
+}
+.nhsw-phase-banner__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 20px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 24px;
+}
+.nhsw-phase-banner__tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border: 1px solid #004281;
+  background-color: #cce0f1;
+  color: #004281;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 22px;
+}
+.nhsw-phase-banner__text {
+  min-width: 0;
+}
+.nhsw-phase-banner--reverse {
+  border-bottom: 0;
+  color: #ffffff;
+}
+.nhsw-phase-banner--reverse .nhsw-phase-banner__container {
+  padding: 8px 0 0;
+}
+.nhsw-phase-banner--reverse .nhsw-phase-banner__content {
+  font-size: 0.875rem;
+  line-height: 20px;
+}
+.nhsw-phase-banner--reverse .nhsw-phase-banner__tag {
+  padding: 0 8px;
+  border-color: #004281;
+  background-color: #004281;
+  color: #ffffff;
+  font-size: 0.75rem;
+  line-height: 18px;
+}
+.nhsw-phase-banner--reverse .nhsw-link {
+  color: #ffffff;
+}
+
+.nhsw-dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-dashboard {
+    flex-direction: row;
+  }
+}
+.nhsw-dashboard__sidebar {
+  flex-shrink: 0;
+  background-color: #1b365d;
+  color: #ffffff;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-dashboard__sidebar {
+    width: 240px;
+  }
+}
+.nhsw-dashboard__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #32598a;
+  color: #ffffff;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 24px;
+  text-decoration: none;
+}
+.nhsw-dashboard__brand img {
+  display: block;
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
+}
+.nhsw-dashboard__nav-group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid #32598a;
+}
+.nhsw-dashboard__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 20px;
+  text-decoration: none;
+}
+.nhsw-dashboard__nav-link:hover {
+  background-color: #32598a;
+  text-decoration: underline;
+}
+.nhsw-dashboard__nav-link:focus {
+  outline: none;
+  background-color: #ffeb3b;
+  color: #212b32;
+  text-decoration: none;
+}
+.nhsw-dashboard__nav-link--current {
+  background-color: #32598a;
+  font-weight: 700;
+}
+.nhsw-dashboard__nav-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+.nhsw-dashboard__main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+.nhsw-dashboard__topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #005aa8;
+  background-color: #ffffff;
+}
+.nhsw-dashboard__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 12px 3px 3px;
+  border: 1px solid #d8dde0;
+  color: #212b32;
+  font-size: 0.875rem;
+  line-height: 20px;
+}
+.nhsw-dashboard__chip-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+.nhsw-dashboard__exit {
+  margin-left: 8px;
+  color: #005aa8;
+  font-size: 0.875rem;
+  line-height: 20px;
+}
+.nhsw-dashboard__content {
+  flex: 1;
+  padding: 24px 20px;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-dashboard__content {
+    padding: 24px 32px;
+  }
+}
+
 .nhsw-site-footer {
   margin-top: 4rem;
   background-color: #ffffff;
@@ -4305,6 +4533,32 @@ body {
   width: 4px;
   height: 1.75rem;
   background-color: #005aa8;
+}
+
+.nhsw-side-nav__item {
+  position: relative;
+}
+.nhsw-side-nav__item--active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: #005aa8;
+}
+
+.nhsw-side-nav__link--group::before {
+  display: none;
+}
+
+.nhsw-side-nav__sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
 }
 
 .nhsw-layout {

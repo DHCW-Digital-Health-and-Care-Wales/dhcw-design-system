@@ -1,0 +1,35 @@
+name: Phase banner
+macro: nhswPhaseBanner
+description: >
+  Tells users the service is new and still being improved, and where to send
+  feedback. Shows a phase tag, such as Beta or Alpha, followed by a sentence.
+params:
+  - name: tag
+    type: string
+    required: false
+    description: The phase. Defaults to "Beta".
+  - name: text
+    type: string
+    required: false
+    description: Banner text. Ignored if html is set.
+  - name: html
+    type: string
+    required: false
+    description: Banner HTML, for example with a link to a feedback page. Takes precedence over text.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes. Use nhsw-phase-banner--reverse inside the dark header.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: beta
+    data:
+      html: 'This is a new service. Your <a class="nhsw-link" href="/feedback">feedback</a> will help us improve it.'
+  - name: alpha-reverse
+    data:
+      tag: "Alpha"
+      text: "This is a new service. Help us improve it and give your feedback by email."
+      classes: "nhsw-phase-banner--reverse"
