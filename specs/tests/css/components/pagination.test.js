@@ -58,7 +58,7 @@ describe('pagination colour coverage (Figma tokens)', () => {
     expect(base).toMatch(/color:\s*#005aa8/);
 
     const hover = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__previous:hover,\\n\\.nhsw-pagination--numbered \\.nhsw-pagination__next:hover');
-    expect(hover).toMatch(/background-color:\s*#f0f4f5/);
+    expect(hover).toMatch(/background-color:\s*#d8dde0/);
     expect(hover).toMatch(/color:\s*#7c2855/);
 
     const focus = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__previous:focus,\\n\\.nhsw-pagination--numbered \\.nhsw-pagination__next:focus');
@@ -76,7 +76,7 @@ describe('pagination colour coverage (Figma tokens)', () => {
     expect(base).toMatch(/color:\s*#005aa8/);
 
     const hover = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__number-link:hover');
-    expect(hover).toMatch(/background-color:\s*#f0f4f5/);
+    expect(hover).toMatch(/background-color:\s*#d8dde0/);
     expect(hover).toMatch(/color:\s*#7c2855/);
 
     const focus = block(css, '\\.nhsw-pagination--numbered \\.nhsw-pagination__number-link:focus');
