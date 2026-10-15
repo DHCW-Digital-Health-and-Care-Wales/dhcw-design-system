@@ -1,7 +1,7 @@
 # Notification banner
 
 **Component classes:** `.nhsw-notification-banner`, `--success`, `__header`, `__title`, `__content`, `__heading`, `__link`
-**Doc page:** `preview/callouts/notification-banner.html`
+**Doc page:** `preview/components/notification-banner.html`
 **Source:** `src/components/callouts/_notification-banner.scss`
 **Example fixtures:** `notification-banner-default.html`, `notification-banner-service.html`, `notification-banner-success.html`
 

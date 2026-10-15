@@ -1,7 +1,7 @@
 # Radios
 
 **Component classes:** `.nhsw-radios`, `--inline`, `__hint`, `__divider`, `__conditional`, `__conditional--hidden`, `__input`, `__label`
-**Doc page:** `preview/forms/radios.html`
+**Doc page:** `preview/components/radios.html`
 **Source:** `src/components/forms/_radios.scss`, behaviour in `preview/assets/nhsw-docs.js`
 **Example fixtures:** `radios-default.html`, `radios-error.html`, `radios-inline.html`, `radios-hints.html`, `radios-divider.html`, `radios-conditional.html`, `radios-small.html`
 

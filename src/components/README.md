@@ -69,7 +69,7 @@ expander, file upload status, and the session-timeout countdown all need
 picker needs `dist/nhsw-date-picker.js` separately. Both are plain,
 dependency-free scripts — see the main project README's "Scripts" section
 for details:
-https://github.com/DHCW-Digital-Health-and-Care-Wales/nhsw-component-library#scripts
+https://github.com/DHCW-Digital-Health-and-Care-Wales/dhcw-design-system#scripts
 
 ## Verifying changes
 

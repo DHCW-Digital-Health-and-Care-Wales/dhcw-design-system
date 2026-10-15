@@ -57,13 +57,13 @@ describe('action link matches Figma Action link component (icon+text row)', () =
   it('focus text and icon are the same dark colour', () => {
     const focusText = block(css, '\\.nhsw-action-link:focus \\.nhsw-action-link__text');
     const focusIcon = block(css, '\\.nhsw-action-link:focus \\.nhsw-action-link__icon');
-    expect(focusText).toMatch(/color:\s*#0b0c0c/);
-    expect(focusIcon).toMatch(/fill:\s*#0b0c0c/);
+    expect(focusText).toMatch(/color:\s*#212b32/);
+    expect(focusIcon).toMatch(/fill:\s*#212b32/);
   });
 
   it('visited state recolours the link itself, not a descendant (required for :visited to apply at all)', () => {
     const visited = block(css, '\\.nhsw-action-link:visited');
-    expect(visited).toMatch(/color:\s*#7c2855/);
+    expect(visited).toMatch(/color:\s*#330072/);
   });
 
   it('active state underlines the text', () => {
@@ -80,8 +80,8 @@ describe('action link matches Figma Action link component (icon+text row)', () =
   it('on dark backgrounds, focus still wins over a simultaneous hover (mouse click = both at once)', () => {
     const reverseFocusText = block(css, '\\.nhsw-action-link--reverse:focus \\.nhsw-action-link__text');
     const reverseFocusIcon = block(css, '\\.nhsw-action-link--reverse:focus \\.nhsw-action-link__icon');
-    expect(reverseFocusText).toMatch(/color:\s*#0b0c0c/);
-    expect(reverseFocusIcon).toMatch(/fill:\s*#0b0c0c/);
+    expect(reverseFocusText).toMatch(/color:\s*#212b32/);
+    expect(reverseFocusIcon).toMatch(/fill:\s*#212b32/);
   });
 });
 

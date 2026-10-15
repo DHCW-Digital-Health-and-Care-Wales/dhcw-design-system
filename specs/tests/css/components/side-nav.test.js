@@ -31,14 +31,14 @@ describe('side nav rail and link states', () => {
     const link = block(css, '\\.nhsw-side-nav__link\\b');
     expect(link).toMatch(/color:\s*#005aa8/);
     const hover = block(css, '\\.nhsw-side-nav__link:hover');
-    expect(hover).toMatch(/color:\s*#003087/);
+    expect(hover).toMatch(/color:\s*#7c2855/);
   });
 
   it('focus highlights the wrapping span with a yellow background, near-black text and a dark bottom-edge box-shadow', () => {
     const focusSpan = block(css, '\\.nhsw-side-nav__link:focus span');
     expect(focusSpan).toMatch(/background-color:\s*#ffeb3b/);
-    expect(focusSpan).toMatch(/color:\s*#0b0c0c/);
-    expect(focusSpan).toMatch(/box-shadow:\s*0 4px 0 0 #0b0c0c/);
+    expect(focusSpan).toMatch(/color:\s*#212b32/);
+    expect(focusSpan).toMatch(/box-shadow:\s*0 4px 0 0 #212b32/);
   });
 
   it('current link stays link-blue with a matching link-blue rail indicator', () => {

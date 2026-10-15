@@ -2,7 +2,7 @@
 @use "../../tokens/typography" as t;
 @use "../../utilities/focus-ring" as u;
 
-$nhsw-colour-back-link-hover: #7c2855;
+$nhsw-colour-back-link-hover: c.$nhsw-colour-link-hover;
 
 .nhsw-back-link {
   display: inline-flex;

@@ -1,7 +1,7 @@
 # Checkboxes
 
 **Component classes:** `.nhsw-checkboxes`, `__hint`, `__divider`, `__conditional`, `__conditional--hidden`, `__input`, `__label`
-**Doc page:** `preview/forms/checkboxes.html`
+**Doc page:** `preview/components/checkboxes.html`
 **Source:** `src/components/forms/_checkboxes.scss`, behaviour in `preview/assets/nhsw-docs.js`
 **Example fixtures:** `checkboxes-default.html`, `checkboxes-error.html`, `checkboxes-inline.html`, `checkboxes-hints.html`, `checkboxes-none.html`, `checkboxes-conditional.html`, `checkboxes-small.html`
 

@@ -1,7 +1,7 @@
 # Back link
 
 **Component classes:** `.nhsw-back-link`
-**Doc page:** `preview/actions/back-link.html`
+**Doc page:** `preview/components/back-link.html`
 **Source:** `src/components/actions/_back-link.scss`
 **Example fixtures:** `back-link-default.html`, `back-link-dark.html`
 
@@ -15,7 +15,7 @@ Feature: Back link — automated coverage
     @automated
     # specs/tests/markup/documentation-gaps.test.js
     Scenario: Every live preview on the doc page has a matching code sample
-      Given preview/actions/back-link.html
+      Given preview/components/back-link.html
       Then the number of example-preview includes equals the number of code-viewer includes
       And no html_sample/njk_sample capture block is empty
 

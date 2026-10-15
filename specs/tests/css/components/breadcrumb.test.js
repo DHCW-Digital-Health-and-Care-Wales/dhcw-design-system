@@ -18,7 +18,7 @@ describe('breadcrumb link hover/focus states', () => {
     const focus = block(css, '\\.nhsw-breadcrumb__link:focus');
     expect(focus).toMatch(/outline:\s*none/);
     expect(focus).toMatch(/background-color:\s*#ffeb3b/);
-    expect(focus).toMatch(/color:\s*#0b0c0c/);
+    expect(focus).toMatch(/color:\s*#212b32/);
     expect(focus).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
   });
 
@@ -46,7 +46,7 @@ describe('breadcrumb link hover/focus states', () => {
     const reverseFocus = block(css, '\\.nhsw-breadcrumb--reverse \\.nhsw-breadcrumb__link:focus');
     expect(reverseFocus).toMatch(/outline:\s*none/);
     expect(reverseFocus).toMatch(/background-color:\s*#ffeb3b/);
-    expect(reverseFocus).toMatch(/color:\s*#0b0c0c/);
+    expect(reverseFocus).toMatch(/color:\s*#212b32/);
     expect(reverseFocus).toMatch(/border-bottom:\s*max\(4px, 0\.25rem\) solid #212b32/);
   });
 

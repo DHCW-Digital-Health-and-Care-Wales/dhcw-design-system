@@ -1,7 +1,7 @@
 # Action link
 
 **Component classes:** `.nhsw-action-link`, `.nhsw-action-link__icon`, `.nhsw-action-link__text`, `.nhsw-action-link--navy`, `.nhsw-action-link--red`
-**Doc page:** `preview/actions/action-link.html`
+**Doc page:** `preview/components/action-link.html`
 **Source:** `src/components/actions/_action-link.scss`
 **Example fixtures:** `action-link-default.html`, `action-link-dark.html`, `action-link-group.html`
 

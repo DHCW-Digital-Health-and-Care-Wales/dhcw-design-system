@@ -1,7 +1,7 @@
 # Panel
 
 **Component classes:** `.nhsw-panel`, `--navy`
-**Doc page:** `preview/content/panel.html`
+**Doc page:** `preview/components/panel.html`
 **Source:** `src/components/content/_panel.scss`
 **Example fixtures:** `panel-default.html`, `panel-navy.html`, `panel-no-icon.html`
 

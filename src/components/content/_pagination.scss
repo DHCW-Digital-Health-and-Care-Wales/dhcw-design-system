@@ -69,7 +69,7 @@
   }
 
   &:hover {
-    color: #7c2855;
+    color: c.$nhsw-colour-link-hover;
 
     .nhsw-pagination__page {
       text-decoration: none;
@@ -143,7 +143,7 @@
 
     &:hover {
       background-color: c.$nhsw-colour-border-grey;
-      color: #7c2855;
+      color: c.$nhsw-colour-link-hover;
       text-decoration: none;
     }
 
@@ -241,7 +241,7 @@
 
     &:hover {
       background-color: c.$nhsw-colour-border-grey;
-      color: #7c2855;
+      color: c.$nhsw-colour-link-hover;
       text-decoration: none;
     }
 

@@ -1,7 +1,7 @@
 # Expander
 
 **Component classes:** `.nhsw-expander`, `.nhsw-expander__button`, `.nhsw-expander__icon`, `.nhsw-expander__content`
-**Doc page:** `preview/actions/expander.html`
+**Doc page:** `preview/components/expander.html`
 **Source:** `src/components/content/_expander.scss`, behaviour in `preview/assets/nhsw-docs.js`
 **Example fixtures:** `expander-default.html`
 

@@ -1,7 +1,7 @@
 # Header
 
 **Component classes:** `.nhsw-site-header`, `__nav`, `__nav-container`, `__nav-list`, `__nav-link`, `.nhsw-bottom-nav`
-**Doc page:** `preview/site/header.html`
+**Doc page:** `preview/components/header.html`
 **Source:** `src/components/site/_header.scss`, `src/components/site/_bottom-nav.scss`
 **Example fixtures:** `header-default.html`, `header-no-search.html`
 

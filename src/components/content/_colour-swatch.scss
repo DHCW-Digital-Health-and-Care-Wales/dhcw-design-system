@@ -1,0 +1,68 @@
+@use "sass:list";
+@use "../../tokens/colours" as c;
+
+$nhsw-colour-swatches: (
+  "primary-text-colour": (c.$nhsw-colour-text-primary, c.$nhsw-colour-text-exceptional),
+  "exceptional-text-colour": (c.$nhsw-colour-text-exceptional, c.$nhsw-colour-text-primary),
+  "blue-text-colour": (c.$nhsw-colour-text-blue, c.$nhsw-colour-text-exceptional),
+  "secondary-text-colour": (c.$nhsw-colour-text-secondary, c.$nhsw-colour-text-exceptional),
+  "link-colour": (c.$nhsw-colour-link, c.$nhsw-colour-text-exceptional),
+  "link-hover-colour": (c.$nhsw-colour-link-hover, c.$nhsw-colour-text-exceptional),
+  "link-visited-colour": (c.$nhsw-colour-link-visited, c.$nhsw-colour-text-exceptional),
+  "link-active-colour": (c.$nhsw-colour-link-active, c.$nhsw-colour-text-exceptional),
+  "focus-colour": (c.$nhsw-colour-focus, c.$nhsw-colour-text-primary),
+  "focus-text-colour": (c.$nhsw-colour-text-primary, c.$nhsw-colour-text-exceptional),
+  "primary-button-interrupt": (c.$nhsw-colour-button-primary-interrupt, c.$nhsw-colour-text-exceptional),
+  "primary-button": (c.$nhsw-colour-button-primary, c.$nhsw-colour-text-exceptional),
+  "secondary-button": (c.$nhsw-colour-button-secondary, c.$nhsw-colour-text-exceptional),
+  "delete-button": (c.$nhsw-colour-button-delete, c.$nhsw-colour-text-exceptional),
+  "exceptional-button-light": (c.$nhsw-colour-button-exceptional-light, c.$nhsw-colour-text-primary),
+  "page-background-grey": (c.$nhsw-colour-background-grey, c.$nhsw-colour-text-secondary),
+  "page-background-white": (c.$nhsw-colour-background-white, c.$nhsw-colour-text-secondary),
+  "page-background-blue": (c.$nhsw-colour-background-blue, c.$nhsw-colour-text-exceptional),
+  "primary-border-colour": (c.$nhsw-colour-border-primary, c.$nhsw-colour-text-exceptional),
+  "secondary-border-colour": (c.$nhsw-colour-border-secondary, c.$nhsw-colour-text-exceptional),
+  "grey-border-colour": (c.$nhsw-colour-border-grey, c.$nhsw-colour-text-primary),
+  "exceptional-button-shadow": (c.$nhsw-colour-shadow-exceptional-button, c.$nhsw-colour-text-exceptional),
+  "primary-button-shadow": (c.$nhsw-colour-shadow-primary-button, c.$nhsw-colour-text-exceptional),
+  "gold-border-colour": (c.$nhsw-colour-border-gold, c.$nhsw-colour-focus-text)
+);
+
+.nhsw-colour-swatches {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 490px;
+  margin: 0 0 32px;
+}
+
+.nhsw-colour-swatch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 57px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 20px;
+
+  &__name {
+    overflow-wrap: anywhere;
+  }
+
+  &__hex {
+    flex-shrink: 0;
+  }
+
+  @each $name, $pair in $nhsw-colour-swatches {
+    &--#{$name} {
+      background-color: list.nth($pair, 1);
+      color: list.nth($pair, 2);
+    }
+  }
+
+  &--page-background-grey {
+    border: 1px solid c.$nhsw-colour-border-grey;
+  }
+}

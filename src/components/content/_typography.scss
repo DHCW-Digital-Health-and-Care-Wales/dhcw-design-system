@@ -57,3 +57,7 @@ body {
 .nhsw-body--secondary {
   color: c.$nhsw-colour-text-secondary;
 }
+
+.nhsw-caption-xl + .nhsw-h2 {
+  margin-top: 40px;
+}

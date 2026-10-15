@@ -1,7 +1,7 @@
 # Select
 
 **Component classes:** `.nhsw-select`, `--s`, `--m`, `--l`
-**Doc page:** `preview/forms/select.html`
+**Doc page:** `preview/components/select.html`
 **Source:** `src/components/forms/_select.scss`
 **Example fixtures:** `select-hint.html`, `select-error.html`, `select-service.html`, `select-widths.html`
 

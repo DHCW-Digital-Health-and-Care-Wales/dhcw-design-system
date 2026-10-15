@@ -11,10 +11,10 @@ test.describe('Tabs focus state', () => {
     const text = selectedTab.locator('.nhsw-tabs__tab-text');
     const style = await text.evaluate((el) => {
       const s = getComputedStyle(el);
-      return { line: s.textDecorationLine, thickness: s.textDecorationThickness };
+      return { shadow: s.boxShadow };
     });
-    expect(style.line).toBe('underline');
-    expect(style.thickness).toBe('3px');
+    expect(style.shadow).toContain('inset');
+    expect(style.shadow).toContain('-3px');
   });
 
   test('an unselected tab also shows an underline when focused', async ({ page }) => {
@@ -26,10 +26,10 @@ test.describe('Tabs focus state', () => {
     const text = tab.locator('.nhsw-tabs__tab-text');
     const style = await text.evaluate((el) => {
       const s = getComputedStyle(el);
-      return { line: s.textDecorationLine, thickness: s.textDecorationThickness };
+      return { shadow: s.boxShadow };
     });
-    expect(style.line).toBe('underline');
-    expect(style.thickness).toBe('3px');
+    expect(style.shadow).toContain('inset');
+    expect(style.shadow).toContain('-3px');
   });
 });
 
@@ -111,7 +111,7 @@ test.describe('Tabs that are too wide for their box wrap, they do not scroll sid
   test.use({ viewport: { width: 700, height: 900 } });
 
   test('no tab list on the Tabs docs page has a horizontal scrollbar, even where the demo column is narrow', async ({ page }) => {
-    await page.goto('/content/tabs.html');
+    await page.goto('/components/tabs.html');
 
     const lists = await page.locator('.nhsw-tabs__list').evaluateAll((elements) => elements.map((el) => {
       const style = getComputedStyle(el);
@@ -124,7 +124,7 @@ test.describe('Tabs that are too wide for their box wrap, they do not scroll sid
   });
 
   test('a narrow demo puts its tabs on more than one row', async ({ page }) => {
-    await page.goto('/content/tabs.html');
+    await page.goto('/components/tabs.html');
 
     const tops = await page.locator('.nhsw-tabs .nhsw-tabs .nhsw-tabs__list').first()
       .locator('.nhsw-tabs__tab').evaluateAll((tabs) => tabs.map((t) => Math.round(t.getBoundingClientRect().top)));

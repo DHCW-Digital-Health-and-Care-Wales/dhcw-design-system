@@ -5,7 +5,7 @@ import path from 'node:path';
 const projectRoot = path.resolve(import.meta.dirname, '../../..');
 
 function findDocPages() {
-  const dirs = ['actions', 'callouts', 'components', 'content', 'forms', 'get-started', 'site'];
+  const dirs = ['components', 'get-started'];
   const files = [];
   for (const dir of dirs) {
     const full = path.join(projectRoot, 'preview', dir);

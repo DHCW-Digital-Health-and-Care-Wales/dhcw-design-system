@@ -1,7 +1,7 @@
 # Tag
 
 **Component classes:** `.nhsw-tag`, `--white`, `--grey`, `--green`, `--aqua-green`, `--blue`, `--purple`, `--pink`, `--red`, `--orange`, `--yellow`
-**Doc page:** `preview/content/tag.html`
+**Doc page:** `preview/components/tag.html`
 **Source:** `src/components/content/_tag.scss`
 **Example fixtures:** `tag-status.html`, `tag-two-status.html`, `tag-all-colours.html`, `tag-colour-solid.html`, `tag-colour-tint.html`, `tag-summary-list.html`
 

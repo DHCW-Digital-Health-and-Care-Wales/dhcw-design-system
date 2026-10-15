@@ -2,9 +2,9 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Primary navigation active state', () => {
   const cases = [
-    { url: '/forms/checkboxes.html', label: 'Components' },
-    { url: '/actions/action-link.html', label: 'Components' },
-    { url: '/site/header.html', label: 'Components' },
+    { url: '/components/checkboxes.html', label: 'Components' },
+    { url: '/components/action-link.html', label: 'Components' },
+    { url: '/components/header.html', label: 'Components' },
     { url: '/testing/checkboxes.html', label: 'Components' },
     { url: '/get-started/index.html', label: 'Get started' },
     { url: '/get-started/prototyping.html', label: 'Get started' },

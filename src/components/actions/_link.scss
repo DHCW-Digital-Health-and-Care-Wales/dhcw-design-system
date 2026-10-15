@@ -17,6 +17,10 @@
     text-decoration: none;
   }
 
+  &:active {
+    color: c.$nhsw-colour-link-active;
+  }
+
   &:focus {
     outline: none;
     background-color: c.$nhsw-colour-focus;

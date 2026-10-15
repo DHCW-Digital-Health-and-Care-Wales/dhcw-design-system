@@ -1,7 +1,7 @@
 # File upload
 
 **Component classes:** `.nhsw-file-upload`, `.nhsw-file-upload__status`, `.nhsw-file-upload__actions`
-**Doc page:** `preview/actions/file-upload.html`
+**Doc page:** `preview/components/file-upload.html`
 **Source:** `src/components/forms/_file-upload.scss`
 **Example fixtures:** `file-upload-default.html`, `file-upload-reverse.html`
 

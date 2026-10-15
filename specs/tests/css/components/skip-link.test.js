@@ -16,7 +16,7 @@ describe('skip link is not underlined and shows a bordered focus state', () => {
   it('base state is a yellow highlight with near-black text', () => {
     const base = block(css, '\\.nhsw-skip-link\\b');
     expect(base).toMatch(/background-color:\s*#ffeb3b/);
-    expect(base).toMatch(/color:\s*#0b0c0c/);
+    expect(base).toMatch(/color:\s*#212b32/);
   });
 
   it('focus state adds a thick 4px bottom-edge border on top of the yellow highlight, with the default UA outline suppressed', () => {

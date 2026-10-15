@@ -1,7 +1,7 @@
 # Warning text
 
 **Component classes:** `.nhsw-warning-text`
-**Doc page:** `preview/callouts/warning-text.html`
+**Doc page:** `preview/components/warning-text.html`
 **Source:** `src/components/content/_warning-text.scss`
 **Example fixtures:** `warning-text-default.html`, `warning-text-dark.html`
 

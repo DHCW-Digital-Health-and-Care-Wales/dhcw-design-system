@@ -25,7 +25,7 @@ describe('card hover/focus states, chevron icon and actions header', () => {
     const focus = block(css, '\\.nhsw-card__title-link:focus');
     expect(focus).toMatch(/outline:\s*none/);
     expect(focus).toMatch(/background-color:\s*#ffeb3b/);
-    expect(focus).toMatch(/color:\s*#0b0c0c/);
+    expect(focus).toMatch(/color:\s*#212b32/);
     expect(focus).toMatch(/text-decoration:\s*underline/);
     expect(focus).toMatch(/text-decoration-thickness:\s*3px/);
   });

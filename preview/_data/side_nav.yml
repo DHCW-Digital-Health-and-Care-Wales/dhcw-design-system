@@ -1,66 +1,66 @@
 - title: All components
   url: /components/index.html
 - title: Action link
-  url: /actions/action-link.html
+  url: /components/action-link.html
 - title: Back link
-  url: /actions/back-link.html
+  url: /components/back-link.html
 - title: Breadcrumb
-  url: /actions/breadcrumb.html
+  url: /components/breadcrumb.html
 - title: Buttons
   url: /components/buttons.html
 - title: Cards
-  url: /content/cards.html
+  url: /components/cards.html
 - title: Checkboxes
-  url: /forms/checkboxes.html
+  url: /components/checkboxes.html
 - title: Date input
-  url: /forms/date-input.html
+  url: /components/date-input.html
 - title: Details
-  url: /content/details.html
+  url: /components/details.html
 - title: Error summary
-  url: /actions/error-summary.html
+  url: /components/error-summary.html
 - title: Expander
-  url: /actions/expander.html
+  url: /components/expander.html
 - title: File upload
-  url: /actions/file-upload.html
+  url: /components/file-upload.html
 - title: Filter
   url: "#"
 - title: Footer
-  url: /site/footer.html
+  url: /components/footer.html
 - title: Header
-  url: /site/header.html
+  url: /components/header.html
 - title: Inset text
-  url: /content/inset-text.html
+  url: /components/inset-text.html
 - title: Language switch
   url: "#"
 - title: Notification banner
-  url: /callouts/notification-banner.html
+  url: /components/notification-banner.html
 - title: Pagination
-  url: /content/pagination.html
+  url: /components/pagination.html
 - title: Panel
-  url: /content/panel.html
+  url: /components/panel.html
 - title: Radios
-  url: /forms/radios.html
+  url: /components/radios.html
 - title: Search
   url: "#"
 - title: Select
-  url: /forms/select.html
+  url: /components/select.html
 - title: Site navigation
-  url: /site/site-navigation.html
+  url: /components/site-navigation.html
 - title: Skip link
-  url: /actions/skip-link.html
+  url: /components/skip-link.html
 - title: Summary list
-  url: /content/summary-list.html
+  url: /components/summary-list.html
 - title: Table
-  url: /content/table.html
+  url: /components/table.html
 - title: Tabs
-  url: /content/tabs.html
+  url: /components/tabs.html
 - title: Tag
-  url: /content/tag.html
+  url: /components/tag.html
 - title: Textarea
-  url: /forms/textarea.html
+  url: /components/textarea.html
 - title: Text input
-  url: /forms/input.html
+  url: /components/input.html
 - title: Warning callouts
-  url: /callouts/warning-callout.html
+  url: /components/warning-callout.html
 - title: Warning text
-  url: /callouts/warning-text.html
+  url: /components/warning-text.html

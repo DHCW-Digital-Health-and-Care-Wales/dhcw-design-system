@@ -50,10 +50,10 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     expect(focus).not.toMatch(/background-color/);
     const focusText = block(css, '\\.nhsw-tabs__tab:focus \\.nhsw-tabs__tab-text');
     expect(focusText).toMatch(/background-color:\s*#ffeb3b/);
-    expect(focusText).toMatch(/color:\s*#0b0c0c/);
+    expect(focusText).toMatch(/color:\s*#212b32/);
     // 3px focus underline drawn inside the highlight so it can't hang below it.
     expect(focusText).toMatch(/text-decoration:\s*none/);
-    expect(focusText).toMatch(/box-shadow:\s*inset 0 -3px 0 #0b0c0c/);
+    expect(focusText).toMatch(/box-shadow:\s*inset 0 -3px 0 #212b32/);
   });
 
   it('tab text carries the default underline, not the button itself', () => {

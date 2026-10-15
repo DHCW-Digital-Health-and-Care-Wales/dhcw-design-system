@@ -1,7 +1,7 @@
 # Summary list
 
 **Component classes:** `.nhsw-summary-list`, `--no-border`, `__row--no-border`, `__actions`, plus `.nhsw-summary-card`
-**Doc page:** `preview/content/summary-list.html`
+**Doc page:** `preview/components/summary-list.html`
 **Source:** `src/components/content/_summary-list.scss`, `src/components/content/_summary-card.scss`
 **Example fixtures:** `summary-card-actions.html`, `summary-card-no-actions.html`, `summary-list-no-border.html`, `summary-cards-grouped.html`, `summary-list-immunisations.html`
 
@@ -23,7 +23,7 @@ Feature: Summary list — automated coverage
     @automated
     # specs/tests/markup/documentation-gaps.test.js
     Scenario: Every live preview on the doc page has a matching code sample
-      Given preview/content/summary-list.html
+      Given preview/components/summary-list.html
       Then the number of example-preview includes equals the number of code-viewer includes
 ```
 

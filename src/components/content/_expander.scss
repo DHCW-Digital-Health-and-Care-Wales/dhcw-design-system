@@ -1,6 +1,6 @@
 @use "../../tokens/colours" as c;
 
-$nhsw-colour-expander-hover: #7c2855;
+$nhsw-colour-expander-hover: c.$nhsw-colour-link-hover;
 $nhsw-colour-expander-hover-border: #4c6272;
 
 .nhsw-expander {

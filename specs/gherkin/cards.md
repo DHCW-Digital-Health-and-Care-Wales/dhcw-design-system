@@ -1,7 +1,7 @@
 # Cards
 
 **Component classes:** `.nhsw-card`, `.nhsw-card__icon`, `.nhsw-card__title`, `.nhsw-card__description`
-**Doc page:** `preview/content/cards.html`
+**Doc page:** `preview/components/cards.html`
 **Source:** `src/components/cards/_card.scss`
 **Example fixtures:** `card-basic.html`, `card-chevron.html`, `card-icon.html`, `card-image.html`, `card-links.html`, `card-actions.html`, `card-grid.html`, `card-nonclickable.html`, `card-stat.html`
 
@@ -15,7 +15,7 @@ Feature: Cards — automated coverage
     @automated
     # specs/tests/markup/documentation-gaps.test.js
     Scenario: Every live preview on the doc page has a matching code sample
-      Given preview/content/cards.html
+      Given preview/components/cards.html
       Then the number of example-preview includes equals the number of code-viewer includes
       And no html_sample/njk_sample capture block is empty
 ```

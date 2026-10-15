@@ -55,7 +55,7 @@ describe('only the overflow menu variant carries the hidden "More" menu item', (
   });
 
   it('the component page documents the overflow menu variant, with a live example, an example page, and a Nunjucks sample', () => {
-    const page = pages.find((p) => p.rel === 'site/site-navigation.html');
+    const page = pages.find((p) => p.rel === 'components/site-navigation.html');
     expect(page.raw).toContain('Site navigation with an overflow menu');
     expect(page.raw).toContain('/examples/site-navigation-overflow.html');
     expect(page.raw).toContain('overflowMenu: true');

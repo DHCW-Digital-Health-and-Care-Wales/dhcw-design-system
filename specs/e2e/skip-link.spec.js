@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Skip link', () => {
   test('is the first thing focused on a fresh page load', async ({ page }) => {
-    await page.goto('/actions/skip-link.html');
+    await page.goto('/components/skip-link.html');
     await page.keyboard.press('Tab');
     await expect(page.locator(':focus')).toHaveClass(/nhsw-skip-link/);
   });
@@ -18,7 +18,7 @@ test.describe('Skip link', () => {
   // adding a test that would assert the current (broken) behaviour.
 
   test('is visible on screen once focused', async ({ page }) => {
-    await page.goto('/actions/skip-link.html');
+    await page.goto('/components/skip-link.html');
     const skipLink = page.locator('a.nhsw-skip-link').first();
     const hiddenBox = await skipLink.boundingBox();
     expect(hiddenBox.y).toBeLessThan(0);

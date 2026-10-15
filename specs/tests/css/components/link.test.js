@@ -16,12 +16,12 @@ describe('.nhsw-link matches the standalone link component states', () => {
 
   it(':visited recolours to the visited-link token', () => {
     const visited = block(css, '\\.nhsw-link:visited');
-    expect(visited).toMatch(/color:\s*#7c2855/);
+    expect(visited).toMatch(/color:\s*#330072/);
   });
 
   it(':hover recolours and removes the underline', () => {
     const hover = block(css, '\\.nhsw-link:hover');
-    expect(hover).toMatch(/color:\s*#003087/);
+    expect(hover).toMatch(/color:\s*#7c2855/);
     expect(hover).toMatch(/text-decoration:\s*none/);
   });
 

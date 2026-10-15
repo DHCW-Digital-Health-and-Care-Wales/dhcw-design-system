@@ -1,7 +1,7 @@
 # Details
 
 **Component classes:** `.nhsw-details`, `__summary`, `__summary-text`, `__text`
-**Doc page:** `preview/content/details.html`
+**Doc page:** `preview/components/details.html`
 **Source:** `src/components/content/_details.scss`
 **Example fixtures:** `details-default.html`, `details-multiple.html`, `details-open.html`
 
@@ -23,7 +23,7 @@ Feature: Details — automated coverage
     @automated
     # specs/tests/markup/documentation-gaps.test.js
     Scenario: Every live preview on the doc page has a matching code sample
-      Given preview/content/details.html
+      Given preview/components/details.html
       Then the number of example-preview includes equals the number of code-viewer includes
 ```
 

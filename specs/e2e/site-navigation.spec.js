@@ -26,7 +26,7 @@ test.describe('Site navigation inside the example boxes on the component page', 
   test.use({ viewport: { width: 320, height: 700 } });
 
   test('stays in view when the window is narrow, instead of vanishing', async ({ page }) => {
-    await page.goto('/site/site-navigation.html');
+    await page.goto('/components/site-navigation.html');
 
     const demo = page.locator('#panel-how-to-use .nhsw-example-preview__body .nhsw-site-header__nav').first();
     await expect(demo).toBeVisible();
@@ -107,7 +107,7 @@ test.describe('Site navigation overflow menu variant at 400% zoom (a 320px wide 
   });
 
   test('the variant shown in the component page example box works there too', async ({ page }) => {
-    await page.goto('/site/site-navigation.html');
+    await page.goto('/components/site-navigation.html');
 
     const demo = page.locator('#sn-overflow, .nhsw-example-preview__body:has(.nhsw-site-header__nav--overflow)').first();
     const nav = demo.locator('.nhsw-site-header__nav--overflow');

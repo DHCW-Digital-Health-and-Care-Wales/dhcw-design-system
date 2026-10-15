@@ -1,7 +1,7 @@
 # Inset text
 
 **Component classes:** `.nhsw-inset-text`
-**Doc page:** `preview/content/inset-text.html`
+**Doc page:** `preview/components/inset-text.html`
 **Source:** `src/components/content/_inset-text.scss`
 **Example fixtures:** `inset-text-default.html`, `inset-text-heading.html`
 

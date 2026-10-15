@@ -41,7 +41,7 @@ test.describe('Card with long unbroken text', () => {
 
   test('the Cards docs page does not scroll sideways at 400% zoom (a 320px viewport)', async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 800 });
-    await page.goto('/content/cards.html');
+    await page.goto('/components/cards.html');
 
     const sideways = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth);
     expect(sideways).toBe(false);

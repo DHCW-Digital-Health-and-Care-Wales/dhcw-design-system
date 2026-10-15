@@ -1,7 +1,7 @@
 # Textarea
 
 **Component classes:** `.nhsw-textarea`
-**Doc page:** `preview/forms/textarea.html`
+**Doc page:** `preview/components/textarea.html`
 **Source:** `src/components/forms/_textarea.scss`, character-counter behaviour in `preview/assets/nhsw-docs.js`
 **Example fixtures:** `textarea-default.html`, `textarea-sized.html`, `textarea-error.html`, `textarea-consent.html`
 

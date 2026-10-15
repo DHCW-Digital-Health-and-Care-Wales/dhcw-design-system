@@ -1,6 +1,6 @@
 # NHSW Component Library
 
-[![CI](https://github.com/DHCW-Digital-Health-and-Care-Wales/nhsw-component-library/actions/workflows/ci.yml/badge.svg)](https://github.com/DHCW-Digital-Health-and-Care-Wales/nhsw-component-library/actions/workflows/ci.yml)
+[![CI](https://github.com/DHCW-Digital-Health-and-Care-Wales/dhcw-design-system/actions/workflows/ci.yml/badge.svg)](https://github.com/DHCW-Digital-Health-and-Care-Wales/dhcw-design-system/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A Sass and Nunjucks component library for building consistent, accessible web
@@ -36,7 +36,7 @@ This isn't published to a package registry, so pick whichever fits your app:
 
   ```scss
   // your-app.scss
-  @use "../path/to/nhsw-component-library/src" as nhsw;
+  @use "../path/to/dhcw-design-system/src" as nhsw;
   ```
 
 ### Scripts

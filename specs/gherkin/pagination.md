@@ -1,7 +1,7 @@
 # Pagination
 
 **Component classes:** `.nhsw-pagination`, `--numbered`, `__previous`, `__next`, `__list`, `__item--current`, `__item--ellipsis`
-**Doc page:** `preview/content/pagination.html`
+**Doc page:** `preview/components/pagination.html`
 **Source:** `src/components/content/_pagination.scss`
 **Example fixtures:** `pagination-numbered.html`, `pagination-content.html`, `pagination-first.html`, `pagination-last.html`, `pagination-next-only.html`, `pagination-sessions.html`
 

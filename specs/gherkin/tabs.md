@@ -1,7 +1,7 @@
 # Tabs
 
 **Component classes:** `.nhsw-tabs`, `__list`, `__tab`, `--selected`, `__panel`, `--hidden`
-**Doc page:** `preview/content/tabs.html`
+**Doc page:** `preview/components/tabs.html`
 **Source:** `src/components/content/_tabs.scss`, behaviour in `preview/assets/nhsw-docs.js`
 **Example fixtures:** `tabs-default.html`
 

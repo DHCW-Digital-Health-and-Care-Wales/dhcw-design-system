@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Component doc page tabs (How to use / Variants / Examples)', () => {
   test('Variants tab is hidden until clicked, then becomes visible and selected', async ({ page }) => {
-    await page.goto('/forms/checkboxes.html');
+    await page.goto('/components/checkboxes.html');
     await expect(page.locator('#panel-how-to-use')).toBeVisible();
     await expect(page.locator('#panel-variants')).toBeHidden();
 
@@ -16,7 +16,7 @@ test.describe('Component doc page tabs (How to use / Variants / Examples)', () =
 
 test.describe('Code viewer', () => {
   test('the HTML/Nunjucks tabs inside a code sample switch which <pre> is shown', async ({ page }) => {
-    await page.goto('/actions/action-link.html');
+    await page.goto('/components/action-link.html');
     // This code-viewer is toggleable=true, so it starts hidden behind the
     // example-preview's own "HTML" reveal button (covered separately below).
     await page.locator('[data-toggle="code-al-overview"]').first().click();
@@ -36,7 +36,7 @@ test.describe('Code viewer', () => {
   });
 
   test('the "HTML" reveal button on an example-preview shows its paired code viewer', async ({ page }) => {
-    await page.goto('/actions/action-link.html');
+    await page.goto('/components/action-link.html');
     const codeViewer = page.locator('#code-al-overview');
     await expect(codeViewer).toBeHidden();
 
@@ -48,7 +48,7 @@ test.describe('Code viewer', () => {
 
 test.describe('Expander', () => {
   test('expands to reveal its content when clicked, and collapses again', async ({ page }) => {
-    await page.goto('/actions/expander.html');
+    await page.goto('/components/expander.html');
     const button = page.locator('.nhsw-expander__button').first();
     const contentId = await button.getAttribute('aria-controls');
     const content = page.locator(`#${contentId}`);

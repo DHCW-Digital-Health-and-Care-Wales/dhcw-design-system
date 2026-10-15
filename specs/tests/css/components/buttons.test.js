@@ -178,7 +178,7 @@ describe('button colour coverage (Figma tokens)', () => {
     expect(base).toMatch(/color:\s*#005aa8/);
 
     const hover = block(css, '\\.nhsw-button--link:not\\(:disabled\\):not\\(:focus\\):hover');
-    expect(hover).toMatch(/color:\s*#003087/);
+    expect(hover).toMatch(/color:\s*#7c2855/);
 
     const reverse = block(css, '\\.nhsw-button--link\\.nhsw-button--reverse');
     expect(reverse).toMatch(/color:\s*#ffffff/);

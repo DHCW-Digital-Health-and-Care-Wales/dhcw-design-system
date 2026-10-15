@@ -1,7 +1,7 @@
 # Footer
 
 **Component classes:** `.nhsw-site-footer`, `__container`
-**Doc page:** `preview/site/footer.html`
+**Doc page:** `preview/components/footer.html`
 **Source:** `src/components/site/_footer.scss`
 **Example fixtures:** `footer-default.html`, `footer-no-links.html`, `footer-navigation.html`
 

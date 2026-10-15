@@ -1,7 +1,7 @@
 # Table
 
 **Component classes:** `.nhsw-table`, `__caption` (`--s`/`--m`/`--l`/`--xl`), `__header--numeric`, `__cell--numeric`, `.nhsw-table-responsive`, `__heading`
-**Doc page:** `preview/content/table.html`
+**Doc page:** `preview/components/table.html`
 **Source:** `src/components/content/_table.scss`, `src/components/content/_session-row.scss`
 **Example fixtures:** `table-basic.html`, `table-caption.html`, `table-numeric.html`, `table-missing-data.html`, `table-session-row.html`, `table-session-row-location.html`, `table-responsive.html`
 

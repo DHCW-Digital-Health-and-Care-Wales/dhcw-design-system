@@ -49,7 +49,7 @@ describe('every two-part tag is announced as one phrase, "Tag: <category>: <stat
   });
 
   it('the Nunjucks code sample on the tag page uses the nhswTagGroup macro, not hand-built spans', () => {
-    const tagPage = pages.find((p) => p.rel === 'content/tag.html');
+    const tagPage = pages.find((p) => p.rel === 'components/tag.html');
     expect(tagPage.raw).toContain('import nhswTagGroup');
     expect(tagPage.raw).not.toMatch(/&lt;span class="nhsw-tag-group"&gt;\s*\{\{ nhswTag\(/);
   });

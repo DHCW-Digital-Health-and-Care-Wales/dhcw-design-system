@@ -50,7 +50,7 @@ describe('groups of cards are exposed to assistive technology as a list (matches
   });
 
   it('the grouping example on the cards page shows list markup in both the HTML and Nunjucks code samples', () => {
-    const cardsPage = pages.find((p) => p.rel === 'content/cards.html');
+    const cardsPage = pages.find((p) => p.rel === 'components/cards.html');
     const grouping = cardsPage.raw.slice(cardsPage.raw.indexOf('Grouping cards (card navigation)'));
     const htmlSample = grouping.slice(grouping.indexOf('{% capture html_sample %}'), grouping.indexOf('{% capture njk_sample %}'));
     const njkSample = grouping.slice(grouping.indexOf('{% capture njk_sample %}'), grouping.indexOf('{% include code-viewer.html'));

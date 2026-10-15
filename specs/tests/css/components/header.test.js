@@ -21,8 +21,8 @@ describe('site header nav matches Figma Service navigation component', () => {
   it('focus highlights the wrapping span with a yellow background, near-black text and a dark bottom-edge box-shadow', () => {
     const focusSpan = block(css, '\\.nhsw-site-header__nav-link:focus span');
     expect(focusSpan).toMatch(/background-color:\s*#ffeb3b/);
-    expect(focusSpan).toMatch(/color:\s*#0b0c0c/);
-    expect(focusSpan).toMatch(/box-shadow:\s*0 4px 0 0 #0b0c0c/);
+    expect(focusSpan).toMatch(/color:\s*#212b32/);
+    expect(focusSpan).toMatch(/box-shadow:\s*0 4px 0 0 #212b32/);
   });
 
   it('nav list has a 2rem gap between items', () => {

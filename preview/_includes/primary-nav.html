@@ -1,12 +1,12 @@
 {% assign nav_active = "none" %}
-{% assign component_dirs = "/actions/,/callouts/,/content/,/forms/,/site/,/components/,/testing/" | split: "," %}
+{% assign component_dirs = "/components/,/testing/" | split: "," %}
 {% for dir in component_dirs %}
   {% if page.url contains dir %}{% assign nav_active = "components" %}{% endif %}
 {% endfor %}
 {% if page.url == "/error-states.html" %}{% assign nav_active = "components" %}{% endif %}
 {% if page.url contains "/get-started/" %}{% assign nav_active = "get-started" %}{% endif %}
 {% if page.url == "/content-guide.html" %}{% assign nav_active = "content-guide" %}{% endif %}
-{% if page.url == "/styles.html" %}{% assign nav_active = "styles" %}{% endif %}
+{% if page.url == "/styles.html" or page.url contains "/styles/" %}{% assign nav_active = "styles" %}{% endif %}
 {% if page.url == "/patterns.html" %}{% assign nav_active = "patterns" %}{% endif %}
 {% if page.layout == "workshop" %}{% assign nav_active = "contribution" %}{% endif %}
 {% if page.layout == "home" %}{% assign nav_active = "none" %}{% endif %}

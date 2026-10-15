@@ -1,7 +1,7 @@
 # Error summary
 
 **Component classes:** `.nhsw-error-summary`, `.nhsw-error-summary__title`
-**Doc page:** `preview/actions/error-summary.html`
+**Doc page:** `preview/components/error-summary.html`
 **Source:** `src/components/forms/_error-summary.scss`
 **Example fixtures:** `error-summary-default.html`, `error-summary-date.html`, `error-summary-checkboxes.html`, `error-summary-timeout.html`
 

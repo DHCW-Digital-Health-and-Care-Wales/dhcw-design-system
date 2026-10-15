@@ -1,7 +1,7 @@
 # Warning callout
 
 **Component classes:** `.nhsw-warning-callout`, `__heading`, `__content`
-**Doc page:** `preview/callouts/warning-callout.html`
+**Doc page:** `preview/components/warning-callout.html`
 **Source:** `src/components/callouts/_warning-callout.scss`
 **Example fixtures:** `warning-callout-default.html`, `warning-callout-important.html`, `warning-callout-text.html`
 
@@ -43,7 +43,7 @@ Feature: Warning callout — automated coverage
     @automated
     # specs/tests/markup/documentation-gaps.test.js
     Scenario: Every live preview on the doc page has a matching code sample
-      Given preview/callouts/warning-callout.html
+      Given preview/components/warning-callout.html
       Then the number of example-preview includes equals the number of code-viewer includes
 ```
 

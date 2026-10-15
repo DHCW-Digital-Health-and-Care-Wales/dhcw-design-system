@@ -1,7 +1,7 @@
 # Skip link
 
 **Component classes:** `.nhsw-skip-link`
-**Doc page:** `preview/actions/skip-link.html`
+**Doc page:** `preview/components/skip-link.html`
 **Source:** `src/components/navigation/_skip-link.scss`
 **Example fixtures:** `skip-link-default.html`
 
@@ -15,7 +15,7 @@ Feature: Skip link — automated coverage
     @automated
     # specs/tests/markup/documentation-gaps.test.js
     Scenario: Every live preview on the doc page has a matching code sample
-      Given preview/actions/skip-link.html
+      Given preview/components/skip-link.html
       Then the number of example-preview includes equals the number of code-viewer includes
       And no html_sample/njk_sample capture block is empty
 ```

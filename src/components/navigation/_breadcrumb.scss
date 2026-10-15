@@ -3,7 +3,7 @@
 @use "../../utilities/breakpoints" as b;
 @use "../../utilities/focus-ring" as u;
 
-$nhsw-colour-breadcrumb-link-hover: #7c2855;
+$nhsw-colour-breadcrumb-link-hover: c.$nhsw-colour-link-hover;
 
 .nhsw-breadcrumb {
   margin-bottom: 16px;

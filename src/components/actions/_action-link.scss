@@ -3,7 +3,7 @@
 @use "../../utilities/breakpoints" as b;
 @use "../../utilities/focus-ring" as u;
 
-$nhsw-colour-action-link-hover-text: #7c2855;
+$nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
 
 .nhsw-action-link {
   display: flex;

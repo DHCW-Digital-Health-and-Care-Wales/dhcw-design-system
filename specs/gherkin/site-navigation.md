@@ -1,7 +1,7 @@
 # Site navigation
 
 **Component classes:** `.nhsw-site-header__nav`, `__nav-container`, `__nav-list`, `__nav-link`, `--current`
-**Doc page:** `preview/site/site-navigation.html`
+**Doc page:** `preview/components/site-navigation.html`
 **Source:** `src/components/site/_header.scss` (this doc page documents the same nav markup/classes as the header component, focused on the navigation pattern in isolation)
 **Example fixtures:** `site-navigation-default.html`, `site-navigation-dark.html`, `site-navigation-tag.html`
 

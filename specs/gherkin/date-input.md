@@ -1,7 +1,7 @@
 # Date input
 
 **Component classes:** `.nhsw-date-input`, `__label`
-**Doc page:** `preview/forms/date-input.html`
+**Doc page:** `preview/components/date-input.html`
 **Source:** `src/components/forms/_date-input.scss`
 **Example fixtures:** `date-input-default.html`, `date-input-error-1.html`, `date-input-error-2.html`
 
