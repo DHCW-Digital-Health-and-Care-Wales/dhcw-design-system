@@ -45,8 +45,6 @@ describe('warning callout matches Figma Warning callout component', () => {
 
   it('the icon is the design-system warning icon, painted dark with the exclamation mark cut out', () => {
     const icon = block(css, '\.nhsw-warning-callout__icon');
-    expect(icon).toMatch(/width:\s*21px/);
-    expect(icon).toMatch(/height:\s*21px/);
     expect(icon).toMatch(/background-color:\s*#212b32/);
     expect(icon).toMatch(/mask:\s*url\("data:image\/svg\+xml/);
   });
@@ -61,5 +59,13 @@ describe('warning callout matches Figma Warning callout component', () => {
 
     const importantContent = block(css, '\\.nhsw-warning-callout--important \\.nhsw-warning-callout__content');
     expect(importantContent).toMatch(/background-color:\s*#ffffff/);
+  });
+
+  it('the icon is as tall as one line of the heading, as NHS England does for icons beside text, so it lines up with the text without any offset', () => {
+    const icon = block(css, '\.nhsw-warning-callout__icon');
+    expect(icon).toMatch(/width:\s*1\.6875rem/);
+    expect(icon).toMatch(/height:\s*1\.6875rem/);
+    expect(icon).not.toMatch(/margin-top/);
+    expect(css).toMatch(/@media \(min-width: 40\.0625em\)\s*\{\s*\.nhsw-warning-callout__icon\s*\{[^}]*width:\s*2\.0625rem[^}]*height:\s*2\.0625rem/);
   });
 });
