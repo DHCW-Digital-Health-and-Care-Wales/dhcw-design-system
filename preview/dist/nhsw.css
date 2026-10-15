@@ -1724,6 +1724,12 @@ body {
   border: 1px solid #d8dde0;
   border-bottom-width: 4px;
 }
+.nhsw-expander:hover {
+  border-top-color: #4c6272;
+  border-right-color: #4c6272;
+  border-left-color: #4c6272;
+  box-shadow: inset 0 -1px 0 #4c6272;
+}
 .nhsw-expander:hover .nhsw-expander__link-text {
   color: #7c2855;
   text-decoration: none;
@@ -1744,6 +1750,7 @@ body {
 }
 .nhsw-expander--reverse:hover {
   border-color: #ffffff;
+  box-shadow: none;
 }
 .nhsw-expander--reverse:hover .nhsw-expander__link-text {
   color: #ffffff;
