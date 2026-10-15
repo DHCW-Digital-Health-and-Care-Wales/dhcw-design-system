@@ -58,4 +58,14 @@ describe('site footer matches Figma Footer component', () => {
     const nav = block(css, '\\.nhsw-site-footer__nav\\b');
     expect(nav).toMatch(/border-bottom:\s*1px solid #d8dde0/);
   });
+
+  it('the stacked links have the same 3rem gap below them as the licence row has below it', () => {
+    expect(css).toMatch(/\.nhsw-site-footer__container--stacked \.nhsw-site-footer__links\s*\{[^}]*margin-bottom:\s*3rem/);
+    expect(block(css, '\\.nhsw-site-footer__licence\\b')).toMatch(/margin:\s*0 0 3rem/);
+  });
+
+  it('on mobile the links stack vertically, and the links and licence text are 16px', () => {
+    expect(css).toMatch(/@media \(max-width: 40\.0624em\)\s*\{\s*\.nhsw-site-footer__container--stacked \.nhsw-site-footer__links\s*\{[^}]*flex-direction:\s*column[^}]*font-size:\s*1rem/);
+    expect(css).toMatch(/@media \(max-width: 40\.0624em\)\s*\{\s*\.nhsw-site-footer__licence-text\s*\{[^}]*font-size:\s*1rem/);
+  });
 });

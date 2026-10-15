@@ -4351,7 +4351,14 @@ body {
   display: block;
 }
 .nhsw-site-footer__container--stacked .nhsw-site-footer__links {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+@media (max-width: 40.0624em) {
+  .nhsw-site-footer__container--stacked .nhsw-site-footer__links {
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1rem;
+  }
 }
 
 .nhsw-site-footer__links {
@@ -4383,6 +4390,11 @@ body {
   margin: 0;
   color: #4c6272;
   font-size: 1.1875rem;
+}
+@media (max-width: 40.0624em) {
+  .nhsw-site-footer__licence-text {
+    font-size: 1rem;
+  }
 }
 
 .nhsw-site-footer__org {

@@ -3,7 +3,7 @@
 - title: Colours
   url: /styles/colours.html
 - title: Branding
-  url: "#"
+  url: /styles/branding.html
 - title: Icons
   url: /styles/icons.html
 - title: Layout
@@ -18,4 +18,4 @@
 - title: Typography
   url: /styles/typography.html
 - title: WCAG 2.2 Guidance
-  url: "#"
+  url: /styles/wcag-guidance.html
