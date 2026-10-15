@@ -1,0 +1,44 @@
+// Documentation pages leave more room around headings than the components do.
+.nhsw-layout__content--docs {
+  .nhsw-h1 {
+    margin-bottom: 16px;
+  }
+
+  .nhsw-h2 {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .nhsw-h3 {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  .nhsw-h4 {
+    margin-top: 24px;
+    margin-bottom: 28px;
+  }
+
+  .nhsw-body--secondary + .nhsw-caption-xl {
+    margin-top: 40px;
+  }
+
+  .nhsw-caption-xl {
+    margin-bottom: 60px;
+  }
+
+  &.nhsw-layout__content--roomy {
+    .nhsw-h2 {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .nhsw-h3 {
+      margin-top: 40px;
+    }
+
+    .nhsw-caption-xl {
+      margin-bottom: 80px;
+    }
+  }
+}

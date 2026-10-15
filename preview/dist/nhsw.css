@@ -1177,6 +1177,12 @@ body {
   margin: 0 0 8px;
   display: block;
 }
+@media (min-width: 40.0625em) {
+  .nhsw-caption-xl {
+    font-size: 1.625rem;
+    line-height: 2.375rem;
+  }
+}
 
 .nhsw-caption-l {
   font-family: Roboto, Arial, sans-serif;
@@ -2650,15 +2656,10 @@ body {
 
 .nhsw-type-specimen {
   display: block;
-  margin: 0 0 16px;
+  margin: 40px 0 40px;
   color: #212b32;
   font-family: Roboto, Arial, sans-serif;
   font-weight: 700;
-}
-@media (min-width: 40.0625em) {
-  .nhsw-type-specimen {
-    margin-bottom: 24px;
-  }
 }
 .nhsw-type-specimen--desktop-h1 {
   font-size: 3rem;
@@ -4806,6 +4807,38 @@ body {
     padding-top: 56px;
     padding-bottom: 56px;
   }
+}
+
+.nhsw-layout__content--docs .nhsw-h1 {
+  margin-bottom: 16px;
+}
+.nhsw-layout__content--docs .nhsw-h2 {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+.nhsw-layout__content--docs .nhsw-h3 {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+.nhsw-layout__content--docs .nhsw-h4 {
+  margin-top: 24px;
+  margin-bottom: 28px;
+}
+.nhsw-layout__content--docs .nhsw-body--secondary + .nhsw-caption-xl {
+  margin-top: 40px;
+}
+.nhsw-layout__content--docs .nhsw-caption-xl {
+  margin-bottom: 60px;
+}
+.nhsw-layout__content--docs.nhsw-layout__content--roomy .nhsw-h2 {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.nhsw-layout__content--docs.nhsw-layout__content--roomy .nhsw-h3 {
+  margin-top: 40px;
+}
+.nhsw-layout__content--docs.nhsw-layout__content--roomy .nhsw-caption-xl {
+  margin-bottom: 80px;
 }
 
 /*# sourceMappingURL=nhsw.css.map */

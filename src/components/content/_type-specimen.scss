@@ -19,14 +19,10 @@ $nhsw-type-specimens: (
 
 .nhsw-type-specimen {
   display: block;
-  margin: 0 0 s.$nhsw-heading-margin-mobile;
+  margin: 40px 0 40px;
   color: c.$nhsw-colour-text-primary;
   font-family: t.$nhsw-font-family-base;
   font-weight: t.$nhsw-font-weight-bold;
-
-  @include b.nhsw-from-tablet {
-    margin-bottom: s.$nhsw-heading-margin-tablet;
-  }
 
   @each $name, $pair in $nhsw-type-specimens {
     &--#{$name} {

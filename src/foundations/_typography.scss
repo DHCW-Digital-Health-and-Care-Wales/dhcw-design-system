@@ -103,6 +103,11 @@
   font-weight: t.$nhsw-font-weight-regular;
   margin: 0 0 8px;
   display: block;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-h3;
+    line-height: 2.375rem;
+  }
 }
 
 @mixin nhsw-caption-l {
