@@ -3278,7 +3278,7 @@ body {
   background-color: #ffffff;
 }
 .nhsw-notification-banner__header {
-  padding: 8px 16px;
+  padding: 2px 16px 4px;
   background-color: #004281;
 }
 .nhsw-notification-banner__title {
