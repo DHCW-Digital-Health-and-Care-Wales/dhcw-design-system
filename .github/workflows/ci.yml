@@ -36,14 +36,22 @@ jobs:
       - name: Build JS
         run: npm run build:js
 
-      - name: Run unit/CSS tests
-        run: npx vitest run
-
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run end-to-end tests
-        run: npm run test:e2e
+      - name: Run tests and generate report
+        run: npm run report:tests
+
+      - name: Add report to job summary
+        if: always()
+        run: cat test-reports/test-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: test-reports/
 
       - name: Check npm package
         run: node scripts/prepare-npm-package.js && npm pack --dry-run

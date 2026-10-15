@@ -12,3 +12,4 @@ njk-preview/
 preview/_site_test/
 test-results/
 playwright-report/
+test-reports/

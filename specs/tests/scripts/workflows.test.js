@@ -81,6 +81,17 @@ describe('CI workflow', () => {
     expect(run).toContain('npm pack --dry-run');
   });
 
+  it('runs all the tests through the report script, shows the report in the job summary and uploads it, even when tests fail', () => {
+    const steps = ci.jobs.test.steps;
+    expect(steps.find((s) => s.run === 'npm run report:tests')).toBeTruthy();
+    const summary = steps.find((s) => s.name === 'Add report to job summary');
+    expect(summary.if).toBe('always()');
+    expect(summary.run).toContain('GITHUB_STEP_SUMMARY');
+    const upload = steps.find((s) => s.uses && s.uses.startsWith('actions/upload-artifact'));
+    expect(upload.if).toBe('always()');
+    expect(upload.with.path).toBe('test-reports/');
+  });
+
   it('never publishes to npm automatically on a push to main', () => {
     expect(read('.github/workflows/ci.yml')).not.toContain('npm publish');
   });
