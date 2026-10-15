@@ -22,6 +22,13 @@
   flex-wrap: wrap;
   margin-left: -(s.$nhsw-gutter);
   margin-right: -(s.$nhsw-gutter);
+
+  // Columns sit side by side from the desktop breakpoint, where the gap between
+  // them is 40px (a 20px gutter either side).
+  @include b.nhsw-from-desktop {
+    margin-left: -(s.$nhsw-gutter-desktop);
+    margin-right: -(s.$nhsw-gutter-desktop);
+  }
 }
 
 @mixin nhsw-grid-column {
@@ -29,4 +36,9 @@
   width: 100%;
   padding-left: s.$nhsw-gutter;
   padding-right: s.$nhsw-gutter;
+
+  @include b.nhsw-from-desktop {
+    padding-left: s.$nhsw-gutter-desktop;
+    padding-right: s.$nhsw-gutter-desktop;
+  }
 }

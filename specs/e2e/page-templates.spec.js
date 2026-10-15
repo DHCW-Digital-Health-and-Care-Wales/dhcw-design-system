@@ -67,7 +67,7 @@ test.describe('Page template previews', () => {
     await page.goto('/examples/page-template-dashboard-default.html');
     const sidebar = await page.locator('.nhsw-dashboard__sidebar').boundingBox();
     const main = await page.locator('.nhsw-dashboard__main').boundingBox();
-    expect(sidebar.width).toBeCloseTo(240, 0);
+    expect(sidebar.width).toBeCloseTo(322, 0);
     expect(main.x).toBeGreaterThanOrEqual(sidebar.x + sidebar.width - 1);
     const bar = await page.locator('.nhsw-dashboard__topbar').boundingBox();
     const content = await page.locator('.nhsw-dashboard__content').boundingBox();

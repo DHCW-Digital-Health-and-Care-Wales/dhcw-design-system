@@ -5,7 +5,7 @@
   position: relative;
   background-color: c.$nhsw-colour-background-white;
   border: 1px solid c.$nhsw-colour-border-grey;
-  padding: 2rem;
+  padding: 1rem;
   height: calc(100% - 2rem);
   margin-bottom: 2rem;
   box-sizing: border-box;
@@ -34,7 +34,7 @@
 }
 
 .nhsw-card__title {
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   font-size: t.$nhsw-font-size-h3;
   font-weight: t.$nhsw-font-weight-bold;
   line-height: t.$nhsw-line-height-h3;

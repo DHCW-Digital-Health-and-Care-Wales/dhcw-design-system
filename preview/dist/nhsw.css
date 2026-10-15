@@ -50,7 +50,7 @@
 
 .nhsw-label {
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 4px;
   color: #212b32;
   font-size: 1rem;
   font-weight: 700;
@@ -1878,6 +1878,16 @@ body {
   background-color: #1b365d;
 }
 
+.nhsw-patient-header {
+  margin: 0 0 32px;
+  padding: 16px;
+  border: 1px solid #d8dde0;
+  background-color: #ffffff;
+}
+.nhsw-patient-header > :last-child {
+  margin-bottom: 0;
+}
+
 .nhsw-timeout-modal {
   position: static;
   max-width: 25rem;
@@ -2827,6 +2837,9 @@ body {
   border: 1px solid #d8dde0;
   background-color: #ffffff;
 }
+.nhsw-example-preview__frame--short {
+  height: 440px;
+}
 .nhsw-example-preview__footer-button {
   display: inline-block;
   background: none;
@@ -3310,8 +3323,8 @@ body {
 }
 @media (min-width: 48.0625em) {
   .nhsw-width-container {
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 }
 @media (min-width: 1024px) {
@@ -3328,8 +3341,8 @@ body {
 }
 @media (min-width: 48.0625em) {
   .nhsw-width-container--wide {
-    margin-left: 32px;
-    margin-right: 32px;
+    margin-left: 40px;
+    margin-right: 40px;
   }
 }
 @media (min-width: 1024px) {
@@ -3347,8 +3360,8 @@ body {
 }
 @media (min-width: 48.0625em) {
   .nhsw-fluid-container {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -3357,6 +3370,12 @@ body {
   flex-wrap: wrap;
   margin-left: -16px;
   margin-right: -16px;
+}
+@media (min-width: 48.0625em) {
+  .nhsw-grid-row {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
 }
 
 .nhsw-grid-column-full,
@@ -3369,6 +3388,17 @@ body {
   width: 100%;
   padding-left: 16px;
   padding-right: 16px;
+}
+@media (min-width: 48.0625em) {
+  .nhsw-grid-column-full,
+  .nhsw-grid-column-one-half,
+  .nhsw-grid-column-one-third,
+  .nhsw-grid-column-two-thirds,
+  .nhsw-grid-column-one-quarter,
+  .nhsw-grid-column-three-quarters {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 @media (min-width: 48.0625em) {
@@ -3526,7 +3556,7 @@ body {
   position: relative;
   background-color: #ffffff;
   border: 1px solid #d8dde0;
-  padding: 2rem;
+  padding: 1rem;
   height: calc(100% - 2rem);
   margin-bottom: 2rem;
   box-sizing: border-box;
@@ -3548,7 +3578,7 @@ body {
 }
 
 .nhsw-card__title {
-  margin: 0 0 1rem;
+  margin: 0 0 0.5rem;
   font-size: 1.625rem;
   font-weight: 700;
   line-height: 2rem;
@@ -4108,15 +4138,16 @@ body {
   }
 }
 .nhsw-phase-banner {
-  border-bottom: 1px solid #d8dde0;
   color: #212b32;
 }
 .nhsw-phase-banner__container {
   padding: 10px 16px;
+  border-bottom: 1px solid #d8dde0;
 }
 @media (min-width: 40.0625em) {
   .nhsw-phase-banner__container {
-    padding: 10px 40px;
+    margin-right: 2.5rem;
+    padding: 10px 2rem 10px calc(2rem + 4px);
   }
 }
 .nhsw-phase-banner__content {
@@ -4130,7 +4161,7 @@ body {
 }
 .nhsw-phase-banner__tag {
   display: inline-block;
-  padding: 1px 8px;
+  padding: 0 8px;
   border: 1px solid #004281;
   background-color: #cce0f1;
   color: #004281;
@@ -4142,11 +4173,12 @@ body {
   min-width: 0;
 }
 .nhsw-phase-banner--reverse {
-  border-bottom: 0;
   color: #ffffff;
 }
 .nhsw-phase-banner--reverse .nhsw-phase-banner__container {
+  margin-right: 0;
   padding: 8px 0 0;
+  border-bottom: 0;
 }
 .nhsw-phase-banner--reverse .nhsw-phase-banner__content {
   font-size: 0.875rem;
@@ -4177,23 +4209,25 @@ body {
 }
 .nhsw-dashboard__sidebar {
   flex-shrink: 0;
+  padding: 1rem 0;
   background-color: #1b365d;
   color: #ffffff;
 }
 @media (min-width: 40.0625em) {
   .nhsw-dashboard__sidebar {
-    width: 240px;
+    width: 322px;
   }
 }
 .nhsw-dashboard__brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  border-bottom: 1px solid #32598a;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+  padding: 0 1rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   font-family: Roboto, Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 24px;
   text-decoration: none;
 }
@@ -4204,40 +4238,49 @@ body {
   filter: brightness(0) invert(1);
 }
 .nhsw-dashboard__nav-group {
-  margin: 0;
-  padding: 0;
+  margin: 0 0 0.5rem;
+  padding: 0 0 0.5rem;
   list-style: none;
-  border-bottom: 1px solid #32598a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 .nhsw-dashboard__nav-link {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 20px;
+  gap: 10px;
+  box-sizing: border-box;
+  height: 3rem;
+  padding: 0.75rem 1rem 0.75rem calc(1rem - 0.475rem);
+  border-left: 0.475rem solid transparent;
   color: #ffffff;
   font-family: Roboto, Arial, sans-serif;
-  font-size: 0.875rem;
-  line-height: 20px;
+  font-size: 1.1rem;
   text-decoration: none;
+  transition: background-color 0.3s;
 }
 .nhsw-dashboard__nav-link:hover {
-  background-color: #32598a;
-  text-decoration: underline;
+  background-color: #0056b3;
+  border-left-color: #ffffff;
 }
 .nhsw-dashboard__nav-link:focus {
   outline: none;
   background-color: #ffeb3b;
+  border-left-color: #212b32;
   color: #212b32;
-  text-decoration: none;
 }
 .nhsw-dashboard__nav-link--current {
-  background-color: #32598a;
-  font-weight: 700;
+  background-color: #0056b3;
+  border-left-color: #ffffff;
+}
+.nhsw-dashboard__nav-link--disabled, .nhsw-dashboard__nav-link--disabled:hover {
+  background-color: transparent;
+  border-left-color: transparent;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 .nhsw-dashboard__nav-icon {
   flex-shrink: 0;
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   fill: currentColor;
 }
 .nhsw-dashboard__main {
@@ -4715,13 +4758,13 @@ body {
 
 .nhsw-main-wrapper {
   display: block;
-  padding-top: 32px;
+  padding-top: 24px;
   padding-bottom: 32px;
 }
 @media (min-width: 40.0625em) {
   .nhsw-main-wrapper {
-    padding-top: 48px;
-    padding-bottom: 48px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 }
 .nhsw-main-wrapper > *:first-child {

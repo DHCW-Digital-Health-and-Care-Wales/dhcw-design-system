@@ -40,9 +40,9 @@ Follow the spacing and breakpoint rules in `.agent/design-system-rules.md`. Key 
 
 - Breakpoints: tablet 40.0625em, desktop 48.0625em, large desktop 61.875em
 - Max page width: 960px, container auto-centres above 1024px
-- Main wrapper: 32px padding (mobile), 48px (tablet+)
-- Container margins: 16px (mobile), 32px (desktop)
-- Grid gutter: 16px, columns stack below desktop breakpoint
+- Main wrapper: 24px above and 32px below (mobile), 32px top and bottom (tablet+)
+- Container margins: 16px (mobile), 40px (desktop)
+- Grid gutter: 16px, 20px from the desktop breakpoint (40px between columns); columns stack below desktop
 - H1 bottom margin: 40px/48px, H2–H5 and body: 16px/24px
 - Form group: 16px/24px, label-to-input gap: 4px
 - Use px for spacing, not rem/em

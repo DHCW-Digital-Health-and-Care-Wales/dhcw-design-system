@@ -13,10 +13,10 @@ Please note that our organisation is called Digital Health and Care Wales, so br
 - large desktop: 61.875em (990px)
 
 ### Page structure spacing
-- Main wrapper padding: 32px top/bottom (mobile), 48px (tablet+)
-- Container side margins: 16px (mobile), 32px (desktop), auto-centred above 1024px
+- Main wrapper padding: 24px top and 32px bottom (mobile), 32px top/bottom (tablet+)
+- Container side margins: 16px (mobile), 40px (desktop), auto-centred above 1024px
 - Max page width: 960px
-- Grid gutter: 16px
+- Grid gutter: 16px, 20px from the desktop breakpoint (40px between columns)
 
 ### Vertical rhythm
 - H1 margin-bottom: 40px (mobile), 48px (tablet+)
@@ -27,7 +27,7 @@ Please note that our organisation is called Digital Health and Care Wales, so br
 
 ### Form spacing
 - Form group margin-bottom: 16px (mobile), 24px (tablet+)
-- Label margin-bottom: 0 if immediately followed by a hint (the hint's own margin-bottom provides the gap), 16px otherwise
+- Label margin-bottom: 0 if immediately followed by a hint (the hint's own margin-bottom provides the gap), 4px otherwise
 - Hint margin-bottom: 16px
 - Error message margin-bottom: 16px
 - Between form sections (e.g. after a group of fields before a new heading): 40px

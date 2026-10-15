@@ -3,7 +3,7 @@
 
 .nhsw-main-wrapper {
   display: block;
-  padding-top: s.$nhsw-main-wrapper-padding-mobile;
+  padding-top: s.$nhsw-main-wrapper-padding-top-mobile;
   padding-bottom: s.$nhsw-main-wrapper-padding-mobile;
 
   @include b.nhsw-from-tablet {

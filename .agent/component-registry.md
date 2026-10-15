@@ -504,3 +504,6 @@ Colour swatches for the Colours page (`nhsw-colour-swatches` wrapper, `nhsw-colo
 ## nhsw-code
 Inline code in the destructive red colour, used for code and variable names in documentation text.
 
+## nhsw-patient-header
+Patient summary area shown above the page content: a white bordered box with 16px internal padding and 32px of space below it. Hold a summary list (`nhsw-summary-list--no-border`) with the patient's name, date of birth and NHS number.
+

@@ -17,9 +17,9 @@ describe('label grows to 19px at tablet, matching hint/error-message', () => {
     expect(xl).toMatch(/margin-bottom:\s*16px/);
   });
 
-  it('base label margin-bottom is 16px by default (safe fallback for browsers without :has() support), 0 when a hint immediately follows', () => {
+  it('base label margin-bottom is 4px by default (the Layout page), 0 when a hint immediately follows', () => {
     const base = block(css, '\\.nhsw-label\\b');
-    expect(base).toMatch(/margin-bottom:\s*16px/);
+    expect(base).toMatch(/margin-bottom:\s*4px/);
     const withHint = block(css, '\\.nhsw-label:has\\(\\+ \\.nhsw-hint\\)');
     expect(withHint).toMatch(/margin-bottom:\s*0/);
   });

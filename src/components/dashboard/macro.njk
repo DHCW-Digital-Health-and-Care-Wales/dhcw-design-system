@@ -43,7 +43,7 @@
 {%- for group in params.nav %}
       <ul class="nhsw-dashboard__nav-group">
 {%- for item in group.items %}
-        <li><a class="nhsw-dashboard__nav-link{% if item.current %} nhsw-dashboard__nav-link--current{% endif %}" href="{{ item.href }}"{% if item.current %} aria-current="page"{% endif %}>
+        <li><a class="nhsw-dashboard__nav-link{% if item.current %} nhsw-dashboard__nav-link--current{% endif %}{% if item.disabled %} nhsw-dashboard__nav-link--disabled{% endif %}"{% if item.disabled %} aria-disabled="true"{% else %} href="{{ item.href }}"{% endif %}{% if item.current %} aria-current="page"{% endif %}>
 {%- if item.icon %}<svg class="nhsw-dashboard__nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="{{ nhswDashboardIcons[item.icon] }}"/></svg>{% endif %}<span>{{ item.text }}</span></a></li>
 {%- endfor %}
       </ul>

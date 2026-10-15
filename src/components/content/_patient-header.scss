@@ -1,0 +1,12 @@
+@use "../../tokens/colours" as c;
+
+.nhsw-patient-header {
+  margin: 0 0 32px;
+  padding: 16px;
+  border: 1px solid c.$nhsw-colour-border-grey;
+  background-color: c.$nhsw-colour-background-white;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

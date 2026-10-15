@@ -1,0 +1,245 @@
+---
+layout: simple
+title: Layout
+container: fluid
+side_nav_data: styles_nav
+breadcrumb_parent_title: Styles
+breadcrumb_parent_url: /styles.html
+---
+<h1 class="nhsw-h1">Layout</h1>
+<p class="nhsw-body nhsw-body--secondary">Updated in March 2026</p>
+<p class="nhsw-caption-xl">Use layout grids and standard spacing units to structure content and keep digital services consistent across screen sizes.</p>
+
+<h2 class="nhsw-h2">When to use layout and spacing</h2>
+<p class="nhsw-body">Use layout and spacing to create clear, consistent page structures across responsive services, including desktop, mobile and clinical systems.</p>
+<p class="nhsw-body">It helps users understand and scan information quickly, identify relationships between content and navigate services across different screen sizes.</p>
+
+<h2 class="nhsw-h2">When not to use standard page layouts</h2>
+<p class="nhsw-body">Do not use standard page layouts when content requires a specialised or immersive experience.</p>
+<p class="nhsw-body">This can include:</p>
+<ul class="nhsw-body">
+  <li>full-screen data dashboards</li>
+  <li>interactive workspaces or canvas-based tools</li>
+  <li>third-party embedded applications</li>
+</ul>
+<p class="nhsw-body">In these cases, adapt the layout to support the user need while maintaining accessibility and usability principles.</p>
+
+<h2 class="nhsw-h2">How to use layout and spacing</h2>
+<p class="nhsw-body">Use the layout grid and spacing scale consistently across your service. Consistent layout patterns help create predictable experiences and establish a clear visual hierarchy.</p>
+<p class="nhsw-body">You should:</p>
+<ul class="nhsw-body">
+  <li>use responsive layouts that adapt to different screen sizes</li>
+  <li>follow the grid system for page structure and content placement</li>
+  <li>use consistent spacing between related content and components</li>
+  <li>maintain appropriate line lengths for readability</li>
+  <li>keep layouts simple and focused on user needs</li>
+</ul>
+
+<h2 class="nhsw-h2">Screen sizes and breakpoints</h2>
+<p class="nhsw-body">Design layouts to work across a range of screen sizes.</p>
+<p class="nhsw-body">Screen size and responsive breakpoints:</p>
+<ul class="nhsw-body">
+  <li>Mobile: 320px and above</li>
+  <li>Tablet: 641px and above</li>
+  <li>Desktop: 769px and above</li>
+  <li>Large Desktop: 990px and above</li>
+</ul>
+
+<h2 class="nhsw-h2">Grid system</h2>
+
+<h3 class="nhsw-h3">Full-width layout</h3>
+<p class="nhsw-body">Use a full-width layout for content-heavy pages and services that require maximum screen space.</p>
+<p class="nhsw-body">You should:</p>
+<ul class="nhsw-body">
+  <li>use 40px padding on the left and right of the main page container</li>
+  <li>use 32px padding at the top and bottom of content areas</li>
+  <li>maintain a 40px gap between major page sections, such as navigation, headings and primary content</li>
+</ul>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame nhsw-example-preview__frame--short" src="{{ '/examples/layout-full-width.html' | relative_url }}" title="Full-width layout example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="layout-full-width" open_url="/examples/layout-full-width.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+&lt;h1 class="nhsw-h1"&gt;Full-width layout&lt;/h1&gt;
+&lt;p class="nhsw-body"&gt;Content uses the full width of the page, with side padding from the main page container.&lt;/p&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
+    {{ nhswBackLink({ href: "#" }) }}
+    &lt;h1 class="nhsw-h1"&gt;Full-width layout&lt;/h1&gt;
+    &lt;p class="nhsw-body"&gt;Content uses the full width of the page, with side padding from the main page container.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/main&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="layout-full-width" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">One-half width layout</h3>
+<p class="nhsw-body">Use a one-half width layout when content is shorter or line length needs to be constrained for readability. On smaller screens, columns should automatically stack into a single-column layout.</p>
+<p class="nhsw-body">You should:</p>
+<ul class="nhsw-body">
+  <li>use 40px outer padding</li>
+  <li>maintain a 40px gap between columns</li>
+  <li>use standard 32px vertical padding and 40px section spacing</li>
+</ul>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame nhsw-example-preview__frame--short" src="{{ '/examples/layout-one-half.html' | relative_url }}" title="One-half width layout example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="layout-one-half" open_url="/examples/layout-one-half.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+&lt;div class="nhsw-grid-row"&gt;
+  &lt;div class="nhsw-grid-column-one-half"&gt;
+    &lt;h1 class="nhsw-h1"&gt;One-half width layout&lt;/h1&gt;
+    &lt;p class="nhsw-body"&gt;Use a one-half column when content is shorter or line length needs to be constrained for readability.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-grid-column-one-half"&gt;
+    &lt;p class="nhsw-body"&gt;On smaller screens, columns stack into a single column.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
+    {{ nhswBackLink({ href: "#" }) }}
+    &lt;div class="nhsw-grid-row"&gt;
+      &lt;div class="nhsw-grid-column-one-half"&gt;
+        &lt;h1 class="nhsw-h1"&gt;One-half width layout&lt;/h1&gt;
+        &lt;p class="nhsw-body"&gt;Use a one-half column when content is shorter or line length needs to be constrained for readability.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-grid-column-one-half"&gt;
+        &lt;p class="nhsw-body"&gt;On smaller screens, columns stack into a single column.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="layout-one-half" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Patient header layout</h3>
+<p class="nhsw-body">Use the patient header layout where patient information needs to remain visible and clearly separated from page content.</p>
+<p class="nhsw-body">You should:</p>
+<ul class="nhsw-body">
+  <li>use 16px side margins and grid gutters</li>
+  <li>apply 16px internal padding within the patient summary area</li>
+  <li>leave 32px spacing between the patient header and page content</li>
+</ul>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame nhsw-example-preview__frame--short" src="{{ '/examples/layout-patient-header.html' | relative_url }}" title="Patient header layout example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="layout-patient-header" open_url="/examples/layout-patient-header.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+&lt;div class="nhsw-patient-header"&gt;
+  &lt;dl class="nhsw-summary-list nhsw-summary-list--no-border"&gt;
+    &lt;div class="nhsw-summary-list__row"&gt;
+      &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
+      &lt;dd class="nhsw-summary-list__value"&gt;Jane Doe&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-summary-list__row"&gt;
+      &lt;dt class="nhsw-summary-list__key"&gt;Date of birth&lt;/dt&gt;
+      &lt;dd class="nhsw-summary-list__value"&gt;1 January 1980&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-summary-list__row"&gt;
+      &lt;dt class="nhsw-summary-list__key"&gt;NHS number&lt;/dt&gt;
+      &lt;dd class="nhsw-summary-list__value"&gt;999 999 9999&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+&lt;/div&gt;
+&lt;h1 class="nhsw-h1"&gt;Patient record&lt;/h1&gt;
+&lt;p class="nhsw-body"&gt;Patient information stays visible above the page content and is clearly separated from it.&lt;/p&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
+    {{ nhswBackLink({ href: "#" }) }}
+    &lt;div class="nhsw-patient-header"&gt;
+      &lt;dl class="nhsw-summary-list nhsw-summary-list--no-border"&gt;
+        &lt;div class="nhsw-summary-list__row"&gt;
+          &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
+          &lt;dd class="nhsw-summary-list__value"&gt;Jane Doe&lt;/dd&gt;
+        &lt;/div&gt;
+        &lt;div class="nhsw-summary-list__row"&gt;
+          &lt;dt class="nhsw-summary-list__key"&gt;Date of birth&lt;/dt&gt;
+          &lt;dd class="nhsw-summary-list__value"&gt;1 January 1980&lt;/dd&gt;
+        &lt;/div&gt;
+        &lt;div class="nhsw-summary-list__row"&gt;
+          &lt;dt class="nhsw-summary-list__key"&gt;NHS number&lt;/dt&gt;
+          &lt;dd class="nhsw-summary-list__value"&gt;999 999 9999&lt;/dd&gt;
+        &lt;/div&gt;
+      &lt;/dl&gt;
+    &lt;/div&gt;
+    &lt;h1 class="nhsw-h1"&gt;Patient record&lt;/h1&gt;
+    &lt;p class="nhsw-body"&gt;Patient information stays visible above the page content and is clearly separated from it.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/main&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="layout-patient-header" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Mobile layout</h3>
+<p class="nhsw-body">Keep mobile layouts to a single column to ensure content adapts cleanly across smaller viewports.</p>
+<p class="nhsw-body">You should:</p>
+<ul class="nhsw-body">
+  <li>apply 16px side margins across mobile viewports</li>
+  <li>leave 24px space above the back link or primary page title</li>
+  <li>use 16px spacing between headings and supporting content</li>
+  <li>use 4px spacing between labels and form controls</li>
+  <li>separate form controls with 16px vertical spacing</li>
+  <li>leave 32px to 40px spacing between content sections</li>
+  <li>for container components like cards, use 16px internal padding with an 8px gap between titles and body details</li>
+</ul>
+{% capture example_body %}
+<iframe class="nhsw-example-preview__frame nhsw-example-preview__frame--short" src="{{ '/examples/layout-mobile.html' | relative_url }}" title="Mobile layout example" loading="lazy"></iframe>
+{% endcapture %}
+{% include example-preview.html id="layout-mobile" open_url="/examples/layout-mobile.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+&lt;h1 class="nhsw-h1"&gt;Mobile layout&lt;/h1&gt;
+&lt;p class="nhsw-body"&gt;Keep mobile layouts to a single column.&lt;/p&gt;
+&lt;div class="nhsw-form-group"&gt;
+  &lt;label class="nhsw-label" for="layout-mobile-name"&gt;Full name&lt;/label&gt;
+  &lt;input id="layout-mobile-name" name="layout-mobile-name" class="nhsw-input" type="text"&gt;
+&lt;/div&gt;
+&lt;div class="nhsw-summary-card"&gt;
+  &lt;div class="nhsw-summary-card__header"&gt;
+    &lt;h2 class="nhsw-h3 nhsw-summary-card__title"&gt;Summary card&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-summary-card__body"&gt;
+    &lt;p class="nhsw-body"&gt;Container components keep their content in a single column on small screens.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
+
+&lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
+    {{ nhswBackLink({ href: "#" }) }}
+    &lt;h1 class="nhsw-h1"&gt;Mobile layout&lt;/h1&gt;
+    &lt;p class="nhsw-body"&gt;Keep mobile layouts to a single column.&lt;/p&gt;
+    &lt;div class="nhsw-form-group"&gt;
+      &lt;label class="nhsw-label" for="layout-mobile-name"&gt;Full name&lt;/label&gt;
+      &lt;input id="layout-mobile-name" name="layout-mobile-name" class="nhsw-input" type="text"&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-summary-card"&gt;
+      &lt;div class="nhsw-summary-card__header"&gt;
+        &lt;h2 class="nhsw-h3 nhsw-summary-card__title"&gt;Summary card&lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-summary-card__body"&gt;
+        &lt;p class="nhsw-body"&gt;Container components keep their content in a single column on small screens.&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/main&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="layout-mobile" html=html_sample njk=njk_sample toggleable=true %}
+
+<h2 class="nhsw-h2">Accessibility</h2>
+<p class="nhsw-body">Make sure page layouts, grids and content structures are accessible to all users.</p>
+<ul class="nhsw-body">
+  <li>Present content in a logical reading order with a meaningful content sequence to ensure it can be understood when presented by assistive technologies. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html">WCAG 2.2 Success Criterion 1.3.2: Meaningful Sequence (Level A)</a>.</li>
+  <li>Ensure layouts remain usable at different screen sizes and zoom levels without loss of information or functionality. This supports both <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">WCAG 2.2 Success Criterion 1.4.10: Reflow (Level AA)</a> and <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">WCAG 2.2 Success Criterion 1.4.4: Resize Text (Level AA)</a>.</li>
+  <li>Use spacing and visual hierarchy to help users understand relationships between content and interface elements. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships (Level A)</a>.</li>
+  <li>Avoid excessively long line lengths, particularly in full-width layouts. Aim for a reading width of around 70 to 80 characters where possible. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html">WCAG 2.2 Success Criterion 1.4.8: Visual Presentation (Level AAA)</a>.</li>
+</ul>
+
+<h2 class="nhsw-h2">Source</h2>
+<p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/styles/layout">Layout in the NHS Digital Service Manual</a> and <a class="nhsw-link" href="https://design-system.service.gov.uk/styles/spacing/">Spacing in the GOV.UK Design System</a>.</p>
+<p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/nhsuk/nhsuk-service-manual-backlog/issues?q=layout">Layout on NHS Digital Service Manual Github</a> and <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues?q=spacing">Spacing on GOV.UK Github</a> to see the latest updates and resolved issues.</p>
+
+<p class="nhsw-body"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>

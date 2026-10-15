@@ -23,7 +23,7 @@ params:
     required: true
     description: >
       Groups of links, each group separated by a divider:
-      [{ items: [{ text, href, icon, current }] }]. icon is one of home,
+      [{ items: [{ text, href, icon, current, disabled }] }]. A disabled item has no link. icon is one of home,
       school, building, people, search, calendar, envelope or user.
   - name: ariaLabel
     type: string

@@ -9,7 +9,18 @@ describe('phase banner', () => {
   });
 
   it('has a light grey bottom border that separates it from the page', () => {
-    expect(block(css, '\\.nhsw-phase-banner')).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+    expect(block(css, '\\.nhsw-phase-banner__container')).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+  });
+
+  it('lines the tag up with the first navigation link, and stops the line 40px short of the right edge', () => {
+    expect(css).toMatch(/margin-right:\s*2\.5rem/);
+    expect(css).toMatch(/padding:\s*10px 2rem 10px calc\(2rem \+ 4px\)/);
+  });
+
+  it('the tag is 24px tall: 22px line height plus its border', () => {
+    const tag = block(css, '\\.nhsw-phase-banner__tag');
+    expect(tag).toMatch(/line-height:\s*22px/);
+    expect(tag).toMatch(/padding:\s*0 8px/);
   });
 
   it('shows the phase as a bold tag with a blue border and light blue background', () => {

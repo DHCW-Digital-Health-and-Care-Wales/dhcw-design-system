@@ -26,14 +26,36 @@ describe('grid row/column/container gutters and breakpoint widths', () => {
     expect(css).toMatch(/\.nhsw-grid-column-one-third\s*\{[^}]*width:\s*33\.3333%/);
   });
 
-  it('fluid container pads 16px mobile, 32px desktop', () => {
+  it('fluid container pads 16px mobile, 40px desktop (the Layout page)', () => {
     const fluid = block(css, '\\.nhsw-fluid-container');
     expect(fluid).toMatch(/padding-left:\s*16px/);
-    expect(css).toMatch(/@media \(min-width: 48\.0625em\)[\s\S]*?\.nhsw-fluid-container\s*\{[^}]*padding-left:\s*32px/);
+    expect(css).toMatch(/@media \(min-width: 48\.0625em\)[\s\S]*?\.nhsw-fluid-container\s*\{[^}]*padding-left:\s*40px/);
   });
 
   it('page body has the light grey backdrop colour', () => {
     const body = block(css, 'body');
     expect(body).toMatch(/background-color:\s*#f0f4f5/);
+  });
+});
+
+describe('grid gutters and page spacing follow the Layout page', () => {
+  let layoutCss = '';
+
+  beforeAll(() => {
+    layoutCss = compileProbe(`@use "components/layout"; @use "layouts";`);
+  });
+
+  it('columns are 40px apart from the desktop breakpoint (20px gutter each side), 16px gutters below it', () => {
+    expect(block(layoutCss, '\.nhsw-grid-row')).toMatch(/margin-left:\s*-16px/);
+    expect(layoutCss).toMatch(/@media \(min-width: 48\.0625em\)\s*\{\s*\.nhsw-grid-row\s*\{[^}]*margin-left:\s*-20px/);
+    expect(layoutCss).toMatch(/\.nhsw-grid-column-three-quarters\s*\{[^}]*padding-left:\s*16px/);
+    expect(layoutCss).toMatch(/@media \(min-width: 48\.0625em\)\s*\{[^@]*?\.nhsw-grid-column-three-quarters\s*\{[^}]*padding-left:\s*20px/);
+  });
+
+  it('main content has 24px above it on mobile, then 32px top and bottom', () => {
+    const wrapper = block(layoutCss, '\.nhsw-main-wrapper');
+    expect(wrapper).toMatch(/padding-top:\s*24px/);
+    expect(wrapper).toMatch(/padding-bottom:\s*32px/);
+    expect(layoutCss).toMatch(/@media \(min-width: 40\.0625em\)\s*\{\s*\.nhsw-main-wrapper\s*\{[^}]*padding-top:\s*32px[^}]*padding-bottom:\s*32px/);
   });
 });

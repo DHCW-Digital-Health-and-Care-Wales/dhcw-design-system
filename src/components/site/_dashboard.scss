@@ -2,7 +2,11 @@
 @use "../../tokens/typography" as t;
 @use "../../utilities/breakpoints" as b;
 
-$nhsw-dashboard-sidebar-width: 240px;
+// Values follow the WIS side menu (SideMenu.razor.css) so the two look and feel the same.
+$nhsw-dashboard-sidebar-width: 322px;
+$nhsw-dashboard-nav-divider: rgba(255, 255, 255, 0.2);
+$nhsw-dashboard-nav-active: #0056b3;
+$nhsw-dashboard-nav-edge: 0.475rem;
 
 .nhsw-dashboard {
   display: flex;
@@ -16,6 +20,7 @@ $nhsw-dashboard-sidebar-width: 240px;
 
   &__sidebar {
     flex-shrink: 0;
+    padding: 1rem 0;
     background-color: c.$nhsw-colour-background-blue;
     color: c.$nhsw-colour-text-exceptional;
 
@@ -27,12 +32,13 @@ $nhsw-dashboard-sidebar-width: 240px;
   &__brand {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 20px;
-    border-bottom: 1px solid c.$nhsw-colour-button-primary-hover;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+    padding: 0 1rem 0.5rem;
+    border-bottom: 1px solid $nhsw-dashboard-nav-divider;
     color: c.$nhsw-colour-text-exceptional;
     font-family: t.$nhsw-font-family-base;
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 24px;
     text-decoration: none;
 
@@ -45,45 +51,59 @@ $nhsw-dashboard-sidebar-width: 240px;
   }
 
   &__nav-group {
-    margin: 0;
-    padding: 0;
+    margin: 0 0 0.5rem;
+    padding: 0 0 0.5rem;
     list-style: none;
-    border-bottom: 1px solid c.$nhsw-colour-button-primary-hover;
+    border-bottom: 1px solid $nhsw-dashboard-nav-divider;
   }
 
+  // The white edge on hover and for the current page is drawn by a border that is
+  // always there (transparent) with the padding reduced to match, so the text does
+  // not shift when it appears.
   &__nav-link {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 10px 20px;
+    gap: 10px;
+    box-sizing: border-box;
+    height: 3rem;
+    padding: 0.75rem 1rem 0.75rem calc(1rem - #{$nhsw-dashboard-nav-edge});
+    border-left: $nhsw-dashboard-nav-edge solid transparent;
     color: c.$nhsw-colour-text-exceptional;
     font-family: t.$nhsw-font-family-base;
-    font-size: 0.875rem;
-    line-height: 20px;
+    font-size: 1.1rem;
     text-decoration: none;
+    transition: background-color 0.3s;
 
     &:hover {
-      background-color: c.$nhsw-colour-button-primary-hover;
-      text-decoration: underline;
+      background-color: $nhsw-dashboard-nav-active;
+      border-left-color: c.$nhsw-colour-text-exceptional;
     }
 
     &:focus {
       outline: none;
       background-color: c.$nhsw-colour-focus;
+      border-left-color: c.$nhsw-colour-text-primary;
       color: c.$nhsw-colour-text-primary;
-      text-decoration: none;
     }
 
     &--current {
-      background-color: c.$nhsw-colour-button-primary-hover;
-      font-weight: t.$nhsw-font-weight-bold;
+      background-color: $nhsw-dashboard-nav-active;
+      border-left-color: c.$nhsw-colour-text-exceptional;
+    }
+
+    &--disabled,
+    &--disabled:hover {
+      background-color: transparent;
+      border-left-color: transparent;
+      cursor: not-allowed;
+      opacity: 0.6;
     }
   }
 
   &__nav-icon {
     flex-shrink: 0;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     fill: currentColor;
   }
 

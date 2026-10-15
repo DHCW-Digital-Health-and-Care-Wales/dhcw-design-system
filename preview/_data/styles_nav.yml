@@ -7,7 +7,7 @@
 - title: Icons
   url: /styles/icons.html
 - title: Layout
-  url: "#"
+  url: /styles/layout.html
 - title: Page templates
   url: /patterns/page-templates.html
   children:
