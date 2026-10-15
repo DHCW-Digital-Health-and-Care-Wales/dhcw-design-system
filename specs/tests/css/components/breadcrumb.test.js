@@ -52,6 +52,9 @@ describe('breadcrumb link hover/focus states', () => {
 
   it('separator is CSS-generated content, not a real character in the text', () => {
     const separator = block(css, '\\.nhsw-breadcrumb__list-item:not\\(:last-child\\)::after');
-    expect(separator).toMatch(/content:\s*"›"/);
+    expect(separator).toMatch(/content:\s*""/);
+    // The design-system right chevron icon, painted in the secondary text colour.
+    expect(separator).toMatch(/mask:\s*url\("data:image\/svg\+xml/);
+    expect(separator).toMatch(/background-color:\s*#4c6272/);
   });
 });

@@ -36,6 +36,6 @@ test.describe('Setting up Figma prototypes tabs', () => {
     await expect(page.locator('#panel-dhcw')).toBeHidden();
     await expect(page.locator('#tab-non-dhcw')).toHaveAttribute('aria-selected', 'true');
     await expect(page.locator('#tab-dhcw')).toHaveAttribute('aria-selected', 'false');
-    await expect(page.locator('#panel-non-dhcw h3').first()).toHaveText('Non-Digital Healthcare Wales staff');
+    await expect(page.locator('#panel-non-dhcw h3').first()).toHaveText("If you don't work for DHCW");
   });
 });

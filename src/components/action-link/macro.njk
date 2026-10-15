@@ -11,8 +11,8 @@
 #}
 {%- macro nhswActionLink(params) -%}
 <a class="nhsw-action-link{% if params.classes %} {{ params.classes }}{% endif %}" href="{{ params.href }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
-  <svg class="nhsw-action-link__icon" viewBox="0 0 24 24" width="36" height="36" focusable="false" aria-hidden="true">
-    <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z" />
+  <svg class="nhsw-action-link__icon" viewBox="0 0 30 30" width="36" height="36" focusable="false" aria-hidden="true">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.9624 0C7.23963 -9.67762e-05 0.77228 5.83503 0 13.4998H17.5038L11.5639 7.57487C11.053 6.97974 11.0873 6.0926 11.6428 5.53856C12.1982 4.98451 13.0876 4.95025 13.6842 5.4599L22.1955 13.9348C22.4802 14.2164 22.6403 14.5998 22.6403 14.9997C22.6403 15.3997 22.4802 15.7831 22.1955 16.0647L13.6842 24.5396C13.0977 25.1211 12.1504 25.1211 11.5639 24.5396C10.9809 23.9545 10.9809 23.0097 11.5639 22.4246L17.5038 16.4997H0C0.810961 24.5483 7.87407 30.5058 15.9656 29.966C24.0572 29.4263 30.2621 22.5838 29.9915 14.4991C29.7208 6.41445 23.072 0.000101624 14.9624 0Z" />
   </svg>
   <span class="nhsw-action-link__text">{{ params.html | safe if params.html else params.text }}</span>
 </a>

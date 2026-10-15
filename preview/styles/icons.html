@@ -1,0 +1,231 @@
+---
+layout: simple
+title: Icons
+container: fluid
+side_nav_data: styles_nav
+breadcrumb_parent_title: Styles
+breadcrumb_parent_url: /styles.html
+---
+<h1 class="nhsw-h1">Icons</h1>
+<p class="nhsw-body nhsw-body--secondary">Updated in March 2026</p>
+<p class="nhsw-caption-xl">Use icons when they help users understand content, find information or complete a task more easily.</p>
+
+<div class="nhsw-inset-text">
+  <span class="nhsw-visually-hidden">Information: </span>
+  <p class="nhsw-body">Use icons sparingly. Not everyone interprets icons in the same way, so they can be unclear without supporting text. Use icons to support content, not replace it, and only where they add value or help users complete a task.</p>
+</div>
+
+<h2 class="nhsw-h2">When to use icons</h2>
+<p class="nhsw-body">Use icons to support content, highlight important information and help users complete tasks.</p>
+<p class="nhsw-body">Icons can be particularly useful in systems that people use regularly, where users become familiar with common actions and navigation patterns over time.</p>
+<p class="nhsw-body">Use icons when they:</p>
+<ul class="nhsw-body">
+  <li>support the meaning of content or an action</li>
+  <li>help users scan information more quickly</li>
+  <li>reinforce familiar navigation patterns</li>
+  <li>draw attention to important information, warnings or system status</li>
+</ul>
+
+<h2 class="nhsw-h2">When not to use icons</h2>
+<p class="nhsw-body">Use icons sparingly. People may interpret icons differently, so they can be unclear without supporting text.</p>
+<p class="nhsw-body">Do not:</p>
+<ul class="nhsw-body">
+  <li>use icons as the only way to communicate information</li>
+  <li>rely on icons to replace clear text labels</li>
+  <li>use icons for decoration alone</li>
+  <li>use the same icon to represent different things within a service, for example using the search icon for both for search functionality and for screen magnification.</li>
+</ul>
+
+<h2 class="nhsw-h2">How to use icons</h2>
+<p class="nhsw-body">Only use icons provided by the Design System. These icons have been selected to support user needs and create a consistent experience across DHCW services.</p>
+<p class="nhsw-body">If you need an icon that is not available in the Design System, you should have evidence that it helps users understand content or complete a task.</p>
+
+<h3 class="nhsw-h3">Use a label</h3>
+<p class="nhsw-body">In most cases, pair icons with clear text labels. This helps users understand their meaning and reduces the risk of confusion. Using icons on their own means the user must think more, especially if the icon is not familiar to them.</p>
+
+<h3 class="nhsw-h3">Place icons before text to show function</h3>
+<p class="nhsw-body">Place an icon before the text to help the user understand the function of the element.</p>
+
+<h2 class="nhsw-h2">Icons in the design system</h2>
+<h3 class="nhsw-h3">Search</h3>
+<p class="nhsw-body">Use the search icon for search functionality only, for example  in the <a class="nhsw-link" href="{{ '/components/header.html' | relative_url }}">header</a> component.</p>
+<p class="nhsw-body">Where a visible text label is not provided, ensure the icon has an accessible name, such as "Search".</p>
+
+{% capture example_body %}{% raw %}
+<svg aria-hidden="true" focusable="false" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.6043 11.1943L16.7143 15.2943C16.9036 15.4821 17.0101 15.7377 17.0101 16.0043C17.0101 16.2709 16.9036 16.5265 16.7143 16.7143C16.5265 16.9036 16.2709 17.0101 16.0043 17.0101C15.7377 17.0101 15.4821 16.9036 15.2943 16.7143L11.1943 12.6043C8.25441 14.8045 4.11403 14.359 1.70951 11.5837C-0.69502 8.80843 -0.546265 4.64682 2.05028 2.05028C4.64682 -0.546265 8.80843 -0.69502 11.5837 1.70951C14.359 4.11403 14.8045 8.25441 12.6043 11.1943ZM7.00431 2.00431C4.24288 2.00431 2.00431 4.24288 2.00431 7.00431C2.00431 9.76573 4.24288 12.0043 7.00431 12.0043C9.76573 12.0043 12.0043 9.76573 12.0043 7.00431C12.0043 4.24288 9.76573 2.00431 7.00431 2.00431Z" fill="#1B365D"/>
+</svg>
+{% endraw %}{% endcapture %}
+{% include example-preview.html id="icon-search" open_url="/examples/icon-search.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;svg aria-hidden="true" focusable="false" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path fill-rule="evenodd" clip-rule="evenodd" d="M12.6043 11.1943L16.7143 15.2943C16.9036 15.4821 17.0101 15.7377 17.0101 16.0043C17.0101 16.2709 16.9036 16.5265 16.7143 16.7143C16.5265 16.9036 16.2709 17.0101 16.0043 17.0101C15.7377 17.0101 15.4821 16.9036 15.2943 16.7143L11.1943 12.6043C8.25441 14.8045 4.11403 14.359 1.70951 11.5837C-0.69502 8.80843 -0.546265 4.64682 2.05028 2.05028C4.64682 -0.546265 8.80843 -0.69502 11.5837 1.70951C14.359 4.11403 14.8045 8.25441 12.6043 11.1943ZM7.00431 2.00431C4.24288 2.00431 2.00431 4.24288 2.00431 7.00431C2.00431 9.76573 4.24288 12.0043 7.00431 12.0043C9.76573 12.0043 12.0043 9.76573 12.0043 7.00431C12.0043 4.24288 9.76573 2.00431 7.00431 2.00431Z" fill="#1B365D"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{# Icons are inline SVG: use the same markup in your template. #}
+&lt;svg aria-hidden="true" focusable="false" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path fill-rule="evenodd" clip-rule="evenodd" d="M12.6043 11.1943L16.7143 15.2943C16.9036 15.4821 17.0101 15.7377 17.0101 16.0043C17.0101 16.2709 16.9036 16.5265 16.7143 16.7143C16.5265 16.9036 16.2709 17.0101 16.0043 17.0101C15.7377 17.0101 15.4821 16.9036 15.2943 16.7143L11.1943 12.6043C8.25441 14.8045 4.11403 14.359 1.70951 11.5837C-0.69502 8.80843 -0.546265 4.64682 2.05028 2.05028C4.64682 -0.546265 8.80843 -0.69502 11.5837 1.70951C14.359 4.11403 14.8045 8.25441 12.6043 11.1943ZM7.00431 2.00431C4.24288 2.00431 2.00431 4.24288 2.00431 7.00431C2.00431 9.76573 4.24288 12.0043 7.00431 12.0043C9.76573 12.0043 12.0043 9.76573 12.0043 7.00431C12.0043 4.24288 9.76573 2.00431 7.00431 2.00431Z" fill="#1B365D"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="icon-search" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Left and right arrows</h3>
+<p class="nhsw-body">Use left and right arrow icons alongside text labels such as "Previous page" and "Next page" within the <a class="nhsw-link" href="{{ '/components/pagination.html' | relative_url }}">pagination</a> component.</p>
+
+{% capture example_body %}{% raw %}
+<svg aria-hidden="true" focusable="false" width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.292893 6.65666C-0.0976314 7.04719 -0.0976315 7.68035 0.292892 8.07087L6.65685 14.4348C7.04738 14.8254 7.68054 14.8254 8.07107 14.4348C8.46159 14.0443 8.46159 13.4111 8.07107 13.0206L2.41421 7.36377L8.07107 1.70691C8.46159 1.31639 8.46159 0.683225 8.07107 0.292701C7.68054 -0.0978235 7.04738 -0.0978235 6.65686 0.292701L0.292893 6.65666ZM17 7.36377L17 6.36377L1 6.36377L1 7.36377L1 8.36377L17 8.36377L17 7.36377Z" fill="#0E1B2F"/>
+</svg>
+<svg aria-hidden="true" focusable="false" width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.7071 8.07088C17.0976 7.68035 17.0976 7.04719 16.7071 6.65666L10.3431 0.292703C9.95262 -0.0978218 9.31946 -0.0978219 8.92893 0.292703C8.53841 0.683227 8.53841 1.31639 8.92893 1.70692L14.5858 7.36377L8.92893 13.0206C8.53841 13.4111 8.53841 14.0443 8.92893 14.4348C9.31946 14.8254 9.95262 14.8254 10.3431 14.4348L16.7071 8.07088ZM0 7.36377L-8.74224e-08 8.36377L16 8.36377L16 7.36377L16 6.36377L8.74224e-08 6.36377L0 7.36377Z" fill="#0E1B2F"/>
+</svg>
+{% endraw %}{% endcapture %}
+{% include example-preview.html id="icon-arrows" open_url="/examples/icon-arrows.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;svg aria-hidden="true" focusable="false" width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M0.292893 6.65666C-0.0976314 7.04719 -0.0976315 7.68035 0.292892 8.07087L6.65685 14.4348C7.04738 14.8254 7.68054 14.8254 8.07107 14.4348C8.46159 14.0443 8.46159 13.4111 8.07107 13.0206L2.41421 7.36377L8.07107 1.70691C8.46159 1.31639 8.46159 0.683225 8.07107 0.292701C7.68054 -0.0978235 7.04738 -0.0978235 6.65686 0.292701L0.292893 6.65666ZM17 7.36377L17 6.36377L1 6.36377L1 7.36377L1 8.36377L17 8.36377L17 7.36377Z" fill="#0E1B2F"/&gt;
+&lt;/svg&gt;
+&lt;svg aria-hidden="true" focusable="false" width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M16.7071 8.07088C17.0976 7.68035 17.0976 7.04719 16.7071 6.65666L10.3431 0.292703C9.95262 -0.0978218 9.31946 -0.0978219 8.92893 0.292703C8.53841 0.683227 8.53841 1.31639 8.92893 1.70692L14.5858 7.36377L8.92893 13.0206C8.53841 13.4111 8.53841 14.0443 8.92893 14.4348C9.31946 14.8254 9.95262 14.8254 10.3431 14.4348L16.7071 8.07088ZM0 7.36377L-8.74224e-08 8.36377L16 8.36377L16 7.36377L16 6.36377L8.74224e-08 6.36377L0 7.36377Z" fill="#0E1B2F"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{# Icons are inline SVG: use the same markup in your template. #}
+&lt;svg aria-hidden="true" focusable="false" width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M0.292893 6.65666C-0.0976314 7.04719 -0.0976315 7.68035 0.292892 8.07087L6.65685 14.4348C7.04738 14.8254 7.68054 14.8254 8.07107 14.4348C8.46159 14.0443 8.46159 13.4111 8.07107 13.0206L2.41421 7.36377L8.07107 1.70691C8.46159 1.31639 8.46159 0.683225 8.07107 0.292701C7.68054 -0.0978235 7.04738 -0.0978235 6.65686 0.292701L0.292893 6.65666ZM17 7.36377L17 6.36377L1 6.36377L1 7.36377L1 8.36377L17 8.36377L17 7.36377Z" fill="#0E1B2F"/&gt;
+&lt;/svg&gt;
+&lt;svg aria-hidden="true" focusable="false" width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M16.7071 8.07088C17.0976 7.68035 17.0976 7.04719 16.7071 6.65666L10.3431 0.292703C9.95262 -0.0978218 9.31946 -0.0978219 8.92893 0.292703C8.53841 0.683227 8.53841 1.31639 8.92893 1.70692L14.5858 7.36377L8.92893 13.0206C8.53841 13.4111 8.53841 14.0443 8.92893 14.4348C9.31946 14.8254 9.95262 14.8254 10.3431 14.4348L16.7071 8.07088ZM0 7.36377L-8.74224e-08 8.36377L16 8.36377L16 7.36377L16 6.36377L8.74224e-08 6.36377L0 7.36377Z" fill="#0E1B2F"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="icon-arrows" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Right arrow (inside a circle)</h3>
+<p class="nhsw-body">Use the right arrow inside a circle icon to signpost links that start a digital service. The right arrow inside a circle icon is used in the <a class="nhsw-link" href="{{ '/components/action-link.html' | relative_url }}">action link</a> component.</p>
+
+{% capture example_body %}{% raw %}
+<svg aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.9624 0C7.23963 -9.67762e-05 0.77228 5.83503 0 13.4998H17.5038L11.5639 7.57487C11.053 6.97974 11.0873 6.0926 11.6428 5.53856C12.1982 4.98451 13.0876 4.95025 13.6842 5.4599L22.1955 13.9348C22.4802 14.2164 22.6403 14.5998 22.6403 14.9997C22.6403 15.3997 22.4802 15.7831 22.1955 16.0647L13.6842 24.5396C13.0977 25.1211 12.1504 25.1211 11.5639 24.5396C10.9809 23.9545 10.9809 23.0097 11.5639 22.4246L17.5038 16.4997H0C0.810961 24.5483 7.87407 30.5058 15.9656 29.966C24.0572 29.4263 30.2621 22.5838 29.9915 14.4991C29.7208 6.41445 23.072 0.000101624 14.9624 0Z" fill="#005AA8"/>
+</svg>
+{% endraw %}{% endcapture %}
+{% include example-preview.html id="icon-arrow-circle" open_url="/examples/icon-arrow-circle.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;svg aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path fill-rule="evenodd" clip-rule="evenodd" d="M14.9624 0C7.23963 -9.67762e-05 0.77228 5.83503 0 13.4998H17.5038L11.5639 7.57487C11.053 6.97974 11.0873 6.0926 11.6428 5.53856C12.1982 4.98451 13.0876 4.95025 13.6842 5.4599L22.1955 13.9348C22.4802 14.2164 22.6403 14.5998 22.6403 14.9997C22.6403 15.3997 22.4802 15.7831 22.1955 16.0647L13.6842 24.5396C13.0977 25.1211 12.1504 25.1211 11.5639 24.5396C10.9809 23.9545 10.9809 23.0097 11.5639 22.4246L17.5038 16.4997H0C0.810961 24.5483 7.87407 30.5058 15.9656 29.966C24.0572 29.4263 30.2621 22.5838 29.9915 14.4991C29.7208 6.41445 23.072 0.000101624 14.9624 0Z" fill="#005AA8"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{# Icons are inline SVG: use the same markup in your template. #}
+&lt;svg aria-hidden="true" focusable="false" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path fill-rule="evenodd" clip-rule="evenodd" d="M14.9624 0C7.23963 -9.67762e-05 0.77228 5.83503 0 13.4998H17.5038L11.5639 7.57487C11.053 6.97974 11.0873 6.0926 11.6428 5.53856C12.1982 4.98451 13.0876 4.95025 13.6842 5.4599L22.1955 13.9348C22.4802 14.2164 22.6403 14.5998 22.6403 14.9997C22.6403 15.3997 22.4802 15.7831 22.1955 16.0647L13.6842 24.5396C13.0977 25.1211 12.1504 25.1211 11.5639 24.5396C10.9809 23.9545 10.9809 23.0097 11.5639 22.4246L17.5038 16.4997H0C0.810961 24.5483 7.87407 30.5058 15.9656 29.966C24.0572 29.4263 30.2621 22.5838 29.9915 14.4991C29.7208 6.41445 23.072 0.000101624 14.9624 0Z" fill="#005AA8"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="icon-arrow-circle" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Up arrow</h3>
+<p class="nhsw-body">Use the up arrow icon alongside a text label such as "Back to top" to help users quickly return to the top of a page.</p>
+
+{% capture example_body %}{% raw %}
+<svg aria-hidden="true" focusable="false" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/>
+</svg>
+{% endraw %}{% endcapture %}
+{% include example-preview.html id="icon-up-arrow" open_url="/examples/icon-up-arrow.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;svg aria-hidden="true" focusable="false" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{# Icons are inline SVG: use the same markup in your template. #}
+&lt;svg aria-hidden="true" focusable="false" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="icon-up-arrow" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Left chevron</h3>
+<p class="nhsw-body">Use the left chevron icon to indicate navigation back to the previous page, as seen in the <a class="nhsw-link" href="{{ '/components/back-link.html' | relative_url }}">back link</a> component.</p>
+
+{% capture example_body %}{% raw %}
+<svg aria-hidden="true" focusable="false" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 6C0 5.7 0.1 5.5 0.3 5.3L5.3 0.3C5.7 -0.1 6.3 -0.1 6.7 0.3C7.1 0.7 7.1 1.3 6.7 1.7L2.4 6L6.7 10.3C7.1 10.7 7.1 11.3 6.7 11.7C6.3 12.1 5.7 12.1 5.3 11.7L0.3 6.7C0.1 6.5 0 6.3 0 6H0Z" fill="#005AA8"/>
+</svg>
+{% endraw %}{% endcapture %}
+{% include example-preview.html id="icon-chevron-left" open_url="/examples/icon-chevron-left.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;svg aria-hidden="true" focusable="false" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M0 6C0 5.7 0.1 5.5 0.3 5.3L5.3 0.3C5.7 -0.1 6.3 -0.1 6.7 0.3C7.1 0.7 7.1 1.3 6.7 1.7L2.4 6L6.7 10.3C7.1 10.7 7.1 11.3 6.7 11.7C6.3 12.1 5.7 12.1 5.3 11.7L0.3 6.7C0.1 6.5 0 6.3 0 6H0Z" fill="#005AA8"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{# Icons are inline SVG: use the same markup in your template. #}
+&lt;svg aria-hidden="true" focusable="false" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M0 6C0 5.7 0.1 5.5 0.3 5.3L5.3 0.3C5.7 -0.1 6.3 -0.1 6.7 0.3C7.1 0.7 7.1 1.3 6.7 1.7L2.4 6L6.7 10.3C7.1 10.7 7.1 11.3 6.7 11.7C6.3 12.1 5.7 12.1 5.3 11.7L0.3 6.7C0.1 6.5 0 6.3 0 6H0Z" fill="#005AA8"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="icon-chevron-left" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Right chevron</h3>
+<p class="nhsw-body">Use the right chevron icon helps users understand the hierarchy of a service by separating breadcrumb links, as seen in the <a class="nhsw-link" href="{{ '/components/breadcrumb.html' | relative_url }}">breadcrumbs</a> component.</p>
+
+{% capture example_body %}{% raw %}
+<svg aria-hidden="true" focusable="false" width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.99999 4.49999C5.00108 4.69921 4.92659 4.89069 4.79297 5.03213L1.22365 8.77956C1.04257 8.96968 0.778641 9.04393 0.531284 8.97434C0.283927 8.90475 0.0907193 8.7019 0.0244402 8.4422C-0.0418389 8.1825 0.02888 7.90541 0.209958 7.71529L3.27957 4.49999L0.209958 1.28469C-0.0699642 0.9908 -0.0699642 0.514309 0.209958 0.220418C0.48988 -0.0734727 0.943723 -0.0734727 1.22365 0.220418L4.79297 3.96786C4.92659 4.1093 5.00108 4.30078 4.99999 4.49999Z" fill="#4C6272"/>
+</svg>
+{% endraw %}{% endcapture %}
+{% include example-preview.html id="icon-chevron-right" open_url="/examples/icon-chevron-right.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;svg aria-hidden="true" focusable="false" width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M4.99999 4.49999C5.00108 4.69921 4.92659 4.89069 4.79297 5.03213L1.22365 8.77956C1.04257 8.96968 0.778641 9.04393 0.531284 8.97434C0.283927 8.90475 0.0907193 8.7019 0.0244402 8.4422C-0.0418389 8.1825 0.02888 7.90541 0.209958 7.71529L3.27957 4.49999L0.209958 1.28469C-0.0699642 0.9908 -0.0699642 0.514309 0.209958 0.220418C0.48988 -0.0734727 0.943723 -0.0734727 1.22365 0.220418L4.79297 3.96786C4.92659 4.1093 5.00108 4.30078 4.99999 4.49999Z" fill="#4C6272"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{# Icons are inline SVG: use the same markup in your template. #}
+&lt;svg aria-hidden="true" focusable="false" width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M4.99999 4.49999C5.00108 4.69921 4.92659 4.89069 4.79297 5.03213L1.22365 8.77956C1.04257 8.96968 0.778641 9.04393 0.531284 8.97434C0.283927 8.90475 0.0907193 8.7019 0.0244402 8.4422C-0.0418389 8.1825 0.02888 7.90541 0.209958 7.71529L3.27957 4.49999L0.209958 1.28469C-0.0699642 0.9908 -0.0699642 0.514309 0.209958 0.220418C0.48988 -0.0734727 0.943723 -0.0734727 1.22365 0.220418L4.79297 3.96786C4.92659 4.1093 5.00108 4.30078 4.99999 4.49999Z" fill="#4C6272"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="icon-chevron-right" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">Warning</h3>
+<p class="nhsw-body">Use the warning icon alongside clear text that explains the warning and any action the user needs to take, as seen in the <a class="nhsw-link" href="{{ '/components/warning-callout.html' | relative_url }}">warning callout</a> component.</p>
+
+{% capture example_body %}{% raw %}
+<svg aria-hidden="true" focusable="false" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.25 0C8.22275 0 6.24101 0.601152 4.55541 1.72744C2.86981 2.85372 1.55604 4.45455 0.780239 6.32749C0.00444114 8.20044 -0.198543 10.2614 0.196956 12.2497C0.592454 14.238 1.56867 16.0644 3.00216 17.4978C4.43565 18.9313 6.26202 19.9076 8.25033 20.303C10.2386 20.6985 12.2996 20.4956 14.1725 19.7198C16.0455 18.944 17.6463 17.6302 18.7726 15.9446C19.8989 14.259 20.5 12.2773 20.5 10.25C20.4974 7.53234 19.4166 4.92675 17.4949 3.00508C15.5732 1.08341 12.9677 0.0026475 10.25 0ZM9.25 5C9.25 4.73478 9.35536 4.48043 9.5429 4.29289C9.73043 4.10536 9.98479 4 10.25 4C10.5152 4 10.7696 4.10536 10.9571 4.29289C11.1446 4.48043 11.25 4.73478 11.25 5V11.33C11.25 11.5952 11.1446 11.8496 10.9571 12.0371C10.7696 12.2246 10.5152 12.33 10.25 12.33C9.98479 12.33 9.73043 12.2246 9.5429 12.0371C9.35536 11.8496 9.25 11.5952 9.25 11.33V5ZM10.25 16.08C10.0028 16.08 9.7611 16.0067 9.55554 15.8693C9.34998 15.732 9.18976 15.5368 9.09516 15.3084C9.00055 15.0799 8.97579 14.8286 9.02402 14.5861C9.07225 14.3437 9.19131 14.1209 9.36612 13.9461C9.54094 13.7713 9.76367 13.6522 10.0061 13.604C10.2486 13.5558 10.5 13.5805 10.7284 13.6752C10.9568 13.7698 11.152 13.93 11.2893 14.1355C11.4267 14.3411 11.5 14.5828 11.5 14.83C11.4975 15.152 11.3698 15.4604 11.144 15.69C10.9182 15.9195 10.6119 16.0522 10.29 16.06L10.25 16.08Z" fill="#005AA8"/>
+</svg>
+{% endraw %}{% endcapture %}
+{% include example-preview.html id="icon-warning" open_url="/examples/icon-warning.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;svg aria-hidden="true" focusable="false" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M10.25 0C8.22275 0 6.24101 0.601152 4.55541 1.72744C2.86981 2.85372 1.55604 4.45455 0.780239 6.32749C0.00444114 8.20044 -0.198543 10.2614 0.196956 12.2497C0.592454 14.238 1.56867 16.0644 3.00216 17.4978C4.43565 18.9313 6.26202 19.9076 8.25033 20.303C10.2386 20.6985 12.2996 20.4956 14.1725 19.7198C16.0455 18.944 17.6463 17.6302 18.7726 15.9446C19.8989 14.259 20.5 12.2773 20.5 10.25C20.4974 7.53234 19.4166 4.92675 17.4949 3.00508C15.5732 1.08341 12.9677 0.0026475 10.25 0ZM9.25 5C9.25 4.73478 9.35536 4.48043 9.5429 4.29289C9.73043 4.10536 9.98479 4 10.25 4C10.5152 4 10.7696 4.10536 10.9571 4.29289C11.1446 4.48043 11.25 4.73478 11.25 5V11.33C11.25 11.5952 11.1446 11.8496 10.9571 12.0371C10.7696 12.2246 10.5152 12.33 10.25 12.33C9.98479 12.33 9.73043 12.2246 9.5429 12.0371C9.35536 11.8496 9.25 11.5952 9.25 11.33V5ZM10.25 16.08C10.0028 16.08 9.7611 16.0067 9.55554 15.8693C9.34998 15.732 9.18976 15.5368 9.09516 15.3084C9.00055 15.0799 8.97579 14.8286 9.02402 14.5861C9.07225 14.3437 9.19131 14.1209 9.36612 13.9461C9.54094 13.7713 9.76367 13.6522 10.0061 13.604C10.2486 13.5558 10.5 13.5805 10.7284 13.6752C10.9568 13.7698 11.152 13.93 11.2893 14.1355C11.4267 14.3411 11.5 14.5828 11.5 14.83C11.4975 15.152 11.3698 15.4604 11.144 15.69C10.9182 15.9195 10.6119 16.0522 10.29 16.06L10.25 16.08Z" fill="#005AA8"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{# Icons are inline SVG: use the same markup in your template. #}
+&lt;svg aria-hidden="true" focusable="false" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;path d="M10.25 0C8.22275 0 6.24101 0.601152 4.55541 1.72744C2.86981 2.85372 1.55604 4.45455 0.780239 6.32749C0.00444114 8.20044 -0.198543 10.2614 0.196956 12.2497C0.592454 14.238 1.56867 16.0644 3.00216 17.4978C4.43565 18.9313 6.26202 19.9076 8.25033 20.303C10.2386 20.6985 12.2996 20.4956 14.1725 19.7198C16.0455 18.944 17.6463 17.6302 18.7726 15.9446C19.8989 14.259 20.5 12.2773 20.5 10.25C20.4974 7.53234 19.4166 4.92675 17.4949 3.00508C15.5732 1.08341 12.9677 0.0026475 10.25 0ZM9.25 5C9.25 4.73478 9.35536 4.48043 9.5429 4.29289C9.73043 4.10536 9.98479 4 10.25 4C10.5152 4 10.7696 4.10536 10.9571 4.29289C11.1446 4.48043 11.25 4.73478 11.25 5V11.33C11.25 11.5952 11.1446 11.8496 10.9571 12.0371C10.7696 12.2246 10.5152 12.33 10.25 12.33C9.98479 12.33 9.73043 12.2246 9.5429 12.0371C9.35536 11.8496 9.25 11.5952 9.25 11.33V5ZM10.25 16.08C10.0028 16.08 9.7611 16.0067 9.55554 15.8693C9.34998 15.732 9.18976 15.5368 9.09516 15.3084C9.00055 15.0799 8.97579 14.8286 9.02402 14.5861C9.07225 14.3437 9.19131 14.1209 9.36612 13.9461C9.54094 13.7713 9.76367 13.6522 10.0061 13.604C10.2486 13.5558 10.5 13.5805 10.7284 13.6752C10.9568 13.7698 11.152 13.93 11.2893 14.1355C11.4267 14.3411 11.5 14.5828 11.5 14.83C11.4975 15.152 11.3698 15.4604 11.144 15.69C10.9182 15.9195 10.6119 16.0522 10.29 16.06L10.25 16.08Z" fill="#005AA8"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="icon-warning" html=html_sample njk=njk_sample toggleable=true %}
+
+<h3 class="nhsw-h3">User profile</h3>
+<p class="nhsw-body">Use the user profile icon alongside information about the currently signed-in user, as seen in the <a class="nhsw-link" href="{{ '/components/header.html' | relative_url }}">header</a> component.</p>
+
+{% capture example_body %}{% raw %}
+<svg aria-hidden="true" focusable="false" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="32" rx="4" fill="#005AA8"/>
+<path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/>
+</svg>
+{% endraw %}{% endcapture %}
+{% include example-preview.html id="icon-user-profile" open_url="/examples/icon-user-profile.html" body=example_body %}
+
+{% capture html_sample %}{% raw %}&lt;svg aria-hidden="true" focusable="false" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;
+&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% capture njk_sample %}{% raw %}{# Icons are inline SVG: use the same markup in your template. #}
+&lt;svg aria-hidden="true" focusable="false" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;
+&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;
+&lt;/svg&gt;{% endraw %}{% endcapture %}
+{% include code-viewer.html id="icon-user-profile" html=html_sample njk=njk_sample toggleable=true %}
+
+<h2 class="nhsw-h2">Accessibility</h2>
+<p class="nhsw-body">Icons must be accessible to all users. You should:</p>
+<ul class="nhsw-body">
+  <li>avoid relying on icons along to communicate meaning</li>
+  <li>ensure icons meet colour contrast requirements</li>
+  <li>use <code class="nhsw-code">aria-hidden="true"</code> for decorative icons so screen readers will ignore them</li>
+  <li>give icons a meaningful name so screen reader users receive the same information as sighted users</li>
+  <li>pair icons with visible text wherever possible</li>
+</ul>
+<p class="nhsw-body">We recommend using the <a class="nhsw-link" href="https://webaim.org/resources/contrastchecker/">WebAIM contrast checker</a> to test colour combinations.</p>
+<p class="nhsw-body">Read more about <a class="nhsw-link" href="https://css-tricks.com/accessible-svgs/">accessible SVGs on CSS Tricks website</a>.</p>
+
+<h2 class="nhsw-h2">Source</h2>
+<p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/styles/icons">icons in the NHS Digital Service Manual</a> and <a class="nhsw-link" href="https://design-system.service.gov.uk/styles/images/">icons in the GOV.UK Design System</a>.</p>
+<p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/nhsuk/nhsuk-service-manual-backlog/issues?q=icons">icons on NHS Digital Service Manual Github</a> and <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues?q=images">images on GOV.UK Github</a> to see the latest updates and resolved issues.</p>
+
+<p class="nhsw-body"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>

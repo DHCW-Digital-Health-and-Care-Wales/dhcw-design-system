@@ -36,10 +36,14 @@ $nhsw-colour-breadcrumb-link-hover: c.$nhsw-colour-link-hover;
     overflow-wrap: break-word;
 
     &:not(:last-child)::after {
-      content: "\203A";
+      content: "";
       display: inline-block;
+      width: 5px;
+      height: 9px;
       margin: 0 8px;
-      color: c.$nhsw-colour-text-secondary;
+      background-color: c.$nhsw-colour-text-secondary;
+      mask: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%205%209%27%3E%3Cpath%20d=%27M4.99999%204.49999C5.00108%204.69921%204.92659%204.89069%204.79297%205.03213L1.22365%208.77956C1.04257%208.96968%200.778641%209.04393%200.531284%208.97434C0.283927%208.90475%200.0907193%208.7019%200.0244402%208.4422C-0.0418389%208.1825%200.02888%207.90541%200.209958%207.71529L3.27957%204.49999L0.209958%201.28469C-0.0699642%200.9908%20-0.0699642%200.514309%200.209958%200.220418C0.48988%20-0.0734727%200.943723%20-0.0734727%201.22365%200.220418L4.79297%203.96786C4.92659%204.1093%205.00108%204.30078%204.99999%204.49999Z%27/%3E%3C/svg%3E") center / contain no-repeat;
+      vertical-align: -1px;
     }
   }
 
