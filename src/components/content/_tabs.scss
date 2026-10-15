@@ -48,8 +48,8 @@
     .nhsw-tabs__tab-text {
       background-color: c.$nhsw-colour-focus;
       color: c.$nhsw-colour-focus-text;
-      text-decoration: underline;
-      text-decoration-thickness: 3px;
+      text-decoration: none;
+      box-shadow: inset 0 -3px 0 c.$nhsw-colour-focus-text;
     }
   }
 

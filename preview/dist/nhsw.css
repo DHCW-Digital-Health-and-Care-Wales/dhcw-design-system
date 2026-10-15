@@ -1322,8 +1322,8 @@ body {
 .nhsw-tabs__tab:focus .nhsw-tabs__tab-text {
   background-color: #ffeb3b;
   color: #0b0c0c;
-  text-decoration: underline;
-  text-decoration-thickness: 3px;
+  text-decoration: none;
+  box-shadow: inset 0 -3px 0 #0b0c0c;
 }
 .nhsw-tabs__tab--selected {
   padding: 0.5rem 1rem 0.875rem;
