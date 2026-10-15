@@ -11,10 +11,24 @@ on:
           - patch
           - minor
           - major
+          - prepatch
+          - preminor
+          - premajor
+          - prerelease
         default: patch
+      publish_npm:
+        description: Publish to npm (pre-release versions go to the rc tag)
+        required: true
+        type: choice
+        options:
+          - none
+          - dry-run
+          - publish
+        default: none
 
 permissions:
   contents: write
+  id-token: write
 
 concurrency:
   group: release
@@ -33,6 +47,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: npm ci
@@ -55,11 +70,14 @@ jobs:
       - name: Bump version
         id: version
         run: |
-          npm version ${{ inputs.bump }} --no-git-tag-version
+          npm version ${{ inputs.bump }} --preid=rc --no-git-tag-version
           echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
 
       - name: Package Nunjucks components
         run: npm run package:njk
+
+      - name: Prepare npm package files
+        run: node scripts/prepare-npm-package.js
 
       - name: Commit version bump
         run: |
@@ -76,6 +94,7 @@ jobs:
         with:
           tag_name: v${{ steps.version.outputs.version }}
           name: v${{ steps.version.outputs.version }}
+          prerelease: ${{ contains(steps.version.outputs.version, '-') }}
           generate_release_notes: true
           files: |
             preview/dist/nhsw.css
@@ -86,3 +105,15 @@ jobs:
             preview/dist/nhsw-behaviours.js
             preview/dist/nhsw-behaviours.min.js
             dist/nhsw-nunjucks-components.zip
+
+      - name: Publish to npm
+        if: ${{ inputs.publish_npm != 'none' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if [[ "$VERSION" == *-* ]]; then TAG=rc; else TAG=latest; fi
+          ARGS="--tag $TAG --access public"
+          if [ "${{ github.event.repository.private }}" = "false" ]; then ARGS="$ARGS --provenance"; fi
+          if [ "${{ inputs.publish_npm }}" = "dry-run" ]; then ARGS="$ARGS --dry-run"; fi
+          npm publish $ARGS

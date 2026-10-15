@@ -154,6 +154,10 @@ Issues and pull requests are welcome. Before adding or changing a component:
 - Add or extend automated tests for any styling or behavioural change.
 - Run `npm test` and `npm run test:e2e` before opening a PR.
 
-## License
+## Licence
 
-[MIT](LICENSE) © Digital Health and Care Wales
+- **Code** (Sass, JavaScript, Nunjucks macros and build scripts) is available under the [MIT licence](LICENSE).
+- **Documentation and written content**, such as the text of the guidance pages and examples, is available under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/), unless otherwise stated. See [LICENSE-CONTENT.md](LICENSE-CONTENT.md).
+- **Logos, crests and other branding** (including the Digital Health and Care Wales and NHS Wales logos in `preview/assets`) are not covered by either licence. You must not use them without permission from the owner.
+
+© Digital Health and Care Wales
