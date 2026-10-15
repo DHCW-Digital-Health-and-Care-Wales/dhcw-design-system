@@ -250,7 +250,8 @@ Confirmation panel, typically for a "your request has been submitted" style page
 
 Supports:
 - nhsw-panel--navy
-- nhsw-panel__title--l (larger title; pairs with `titleSize: "l"`, which also omits the tick icon unless `icon` is explicitly set)
+- nhsw-panel__title--l (Heading L title; pairs with `titleSize: "l"`, which also omits the tick icon unless `icon` is explicitly set)
+- nhsw-panel__title--m (Heading M title; pairs with `titleSize: "m"`). Without a modifier the title is Heading XL, as in the NHS.UK panel
 - nhsw-panel__icon
 
 ## nhsw-session-row

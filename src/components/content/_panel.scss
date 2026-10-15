@@ -1,4 +1,5 @@
 @use "../../tokens/colours" as c;
+@use "../../foundations/typography" as type;
 
 .nhsw-panel {
   margin-bottom: 24px;
@@ -23,15 +24,28 @@
   stroke-linejoin: round;
 }
 
+// The title follows the heading type scale, as in the NHS.UK panel: Heading XL by
+// default, with modifiers for Heading L and Heading M. It shrinks on mobile.
 .nhsw-panel__title {
+  @include type.nhsw-heading-xl;
+
   margin: 0 0 16px;
   color: c.$nhsw-colour-text-exceptional;
-  font-size: 1.5rem;
   word-break: break-word;
   overflow-wrap: break-word;
 
   &--l {
-    font-size: 2rem;
+    @include type.nhsw-heading-l;
+
+    margin: 0 0 16px;
+    color: c.$nhsw-colour-text-exceptional;
+  }
+
+  &--m {
+    @include type.nhsw-heading-m;
+
+    margin: 0 0 16px;
+    color: c.$nhsw-colour-text-exceptional;
   }
 }
 

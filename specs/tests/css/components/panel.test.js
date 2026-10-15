@@ -24,7 +24,8 @@ describe('panel matches Figma Panel component (Small, Green variant)', () => {
   it('text is white: base panel, title and body', () => {
     const base = block(css, '\\.nhsw-panel\\b');
     expect(base).toMatch(/color:\s*#ffffff/);
-    const title = block(css, '\\.nhsw-panel__title');
+    // The heading mixin writes the title's selector twice: the white colour is in the later block.
+    const title = [...css.matchAll(/^\.nhsw-panel__title\s*\{([^}]*)\}/gm)].map((m) => m[1]).join('\n');
     expect(title).toMatch(/color:\s*#ffffff/);
     const body = block(css, '\\.nhsw-panel__body');
     expect(body).toMatch(/color:\s*#ffffff/);

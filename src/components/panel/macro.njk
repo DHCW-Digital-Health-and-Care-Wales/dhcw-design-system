@@ -3,8 +3,9 @@
 
   params:
     titleText   string   (required) - panel heading text
-    titleSize   string   - "m" (default) or "l". "l" adds nhsw-panel__title--l
-                            and, unless icon is explicitly set, omits the icon svg.
+    titleSize   string   - "xl" (default, Heading XL), "l" (Heading L) or "m" (Heading M). "l" and "m"
+                            add nhsw-panel__title--l or nhsw-panel__title--m. "l" also omits the
+                            icon svg, unless icon is explicitly set.
     html        string   (required unless text is set) - body HTML, used as-is
     text        string   - body text, alternative to html
     icon        bool     - whether to render the tick icon svg. Defaults to
@@ -20,7 +21,7 @@
     <path d="M4 12l5 5L20 6" />
   </svg>
 {%- endif %}
-  <h1 class="nhsw-panel__title{% if params.titleSize == 'l' %} nhsw-panel__title--l{% endif %}">{{ params.titleText }}</h1>
+  <h1 class="nhsw-panel__title{% if params.titleSize == 'l' or params.titleSize == 'm' %} nhsw-panel__title--{{ params.titleSize }}{% endif %}">{{ params.titleText }}</h1>
   <div class="nhsw-panel__body">
     {{ params.html | safe if params.html else params.text }}
   </div>

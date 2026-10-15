@@ -21,11 +21,20 @@ describe('summary card header, body and subheader structure', () => {
     expect(header).toMatch(/background-color:\s*#ffffff/);
   });
 
-  it('subheader has a grey background between top/bottom borders', () => {
+  it('the body has the same 24px padding on all four sides, top and bottom as well as left and right', () => {
+    expect(block(css, '\\.nhsw-summary-card__body')).toMatch(/padding:\s*24px(?:;|\s*$)/m);
+  });
+
+  it('subheader has a white background between top/bottom borders, like the header', () => {
     const subheader = block(css, '\\.nhsw-summary-card__subheader');
-    expect(subheader).toMatch(/background-color:\s*#f0f4f5/);
+    expect(subheader).toMatch(/background-color:\s*#ffffff/);
+    expect(subheader).not.toMatch(/#f0f4f5/);
     expect(subheader).toMatch(/border-top:\s*1px solid #d8dde0/);
     expect(subheader).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+  });
+
+  it('the body has the same 24px padding on all four sides, top and bottom as well as left and right', () => {
+    expect(block(css, '\.nhsw-summary-card__body')).toMatch(/padding:\s*24px(?:;|\s*$)/m);
   });
 
   it('action links are bold and recolour to maroon on hover', () => {

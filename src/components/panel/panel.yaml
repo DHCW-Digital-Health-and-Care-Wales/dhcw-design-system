@@ -12,8 +12,10 @@ params:
     type: string
     required: false
     description: >
-      "m" (default) or "l". "l" adds nhsw-panel__title--l and, unless icon
-      is explicitly set, omits the icon.
+      "xl" (default, Heading XL: 48px, 32px on mobile), "l" (Heading L: 36px,
+      27px on mobile) or "m" (Heading M: 26px, 22px on mobile). "l" and "m"
+      add nhsw-panel__title--l or nhsw-panel__title--m. "l" also omits the
+      icon, unless icon is explicitly set.
   - name: html
     type: string
     required: false

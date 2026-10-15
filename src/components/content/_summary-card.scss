@@ -41,7 +41,7 @@
 }
 
 .nhsw-summary-card__body {
-  padding: 0 24px;
+  padding: 24px;
 
   .nhsw-summary-list {
     margin-bottom: 0;
@@ -55,7 +55,7 @@
 .nhsw-summary-card__subheader {
   margin: 0;
   padding: 12px 24px;
-  background-color: c.$nhsw-colour-background-grey;
+  background-color: c.$nhsw-colour-background-white;
   border-top: 1px solid c.$nhsw-colour-border-grey;
   border-bottom: 1px solid c.$nhsw-colour-border-grey;
 

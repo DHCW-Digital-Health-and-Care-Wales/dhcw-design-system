@@ -2,29 +2,33 @@
 @use "../../tokens/typography" as t;
 @use "../../utilities/focus-ring" as u;
 @use "../../utilities/hidden-control" as h;
+@use "../../utilities/breakpoints" as b;
 
 .nhsw-radios {
   margin-bottom: 8px;
 
+  // As in the NHS.UK radios: each option is a 44px touch target with the 40px ring
+  // inside it, the label has padding around the option text, and options are spaced
+  // by a 6px margin above each one. There is no hover ring on the default size.
   &__item {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    margin-bottom: 6px;
-    padding-left: 52px;
+    min-height: 44px;
+    margin-top: 6px;
+    padding-left: 40px;
     position: relative;
 
-    &:hover .nhsw-radios__label::before {
-      box-shadow: 0 0 0 4px c.$nhsw-colour-choice-hover-ring;
-    }
-
-    &:hover .nhsw-radios__input:focus + .nhsw-radios__label::before {
-      box-shadow: 0 0 0 4px c.$nhsw-colour-focus, 0 0 0 8px c.$nhsw-colour-choice-hover-ring;
+    &:first-child {
+      margin-top: 0;
     }
   }
 
   &__input {
     @include h.nhsw-hidden-native-control;
+
+    width: 44px;
+    height: 44px;
 
     &:focus + .nhsw-radios__label::before {
       @include u.nhsw-choice-input-focus-ring;
@@ -50,9 +54,12 @@
 
   &__label {
     display: inline-block;
+    align-self: center;
+    box-sizing: border-box;
     min-width: 0;
+    max-width: calc(100% - 40px);
     overflow-wrap: break-word;
-    padding: 8px 16px 0 0;
+    padding: 6px 12px;
     cursor: pointer;
     -ms-user-select: none;
     user-select: none;
@@ -64,7 +71,7 @@
       content: "";
       position: absolute;
       left: 0;
-      top: 0;
+      top: 2px;
       box-sizing: border-box;
       width: 40px;
       height: 40px;
@@ -77,7 +84,7 @@
       content: "";
       position: absolute;
       left: 10px;
-      top: 10px;
+      top: 12px;
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -91,8 +98,8 @@
     width: 100%;
     min-width: 0;
     overflow-wrap: break-word;
-    padding: 0 16px 4px 0;
-    margin: 0;
+    padding: 0 12px 4px;
+    margin: -4px 0 0;
     color: c.$nhsw-colour-text-secondary;
     font-size: 1.1875rem;
     font-weight: 400;
@@ -101,21 +108,36 @@
 
   &__divider {
     width: 40px;
-    margin-bottom: 6px;
+    margin: 6px 0;
     color: c.$nhsw-colour-text-primary;
     font-size: 1.1875rem;
     font-weight: 400;
     text-align: center;
   }
 
+  // The line to the left of the conditional content is centred under the ring and
+  // has 6px above it and 2px below it. The option that follows it has more room
+  // (14px, 22px from the tablet breakpoint), as in the NHS.UK radios. The content
+  // lines up with the option text: 18px + 4px border + 30px padding = 52px.
   &__conditional {
-    margin-bottom: 16px;
-    margin-left: 18px;
+    margin: 6px 0 2px 18px;
     padding-left: 30px;
     border-left: 4px solid c.$nhsw-colour-border-secondary;
 
     &--hidden {
       display: none;
+    }
+
+    + .nhsw-radios__item {
+      margin-top: 14px;
+
+      @include b.nhsw-from-tablet {
+        margin-top: 22px;
+      }
+    }
+
+    &--hidden + .nhsw-radios__item {
+      margin-top: 6px;
     }
 
     .nhsw-label {
@@ -126,40 +148,38 @@
   &--inline {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 16px;
+    gap: 6px 16px;
 
     .nhsw-radios__item {
+      margin-top: 0;
       margin-right: 16px;
     }
   }
 
   &--small {
     .nhsw-radios__item {
-      min-height: 24px;
-      padding-left: 32px;
-      margin-bottom: 8px;
+      min-height: 44px;
+      padding-left: 24px;
+      margin-top: 0;
     }
 
     .nhsw-radios__input {
-      width: 24px;
-      height: 24px;
-
       &:focus + .nhsw-radios__label::before {
         border-width: 3px;
       }
     }
 
     .nhsw-radios__label {
-      padding-top: 2px;
       font-size: 1rem;
 
       &::before {
+        top: 10px;
         width: 24px;
         height: 24px;
       }
 
       &::after {
-        top: 6px;
+        top: 16px;
         left: 6px;
         width: 12px;
         height: 12px;
@@ -168,6 +188,35 @@
 
     .nhsw-radios__hint {
       font-size: 1rem;
+    }
+
+    // Only the small radios have a hover state, because their touch target is much
+    // larger than the visible circle: the grey ring shows which one will be chosen.
+    .nhsw-radios__item:hover .nhsw-radios__input:not(:disabled) + .nhsw-radios__label::before {
+      box-shadow: 0 0 0 4px c.$nhsw-colour-choice-hover-ring;
+    }
+
+    .nhsw-radios__item:hover .nhsw-radios__input:not(:disabled):focus + .nhsw-radios__label::before {
+      box-shadow: 0 0 0 4px c.$nhsw-colour-focus, 0 0 0 8px c.$nhsw-colour-choice-hover-ring;
+    }
+
+    // The line is centred under the small ring, and the content lines up with the
+    // option text: 10px + 4px border + 22px padding = 36px.
+    .nhsw-radios__conditional {
+      margin-left: 10px;
+      padding-left: 22px;
+    }
+
+    .nhsw-radios__conditional + .nhsw-radios__item {
+      margin-top: 14px;
+
+      @include b.nhsw-from-tablet {
+        margin-top: 22px;
+      }
+    }
+
+    .nhsw-radios__conditional--hidden + .nhsw-radios__item {
+      margin-top: 0;
     }
   }
 }

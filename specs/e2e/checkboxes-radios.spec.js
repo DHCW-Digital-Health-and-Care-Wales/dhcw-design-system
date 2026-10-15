@@ -8,11 +8,16 @@ test.describe('Small variant tap targets', () => {
     expect(box.height).toBe(24);
   });
 
-  test('radios --small input renders at the documented 24x24px', async ({ page }) => {
+  test('radios --small input is a 44x44px touch target, as in the NHS.UK radios, with the 24px circle inside it', async ({ page }) => {
     await page.goto('/examples/radios-small.html');
     const box = await page.locator('.nhsw-radios__input').first().boundingBox();
-    expect(box.width).toBe(24);
-    expect(box.height).toBe(24);
+    expect(box.width).toBe(44);
+    expect(box.height).toBe(44);
+    const circle = await page.locator('.nhsw-radios__label').first().evaluate((el) => {
+      const s = getComputedStyle(el, '::before');
+      return [s.width, s.height];
+    });
+    expect(circle).toEqual(['24px', '24px']);
   });
 });
 
@@ -57,8 +62,15 @@ test.describe('Item spacing stays 6px regardless of the shared label spacing rul
 });
 
 test.describe('Radio circle hover/focus rings', () => {
-  test('hover shows a 4px grey ring around the circle, no row background change', async ({ page }) => {
+  test('hover on the default radios shows no ring', async ({ page }) => {
     await page.goto('/examples/radios-default.html');
+    const item = page.locator('.nhsw-radios__item').first();
+    await item.hover();
+    expect(await item.locator('.nhsw-radios__label').evaluate((el) => getComputedStyle(el, '::before').boxShadow)).toBe('none');
+  });
+
+  test('hover on a small radio shows a 4px grey ring around the circle, no row background change', async ({ page }) => {
+    await page.goto('/examples/radios-small.html');
     const item = page.locator('.nhsw-radios__item').first();
 
     const bgBefore = await item.evaluate((el) => getComputedStyle(el).backgroundColor);
@@ -81,8 +93,8 @@ test.describe('Radio circle hover/focus rings', () => {
     expect(boxShadow).toBe('rgb(255, 235, 59) 0px 0px 0px 4px');
   });
 
-  test('hover + focus together layer a 4px grey ring around the outside of the 4px yellow ring', async ({ page }) => {
-    await page.goto('/examples/radios-default.html');
+  test('hover + focus together on a small radio layer a 4px grey ring around the outside of the 4px yellow ring', async ({ page }) => {
+    await page.goto('/examples/radios-small.html');
     const item = page.locator('.nhsw-radios__item').first();
     await item.locator('.nhsw-radios__input').focus();
     await item.hover();
@@ -118,7 +130,7 @@ test.describe('Conditional reveal alignment', () => {
     expect(conditionalLabelWeight).toBe(labelWeight);
   });
 
-  test('radios conditional content left-aligns with the item label, not the circle', async ({ page }) => {
+  test('radios conditional content left-aligns with the option text (the label plus its 12px padding), not the circle', async ({ page }) => {
     await page.goto('/examples/radios-conditional.html');
     await page.locator('#hpv-ready-no').check({ force: true });
 
@@ -126,7 +138,7 @@ test.describe('Conditional reveal alignment', () => {
     const conditionalLabel = page.locator('.nhsw-radios__conditional').locator('.nhsw-label');
 
     const [labelBox, conditionalLabelBox] = await Promise.all([label.boundingBox(), conditionalLabel.boundingBox()]);
-    expect(conditionalLabelBox.x).toBe(labelBox.x);
+    expect(conditionalLabelBox.x).toBe(labelBox.x + 12);
   });
 
   test('radios conditional field label is the same font weight as the radio label', async ({ page }) => {
