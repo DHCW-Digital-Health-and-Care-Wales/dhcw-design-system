@@ -475,7 +475,7 @@
   font-family: inherit;
 }
 .nhsw-date-picker__toggle:hover {
-  background-color: #1B2A49;
+  background-color: #32598a;
   border-color: #212b32;
 }
 .nhsw-date-picker__toggle:focus {
@@ -607,7 +607,7 @@
 .nhsw-date-picker__day--pending:hover:not([disabled]) {
   background-color: #ffeb3b;
   border-color: transparent;
-  border-bottom-color: #1B2A49;
+  border-bottom-color: #32598a;
 }
 .nhsw-date-picker__day--other-month {
   color: #4c6272;
@@ -1383,6 +1383,15 @@ body {
     display: block;
     margin-bottom: 1rem;
     border-bottom: 0;
+  }
+  .nhsw-tabs__list::before {
+    content: "Contents";
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #212b32;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 1.1875rem;
+    font-weight: 700;
   }
   .nhsw-tabs__tab,
   .nhsw-tabs__tab--selected {
@@ -2712,8 +2721,8 @@ body {
   box-shadow: 0 2px 0 #0e1b2f;
 }
 .nhsw-button--primary:not(:disabled):not(:focus):hover {
-  background-color: #1B2A49;
-  box-shadow: 0 2px 0 #1B2A49;
+  background-color: #32598a;
+  box-shadow: 0 2px 0 #32598a;
 }
 .nhsw-button--primary:not(:disabled):active {
   background-color: #21355C;
@@ -2727,7 +2736,7 @@ body {
 }
 .nhsw-button--secondary:not(:disabled):not(:focus):hover {
   background-color: #F2F2F2;
-  box-shadow: 0 2px 0 #1B2A49;
+  box-shadow: 0 2px 0 #32598a;
 }
 .nhsw-button--secondary:not(:disabled):active {
   background-color: #ffffff;
@@ -2981,7 +2990,7 @@ body {
   fill: #1b365d;
 }
 .nhsw-action-link--navy:hover .nhsw-action-link__icon {
-  fill: #1B2A49;
+  fill: #32598a;
 }
 .nhsw-action-link--red .nhsw-action-link__icon {
   fill: #d5281b;

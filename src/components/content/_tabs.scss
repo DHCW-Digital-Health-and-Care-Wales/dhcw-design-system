@@ -121,6 +121,16 @@
     border-bottom: 0;
   }
 
+  .nhsw-tabs__list::before {
+    content: "Contents";
+    display: block;
+    margin-bottom: 0.5rem;
+    color: c.$nhsw-colour-text-primary;
+    font-family: t.$nhsw-font-family-base;
+    font-size: t.$nhsw-font-size-body;
+    font-weight: t.$nhsw-font-weight-bold;
+  }
+
   .nhsw-tabs__tab,
   .nhsw-tabs__tab--selected {
     display: inline-block;

@@ -17,7 +17,7 @@ describe('date picker toggle, dialog and day states', () => {
 
   it('toggle hover darkens the background', () => {
     const hover = block(css, '\\.nhsw-date-picker__toggle:hover');
-    expect(hover).toMatch(/background-color:\s*#1B2A49/i);
+    expect(hover).toMatch(/background-color:\s*#32598a/i);
   });
 
   it('dialog has a dark 2px border and drop shadow', () => {

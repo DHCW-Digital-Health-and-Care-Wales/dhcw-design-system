@@ -106,8 +106,8 @@ describe('button colour coverage (Figma tokens)', () => {
     expect(base).toMatch(/box-shadow:\s*0 2px 0 #0e1b2f/);
 
     const hover = block(css, '\\.nhsw-button--primary:not\\(:disabled\\):not\\(:focus\\):hover');
-    expect(hover).toMatch(/background-color:\s*#1B2A49/);
-    expect(hover).toMatch(/box-shadow:\s*0 2px 0 #1B2A49/);
+    expect(hover).toMatch(/background-color:\s*#32598a/);
+    expect(hover).toMatch(/box-shadow:\s*0 2px 0 #32598a/);
 
     const active = block(css, '\\.nhsw-button--primary:not\\(:disabled\\):active');
     expect(active).toMatch(/background-color:\s*#21355C/);
@@ -119,7 +119,7 @@ describe('button colour coverage (Figma tokens)', () => {
 
     const hover = block(css, '\\.nhsw-button--secondary:not\\(:disabled\\):not\\(:focus\\):hover');
     expect(hover).toMatch(/background-color:\s*#F2F2F2/);
-    expect(hover).toMatch(/box-shadow:\s*0 2px 0 #1B2A49/);
+    expect(hover).toMatch(/box-shadow:\s*0 2px 0 #32598a/);
 
     const active = block(css, '\\.nhsw-button--secondary:not\\(:disabled\\):active');
     expect(active).toMatch(/background-color:\s*#ffffff/);

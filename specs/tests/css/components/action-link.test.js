@@ -96,7 +96,7 @@ describe('action link colour variants (navy/red icon overrides)', () => {
     const icon = block(css, '\\.nhsw-action-link--navy \\.nhsw-action-link__icon');
     expect(icon).toMatch(/fill:\s*#1b365d/);
     const hover = block(css, '\\.nhsw-action-link--navy:hover \\.nhsw-action-link__icon');
-    expect(hover).toMatch(/fill:\s*#1B2A49/);
+    expect(hover).toMatch(/fill:\s*#32598a/);
   });
 
   it('red variant icon is red, and darkens further on hover', () => {
