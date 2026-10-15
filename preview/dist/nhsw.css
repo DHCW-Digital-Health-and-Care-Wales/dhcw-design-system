@@ -86,7 +86,7 @@
 @media (min-width: 40.0625em) {
   .nhsw-label--l {
     font-size: 1.375rem;
-    line-height: 1.875rem;
+    line-height: 2.0625rem;
   }
 }
 .nhsw-label--xl {
@@ -1145,7 +1145,7 @@ body {
 @media (min-width: 40.0625em) {
   .nhsw-h4 {
     font-size: 1.375rem;
-    line-height: 1.875rem;
+    line-height: 2.0625rem;
     margin-bottom: 24px;
   }
 }
@@ -2631,10 +2631,63 @@ body {
 }
 .nhsw-colour-swatch--gold-border-colour {
   background-color: #aa8630;
-  color: #212b32;
+  color: #0b0c0c;
 }
 .nhsw-colour-swatch--page-background-grey {
   border: 1px solid #d8dde0;
+}
+
+.nhsw-type-specimen {
+  display: block;
+  margin: 0 0 16px;
+  color: #212b32;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 700;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-type-specimen {
+    margin-bottom: 24px;
+  }
+}
+.nhsw-type-specimen--desktop-h1 {
+  font-size: 3rem;
+  line-height: 3.375rem;
+}
+.nhsw-type-specimen--desktop-h2 {
+  font-size: 2.25rem;
+  line-height: 2.625rem;
+}
+.nhsw-type-specimen--desktop-h3 {
+  font-size: 1.625rem;
+  line-height: 2rem;
+}
+.nhsw-type-specimen--desktop-h4 {
+  font-size: 1.375rem;
+  line-height: 2.0625rem;
+}
+.nhsw-type-specimen--desktop-h5 {
+  font-size: 1.1875rem;
+  line-height: 1.75rem;
+}
+.nhsw-type-specimen--mobile-h1 {
+  font-size: 2rem;
+  line-height: 2.375rem;
+}
+.nhsw-type-specimen--mobile-h2 {
+  font-size: 1.6875rem;
+  line-height: 2.0625rem;
+}
+.nhsw-type-specimen--mobile-h3 {
+  font-size: 1.375rem;
+  line-height: 1.8125rem;
+}
+.nhsw-type-specimen--mobile-h4 {
+  font-size: 1.1875rem;
+  line-height: 1.6875rem;
+}
+.nhsw-type-specimen--mobile-h5 {
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .preview-section {
@@ -3142,7 +3195,7 @@ body {
 @media (min-width: 40.0625em) {
   .nhsw-action-link__text {
     font-size: 1.375rem;
-    line-height: 1.875rem;
+    line-height: 2.0625rem;
   }
 }
 .nhsw-action-link--navy .nhsw-action-link__icon {
@@ -3345,7 +3398,7 @@ body {
 @media (min-width: 40.0625em) {
   .nhsw-warning-callout__heading {
     font-size: 1.375rem;
-    line-height: 1.875rem;
+    line-height: 2.0625rem;
     margin-bottom: 24px;
   }
 }

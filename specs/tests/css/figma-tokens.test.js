@@ -119,7 +119,9 @@ describe('type scale matches Figma Text styles — Tablet and Desktop', () => {
     h1: { size: 48, line: 54 },
     h2: { size: 36, line: 42 },
     h3: { size: 26, line: 32 },
-    h4: { size: 22, line: 30 },
+    // Deliberately differs from Figma (30): the Typography page documents a 33px
+    // line height for desktop H4, and the library follows the page.
+    h4: { size: 22, line: 33 },
     h5: { size: 19, line: 28 },
     body: { size: 19, line: 28 },
     'body-small': { size: 16, line: 24 },

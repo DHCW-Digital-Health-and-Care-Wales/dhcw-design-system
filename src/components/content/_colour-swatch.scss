@@ -1,6 +1,8 @@
 @use "sass:list";
 @use "../../tokens/colours" as c;
 
+$nhsw-colour-swatch-text-on-gold: #0b0c0c;
+
 $nhsw-colour-swatches: (
   "primary-text-colour": (c.$nhsw-colour-text-primary, c.$nhsw-colour-text-exceptional),
   "exceptional-text-colour": (c.$nhsw-colour-text-exceptional, c.$nhsw-colour-text-primary),
@@ -25,7 +27,7 @@ $nhsw-colour-swatches: (
   "grey-border-colour": (c.$nhsw-colour-border-grey, c.$nhsw-colour-text-primary),
   "exceptional-button-shadow": (c.$nhsw-colour-shadow-exceptional-button, c.$nhsw-colour-text-exceptional),
   "primary-button-shadow": (c.$nhsw-colour-shadow-primary-button, c.$nhsw-colour-text-exceptional),
-  "gold-border-colour": (c.$nhsw-colour-border-gold, c.$nhsw-colour-focus-text)
+  "gold-border-colour": (c.$nhsw-colour-border-gold, $nhsw-colour-swatch-text-on-gold)
 );
 
 .nhsw-colour-swatches {

@@ -1,0 +1,37 @@
+@use "sass:list";
+@use "../../tokens/colours" as c;
+@use "../../tokens/spacing" as s;
+@use "../../tokens/typography" as t;
+@use "../../utilities/breakpoints" as b;
+
+$nhsw-type-specimens: (
+  "desktop-h1": (t.$nhsw-font-size-h1, t.$nhsw-line-height-h1),
+  "desktop-h2": (t.$nhsw-font-size-h2, t.$nhsw-line-height-h2),
+  "desktop-h3": (t.$nhsw-font-size-h3, t.$nhsw-line-height-h3),
+  "desktop-h4": (t.$nhsw-font-size-h4, t.$nhsw-line-height-h4),
+  "desktop-h5": (t.$nhsw-font-size-h5, t.$nhsw-line-height-h5),
+  "mobile-h1": (t.$nhsw-font-size-h1-mobile, t.$nhsw-line-height-h1-mobile),
+  "mobile-h2": (t.$nhsw-font-size-h2-mobile, t.$nhsw-line-height-h2-mobile),
+  "mobile-h3": (t.$nhsw-font-size-h3-mobile, t.$nhsw-line-height-h3-mobile),
+  "mobile-h4": (t.$nhsw-font-size-h4-mobile, t.$nhsw-line-height-h4-mobile),
+  "mobile-h5": (t.$nhsw-font-size-h5-mobile, t.$nhsw-line-height-h5-mobile)
+);
+
+.nhsw-type-specimen {
+  display: block;
+  margin: 0 0 s.$nhsw-heading-margin-mobile;
+  color: c.$nhsw-colour-text-primary;
+  font-family: t.$nhsw-font-family-base;
+  font-weight: t.$nhsw-font-weight-bold;
+
+  @include b.nhsw-from-tablet {
+    margin-bottom: s.$nhsw-heading-margin-tablet;
+  }
+
+  @each $name, $pair in $nhsw-type-specimens {
+    &--#{$name} {
+      font-size: list.nth($pair, 1);
+      line-height: list.nth($pair, 2);
+    }
+  }
+}
