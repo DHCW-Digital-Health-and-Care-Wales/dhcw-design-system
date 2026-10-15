@@ -35,7 +35,7 @@
 {%- endif -%}
 <table class="{{ 'nhsw-table-responsive' if responsive else 'nhsw-table' }}{% if params.classes %} {{ params.classes }}{% endif %}"{% if responsive %} role="table"{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
 {%- if caption %}
-  <caption class="nhsw-table__caption nhsw-table__caption--{{ captionSize }}">{{ captionHtml | safe if captionHtml else captionText }}</caption>
+  <caption class="nhsw-table__caption nhsw-table__caption--{{ captionSize }} nhsw-caption-{{ captionSize }}">{{ captionHtml | safe if captionHtml else captionText }}</caption>
 {%- endif %}
   <thead class="nhsw-table__head"{% if responsive %} role="rowgroup"{% endif %}>
     <tr class="nhsw-table__row"{% if responsive %} role="row"{% endif %}>

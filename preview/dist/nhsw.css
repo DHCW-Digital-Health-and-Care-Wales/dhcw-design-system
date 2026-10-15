@@ -2058,7 +2058,8 @@ body {
   display: inline-flex;
   align-items: center;
   min-height: 45px;
-  padding: 8px 12px;
+  padding: 10px 12px;
+  box-sizing: border-box;
   color: #005aa8;
   font-weight: 700;
   text-decoration: underline;
@@ -2091,6 +2092,10 @@ body {
   .nhsw-pagination--numbered .nhsw-pagination__next {
     order: initial;
   }
+}
+.nhsw-pagination--numbered .nhsw-pagination__title {
+  font-size: inherit;
+  line-height: inherit;
 }
 .nhsw-pagination--numbered .nhsw-pagination__icon {
   width: 16px;
@@ -2134,7 +2139,8 @@ body {
   justify-content: center;
   min-width: 45px;
   min-height: 45px;
-  padding: 8px 4px;
+  padding: 10px 4px;
+  box-sizing: border-box;
   color: #4c6272;
 }
 .nhsw-pagination--numbered .nhsw-pagination__number-link {
@@ -2187,6 +2193,7 @@ body {
   }
 }
 .nhsw-table__caption {
+  display: table-caption;
   text-align: left;
   font-weight: 700;
   margin-bottom: 8px;

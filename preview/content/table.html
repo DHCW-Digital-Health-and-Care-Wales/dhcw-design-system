@@ -18,7 +18,7 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
-      <caption class="nhsw-table__caption nhsw-table__caption--m">Skin symptoms and possible causes</caption>
+      <caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m">Skin symptoms and possible causes</caption>
       <thead class="nhsw-table__head">
         <tr class="nhsw-table__row">
           <th scope="col" class="nhsw-table__header">Skin symptoms</th>
@@ -44,7 +44,7 @@ tabs:
   {% include example-preview.html id="tbl-overview" open_url="/examples/table-basic.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Skin symptoms and possible causes&lt;/caption&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m"&gt;Skin symptoms and possible causes&lt;/caption&gt;
   &lt;thead class="nhsw-table__head"&gt;
     &lt;tr class="nhsw-table__row"&gt;
       &lt;th scope="col" class="nhsw-table__header"&gt;Skin symptoms&lt;/th&gt;
@@ -97,7 +97,7 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
-      <caption class="nhsw-table__caption nhsw-table__caption--l">Months and rates</caption>
+      <caption class="nhsw-table__caption nhsw-table__caption--l nhsw-caption-l">Months and rates</caption>
       <thead class="nhsw-table__head">
         <tr class="nhsw-table__row">
           <th scope="col" class="nhsw-table__header">Month you apply</th>
@@ -123,7 +123,7 @@ tabs:
   {% include example-preview.html id="tbl-caption" open_url="/examples/table-caption.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--l"&gt;Months and rates&lt;/caption&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--l nhsw-caption-l"&gt;Months and rates&lt;/caption&gt;
   &lt;thead class="nhsw-table__head"&gt;
     &lt;tr class="nhsw-table__row"&gt;
       &lt;th scope="col" class="nhsw-table__header"&gt;Month you apply&lt;/th&gt;
@@ -168,7 +168,7 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
-      <caption class="nhsw-table__caption nhsw-table__caption--m">Flu vaccination uptake</caption>
+      <caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m">Flu vaccination uptake</caption>
       <thead class="nhsw-table__head">
         <tr class="nhsw-table__row">
           <th scope="col" class="nhsw-table__header">Group</th>
@@ -198,7 +198,7 @@ tabs:
   {% include example-preview.html id="tbl-numeric" open_url="/examples/table-numeric.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Vaccination uptake&lt;/caption&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m"&gt;Vaccination uptake&lt;/caption&gt;
   &lt;thead class="nhsw-table__head"&gt;
     &lt;tr class="nhsw-table__row"&gt;
       &lt;th scope="col" class="nhsw-table__header"&gt;Group&lt;/th&gt;
@@ -286,7 +286,7 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
-      <caption class="nhsw-table__caption nhsw-table__caption--m">Vaccinations given</caption>
+      <caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m">Vaccinations given</caption>
       <thead class="nhsw-table__head">
         <tr class="nhsw-table__row">
           <th scope="col" class="nhsw-table__header">Date</th>
@@ -311,7 +311,7 @@ tabs:
   {% include example-preview.html id="tbl-missing" open_url="/examples/table-missing-data.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Vaccinations given&lt;/caption&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m"&gt;Vaccinations given&lt;/caption&gt;
   &lt;thead class="nhsw-table__head"&gt;
     &lt;tr class="nhsw-table__row"&gt;
       &lt;th scope="col" class="nhsw-table__header"&gt;Date&lt;/th&gt;
@@ -352,7 +352,7 @@ tabs:
 
     {% capture example_body %}{% raw %}
     <table class="nhsw-table-responsive" role="table">
-      <caption class="nhsw-table__caption nhsw-table__caption--m">Vaccination schedule</caption>
+      <caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m">Vaccination schedule</caption>
       <thead class="nhsw-table__head" role="rowgroup">
         <tr class="nhsw-table__row" role="row">
           <th scope="col" class="nhsw-table__header" role="columnheader">Age</th>
@@ -381,7 +381,7 @@ tabs:
     {% include example-preview.html id="tbl-responsive" open_url="/examples/table-responsive.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;table class="nhsw-table-responsive" role="table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Vaccination schedule&lt;/caption&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m"&gt;Vaccination schedule&lt;/caption&gt;
   &lt;thead class="nhsw-table__head" role="rowgroup"&gt;
     &lt;tr class="nhsw-table__row" role="row"&gt;
       &lt;th scope="col" class="nhsw-table__header" role="columnheader"&gt;Age&lt;/th&gt;

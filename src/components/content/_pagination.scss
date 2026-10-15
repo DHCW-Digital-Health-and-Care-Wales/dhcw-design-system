@@ -135,7 +135,8 @@
     display: inline-flex;
     align-items: center;
     min-height: 45px;
-    padding: 8px 12px;
+    padding: 10px 12px;
+    box-sizing: border-box;
     color: c.$nhsw-colour-link;
     font-weight: 700;
     text-decoration: underline;
@@ -168,6 +169,11 @@
     @include b.nhsw-from-tablet {
       order: initial;
     }
+  }
+
+  .nhsw-pagination__title {
+    font-size: inherit;
+    line-height: inherit;
   }
 
   .nhsw-pagination__icon {
@@ -217,7 +223,8 @@
     justify-content: center;
     min-width: 45px;
     min-height: 45px;
-    padding: 8px 4px;
+    padding: 10px 4px;
+    box-sizing: border-box;
     color: c.$nhsw-colour-text-secondary;
   }
 
