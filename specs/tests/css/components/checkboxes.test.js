@@ -81,6 +81,10 @@ describe('checkboxes: regular-weight labels, centred tick, row hover, thicker fo
     expect(item).toMatch(/margin-bottom:\s*6px/);
   });
 
+  it('the item is at least as tall as the 40px box, so the box never overhangs the gap below it', () => {
+    expect(block(css, '\\.nhsw-checkboxes__item\\b')).toMatch(/min-height:\s*40px/);
+  });
+
   it('the label itself carries no bottom margin, so item spacing is controlled only by the item, not by the shared .nhsw-label hint-aware margin', () => {
     const label = block(css, '\\.nhsw-checkboxes__label\\.nhsw-label');
     expect(label).toMatch(/margin-bottom:\s*0/);

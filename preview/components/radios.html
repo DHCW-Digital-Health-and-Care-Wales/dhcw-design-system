@@ -88,39 +88,44 @@ tabs:
   <p class="nhsw-body">Style error messages like this.</p>
 
   {% capture example_body %}{% raw %}
-    <fieldset class="nhsw-fieldset" aria-describedby="rd-name-hint rd-name-error">
-      <legend class="nhsw-fieldset__legend nhsw-h2">Have you changed your name?</legend>
-      <div class="nhsw-hint" id="rd-name-hint">This includes changing your last name or spelling your name differently</div>
-      <p class="nhsw-error-message" id="rd-name-error"><span class="nhsw-visually-hidden">Error: </span>Select yes if you have changed your name</p>
-      <div class="nhsw-radios">
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="rd-name-yes" name="rd-name" type="radio" value="yes" aria-invalid="true">
-          <label class="nhsw-label nhsw-radios__label" for="rd-name-yes">Yes</label>
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <fieldset class="nhsw-fieldset" aria-describedby="rd-name-hint rd-name-error">
+        <legend class="nhsw-fieldset__legend nhsw-h2">Have you changed your name?</legend>
+        <div class="nhsw-hint" id="rd-name-hint">This includes changing your last name or spelling your name differently</div>
+        <p class="nhsw-error-message" id="rd-name-error"><span class="nhsw-visually-hidden">Error: </span>Select yes if you have changed your name</p>
+        <div class="nhsw-radios">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="rd-name-yes" name="rd-name" type="radio" value="yes" aria-invalid="true">
+            <label class="nhsw-label nhsw-radios__label" for="rd-name-yes">Yes</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="rd-name-no" name="rd-name" type="radio" value="no" aria-invalid="true">
+            <label class="nhsw-label nhsw-radios__label" for="rd-name-no">No</label>
+          </div>
         </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="rd-name-no" name="rd-name" type="radio" value="no" aria-invalid="true">
-          <label class="nhsw-label nhsw-radios__label" for="rd-name-no">No</label>
-        </div>
-      </div>
-    </fieldset>
+      </fieldset>
+  
+    </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="rd-htu-error" open_url="/examples/radios-error.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="name-hint name-error"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Have you changed your name?&lt;/legend&gt;
-  &lt;div class="nhsw-hint" id="name-hint"&gt;This includes changing your last name or spelling your name differently&lt;/div&gt;
-  &lt;p class="nhsw-error-message" id="name-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select yes if you have changed your name&lt;/p&gt;
-  &lt;div class="nhsw-radios"&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="name-yes" name="name" type="radio" value="yes" aria-invalid="true"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="name-yes"&gt;Yes&lt;/label&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
+  &lt;fieldset class="nhsw-fieldset" aria-describedby="name-hint name-error"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Have you changed your name?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="name-hint"&gt;This includes changing your last name or spelling your name differently&lt;/div&gt;
+    &lt;p class="nhsw-error-message" id="name-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select yes if you have changed your name&lt;/p&gt;
+    &lt;div class="nhsw-radios"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="name-yes" name="name" type="radio" value="yes" aria-invalid="true"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="name-yes"&gt;Yes&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="name-no" name="name" type="radio" value="no" aria-invalid="true"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="name-no"&gt;No&lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="name-no" name="name" type="radio" value="no" aria-invalid="true"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="name-no"&gt;No&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "radios/macro.njk" import nhswRadios %}
 
 {{ nhswRadios({
@@ -533,39 +538,44 @@ tabs:
     <p class="nhsw-body">Style error messages like this.</p>
 
     {% capture example_body %}{% raw %}
-      <fieldset class="nhsw-fieldset" aria-describedby="name-change-hint name-change-error">
-        <legend class="nhsw-fieldset__legend nhsw-h2">Have you changed your name?</legend>
-        <div class="nhsw-hint" id="name-change-hint">This includes changing your last name or spelling your name differently</div>
-        <p class="nhsw-error-message" id="name-change-error"><span class="nhsw-visually-hidden">Error: </span>Select yes if you have changed your name</p>
-        <div class="nhsw-radios">
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="name-change-yes" name="name-change" type="radio" value="yes" aria-invalid="true">
-            <label class="nhsw-label nhsw-radios__label" for="name-change-yes">Yes</label>
+      <div class="nhsw-form-group nhsw-form-group--error">
+        <fieldset class="nhsw-fieldset" aria-describedby="name-change-hint name-change-error">
+          <legend class="nhsw-fieldset__legend nhsw-h2">Have you changed your name?</legend>
+          <div class="nhsw-hint" id="name-change-hint">This includes changing your last name or spelling your name differently</div>
+          <p class="nhsw-error-message" id="name-change-error"><span class="nhsw-visually-hidden">Error: </span>Select yes if you have changed your name</p>
+          <div class="nhsw-radios">
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="name-change-yes" name="name-change" type="radio" value="yes" aria-invalid="true">
+              <label class="nhsw-label nhsw-radios__label" for="name-change-yes">Yes</label>
+            </div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="name-change-no" name="name-change" type="radio" value="no" aria-invalid="true">
+              <label class="nhsw-label nhsw-radios__label" for="name-change-no">No</label>
+            </div>
           </div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="name-change-no" name="name-change" type="radio" value="no" aria-invalid="true">
-            <label class="nhsw-label nhsw-radios__label" for="name-change-no">No</label>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
+    
+      </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-error" open_url="/examples/radios-error.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="name-change-hint name-change-error"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Have you changed your name?&lt;/legend&gt;
-  &lt;div class="nhsw-hint" id="name-change-hint"&gt;This includes changing your last name or spelling your name differently&lt;/div&gt;
-  &lt;p class="nhsw-error-message" id="name-change-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select yes if you have changed your name&lt;/p&gt;
-  &lt;div class="nhsw-radios"&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="name-change-yes" name="name-change" type="radio" value="yes" aria-invalid="true"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="name-change-yes"&gt;Yes&lt;/label&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
+  &lt;fieldset class="nhsw-fieldset" aria-describedby="name-change-hint name-change-error"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Have you changed your name?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="name-change-hint"&gt;This includes changing your last name or spelling your name differently&lt;/div&gt;
+    &lt;p class="nhsw-error-message" id="name-change-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select yes if you have changed your name&lt;/p&gt;
+    &lt;div class="nhsw-radios"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="name-change-yes" name="name-change" type="radio" value="yes" aria-invalid="true"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="name-change-yes"&gt;Yes&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="name-change-no" name="name-change" type="radio" value="no" aria-invalid="true"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="name-change-no"&gt;No&lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="name-change-no" name="name-change" type="radio" value="no" aria-invalid="true"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="name-change-no"&gt;No&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
   name: "name-change",
   fieldset: { legend: { text: "Have you changed your name?" } },

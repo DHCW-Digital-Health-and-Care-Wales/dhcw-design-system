@@ -85,39 +85,44 @@ tabs:
   <p class="nhsw-body">Style error messages like this.</p>
 
   {% capture example_body %}{% raw %}
-    <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
-      <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
-      <div class="nhsw-hint" id="cb-contact3-hint">Select all options that are relevant to you</div>
-      <p class="nhsw-error-message" id="cb-contact3-error"><span class="nhsw-visually-hidden">Error: </span>Select how you want to be contacted</p>
-      <div class="nhsw-checkboxes">
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="cb-contact3-1" name="cb-contact3" type="checkbox" value="email" aria-invalid="true">
-          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-1">Email</label>
+    <div class="nhsw-form-group nhsw-form-group--error">
+      <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
+        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+        <div class="nhsw-hint" id="cb-contact3-hint">Select all options that are relevant to you</div>
+        <p class="nhsw-error-message" id="cb-contact3-error"><span class="nhsw-visually-hidden">Error: </span>Select how you want to be contacted</p>
+        <div class="nhsw-checkboxes">
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact3-1" name="cb-contact3" type="checkbox" value="email" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-1">Email</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact3-2" name="cb-contact3" type="checkbox" value="phone" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-2">Phone</label>
+          </div>
+          <div class="nhsw-checkboxes__item">
+            <input class="nhsw-checkboxes__input" id="cb-contact3-3" name="cb-contact3" type="checkbox" value="text" aria-invalid="true">
+            <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-3">Text message</label>
+          </div>
         </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="cb-contact3-2" name="cb-contact3" type="checkbox" value="phone" aria-invalid="true">
-          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-2">Phone</label>
-        </div>
-        <div class="nhsw-checkboxes__item">
-          <input class="nhsw-checkboxes__input" id="cb-contact3-3" name="cb-contact3" type="checkbox" value="text" aria-invalid="true">
-          <label class="nhsw-label nhsw-checkboxes__label" for="cb-contact3-3">Text message</label>
-        </div>
-      </div>
-    </fieldset>
+      </fieldset>
+  
+    </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="cb-error" open_url="/examples/checkboxes-error.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint contact-error"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
-  &lt;div class="nhsw-hint" id="contact-hint"&gt;Select all options that are relevant to you&lt;/div&gt;
-  &lt;p class="nhsw-error-message" id="contact-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select how you want to be contacted&lt;/p&gt;
-  &lt;div class="nhsw-checkboxes"&gt;
-    &lt;div class="nhsw-checkboxes__item"&gt;
-      &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" aria-invalid="true"&gt;
-      &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
+  &lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint contact-error"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="contact-hint"&gt;Select all options that are relevant to you&lt;/div&gt;
+    &lt;p class="nhsw-error-message" id="contact-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select how you want to be contacted&lt;/p&gt;
+    &lt;div class="nhsw-checkboxes"&gt;
+      &lt;div class="nhsw-checkboxes__item"&gt;
+        &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email" aria-invalid="true"&gt;
+        &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswCheckboxes({
   name: "contact",
   fieldset: { legend: { text: "How do you want to be contacted about this?" } },

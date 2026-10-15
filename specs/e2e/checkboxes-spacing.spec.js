@@ -56,3 +56,19 @@ test.describe('Checkboxes conditional line spacing, the same as the radios', () 
     expect(Math.abs(contentLeft - textLeft)).toBeLessThanOrEqual(1);
   });
 });
+
+test.describe('Checkboxes on the component page', () => {
+  test('each item is as tall as its 40px box, and the conditional line starts 6px below the box', async ({ page }) => {
+    await page.goto('/components/checkboxes.html');
+    await page.locator('#tab-variants').click();
+    const gaps = await page.evaluate(() => {
+      const conditional = document.querySelector('#conditional-cb2-1');
+      const item = conditional.previousElementSibling;
+      const label = item.querySelector('.nhsw-checkboxes__label').getBoundingClientRect();
+      return { itemHeight: item.getBoundingClientRect().height, gap: conditional.getBoundingClientRect().top - item.getBoundingClientRect().bottom, boxBottom: label.top + 40, itemBottom: item.getBoundingClientRect().bottom };
+    });
+    expect(gaps.itemHeight).toBeGreaterThanOrEqual(40);
+    expect(Math.round(gaps.gap)).toBe(6);
+    expect(gaps.boxBottom).toBeLessThanOrEqual(gaps.itemBottom + 0.5);
+  });
+});
