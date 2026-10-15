@@ -2,7 +2,7 @@
 layout: component
 title: Panel
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Use the panel component to draw attention to important outcomes, such as a completed task, reference number or result.
 tabs:
   - id: how-to-use
@@ -54,14 +54,13 @@ tabs:
     <li>highlight that users have done something successfully</li>
     <li>display important information when a transaction has been completed</li>
   </ul>
-  <p class="nhsw-body">In most cases, the panel component is used on <a class="nhsw-link" href="#">confirmation pages</a>, to tell the user they have successfully completed the transaction.</p>
+  <p class="nhsw-body">In most cases, the panel component is used on confirmation pages, to tell the user they have successfully completed the transaction.</p>
 
   <h2 class="nhsw-h2">When not to use a panel</h2>
   <p class="nhsw-body">Never use the panel component to highlight important information in body content. Instead consider using:</p>
   <ul class="nhsw-body">
     <li><a class="nhsw-link" href="{{ '/content/inset-text.html' | relative_url }}">inset text</a></li>
     <li><a class="nhsw-link" href="{{ '/callouts/warning-callout.html' | relative_url }}">warning callout</a></li>
-    <li>the pattern to help users decide when and where to get care (care cards)</li>
   </ul>
 
   <h2 class="nhsw-h2">How to use a panel</h2>
@@ -74,18 +73,18 @@ tabs:
   <h3 class="nhsw-h3">How to write panel text</h3>
   <p class="nhsw-body">Keep your panel heading text brief. It only needs to summarise what has happened. For example, "Application complete".</p>
   <p class="nhsw-body">Use short words and phrases to make sure highlighted information is easy to read at different screen sizes. Shorter text is less likely to wrap around the panel, which can happen when using the zoom function on mobiles.</p>
-  <p class="nhsw-body">If the panel heading needs to be longer, you can reduce the text size by adding the <code>nhsw-panel__title--l</code> class or setting the <code>titleSize: "l"</code> Nunjucks macro option.</p>
+  <p class="nhsw-body">If the panel heading needs to be longer, you can reduce the text size by adding the <code style="color: #d4351c;">nhsw-panel__title--l</code> class or setting the <code style="color: #d4351c;">titleSize: "l"</code> Nunjucks macro option.</p>
   <p class="nhsw-body">You can add more context or details by using additional text under the heading.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">Keep text short and concise to ensure it remains fully readable at all zoom levels, including when users apply browser or mobile device zoom. Content must not clip, overlap, truncate or become obscured when users zoom the page or resize text. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.4 Resizing Text, level AA</a>.</p>
+  <p class="nhsw-body">Keep text short and concise to ensure it remains fully readable at all zoom levels, including when users apply browser or mobile device zoom. Content must not clip, overlap, truncate or become obscured when users zoom the page or resize text. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html">WCAG 2.2 Success Criterion 1.4.4 Resizing Text, level AA</a>.</p>
 
-  <p class="nhsw-body">Do not rely on colour alone to convey meaning. Use a clear heading so all users can understand the purpose of a panel, regardless of how they perceive colour. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
+  <p class="nhsw-body">Do not rely on colour alone to convey meaning. Use a clear heading so all users can understand the purpose of a panel, regardless of how they perceive colour. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG21/Understanding/use-of-color.html">WCAG 2.2 Success Criterion 1.4.1 Use of Colour, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Panels in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Panels on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/panel/">Panels in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system/issues/6014">Panels on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -107,7 +106,7 @@ tabs:
         <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
           <path d="M4 12l5 5L20 6" />
         </svg>
-        <h1 class="nhsw-panel__title">Application complete</h1>
+        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -120,18 +119,21 @@ tabs:
   &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
     &lt;path d="M4 12l5 5L20 6" /&gt;
   &lt;/svg&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "Application complete",
+  titleText: "You’ll receive an update within 5 working days",
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
   classes: "nhsw-panel--navy"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-navy" html=html_sample njk=njk_sample toggleable=true %}
+
+      <p class="nhsw-body">Use a blue panel to highlight important information and guidance that users should be aware of. This may be used instead of a green panel, which usually indicates that a user has completed a task successfully.</p>
+
   </section>
 
   <section class="preview-section">
@@ -156,7 +158,7 @@ tabs:
         <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
           <path d="M4 12l5 5L20 6" />
         </svg>
-        <h1 class="nhsw-panel__title">Application complete</h1>
+        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -169,14 +171,14 @@ tabs:
   &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
     &lt;path d="M4 12l5 5L20 6" /&gt;
   &lt;/svg&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "Application complete",
+  titleText: "You’ll receive an update within 5 working days",
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
   classes: "nhsw-panel--navy"
 }) }}{% endraw %}{% endcapture %}
@@ -197,6 +199,9 @@ tabs:
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-small" html=html_sample njk=njk_sample toggleable=true %}
+
+          <p class="nhsw-body">Use a smaller panel when space is limited. It offers a more compact alternative to a standard panel.</p>
+
   </section>
 
   <section class="preview-section">
@@ -215,7 +220,7 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-panel nhsw-panel--navy">
-        <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+        <h1 class="nhsw-panel__title nhsw-panel__title--l">You’ll receive an update within 5 working days</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -225,14 +230,14 @@ tabs:
     {% include example-preview.html id="pn-no-icon-navy" open_url="/examples/panel-navy.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
-  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "Application complete",
+  titleText: "You’ll receive an update within 5 working days",
   titleSize: "l",
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
   classes: "nhsw-panel--navy"
@@ -252,6 +257,9 @@ tabs:
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-no-icon" html=html_sample njk=njk_sample toggleable=true %}
+
+<p class="nhsw-body">Use a panel without an icon when you need to highlight information without indicating a specific status, such as success, warning or error.</p>
+
   </section>
 
   <section class="preview-section">
@@ -270,7 +278,7 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-panel nhsw-panel--navy">
-        <h1 class="nhsw-panel__title">Application complete</h1>
+        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -280,14 +288,14 @@ tabs:
     {% include example-preview.html id="pn-no-icon-small-navy" open_url="/examples/panel-navy.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "Application complete",
+  titleText: "You’ll receive an update within 5 working days",
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
   classes: "nhsw-panel--navy"
 }) }}{% endraw %}{% endcapture %}
@@ -305,6 +313,9 @@ tabs:
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-no-icon-small" html=html_sample njk=njk_sample toggleable=true %}
+<p class="nhsw-body">Use a smaller panel when space is limited or the content needs less prominence than a standard panel. It does not include an icon, making it suitable for general information and guidance.</p>
+
+    
   </section>
 
   <div class="nhsw-tabs__pagination">
@@ -325,11 +336,11 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows a confirmation page from the public-facing section of the School-age Immunisations service within WIS. It uses a solid green panel to reassure parents or guardians that their action was successful.</p>
-  {% include screenshot-placeholder.html text="Consent confirmed panel on a vaccination consent page" %}
+  {% include screenshot-placeholder.html alt="Consent confirmed panel on a vaccination consent page" %}
 
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example shows the final screen of a clinical workflow within the Choose Pharmacy service. It uses a solid green panel to give clinicians immediate clarity at the end of a consultation.</p>
-  {% include screenshot-placeholder.html text="Consultation complete panel at the end of a clinical workflow" %}
+  {% include screenshot-placeholder.html alt="Consultation complete panel at the end of a clinical workflow" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

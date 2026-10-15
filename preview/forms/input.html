@@ -2,7 +2,7 @@
 layout: component
 title: Text input
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Use text input to let users enter a single line of text.
 tabs:
   - id: how-to-use
@@ -73,12 +73,12 @@ tabs:
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "full-name", label: { text: "What is your full name?", classes: "nhsw-label--xl", isPageHeading: true } }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-page-question" html=html_sample njk=njk_sample toggleable=true %}
 
-  <p class="nhsw-body">You can set the contents of the <code>&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page. This is good practice as it means that screen reader users will only hear the contents once.</p>
-  <p class="nhsw-body">Read more about <a class="nhsw-link" href="#">Making labels and legends headings on the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">You can set the contents of the <code style="color: #d4351c;">&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page. This is good practice as it means that screen reader users will only hear the contents once.</p>
+  <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/get-started/labels-legends-headings/">Making labels and legends headings on the GOV.UK Design System</a>.</p>
 
   <h3 class="nhsw-h3">If you're asking more than 1 question on the page</h3>
-  <p class="nhsw-body">Do not set the contents of the <code>&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page.</p>
-  <p class="nhsw-body">Read more about <a class="nhsw-link" href="#">Asking multiple questions on question pages in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Do not set the contents of the <code style="color: #d4351c;">&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page.</p>
+  <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/question-pages/">Asking multiple questions on question pages in the GOV.UK Design System</a>.</p>
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
@@ -263,15 +263,15 @@ tabs:
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">When implemented in production, fields should identify their purpose so browsers and assistive technologies can support features such as autofill and reduce user effort. This is to support <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.5 Identify Input Purpose, level AA</a>.</p>
+  <p class="nhsw-body">When implemented in production, fields should identify their purpose so browsers and assistive technologies can support features such as autofill and reduce user effort. This is to support <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html">WCAG 2.2 Success Criterion 1.3.5 Identify Input Purpose, level AA</a>.</p>
 
-  <p class="nhsw-body">Do not use placeholder text as a label for a text input. It disappears when users click inside the textarea and may not be announced consistently by assistive technologies. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 3.3.2 Labels or Instructions, level A</a>.</p>
+  <p class="nhsw-body">Do not use placeholder text as a label for a text input. It disappears when users click inside the textarea and may not be announced consistently by assistive technologies. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">WCAG 2.2 Success Criterion 3.3.2 Labels or Instructions, level A</a>.</p>
 
-  <p class="nhsw-body">Associate labels programmatically with text inputs so assistive technologies can identify the purpose of each field. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">Associate labels programmatically with text inputs so assistive technologies can identify the purpose of each field. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Text input in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Text input on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/text-input/">Text input in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/51">Text input on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -288,7 +288,7 @@ tabs:
   <h3 class="nhsw-h3">Asking for numbers</h3>
 
   <h4 class="nhsw-h4">Whole numbers</h4>
-  <p class="nhsw-body">If you're asking the user to enter a whole number, set the <code>inputmode</code> attribute to <code>numeric</code> to use the numeric keypad on devices with on-screen keyboards.</p>
+  <p class="nhsw-body">If you're asking the user to enter a whole number, set the <code style="color: #d4351c;">inputmode</code> attribute to <code style="color: #d4351c;">numeric</code> to use the numeric keypad on devices with on-screen keyboards.</p>
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
@@ -308,7 +308,7 @@ tabs:
   {% include code-viewer.html id="ti-account" html=html_sample njk=njk_sample toggleable=true %}
 
   <h4 class="nhsw-h4">Decimal numbers</h4>
-  <p class="nhsw-body">Read more about <a class="nhsw-link" href="#">Asking for decimal numbers in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/text-input/#asking-for-decimal-numbers">Asking for decimal numbers in the GOV.UK Design System</a>.</p>
 
   <h3 class="nhsw-h3">Prefixes and suffixes</h3>
 
@@ -366,7 +366,7 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example is from the School-age Immunisations service within WIS. It shows a text input asking a parent or guardian for their full name as a single, focused question on the page.</p>
-  {% include screenshot-placeholder.html text="Full name question with a single text input and Continue button" %}
+  {% include screenshot-placeholder.html alt="Full name question with a single text input and Continue button" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

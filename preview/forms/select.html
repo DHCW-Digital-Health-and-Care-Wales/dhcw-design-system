@@ -2,7 +2,7 @@
 layout: component
 title: Select
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Use select to let users choose an option from a long list but only use it as a last resort.
 tabs:
   - id: how-to-use
@@ -112,7 +112,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="sel-htu-error" html=html_sample njk=njk_sample toggleable=true %}
 
-  <p class="nhsw-body">The select component does not support selecting multiple options, as there's a history of poor usability and assistive technology support for <code>&lt;select multiple&gt;</code>. If you need to ask the user to pick more than 1 item from a list, it's almost always better to use another method, such as a list of <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
+  <p class="nhsw-body">The select component does not support selecting multiple options, as there's a history of poor usability and assistive technology support for <code style="color: #d4351c;">&lt;select multiple&gt;</code>. If you need to ask the user to pick more than 1 item from a list, it's almost always better to use another method, such as a list of <a class="nhsw-link" href="{{ '/forms/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
   <p class="nhsw-body">Read <a class="nhsw-link" href="#">Select your poison (24 Accessibility)</a>.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
@@ -192,7 +192,7 @@ tabs:
 
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example is from the Choose Pharmacy service. It uses a select to let clinicians choose the point of care test from a long, structured list of options.</p>
-  {% include screenshot-placeholder.html text="Point of Care Test form with a Name of Point of Care Test select" %}
+  {% include screenshot-placeholder.html alt="Point of Care Test form with a Name of Point of Care Test select" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

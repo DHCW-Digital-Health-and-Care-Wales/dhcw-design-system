@@ -2,7 +2,7 @@
 layout: component
 title: Date input
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Use date input to help users enter a memorable date, like their date of birth.
 tabs:
   - id: how-to-use
@@ -70,22 +70,22 @@ tabs:
   <p class="nhsw-body">Use date input to help users enter a date they are likely to know, like their date of birth.</p>
 
   <h2 class="nhsw-h2">When not to use date input</h2>
-  <p class="nhsw-body">Do not use date input if users are unlikely to know the exact date you're asking about. Read more in the <a class="nhsw-link" href="#">Ask users for dates pattern</a>.</p>
+  <p class="nhsw-body">Do not use date input if users are unlikely to know the exact date you're asking about.</p>
 
   <h2 class="nhsw-h2">How to use date input</h2>
   <p class="nhsw-body">Date input consists of 3 fields to let users enter a day, month and year.</p>
-  <p class="nhsw-body">Group the 3 date fields together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. The legend is usually a question, like "What is your date of birth?".</p>
-  <p class="nhsw-body">If you are asking just <a class="nhsw-link" href="#">1 question per page</a> as we recommend, you can set the contents of the <code>&lt;legend&gt;</code> as the page heading. This is good practice as it means that screen reader users will only hear the contents once.</p>
+  <p class="nhsw-body">Group the 3 date fields together in a <code style="color: #d4351c;">&lt;fieldset&gt;</code> with a <code style="color: #d4351c;">&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. The legend is usually a question, like "What is your date of birth?".</p>
+  <p class="nhsw-body">If you are asking just <a class="nhsw-link" href="#">1 question per page</a> as we recommend, you can set the contents of the <code style="color: #d4351c;">&lt;legend&gt;</code> as the page heading. This is good practice as it means that screen reader users will only hear the contents once.</p>
   <p class="nhsw-body">Read more on the GOV.UK Design System about how to <a class="nhsw-link" href="#">ask users for dates</a> and <a class="nhsw-link" href="#">making labels and legends headings</a>.</p>
   <p class="nhsw-body">Never automatically tab users between the fields of the date input because this can be confusing and may clash with normal keyboard controls.</p>
 
   <h3 class="nhsw-h3">If you're asking more than one question on the page</h3>
-  <p class="nhsw-body">If you're asking more than one question on the page, do not set the contents of the <code>&lt;legend&gt;</code> as the page heading. Read more about <a class="nhsw-link" href="#">asking multiple questions on question pages</a>.</p>
-  <p class="nhsw-body">Follow <a class="nhsw-link" href="#">GOV.UK guidance on error messages for date inputs</a>.</p>
+  <p class="nhsw-body">If you're asking more than one question on the page, do not set the contents of the <code style="color: #d4351c;">&lt;legend&gt;</code> as the page heading. Read more on the GOV.UK Design System about <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/question-pages/#asking-multiple-questions-on-a-page">asking multiple questions on question pages</a>.</p>
+  <p class="nhsw-body">Follow <a class="nhsw-link" href="https://design-system.service.gov.uk/components/date-input#error-messages">GOV.UK guidance on error messages for date inputs</a>.</p>
 
   <h3 class="nhsw-h3">Use the autocomplete attribute for a date of birth</h3>
-  <p class="nhsw-body">Use the <code>autocomplete</code> attribute on the date input component when you're asking for a date of birth. This lets browsers autofill the information on a user's behalf if they've entered it previously.</p>
-  <p class="nhsw-body">To do this, set the autocomplete attribute on the 3 fields to <code>bday-day</code>, <code>bday-month</code> and <code>bday-year</code>.</p>
+  <p class="nhsw-body">Use the <code style="color: #d4351c;">autocomplete</code> attribute on the date input component when you're asking for a date of birth. This lets browsers autofill the information on a user's behalf if they've entered it previously.</p>
+  <p class="nhsw-body">To do this, set the autocomplete attribute on the 3 fields to <code style="color: #d4351c;">bday-day</code>, <code style="color: #d4351c;">bday-month</code> and <code style="color: #d4351c;">bday-year</code>.</p>
 
   <h3 class="nhsw-h3">Error messages</h3>
 
@@ -145,6 +145,8 @@ tabs:
   values: { day: "1", month: "12", year: "2000" }
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="di-error-1" html=html_sample njk=njk_sample toggleable=true %}
+      <p class="nhsw-body">Use this error message when a user has entered a date, but the date does not meet the validation rules.</p>
+
   </section>
 
   <section class="preview-section">
@@ -204,6 +206,9 @@ tabs:
   values: { day: "1", month: "12" }
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="di-error-2" html=html_sample njk=njk_sample toggleable=true %}
+
+          <p class="nhsw-body">Use this error message when a user has not entered all parts of the date. The message should tell the user which part is missing.</p>
+
   </section>
 
   <h2 class="nhsw-h2">Accessibility</h2>
@@ -226,7 +231,7 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Date input variants</h2>
   <p class="nhsw-body">There are no variants available for this component.</p>
-  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="mailto:dhcw.ucd@wales.nhs.uk">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
   <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
 
   <div class="nhsw-tabs__pagination">
@@ -247,11 +252,11 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows a public-facing page from the School-age Immunisations service where a parent or guardian is providing consent. It uses the standard three-field date input to collect a specific, memorable date.</p>
-  {% include screenshot-placeholder.html text="Child's date of birth question with day, month and year fields" %}
+  {% include screenshot-placeholder.html alt="Child's date of birth question with day, month and year fields" %}
 
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example shows a form from a Point of Care Test entry page within the Choose Pharmacy service. It uses input fields for dates, such as the "Expiry date" fields for the test batch and test result, to ensure accurate entry.</p>
-  {% include screenshot-placeholder.html text="Point of Care Test form with month and year expiry date fields" %}
+  {% include screenshot-placeholder.html alt="Point of Care Test form with month and year expiry date fields" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

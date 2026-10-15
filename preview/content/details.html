@@ -2,7 +2,7 @@
 layout: component
 title: Details
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Make a page easier to scan by letting users reveal more detailed information only if they need it.
 tabs:
   - id: how-to-use
@@ -48,7 +48,7 @@ tabs:
 
   <h2 class="nhsw-h2">When to use details</h2>
   <p class="nhsw-body">The details component is a short link that expands to show more text when a user clicks on it.</p>
-  <p class="nhsw-body">Use the component to make a page easier to scan when it contains information that only some users will need. For example, use it to <a class="nhsw-link" href="#">give users help in context</a>.</p>
+  <p class="nhsw-body">Use the component to make a page easier to scan when it contains information that only some users will need.</p>
   <p class="nhsw-body">There are 2 ways to let users reveal more information:</p>
   <ul class="nhsw-body">
     <li>details</li>
@@ -68,13 +68,13 @@ tabs:
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">Make sure all users can see the details. The background colour must have a contrast ratio of at least 4.5:1 with white to meet <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.3 Contrast (Minimum), level AA</a>.</p>
+  <p class="nhsw-body">Make sure all users can see the details. The background colour must have a contrast ratio of at least 4.5:1 with white to meet <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 2.2 Success Criterion 1.4.3 Contrast (Minimum), level AA</a>.</p>
 
-  <p class="nhsw-body">Use descriptive summary link text that clearly sets expectations about the hidden content. Avoid vague phrases such as "More information" or "Read more". Instead, use specific text like "How to find your NHS number" so users can understand where the link will take them. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.4 Link Purpose (In Context), level A</a>.</p>
+  <p class="nhsw-body">Use descriptive summary link text that clearly sets expectations about the hidden content. Avoid vague phrases such as "More information" or "Read more". Instead, use specific text like "How to find your NHS number" so users can understand where the link will take them. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html">WCAG 2.2 Success Criterion 2.4.4 Link Purpose (In Context), level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Details in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Details on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/details/">Details in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/44">Details on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -88,7 +88,7 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Details variants</h2>
   <p class="nhsw-body">There are no variants available for this component.</p>
-  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="mailto:dhcw.ucd@wales.nhs.uk">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
   <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
 
   <div class="nhsw-tabs__pagination">
@@ -109,11 +109,11 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows a page from the School-age Immunisations service where an administrator is reviewing a new child record before final submission. It uses the details component under the introductory text ("How to resolve potential duplicate records in the future") to allow the user to reveal more information if they need it without overloading the page with content.</p>
-  {% include screenshot-placeholder.html text="Review the new child record page with a details link" %}
+  {% include screenshot-placeholder.html alt="Review the new child record page with a details link" %}
 
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example shows a "Select condition" page from a consultation journey within the Choose Pharmacy service. It uses the details component under the primary text field ("List of common conditions") to provide secondary guidance for clinicians.</p>
-  {% include screenshot-placeholder.html text="Select condition page with a details link for common conditions" %}
+  {% include screenshot-placeholder.html alt="Select condition page with a details link for common conditions" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

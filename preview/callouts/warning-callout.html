@@ -1,8 +1,8 @@
 ---
 layout: component
-title: Warning callouts
+title: Warning callout
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Use a warning callout to help users identify very important content on the page, even if they do not read the whole page.
 tabs:
   - id: how-to-use
@@ -65,7 +65,7 @@ tabs:
   <h2 class="nhsw-h2">How to use a warning callout</h2>
 
   <h3 class="nhsw-h3">Warning callout content</h3>
-  <p class="nhsw-body">The callout should have a specific heading, for example "School, nursery or work", prefixed with the visually hidden text <code>Important:</code>. This will help users with screen readers understand that the information is important.</p>
+  <p class="nhsw-body">The callout should have a specific heading, for example "School, nursery or work", prefixed with the visually hidden text <code style="color: #d4351c;">Important:</code>. This will help users with screen readers understand that the information is important.</p>
   <p class="nhsw-body">If the heading is simply the word "Important" or it includes the word "important", you do not need to use visually hidden text.</p>
   <p class="nhsw-body">Keep the warning callout short and specific, with no more than 5 lines on mobile view (this is about 2.5 lines on desktop). For example, do not introduce a callout with the words "If this happens...". Explain the circumstances.</p>
   <p class="nhsw-body">Finish sentences in components with a full stop, unless it's a full sentence link.</p>
@@ -87,8 +87,8 @@ tabs:
   <p class="nhsw-body">Include hidden text such as "Important" so assistive technologies can identify the content as a warning. You might need to rewrite the hidden text to make it appropriate for your context. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Warning callouts in the NHS England Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Warning callouts on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Warning callout in the NHS England Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Warning callout on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -110,7 +110,7 @@ tabs:
           <span class="nhsw-warning-callout__heading-text">Important information</span>
         </h3>
         <div class="nhsw-warning-callout__content">
-          <p class="nhsw-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at libero nisi. Suspendisse nec fringilla dolor, et euismod dolor. Fusce fermentum cursus nunc, quis sodales nunc gravida a. Fusce fermentum ipsum quam, a malesuada elit ullamcorper non.</p>
+          <p class="nhsw-body">If you need an interpreter or have accessibility requirements, let us know before your appointment. This helps us make sure the right support is in place when you attend.</p>
         </div>
       </div>
     {% endraw %}{% endcapture %}
@@ -122,13 +122,13 @@ tabs:
     &lt;span class="nhsw-warning-callout__heading-text"&gt;Important information&lt;/span&gt;
   &lt;/h3&gt;
   &lt;div class="nhsw-warning-callout__content"&gt;
-    &lt;p class="nhsw-body"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at libero nisi. Suspendisse nec fringilla dolor, et euismod dolor. Fusce fermentum cursus nunc, quis sodales nunc gravida a. Fusce fermentum ipsum quam, a malesuada elit ullamcorper non.&lt;/p&gt;
+    &lt;p class="nhsw-body"&gt;If you need an interpreter or have accessibility requirements, let us know before your appointment. This helps us make sure the right support is in place when you attend.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswWarningCallout({
   heading: "Important information",
   classes: "nhsw-warning-callout--important",
-  html: "&lt;p class=\"nhsw-body\"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at libero nisi. Suspendisse nec fringilla dolor, et euismod dolor. Fusce fermentum cursus nunc, quis sodales nunc gravida a. Fusce fermentum ipsum quam, a malesuada elit ullamcorper non.&lt;/p&gt;"
+  html: "&lt;p class=\"nhsw-body\"&gt;If you need an interpreter or have accessibility requirements, let us know before your appointment. This helps us make sure the right support is in place when you attend.&lt;/p&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="wc-important" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -246,11 +246,11 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows a session overview page from the School-age Immunisations service within WIS. It uses a warning callout at the top of the search results area to draw immediate attention to data that requires urgent administrator action.</p>
-  {% include screenshot-placeholder.html text="Session overview page with a Needs review warning callout" %}
+  {% include screenshot-placeholder.html alt="Session overview page with a Needs review warning callout" %}
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows the "All appointments" page from the Mass Vaccination service within WIS. It uses a warning callout component directly above the appointment list to draw immediate attention to critical guidance.</p>
-  {% include screenshot-placeholder.html text="All appointments page with a Taking consent warning callout" %}
+  {% include screenshot-placeholder.html alt="All appointments page with a Taking consent warning callout" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

@@ -2,7 +2,7 @@
 layout: component
 title: Skip link
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Use the skip link component to help keyboard-only users skip to the start of the content on a page.
 tabs:
   - id: how-to-use
@@ -43,9 +43,9 @@ tabs:
 
   <h2 class="nhsw-h2">How to use a skip link</h2>
   <p class="nhsw-body">The skip link is visually hidden when the page loads and becomes visible when a user navigates to it using a keyboard.</p>
-  <p class="nhsw-body">Place the skip link immediately after the opening <code>&lt;body&gt;</code> tag. If your page includes a cookie banner, place the skip link immediately after the cookie banner.</p>
-  <p class="nhsw-body">Some automated accessibility testing tools may warn that the skip link is not contained within a landmark region. This warning can be ignored for skip links. Do not place the skip link inside a <code>&lt;nav&gt;</code> element or move it into the page header.</p>
-  <p class="nhsw-body">For more information, <a class="nhsw-link" href="#">follow the guidance in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Place the skip link immediately after the opening <code style="color: #d4351c;">&lt;body&gt;</code> tag. If your page includes a cookie banner, place the skip link immediately after the cookie banner.</p>
+  <p class="nhsw-body">Some automated accessibility testing tools may warn that the skip link is not contained within a landmark region. This warning can be ignored for skip links. Do not place the skip link inside a <code style="color: #d4351c;">&lt;nav&gt;</code> element or move it into the page header.</p>
+  <p class="nhsw-body">For more information, <a class="nhsw-link" href="https://design-system.service.gov.uk/components/skip-link/">follow the guidance in the GOV.UK Design System</a>.</p>
 
   <h3 class="nhsw-h3">Component labelling</h3>
   <p class="nhsw-body">GOV.UK recommends the label "Skip to main content." This tells users exactly what clicking on the skip link will do. This includes those who do not use a mouse and use the keyboard only.</p>
@@ -54,11 +54,11 @@ tabs:
   <h2 class="nhsw-h2">Accessibility</h2>
 
   <p class="nhsw-body">When a user tabs to the skip link, it should move focus directly to the target content. This helps keyboard users bypass repeated navigation and access the main content more quickly.</p>
-  <p class="nhsw-body">Do not make the target element focusable by default. For example, avoid adding tabindex="-1". This can make it easier for a user to mistakenly click anywhere in the element's area and give it focus when they do not intend to. This is to support both <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.1 Bypass Blocks, level A</a> and <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.7 Focus Visible, level AA</a>.</p>
+  <p class="nhsw-body">Do not make the target element focusable by default. For example, avoid adding tabindex="-1". This can make it easier for a user to mistakenly click anywhere in the element's area and give it focus when they do not intend to. This is to support both <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html">WCAG 2.2 Success Criterion 2.4.1 Bypass Blocks, level A</a> and <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html">WCAG 2.2 Success Criterion 2.4.7 Focus Visible, level AA</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Skip links in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Skip links on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/skip-link/">Skip links in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/66">Skip links on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -72,7 +72,7 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Skip link variants</h2>
   <p class="nhsw-body">There are no variants available for this component.</p>
-  <p class="nhsw-body"><a class="nhsw-link" href="#">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
+  <p class="nhsw-body"><a class="nhsw-link" href="mailto:dhcw.ucd@wales.nhs.uk">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.</p>
   <p class="nhsw-body">If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.</p>
 
   <div class="nhsw-tabs__pagination">
@@ -90,7 +90,8 @@ tabs:
 <!-- Examples -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-examples" role="tabpanel" aria-labelledby="tab-examples">
   <h2 class="nhsw-h2">Examples</h2>
-  <p class="nhsw-body">There are no examples available for this component.</p>
+  <p class="nhsw-body">This component is available for use, but we do not have any published examples yet.</p>
+  <p class="nhsw-body"><a href="mailto:dhcw.ucd@wales.nhs.uk">Share an example with the DHCW Design System team</a> if you use the component so that we can help others learn from your experience.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

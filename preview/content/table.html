@@ -2,7 +2,7 @@
 layout: component
 title: Table
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Use a table to make it easier for users to compare and scan information.
 tabs:
   - id: how-to-use
@@ -87,13 +87,13 @@ tabs:
   <p class="nhsw-body">Use a table to organise structured data in rows and columns. This can help users scan, compare and find information easily, for example appointment details or vaccination reports.</p>
 
   <h2 class="nhsw-h2">When to not use a table</h2>
-  <p class="nhsw-body">Never use the table component to layout content on a page. Instead, use the <a class="nhsw-link" href="#">grid system on the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Never use the table component to layout content on a page. Instead, use the grid system</a>.</p>
 
   <h2 class="nhsw-h2">How to use a table</h2>
 
   <h3 class="nhsw-h3">Basic tables</h3>
   <h4 class="nhsw-h4">Table captions</h4>
-  <p class="nhsw-body">Use the <code>&lt;caption&gt;</code> element to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables.</p>
+  <p class="nhsw-body">Use the <code style="color: #d4351c;">&lt;caption&gt;</code> element to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables.</p>
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
@@ -107,15 +107,15 @@ tabs:
       <tbody class="nhsw-table__body">
         <tr class="nhsw-table__row">
           <th scope="row" class="nhsw-table__header">January</th>
-          <td class="nhsw-table__cell">&pound;95</td>
+          <td class="nhsw-table__cell">95</td>
         </tr>
         <tr class="nhsw-table__row">
           <th scope="row" class="nhsw-table__header">February</th>
-          <td class="nhsw-table__cell">&pound;55</td>
+          <td class="nhsw-table__cell">55</td>
         </tr>
         <tr class="nhsw-table__row">
           <th scope="row" class="nhsw-table__header">March</th>
-          <td class="nhsw-table__cell">&pound;125</td>
+          <td class="nhsw-table__cell">125</td>
         </tr>
       </tbody>
     </table>
@@ -168,29 +168,29 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
-      <caption class="nhsw-table__caption nhsw-table__caption--m">Prescription prepayment certificate (PPC) charges</caption>
+      <caption class="nhsw-table__caption nhsw-table__caption--m">Flu vaccination uptake</caption>
       <thead class="nhsw-table__head">
         <tr class="nhsw-table__row">
-          <th scope="col" class="nhsw-table__header">Item</th>
-          <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">Current charge</th>
-          <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">New charge</th>
+          <th scope="col" class="nhsw-table__header">Group</th>
+          <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">Eligible people</th>
+          <th scope="col" class="nhsw-table__header nhsw-table__header--numeric">Vaccinated</th>
         </tr>
       </thead>
       <tbody class="nhsw-table__body">
         <tr class="nhsw-table__row">
-          <th scope="row" class="nhsw-table__header">3-month</th>
-          <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;31.25</td>
-          <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;32.05</td>
+          <th scope="row" class="nhsw-table__header">Aged 65 and over</th>
+          <td class="nhsw-table__cell nhsw-table__cell--numeric">25,430</td>
+          <td class="nhsw-table__cell nhsw-table__cell--numeric">20,782</td>
         </tr>
         <tr class="nhsw-table__row">
-          <th scope="row" class="nhsw-table__header">12-month</th>
-          <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;111.60</td>
-          <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;114.50</td>
+          <th scope="row" class="nhsw-table__header">At-risk adults</th>
+          <td class="nhsw-table__cell nhsw-table__cell--numeric">14,215</td>
+          <td class="nhsw-table__cell nhsw-table__cell--numeric">10,663</td>
         </tr>
         <tr class="nhsw-table__row">
-          <th scope="row" class="nhsw-table__header">HRT</th>
-          <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;19.30</td>
-          <td class="nhsw-table__cell nhsw-table__cell--numeric">&pound;19.80</td>
+          <th scope="row" class="nhsw-table__header">Healthcare staff</th>
+          <td class="nhsw-table__cell nhsw-table__cell--numeric">8,942</td>
+          <td class="nhsw-table__cell nhsw-table__cell--numeric">7,481</td>
         </tr>
       </tbody>
     </table>
@@ -198,67 +198,67 @@ tabs:
   {% include example-preview.html id="tbl-numeric" open_url="/examples/table-numeric.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Prescription prepayment certificate (PPC) charges&lt;/caption&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m"&gt;Vaccination uptake&lt;/caption&gt;
   &lt;thead class="nhsw-table__head"&gt;
     &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="col" class="nhsw-table__header"&gt;Item&lt;/th&gt;
-      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;Current charge&lt;/th&gt;
-      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;New charge&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Group&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;Eligible people&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header nhsw-table__header--numeric"&gt;Vaccinated&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody class="nhsw-table__body"&gt;
     &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="row" class="nhsw-table__header"&gt;3-month&lt;/th&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;31.25&lt;/td&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;32.05&lt;/td&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;Aged 65 and over&lt;/th&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;25,430&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;20,782&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="row" class="nhsw-table__header"&gt;12-month&lt;/th&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;111.60&lt;/td&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;114.50&lt;/td&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;At-risk adults&lt;/th&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;14,215&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;10,663&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="row" class="nhsw-table__header"&gt;HRT&lt;/th&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;19.30&lt;/td&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;19.80&lt;/td&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;Healthcare staff&lt;/th&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;8,942&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;7,481&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswTable({
-  caption: "Prescription prepayment certificate (PPC) charges",
+  caption: "Vaccination uptake",
   head: [
-    { text: "Item" },
-    { text: "Current charge", format: "numeric" },
-    { text: "New charge", format: "numeric" }
+    { text: "Group" },
+    { text: "Eligible people", format: "numeric" },
+    { text: "Vaccinated", format: "numeric" }
   ],
   rows: [
-    [ { text: "3-month" }, { text: "£31.25", format: "numeric" }, { text: "£32.05", format: "numeric" } ],
-    [ { text: "12-month" }, { text: "£111.60", format: "numeric" }, { text: "£114.50", format: "numeric" } ],
-    [ { text: "HRT" }, { text: "£19.30", format: "numeric" }, { text: "£19.80", format: "numeric" } ]
+    [ { text: "Aged 65 and over" }, { text: "25,430", format: "numeric" }, { text: "20,782", format: "numeric" } ],
+    [ { text: "At-risk adults" }, { text: "14,215", format: "numeric" }, { text: "10,663", format: "numeric" } ],
+    [ { text: "Healthcare staff" }, { text: "8,942", format: "numeric" }, { text: "7,481", format: "numeric" } ]
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tbl-numeric" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">Follow <a class="nhsw-link" href="#">WebAIM's guidance for tables</a> and:</p>
+  <p class="nhsw-body">Follow <a class="nhsw-link" href="https://webaim.org/techniques/tables/data">WebAIM's guidance for tables</a> and:</p>
   <ul class="nhsw-body">
     <li>give tables captions</li>
     <li>use the scope attribute to associate the data cells with the appropriate headers</li>
-    <li>let the browser window determine the width of the table whenever possible to reduce horizontal scrolling, this supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.4.10 Reflow, level AA</a></li>
+    <li>let the browser window determine the width of the table whenever possible to reduce horizontal scrolling, this supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/reflow.html">WCAG 2.2 Success Criterion 1.4.10 Reflow, level AA</a></li>
   </ul>
 
   <h3 class="nhsw-h3">Table captions</h3>
-  <p class="nhsw-body">Use the <code>&lt;caption&gt;</code> element to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a> and <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 2.4.6 Headings and Labels, level AA</a>.</p>
-  <p class="nhsw-body">Style table captions to match the visual hierarchy of your page's content. If using Nunjucks, use the <code>captionSize</code> macro option. In HTML add the <code>nhsw-table__caption--l</code> class. You can use sizes <code>s</code>, <code>m</code>, <code>l</code>, <code>xl</code>.</p>
+  <p class="nhsw-body">Use the <code style="color: #d4351c;">&lt;caption&gt;</code> element to describe a table in the same way you would use a heading. A caption helps users find, navigate and understand tables. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a> and <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html">WCAG 2.2 Success Criterion 2.4.6 Headings and Labels, level AA</a>.</p>
+  <p class="nhsw-body">Style table captions to match the visual hierarchy of your page's content. If using Nunjucks, use the <code style="color: #d4351c;">captionSize</code> macro option. In HTML add the <code style="color: #d4351c;">nhsw-table__caption--l</code> class. You can use sizes <code style="color: #d4351c;">s</code>, <code style="color: #d4351c;">m</code>, <code style="color: #d4351c;">l</code>, or <code style="color: #d4351c;">xl</code>.</p>
 
   <h3 class="nhsw-h3">Table headers</h3>
-  <p class="nhsw-body">Use table headers (<code>&lt;th&gt;</code>) to tell users what sort of data the rows and columns contain. The combination of row and column headers helps screen reader users identify the data in each cell. This supports <a class="nhsw-link" href="#">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a>.</p>
-  <p class="nhsw-body">If users need to refer to the first column to understand the context of a cell, for example a name or day of the week, make sure this column's cells are table headers with the <code>scope="row"</code> attribute.</p>
+  <p class="nhsw-body">Use table headers (<code style="color: #d4351c;">&lt;th&gt;</code>) to tell users what sort of data the rows and columns contain. The combination of row and column headers helps screen reader users identify the data in each cell. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">If users need to refer to the first column to understand the context of a cell, for example a name or day of the week, make sure this column's cells are table headers with the <code style="color: #d4351c;">scope="row"</code> attribute.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Tables in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Table on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/table/">Tables in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/61">Table on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
@@ -282,7 +282,7 @@ tabs:
     <li>"Not applicable"</li>
     <li>"Not known"</li>
   </ul>
-  <p class="nhsw-body">To distinguish the text from other table content, use the <code>nhsw-body--secondary</code> modifier class to make it dark grey.</p>
+  <p class="nhsw-body">To distinguish the text from other table content, use the <code style="color: #d4351c;">nhsw-body--secondary</code> modifier class to make it dark grey.</p>
 
   {% capture example_body %}{% raw %}
     <table class="nhsw-table">
@@ -435,11 +435,11 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows the "Transfers in" view under Stock management within WIS. It uses a table component to display structured inventory data in rows and columns.</p>
-  {% include screenshot-placeholder.html text="Transfers in table with vaccine transfer records" %}
+  {% include screenshot-placeholder.html alt="Transfers in table with vaccine transfer records" %}
 
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example shows the "Outcome: Supply" screen within a consultation in Choose Pharmacy. It uses an interactive table component to present formulary options and record medication supplies.</p>
-  {% include screenshot-placeholder.html text="Outcome: Supply table with formulary medicine rows" %}
+  {% include screenshot-placeholder.html alt="Outcome: Supply table with formulary medicine rows" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">

@@ -2,7 +2,7 @@
 layout: component
 title: Checkboxes
 container: fluid
-updated: March 2026
+updated: October 2026
 intro: Use checkboxes to let users select 1 or more options on a form.
 tabs:
   - id: how-to-use
@@ -78,7 +78,7 @@ tabs:
     <li>submit the wrong answer</li>
   </ul>
   <p class="nhsw-body">Order checkbox options alphabetically by default. In some cases, it's helpful to order them from most-to-least common options, for example, by population size. But be careful, as this can reinforce bias. If in doubt, order alphabetically.</p>
-  <p class="nhsw-body">Group checkboxes together in a <code>&lt;fieldset&gt;</code> with a <code>&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. The legend is usually a question, like "How do you want to be contacted about this?".</p>
+  <p class="nhsw-body">Group checkboxes together in a <code style="color: #d4351c;">&lt;fieldset&gt;</code> with a <code style="color: #d4351c;">&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. The legend is usually a question, like "How do you want to be contacted about this?".</p>
   <p class="nhsw-body">Read more about using <a class="nhsw-link" href="#">fieldset</a>.</p>
 
   <h3 class="nhsw-h3">Error messages</h3>
@@ -289,7 +289,7 @@ tabs:
     <p class="nhsw-body">Remember to start by asking 1 question per page. You might be able to remove the need for a "none" option by asking the user a better question or by <a class="nhsw-link" href="#">using filter questions</a> to filter users out beforehand.</p>
     <p class="nhsw-body">Show the "none" option last. Separate it from the other options using a divider, normally the word "or".</p>
     <p class="nhsw-body">Write a label that repeats the key part of the question. For example, for the question "Do you have any of these symptoms?", say "No, I do not have any of these symptoms". Avoid phrases like "none of the above" because this is a visual reference and might be hard for people who use screen readers to understand.</p>
-    <p class="nhsw-body">To enable some JavaScript that unchecks all other checkboxes when the user clicks "none", add the <code>data-checkbox-exclusive</code> behaviour to the "none" checkbox.</p>
+    <p class="nhsw-body">To enable some JavaScript that unchecks all other checkboxes when the user clicks "none", add the <code style="color: #d4351c;">data-checkbox-exclusive</code> behaviour to the "none" checkbox.</p>
 
     {% capture example_body %}{% raw %}
       <fieldset class="nhsw-fieldset" aria-describedby="symptoms-hint">
@@ -567,7 +567,7 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example is from the School-age Immunisations service within WIS. It shows a set of checkboxes that allow users to select one or more options from a list as part of a multi-page form.</p>
-  {% include screenshot-placeholder.html text="Year group checkboxes for a MenACWY and Td/IPV session" %}
+  {% include screenshot-placeholder.html alt="Year group checkboxes for a MenACWY and Td/IPV session" %}
 
   <div class="nhsw-tabs__pagination">
     <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
