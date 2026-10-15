@@ -22,14 +22,14 @@ test.describe('Small variant tap targets', () => {
 });
 
 test.describe('Fieldset legend spacing', () => {
-  test('legend sits flush against a following hint (0px gap)', async ({ page }) => {
+  test('legend has a 16px gap before a following hint', async ({ page }) => {
     await page.goto('/examples/checkboxes-hints.html');
     const gap = await page.evaluate(() => {
       const legend = document.querySelector('.nhsw-fieldset__legend');
       const hint = document.querySelector('.nhsw-hint');
       return hint.getBoundingClientRect().top - legend.getBoundingClientRect().bottom;
     });
-    expect(gap).toBe(0);
+    expect(gap).toBe(16);
   });
 
   test('legend gets a 16px gap before the checkboxes when there is no hint', async ({ page }) => {

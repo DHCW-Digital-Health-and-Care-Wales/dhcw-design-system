@@ -116,3 +116,58 @@ test.describe('Radios spacing, aligned with the NHS.UK radios', () => {
     expect(after.hiddenMargin).toBe('6px');
   });
 });
+
+test.describe('Radio labels never collapse or wrap a word at a time', () => {
+  for (const width of [1000, 390, 320]) {
+    test(`inline radios keep each short label on one line at ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 700 });
+      await page.goto('/examples/radios-inline.html');
+      const labels = await page.locator('.nhsw-radios__label').evaluateAll((els) =>
+        els.map((el) => ({ text: el.textContent.trim(), height: el.getBoundingClientRect().height, width: el.getBoundingClientRect().width }))
+      );
+      for (const label of labels) {
+        expect(label.height, `${label.text} is a single line`).toBeLessThanOrEqual(45);
+        expect(label.width, `${label.text} is wider than its padding`).toBeGreaterThan(40);
+      }
+    });
+  }
+
+  test('small inline radios also keep their labels on one line', async ({ page }) => {
+    await page.goto('/examples/radios-inline.html');
+    await page.evaluate(() => document.querySelector('.nhsw-radios').classList.add('nhsw-radios--small'));
+    const heights = await page.locator('.nhsw-radios__label').evaluateAll((els) => els.map((el) => el.getBoundingClientRect().height));
+    for (const height of heights) expect(height).toBeLessThanOrEqual(45);
+  });
+
+  test('a long label wraps inside the option instead of overflowing the screen, at 320px', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 700 });
+    await page.goto('/examples/radios-default.html');
+    await page.locator('.nhsw-radios__label').first().evaluate((el) => {
+      el.textContent = 'I would like to be contacted by email, telephone or letter about my appointment';
+    });
+    const item = await box(page.locator('.nhsw-radios__item').first());
+    const label = await box(page.locator('.nhsw-radios__label').first());
+    expect(label.height).toBeGreaterThan(60);
+    expect(label.right).toBeLessThanOrEqual(item.right + 1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+  });
+
+  test('a hint stays on its own line under the label, lined up with the option text', async ({ page }) => {
+    await page.goto('/examples/radios-hints.html');
+    const label = await box(page.locator('.nhsw-radios__label').first());
+    const hint = page.locator('.nhsw-radios__hint').first();
+    const hintBox = await box(hint);
+    expect(hintBox.top).toBeGreaterThanOrEqual(label.bottom - 5);
+    const textLeft = await page.locator('.nhsw-radios__label').first().evaluate((el) => {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      return range.getBoundingClientRect().left;
+    });
+    const hintTextLeft = await hint.evaluate((el) => {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      return range.getBoundingClientRect().left;
+    });
+    expect(Math.abs(hintTextLeft - textLeft)).toBeLessThanOrEqual(1);
+  });
+});

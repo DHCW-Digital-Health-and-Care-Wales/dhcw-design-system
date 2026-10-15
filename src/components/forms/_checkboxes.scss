@@ -2,6 +2,7 @@
 @use "../../tokens/typography" as t;
 @use "../../utilities/focus-ring" as u;
 @use "../../utilities/hidden-control" as h;
+@use "../../utilities/breakpoints" as b;
 
 .nhsw-checkboxes {
   margin-bottom: 8px;
@@ -106,14 +107,28 @@
     text-align: center;
   }
 
+  // The line to the left of the conditional content has 6px above it and 2px below
+  // it, as in the radios and the NHS.UK checkboxes. The option that follows it has
+  // more room (14px, 22px from the tablet breakpoint).
   &__conditional {
-    margin-bottom: 16px;
-    margin-left: 18px;
+    margin: 6px 0 2px 18px;
     padding-left: 30px;
     border-left: 4px solid c.$nhsw-colour-border-secondary;
 
     &--hidden {
       display: none;
+    }
+
+    + .nhsw-checkboxes__item {
+      margin-top: 14px;
+
+      @include b.nhsw-from-tablet {
+        margin-top: 22px;
+      }
+    }
+
+    &--hidden + .nhsw-checkboxes__item {
+      margin-top: 0;
     }
 
     .nhsw-label {

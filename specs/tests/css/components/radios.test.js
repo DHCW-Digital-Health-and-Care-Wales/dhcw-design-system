@@ -133,4 +133,10 @@ describe('radios: regular-weight labels, tighter item spacing, no row hover wash
     const conditionalLabel = block(css, '\\.nhsw-radios__conditional \\.nhsw-label');
     expect(conditionalLabel).toMatch(/font-weight:\s*400/);
   });
+
+  it('the label has no percentage max-width, which collapses it to nothing inside an inline (shrink-to-fit) option', () => {
+    const rules = [...css.matchAll(/^\.nhsw-radios__label\s*\{([^}]*)\}/gm)].map((m) => m[1]).join('\n');
+    expect(rules).not.toMatch(/max-width/);
+  });
 });
+

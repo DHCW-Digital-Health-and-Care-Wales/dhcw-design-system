@@ -30,6 +30,12 @@ describe('input shares the standard input styling (border, background, placehold
     expect(invalid).toMatch(/border-color:\s*#d5281b/);
   });
 
+  it('an invalid input keeps its red border (and red inset weight) when focused, alongside the yellow outline', () => {
+    const focus = css.match(/\.nhsw-input\[aria-invalid=true\]:focus[^{]*\{([^}]*)\}/)[1];
+    expect(focus).toMatch(/border-color:\s*#d5281b/);
+    expect(focus).toMatch(/box-shadow:\s*inset 0 0 0 2px #d5281b/);
+  });
+
   it('inherits its font family instead of falling back to the browser default input font', () => {
     const input = block(css, '\\.nhsw-input\\b');
     expect(input).toMatch(/font-family:\s*inherit/);

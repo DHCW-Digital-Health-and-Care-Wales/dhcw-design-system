@@ -9,11 +9,11 @@
   margin: 0 0 8px;
   padding: 0;
 
+  &:has(+ .nhsw-hint) {
+    margin-bottom: 16px;
+  }
+
   &.nhsw-h2 {
     margin-bottom: 16px;
-
-    &:has(+ .nhsw-hint) {
-      margin-bottom: 0;
-    }
   }
 }

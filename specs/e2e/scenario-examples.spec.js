@@ -183,7 +183,7 @@ test.describe('Error summary (SCEN-ERROR-003, SCEN-ERROR-010)', () => {
 });
 
 test.describe('File upload error (SCEN-FILE-010)', () => {
-  test('SCEN-FILE-010: the error state shows a red border and an error message above the box, not colour alone (WCAG 2.2 SC 1.4.1)', async ({ page }) => {
+  test('SCEN-FILE-010: the error state shows an error message above the box and leaves the box outline unchanged, not colour alone (WCAG 2.2 SC 1.4.1)', async ({ page }) => {
     await page.goto('/examples/file-upload-validation.html?submitted=1');
 
     const message = page.locator('#fu-error');
@@ -193,7 +193,7 @@ test.describe('File upload error (SCEN-FILE-010)', () => {
     await expect(message.locator('.nhsw-visually-hidden')).toHaveText('Error: ');
 
     const borderColour = await box.evaluate((el) => getComputedStyle(el).borderTopColor);
-    expect(borderColour).toBe('rgb(213, 40, 27)');
+    expect(borderColour).not.toBe('rgb(213, 40, 27)');
 
     const messageBox = await message.boundingBox();
     const uploadBox = await box.boundingBox();

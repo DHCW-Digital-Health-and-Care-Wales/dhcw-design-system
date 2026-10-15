@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { compileProbe, block } from '../../support/compile-scss.js';
 
-describe('fieldset legend margin: a heading class combined onto the legend gets 16px spacing by default, tightened only when a hint follows', () => {
+describe('fieldset legend margin: a heading class combined onto the legend gets 16px spacing by default, 16px before a hint', () => {
   let css = '';
 
   beforeAll(() => {
@@ -13,8 +13,8 @@ describe('fieldset legend margin: a heading class combined onto the legend gets 
     expect(compound).toMatch(/margin-bottom:\s*16px/);
   });
 
-  it('legend + nhsw-h2 keeps margin-bottom at 0 when a hint immediately follows it', () => {
-    const withHint = block(css, '\\.nhsw-fieldset__legend\\.nhsw-h2:has\\(\\+ \\.nhsw-hint\\)');
-    expect(withHint).toMatch(/margin-bottom:\s*0/);
+  it('any legend has 16px between it and a hint that immediately follows it', () => {
+    const withHint = block(css, '\\.nhsw-fieldset__legend:has\\(\\+ \\.nhsw-hint\\)');
+    expect(withHint).toMatch(/margin-bottom:\s*16px/);
   });
 });

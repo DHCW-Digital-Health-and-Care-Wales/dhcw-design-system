@@ -11,7 +11,7 @@
   line-height: t.$nhsw-line-height-body-small;
 
   &:has(+ .nhsw-hint) {
-    margin-bottom: 0;
+    margin-bottom: 16px;
   }
 
   @include b.nhsw-from-tablet {

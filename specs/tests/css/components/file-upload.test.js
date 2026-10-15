@@ -42,9 +42,8 @@ describe('file upload hover/uploaded/focus states', () => {
     expect(hoverButton).toBe('');
   });
 
-  it('an error state shows a red border around the box', () => {
-    const errorBox = block(css, '\\.nhsw-form-group--error \\.nhsw-file-upload');
-    expect(errorBox).toMatch(/border-color:\s*#d5281b/);
+  it('an error state does not recolour the box: the outline stays as it is', () => {
+    expect(css).not.toMatch(/nhsw-form-group--error/);
   });
 
   it('the uploaded-file state has a white background and a solid (not dashed) border', () => {

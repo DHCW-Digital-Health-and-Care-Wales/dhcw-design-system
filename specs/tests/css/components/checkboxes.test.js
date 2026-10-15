@@ -88,9 +88,15 @@ describe('checkboxes: regular-weight labels, centred tick, row hover, thicker fo
 
   it('conditional content indents 52px total (margin + border + padding), aligning with the 52px item label', () => {
     const conditional = block(css, '\\.nhsw-checkboxes__conditional\\b');
-    expect(conditional).toMatch(/margin-left:\s*18px/);
+    expect(conditional).toMatch(/margin:\s*6px 0 2px 18px/);
     expect(conditional).toMatch(/padding-left:\s*30px/);
     expect(conditional).toMatch(/border-left:\s*4px/);
+  });
+
+  it('the line has 6px above and 2px below, and the option after it has 14px (22px from the tablet breakpoint), the same as the radios', () => {
+    expect(block(css, '\\.nhsw-checkboxes__conditional \\+ \\.nhsw-checkboxes__item')).toMatch(/margin-top:\s*14px/);
+    expect(css).toMatch(/@media \(min-width: 40\.0625em\)\s*\{\s*\.nhsw-checkboxes__conditional \+ \.nhsw-checkboxes__item\s*\{\s*margin-top:\s*22px/);
+    expect(block(css, '\\.nhsw-checkboxes__conditional--hidden \\+ \\.nhsw-checkboxes__item')).toMatch(/margin-top:\s*0/);
   });
 
   it('a nested field label inside conditional content is regular weight, matching the checkbox label rather than the bold default', () => {
