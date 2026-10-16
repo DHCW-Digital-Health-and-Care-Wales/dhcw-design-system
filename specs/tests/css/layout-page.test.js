@@ -114,3 +114,34 @@ describe('Layout page examples', () => {
     expect(read('preview/examples/layout-one-half.html').match(/nhsw-grid-column-one-half/g)).toHaveLength(2);
   });
 });
+
+describe('Layout example fixes from design review', () => {
+  it('a back link followed by a page heading leaves 40px between them', () => {
+    const css = compileProbe(`@use "components/actions/back-link";`);
+    expect(block(css, '\\.nhsw-back-link \\+ \\.nhsw-h1')).toMatch(/margin-top:\s*40px/);
+  });
+
+  it('the example pages line the logo up with the page content using the fluid header container', () => {
+    expect(read('preview/_layouts/example.html')).toContain('nhsw-site-header__container--fluid');
+    const css = compileProbe(`@use "components/site/header";`);
+    expect(block(css, '\\.nhsw-site-header__container--fluid')).toMatch(/padding:\s*0 16px/);
+    expect(css).toMatch(/\.nhsw-site-header__container--fluid\s*\{\s*padding:\s*0 40px/);
+  });
+
+  it('the one-half example has the heading above the grid, so both columns start at the same height', () => {
+    const example = read('preview/examples/layout-one-half.html');
+    expect(example.indexOf('<h1')).toBeLessThan(example.indexOf('nhsw-grid-row'));
+    const columns = example.split('nhsw-grid-column-one-half').slice(1);
+    expect(columns).toHaveLength(2);
+    columns.forEach((c) => expect(c).not.toMatch(/^[^<]*>\s*<h1/));
+  });
+
+  it('the patient header example uses the patient header banner, not a summary list table', () => {
+    const example = read('preview/examples/layout-patient-header.html');
+    expect(example).toContain('nhsw-patient-header__name');
+    expect(example).toContain('Adverse reactions:');
+    expect(example).toContain('View or change');
+    expect(example).not.toContain('nhsw-summary-list');
+    expect(page).not.toContain('nhsw-summary-list');
+  });
+});

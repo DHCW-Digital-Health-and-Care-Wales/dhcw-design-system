@@ -19,6 +19,15 @@
     max-width: 68.75rem;
     margin: 0 auto;
   }
+
+  // Lines the logo up with the left edge of .nhsw-fluid-container content.
+  &--fluid {
+    padding: 0 16px;
+
+    @include b.nhsw-from-desktop {
+      padding: 0 40px;
+    }
+  }
 }
 
 .nhsw-site-header__top {

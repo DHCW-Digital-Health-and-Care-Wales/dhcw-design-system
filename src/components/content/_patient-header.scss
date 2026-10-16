@@ -1,12 +1,64 @@
 @use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
 
 .nhsw-patient-header {
   margin: 0 0 32px;
   padding: 16px;
   border: 1px solid c.$nhsw-colour-border-grey;
   background-color: c.$nhsw-colour-background-white;
+  color: c.$nhsw-colour-text-primary;
+  font-family: t.$nhsw-font-family-base;
+  font-size: t.$nhsw-font-size-body-extra-small;
+  line-height: t.$nhsw-line-height-body-extra-small;
 
   > :last-child {
     margin-bottom: 0;
+  }
+}
+
+.nhsw-patient-header__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+
+  & + & {
+    margin-top: 8px;
+  }
+}
+
+.nhsw-patient-header__name {
+  margin: 0;
+  font-size: t.$nhsw-font-size-body-small;
+  font-weight: t.$nhsw-font-weight-bold;
+  line-height: t.$nhsw-line-height-body-small;
+}
+
+.nhsw-patient-header__details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 0;
+  margin: 0;
+}
+
+.nhsw-patient-header__item {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0 12px;
+  border-left: 1px solid c.$nhsw-colour-border-grey;
+
+  &:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  dt {
+    font-weight: t.$nhsw-font-weight-bold;
+  }
+
+  dd {
+    margin: 0;
   }
 }

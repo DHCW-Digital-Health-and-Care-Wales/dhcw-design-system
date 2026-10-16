@@ -167,3 +167,38 @@ describe('numbered pagination on a narrow screen reduces to Previous, first, cur
   });
 });
 
+
+describe('content previous/next pagination: icon size, text alignment and title style', () => {
+  let css = '';
+
+  beforeAll(() => {
+    css = compileProbe(`@use "components/content/pagination";`);
+  });
+
+  it('arrow icons use the 17x15 icon-page size', () => {
+    const icon = block(css, '\.nhsw-pagination__link \.nhsw-icon');
+    expect(icon).toMatch(/width:\s*17px/);
+    expect(icon).toMatch(/height:\s*15px/);
+  });
+
+  it('the title and page label share one left (or right) edge: the link is padded, not the title', () => {
+    expect(block(css, '\.nhsw-pagination-item--previous \.nhsw-pagination__link')).toMatch(/padding-left:\s*29px/);
+    expect(block(css, '\.nhsw-pagination-item--next \.nhsw-pagination__link')).toMatch(/padding-right:\s*29px/);
+    expect(css).not.toMatch(/\.nhsw-pagination-item--(previous|next) \.nhsw-pagination__title/);
+  });
+
+  it('the title is regular weight and underlined, like the page label, until hover or focus', () => {
+    const title = block(css, '\.nhsw-pagination__link \.nhsw-pagination__title');
+    expect(title).toMatch(/font-weight:\s*400/);
+    expect(title).toMatch(/text-decoration:\s*underline/);
+    expect(css).toMatch(/\.nhsw-pagination__link:hover \.nhsw-pagination__title/);
+    expect(css).toMatch(/\.nhsw-pagination__link:focus \.nhsw-pagination__title/);
+  });
+});
+
+describe('numbered pagination on a narrow screen', () => {
+  it('spreads the page numbers across the full width, so the first and last line up with Previous and Next', () => {
+    const css = compileProbe(`@use "components/content/pagination";`);
+    expect(css).toMatch(/@media \(max-width: [^)]*\)\s*\{[\s\S]*?\.nhsw-pagination--numbered \.nhsw-pagination__list\s*\{\s*justify-content:\s*space-between/);
+  });
+});

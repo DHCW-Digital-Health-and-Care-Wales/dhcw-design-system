@@ -3,21 +3,33 @@ layout: example
 title: Patient header layout example
 ---
 <a class="nhsw-back-link" href="#">Back</a>
-<div class="nhsw-patient-header">
-  <dl class="nhsw-summary-list nhsw-summary-list--no-border">
-    <div class="nhsw-summary-list__row">
-      <dt class="nhsw-summary-list__key">Name</dt>
-      <dd class="nhsw-summary-list__value">Jane Doe</dd>
-    </div>
-    <div class="nhsw-summary-list__row">
-      <dt class="nhsw-summary-list__key">Date of birth</dt>
-      <dd class="nhsw-summary-list__value">1 January 1980</dd>
-    </div>
-    <div class="nhsw-summary-list__row">
-      <dt class="nhsw-summary-list__key">NHS number</dt>
-      <dd class="nhsw-summary-list__value">999 999 9999</dd>
-    </div>
-  </dl>
-</div>
+<section class="nhsw-patient-header" aria-label="Patient details">
+  <div class="nhsw-patient-header__row">
+    <p class="nhsw-patient-header__name">ANDERSON, Mary (Ms)</p>
+    <dl class="nhsw-patient-header__details">
+      <div class="nhsw-patient-header__item">
+        <dt>Date of birth:</dt>
+        <dd>4 Apr 1990 (35y 5m)</dd>
+      </div>
+      <div class="nhsw-patient-header__item">
+        <dt>NHS number:</dt>
+        <dd>123 456 7890</dd>
+      </div>
+      <div class="nhsw-patient-header__item">
+        <dt>Gender:</dt>
+        <dd>Female</dd>
+      </div>
+    </dl>
+  </div>
+  <div class="nhsw-patient-header__row">
+    <dl class="nhsw-patient-header__details">
+      <div class="nhsw-patient-header__item">
+        <dt>Adverse reactions:</dt>
+        <dd>Peanuts, Milk, Lactose, Eggs, Shellfish</dd>
+      </div>
+    </dl>
+    <a class="nhsw-link" href="#">View or change</a>
+  </div>
+</section>
 <h1 class="nhsw-h1">Patient record</h1>
 <p class="nhsw-body">Patient information stays visible above the page content and is clearly separated from it.</p>

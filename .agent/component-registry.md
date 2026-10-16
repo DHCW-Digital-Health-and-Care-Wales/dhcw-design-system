@@ -506,5 +506,5 @@ Colour swatches for the Colours page (`nhsw-colour-swatches` wrapper, `nhsw-colo
 Inline code in the destructive red colour, used for code and variable names in documentation text.
 
 ## nhsw-patient-header
-Patient summary area shown above the page content: a white bordered box with 16px internal padding and 32px of space below it. Hold a summary list (`nhsw-summary-list--no-border`) with the patient's name, date of birth and NHS number.
+Patient banner shown above the page content: a white bordered box with 16px internal padding and 32px of space below it, in small text. A row holds the patient name (`nhsw-patient-header__name`, bold) and a `nhsw-patient-header__details` description list of `nhsw-patient-header__item` entries (bold term, value), separated by thin vertical dividers. Further rows (`nhsw-patient-header__row`) can hold items such as adverse reactions, with a `nhsw-link` such as View or change.
 

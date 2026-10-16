@@ -88,9 +88,9 @@ breadcrumb_parent_url: /styles.html
 {% include example-preview.html id="layout-one-half" open_url="/examples/layout-one-half.html" body=example_body %}
 
 {% capture html_sample %}{% raw %}&lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
+&lt;h1 class="nhsw-h1"&gt;One-half width layout&lt;/h1&gt;
 &lt;div class="nhsw-grid-row"&gt;
   &lt;div class="nhsw-grid-column-one-half"&gt;
-    &lt;h1 class="nhsw-h1"&gt;One-half width layout&lt;/h1&gt;
     &lt;p class="nhsw-body"&gt;Use a one-half column when content is shorter or line length needs to be constrained for readability.&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class="nhsw-grid-column-one-half"&gt;
@@ -102,9 +102,9 @@ breadcrumb_parent_url: /styles.html
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
   &lt;div class="nhsw-fluid-container"&gt;
     {{ nhswBackLink({ href: "#" }) }}
+    &lt;h1 class="nhsw-h1"&gt;One-half width layout&lt;/h1&gt;
     &lt;div class="nhsw-grid-row"&gt;
       &lt;div class="nhsw-grid-column-one-half"&gt;
-        &lt;h1 class="nhsw-h1"&gt;One-half width layout&lt;/h1&gt;
         &lt;p class="nhsw-body"&gt;Use a one-half column when content is shorter or line length needs to be constrained for readability.&lt;/p&gt;
       &lt;/div&gt;
       &lt;div class="nhsw-grid-column-one-half"&gt;
@@ -129,22 +129,34 @@ breadcrumb_parent_url: /styles.html
 {% include example-preview.html id="layout-patient-header" open_url="/examples/layout-patient-header.html" body=example_body %}
 
 {% capture html_sample %}{% raw %}&lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
-&lt;div class="nhsw-patient-header"&gt;
-  &lt;dl class="nhsw-summary-list nhsw-summary-list--no-border"&gt;
-    &lt;div class="nhsw-summary-list__row"&gt;
-      &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
-      &lt;dd class="nhsw-summary-list__value"&gt;Jane Doe&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div class="nhsw-summary-list__row"&gt;
-      &lt;dt class="nhsw-summary-list__key"&gt;Date of birth&lt;/dt&gt;
-      &lt;dd class="nhsw-summary-list__value"&gt;1 January 1980&lt;/dd&gt;
-    &lt;/div&gt;
-    &lt;div class="nhsw-summary-list__row"&gt;
-      &lt;dt class="nhsw-summary-list__key"&gt;NHS number&lt;/dt&gt;
-      &lt;dd class="nhsw-summary-list__value"&gt;999 999 9999&lt;/dd&gt;
-    &lt;/div&gt;
-  &lt;/dl&gt;
-&lt;/div&gt;
+&lt;section class="nhsw-patient-header" aria-label="Patient details"&gt;
+  &lt;div class="nhsw-patient-header__row"&gt;
+    &lt;p class="nhsw-patient-header__name"&gt;ANDERSON, Mary (Ms)&lt;/p&gt;
+    &lt;dl class="nhsw-patient-header__details"&gt;
+      &lt;div class="nhsw-patient-header__item"&gt;
+        &lt;dt&gt;Date of birth:&lt;/dt&gt;
+        &lt;dd&gt;4 Apr 1990 (35y 5m)&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-patient-header__item"&gt;
+        &lt;dt&gt;NHS number:&lt;/dt&gt;
+        &lt;dd&gt;123 456 7890&lt;/dd&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-patient-header__item"&gt;
+        &lt;dt&gt;Gender:&lt;/dt&gt;
+        &lt;dd&gt;Female&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-patient-header__row"&gt;
+    &lt;dl class="nhsw-patient-header__details"&gt;
+      &lt;div class="nhsw-patient-header__item"&gt;
+        &lt;dt&gt;Adverse reactions:&lt;/dt&gt;
+        &lt;dd&gt;Peanuts, Milk, Lactose, Eggs, Shellfish&lt;/dd&gt;
+      &lt;/div&gt;
+    &lt;/dl&gt;
+    &lt;a class="nhsw-link" href="#"&gt;View or change&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
 &lt;h1 class="nhsw-h1"&gt;Patient record&lt;/h1&gt;
 &lt;p class="nhsw-body"&gt;Patient information stays visible above the page content and is clearly separated from it.&lt;/p&gt;{% endraw %}{% endcapture %}
 {% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
@@ -152,22 +164,34 @@ breadcrumb_parent_url: /styles.html
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
   &lt;div class="nhsw-fluid-container"&gt;
     {{ nhswBackLink({ href: "#" }) }}
-    &lt;div class="nhsw-patient-header"&gt;
-      &lt;dl class="nhsw-summary-list nhsw-summary-list--no-border"&gt;
-        &lt;div class="nhsw-summary-list__row"&gt;
-          &lt;dt class="nhsw-summary-list__key"&gt;Name&lt;/dt&gt;
-          &lt;dd class="nhsw-summary-list__value"&gt;Jane Doe&lt;/dd&gt;
-        &lt;/div&gt;
-        &lt;div class="nhsw-summary-list__row"&gt;
-          &lt;dt class="nhsw-summary-list__key"&gt;Date of birth&lt;/dt&gt;
-          &lt;dd class="nhsw-summary-list__value"&gt;1 January 1980&lt;/dd&gt;
-        &lt;/div&gt;
-        &lt;div class="nhsw-summary-list__row"&gt;
-          &lt;dt class="nhsw-summary-list__key"&gt;NHS number&lt;/dt&gt;
-          &lt;dd class="nhsw-summary-list__value"&gt;999 999 9999&lt;/dd&gt;
-        &lt;/div&gt;
-      &lt;/dl&gt;
-    &lt;/div&gt;
+    &lt;section class="nhsw-patient-header" aria-label="Patient details"&gt;
+      &lt;div class="nhsw-patient-header__row"&gt;
+        &lt;p class="nhsw-patient-header__name"&gt;ANDERSON, Mary (Ms)&lt;/p&gt;
+        &lt;dl class="nhsw-patient-header__details"&gt;
+          &lt;div class="nhsw-patient-header__item"&gt;
+            &lt;dt&gt;Date of birth:&lt;/dt&gt;
+            &lt;dd&gt;4 Apr 1990 (35y 5m)&lt;/dd&gt;
+          &lt;/div&gt;
+          &lt;div class="nhsw-patient-header__item"&gt;
+            &lt;dt&gt;NHS number:&lt;/dt&gt;
+            &lt;dd&gt;123 456 7890&lt;/dd&gt;
+          &lt;/div&gt;
+          &lt;div class="nhsw-patient-header__item"&gt;
+            &lt;dt&gt;Gender:&lt;/dt&gt;
+            &lt;dd&gt;Female&lt;/dd&gt;
+          &lt;/div&gt;
+        &lt;/dl&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-patient-header__row"&gt;
+        &lt;dl class="nhsw-patient-header__details"&gt;
+          &lt;div class="nhsw-patient-header__item"&gt;
+            &lt;dt&gt;Adverse reactions:&lt;/dt&gt;
+            &lt;dd&gt;Peanuts, Milk, Lactose, Eggs, Shellfish&lt;/dd&gt;
+          &lt;/div&gt;
+        &lt;/dl&gt;
+        &lt;a class="nhsw-link" href="#"&gt;View or change&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
     &lt;h1 class="nhsw-h1"&gt;Patient record&lt;/h1&gt;
     &lt;p class="nhsw-body"&gt;Patient information stays visible above the page content and is clearly separated from it.&lt;/p&gt;
   &lt;/div&gt;

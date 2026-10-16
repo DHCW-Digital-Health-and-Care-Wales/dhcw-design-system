@@ -58,3 +58,7 @@ $nhsw-colour-back-link-hover: c.$nhsw-colour-link-hover;
     }
   }
 }
+
+.nhsw-back-link + .nhsw-h1 {
+  margin-top: 40px;
+}

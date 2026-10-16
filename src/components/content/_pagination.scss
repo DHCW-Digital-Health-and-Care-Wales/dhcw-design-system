@@ -30,12 +30,12 @@
   text-align: left;
   width: 50%;
 
-  .nhsw-icon {
-    left: -6px;
+  .nhsw-pagination__link {
+    padding-left: 29px;
   }
 
-  .nhsw-pagination__title {
-    padding-left: 32px;
+  .nhsw-icon {
+    left: 0;
   }
 }
 
@@ -44,12 +44,12 @@
   text-align: right;
   width: 50%;
 
-  .nhsw-icon {
-    right: -6px;
+  .nhsw-pagination__link {
+    padding-right: 29px;
   }
 
-  .nhsw-pagination__title {
-    padding-right: 32px;
+  .nhsw-icon {
+    right: 0;
   }
 }
 
@@ -62,15 +62,25 @@
 
   .nhsw-icon {
     position: absolute;
-    top: -2px;
-    width: 34px;
-    height: auto;
+    top: 6px;
+    width: 17px;
+    height: 15px;
     fill: c.$nhsw-colour-text-primary;
+
+    @include b.nhsw-from-tablet {
+      top: 8px;
+    }
+  }
+
+  .nhsw-pagination__title {
+    font-weight: 400;
+    text-decoration: underline;
   }
 
   &:hover {
     color: c.$nhsw-colour-link-hover;
 
+    .nhsw-pagination__title,
     .nhsw-pagination__page {
       text-decoration: none;
     }
@@ -83,6 +93,7 @@
     outline: 4px solid transparent;
     text-decoration: none;
 
+    .nhsw-pagination__title,
     .nhsw-pagination__page {
       text-decoration: none;
     }
@@ -285,6 +296,10 @@ $nhsw-pagination-plain-item: ":not(.nhsw-pagination__item--current):not(.nhsw-pa
 
 @include b.nhsw-below-tablet {
   .nhsw-pagination--numbered {
+    .nhsw-pagination__list {
+      justify-content: space-between;
+    }
+
     .nhsw-pagination__item#{$nhsw-pagination-plain-item}:not(:first-child):not(:last-child) {
       display: none;
     }
