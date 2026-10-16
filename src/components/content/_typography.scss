@@ -54,6 +54,10 @@ body {
   @include type.nhsw-body-s;
 }
 
+.nhsw-lede-text {
+  @include type.nhsw-lede;
+}
+
 .nhsw-body--secondary {
   color: c.$nhsw-colour-text-secondary;
 }

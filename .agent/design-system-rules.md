@@ -45,6 +45,7 @@ Please note that our organisation is called Digital Health and Care Wales, so br
 - nhsw-grid-row, nhsw-grid-column-* (full, one-half, one-third, two-thirds, one-quarter, three-quarters)
 - nhsw-site-footer
 - nhsw-body, nhsw-body-s
+- nhsw-lede-text
 - nhsw-h1 to nhsw-h5
 - nhsw-form-group (--error)
 - nhsw-label (--s, --m, --l, --xl)

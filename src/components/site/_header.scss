@@ -445,7 +445,12 @@
 
 @media (max-width: 40rem) {
   .nhsw-site-header__brand {
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .nhsw-site-header__logo img,
+  .nhsw-site-header__logo svg {
+    height: 3.5rem;
   }
 
   .nhsw-site-header__search {

@@ -1298,6 +1298,23 @@ body {
   }
 }
 
+.nhsw-lede-text {
+  font-family: Roboto, Arial, sans-serif;
+  color: #212b32;
+  font-size: 1.375rem;
+  line-height: 1.8125rem;
+  font-weight: 400;
+  margin: 0 0 24px;
+  display: block;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-lede-text {
+    font-size: 1.625rem;
+    line-height: 2rem;
+    margin-bottom: 32px;
+  }
+}
+
 .nhsw-body--secondary {
   color: #4c6272;
 }
@@ -4261,7 +4278,11 @@ body {
 }
 @media (max-width: 40rem) {
   .nhsw-site-header__brand {
-    align-items: flex-start;
+    align-items: center;
+  }
+  .nhsw-site-header__logo img,
+  .nhsw-site-header__logo svg {
+    height: 3.5rem;
   }
   .nhsw-site-header__search {
     flex-basis: 100%;
