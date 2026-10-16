@@ -31,7 +31,8 @@ test.describe('Homepage', () => {
     const footerLinks = page.locator('.nhsw-site-footer__links a');
     await expect(footerLinks).toHaveCount(5);
     const badge = page.locator('.nhsw-site-footer__licence-badge');
-    await expect(badge).toHaveAttribute('src', /ogl-logo\.svg$/);
     await expect(badge).toBeVisible();
+    expect(await badge.evaluate((el) => el.tagName.toLowerCase()), 'the OGL logo is inline SVG, so it cannot be a broken file reference').toBe('svg');
+    await expect(badge.locator('path')).toHaveCount(1);
   });
 });

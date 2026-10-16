@@ -40,7 +40,7 @@ params:
     description: >
       { text, href, badgeSrc } renders an open-licence line (e.g. Open
       Government Licence v3.0) below the links, above the copyright, each as
-      its own full-width row. badgeSrc defaults to "/assets/ogl-logo.svg".
+      its own full-width row. the OGL logo is drawn inline as SVG, or badgeSrc points at an image instead.
       Mutually exclusive with organisation/versionText/navigation.
   - name: classes
     type: string

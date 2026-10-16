@@ -454,6 +454,7 @@ Pass a `nav` param (`{ items, ariaLabel, classes, attributes }`) and `nhswHeader
 
 Pass `phaseBanner` (`{ tag, text, html }`) to show an Alpha/Beta `nhsw-phase-banner--reverse` inside the dark header, and `user` (`{ name, logoutText, logoutHref }`) to show the signed-in user and a log out link on the right:
 - nhsw-site-header__account, __user, __user-icon, __user-name, __logout
+- header variants: nhsw-site-header--light (white header), nhsw-site-header--compact (shorter bar for the logged-in header), nhsw-site-header__logo--icon (small icon in place of the full logo), nhsw-site-header__user--outline (outlined account chip, for example the user and the location)
 
 ## nhsw-site-header__nav
 Primary navigation row (macro: `nhswSiteNavigation`, `src/components/site-navigation/`) — never hidden: items that do not fit move into a "More" menu, as in the NHS.UK header. Pass `overflowMenu: false` to hide it below the tablet breakpoint instead. Callable standalone, or via `nhswHeader`'s `nav` param.
@@ -506,5 +507,5 @@ Colour swatches for the Colours page (`nhsw-colour-swatches` wrapper, `nhsw-colo
 Inline code in the destructive red colour, used for code and variable names in documentation text.
 
 ## nhsw-patient-header
-Patient banner shown above the page content: a white bordered box with 16px internal padding and 32px of space below it, in small text. A row holds the patient name (`nhsw-patient-header__name`, bold) and a `nhsw-patient-header__details` description list of `nhsw-patient-header__item` entries (bold term, value), separated by thin vertical dividers. Further rows (`nhsw-patient-header__row`) can hold items such as adverse reactions, with a `nhsw-link` such as View or change.
+Patient banner shown above the page content, from the Figma banner: a white bar with 20px above and below and 32px of space after it, in 16px text. `nhsw-patient-header__inner` holds the rows (8px gap, 8px 40px 16px padding from desktop). A row (`nhsw-patient-header__row`, `--identity` for the first) holds the patient name (`nhsw-patient-header__name`, 26px bold) and a `nhsw-patient-header__details` description list of `nhsw-patient-header__item` entries (bold term, value), separated by 1px dividers. Further rows can hold items such as adverse reactions, with a `nhsw-link` such as View or change.
 

@@ -28,7 +28,8 @@ test.describe('Site footer on every documentation page', () => {
 
       const logo = footer.locator('.nhsw-site-footer__licence-badge');
       await expect(logo).toBeVisible();
-      expect(await logo.evaluate((img) => img.naturalWidth), 'the OGL logo image loads').toBeGreaterThan(0);
+      expect((await logo.boundingBox()).width, 'the OGL logo has drawn').toBeGreaterThan(0);
+      expect(await logo.evaluate((el) => el.tagName.toLowerCase()), 'the OGL logo is inline SVG').toBe('svg');
 
       await expect(footer.locator('.nhsw-site-footer__licence-text')).toContainText(
         'All content is available under the Open Government Licence v3.0, except where otherwise stated.'

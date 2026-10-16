@@ -11,7 +11,7 @@
     licence        object  - { text, href, badgeSrc } open-licence mode: renders links,
                               then a licence line (OGL logo + text with a link at href),
                               then copyright, each as their own full-width row.
-                              badgeSrc defaults to "/assets/ogl-logo.svg". Mutually
+                              the OGL logo is drawn inline as SVG, or badgeSrc points at an image instead. Mutually
                               exclusive with organisation/versionText/navigation.
     classes        string  - extra classes
     attributes     object  - extra HTML attributes
@@ -40,7 +40,11 @@
 {%- endfor %}
     </ul>
     <div class="nhsw-site-footer__licence">
-      <img class="nhsw-site-footer__licence-badge" src="{{ params.licence.badgeSrc or '/assets/ogl-logo.svg' }}" alt="" width="50" height="25" aria-hidden="true">
+{%- if params.licence.badgeSrc %}
+      <img class="nhsw-site-footer__licence-badge" src="{{ params.licence.badgeSrc }}" alt="" width="50" height="25" aria-hidden="true">
+{%- else %}
+      <svg class="nhsw-site-footer__licence-badge" width="50" height="25" viewBox="0 0 500 250" aria-hidden="true" focusable="false"><path fill="#0b0c0c" fill-rule="evenodd" d="M111 39L134 39L156 45L181 61L191 72L197 82L206 69L221 55L241 44L255 40L290 40L306 45L321 53L338 68L344 76L344 80L308 103L297 91L288 86L281 84L264 84L257 86L245 93L236 104L231 118L231 132L237 148L245 157L254 163L269 167L282 166L296 160L299 157L296 151L289 145L289 143L281 136L279 132L349 132L349 209L346 209L330 190L313 202L295 209L285 211L260 211L250 209L230 201L217 192L205 180L198 168L188 182L174 195L154 206L140 210L104 210L88 205L72 196L54 179L41 156L36 135L36 115L38 104L48 80L55 70L67 58L86 46ZM407 39L408 165L462 165L462 209L363 209L363 67ZM114 84L99 90L87 102L81 117L81 133L89 151L102 162L119 167L132 166L147 159L158 147L164 130L163 115L156 100L144 89L131 84Z"/></svg>
+{%- endif %}
       <p class="nhsw-body-s nhsw-site-footer__licence-text">All content is available under the <a class="nhsw-link" href="{{ params.licence.href }}">{{ params.licence.text }}</a>, except where otherwise stated.</p>
     </div>
     <p class="nhsw-body-s nhsw-site-footer__copyright">{{ params.copyrightText or "&copy; Digital Health and Care Wales" | safe }}</p>

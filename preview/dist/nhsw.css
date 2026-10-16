@@ -2020,59 +2020,77 @@ body {
 
 .nhsw-patient-header {
   margin: 0 0 32px;
-  padding: 16px;
-  border: 1px solid #d8dde0;
+  padding: 20px 0;
   background-color: #ffffff;
   color: #212b32;
   font-family: Roboto, Arial, sans-serif;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
-.nhsw-patient-header > :last-child {
-  margin-bottom: 0;
+
+.nhsw-patient-header__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 16px 16px;
+}
+@media (min-width: 48.0625em) {
+  .nhsw-patient-header__inner {
+    padding: 8px 40px 16px;
+  }
 }
 
 .nhsw-patient-header__row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 16px;
-}
-.nhsw-patient-header__row + .nhsw-patient-header__row {
-  margin-top: 8px;
+  gap: 8px 16px;
+  align-self: stretch;
 }
 
 .nhsw-patient-header__name {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.375rem;
   font-weight: 700;
-  line-height: 1.5rem;
+  line-height: 1.8125rem;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-patient-header__name {
+    font-size: 1.625rem;
+    line-height: 2rem;
+  }
 }
 
 .nhsw-patient-header__details {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 0;
+  gap: 8px 24px;
   margin: 0;
+  padding: 0;
 }
 
 .nhsw-patient-header__item {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   margin: 0;
-  padding: 0 12px;
-  border-left: 1px solid #d8dde0;
+  padding-right: 16px;
+  border-right: 1px solid #d8dde0;
 }
-.nhsw-patient-header__item:first-child {
-  padding-left: 0;
-  border-left: 0;
+.nhsw-patient-header__item:last-child {
+  padding-right: 0;
+  border-right: 0;
 }
 .nhsw-patient-header__item dt {
   font-weight: 700;
 }
 .nhsw-patient-header__item dd {
   margin: 0;
+}
+
+.nhsw-patient-header__row--identity .nhsw-patient-header__details {
+  padding-left: 16px;
 }
 
 .nhsw-timeout-modal {
@@ -3899,7 +3917,8 @@ body {
   overflow: hidden;
 }
 .nhsw-card--preview .nhsw-card__preview {
-  height: 160px;
+  height: auto;
+  aspect-ratio: 320/234;
   margin: 0;
   padding: 0;
   border: 0;
@@ -3909,8 +3928,7 @@ body {
   max-width: none;
   height: 100%;
   max-height: none;
-  object-fit: cover;
-  object-position: center;
+  object-fit: contain;
 }
 .nhsw-card--preview .nhsw-card__content {
   padding: 16px;
@@ -4094,8 +4112,10 @@ body {
 }
 .nhsw-site-header__account {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
+  margin-left: auto;
 }
 
 .nhsw-site-header__user {
@@ -4414,6 +4434,41 @@ body {
     flex-basis: 100%;
   }
 }
+.nhsw-site-header--light {
+  background-color: #ffffff;
+  color: #212b32;
+}
+.nhsw-site-header--light .nhsw-site-header__brand,
+.nhsw-site-header--light .nhsw-site-header__title {
+  color: #212b32;
+}
+.nhsw-site-header--light .nhsw-site-header__user {
+  color: #212b32;
+}
+.nhsw-site-header--light .nhsw-site-header__logout {
+  color: #005aa8;
+}
+
+.nhsw-site-header--compact .nhsw-site-header__top {
+  min-height: 4rem;
+  padding: 0.75rem 0;
+}
+
+.nhsw-site-header__logo--icon img,
+.nhsw-site-header__logo--icon svg {
+  height: 2.5rem;
+}
+
+.nhsw-site-header__user--outline {
+  padding-right: 12px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+}
+
+.nhsw-site-header--light .nhsw-site-header__user--outline {
+  border-color: #d8dde0;
+}
+
 .nhsw-phase-banner {
   color: #212b32;
 }
@@ -4676,8 +4731,8 @@ body {
 
 .nhsw-site-footer__org {
   margin: 0;
-  color: #212b32;
-  font-weight: 700;
+  color: #4c6272;
+  font-weight: 400;
 }
 
 .nhsw-site-footer__version {

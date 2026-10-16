@@ -69,3 +69,13 @@ describe('site footer matches Figma Footer component', () => {
     expect(css).toMatch(/@media \(max-width: 40\.0624em\)\s*\{\s*\.nhsw-site-footer__licence-text\s*\{[^}]*font-size:\s*1rem/);
   });
 });
+
+describe('footer without links: the organisation descriptor', () => {
+  it('is grey and regular weight, not bold', () => {
+    const css = compileProbe('@use "components/site/footer";');
+    const org = block(css, '\\.nhsw-site-footer__org');
+    expect(org).toMatch(/color:\s*#4c6272/);
+    expect(org).toMatch(/font-weight:\s*400/);
+    expect(org).not.toMatch(/700/);
+  });
+});

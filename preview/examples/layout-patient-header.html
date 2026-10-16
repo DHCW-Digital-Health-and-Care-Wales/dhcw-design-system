@@ -4,31 +4,33 @@ title: Patient header layout example
 ---
 <a class="nhsw-back-link" href="#">Back</a>
 <section class="nhsw-patient-header" aria-label="Patient details">
-  <div class="nhsw-patient-header__row">
-    <p class="nhsw-patient-header__name">ANDERSON, Mary (Ms)</p>
-    <dl class="nhsw-patient-header__details">
-      <div class="nhsw-patient-header__item">
-        <dt>Date of birth:</dt>
-        <dd>4 Apr 1990 (35y 5m)</dd>
-      </div>
-      <div class="nhsw-patient-header__item">
-        <dt>NHS number:</dt>
-        <dd>123 456 7890</dd>
-      </div>
-      <div class="nhsw-patient-header__item">
-        <dt>Gender:</dt>
-        <dd>Female</dd>
-      </div>
-    </dl>
-  </div>
-  <div class="nhsw-patient-header__row">
-    <dl class="nhsw-patient-header__details">
-      <div class="nhsw-patient-header__item">
-        <dt>Adverse reactions:</dt>
-        <dd>Peanuts, Milk, Lactose, Eggs, Shellfish</dd>
-      </div>
-    </dl>
-    <a class="nhsw-link" href="#">View or change</a>
+  <div class="nhsw-patient-header__inner">
+    <div class="nhsw-patient-header__row nhsw-patient-header__row--identity">
+      <p class="nhsw-patient-header__name">ANDERSON, Mary (Ms)</p>
+      <dl class="nhsw-patient-header__details">
+        <div class="nhsw-patient-header__item">
+          <dt>Date of birth:</dt>
+          <dd>4 Apr 1990 (35y 5m)</dd>
+        </div>
+        <div class="nhsw-patient-header__item">
+          <dt>NHS number:</dt>
+          <dd>123 456 7890</dd>
+        </div>
+        <div class="nhsw-patient-header__item">
+          <dt>Gender:</dt>
+          <dd>Female</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="nhsw-patient-header__row">
+      <dl class="nhsw-patient-header__details">
+        <div class="nhsw-patient-header__item">
+          <dt>Adverse reactions:</dt>
+          <dd>Peanuts, Milk, Lactose, Eggs, Shellfish</dd>
+        </div>
+      </dl>
+      <a class="nhsw-link" href="#">View or change</a>
+    </div>
   </div>
 </section>
 <h1 class="nhsw-h1">Patient record</h1>

@@ -144,6 +144,341 @@ tabs:
 <!-- Variants -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Header variants</h2>
+  <p class="nhsw-body">Account information and links can be used with the other header features, for example service name and search. However, keep the number of items in the header to a minimum.</p>
+  <p class="nhsw-body">When allowing users to log in to your service, make sure you have a visible service name, so that they know which system they are logging in to.</p>
+  <p class="nhsw-body">You can add multiple items to the account information, such as the logged-in user's name and role. Items can be links or just plain text information.</p>
+  <p class="nhsw-body">Keep the number of links to a minimum. If you have more than 3 account links, consider combining functions and putting them on a separate page. For example, an account settings page could include actions like change name, change role and reset password. Test with users so you know which combination of items best meets their needs.</p>
+  <p class="nhsw-body">If you use a log out link, put it last in the list, showing top right on desktop screens and last on small screens. If you put log out and other account actions on a separate page, show the log out link last.</p>
+
+  <h3 class="nhsw-h3">Logged-in header</h3>
+  {% capture example_body %}
+      <header class="nhsw-site-header nhsw-site-header--light nhsw-site-header--compact">
+        <div class="nhsw-site-header__container">
+          <div class="nhsw-site-header__top">
+            <div class="nhsw-site-header__account">
+              <span class="nhsw-site-header__user nhsw-site-header__user--outline"><svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#005AA8"/><path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/></svg><span class="nhsw-site-header__user-name">Jane Doe</span></span>
+              <span class="nhsw-site-header__user nhsw-site-header__user--outline"><svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#005AA8"/><path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><span class="nhsw-site-header__user-name">Aneurin Bevan University Health Board</span></span>
+              <a class="nhsw-site-header__logout" href="#">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+  {% endcapture %}
+  {% include example-preview.html id="hd-li-light" open_url="/examples/header-logged-in-light.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--light nhsw-site-header--compact"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;div class="nhsw-site-header__account"&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;/span&gt;
+        &lt;a class="nhsw-site-header__logout" href="#"&gt;Sign out&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--light nhsw-site-header--compact"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;div class="nhsw-site-header__account"&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;/span&gt;
+        &lt;a class="nhsw-site-header__logout" href="#"&gt;Sign out&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="hd-li-light" html=html_sample njk=njk_sample toggleable=true %}
+
+  {% capture example_body %}
+      <header class="nhsw-site-header nhsw-site-header--compact">
+        <div class="nhsw-site-header__container">
+          <div class="nhsw-site-header__top">
+            <div class="nhsw-site-header__account">
+              <span class="nhsw-site-header__user nhsw-site-header__user--outline"><svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#005AA8"/><path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/></svg><span class="nhsw-site-header__user-name">Jane Doe</span></span>
+              <span class="nhsw-site-header__user nhsw-site-header__user--outline"><svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#005AA8"/><path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><span class="nhsw-site-header__user-name">Aneurin Bevan University Health Board</span></span>
+              <a class="nhsw-site-header__logout" href="#">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+  {% endcapture %}
+  {% include example-preview.html id="hd-li-dark" open_url="/examples/header-logged-in-dark.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--compact"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;div class="nhsw-site-header__account"&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;/span&gt;
+        &lt;a class="nhsw-site-header__logout" href="#"&gt;Sign out&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--compact"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;div class="nhsw-site-header__account"&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;/span&gt;
+        &lt;a class="nhsw-site-header__logout" href="#"&gt;Sign out&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="hd-li-dark" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h3 class="nhsw-h3">Logged-in header (with service name)</h3>
+  {% capture example_body %}
+      <header class="nhsw-site-header nhsw-site-header--light nhsw-site-header--compact">
+        <div class="nhsw-site-header__container">
+          <div class="nhsw-site-header__top">
+            <a class="nhsw-site-header__brand" href="#"><span class="nhsw-site-header__logo nhsw-site-header__logo--icon"><img src="{{ '/assets/dhcw-icon.svg' | relative_url }}" alt="Digital Health and Care Wales"></span><span class="nhsw-site-header__title">Service name</span></a>
+            <div class="nhsw-site-header__account">
+              <span class="nhsw-site-header__user nhsw-site-header__user--outline"><svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#005AA8"/><path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/></svg><span class="nhsw-site-header__user-name">Jane Doe</span></span>
+              <span class="nhsw-site-header__user nhsw-site-header__user--outline"><svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#005AA8"/><path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><span class="nhsw-site-header__user-name">Aneurin Bevan University Health Board</span></span>
+              <a class="nhsw-site-header__logout" href="#">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+  {% endcapture %}
+  {% include example-preview.html id="hd-sn-light" open_url="/examples/header-service-name-light.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--light nhsw-site-header--compact"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="#"&gt;&lt;span class="nhsw-site-header__logo nhsw-site-header__logo--icon"&gt;&lt;img src="/assets/dhcw-icon.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;/span&gt;
+        &lt;a class="nhsw-site-header__logout" href="#"&gt;Sign out&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--light nhsw-site-header--compact"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="#"&gt;&lt;span class="nhsw-site-header__logo nhsw-site-header__logo--icon"&gt;&lt;img src="/assets/dhcw-icon.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;/span&gt;
+        &lt;a class="nhsw-site-header__logout" href="#"&gt;Sign out&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="hd-sn-light" html=html_sample njk=njk_sample toggleable=true %}
+
+  {% capture example_body %}
+      <header class="nhsw-site-header nhsw-site-header--compact">
+        <div class="nhsw-site-header__container">
+          <div class="nhsw-site-header__top">
+            <a class="nhsw-site-header__brand" href="#"><span class="nhsw-site-header__logo nhsw-site-header__logo--icon"><img src="{{ '/assets/dhcw-icon-white.svg' | relative_url }}" alt="Digital Health and Care Wales"></span><span class="nhsw-site-header__title">Service name</span></a>
+            <div class="nhsw-site-header__account">
+              <span class="nhsw-site-header__user nhsw-site-header__user--outline"><svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#005AA8"/><path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/></svg><span class="nhsw-site-header__user-name">Jane Doe</span></span>
+              <span class="nhsw-site-header__user nhsw-site-header__user--outline"><svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="4" fill="#005AA8"/><path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><span class="nhsw-site-header__user-name">Aneurin Bevan University Health Board</span></span>
+              <a class="nhsw-site-header__logout" href="#">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+  {% endcapture %}
+  {% include example-preview.html id="hd-sn-dark" open_url="/examples/header-service-name-dark.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--compact"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="#"&gt;&lt;span class="nhsw-site-header__logo nhsw-site-header__logo--icon"&gt;&lt;img src="/assets/dhcw-icon-white.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;/span&gt;
+        &lt;a class="nhsw-site-header__logout" href="#"&gt;Sign out&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--compact"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="#"&gt;&lt;span class="nhsw-site-header__logo nhsw-site-header__logo--icon"&gt;&lt;img src="/assets/dhcw-icon-white.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
+      &lt;div class="nhsw-site-header__account"&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path d="M11.5 10.5C11.5 12.981 13.519 15 16 15C18.481 15 20.5 12.981 20.5 10.5C20.5 8.019 18.481 6 16 6C13.519 6 11.5 8.019 11.5 10.5ZM24 25H25V24C25 20.141 21.859 17 18 17H14C10.14 17 7 20.141 7 24V25H24Z" fill="white"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="nhsw-site-header__user nhsw-site-header__user--outline"&gt;&lt;svg class="nhsw-site-header__user-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"&gt;&lt;rect width="32" height="32" rx="4" fill="#005AA8"/&gt;&lt;path transform="translate(5 5) scale(.917)" fill="#fff" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/&gt;&lt;/svg&gt;&lt;span class="nhsw-site-header__user-name"&gt;Aneurin Bevan University Health Board&lt;/span&gt;&lt;/span&gt;
+        &lt;a class="nhsw-site-header__logout" href="#"&gt;Sign out&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="hd-sn-dark" html=html_sample njk=njk_sample toggleable=true %}
+
+  <h3 class="nhsw-h3">User information</h3>
+  <p class="nhsw-body">Consider whether you need to show the user information about the account they have logged in to. This may depend on whether they:</p>
+  <ul class="nhsw-body">
+    <li>share a computer</li>
+    <li>have multiple accounts or roles</li>
+  </ul>
+  <p class="nhsw-body">When showing the user their account, you can highlight this with the profile icon (on the <a class="nhsw-link" href="{{ '/styles/icons.html' | relative_url }}">icons page</a>). Only show the icon next to 1 item. Test with users how best to display the user's account information, for example, whether to show their full name or their email address.</p>
+
+  <h3 class="nhsw-h3">Public facing header</h3>
+  {% capture example_body %}
+      <header class="nhsw-site-header nhsw-site-header--light">
+        <div class="nhsw-site-header__container">
+          <div class="nhsw-site-header__top">
+            <a class="nhsw-site-header__brand" href="#"><span class="nhsw-site-header__logo"><img src="{{ '/assets/nhsw-logo-dark.svg' | relative_url }}" alt="Digital Health and Care Wales"></span><span class="nhsw-site-header__title">Title</span></a>
+          </div>
+        </div>
+      </header>
+  {% endcapture %}
+  {% include example-preview.html id="hd-pf-light" open_url="/examples/header-public-light.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--light"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="#"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo-dark.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Title&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;header class="nhsw-site-header nhsw-site-header--light"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="#"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo-dark.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Title&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="hd-pf-light" html=html_sample njk=njk_sample toggleable=true %}
+
+  {% capture example_body %}
+      <header class="nhsw-site-header">
+        <div class="nhsw-site-header__container">
+          <div class="nhsw-site-header__top">
+            <a class="nhsw-site-header__brand" href="#"><span class="nhsw-site-header__logo"><img src="{{ '/assets/nhsw-logo.svg' | relative_url }}" alt="Digital Health and Care Wales"></span><span class="nhsw-site-header__title">Title</span></a>
+          </div>
+        </div>
+      </header>
+  {% endcapture %}
+  {% include example-preview.html id="hd-pf-dark" open_url="/examples/header-public-dark.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="#"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Title&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
+  &lt;div class="nhsw-site-header__container"&gt;
+    &lt;div class="nhsw-site-header__top"&gt;
+      &lt;a class="nhsw-site-header__brand" href="#"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Title&lt;/span&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="hd-pf-dark" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">For internal and clinician-facing screens, use the simplified logo to keep the interface clean and uncluttered.</p>
+  <p class="nhsw-body">For public-facing interfaces, always use the standard DHCW logo to maintain consistent branding.</p>
+
+  <h3 class="nhsw-h3">Patient header</h3>
+  {% capture example_body %}
+      <section class="nhsw-patient-header" aria-label="Patient details">
+        <div class="nhsw-patient-header__inner">
+          <div class="nhsw-patient-header__row nhsw-patient-header__row--identity">
+            <p class="nhsw-patient-header__name">ANDERSON, Mary (Ms)</p>
+            <dl class="nhsw-patient-header__details">
+              <div class="nhsw-patient-header__item">
+                <dt>Date of birth:</dt>
+                <dd>4 Apr 1990 (35y 5m)</dd>
+              </div>
+              <div class="nhsw-patient-header__item">
+                <dt>NHS number:</dt>
+                <dd>123 456 7890</dd>
+              </div>
+              <div class="nhsw-patient-header__item">
+                <dt>Gender:</dt>
+                <dd>Female</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="nhsw-patient-header__row">
+            <dl class="nhsw-patient-header__details">
+              <div class="nhsw-patient-header__item">
+                <dt>Adverse reactions:</dt>
+                <dd>Peanuts, Milk, Lactose, Eggs, Shellfish</dd>
+              </div>
+            </dl>
+            <a class="nhsw-link" href="#">View or change</a>
+          </div>
+        </div>
+      </section>
+  {% endcapture %}
+  {% include example-preview.html id="hd-patient" open_url="/examples/header-patient.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;section class="nhsw-patient-header" aria-label="Patient details"&gt;
+  &lt;div class="nhsw-patient-header__inner"&gt;
+    &lt;div class="nhsw-patient-header__row nhsw-patient-header__row--identity"&gt;
+      &lt;p class="nhsw-patient-header__name"&gt;ANDERSON, Mary (Ms)&lt;/p&gt;
+      &lt;dl class="nhsw-patient-header__details"&gt;
+        &lt;div class="nhsw-patient-header__item"&gt;
+          &lt;dt&gt;Date of birth:&lt;/dt&gt;
+          &lt;dd&gt;4 Apr 1990 (35y 5m)&lt;/dd&gt;
+        &lt;/div&gt;
+        &lt;div class="nhsw-patient-header__item"&gt;
+          &lt;dt&gt;NHS number:&lt;/dt&gt;
+          &lt;dd&gt;123 456 7890&lt;/dd&gt;
+        &lt;/div&gt;
+        &lt;div class="nhsw-patient-header__item"&gt;
+          &lt;dt&gt;Gender:&lt;/dt&gt;
+          &lt;dd&gt;Female&lt;/dd&gt;
+        &lt;/div&gt;
+      &lt;/dl&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-patient-header__row"&gt;
+      &lt;dl class="nhsw-patient-header__details"&gt;
+        &lt;div class="nhsw-patient-header__item"&gt;
+          &lt;dt&gt;Adverse reactions:&lt;/dt&gt;
+          &lt;dd&gt;Peanuts, Milk, Lactose, Eggs, Shellfish&lt;/dd&gt;
+        &lt;/div&gt;
+      &lt;/dl&gt;
+      &lt;a class="nhsw-link" href="#"&gt;View or change&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}&lt;section class="nhsw-patient-header" aria-label="Patient details"&gt;
+  &lt;div class="nhsw-patient-header__inner"&gt;
+    &lt;div class="nhsw-patient-header__row nhsw-patient-header__row--identity"&gt;
+      &lt;p class="nhsw-patient-header__name"&gt;ANDERSON, Mary (Ms)&lt;/p&gt;
+      &lt;dl class="nhsw-patient-header__details"&gt;
+        &lt;div class="nhsw-patient-header__item"&gt;
+          &lt;dt&gt;Date of birth:&lt;/dt&gt;
+          &lt;dd&gt;4 Apr 1990 (35y 5m)&lt;/dd&gt;
+        &lt;/div&gt;
+        &lt;div class="nhsw-patient-header__item"&gt;
+          &lt;dt&gt;NHS number:&lt;/dt&gt;
+          &lt;dd&gt;123 456 7890&lt;/dd&gt;
+        &lt;/div&gt;
+        &lt;div class="nhsw-patient-header__item"&gt;
+          &lt;dt&gt;Gender:&lt;/dt&gt;
+          &lt;dd&gt;Female&lt;/dd&gt;
+        &lt;/div&gt;
+      &lt;/dl&gt;
+    &lt;/div&gt;
+    &lt;div class="nhsw-patient-header__row"&gt;
+      &lt;dl class="nhsw-patient-header__details"&gt;
+        &lt;div class="nhsw-patient-header__item"&gt;
+          &lt;dt&gt;Adverse reactions:&lt;/dt&gt;
+          &lt;dd&gt;Peanuts, Milk, Lactose, Eggs, Shellfish&lt;/dd&gt;
+        &lt;/div&gt;
+      &lt;/dl&gt;
+      &lt;a class="nhsw-link" href="#"&gt;View or change&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="hd-patient" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">You can use the patient header on any screen where a user is viewing, editing, or performing actions on a specific patient's record (such as prescribing, documenting notes or booking appointments).</p>
+  <p class="nhsw-body">You can change or adapt the fields in the header based on your specific service needs. However, patient identification remains a clinical safety priority. Never allow secondary information (such as a home address, phone number or administrative notes) to overcrowd the banner to the point that core identifiers become difficult to find and read.</p>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Without a search bar</h3>

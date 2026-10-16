@@ -78,7 +78,7 @@ const PREVIEWS = {
   },
 
   'file-upload': {
-    html: `<div class="nhsw-file-upload" style="width: 260px"><span class="nhsw-file-upload__status">No file chosen</span><div class="nhsw-file-upload__actions"><label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button">Choose file</label><span class="nhsw-file-upload__hint">or drop file</span></div></div>`,
+    html: `<div class="nhsw-file-upload" style="width: 270px; box-sizing: border-box"><span class="nhsw-file-upload__status">No file chosen</span><div class="nhsw-file-upload__actions"><label class="nhsw-button nhsw-button--secondary nhsw-button--inline nhsw-file-upload__button">Choose file</label><span class="nhsw-file-upload__hint">or drop file</span></div></div>`,
   },
 
   'footer': {
@@ -150,7 +150,7 @@ const PREVIEWS = {
   },
 
   'summary-list': {
-    width: 440,
+    width: 560,
     bg: GREY,
     html: `<div class="nhsw-summary-card" style="width: 100%"><div class="nhsw-summary-card__header"><h3 class="nhsw-h3 nhsw-summary-card__title">Carys Gale</h3></div><div class="nhsw-summary-card__body"><dl class="nhsw-summary-list">
       <div class="nhsw-summary-list__row"><dt class="nhsw-summary-list__key">Name</dt><dd class="nhsw-summary-list__value">Carys Gale</dd></div>
@@ -197,7 +197,8 @@ const PREVIEWS = {
   },
 
   'warning-callout': {
-    html: `<div class="nhsw-warning-callout" style="width: 270px"><h3 class="nhsw-warning-callout__heading"><span class="nhsw-warning-callout__icon" aria-hidden="true">!</span><span class="nhsw-warning-callout__heading-text">School, nursery or work</span></h3><div class="nhsw-warning-callout__content"><p class="nhsw-body">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p></div></div>`,
+    width: 480,
+    html: `<div class="nhsw-warning-callout" style="width: 380px"><h3 class="nhsw-warning-callout__heading"><span class="nhsw-warning-callout__icon" aria-hidden="true">!</span><span class="nhsw-warning-callout__heading-text">School, nursery or work</span></h3><div class="nhsw-warning-callout__content"><p class="nhsw-body">Stay away from school, nursery or work until all the spots have crusted over. This is usually 5 days after the spots first appeared.</p></div></div>`,
   },
 };
 

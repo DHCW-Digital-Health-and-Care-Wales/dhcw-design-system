@@ -97,8 +97,10 @@
 
 .nhsw-site-header__account {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 16px;
+  margin-left: auto;
 }
 
 .nhsw-site-header__user {
@@ -462,4 +464,44 @@
   .nhsw-site-header__search {
     flex-basis: 100%;
   }
+}
+
+// Header variants: a white (light) header, a compact bar for the logged-in header, the
+// small icon used in place of the full logo, and an outlined account chip.
+.nhsw-site-header--light {
+  background-color: c.$nhsw-colour-background-white;
+  color: c.$nhsw-colour-text-primary;
+
+  .nhsw-site-header__brand,
+  .nhsw-site-header__title {
+    color: c.$nhsw-colour-text-primary;
+  }
+
+  .nhsw-site-header__user {
+    color: c.$nhsw-colour-text-primary;
+  }
+
+  .nhsw-site-header__logout {
+    color: c.$nhsw-colour-link;
+  }
+}
+
+.nhsw-site-header--compact .nhsw-site-header__top {
+  min-height: 4rem;
+  padding: 0.75rem 0;
+}
+
+.nhsw-site-header__logo--icon img,
+.nhsw-site-header__logo--icon svg {
+  height: 2.5rem;
+}
+
+.nhsw-site-header__user--outline {
+  padding-right: 12px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+}
+
+.nhsw-site-header--light .nhsw-site-header__user--outline {
+  border-color: c.$nhsw-colour-border-grey;
 }

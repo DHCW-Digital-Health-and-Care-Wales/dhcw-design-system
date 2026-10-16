@@ -111,7 +111,8 @@ describe('preview card (All components page)', () => {
     const preview = block(css, '\\.nhsw-card--preview \\.nhsw-card__preview');
     expect(preview).toMatch(/border:\s*0/);
     expect(preview).toMatch(/padding:\s*0/);
-    expect(block(css, '\\.nhsw-card--preview \\.nhsw-card__preview-image')).toMatch(/object-fit:\s*cover/);
+    expect(preview).toMatch(/aspect-ratio:\s*320\s*\/\s*234/);
+    expect(block(css, '\\.nhsw-card--preview \\.nhsw-card__preview-image')).toMatch(/object-fit:\s*contain/);
     expect(block(css, '\\.nhsw-card--preview \\.nhsw-card__content')).toMatch(/padding:\s*16px/);
   });
 });

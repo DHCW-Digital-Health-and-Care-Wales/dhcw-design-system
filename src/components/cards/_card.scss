@@ -130,8 +130,11 @@
   padding: 0;
   overflow: hidden;
 
+  // The preview keeps the proportions of the generated images, so the whole image
+  // always shows whatever the width of the card.
   .nhsw-card__preview {
-    height: 160px;
+    height: auto;
+    aspect-ratio: 320 / 234;
     margin: 0;
     padding: 0;
     border: 0;
@@ -142,8 +145,7 @@
     max-width: none;
     height: 100%;
     max-height: none;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
   }
 
   .nhsw-card__content {

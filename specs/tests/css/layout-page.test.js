@@ -86,12 +86,12 @@ describe('Layout page rules for labels, cards and the patient header match the c
     expect(block(cardCss, '\.nhsw-card__title')).toMatch(/margin:\s*0 0 0\.5rem/);
   });
 
-  it('apply 16px internal padding within the patient summary area, and leave 32px between it and the page content', () => {
-    expect(page).toContain('apply 16px internal padding within the patient summary area');
+  it('leave 32px between the patient header and the page content, with the padding from the Figma banner', () => {
     expect(page).toContain('leave 32px spacing between the patient header and page content');
-    const header = block(patientCss, '\.nhsw-patient-header');
-    expect(header).toMatch(/padding:\s*16px/);
+    const header = block(patientCss, '\\.nhsw-patient-header');
+    expect(header).toMatch(/padding:\s*20px 0/);
     expect(header).toMatch(/margin:\s*0 0 32px/);
+    expect(block(patientCss, '\\.nhsw-patient-header__inner')).toMatch(/padding:\s*8px 16px 16px/);
   });
 });
 
