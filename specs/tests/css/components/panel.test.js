@@ -1,4 +1,6 @@
 import { describe, it, expect, beforeAll } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import { compileProbe, block } from '../../support/compile-scss.js';
 
 // Expected values read directly out of Figma component nodes for this design
@@ -61,6 +63,50 @@ describe('panel body text is 22px', () => {
     const body = block(css, '\.nhsw-panel__body');
     expect(body).toMatch(/font-size:\s*1\.375rem/);
     expect(body).toMatch(/line-height:\s*1\.8125rem/);
-    expect(css.match(/\.nhsw-panel__body\s*\{/g)).toHaveLength(1);
+    expect(css.match(/^\.nhsw-panel__body\s*\{/gm)).toHaveLength(1);
+  });
+});
+
+describe('smaller panel, from the Figma panel CSS', () => {
+  const css = compileProbe(`@use "components/content/panel";`);
+
+  it('has 32px/80px padding from tablet (32px/16px below), and 16px between the parts', () => {
+    expect(block(css, '\\.nhsw-panel--small')).toMatch(/padding:\s*32px 16px/);
+    expect(css).toMatch(/@media[^{]*\{\s*\.nhsw-panel--small\s*\{\s*padding:\s*32px 80px/);
+    expect(block(css, '\\.nhsw-panel--small \\.nhsw-panel__title')).toMatch(/margin-bottom:\s*16px/);
+    expect(block(css, '\\.nhsw-panel--small \\.nhsw-panel__icon')).toMatch(/margin-bottom:\s*16px/);
+  });
+
+  it('has a 32px/38px title and 19px/27px body text', () => {
+    const title = block(css, '\\.nhsw-panel--small \\.nhsw-panel__title');
+    expect(title).toMatch(/font-size:\s*2rem/);
+    expect(title).toMatch(/line-height:\s*2\.375rem/);
+    const body = block(css, '\\.nhsw-panel--small \\.nhsw-panel__body');
+    expect(body).toMatch(/font-size:\s*1\.1875rem/);
+    expect(body).toMatch(/line-height:\s*1\.6875rem/);
+  });
+
+  it('keeps the blue (navy) styling in the CSS for later, even though the docs no longer show it', () => {
+    expect(css).toContain('.nhsw-panel--navy');
+  });
+});
+
+describe('panel documentation', () => {
+  const read = (rel) => fs.readFileSync(path.join(import.meta.dirname, '../../../..', rel), 'utf8');
+  const docs = read('preview/components/panel.html');
+
+  it('has no blue panel examples or blue background section', () => {
+    expect(docs).not.toContain('panel--navy');
+    expect(docs).not.toContain('Blue background');
+    expect(fs.existsSync(path.join(import.meta.dirname, '../../../..', 'preview/examples/panel-navy.html'))).toBe(false);
+  });
+
+  it('the smaller panel examples use the small variant, and the Nunjucks sets it too', () => {
+    expect(docs).toContain('open_url="/examples/panel-small.html"');
+    expect(docs).toContain('open_url="/examples/panel-no-icon-small.html"');
+    expect(read('preview/examples/panel-small.html')).toContain('nhsw-panel nhsw-panel--small');
+    expect(read('preview/examples/panel-no-icon-small.html')).toContain('nhsw-panel nhsw-panel--small');
+    expect(docs.match(/classes: "nhsw-panel--small"/g)).toHaveLength(2);
+    expect(docs).toContain('icon: false,');
   });
 });

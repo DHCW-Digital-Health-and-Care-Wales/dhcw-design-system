@@ -65,3 +65,37 @@ describe('dashboard page shell', () => {
     expect(block(css, '\\.nhsw-dashboard__chip')).toMatch(/border:\s*1px solid #d8dde0/);
   });
 });
+
+describe('dashboard top bar chips match the logged-in header', () => {
+  const css = compileProbe(`@use "components/site/dashboard";`);
+
+  it('are 40px bordered chips with 16px text and a 4px radius', () => {
+    const chip = block(css, '\.nhsw-dashboard__chip');
+    expect(chip).toMatch(/min-height:\s*40px/);
+    expect(chip).toMatch(/padding:\s*4px 12px 4px 4px/);
+    expect(chip).toMatch(/border-radius:\s*4px/);
+    expect(chip).toMatch(/font-size:\s*1rem/);
+    expect(chip).toMatch(/line-height:\s*1\.5rem/);
+  });
+
+  it('hold a 32px blue square with a white 24px glyph', () => {
+    const icon = block(css, '\.nhsw-dashboard__chip-icon');
+    expect(icon).toMatch(/width:\s*32px/);
+    expect(icon).toMatch(/height:\s*32px/);
+    expect(icon).toMatch(/padding:\s*4px/);
+    expect(icon).toMatch(/color:\s*#ffffff/);
+    expect(css).toMatch(/\.nhsw-dashboard__chip-icon svg\s*\{[^}]*width:\s*24px/);
+  });
+
+  it('use the same glyphs and chip markup in the macro and the page template examples', () => {
+    const fs = require('node:fs');
+    const macro = fs.readFileSync('src/components/dashboard/macro.njk', 'utf8');
+    expect(macro).toContain('<span class="nhsw-dashboard__chip-icon" aria-hidden="true"><svg');
+    expect(macro).toContain('fill="currentColor"');
+    for (const slug of ['dashboard-default', 'dashboard-transactional', 'dashboard-content']) {
+      const html = fs.readFileSync(`preview/examples/page-template-${slug}.html`, 'utf8');
+      expect(html).toContain('<span class="nhsw-dashboard__chip-icon" aria-hidden="true">');
+      expect(html).not.toContain('fill="#005aa8"');
+    }
+  });
+});

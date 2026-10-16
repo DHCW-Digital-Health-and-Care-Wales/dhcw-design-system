@@ -86,6 +86,9 @@ tabs:
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/panel/">Panels in the GOV.UK Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system/issues/6014">Panels on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
+
+  <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
+
 </div>
 
 <!-- Variants -->
@@ -93,48 +96,10 @@ tabs:
   <h2 class="nhsw-h2">Panel variants</h2>
 
   <section class="preview-section">
-    <h3 class="nhsw-h3">Blue background</h3>
-
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-panel nhsw-panel--navy">
-        <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-          <path d="M4 12l5 5L20 6" />
-        </svg>
-        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
-        <div class="nhsw-panel__body">
-          Your reference number<br>
-          <strong>HDJ2123F</strong>
-        </div>
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="pn-navy" open_url="/examples/panel-navy.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
-  &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
-    &lt;path d="M4 12l5 5L20 6" /&gt;
-  &lt;/svg&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
-  &lt;div class="nhsw-panel__body"&gt;
-    Your reference number&lt;br&gt;
-    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
-  &lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "You’ll receive an update within 5 working days",
-  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
-  classes: "nhsw-panel--navy"
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="pn-navy" html=html_sample njk=njk_sample toggleable=true %}
-
-      <p class="nhsw-body">Use a blue panel to highlight important information and guidance that users should be aware of. This may be used instead of a green panel, which usually indicates that a user has completed a task successfully.</p>
-
-  </section>
-
-  <section class="preview-section">
     <h3 class="nhsw-h3">Smaller panel</h3>
 
     {% capture example_body %}{% raw %}
-      <div class="nhsw-panel">
+      <div class="nhsw-panel nhsw-panel--small">
         <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
           <path d="M4 12l5 5L20 6" />
         </svg>
@@ -145,41 +110,10 @@ tabs:
         </div>
       </div>
     {% endraw %}{% endcapture %}
-    {% include example-preview.html id="pn-small" open_url="/examples/panel-default.html" body=example_body %}
+    {% include example-preview.html id="pn-small" open_url="/examples/panel-small.html" body=example_body %}
 
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-panel nhsw-panel--navy">
-        <svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-          <path d="M4 12l5 5L20 6" />
-        </svg>
-        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
-        <div class="nhsw-panel__body">
-          Your reference number<br>
-          <strong>HDJ2123F</strong>
-        </div>
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="pn-small-navy" open_url="/examples/panel-navy.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
-  &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
-    &lt;path d="M4 12l5 5L20 6" /&gt;
-  &lt;/svg&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
-  &lt;div class="nhsw-panel__body"&gt;
-    Your reference number&lt;br&gt;
-    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
-  &lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "You’ll receive an update within 5 working days",
-  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
-  classes: "nhsw-panel--navy"
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="pn-small-navy" html=html_sample njk=njk_sample toggleable=true %}
-
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
-  &lt;svg class="nhsw-panel__icon" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--small"&gt;
+  &lt;svg class="nhsw-panel__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false" aria-hidden="true"&gt;
     &lt;path d="M4 12l5 5L20 6" /&gt;
   &lt;/svg&gt;
   &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
@@ -190,12 +124,12 @@ tabs:
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
   titleText: "Application complete",
-  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
+  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
+  classes: "nhsw-panel--small"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-small" html=html_sample njk=njk_sample toggleable=true %}
 
-          <p class="nhsw-body">Use a smaller panel when space is limited. It offers a more compact alternative to a standard panel.</p>
-
+    <p class="nhsw-body">Use a smaller panel when space is limited. It offers a more compact alternative to a standard panel.</p>
   </section>
 
   <section class="preview-section">
@@ -212,32 +146,6 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="pn-no-icon" open_url="/examples/panel-no-icon.html" body=example_body %}
 
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-panel nhsw-panel--navy">
-        <h1 class="nhsw-panel__title nhsw-panel__title--l">You’ll receive an update within 5 working days</h1>
-        <div class="nhsw-panel__body">
-          Your reference number<br>
-          <strong>HDJ2123F</strong>
-        </div>
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="pn-no-icon-navy" open_url="/examples/panel-navy.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
-  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
-  &lt;div class="nhsw-panel__body"&gt;
-    Your reference number&lt;br&gt;
-    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
-  &lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "You’ll receive an update within 5 working days",
-  titleSize: "l",
-  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
-  classes: "nhsw-panel--navy"
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="pn-no-icon-navy" html=html_sample njk=njk_sample toggleable=true %}
-
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
   &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;Application complete&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
@@ -252,15 +160,14 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-no-icon" html=html_sample njk=njk_sample toggleable=true %}
 
-<p class="nhsw-body">Use a panel without an icon when you need to highlight information without indicating a specific status, such as success, warning or error.</p>
-
+    <p class="nhsw-body">Use a panel without an icon when you need to highlight information without indicating a specific status, such as success, warning or error.</p>
   </section>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Panel without icon (small)</h3>
 
     {% capture example_body %}{% raw %}
-      <div class="nhsw-panel">
+      <div class="nhsw-panel nhsw-panel--small">
         <h1 class="nhsw-panel__title">Application complete</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
@@ -268,34 +175,9 @@ tabs:
         </div>
       </div>
     {% endraw %}{% endcapture %}
-    {% include example-preview.html id="pn-no-icon-small" open_url="/examples/panel-no-icon.html" body=example_body %}
+    {% include example-preview.html id="pn-no-icon-small" open_url="/examples/panel-no-icon-small.html" body=example_body %}
 
-    {% capture example_body %}{% raw %}
-      <div class="nhsw-panel nhsw-panel--navy">
-        <h1 class="nhsw-panel__title">You’ll receive an update within 5 working days</h1>
-        <div class="nhsw-panel__body">
-          Your reference number<br>
-          <strong>HDJ2123F</strong>
-        </div>
-      </div>
-    {% endraw %}{% endcapture %}
-    {% include example-preview.html id="pn-no-icon-small-navy" open_url="/examples/panel-navy.html" body=example_body %}
-
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--navy"&gt;
-  &lt;h1 class="nhsw-panel__title"&gt;You’ll receive an update within 5 working days&lt;/h1&gt;
-  &lt;div class="nhsw-panel__body"&gt;
-    Your reference number&lt;br&gt;
-    &lt;strong&gt;HDJ2123F&lt;/strong&gt;
-  &lt;/div&gt;
-&lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswPanel({
-  titleText: "You’ll receive an update within 5 working days",
-  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
-  classes: "nhsw-panel--navy"
-}) }}{% endraw %}{% endcapture %}
-    {% include code-viewer.html id="pn-no-icon-small-navy" html=html_sample njk=njk_sample toggleable=true %}
-
-    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel nhsw-panel--small"&gt;
   &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
@@ -304,13 +186,16 @@ tabs:
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
   titleText: "Application complete",
-  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
+  html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;",
+  icon: false,
+  classes: "nhsw-panel--small"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-no-icon-small" html=html_sample njk=njk_sample toggleable=true %}
-<p class="nhsw-body">Use a smaller panel when space is limited or the content needs less prominence than a standard panel. It does not include an icon, making it suitable for general information and guidance.</p>
 
-    
+    <p class="nhsw-body">Use a smaller panel when space is limited or the content needs less prominence than a standard panel. It does not include an icon, making it suitable for general information and guidance.</p>
   </section>
+
+  <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 
 </div>
 
@@ -325,5 +210,8 @@ tabs:
   <h3 class="nhsw-h3">Choose Pharmacy</h3>
   <p class="nhsw-body">This example shows the final screen of a clinical workflow within the Choose Pharmacy service. It uses a solid green panel to give clinicians immediate clarity at the end of a consultation.</p>
   {% include screenshot-placeholder.html alt="Consultation complete panel at the end of a clinical workflow" %}
+
+
+  <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 
 </div>

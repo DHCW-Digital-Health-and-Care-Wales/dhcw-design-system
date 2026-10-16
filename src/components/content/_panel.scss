@@ -1,5 +1,6 @@
 @use "../../tokens/colours" as c;
 @use "../../foundations/typography" as type;
+@use "../../utilities/breakpoints" as b;
 @use "../../tokens/typography" as t;
 
 .nhsw-panel {
@@ -59,4 +60,31 @@
 
 .nhsw-panel--navy {
   background-color: c.$nhsw-colour-button-primary;
+}
+
+// Smaller panel, from the Figma panel: 32px/80px padding, 16px between the parts, a 32px/38px
+// title and 19px/27px body text at every screen size.
+.nhsw-panel--small {
+  padding: 32px 16px;
+
+  @include b.nhsw-from-tablet {
+    padding: 32px 80px;
+  }
+
+  .nhsw-panel__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 16px;
+  }
+
+  .nhsw-panel__title {
+    font-size: 2rem;
+    line-height: 2.375rem;
+    margin-bottom: 16px;
+  }
+
+  .nhsw-panel__body {
+    font-size: 1.1875rem;
+    line-height: 1.6875rem;
+  }
 }

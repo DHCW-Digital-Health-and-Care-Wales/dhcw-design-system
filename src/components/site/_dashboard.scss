@@ -125,28 +125,45 @@ $nhsw-dashboard-nav-edge: 0.475rem;
     background-color: c.$nhsw-colour-background-white;
   }
 
+  // The account chips match the logged-in header: bordered 40px chips, 16px text and a
+  // 32px blue icon square holding a white glyph.
   &__chip {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 3px 12px 3px 3px;
+    box-sizing: border-box;
+    min-height: 40px;
+    padding: 4px 12px 4px 4px;
     border: 1px solid c.$nhsw-colour-border-grey;
+    border-radius: 4px;
     color: c.$nhsw-colour-text-primary;
-    font-size: 0.875rem;
-    line-height: 20px;
+    font-size: t.$nhsw-font-size-body-small;
+    line-height: t.$nhsw-line-height-body-small;
   }
 
   &__chip-icon {
-    flex-shrink: 0;
-    width: 24px;
-    height: 24px;
+    display: inline-flex;
+    flex: none;
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: c.$nhsw-colour-link;
+    color: c.$nhsw-colour-background-white;
+
+    svg {
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
   }
 
   &__exit {
-    margin-left: 8px;
+    margin-left: 24px;
     color: c.$nhsw-colour-link;
-    font-size: 0.875rem;
-    line-height: 20px;
+    font-size: t.$nhsw-font-size-body-small;
+    line-height: t.$nhsw-line-height-body-small;
   }
 
   &__content {

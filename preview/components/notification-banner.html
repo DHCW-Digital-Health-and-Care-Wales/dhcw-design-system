@@ -91,20 +91,16 @@ tabs:
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/notification-banner/">Notification banners in GOV.UK Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/2">Notification banners on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
+
+  <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
+
 </div>
 
 <!-- Variants -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Notification banner variants</h2>
 
-  <h3 class="nhsw-h3">Using the information banner</h3>
-  <p class="nhsw-body">Use an information banner to tell users about something that affects the service as a whole.</p>
-  <p class="nhsw-body">For example:</p>
-  <ul class="nhsw-body">
-    <li>in a service that lets the user apply for something, they might need to know that it's taking longer than usual to process applications</li>
-    <li>in an account-type service, the user might need to know that the service will be down for scheduled maintenance</li>
-  </ul>
-
+  <h3 class="nhsw-h3">Information banner</h3>
   <section class="preview-section preview-section--no-divider">
     {% capture example_body %}{% raw %}
       <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-service">
@@ -116,7 +112,7 @@ tabs:
         </div>
       </div>
     {% endraw %}{% endcapture %}
-    {% include example-preview.html id="nb-service" open_url="/examples/notification-banner-service.html" body=example_body %}
+    {% include example-preview.html id="nb-service" grey=true open_url="/examples/notification-banner-service.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-service"&gt;
   &lt;div class="nhsw-notification-banner__header"&gt;
@@ -133,6 +129,12 @@ tabs:
     {% include code-viewer.html id="nb-service" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
+  <p class="nhsw-body">Use an information banner to tell users about something that affects the service as a whole.</p>
+  <p class="nhsw-body">For example:</p>
+  <ul class="nhsw-body">
+    <li>in a service that lets the user apply for something, they might need to know that it's taking longer than usual to process applications</li>
+    <li>in an account-type service, the user might need to know that the service will be down for scheduled maintenance</li>
+  </ul>
   <p class="nhsw-body">If your service is getting more demand than usual, check that you've set up <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/problem-with-the-service-pages/">There is a problem with the service pages</a> and <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/service-unavailable-pages/">Service unavailable pages</a>, and the wording is up to date.</p>
   <p class="nhsw-body">You can also use the information banner to tell users information about something that's happening elsewhere in the service. For example:</p>
   <ul class="nhsw-body">
@@ -140,9 +142,7 @@ tabs:
     <li>in an account-type service, you might need to tell the user that there's a deadline approaching or that a payment is overdue</li>
   </ul>
 
-  <h3 class="nhsw-h3">Using the success banner</h3>
-  <p class="nhsw-body">Use a success banner to confirm an action on a previous page was successful. For example, for steps in a long journey or small repeated tasks.</p>
-
+  <h3 class="nhsw-h3">Success banner</h3>
   <section class="preview-section preview-section--no-divider">
     {% capture example_body %}{% raw %}
       <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success">
@@ -155,7 +155,7 @@ tabs:
         </div>
       </div>
     {% endraw %}{% endcapture %}
-    {% include example-preview.html id="nb-success" open_url="/examples/notification-banner-success.html" body=example_body %}
+    {% include example-preview.html id="nb-success" grey=true open_url="/examples/notification-banner-success.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success"&gt;
   &lt;div class="nhsw-notification-banner__header"&gt;
@@ -177,10 +177,12 @@ tabs:
     {% include code-viewer.html id="nb-success" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
+  <p class="nhsw-body">Use a success banner to confirm an action on a previous page was successful. For example, for steps in a long journey or small repeated tasks.</p>
   <p class="nhsw-body">Remove the success banner when the user moves to a new page.</p>
-  <p class="nhsw-body">When the user finishes an entire journey, for example, a service that lets the user register for a thing, use a <a class="nhsw-link" href="{{ '/components/panel.html' | relative_url }}">panel component</a> instead of a success banner.</p>
+  <p class="nhsw-body">Use a <a class="nhsw-link" href="{{ '/components/panel.html' | relative_url }}">panel component</a> instead of a success banner when users have completed an entire journey or task. For example, after submitting a registration, application or consent form.</p>
   <p class="nhsw-body">Since you're using the notification banner to tell the user about the outcome of something they've just done, add <code style="color: #d4351c;">role="alert"</code> so focus shifts to the notification banner on page load.</p>
 
+  <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 </div>
 
 <!-- Examples -->
@@ -190,5 +192,8 @@ tabs:
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example is from the School-age Immunisations service within WIS. It shows a notification banner used to highlight success with adding an NHS number.</p>
   {% include screenshot-placeholder.html alt="Success banner confirming an NHS number has been added" %}
+
+
+  <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 
 </div>

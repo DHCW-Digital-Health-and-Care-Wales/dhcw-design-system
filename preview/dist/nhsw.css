@@ -2018,6 +2018,29 @@ body {
   background-color: #1b365d;
 }
 
+.nhsw-panel--small {
+  padding: 32px 16px;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-panel--small {
+    padding: 32px 80px;
+  }
+}
+.nhsw-panel--small .nhsw-panel__icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 16px;
+}
+.nhsw-panel--small .nhsw-panel__title {
+  font-size: 2rem;
+  line-height: 2.375rem;
+  margin-bottom: 16px;
+}
+.nhsw-panel--small .nhsw-panel__body {
+  font-size: 1.1875rem;
+  line-height: 1.6875rem;
+}
+
 .nhsw-patient-header {
   margin: 0 0 32px;
   padding: 20px 0;
@@ -4660,22 +4683,36 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 3px 12px 3px 3px;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 4px 12px 4px 4px;
   border: 1px solid #d8dde0;
+  border-radius: 4px;
   color: #212b32;
-  font-size: 0.875rem;
-  line-height: 20px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .nhsw-dashboard__chip-icon {
-  flex-shrink: 0;
+  display: inline-flex;
+  flex: none;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #005aa8;
+  color: #ffffff;
+}
+.nhsw-dashboard__chip-icon svg {
+  display: block;
   width: 24px;
   height: 24px;
 }
 .nhsw-dashboard__exit {
-  margin-left: 8px;
+  margin-left: 24px;
   color: #005aa8;
-  font-size: 0.875rem;
-  line-height: 20px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 .nhsw-dashboard__content {
   flex: 1;
@@ -5225,6 +5262,12 @@ body {
 .nhsw-layout__content.nhsw-layout__content--component #panel-examples > .nhsw-h3:not(:first-of-type) {
   margin-top: 40px;
   padding-top: 40px;
+  border-top: 1px solid #d8dde0;
+}
+
+.nhsw-back-to-top {
+  margin: 40px 0 0;
+  padding-top: 24px;
   border-top: 1px solid #d8dde0;
 }
 

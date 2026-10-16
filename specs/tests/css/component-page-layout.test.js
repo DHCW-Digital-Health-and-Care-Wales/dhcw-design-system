@@ -74,3 +74,68 @@ describe('component pages have no previous/next links at the bottom of each tab'
     expect(read(`preview/components/${page}`)).not.toContain('nhsw-tabs__pagination');
   });
 });
+
+describe('Back to top at the bottom of every tab', () => {
+  const dir = path.join(root, 'preview/components');
+  const pages = fs.readdirSync(dir).filter((f) => f.endsWith('.html') && f !== 'index.html');
+
+  it('is set off by a divider, with space above', () => {
+    const docs = compileProbe('@use "layouts/docs-page";');
+    const start = docs.indexOf('\n.nhsw-back-to-top {');
+    expect(start).toBeGreaterThan(-1);
+    const rule = docs.slice(start, docs.indexOf('}', start));
+    expect(rule).toMatch(/border-top:\s*1px solid #d8dde0/);
+    expect(rule).toMatch(/margin:\s*40px 0 0/);
+  });
+
+  it.each(pages)('%s ends each of its three tabs with a Back to top link', (page) => {
+    const text = read(`preview/components/${page}`).replace(/\r\n/g, '\n');
+    const panels = text.split(/^<div class="nhsw-tabs__panel/m).slice(1);
+    expect(panels).toHaveLength(3);
+    for (const panel of panels) {
+      const end = panel.search(/\n<\/div>(?:\n|$)/);
+      const body = panel.slice(0, end);
+      expect(body.trimEnd().endsWith('Back to top</a></p>')).toBe(true);
+      expect(body).toContain('<p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent">');
+    }
+  });
+});
+
+describe('Notification banner Variants tab matches the design', () => {
+  const page = read('preview/components/notification-banner.html');
+  const variants = page.slice(page.indexOf('id="panel-variants"'), page.indexOf('<!-- Examples -->'));
+
+  it('has the headings Notification banner variants, Information banner and Success banner, in that order', () => {
+    expect([...variants.matchAll(/<h([23]) class="nhsw-h\1">([^<]*)<\/h\1>/g)].map((m) => m[2])).toEqual(
+      ['Notification banner variants', 'Information banner', 'Success banner'],
+    );
+  });
+
+  it('shows each example straight after its heading, on a grey panel, before the guidance', () => {
+    const info = variants.indexOf('>Information banner<');
+    const success = variants.indexOf('>Success banner<');
+    expect(variants.indexOf('id="nb-service" grey=true')).toBeGreaterThan(info);
+    expect(variants.indexOf('id="nb-service" grey=true')).toBeLessThan(variants.indexOf('Use an information banner to tell users'));
+    expect(variants.indexOf('id="nb-success" grey=true')).toBeGreaterThan(success);
+    expect(variants.indexOf('id="nb-success" grey=true')).toBeLessThan(variants.indexOf('Use a success banner to confirm'));
+  });
+
+  it('has the guidance paragraphs in the design\'s order and wording', () => {
+    const order = [
+      'Use an information banner to tell users about something that affects the service as a whole.',
+      'For example:',
+      'If your service is getting more demand than usual',
+      'You can also use the information banner to tell users information about something that\'s happening elsewhere in the service.',
+      'Use a success banner to confirm an action on a previous page was successful.',
+      'Remove the success banner when the user moves to a new page.',
+      'panel component</a> instead of a success banner when users have completed an entire journey or task. For example, after submitting a registration, application or consent form.',
+      'Since you\'re using the notification banner to tell the user about the outcome of something they\'ve just done',
+    ].map((t) => variants.indexOf(t));
+    expect(order.every((i) => i > -1)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+  });
+
+  it('ends with Back to top, after a divider', () => {
+    expect(variants).toMatch(/nhsw-back-to-top"><a class="nhsw-link" href="#maincontent">[\s\S]*Back to top<\/a><\/p>\s*<\/div>\s*$/);
+  });
+});

@@ -8,8 +8,8 @@
   search: "M10 3a7 7 0 1 0 4.2 12.6l5.1 5.1 1.4-1.4-5.1-5.1A7 7 0 0 0 10 3zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z",
   calendar: "M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zM5 10h14v10H5V10z",
   envelope: "M3 5h18v14H3V5zm2 2v.5l7 4.5 7-4.5V7l-7 4.5L5 7z",
-  user: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z",
-  pin: "M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"
+  user: "M12 3a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm0 11c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z",
+  pin: "M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm-1 4h2v2h2v2h-2v2h-2v-2H9V8h2z"
 } %}
 
 {#
@@ -54,7 +54,7 @@
 {%- if params.topbar %}
     <div class="nhsw-dashboard__topbar">
 {%- for chip in (params.topbar.chips or []) %}
-      <span class="nhsw-dashboard__chip"><svg class="nhsw-dashboard__chip-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="24" height="24" rx="3" fill="#005aa8"/><path transform="translate(4 4) scale(.667)" fill="#fff" d="{{ nhswDashboardIcons[chip.icon] }}"/></svg>{{ chip.text }}</span>
+      <span class="nhsw-dashboard__chip"><span class="nhsw-dashboard__chip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="{{ nhswDashboardIcons[chip.icon] }}"/></svg></span>{{ chip.text }}</span>
 {%- endfor %}
 {%- if params.topbar.exit %}
       <a class="nhsw-dashboard__exit nhsw-link" href="{{ params.topbar.exit.href or '#' }}">{{ params.topbar.exit.text or "Exit" }}</a>
