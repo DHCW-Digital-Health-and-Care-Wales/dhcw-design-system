@@ -1646,11 +1646,6 @@ body {
   margin: 0;
   padding: 12px 24px;
   background-color: #ffffff;
-  border-top: 1px solid #d8dde0;
-  border-bottom: 1px solid #d8dde0;
-}
-.nhsw-summary-card__subheader:first-child {
-  border-top: 0;
 }
 
 .nhsw-tag {
@@ -1904,8 +1899,8 @@ body {
 .nhsw-expander__heading {
   display: inline-flex;
   align-items: flex-start;
-  padding-bottom: 2px;
-  margin-bottom: -2px;
+  padding-bottom: 6px;
+  margin-bottom: -6px;
 }
 
 .nhsw-expander__icon {
@@ -2028,6 +2023,8 @@ body {
 
 .nhsw-panel__body {
   margin: 0;
+  font-size: 1.375rem;
+  line-height: 1.8125rem;
   color: #ffffff;
 }
 
@@ -2202,6 +2199,7 @@ body {
   position: relative;
   text-decoration: none;
   width: 100%;
+  box-sizing: border-box;
   color: #005aa8;
 }
 .nhsw-pagination__link .nhsw-icon {

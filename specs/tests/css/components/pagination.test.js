@@ -202,3 +202,12 @@ describe('numbered pagination on a narrow screen', () => {
     expect(css).toMatch(/@media \(max-width: [^)]*\)\s*\{[\s\S]*?\.nhsw-pagination--numbered \.nhsw-pagination__list\s*\{\s*justify-content:\s*space-between/);
   });
 });
+
+describe('content previous/next pagination links stay inside their column', () => {
+  it('the full-width link is border-box, so its side padding does not push the arrow outside the container', () => {
+    const css = compileProbe(`@use "components/content/pagination";`);
+    const link = block(css, '\.nhsw-pagination__link');
+    expect(link).toMatch(/width:\s*100%/);
+    expect(link).toMatch(/box-sizing:\s*border-box/);
+  });
+});

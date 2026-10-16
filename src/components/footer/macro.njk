@@ -67,11 +67,13 @@
       <p class="nhsw-body-s nhsw-site-footer__copyright">{{ params.copyrightText or "&copy; Digital Health and Care Wales" | safe }}</p>
     </div>
 {%- else %}
+{%- if params.links and params.links.length %}
     <ul class="nhsw-site-footer__links">
-{%- for link in (params.links or []) %}
+{%- for link in params.links %}
       <li><a class="nhsw-link" href="{{ link.href }}">{{ link.text }}</a></li>
 {%- endfor %}
     </ul>
+{%- endif %}
     <p class="nhsw-body-s nhsw-site-footer__copyright">{{ params.copyrightText or "&copy; Digital Health and Care Wales" | safe }}</p>
 {%- endif %}
 {%- endif %}

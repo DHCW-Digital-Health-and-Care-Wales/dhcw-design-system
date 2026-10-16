@@ -54,3 +54,13 @@ describe('panel left-aligns text by default, keeping the icon variant centred', 
     expect(noIcon).toMatch(/text-align:\s*left/);
   });
 });
+
+describe('panel body text is 22px', () => {
+  it('uses a 22px font size with a matching line height at every screen size', () => {
+    const css = compileProbe(`@use "components/content/panel";`);
+    const body = block(css, '\.nhsw-panel__body');
+    expect(body).toMatch(/font-size:\s*1\.375rem/);
+    expect(body).toMatch(/line-height:\s*1\.8125rem/);
+    expect(css.match(/\.nhsw-panel__body\s*\{/g)).toHaveLength(1);
+  });
+});

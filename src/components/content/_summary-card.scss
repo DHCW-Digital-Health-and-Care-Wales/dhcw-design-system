@@ -56,10 +56,4 @@
   margin: 0;
   padding: 12px 24px;
   background-color: c.$nhsw-colour-background-white;
-  border-top: 1px solid c.$nhsw-colour-border-grey;
-  border-bottom: 1px solid c.$nhsw-colour-border-grey;
-
-  &:first-child {
-    border-top: 0;
-  }
 }

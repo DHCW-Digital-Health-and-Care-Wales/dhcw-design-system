@@ -10,14 +10,14 @@ const docs = read('preview/patterns/page-templates.html');
 // slug -> what that template must contain
 const templates = {
   'page-template-default': { h1: 'Default page template', has: ['nhsw-site-header__logo'], not: ['nhsw-back-link', 'nhsw-breadcrumb', 'nhsw-site-header__nav'] },
-  'page-template-full-width': { h1: 'Full width', has: ['nhsw-back-link', 'nhsw-phase-banner--reverse', 'nhsw-site-header__logout'], not: ['nhsw-grid-column'] },
-  'page-template-one-half': { h1: 'One-half', has: ['nhsw-grid-column-one-half', 'nhsw-back-link'] },
-  'page-template-two-thirds': { h1: 'Two-thirds', has: ['nhsw-grid-column-two-thirds', 'nhsw-back-link'] },
-  'page-template-one-third': { h1: 'One-third', has: ['nhsw-grid-column-one-third', 'nhsw-back-link'] },
-  'page-template-customised-content': { h1: 'Customised content page template', has: ['nhsw-breadcrumb', 'nhsw-phase-banner--reverse'] },
-  'page-template-dashboard-default': { h1: 'Default page template', has: ['nhsw-dashboard__sidebar', 'nhsw-dashboard__topbar'], not: ['nhsw-back-link', 'nhsw-breadcrumb'] },
-  'page-template-dashboard-transactional': { h1: 'Transactional page template', has: ['nhsw-dashboard__sidebar', 'nhsw-back-link'] },
-  'page-template-dashboard-content': { h1: 'Content page template', has: ['nhsw-dashboard__sidebar', 'nhsw-breadcrumb'] },
+  'page-template-full-width': { h1: 'Full width', has: ['nhsw-back-link', 'nhsw-site-header__logo'], not: ['nhsw-grid-column', 'nhsw-phase-banner', 'nhsw-site-header__nav', 'nhsw-site-header__account', 'nhsw-site-header__title', 'nhsw-site-footer__links'] },
+  'page-template-one-half': { h1: 'One-half', has: ['nhsw-grid-column-one-half', 'nhsw-back-link'], not: ['nhsw-phase-banner', 'nhsw-site-header__nav', 'nhsw-site-footer__links'] },
+  'page-template-two-thirds': { h1: 'Two-thirds', has: ['nhsw-grid-column-two-thirds', 'nhsw-back-link'], not: ['nhsw-phase-banner', 'nhsw-site-header__nav', 'nhsw-site-footer__links'] },
+  'page-template-one-third': { h1: 'One-third', has: ['nhsw-grid-column-one-third', 'nhsw-back-link'], not: ['nhsw-phase-banner', 'nhsw-site-header__nav', 'nhsw-site-footer__links'] },
+  'page-template-customised-content': { h1: 'Customised content page template', has: ['nhsw-breadcrumb', 'nhsw-phase-banner', 'nhsw-site-header__nav'], not: ['nhsw-phase-banner--reverse', 'nhsw-site-footer__links'] },
+  'page-template-dashboard-default': { h1: 'Default page template', has: ['nhsw-dashboard__sidebar', 'nhsw-dashboard__topbar'], not: ['nhsw-back-link', 'nhsw-breadcrumb', 'nhsw-site-footer__links'] },
+  'page-template-dashboard-transactional': { h1: 'Transactional page template', has: ['nhsw-dashboard__sidebar', 'nhsw-back-link'], not: ['nhsw-site-footer__links'] },
+  'page-template-dashboard-content': { h1: 'Content page template', has: ['nhsw-dashboard__sidebar', 'nhsw-breadcrumb'], not: ['nhsw-site-footer__links'] },
 };
 
 describe('Page templates docs page', () => {

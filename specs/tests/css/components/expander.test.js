@@ -8,10 +8,10 @@ describe('expander matches Figma Expander component', () => {
     css = compileProbe(`@use "components/content/expander";`);
   });
 
-  it('heading has a 2px gap under the text for the focus underline, cancelled by a negative margin so the expander does not change size', () => {
+  it('heading leaves a gap under the text and the icon for the focus underline, cancelled by a negative margin so the expander does not change size', () => {
     const heading = block(css, '\\.nhsw-expander__heading');
-    expect(heading).toMatch(/padding-bottom:\s*2px/);
-    expect(heading).toMatch(/margin-bottom:\s*-2px/);
+    expect(heading).toMatch(/padding-bottom:\s*6px/);
+    expect(heading).toMatch(/margin-bottom:\s*-6px/);
   });
 
   it('button has 24px padding', () => {

@@ -1,5 +1,6 @@
 @use "../../tokens/colours" as c;
 @use "../../foundations/typography" as type;
+@use "../../tokens/typography" as t;
 
 .nhsw-panel {
   margin-bottom: 24px;
@@ -51,6 +52,8 @@
 
 .nhsw-panel__body {
   margin: 0;
+  font-size: t.$nhsw-font-size-h3-mobile;
+  line-height: t.$nhsw-line-height-h3-mobile;
   color: c.$nhsw-colour-text-exceptional;
 }
 

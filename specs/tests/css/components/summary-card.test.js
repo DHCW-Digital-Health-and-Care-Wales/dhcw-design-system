@@ -25,12 +25,12 @@ describe('summary card header, body and subheader structure', () => {
     expect(block(css, '\\.nhsw-summary-card__body')).toMatch(/padding:\s*24px(?:;|\s*$)/m);
   });
 
-  it('subheader has a white background between top/bottom borders, like the header', () => {
+  it('subheader has a white background and no top or bottom border', () => {
     const subheader = block(css, '\\.nhsw-summary-card__subheader');
     expect(subheader).toMatch(/background-color:\s*#ffffff/);
     expect(subheader).not.toMatch(/#f0f4f5/);
-    expect(subheader).toMatch(/border-top:\s*1px solid #d8dde0/);
-    expect(subheader).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+    expect(subheader).not.toMatch(/border/);
+    expect(css).not.toMatch(/\.nhsw-summary-card__subheader:first-child/);
   });
 
   it('the body has the same 24px padding on all four sides, top and bottom as well as left and right', () => {

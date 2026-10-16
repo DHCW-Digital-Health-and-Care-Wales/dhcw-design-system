@@ -23,7 +23,7 @@ test.describe('Beta banner', () => {
 });
 
 test.describe('Page templates side navigation', () => {
-  test('Page templates is current and lists its two sections underneath, with the Patterns tab highlighted', async ({ page }) => {
+  test('Page templates is current and lists its two sections underneath, with no top-level tab highlighted now the Patterns link is gone', async ({ page }) => {
     await page.goto('/patterns/page-templates.html');
     const current = page.locator('.nhsw-side-nav__link--current');
     await expect(current).toHaveText('Page templates');
@@ -31,7 +31,7 @@ test.describe('Page templates side navigation', () => {
 
     const sub = page.locator('.nhsw-side-nav__sublist a');
     await expect(sub).toHaveText(['— Public facing page template', '— Dashboard page template']);
-    await expect(page.locator('.nhsw-site-header__nav-link--current')).toHaveText('Patterns');
+    await expect(page.locator('.nhsw-site-header__nav-link--current')).toHaveCount(0);
   });
 
   test('the sections the side navigation points to exist on the page', async ({ page }) => {
@@ -53,13 +53,25 @@ test.describe('Page template previews', () => {
     await expect(page.getByRole('link', { name: 'Open this example in a new tab' })).toHaveCount(9);
   });
 
-  test('the public-facing templates show an Alpha banner, signed-in user and a service navigation with counts', async ({ page }) => {
-    await page.goto('/examples/page-template-full-width.html');
-    await expect(page.locator('.nhsw-phase-banner--reverse .nhsw-phase-banner__tag')).toHaveText('Alpha');
+  test('the customised template shows the Alpha banner below the navigation, a signed-in user and a service navigation with counts', async ({ page }) => {
+    await page.goto('/examples/page-template-customised-content.html');
+    await expect(page.locator('.nhsw-phase-banner:not(.nhsw-phase-banner--reverse) .nhsw-phase-banner__tag')).toHaveText('Alpha');
+    const nav = await page.locator('.nhsw-site-header__nav').boundingBox();
+    const banner = await page.locator('.nhsw-phase-banner').boundingBox();
+    expect(banner.y).toBeGreaterThanOrEqual(nav.y + nav.height - 1);
     await expect(page.locator('.nhsw-site-header__user-name')).toHaveText('Jane Doe');
     await expect(page.getByRole('link', { name: 'Log out' })).toBeVisible();
     await expect(page.locator('.nhsw-site-header__nav-badge')).toHaveText(['5', '4', '0']);
     await expect(page.locator('.nhsw-site-header__nav-link--current')).toHaveText('Sessions');
+  });
+
+  test('the public-facing templates use the simple header and footer: just the logo and the copyright line', async ({ page }) => {
+    for (const slug of ['full-width', 'one-half', 'two-thirds', 'one-third']) {
+      await page.goto(`/examples/page-template-${slug}.html`);
+      await expect(page.locator('.nhsw-site-header__logo img')).toHaveCount(1);
+      await expect(page.locator('.nhsw-phase-banner, .nhsw-site-header__nav, .nhsw-site-header__account, .nhsw-site-footer__links')).toHaveCount(0);
+      await expect(page.locator('.nhsw-site-footer__copyright')).toBeVisible();
+    }
   });
 
   test('the dashboard templates put the navigation on the left and the top bar above the content', async ({ page }) => {

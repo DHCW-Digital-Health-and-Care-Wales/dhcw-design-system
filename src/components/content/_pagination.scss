@@ -58,6 +58,7 @@
   position: relative;
   text-decoration: none;
   width: 100%;
+  box-sizing: border-box;
   color: c.$nhsw-colour-link;
 
   .nhsw-icon {
