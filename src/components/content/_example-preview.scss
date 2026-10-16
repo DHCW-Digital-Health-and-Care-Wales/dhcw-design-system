@@ -36,6 +36,10 @@
       background-color: c.$nhsw-colour-background-blue;
     }
 
+    &--grey {
+      background-color: c.$nhsw-colour-background-grey;
+    }
+
     // The example sits inline in the docs page, so a navigation demo would
     // vanish whenever the window is narrower than the component's own breakpoint.
     // Keep it in view; the example opened in a new tab behaves as the real thing.

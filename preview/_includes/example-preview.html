@@ -4,7 +4,8 @@
     <a class="nhsw-action-link" href="#">...</a>
   {% endcapture %}
   {% include example-preview.html id="al-overview" open_url="/examples/action-link-default.html" body=example_body %}
-  Pass dark=true to render the body on the dark-background variant.
+  Pass dark=true to render the body on the dark-background variant, or grey=true for the
+  light grey background used to show a white component, such as a white header.
   The HTML and Nunjucks buttons open the paired code viewer (code-viewer.html with
   toggleable=true and the same id) on the matching tab.
 {% endcomment %}
@@ -12,7 +13,7 @@
   <div class="nhsw-example-preview__toolbar">
     <a class="nhsw-link" href="{{ include.open_url | relative_url }}" target="_blank" rel="noopener">Open this example in a new tab</a>
   </div>
-  <div class="nhsw-example-preview__body{% if include.dark %} nhsw-example-preview__body--dark{% endif %}">
+  <div class="nhsw-example-preview__body{% if include.dark %} nhsw-example-preview__body--dark{% endif %}{% if include.grey %} nhsw-example-preview__body--grey{% endif %}">
     {{ include.body }}
   </div>
   <div class="nhsw-example-preview__footer">

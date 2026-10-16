@@ -76,7 +76,7 @@ describe('header documentation', () => {
     ['hd-pf-dark', 'header-public-dark'],
     ['hd-patient', 'header-patient'],
   ])('%s has a preview, HTML and Nunjucks, and its example page exists', (id, slug) => {
-    expect(docs).toContain(`id="${id}" open_url="/examples/${slug}.html"`);
+    expect(docs).toContain(`id="${id}" grey=true open_url="/examples/${slug}.html"`);
     expect(docs).toContain(`include code-viewer.html id="${id}"`);
     expect(fs.existsSync(path.join(root, `preview/examples/${slug}.html`))).toBe(true);
   });
@@ -94,5 +94,43 @@ describe('header documentation', () => {
     expect(read('preview/examples/header-public-dark.html')).toContain('/assets/nhsw-logo.svg');
     expect(read('preview/examples/header-service-name-light.html')).toContain('dhcw-icon.svg');
     expect(read('preview/examples/header-service-name-dark.html')).toContain('dhcw-icon-white.svg');
+  });
+});
+
+describe('the Header page Variants tab matches the design exactly', () => {
+  const docs = read('preview/components/header.html');
+  const variants = docs.slice(docs.indexOf('id="panel-variants"'), docs.indexOf('<!-- Examples -->'));
+  const howToUse = docs.slice(docs.indexOf('id="panel-how-to-use"'), docs.indexOf('<!-- Variants -->'));
+
+  it('has only the design\'s headings: Header variants, then the five sections', () => {
+    const headings = [...variants.matchAll(/<h([234]) class="nhsw-h\1">([^<]*)<\/h\1>/g)].map((m) => m[2]);
+    expect(headings).toEqual(['Header variants', 'Logged-in header', 'Logged-in header (with service name)', 'User information', 'Public facing header', 'Patient header']);
+  });
+
+  it('has exactly the seven examples in the design, no more', () => {
+    expect([...variants.matchAll(/include example-preview\.html id="([^"]+)"/g)].map((m) => m[1])).toEqual(
+      ['hd-li-light', 'hd-li-dark', 'hd-sn-light', 'hd-sn-dark', 'hd-pf-light', 'hd-pf-dark', 'hd-patient'],
+    );
+  });
+
+  it('shows each example on the grey panel, and ends with Back to top', () => {
+    expect(variants.match(/grey=true/g)).toHaveLength(7);
+    expect(variants.trimEnd().endsWith('</div>')).toBe(true);
+    expect(variants).toMatch(/Back to top<\/a><\/p>\s*<\/div>\s*$/);
+  });
+
+  it('the search bar and mobile bottom navigation sections now live on the How to use tab', () => {
+    expect(variants).not.toContain('Without a search bar');
+    expect(variants).not.toContain('Mobile bottom navigation');
+    expect(howToUse).toContain('Without a search bar');
+    expect(howToUse).toContain('Mobile bottom navigation');
+  });
+
+  it('the grey example background and the compact header sizes exist in the CSS', () => {
+    const preview = compileProbe('@use "components/content/example-preview";');
+    expect(block(preview, '\.nhsw-example-preview__body--grey')).toMatch(/background-color:\s*#f0f4f5/);
+    const header = compileProbe('@use "components/site/header";');
+    expect(block(header, '\.nhsw-site-header--compact \.nhsw-site-header__logo img')).toMatch(/height:\s*3rem/);
+    expect(read('preview/_includes/example-preview.html')).toContain('nhsw-example-preview__body--grey');
   });
 });

@@ -2949,6 +2949,9 @@ body {
 .preview-section:last-child {
   border-bottom: none;
 }
+.preview-section--no-divider {
+  border-bottom: none;
+}
 
 .nhsw-code-viewer {
   margin-top: 24px;
@@ -3066,6 +3069,9 @@ body {
 }
 .nhsw-example-preview__body--dark {
   background-color: #1b365d;
+}
+.nhsw-example-preview__body--grey {
+  background-color: #f0f4f5;
 }
 .nhsw-example-preview__body .nhsw-site-header__nav {
   display: block;
@@ -4451,7 +4457,11 @@ body {
 
 .nhsw-site-header--compact .nhsw-site-header__top {
   min-height: 4rem;
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
+}
+
+.nhsw-site-header--compact .nhsw-site-header__logo img {
+  height: 3rem;
 }
 
 .nhsw-site-header__logo--icon img,

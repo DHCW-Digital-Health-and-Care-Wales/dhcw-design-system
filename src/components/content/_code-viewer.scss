@@ -8,6 +8,11 @@
   &:last-child {
     border-bottom: none;
   }
+
+  // Keeps the spacing but not the divider line after the examples.
+  &--no-divider {
+    border-bottom: none;
+  }
 }
 
 .nhsw-code-viewer {
