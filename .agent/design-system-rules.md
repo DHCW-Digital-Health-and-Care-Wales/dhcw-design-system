@@ -1,4 +1,4 @@
-# NHSW design system rules
+# DHCW design system rules
 
 Generate static HTML preview/documentation pages only.
 

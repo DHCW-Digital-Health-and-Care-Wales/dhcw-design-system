@@ -858,7 +858,7 @@
   flex-wrap: wrap;
   align-items: flex-start;
   min-height: 40px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   padding-left: 52px;
   position: relative;
 }
@@ -950,6 +950,9 @@
   font-weight: 400;
   text-align: center;
 }
+.nhsw-checkboxes__item:has(+ .nhsw-checkboxes__conditional:not(.nhsw-checkboxes__conditional--hidden)) {
+  margin-bottom: 0;
+}
 .nhsw-checkboxes__conditional {
   margin: 6px 0 2px 18px;
   padding-left: 30px;
@@ -986,7 +989,7 @@
 .nhsw-checkboxes--small .nhsw-checkboxes__item {
   min-height: 24px;
   padding-left: 32px;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 .nhsw-checkboxes--small .nhsw-checkboxes__input {
   width: 24px;

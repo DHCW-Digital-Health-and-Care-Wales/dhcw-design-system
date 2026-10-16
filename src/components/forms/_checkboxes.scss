@@ -12,7 +12,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     min-height: 40px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     padding-left: 52px;
     position: relative;
   }
@@ -104,6 +104,12 @@
     text-align: center;
   }
 
+  // The option above a visible conditional line gives up its own bottom margin, so the
+  // line stays 6px below it instead of the margins collapsing to the item spacing.
+  &__item:has(+ .nhsw-checkboxes__conditional:not(.nhsw-checkboxes__conditional--hidden)) {
+    margin-bottom: 0;
+  }
+
   // The line to the left of the conditional content has 6px above it and 2px below
   // it, as in the radios and the NHS.UK checkboxes. The option that follows it has
   // more room (14px, 22px from the tablet breakpoint).
@@ -149,7 +155,7 @@
     .nhsw-checkboxes__item {
       min-height: 24px;
       padding-left: 32px;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
     }
 
     .nhsw-checkboxes__input {

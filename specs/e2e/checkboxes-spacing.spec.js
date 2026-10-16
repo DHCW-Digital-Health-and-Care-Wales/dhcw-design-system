@@ -36,12 +36,12 @@ test.describe('Checkboxes conditional line spacing, the same as the radios', () 
     }
   });
 
-  test('with the content hidden the options keep the usual 6px between them', async ({ page }) => {
+  test('with the content hidden the options keep the usual 10px between them', async ({ page }) => {
     await page.goto('/examples/checkboxes-conditional.html');
     await expect(page.locator('#conditional-cb2-1')).toBeHidden();
     const first = await box(page.locator('.nhsw-checkboxes__item').first());
     const second = await box(page.locator('.nhsw-checkboxes__item').nth(1));
-    expect(Math.round(second.top - first.bottom)).toBe(6);
+    expect(Math.round(second.top - first.bottom)).toBe(10);
   });
 
   test('the content still lines up with the option text', async ({ page }) => {

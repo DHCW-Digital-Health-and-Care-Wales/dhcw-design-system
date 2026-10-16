@@ -1,6 +1,6 @@
 Create a new static HTML example page.
 
-Use the NHSW design system rules from CLAUDE.md.
+Use the DHCW design system rules from CLAUDE.md.
 
 Page request:
 [DESCRIBE PAGE HERE]

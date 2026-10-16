@@ -77,9 +77,15 @@ describe('checkboxes: regular-weight labels, centred tick, no row hover, thicker
     expect(divider).not.toMatch(/margin-bottom:\s*16px/);
   });
 
-  it('items are spaced 6px apart, narrower than the 16px used elsewhere', () => {
+  it('items are spaced 10px apart, and smaller checkboxes 16px apart', () => {
     const item = block(css, '\\.nhsw-checkboxes__item\\b');
-    expect(item).toMatch(/margin-bottom:\s*6px/);
+    expect(item).toMatch(/margin-bottom:\s*10px/);
+    const small = block(css, '\\.nhsw-checkboxes--small \\.nhsw-checkboxes__item');
+    expect(small).toMatch(/margin-bottom:\s*16px/);
+  });
+
+  it('an option above a visible conditional line keeps the line 6px below it', () => {
+    expect(css).toMatch(/\.nhsw-checkboxes__item:has\(\+ \.nhsw-checkboxes__conditional:not\(\.nhsw-checkboxes__conditional--hidden\)\)\s*\{\s*margin-bottom:\s*0/);
   });
 
   it('the item is at least as tall as the 40px box, so the box never overhangs the gap below it', () => {
