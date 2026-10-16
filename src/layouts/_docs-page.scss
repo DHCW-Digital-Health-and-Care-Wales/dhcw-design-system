@@ -1,6 +1,12 @@
 @use "../tokens/colours" as c;
 @use "../utilities/breakpoints" as b;
 
+// The content beside the side navigation starts level with its first link, so the breadcrumb
+// lines up with it.
+.nhsw-layout__content.nhsw-layout__content--docs {
+  padding-top: 0;
+}
+
 // Documentation pages leave more room around headings than the components do.
 .nhsw-layout__content--docs {
   .nhsw-h1 {

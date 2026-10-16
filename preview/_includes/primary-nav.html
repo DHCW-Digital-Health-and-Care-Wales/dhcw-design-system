@@ -5,7 +5,7 @@
 {% endfor %}
 {% if page.url == "/error-states.html" %}{% assign nav_active = "components" %}{% endif %}
 {% if page.url contains "/get-started/" %}{% assign nav_active = "get-started" %}{% endif %}
-{% if page.url == "/styles.html" or page.url contains "/styles/" %}{% assign nav_active = "styles" %}{% endif %}
+{% if page.url == "/styles.html" or page.url contains "/styles/" or page.url == "/patterns/page-templates.html" %}{% assign nav_active = "styles" %}{% endif %}
 {% if page.layout == "home" %}{% assign nav_active = "none" %}{% endif %}
 
 <nav class="nhsw-site-header__nav" aria-label="Primary navigation">

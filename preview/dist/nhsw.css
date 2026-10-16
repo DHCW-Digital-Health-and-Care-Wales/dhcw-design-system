@@ -2280,7 +2280,7 @@ body {
 }
 @media (min-width: 40.0625em) {
   .nhsw-pagination--numbered {
-    justify-content: center;
+    justify-content: flex-start;
     font-size: 1.1875rem;
     line-height: 1.47368;
   }
@@ -2344,7 +2344,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0;
   list-style: none;
   margin: 8px 0 0;
@@ -4120,31 +4120,52 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 8px 32px;
   margin-left: auto;
+}
+
+.nhsw-site-header__account-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
 .nhsw-site-header__user {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 8px 4px 4px;
-  background-color: #004281;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid #d8dde0;
+  border-radius: 4px;
   color: #ffffff;
-  font-size: 0.875rem;
-  line-height: 20px;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 .nhsw-site-header__user-icon {
-  flex-shrink: 0;
+  display: inline-flex;
+  flex: none;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #1b365d;
+}
+.nhsw-site-header__user-icon svg {
+  display: block;
   width: 24px;
   height: 24px;
 }
 
 .nhsw-site-header__logout {
   color: #ffffff;
-  font-size: 0.875rem;
-  line-height: 20px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   text-decoration: underline;
 }
 .nhsw-site-header__logout:hover {
@@ -4451,13 +4472,17 @@ body {
 .nhsw-site-header--light .nhsw-site-header__user {
   color: #212b32;
 }
+.nhsw-site-header--light .nhsw-site-header__user-icon {
+  background-color: #005aa8;
+  color: #ffffff;
+}
 .nhsw-site-header--light .nhsw-site-header__logout {
   color: #005aa8;
 }
 
 .nhsw-site-header--compact .nhsw-site-header__top {
-  min-height: 4rem;
-  padding: 0.5rem 0;
+  min-height: 60px;
+  padding: 10px 0;
 }
 
 .nhsw-site-header--compact .nhsw-site-header__logo img {
@@ -4467,16 +4492,6 @@ body {
 .nhsw-site-header__logo--icon img,
 .nhsw-site-header__logo--icon svg {
   height: 2.5rem;
-}
-
-.nhsw-site-header__user--outline {
-  padding-right: 12px;
-  background-color: transparent;
-  border: 1px solid #ffffff;
-}
-
-.nhsw-site-header--light .nhsw-site-header__user--outline {
-  border-color: #d8dde0;
 }
 
 .nhsw-phase-banner {
@@ -5150,6 +5165,10 @@ body {
     padding-top: 56px;
     padding-bottom: 56px;
   }
+}
+
+.nhsw-layout__content.nhsw-layout__content--docs {
+  padding-top: 0;
 }
 
 .nhsw-layout__content--docs .nhsw-h1 {

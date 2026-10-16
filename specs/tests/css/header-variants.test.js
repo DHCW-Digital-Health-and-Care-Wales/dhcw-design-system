@@ -17,13 +17,16 @@ describe('header variants (logged-in, with service name, public facing)', () => 
   });
 
   it('the logged-in bar is compact, and the account area sits on the right', () => {
-    expect(block(css, '\\.nhsw-site-header--compact \\.nhsw-site-header__top')).toMatch(/min-height:\s*4rem/);
+    expect(block(css, '\\.nhsw-site-header--compact \\.nhsw-site-header__top')).toMatch(/min-height:\s*60px/);
     expect(block(css, '\\.nhsw-site-header__account')).toMatch(/margin-left:\s*auto/);
   });
 
-  it('the account chips can be outlined, in white on a dark header and light grey on a light one', () => {
-    expect(block(css, '\\.nhsw-site-header__user--outline')).toMatch(/border:\s*1px solid #ffffff/);
-    expect(block(css, '\\.nhsw-site-header--light \\.nhsw-site-header__user--outline')).toMatch(/border-color:\s*#d8dde0/);
+  it('on a light header the icon square is blue with a white glyph, and the text is dark', () => {
+    const icon = block(css, '\\.nhsw-site-header--light \\.nhsw-site-header__user-icon');
+    expect(icon).toMatch(/background-color:\s*#[0-9a-f]{6}/i);
+    expect(icon).not.toMatch(/background-color:\s*#ffffff/);
+    expect(icon).toMatch(/color:\s*#ffffff/);
+    expect(block(css, '\\.nhsw-site-header--light \\.nhsw-site-header__user')).toMatch(/color:\s*#212b32/);
   });
 
   it('the service-name header uses a small icon in place of the full logo', () => {
@@ -132,5 +135,26 @@ describe('the Header page Variants tab matches the design exactly', () => {
     const header = compileProbe('@use "components/site/header";');
     expect(block(header, '\.nhsw-site-header--compact \.nhsw-site-header__logo img')).toMatch(/height:\s*3rem/);
     expect(read('preview/_includes/example-preview.html')).toContain('nhsw-example-preview__body--grey');
+  });
+});
+
+describe('logged-in header markup follows the Figma account information', () => {
+  const files = ['header-logged-in-light', 'header-logged-in-dark', 'header-service-name-light', 'header-service-name-dark'];
+
+  it.each(files)('%s: transparent glyphs inside the icon squares, chips grouped, sign out last', (slug) => {
+    const html = read(`preview/examples/${slug}.html`);
+    expect(html).toContain('nhsw-site-header__account-info');
+    expect(html.match(/nhsw-site-header__user-icon/g)).toHaveLength(2);
+    expect(html).toContain('fill="currentColor"');
+    expect(html).not.toContain('fill="#005AA8"');
+    expect(html).not.toContain('--outline');
+    expect(html.indexOf('nhsw-site-header__logout')).toBeGreaterThan(html.indexOf('Aneurin Bevan University Health Board'));
+  });
+
+  it('the header macro renders the same chip structure', () => {
+    const macro = read('src/components/header/macro.njk');
+    expect(macro).toContain('nhsw-site-header__account-info');
+    expect(macro).toContain('<span class="nhsw-site-header__user-icon" aria-hidden="true">');
+    expect(macro).not.toContain('fill="#005AA8"');
   });
 });

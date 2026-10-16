@@ -23,7 +23,7 @@ test.describe('Beta banner', () => {
 });
 
 test.describe('Page templates side navigation', () => {
-  test('Page templates is current and lists its two sections underneath, with no top-level tab highlighted now the Patterns link is gone', async ({ page }) => {
+  test('Page templates is current and lists its two sections underneath, with the Styles tab highlighted', async ({ page }) => {
     await page.goto('/patterns/page-templates.html');
     const current = page.locator('.nhsw-side-nav__link--current');
     await expect(current).toHaveText('Page templates');
@@ -31,7 +31,7 @@ test.describe('Page templates side navigation', () => {
 
     const sub = page.locator('.nhsw-side-nav__sublist a');
     await expect(sub).toHaveText(['— Public facing page template', '— Dashboard page template']);
-    await expect(page.locator('.nhsw-site-header__nav-link--current')).toHaveCount(0);
+    await expect(page.locator('.nhsw-site-header__nav-link--current')).toHaveText('Styles');
   });
 
   test('the sections the side navigation points to exist on the page', async ({ page }) => {

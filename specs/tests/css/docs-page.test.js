@@ -90,3 +90,19 @@ describe('documentation layout wiring', () => {
     expect(read('preview/_layouts/component.html')).not.toContain('nhsw-layout__content--docs');
   });
 });
+
+describe('documentation pages with a side navigation', () => {
+  it('start level with the first side navigation link: no top padding on the content', () => {
+    const css = compileProbe('@use "layouts/docs-page";');
+    expect(block(css, '\\.nhsw-layout__content\\.nhsw-layout__content--docs')).toMatch(/padding-top:\s*0/);
+  });
+});
+
+describe('the Page templates page sits under Styles', () => {
+  it('highlights the Styles tab, and its breadcrumb goes back to Styles', () => {
+    expect(read('preview/_includes/primary-nav.html')).toMatch(/page\.url == "\/patterns\/page-templates\.html" %\}\{% assign nav_active = "styles"/);
+    const page = read('preview/patterns/page-templates.html');
+    expect(page).toContain('breadcrumb_parent_title: Styles');
+    expect(page).toContain('breadcrumb_parent_url: /styles.html');
+  });
+});

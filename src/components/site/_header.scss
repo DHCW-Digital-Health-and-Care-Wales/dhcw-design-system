@@ -95,35 +95,62 @@
   }
 }
 
+
+
+
+// Account information, from the Figma header: bordered 40px chips with a 32px white icon
+// square holding a navy glyph, 16px text, and 32px between the chips and the sign out link.
 .nhsw-site-header__account {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 8px 32px;
   margin-left: auto;
+}
+
+.nhsw-site-header__account-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
 .nhsw-site-header__user {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 4px 8px 4px 4px;
-  background-color: #004281;
+  box-sizing: border-box;
+  min-height: 40px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid c.$nhsw-colour-border-grey;
+  border-radius: 4px;
   color: c.$nhsw-colour-text-exceptional;
-  font-size: 0.875rem;
-  line-height: 20px;
+  font-size: t.$nhsw-font-size-body-small;
+  line-height: t.$nhsw-line-height-body-small;
 }
 
 .nhsw-site-header__user-icon {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
+  display: inline-flex;
+  flex: none;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: c.$nhsw-colour-background-white;
+  color: c.$nhsw-colour-background-blue;
+
+  svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .nhsw-site-header__logout {
   color: c.$nhsw-colour-text-exceptional;
-  font-size: 0.875rem;
-  line-height: 20px;
+  font-size: t.$nhsw-font-size-body-small;
+  line-height: t.$nhsw-line-height-body-small;
   text-decoration: underline;
 
   &:hover {
@@ -481,14 +508,19 @@
     color: c.$nhsw-colour-text-primary;
   }
 
+  .nhsw-site-header__user-icon {
+    background-color: c.$nhsw-colour-link;
+    color: c.$nhsw-colour-background-white;
+  }
+
   .nhsw-site-header__logout {
     color: c.$nhsw-colour-link;
   }
 }
 
 .nhsw-site-header--compact .nhsw-site-header__top {
-  min-height: 4rem;
-  padding: 0.5rem 0;
+  min-height: 60px;
+  padding: 10px 0;
 }
 
 .nhsw-site-header--compact .nhsw-site-header__logo img {
@@ -500,12 +532,4 @@
   height: 2.5rem;
 }
 
-.nhsw-site-header__user--outline {
-  padding-right: 12px;
-  background-color: transparent;
-  border: 1px solid #ffffff;
-}
 
-.nhsw-site-header--light .nhsw-site-header__user--outline {
-  border-color: c.$nhsw-colour-border-grey;
-}

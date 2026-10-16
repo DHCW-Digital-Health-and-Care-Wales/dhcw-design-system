@@ -454,7 +454,7 @@ Pass a `nav` param (`{ items, ariaLabel, classes, attributes }`) and `nhswHeader
 
 Pass `phaseBanner` (`{ tag, text, html }`) to show an Alpha/Beta `nhsw-phase-banner--reverse` inside the dark header, and `user` (`{ name, logoutText, logoutHref }`) to show the signed-in user and a log out link on the right:
 - nhsw-site-header__account, __user, __user-icon, __user-name, __logout
-- header variants: nhsw-site-header--light (white header), nhsw-site-header--compact (shorter bar for the logged-in header), nhsw-site-header__logo--icon (small icon in place of the full logo), nhsw-site-header__user--outline (outlined account chip, for example the user and the location)
+- header variants: nhsw-site-header--light (white header), nhsw-site-header--compact (shorter bar for the logged-in header), nhsw-site-header__logo--icon (small icon in place of the full logo); account information is bordered chips (nhsw-site-header__account-info > __user) with a 32px icon square (__user-icon) holding a transparent glyph, then the sign out link
 
 ## nhsw-site-header__nav
 Primary navigation row (macro: `nhswSiteNavigation`, `src/components/site-navigation/`) — never hidden: items that do not fit move into a "More" menu, as in the NHS.UK header. Pass `overflowMenu: false` to hide it below the tablet breakpoint instead. Callable standalone, or via `nhswHeader`'s `nav` param.

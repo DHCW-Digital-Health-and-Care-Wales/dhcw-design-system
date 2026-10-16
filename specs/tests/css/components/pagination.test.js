@@ -126,9 +126,9 @@ describe('numbered pagination: on mobile, previous/next sit at the top with the 
     expect(list).toMatch(/flex-basis:\s*100%/);
   });
 
-  it('desktop (from-tablet): reverts to a single centred row in natural source order', () => {
+  it('desktop (from-tablet): reverts to a single left-aligned row in natural source order', () => {
     const fromTablet = css.match(/@media \(min-width: 40\.0625em\)[\s\S]*/)[0];
-    expect(fromTablet).toMatch(/\.nhsw-pagination--numbered\s*\{\s*justify-content:\s*center/);
+    expect(fromTablet).toMatch(/\.nhsw-pagination--numbered\s*\{\s*justify-content:\s*flex-start/);
     expect(fromTablet).toMatch(/\.nhsw-pagination--numbered \.nhsw-pagination__previous\s*\{\s*order:\s*initial/);
     expect(fromTablet).toMatch(/\.nhsw-pagination--numbered \.nhsw-pagination__next\s*\{\s*order:\s*initial/);
     expect(fromTablet).toMatch(/\.nhsw-pagination--numbered \.nhsw-pagination__list\s*\{\s*order:\s*initial;\s*flex-basis:\s*auto/);
