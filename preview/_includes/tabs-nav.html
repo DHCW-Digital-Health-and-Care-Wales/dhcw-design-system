@@ -1,7 +1,7 @@
 <ul class="nhsw-tabs__list" role="tablist" aria-label="{{ page.title }} documentation">
   {% for tab in page.tabs %}
     <li role="presentation">
-      <button class="nhsw-tabs__tab{% if forloop.first %} nhsw-tabs__tab--selected{% endif %}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="panel-{{ tab.id }}" id="tab-{{ tab.id }}">{{ tab.label }}</button>
+      <button class="nhsw-tabs__tab{% if forloop.first %} nhsw-tabs__tab--selected{% endif %}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="panel-{{ tab.id }}" id="tab-{{ tab.id }}"><span class="nhsw-tabs__tab-text">{{ tab.label }}</span></button>
     </li>
   {% endfor %}
 </ul>

@@ -295,7 +295,7 @@ test.describe('Site navigation (SCEN-NAV-008)', () => {
     await page.getByRole('button', { name: /Greyscale view/ }).click();
     await expect(page.getByRole('button', { name: 'Greyscale view: on' })).toHaveAttribute('aria-pressed', 'true');
 
-    // compare the current item's bar with the list's own underline: strong contrast, by lightness alone
+    // compare the current item's bar with the navigation bar's own underline: strong contrast, by lightness alone
     const contrast = await page.evaluate(() => {
       const luminance = ([r, g, b]) => {
         const f = (v) => { const c = v / 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; };
@@ -304,7 +304,7 @@ test.describe('Site navigation (SCEN-NAV-008)', () => {
       const rgb = (s) => s.match(/\d+/g).slice(0, 3).map(Number);
       const link = document.querySelector('.nhsw-site-header__nav-link--current');
       const barColour = rgb(getComputedStyle(link).boxShadow);
-      const list = rgb(getComputedStyle(document.querySelector('.nhsw-site-header__nav-list')).boxShadow);
+      const list = rgb(getComputedStyle(document.querySelector('.nhsw-site-header__nav')).boxShadow);
       const a = luminance(barColour);
       const b = luminance(list);
       return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);

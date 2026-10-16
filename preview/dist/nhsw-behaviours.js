@@ -280,6 +280,12 @@
           } else if (event.key === 'ArrowRight' || event.key === 'Right') {
             event.preventDefault();
             moveTo(index + 1);
+          } else if (event.key === 'Home') {
+            event.preventDefault();
+            moveTo(0);
+          } else if (event.key === 'End') {
+            event.preventDefault();
+            moveTo(tabs.length - 1);
           }
         });
       });

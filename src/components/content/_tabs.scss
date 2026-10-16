@@ -100,7 +100,7 @@
   }
 
   .nhsw-tabs__list::before {
-    content: "Contents";
+    content: "\2014\00a0 Contents";
     display: block;
     margin-bottom: 0.5rem;
     color: c.$nhsw-colour-text-primary;

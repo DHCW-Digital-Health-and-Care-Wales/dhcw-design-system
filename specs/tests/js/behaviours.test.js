@@ -416,6 +416,18 @@ describe.each(BUILDS)('nhsw-behaviours.js (%s)', (label, SCRIPT) => {
         runScript(SCRIPT);
       });
 
+      it('Home moves to the first tab and End to the last, selecting them', () => {
+        const [one, , three] = tabs();
+        press(one, 'End');
+        expect(isSelected(three)).toBe(true);
+        expect(document.activeElement).toBe(three);
+        expect(isHidden(3)).toBe(false);
+        press(three, 'Home');
+        expect(isSelected(one)).toBe(true);
+        expect(document.activeElement).toBe(one);
+        expect(isHidden(1)).toBe(false);
+      });
+
       it('asks for the same breakpoint the stylesheet uses (40.0625em)', () => {
         const media = stubMatchMedia(true);
         setBody(TABS_HTML);

@@ -141,6 +141,11 @@ describe('tabs below the tablet breakpoint: a list of jump links with every pane
 });
 
 describe('tabs below the tablet breakpoint become a contents list with em dashes', () => {
+  it('puts an em dash before the Contents title as well as before each item', () => {
+    const css = compileProbe(`@use "components/content/tabs";`);
+    expect(css).toMatch(/\.nhsw-tabs__list::before\s*\{[^}]*content:\s*"—\sContents"/);
+  });
+
   it('puts an em dash before each item, and the removed previous/next pagination styles are gone', () => {
     const css = compileProbe(`@use "components/content/tabs";`);
     expect(css).toMatch(/\.nhsw-tabs__list li::before\s*\{[^}]*content:\s*"—"/);

@@ -1470,7 +1470,7 @@ body {
     border-bottom: 0;
   }
   .nhsw-tabs__list::before {
-    content: "Contents";
+    content: "— Contents";
     display: block;
     margin-bottom: 0.5rem;
     color: #212b32;
@@ -3907,7 +3907,7 @@ body {
   height: 100%;
   max-height: none;
   object-fit: cover;
-  object-position: left top;
+  object-position: center;
 }
 .nhsw-card--preview .nhsw-card__content {
   padding: 16px;
