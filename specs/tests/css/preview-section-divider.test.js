@@ -12,9 +12,11 @@ describe('divider after the examples in a variants section', () => {
     expect(block(css, '\\.preview-section:last-child')).toMatch(/border-bottom:\s*none/);
   });
 
-  it('--no-divider removes the line but keeps the spacing', () => {
+  it('--no-divider removes the line and the extra space after the examples', () => {
     const rule = block(css, '\\.preview-section--no-divider');
     expect(rule).toMatch(/border-bottom:\s*none/);
+    expect(rule).toMatch(/margin-bottom:\s*0/);
+    expect(rule).toMatch(/padding-bottom:\s*0/);
     expect(block(css, '\\.preview-section')).toMatch(/margin-bottom:\s*48px/);
   });
 

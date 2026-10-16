@@ -7,6 +7,9 @@ $nhsw-dashboard-sidebar-width: 322px;
 $nhsw-dashboard-nav-divider: rgba(255, 255, 255, 0.2);
 $nhsw-dashboard-nav-active: #0056b3;
 $nhsw-dashboard-nav-edge: 0.475rem;
+// The logo section of the side menu and the top bar are the same height: a 42px chip (40px plus its
+// border) with 12px above and below it, and the 1px line under it.
+$nhsw-dashboard-header-height: 67px;
 
 .nhsw-dashboard {
   display: flex;
@@ -20,7 +23,7 @@ $nhsw-dashboard-nav-edge: 0.475rem;
 
   &__sidebar {
     flex-shrink: 0;
-    padding: 1rem 0;
+    padding: 0 0 1rem;
     background-color: c.$nhsw-colour-background-blue;
     color: c.$nhsw-colour-text-exceptional;
 
@@ -33,8 +36,10 @@ $nhsw-dashboard-nav-edge: 0.475rem;
     display: flex;
     align-items: center;
     gap: 10px;
+    box-sizing: border-box;
+    height: $nhsw-dashboard-header-height;
     margin-bottom: 0.5rem;
-    padding: 0 1rem 0.5rem;
+    padding: 0 1rem;
     border-bottom: 1px solid $nhsw-dashboard-nav-divider;
     color: c.$nhsw-colour-text-exceptional;
     font-family: t.$nhsw-font-family-base;
@@ -120,6 +125,8 @@ $nhsw-dashboard-nav-edge: 0.475rem;
     align-items: center;
     justify-content: flex-end;
     gap: 8px;
+    box-sizing: border-box;
+    min-height: $nhsw-dashboard-header-height;
     padding: 12px 20px;
     border-bottom: 1px solid c.$nhsw-colour-link;
     background-color: c.$nhsw-colour-background-white;

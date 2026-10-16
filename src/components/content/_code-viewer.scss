@@ -9,8 +9,11 @@
     border-bottom: none;
   }
 
-  // Keeps the spacing but not the divider line after the examples.
+  // No divider line after the examples, and no extra space: the guidance that follows
+  // sits the usual paragraph distance below the example.
   &--no-divider {
+    margin-bottom: 0;
+    padding-bottom: 0;
     border-bottom: none;
   }
 }

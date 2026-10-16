@@ -12,7 +12,7 @@ describe('dashboard page shell', () => {
   it('puts the navy left-hand navigation, 322px wide, beside the page content from the tablet breakpoint', () => {
     const sidebar = block(css, '\\.nhsw-dashboard__sidebar');
     expect(sidebar).toMatch(/background-color:\s*#1b365d/);
-    expect(sidebar).toMatch(/padding:\s*1rem 0/);
+    expect(sidebar).toMatch(/padding:\s*0 0 1rem/);
     expect(css).toMatch(/\.nhsw-dashboard\s*\{[^}]*flex-direction:\s*row/);
     expect(css).toMatch(/\.nhsw-dashboard__sidebar\s*\{[^}]*width:\s*322px/);
   });
@@ -97,5 +97,22 @@ describe('dashboard top bar chips match the logged-in header', () => {
       expect(html).toContain('<span class="nhsw-dashboard__chip-icon" aria-hidden="true">');
       expect(html).not.toContain('fill="#005aa8"');
     }
+  });
+});
+
+describe('dashboard logo section and top bar are the same height', () => {
+  const css = compileProbe(`@use "components/site/dashboard";`);
+
+  it('both are 67px: the 42px chip, 12px above and below, and the 1px line', () => {
+    const brand = block(css, '\\.nhsw-dashboard__brand');
+    expect(brand).toMatch(/height:\s*67px/);
+    expect(brand).toMatch(/box-sizing:\s*border-box/);
+    const bar = block(css, '\\.nhsw-dashboard__topbar');
+    expect(bar).toMatch(/min-height:\s*67px/);
+    expect(bar).toMatch(/box-sizing:\s*border-box/);
+  });
+
+  it('the side menu has no space above the logo section, so the two start level', () => {
+    expect(block(css, '\\.nhsw-dashboard__sidebar')).toMatch(/padding:\s*0 0 1rem/);
   });
 });

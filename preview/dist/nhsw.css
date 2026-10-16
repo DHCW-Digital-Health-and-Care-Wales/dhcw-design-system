@@ -2973,6 +2973,8 @@ body {
   border-bottom: none;
 }
 .preview-section--no-divider {
+  margin-bottom: 0;
+  padding-bottom: 0;
   border-bottom: none;
 }
 
@@ -4589,7 +4591,7 @@ body {
 }
 .nhsw-dashboard__sidebar {
   flex-shrink: 0;
-  padding: 1rem 0;
+  padding: 0 0 1rem;
   background-color: #1b365d;
   color: #ffffff;
 }
@@ -4602,8 +4604,10 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  box-sizing: border-box;
+  height: 67px;
   margin-bottom: 0.5rem;
-  padding: 0 1rem 0.5rem;
+  padding: 0 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   font-family: Roboto, Arial, sans-serif;
@@ -4675,6 +4679,8 @@ body {
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
+  box-sizing: border-box;
+  min-height: 67px;
   padding: 12px 20px;
   border-bottom: 1px solid #005aa8;
   background-color: #ffffff;
