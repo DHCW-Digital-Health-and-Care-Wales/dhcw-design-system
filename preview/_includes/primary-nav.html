@@ -5,21 +5,15 @@
 {% endfor %}
 {% if page.url == "/error-states.html" %}{% assign nav_active = "components" %}{% endif %}
 {% if page.url contains "/get-started/" %}{% assign nav_active = "get-started" %}{% endif %}
-{% if page.url == "/content-guide.html" %}{% assign nav_active = "content-guide" %}{% endif %}
 {% if page.url == "/styles.html" or page.url contains "/styles/" %}{% assign nav_active = "styles" %}{% endif %}
-{% if page.url == "/patterns.html" or page.url contains "/patterns/" %}{% assign nav_active = "patterns" %}{% endif %}
-{% if page.layout == "workshop" %}{% assign nav_active = "contribution" %}{% endif %}
 {% if page.layout == "home" %}{% assign nav_active = "none" %}{% endif %}
 
 <nav class="nhsw-site-header__nav" aria-label="Primary navigation">
   <div class="nhsw-site-header__nav-container">
     <ul class="nhsw-site-header__nav-list">
       <li><a class="nhsw-site-header__nav-link{% if nav_active == "get-started" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/get-started/index.html' | relative_url }}"{% if nav_active == "get-started" %} aria-current="page"{% endif %}><span>Get started</span></a></li>
-      <li><a class="nhsw-site-header__nav-link{% if nav_active == "content-guide" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/content-guide.html' | relative_url }}"{% if nav_active == "content-guide" %} aria-current="page"{% endif %}><span>Content guide</span></a></li>
       <li><a class="nhsw-site-header__nav-link{% if nav_active == "styles" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/styles.html' | relative_url }}"{% if nav_active == "styles" %} aria-current="page"{% endif %}><span>Styles</span></a></li>
       <li><a class="nhsw-site-header__nav-link{% if nav_active == "components" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/components/index.html' | relative_url }}"{% if nav_active == "components" %} aria-current="page"{% endif %}><span>Components</span></a></li>
-      <li><a class="nhsw-site-header__nav-link{% if nav_active == "patterns" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/patterns.html' | relative_url }}"{% if nav_active == "patterns" %} aria-current="page"{% endif %}><span>Patterns</span></a></li>
-      <li><a class="nhsw-site-header__nav-link{% if nav_active == "contribution" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/workshop/demo.html' | relative_url }}"{% if nav_active == "contribution" %} aria-current="page"{% endif %}><span>Community and contribution</span></a></li>
     </ul>
   </div>
 </nav>

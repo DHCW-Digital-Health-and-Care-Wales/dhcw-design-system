@@ -46,11 +46,11 @@ describe('site header nav matches Figma Service navigation component', () => {
     expect(focus).toMatch(/text-decoration:\s*none/);
   });
 
-  it('the nav bar itself has no border-bottom — the grey line is an inset box-shadow on .nav-list instead', () => {
-    const nav = block(css, '\\.nhsw-site-header__nav\\b');
+  it('the nav bar itself has no border-bottom — the grey line is an inset box-shadow on the full-width .nav instead', () => {
+    const nav = css.match(/\n\.nhsw-site-header__nav \{([^}]*)\}/)?.[1] ?? '';
     expect(nav).not.toMatch(/border-bottom/);
-    const list = block(css, '\\.nhsw-site-header__nav-list\\b');
-    expect(list).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #d8dde0/);
+    expect(nav).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #d8dde0/);
+    expect(block(css, '\\.nhsw-site-header__nav-list\\b')).not.toMatch(/box-shadow/);
   });
 
   it('current-page link overrides that same box-shadow to #212b32, not a border — same band as .nav-list\'s own shadow (verified via real rendered layout: both boxes end at the same y, so both shadows occupy the identical inset region — a border-bottom on .nav was confirmed via Playwright to render in a wholly separate band no link-level inset shadow could ever reach)', () => {
@@ -60,9 +60,9 @@ describe('site header nav matches Figma Service navigation component', () => {
     expect(current).toMatch(/text-decoration:\s*none/);
   });
 
-  it('on a dark background, .nav-list\'s own shadow matches the navy background (hidden) and the current-page indicator is white', () => {
-    const reverseList = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-list');
-    expect(reverseList).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #1b365d/);
+  it('on a dark background, the grey line is removed and the current-page indicator is white', () => {
+    const reverseNav = css.match(/\n\.nhsw-site-header__nav--reverse \{([^}]*)\}/)?.[1] ?? '';
+    expect(reverseNav).toMatch(/box-shadow:\s*none/);
     const current = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-link--current');
     expect(current).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #ffffff/);
     const hover = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-link:hover');

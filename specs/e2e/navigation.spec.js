@@ -8,10 +8,7 @@ test.describe('Primary navigation active state', () => {
     { url: '/testing/checkboxes.html', label: 'Components' },
     { url: '/get-started/index.html', label: 'Get started' },
     { url: '/get-started/prototyping.html', label: 'Get started' },
-    { url: '/content-guide.html', label: 'Content guide' },
     { url: '/styles.html', label: 'Styles' },
-    { url: '/patterns.html', label: 'Patterns' },
-    { url: '/workshop/demo.html', label: 'Community and contribution' },
   ];
 
   for (const { url, label } of cases) {

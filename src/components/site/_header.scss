@@ -198,6 +198,7 @@
 .nhsw-site-header__nav {
   border: 0 solid c.$nhsw-colour-background-white;
   background-color: c.$nhsw-colour-background-white;
+  box-shadow: inset 0 -4px 0 0 c.$nhsw-colour-border-grey;
 
   // The navigation is never hidden, as in the NHS.UK header. nhsw-behaviours.js
   // moves items that do not fit into a "More" menu instead. While that menu is open
@@ -236,7 +237,6 @@
   margin: 0;
   padding: 0;
   gap: 2rem;
-  box-shadow: inset 0 -4px 0 0 c.$nhsw-colour-border-grey;
 
   li {
     display: flex;
@@ -366,10 +366,7 @@
 .nhsw-site-header__nav--reverse {
   border-color: c.$nhsw-colour-background-blue;
   background-color: c.$nhsw-colour-background-blue;
-
-  .nhsw-site-header__nav-list {
-    box-shadow: inset 0 -4px 0 0 c.$nhsw-colour-background-blue;
-  }
+  box-shadow: none;
 
   .nhsw-site-header__menu-list {
     background-color: c.$nhsw-colour-background-blue;
