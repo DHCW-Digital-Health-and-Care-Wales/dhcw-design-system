@@ -173,12 +173,27 @@
   font-size: t.$nhsw-font-size-h3-mobile;
   line-height: t.$nhsw-line-height-h3-mobile;
   font-weight: t.$nhsw-font-weight-regular;
-  margin: 0 0 24px;
+  margin: 0 0 40px;
   display: block;
 
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-h3;
     line-height: t.$nhsw-line-height-h3;
+    margin-bottom: 48px;
+  }
+}
+
+@mixin nhsw-lede-small {
+  @include nhsw-font-base;
+  font-size: t.$nhsw-font-size-body-mobile;
+  line-height: t.$nhsw-line-height-body-mobile;
+  font-weight: t.$nhsw-font-weight-regular;
+  margin: 0 0 24px;
+  display: block;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-body;
+    line-height: t.$nhsw-line-height-body;
     margin-bottom: 32px;
   }
 }

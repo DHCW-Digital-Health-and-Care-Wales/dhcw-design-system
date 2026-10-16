@@ -13,6 +13,11 @@ describe('skip link is not underlined and shows a bordered focus state', () => {
     expect(base).toMatch(/text-decoration:\s*none/);
   });
 
+  it('base state is fully clipped so no sliver of the yellow bar shows until focused', () => {
+    expect(block(css, '\\.nhsw-skip-link\\b')).toMatch(/clip-path:\s*inset\(100%\)/);
+    expect(block(css, '\\.nhsw-skip-link:focus')).toMatch(/clip-path:\s*none/);
+  });
+
   it('base state is a yellow highlight with near-black text', () => {
     const base = block(css, '\\.nhsw-skip-link\\b');
     expect(base).toMatch(/background-color:\s*#ffeb3b/);

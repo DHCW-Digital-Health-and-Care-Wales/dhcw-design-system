@@ -1304,15 +1304,42 @@ body {
   font-size: 1.375rem;
   line-height: 1.8125rem;
   font-weight: 400;
-  margin: 0 0 24px;
+  margin: 0 0 40px;
   display: block;
 }
 @media (min-width: 40.0625em) {
   .nhsw-lede-text {
     font-size: 1.625rem;
     line-height: 2rem;
+    margin-bottom: 48px;
+  }
+}
+.nhsw-lede-text p,
+.nhsw-lede-text ul {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.nhsw-lede-text--small {
+  font-family: Roboto, Arial, sans-serif;
+  color: #212b32;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 24px;
+  display: block;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-lede-text--small {
+    font-size: 1.1875rem;
+    line-height: 1.75rem;
     margin-bottom: 32px;
   }
+}
+
+.nhsw-h1 + .nhsw-lede-text,
+.nhsw-h1 + .nhsw-lede-text--small {
+  margin-top: -8px;
 }
 
 .nhsw-body--secondary {
@@ -4912,10 +4939,12 @@ body {
   font-weight: 700;
   text-decoration: none;
   transform: translateY(-100%);
+  clip-path: inset(100%);
 }
 .nhsw-skip-link:focus {
   outline: none;
   transform: translateY(0);
+  clip-path: none;
   box-shadow: 0 4px 0 #212b32;
 }
 

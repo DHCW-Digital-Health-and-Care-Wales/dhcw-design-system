@@ -56,6 +56,21 @@ body {
 
 .nhsw-lede-text {
   @include type.nhsw-lede;
+
+  p,
+  ul {
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+
+.nhsw-lede-text--small {
+  @include type.nhsw-lede-small;
+}
+
+.nhsw-h1 + .nhsw-lede-text,
+.nhsw-h1 + .nhsw-lede-text--small {
+  margin-top: -8px;
 }
 
 .nhsw-body--secondary {

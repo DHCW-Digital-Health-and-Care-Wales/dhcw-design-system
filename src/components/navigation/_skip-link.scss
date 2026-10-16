@@ -11,10 +11,12 @@
   font-weight: 700;
   text-decoration: none;
   transform: translateY(-100%);
+  clip-path: inset(100%);
 
   &:focus {
     outline: none;
     transform: translateY(0);
+    clip-path: none;
     box-shadow: 0 4px 0 c.$nhsw-colour-border-primary;
   }
 }
