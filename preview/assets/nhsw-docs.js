@@ -62,13 +62,45 @@
     }
   });
 
-  document.querySelectorAll('.nhsw-example-preview__footer-button[data-toggle]').forEach(function (toggleBtn) {
+  var toggleButtons = document.querySelectorAll('.nhsw-example-preview__footer-button[data-toggle]');
+
+  function activeTabName(viewer) {
+    var active = viewer.querySelector('.nhsw-code-viewer__tab--active');
+    return active && /-njk$/.test(active.getAttribute('aria-controls')) ? 'njk' : 'html';
+  }
+
+  function syncToggleButtons() {
+    toggleButtons.forEach(function (btn) {
+      var viewer = document.getElementById(btn.getAttribute('data-toggle'));
+      if (!viewer) return;
+      var tab = btn.getAttribute('data-tab');
+      var expanded = !viewer.hidden && (!tab || activeTabName(viewer) === tab);
+      btn.setAttribute('aria-expanded', String(expanded));
+    });
+  }
+
+  toggleButtons.forEach(function (toggleBtn) {
     toggleBtn.addEventListener('click', function () {
       var target = document.getElementById(toggleBtn.getAttribute('data-toggle'));
       if (!target) return;
-      var expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', String(!expanded));
-      target.hidden = expanded;
+      var tab = toggleBtn.getAttribute('data-tab');
+
+      if (tab && !target.hidden && activeTabName(target) !== tab) {
+        selectViewerTab(target, tab);
+      } else {
+        target.hidden = !target.hidden;
+        if (tab && !target.hidden) selectViewerTab(target, tab);
+      }
+      syncToggleButtons();
     });
   });
+
+  document.querySelectorAll('[data-module="nhsw-code-viewer"] .nhsw-code-viewer__tab').forEach(function (tab) {
+    tab.addEventListener('click', syncToggleButtons);
+  });
+
+  function selectViewerTab(viewer, name) {
+    var tab = viewer.querySelector('.nhsw-code-viewer__tab[aria-controls$="-' + name + '"]');
+    if (tab) tab.dispatchEvent(new Event('click'));
+  }
 }());

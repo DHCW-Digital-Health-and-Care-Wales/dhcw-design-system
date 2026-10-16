@@ -1059,6 +1059,10 @@
 .nhsw-file-upload:hover {
   background-color: #ffffff;
 }
+.nhsw-file-upload:hover .nhsw-file-upload__input:not(:focus) + .nhsw-file-upload__button {
+  background-color: #F2F2F2;
+  box-shadow: 0 2px 0 #212B32;
+}
 .nhsw-file-upload--has-file {
   background-color: #ffffff;
   border-style: solid;
@@ -1068,7 +1072,7 @@
   display: block;
   padding: 10px;
   overflow-wrap: break-word;
-  background-color: #f0f4f5;
+  background-color: #dbe0e3;
   color: #212b32;
 }
 .nhsw-file-upload__status--filled {
@@ -1900,6 +1904,8 @@ body {
 .nhsw-expander__heading {
   display: inline-flex;
   align-items: flex-start;
+  padding-bottom: 2px;
+  margin-bottom: -2px;
 }
 
 .nhsw-expander__icon {

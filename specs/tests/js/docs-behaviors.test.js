@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { runScript } from '../support/load-script.js';
 
 // Covers only the docs-site's own authoring tooling (code samples, the
-// HTML/Figma reveal toggle) — not real component behaviour. That's shipped
+// HTML reveal toggle) — not real component behaviour. That's shipped
 // separately as dist/nhsw-behaviours.js and tested in behaviours.test.js.
 const SCRIPT = 'preview/assets/nhsw-docs.js';
 
@@ -61,7 +61,7 @@ describe('code viewer tabs (data-module="nhsw-code-viewer")', () => {
   });
 });
 
-describe('example-preview HTML/Figma toggle', () => {
+describe('example-preview HTML toggle', () => {
   beforeEach(() => {
     setBody(`
       <button class="nhsw-example-preview__footer-button" data-toggle="code-x" aria-controls="code-x" aria-expanded="false">HTML</button>
@@ -79,5 +79,46 @@ describe('example-preview HTML/Figma toggle', () => {
     btn.dispatchEvent(new Event('click'));
     expect(btn.getAttribute('aria-expanded')).toBe('false');
     expect(document.getElementById('code-x').hidden).toBe(true);
+  });
+});
+
+describe('example-preview HTML and Nunjucks buttons', () => {
+  beforeEach(() => {
+    setBody(`
+      <button class="nhsw-example-preview__footer-button" data-toggle="code-x" data-tab="html" aria-controls="code-x" aria-expanded="false">HTML</button>
+      <button class="nhsw-example-preview__footer-button" data-toggle="code-x" data-tab="njk" aria-controls="code-x" aria-expanded="false">Nunjucks</button>
+      <div id="code-x" data-module="nhsw-code-viewer" hidden>
+        <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" aria-selected="true" aria-controls="cv-x-html">HTML</button>
+        <button class="nhsw-code-viewer__tab" aria-selected="false" aria-controls="cv-x-njk">Nunjucks</button>
+        <div id="cv-x-html" class="nhsw-code-viewer__panel"></div>
+        <div id="cv-x-njk" class="nhsw-code-viewer__panel nhsw-code-viewer__panel--hidden"></div>
+      </div>
+    `);
+    runScript(SCRIPT);
+  });
+
+  const buttons = () => [...document.querySelectorAll('[data-tab]')];
+  const click = (el) => el.dispatchEvent(new Event('click'));
+
+  it('Nunjucks opens the code viewer on the Nunjucks tab', () => {
+    click(buttons()[1]);
+    expect(document.getElementById('code-x').hidden).toBe(false);
+    expect(document.getElementById('cv-x-njk').classList.contains('nhsw-code-viewer__panel--hidden')).toBe(false);
+    expect(document.getElementById('cv-x-html').classList.contains('nhsw-code-viewer__panel--hidden')).toBe(true);
+    expect(buttons()[1].getAttribute('aria-expanded')).toBe('true');
+    expect(buttons()[0].getAttribute('aria-expanded')).toBe('false');
+  });
+
+  it('switches tab when the other button is clicked, and closes when the active one is clicked again', () => {
+    click(buttons()[1]);
+    click(buttons()[0]);
+    expect(document.getElementById('code-x').hidden).toBe(false);
+    expect(document.getElementById('cv-x-html').classList.contains('nhsw-code-viewer__panel--hidden')).toBe(false);
+    expect(buttons()[0].getAttribute('aria-expanded')).toBe('true');
+    expect(buttons()[1].getAttribute('aria-expanded')).toBe('false');
+
+    click(buttons()[0]);
+    expect(document.getElementById('code-x').hidden).toBe(true);
+    expect(buttons()[0].getAttribute('aria-expanded')).toBe('false');
   });
 });

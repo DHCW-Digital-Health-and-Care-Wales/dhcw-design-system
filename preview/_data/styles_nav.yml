@@ -2,8 +2,6 @@
   url: /styles.html
 - title: Colours
   url: /styles/colours.html
-- title: Branding
-  url: /styles/branding.html
 - title: Icons
   url: /styles/icons.html
 - title: Layout
@@ -17,5 +15,3 @@
       url: /patterns/page-templates.html#dashboard-page-templates
 - title: Typography
   url: /styles/typography.html
-- title: WCAG 2.2 Guidance
-  url: /styles/wcag-guidance.html

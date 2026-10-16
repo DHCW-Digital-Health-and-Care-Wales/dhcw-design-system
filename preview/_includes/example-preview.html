@@ -5,6 +5,8 @@
   {% endcapture %}
   {% include example-preview.html id="al-overview" open_url="/examples/action-link-default.html" body=example_body %}
   Pass dark=true to render the body on the dark-background variant.
+  The HTML and Nunjucks buttons open the paired code viewer (code-viewer.html with
+  toggleable=true and the same id) on the matching tab.
 {% endcomment %}
 <div class="nhsw-example-preview">
   <div class="nhsw-example-preview__toolbar">
@@ -14,7 +16,7 @@
     {{ include.body }}
   </div>
   <div class="nhsw-example-preview__footer">
-    <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-{{ include.id }}" aria-controls="code-{{ include.id }}" aria-expanded="false">HTML</button>
-    <a class="nhsw-example-preview__footer-button" href="#">Figma</a>
+    <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-{{ include.id }}" data-tab="html" aria-controls="code-{{ include.id }}" aria-expanded="false">HTML</button>
+    <button type="button" class="nhsw-example-preview__footer-button" data-toggle="code-{{ include.id }}" data-tab="njk" aria-controls="code-{{ include.id }}" aria-expanded="false">Nunjucks</button>
   </div>
 </div>

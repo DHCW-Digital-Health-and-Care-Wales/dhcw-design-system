@@ -15,10 +15,10 @@ describe('file upload matches Figma Upload a file component', () => {
     expect(base).toMatch(/gap:\s*20px/);
   });
 
-  it('status readout has uniform 10px padding and a light grey background', () => {
+  it('status readout has uniform 10px padding and a #dbe0e3 grey background', () => {
     const status = block(css, '\\.nhsw-file-upload__status');
     expect(status).toMatch(/padding:\s*10px/);
-    expect(status).toMatch(/background-color:\s*#f0f4f5/);
+    expect(status).toMatch(/background-color:\s*#dbe0e3/);
   });
 
   it('actions row has a 20px gap', () => {
@@ -34,12 +34,16 @@ describe('file upload hover/uploaded/focus states', () => {
     css = compileProbe(`@use "components/forms/file-upload";`);
   });
 
-  it('hover turns the whole box white, without a separate rule forcing the Choose file button to look hovered from elsewhere in the box', () => {
-    const hover = block(css, '\\.nhsw-file-upload:hover');
-    expect(hover).toMatch(/background-color:\s*#ffffff/);
-    // Button hover now comes only from its own .nhsw-button--secondary:hover rule.
-    const hoverButton = block(css, '\\.nhsw-file-upload:hover \\.nhsw-file-upload__button');
-    expect(hoverButton).toBe('');
+  it('hover turns the whole box white and keeps the "No file chosen" area #dbe0e3', () => {
+    expect(block(css, '\\.nhsw-file-upload:hover')).toMatch(/background-color:\s*#ffffff/);
+    expect(block(css, '\\.nhsw-file-upload__status')).toMatch(/background-color:\s*#dbe0e3/);
+    expect(css).not.toMatch(/\.nhsw-file-upload:hover \.nhsw-file-upload__status/);
+  });
+
+  it('hovering anywhere in the box gives the Choose file button its hover look, unless it is focused', () => {
+    const hoverButton = block(css, '\\.nhsw-file-upload:hover \\.nhsw-file-upload__input:not\\(:focus\\) \\+ \\.nhsw-file-upload__button');
+    expect(hoverButton).toMatch(/background-color:\s*#f2f2f2/i);
+    expect(hoverButton).toMatch(/box-shadow:\s*0 2px 0 #212b32/i);
   });
 
   it('an error state does not recolour the box: the outline stays as it is', () => {

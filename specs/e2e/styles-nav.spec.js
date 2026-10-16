@@ -1,16 +1,14 @@
 const { test, expect } = require('@playwright/test');
 
-const items = ['All Styles', 'Colours', 'Branding', 'Icons', 'Layout', 'Page templates', 'Typography', 'WCAG 2.2 Guidance'];
+const items = ['All Styles', 'Colours', 'Icons', 'Layout', 'Page templates', 'Typography'];
 
 const pages = [
   { url: '/styles.html', current: 'All Styles' },
   { url: '/styles/colours.html', current: 'Colours' },
-  { url: '/styles/branding.html', current: 'Branding' },
   { url: '/styles/icons.html', current: 'Icons' },
   { url: '/styles/layout.html', current: 'Layout' },
   { url: '/patterns/page-templates.html', current: 'Page templates' },
   { url: '/styles/typography.html', current: 'Typography' },
-  { url: '/styles/wcag-guidance.html', current: 'WCAG 2.2 Guidance' },
 ];
 
 test.describe('Styles side navigation', () => {

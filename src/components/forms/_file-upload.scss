@@ -9,6 +9,11 @@
 
   &:hover {
     background-color: c.$nhsw-colour-background-white;
+
+    .nhsw-file-upload__input:not(:focus) + .nhsw-file-upload__button {
+      background-color: c.$nhsw-colour-button-secondary-hover;
+      box-shadow: 0 2px 0 c.$nhsw-colour-button-secondary-hover-box-shadow;
+    }
   }
 
   &--has-file {
@@ -21,7 +26,7 @@
   display: block;
   padding: 10px;
   overflow-wrap: break-word;
-  background-color: c.$nhsw-colour-background-grey;
+  background-color: c.$nhsw-colour-file-upload-status-background;
   color: c.$nhsw-colour-text-primary;
 
   &--filled {
