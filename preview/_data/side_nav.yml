@@ -12,9 +12,6 @@
   url: /components/cards.html
 - title: Checkboxes
   url: /components/checkboxes.html
-- title: Dashboard
-  url: /components/dashboard.html
-  testing: false
 - title: Date input
   url: /components/date-input.html
 - title: Details
@@ -25,29 +22,20 @@
   url: /components/expander.html
 - title: File upload
   url: /components/file-upload.html
-- title: Filter
-  url: "#"
 - title: Footer
   url: /components/footer.html
 - title: Header
   url: /components/header.html
 - title: Inset text
   url: /components/inset-text.html
-- title: Language switch
-  url: "#"
 - title: Notification banner
   url: /components/notification-banner.html
 - title: Pagination
   url: /components/pagination.html
 - title: Panel
   url: /components/panel.html
-- title: Phase banner
-  url: /components/phase-banner.html
-  testing: false
 - title: Radios
   url: /components/radios.html
-- title: Search
-  url: "#"
 - title: Select
   url: /components/select.html
 - title: Site navigation
@@ -68,5 +56,3 @@
   url: /components/input.html
 - title: Warning callouts
   url: /components/warning-callout.html
-- title: Warning text
-  url: /components/warning-text.html

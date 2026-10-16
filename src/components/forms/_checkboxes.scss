@@ -15,10 +15,6 @@
     margin-bottom: 6px;
     padding-left: 52px;
     position: relative;
-
-    &:hover {
-      background-color: c.$nhsw-colour-background-grey;
-    }
   }
 
   &__input {
@@ -101,7 +97,7 @@
 
   &__divider {
     width: 40px;
-    margin-bottom: 16px;
+    margin: 6px 0;
     color: c.$nhsw-colour-text-primary;
     font-size: 1.1875rem;
     font-weight: 400;

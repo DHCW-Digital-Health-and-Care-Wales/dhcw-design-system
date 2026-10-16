@@ -103,3 +103,15 @@ describe('card hover/focus states, chevron icon and actions header', () => {
     expect(block(css, '\\.nhsw-card\\b')).toMatch(/overflow-wrap:\s*anywhere/);
   });
 });
+
+describe('preview card (All components page)', () => {
+  it('has a flush, full-width preview image that fills its frame, and a padded content area', () => {
+    const css = compileProbe(`@use "components/cards/card";`);
+    expect(block(css, '\\.nhsw-card--preview')).toMatch(/padding:\s*0/);
+    const preview = block(css, '\\.nhsw-card--preview \\.nhsw-card__preview');
+    expect(preview).toMatch(/border:\s*0/);
+    expect(preview).toMatch(/padding:\s*0/);
+    expect(block(css, '\\.nhsw-card--preview \\.nhsw-card__preview-image')).toMatch(/object-fit:\s*cover/);
+    expect(block(css, '\\.nhsw-card--preview \\.nhsw-card__content')).toMatch(/padding:\s*16px/);
+  });
+});

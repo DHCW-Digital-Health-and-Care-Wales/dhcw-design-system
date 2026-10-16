@@ -309,7 +309,6 @@ Supports:
 - nhsw-tabs__list
 - nhsw-tabs__tab (+ --selected)
 - nhsw-tabs__panel (+ --hidden)
-- nhsw-tabs__pagination, __pagination-link
 - count badge: pass `count` on an item to render an `nhsw-tag nhsw-tag--blue` badge after the tab label (reuses the Tag component, not a tabs-specific class)
 
 ## nhsw-tag
@@ -407,6 +406,7 @@ Supports:
 - nhsw-card__preview / __preview-image (bordered image frame; set `previewSrc`/`previewAlt` instead of `imageSrc`/`imageAlt` to use it)
 - nhsw-card__stat
 - nhsw-card--flat (no border/shadow/padding)
+- nhsw-card--preview (full-width preview image at the top, then a link title and description; the title link covers the whole card). Uses nhsw-card__preview, nhsw-card__preview-image and nhsw-card__content.
 - nhsw-card--chevron (adds a trailing chevron; clickable cards only)
 
 Requires:

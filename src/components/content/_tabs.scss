@@ -89,28 +89,6 @@
   }
 }
 
-.nhsw-tabs__pagination {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid c.$nhsw-colour-border-grey;
-}
-
-.nhsw-tabs__pagination-link {
-  display: inline-block;
-
-  &--prev {
-    margin-right: auto;
-    text-align: left;
-  }
-
-  &--next {
-    text-align: right;
-  }
-}
-
 // Below the tablet breakpoint nhsw-behaviours.js switches the tabs off: every
 // panel is shown and the tabs become a plain list of controls that jump to
 // their section, as in the NHS.UK tabs.
@@ -147,6 +125,14 @@
   .nhsw-tabs__tab-text,
   .nhsw-tabs__tab--selected .nhsw-tabs__tab-text {
     text-decoration: underline;
+  }
+
+  // Each item in the contents list starts with an em dash, as in the side navigation.
+  .nhsw-tabs__list li::before {
+    content: "\2014";
+    content: "\2014" / "";
+    margin-right: 0.5rem;
+    color: c.$nhsw-colour-text-primary;
   }
 
   .nhsw-tabs__panel {

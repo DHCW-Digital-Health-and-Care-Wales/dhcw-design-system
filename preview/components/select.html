@@ -123,12 +123,6 @@ tabs:
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Select in the GOV.UK Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Select on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Variants</span>
-    </a>
-  </div>
 </div>
 
 <!-- Variants -->
@@ -174,16 +168,6 @@ tabs:
     {% include code-viewer.html id="sel-hint" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">How to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Examples</span>
-    </a>
-  </div>
 </div>
 
 <!-- Examples -->
@@ -194,10 +178,4 @@ tabs:
   <p class="nhsw-body">This example is from the Choose Pharmacy service. It uses a select to let clinicians choose the point of care test from a long, structured list of options.</p>
   {% include screenshot-placeholder.html alt="Point of Care Test form with a Name of Point of Care Test select" %}
 
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Variants</span>
-    </a>
-  </div>
 </div>

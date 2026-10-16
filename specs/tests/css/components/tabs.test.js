@@ -93,12 +93,10 @@ describe('tabs: hover removes the underline (not the background), focus highligh
     expect(selectedBefore).toMatch(/border-bottom:\s*1px solid #ffffff/);
   });
 
-  it('panel is white with a matching grey border, and the pagination row has a grey top border', () => {
+  it('panel is white with a matching grey border', () => {
     const panel = block(css, '\\.nhsw-tabs__panel');
     expect(panel).toMatch(/background-color:\s*#ffffff/);
     expect(panel).toMatch(/border:\s*1px solid #d8dde0/);
-    const pagination = block(css, '\\.nhsw-tabs__pagination');
-    expect(pagination).toMatch(/border-top:\s*1px solid #d8dde0/);
   });
 });
 
@@ -142,3 +140,10 @@ describe('tabs below the tablet breakpoint: a list of jump links with every pane
   });
 });
 
+describe('tabs below the tablet breakpoint become a contents list with em dashes', () => {
+  it('puts an em dash before each item, and the removed previous/next pagination styles are gone', () => {
+    const css = compileProbe(`@use "components/content/tabs";`);
+    expect(css).toMatch(/\.nhsw-tabs__list li::before\s*\{[^}]*content:\s*"—"/);
+    expect(css).not.toContain('nhsw-tabs__pagination');
+  });
+});

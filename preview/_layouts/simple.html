@@ -16,7 +16,7 @@ layout: default
       {% if page.side_nav_data %}{% assign side_nav_items = site.data[page.side_nav_data] %}{% endif %}
       {% include side-nav.html list=side_nav_items heading=page.side_nav_heading %}
 
-      <div class="nhsw-layout__content nhsw-layout__content--docs{% if page.docs_spacing %} nhsw-layout__content--{{ page.docs_spacing }}{% endif %}">
+      <div class="nhsw-layout__content nhsw-layout__content--docs{% if page.docs_spacing %} nhsw-layout__content--{{ page.docs_spacing }}{% endif %}{% if page.content_modifier %} nhsw-layout__content--{{ page.content_modifier }}{% endif %}">
 
         {% include breadcrumb.html %}
 

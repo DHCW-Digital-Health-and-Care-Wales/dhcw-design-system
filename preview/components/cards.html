@@ -135,12 +135,6 @@ tabs:
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="#">Cards in NHS England Design System</a>.</p>
   <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="#">Cards on NHS England GitHub</a> to see the latest updates and resolved issues.</p>
 
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Variants</span>
-    </a>
-  </div>
 </div>
 
 <!-- Variants -->
@@ -524,16 +518,6 @@ tabs:
 &lt;/ul&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="card-grouping" html=html_sample njk=njk_sample toggleable=true %}
 
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-how-to-use" onclick="document.getElementById('tab-how-to-use').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">How to use</span>
-    </a>
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--next" href="#panel-examples" onclick="document.getElementById('tab-examples').click(); return false;">
-      Next &rarr;<br>
-      <span class="nhsw-body-s">Examples</span>
-    </a>
-  </div>
 </div>
 
 <!-- Examples -->
@@ -544,10 +528,4 @@ tabs:
   <p class="nhsw-body">This example shows a dashboard from the School-age Immunisations service within WIS. It uses cards to visually group related content and tasks, providing users with clear, immediate entry points to different parts of the service.</p>
   {% include screenshot-placeholder.html alt="School-age Immunisations dashboard with Schools, Children and Sessions cards" %}
 
-  <div class="nhsw-tabs__pagination">
-    <a class="nhsw-link nhsw-tabs__pagination-link nhsw-tabs__pagination-link--prev" href="#panel-variants" onclick="document.getElementById('tab-variants').click(); return false;">
-      &larr; Previous<br>
-      <span class="nhsw-body-s">Variants</span>
-    </a>
-  </div>
 </div>

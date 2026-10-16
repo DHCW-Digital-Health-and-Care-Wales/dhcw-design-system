@@ -27,16 +27,15 @@ describe('checkboxes match Figma Checkboxes component (40x40px input square)', (
   });
 });
 
-describe('checkboxes: regular-weight labels, centred tick, row hover, thicker focus border, matching hint/divider colours', () => {
+describe('checkboxes: regular-weight labels, centred tick, no row hover, thicker focus border, matching hint/divider colours', () => {
   let css = '';
 
   beforeAll(() => {
     css = compileProbe(`@use "components/forms/checkboxes";`);
   });
 
-  it('item row highlights on hover', () => {
-    const hover = block(css, '\\.nhsw-checkboxes__item:hover');
-    expect(hover).toMatch(/background-color:\s*#f0f4f5/);
+  it('item row has no hover background', () => {
+    expect(css).not.toMatch(/\.nhsw-checkboxes__item:hover/);
   });
 
   it('focus adds a thicker near-black border alongside the yellow ring', () => {
@@ -74,6 +73,8 @@ describe('checkboxes: regular-weight labels, centred tick, row hover, thicker fo
     expect(hint).toMatch(/font-size:\s*1\.1875rem/);
     const divider = block(css, '\\.nhsw-checkboxes__divider');
     expect(divider).toMatch(/color:\s*#212b32/);
+    expect(divider).toMatch(/margin:\s*6px 0/);
+    expect(divider).not.toMatch(/margin-bottom:\s*16px/);
   });
 
   it('items are spaced 6px apart, narrower than the 16px used elsewhere', () => {

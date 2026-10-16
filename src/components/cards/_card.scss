@@ -1,5 +1,6 @@
 @use "../../tokens/colours" as c;
 @use "../../tokens/typography" as t;
+@use "../../utilities/breakpoints" as b;
 
 .nhsw-card {
   position: relative;
@@ -123,12 +124,46 @@
   overflow: hidden;
 }
 
-.nhsw-card__preview--link {
-  color: inherit;
-  text-decoration: none;
+// A card with a full-width preview image at the top, then a link title and a short
+// description. The title link stretches over the whole card, as in the NHS.UK card.
+.nhsw-card--preview {
+  padding: 0;
+  overflow: hidden;
 
-  &:hover {
-    border-color: c.$nhsw-colour-border-secondary;
+  .nhsw-card__preview {
+    height: 160px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .nhsw-card__preview-image {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    object-fit: cover;
+    object-position: left top;
+  }
+
+  .nhsw-card__content {
+    padding: 16px;
+  }
+
+  .nhsw-card__title {
+    font-size: t.$nhsw-font-size-h4-mobile;
+    line-height: t.$nhsw-line-height-h4-mobile;
+
+    @include b.nhsw-from-tablet {
+      font-size: t.$nhsw-font-size-h4;
+      line-height: t.$nhsw-line-height-h4;
+    }
+  }
+
+  .nhsw-card__description {
+    margin-bottom: 0;
+    font-size: t.$nhsw-font-size-body-small;
+    line-height: t.$nhsw-line-height-body-small;
   }
 }
 

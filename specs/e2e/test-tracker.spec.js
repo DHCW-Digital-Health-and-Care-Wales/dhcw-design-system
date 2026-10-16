@@ -6,7 +6,6 @@ const pages = [
   'footer', 'header', 'input', 'inset-text', 'notification-banner',
   'pagination', 'panel', 'radios', 'select', 'site-navigation', 'skip-link',
   'summary-list', 'table', 'tabs', 'tag', 'textarea', 'warning-callout',
-  'warning-text',
 ];
 
 test.describe('Manual test checklist counters', () => {
