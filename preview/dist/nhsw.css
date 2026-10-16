@@ -3838,6 +3838,14 @@ body {
   overflow: hidden;
 }
 
+.nhsw-card__preview--link {
+  color: inherit;
+  text-decoration: none;
+}
+.nhsw-card__preview--link:hover {
+  border-color: #4c6272;
+}
+
 .nhsw-card__preview-image {
   display: block;
   max-width: 100%;

@@ -123,6 +123,15 @@
   overflow: hidden;
 }
 
+.nhsw-card__preview--link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    border-color: c.$nhsw-colour-border-secondary;
+  }
+}
+
 .nhsw-card__preview-image {
   display: block;
   max-width: 100%;
