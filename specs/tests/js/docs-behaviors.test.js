@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { runScript } from '../support/load-script.js';
 
 // Covers only the docs-site's own authoring tooling (code samples, the
@@ -120,5 +120,59 @@ describe('example-preview HTML and Nunjucks buttons', () => {
     click(buttons()[0]);
     expect(document.getElementById('code-x').hidden).toBe(true);
     expect(buttons()[0].getAttribute('aria-expanded')).toBe('false');
+  });
+});
+
+describe('Hidden docs-site easter egg', () => {
+  const CODE = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+  const press = (keys, target = document.body) => keys.forEach((key) => target.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true })));
+  const layer = () => document.querySelector('[data-nhsw-fx]');
+
+  beforeEach(() => {
+    vi.useFakeTimers();
+    setBody('<input id="field"><p>page</p>');
+    Element.prototype.animate = vi.fn(() => ({}));
+    window.matchMedia = vi.fn(() => ({ matches: false }));
+    runScript(SCRIPT);
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    delete Element.prototype.animate;
+  });
+
+  it('rains bacon and pancakes once the full code is entered', () => {
+    press(CODE);
+    expect(layer()).not.toBeNull();
+    expect(layer().getAttribute('aria-hidden')).toBe('true');
+    const text = [...layer().children].map((piece) => piece.textContent);
+    expect(text).toContain('🥓');
+    expect(text).toContain('🥞');
+    expect(Element.prototype.animate).toHaveBeenCalledTimes(layer().children.length);
+  });
+
+  it('does nothing for a partial or wrong sequence', () => {
+    press(CODE.slice(0, 9));
+    press(['x', 'a']);
+    expect(layer()).toBeNull();
+  });
+
+  it('is ignored while typing in a form field', () => {
+    press(CODE, document.getElementById('field'));
+    expect(layer()).toBeNull();
+  });
+
+  it('stays off for people who prefer reduced motion', () => {
+    window.matchMedia = vi.fn(() => ({ matches: true }));
+    press(CODE);
+    expect(layer()).toBeNull();
+  });
+
+  it('tidies itself away afterwards and does not stack a second layer', () => {
+    press(CODE);
+    press(CODE);
+    expect(document.querySelectorAll('[data-nhsw-fx]')).toHaveLength(1);
+    vi.advanceTimersByTime(10000);
+    expect(layer()).toBeNull();
   });
 });
