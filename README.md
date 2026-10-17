@@ -11,7 +11,7 @@ behaviour without re-implementing it each time — in the spirit of
 [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend) and
 [NHS.UK Frontend](https://github.com/nhsuk/nhsuk-frontend).
 
-- **38 components** — actions, forms, navigation, content, cards and
+- **40 components** — actions, forms, navigation, content, cards and
   layout — see [`src/components/`](src/components/) for the full list, or
   browse them with live examples on the docs site below.
 - **Accessible by default** — components are built and tested against
@@ -20,57 +20,145 @@ behaviour without re-implementing it each time — in the spirit of
   markup, use the Nunjucks macros alone against your own CSS, or use both
   together.
 
-## Quick start
+## Installation
 
-### Styles
+Every merge to `main` creates a new release. Check the
+[latest release](https://github.com/DHCW-Digital-Health-and-Care-Wales/dhcw-design-system/releases/latest)
+for the current version number and use it in place of `vX.Y.Z` below.
 
-This isn't published to a package registry, so pick whichever fits your app:
+### Requirements
 
-- **No Sass toolchain needed** — copy the compiled CSS straight into your
-  project: `preview/dist/nhsw.css` for local development (readable, with a
-  source map), or `preview/dist/nhsw.min.css` for production. Both are built
-  by `npm run build:css` and attached to every
-  [release](.github/workflows/release.yml).
-- **Building with Dart Sass** — vendor or clone this repo alongside your
-  app and `@use` its `src/` directly:
+- [Node.js](https://nodejs.org/) 22 or later (what CI and releases use)
+- [Dart Sass](https://sass-lang.com/dart-sass/) 1.93 or later, only if you
+  compile the Sass yourself
+- [Nunjucks](https://mozilla.github.io/nunjucks/) 3.2 or later, only if you
+  use the macros
 
-  ```scss
-  // your-app.scss
-  @use "../path/to/dhcw-design-system/src" as nhsw;
-  ```
+### Option 1: install with npm from GitHub (recommended)
 
-### Scripts
+Pin a release tag so your service only changes when you choose to upgrade:
 
-Some components need JavaScript to be interactive — character counts,
-conditionally revealed content, tabs, the expander, file upload status, and
-the session-timeout countdown. That behaviour ships as a plain script, `dist/nhsw-behaviours.js` for local
-development or `dist/nhsw-behaviours.min.js` for production, attached to
-every [release](.github/workflows/release.yml) alongside the CSS. Include it
-once, after your page content:
-
-```html
-<script src="/path/to/nhsw-behaviours.min.js"></script>
+```bash
+npm install github:DHCW-Digital-Health-and-Care-Wales/dhcw-design-system#vX.Y.Z
 ```
 
-It's a self-contained IIFE with no dependencies — it wires itself up against
-whatever matching markup is already on the page. The date picker ships
-separately as `dist/nhsw-date-picker.js` / `.min.js` for the same reason
-(not every app that uses this library needs a date picker).
+This adds `dhcw-design-system` to your `dependencies` and installs the Sass
+source, the compiled CSS and the JavaScript into
+`node_modules/dhcw-design-system/`. To upgrade, run the same command with the
+newer tag.
 
-### Markup (Nunjucks macros)
+If a version has also been published to the npm registry, you can install it
+by name instead:
 
-Every component has a matching macro under `src/components/<name>/macro.njk`.
-Point your own `FileSystemLoader` at `src/components`, or grab a
-self-contained copy via `npm run package:njk`, which produces
-`dist/nhsw-nunjucks-components.zip` — a drop-in `components/` directory with
-no dependency on the rest of this repo. See
-[`src/components/README.md`](src/components/README.md) for the loader setup,
-macro conventions, and a worked example.
+```bash
+npm install dhcw-design-system@X.Y.Z
+```
+
+### Option 2: download the release files
+
+If your project doesn't use npm, download these files from the
+[latest release](https://github.com/DHCW-Digital-Health-and-Care-Wales/dhcw-design-system/releases/latest):
+
+| File | What it is |
+|---|---|
+| `nhsw.min.css` | Compiled styles for production (`nhsw.css` and `nhsw.css.map` for development) |
+| `nhsw-behaviours.min.js` | Behaviours for interactive components (`nhsw-behaviours.js` for development) |
+| `nhsw-date-picker.min.js` | Date picker, only if you use it (`nhsw-date-picker.js` for development) |
+| `nhsw-nunjucks-components.zip` | A drop-in `components/` folder of Nunjucks macros |
+
+## Quick start
+
+### 1. Add the styles
+
+**Without a Sass toolchain**, link the compiled stylesheet. From an npm
+install, serve `node_modules/dhcw-design-system/dist/nhsw.min.css` (or
+`nhsw.css` while developing); from a download, serve `nhsw.min.css`.
+Releases up to v0.1.69 contain an out-of-date `dist/nhsw.css`, so with those,
+use the release download or compile from source instead.
+
+```html
+<link rel="stylesheet" href="/assets/nhsw.min.css">
+```
+
+**With Dart Sass**, compile from source so you can use the design tokens in
+your own styles. Add `node_modules` to Sass's load paths:
+
+```scss
+// your-app.scss
+@use "dhcw-design-system/src" as nhsw;
+
+.my-panel {
+  color: nhsw.$nhswales-primary-text-colour;
+}
+```
+
+```bash
+npx sass --load-path=node_modules your-app.scss public/app.css
+```
+
+### 2. Add the scripts
+
+Some components need JavaScript to be interactive — character counts,
+conditionally revealed content, tabs, the expander, file upload status, error
+summary focus, double-click prevention and the session-timeout countdown.
+Include the behaviours script once, after your page content:
+
+```html
+<script src="/assets/nhsw-behaviours.min.js"></script>
+```
+
+It's a self-contained script with no dependencies — it wires itself up
+against whatever matching markup is already on the page. The date picker
+ships separately as `nhsw-date-picker.js` / `.min.js` for the same reason
+(not every app that uses this library needs a date picker). From an npm
+install, both are in `node_modules/dhcw-design-system/dist/`.
+
+### 3. Use the Nunjucks macros
+
+Every component has a matching macro under `src/components/<name>/macro.njk`,
+with its parameters documented in `src/components/<name>/<name>.yaml`. Install
+Nunjucks, then point a loader at the components folder:
+
+```bash
+npm install nunjucks
+```
+
+```js
+const nunjucks = require("nunjucks");
+
+const env = nunjucks.configure(
+  ["views", "node_modules/dhcw-design-system/src/components"],
+  { autoescape: true }
+);
+```
 
 ```njk
 {% from "button/macro.njk" import nhswButton %}
 {{ nhswButton({ text: "Continue", classes: "nhsw-button--primary" }) }}
 ```
+
+If you downloaded the release files instead, unzip
+`nhsw-nunjucks-components.zip` into your project and point the loader at the
+`components` folder inside it. See
+[`src/components/README.md`](src/components/README.md) for macro conventions
+and a worked example.
+
+### 4. Check your page shell
+
+Each page needs a skip link, the site header, `<main class="nhsw-main-wrapper"
+id="maincontent">` with a width container inside, and the site footer. The
+[page templates](https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/patterns/page-templates.html)
+show complete public-facing and staff dashboard examples.
+
+### Using AI coding agents
+
+[`.agent/design-system-rules.md`](.agent/design-system-rules.md) and
+[`.agent/component-registry.md`](.agent/component-registry.md) give coding
+agents the design system's tokens, spacing, classes and usage rules. They
+aren't part of the installed package, so take them from the release tag you
+installed (for example
+`https://github.com/DHCW-Digital-Health-and-Care-Wales/dhcw-design-system/tree/vX.Y.Z/.agent`)
+to keep your agents' rules matched to your version.
 
 ## Documentation site
 
@@ -148,9 +236,10 @@ tab and choose the bump level.
 
 Issues and pull requests are welcome. Before adding or changing a component:
 
-- Reuse existing tokens and utilities rather than one-off values — see
+- Reuse existing tokens and utilities rather than one-off values. See
   [`.agent/design-system-rules.md`](.agent/design-system-rules.md) for
-  spacing, breakpoint and colour rules.
+  colour, typography, spacing and usage rules, and keep it in step with any
+  token or guidance change.
 - Add or extend automated tests for any styling or behavioural change.
 - Run `npm test` and `npm run test:e2e` before opening a PR.
 
