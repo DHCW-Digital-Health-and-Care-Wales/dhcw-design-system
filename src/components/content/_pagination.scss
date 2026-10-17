@@ -2,7 +2,7 @@
 @use "../../utilities/breakpoints" as b;
 
 .nhsw-pagination {
-  border-top: 1px solid c.$nhsw-colour-border-grey;
+  border-top: 1px solid c.$nhswales-grey-border-colour;
   margin-top: 40px;
   margin-bottom: 40px;
   padding-top: 8px;
@@ -59,14 +59,14 @@
   text-decoration: none;
   width: 100%;
   box-sizing: border-box;
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
 
   .nhsw-icon {
     position: absolute;
     top: 6px;
     width: 17px;
     height: 15px;
-    fill: c.$nhsw-colour-text-primary;
+    fill: c.$nhswales-primary-text-colour;
 
     @include b.nhsw-from-tablet {
       top: 8px;
@@ -79,7 +79,7 @@
   }
 
   &:hover {
-    color: c.$nhsw-colour-link-hover;
+    color: c.$nhswales-link-hover-colour;
 
     .nhsw-pagination__title,
     .nhsw-pagination__page {
@@ -88,9 +88,9 @@
   }
 
   &:focus {
-    background-color: c.$nhsw-colour-focus;
-    box-shadow: 0 -2px c.$nhsw-colour-focus, 0 4px c.$nhsw-colour-text-primary;
-    color: c.$nhsw-colour-text-primary;
+    background-color: c.$nhswales-focus-colour;
+    box-shadow: 0 -2px c.$nhswales-focus-colour, 0 4px c.$nhswales-primary-text-colour;
+    color: c.$nhswales-primary-text-colour;
     outline: 4px solid transparent;
     text-decoration: none;
 
@@ -149,20 +149,20 @@
     min-height: 45px;
     padding: 10px 12px;
     box-sizing: border-box;
-    color: c.$nhsw-colour-link;
+    color: c.$nhswales-link-colour;
     font-weight: 700;
     text-decoration: underline;
 
     &:hover {
-      background-color: c.$nhsw-colour-border-grey;
-      color: c.$nhsw-colour-link-hover;
+      background-color: c.$nhswales-grey-border-colour;
+      color: c.$nhswales-link-hover-colour;
       text-decoration: none;
     }
 
     &:focus {
-      background-color: c.$nhsw-colour-focus;
-      box-shadow: 0 -2px c.$nhsw-colour-focus, 0 4px c.$nhsw-colour-text-primary;
-      color: c.$nhsw-colour-text-primary;
+      background-color: c.$nhswales-focus-colour;
+      box-shadow: 0 -2px c.$nhswales-focus-colour, 0 4px c.$nhswales-primary-text-colour;
+      color: c.$nhswales-primary-text-colour;
       outline: 4px solid transparent;
     }
   }
@@ -191,7 +191,7 @@
   .nhsw-pagination__icon {
     width: 16px;
     height: auto;
-    fill: c.$nhsw-colour-text-primary;
+    fill: c.$nhswales-primary-text-colour;
   }
 
   .nhsw-pagination__previous .nhsw-pagination__icon {
@@ -237,7 +237,7 @@
     min-height: 45px;
     padding: 10px 4px;
     box-sizing: border-box;
-    color: c.$nhsw-colour-text-secondary;
+    color: c.$nhswales-secondary-text-colour;
   }
 
   .nhsw-pagination__number-link {
@@ -246,33 +246,33 @@
     min-height: 45px;
     padding: 10px 8px;
     box-sizing: border-box;
-    color: c.$nhsw-colour-link;
+    color: c.$nhswales-link-colour;
     font-weight: 400;
     text-align: center;
     text-decoration: underline;
 
     &:hover {
-      background-color: c.$nhsw-colour-border-grey;
-      color: c.$nhsw-colour-link-hover;
+      background-color: c.$nhswales-grey-border-colour;
+      color: c.$nhswales-link-hover-colour;
       text-decoration: none;
     }
 
     &:focus {
-      background-color: c.$nhsw-colour-focus;
-      box-shadow: 0 -2px c.$nhsw-colour-focus, 0 4px c.$nhsw-colour-text-primary;
-      color: c.$nhsw-colour-text-primary;
+      background-color: c.$nhswales-focus-colour;
+      box-shadow: 0 -2px c.$nhswales-focus-colour, 0 4px c.$nhswales-primary-text-colour;
+      color: c.$nhswales-primary-text-colour;
       outline: 4px solid transparent;
     }
   }
 
   .nhsw-pagination__item--current .nhsw-pagination__number-link {
-    background-color: c.$nhsw-colour-link;
-    color: c.$nhsw-colour-text-exceptional;
+    background-color: c.$nhswales-link-colour;
+    color: c.$nhswales-exceptional-text-colour;
     font-weight: 700;
 
     &:hover {
-      background-color: c.$nhsw-colour-link;
-      color: c.$nhsw-colour-text-exceptional;
+      background-color: c.$nhswales-link-colour;
+      color: c.$nhswales-exceptional-text-colour;
     }
   }
 }
@@ -291,7 +291,7 @@ $nhsw-pagination-plain-item: ":not(.nhsw-pagination__item--current):not(.nhsw-pa
   min-height: 45px;
   padding: 10px 4px;
   box-sizing: border-box;
-  color: c.$nhsw-colour-text-secondary;
+  color: c.$nhswales-secondary-text-colour;
   content: "\2026";
 }
 

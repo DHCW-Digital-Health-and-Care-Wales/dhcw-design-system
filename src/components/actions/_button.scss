@@ -11,10 +11,10 @@
     }
 
     &--primary {
-        background-color: c.$nhsw-colour-button-primary;
-        color: c.$nhsw-colour-text-exceptional;
-        border-color: c.$nhsw-colour-button-primary;
-        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+        background-color: c.$nhswales-primary-button;
+        color: c.$nhswales-exceptional-text-colour;
+        border-color: c.$nhswales-primary-button;
+        box-shadow: 0 2px 0 c.$nhswales-primary-button-shadow;
 
         &:not(:disabled):not(:focus):hover {
             background-color: c.$nhsw-colour-button-primary-hover;
@@ -28,10 +28,10 @@
     }
 
     &--secondary {
-        background-color: c.$nhsw-colour-background-white;
-        color: c.$nhsw-colour-text-primary;
-        border-color: c.$nhsw-colour-border-secondary;
-        box-shadow: 0 2px 0 c.$nhsw-colour-border-secondary;
+        background-color: c.$nhswales-page-background-white;
+        color: c.$nhswales-primary-text-colour;
+        border-color: c.$nhswales-secondary-border-colour;
+        box-shadow: 0 2px 0 c.$nhswales-secondary-border-colour;
 
         &:not(:disabled):not(:focus):hover {
             background-color: c.$nhsw-colour-button-secondary-hover;
@@ -39,15 +39,15 @@
         }
 
         &:not(:disabled):active {
-            background-color: c.$nhsw-colour-background-white;
+            background-color: c.$nhswales-page-background-white;
         }
     }
 
     &--exceptional {
-        background-color: c.$nhsw-colour-button-exceptional-light;
-        color: c.$nhsw-colour-text-primary;
-        border-color: c.$nhsw-colour-button-exceptional-light;
-        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
+        background-color: c.$nhswales-exceptional-button-light;
+        color: c.$nhswales-primary-text-colour;
+        border-color: c.$nhswales-exceptional-button-light;
+        box-shadow: 0 2px 0 c.$nhswales-exceptional-button-shadow;
 
         &:not(:disabled):not(:focus):hover {
             background-color: c.$nhsw-colour-button-exceptional-light-hover;
@@ -62,10 +62,10 @@
     }
 
     &--warning {
-        background-color: c.$nhsw-colour-button-delete;
-        color: c.$nhsw-colour-text-exceptional;
-        border-color: c.$nhsw-colour-button-delete;
-        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+        background-color: c.$nhswales-delete-button;
+        color: c.$nhswales-exceptional-text-colour;
+        border-color: c.$nhswales-delete-button;
+        box-shadow: 0 2px 0 c.$nhswales-primary-button-shadow;
 
         &:not(:disabled):not(:focus):hover {
             background-color: c.$nhsw-colour-button-delete-hover;
@@ -80,9 +80,9 @@
 
     &--outline {
         background-color: c.$nhsw-colour-button-outline;
-        color: c.$nhsw-colour-text-primary;
+        color: c.$nhswales-primary-text-colour;
         border-color: c.$nhsw-colour-button-outline;
-        box-shadow: 0 2px 0 c.$nhsw-colour-border-secondary;
+        box-shadow: 0 2px 0 c.$nhswales-secondary-border-colour;
 
         &:not(:disabled):not(:focus):hover {
             background-color: c.$nhsw-colour-button-outline-hover;
@@ -97,13 +97,13 @@
     }
 
     &--warning-outline {
-        background-color: c.$nhsw-colour-background-white;
-        color: c.$nhsw-colour-button-delete;
-        border-color: c.$nhsw-colour-button-delete;
-        box-shadow: 0 2px 0 c.$nhsw-colour-button-delete;
+        background-color: c.$nhswales-page-background-white;
+        color: c.$nhswales-delete-button;
+        border-color: c.$nhswales-delete-button;
+        box-shadow: 0 2px 0 c.$nhswales-delete-button;
 
         &:not(:disabled):not(:focus):hover {
-            background-color: c.$nhsw-colour-background-grey;
+            background-color: c.$nhswales-page-background-grey;
             color: c.$nhsw-colour-button-delete-hover;
             box-shadow: 0 2px 0 c.$nhsw-colour-button-delete-hover;
             border: 1px solid c.$nhsw-colour-button-delete-hover;
@@ -111,7 +111,7 @@
 
         &:not(:disabled):active {
             box-shadow: none;
-            background-color: c.$nhsw-colour-background-white;
+            background-color: c.$nhswales-page-background-white;
         }
     }
 
@@ -128,7 +128,7 @@
         border: 0;
         border-radius: 0;
         box-shadow: none;
-        color: c.$nhsw-colour-link;
+        color: c.$nhswales-link-colour;
         font-weight: t.$nhsw-font-weight-regular;
         text-decoration: underline;
         text-decoration-thickness: 1px;
@@ -136,7 +136,7 @@
 
         &:not(:disabled):not(:focus):hover {
             background: none;
-            color: c.$nhsw-colour-link-hover;
+            color: c.$nhswales-link-hover-colour;
         }
 
         &:focus {
@@ -149,17 +149,17 @@
         }
 
         &:focus:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
-            background-color: c.$nhsw-colour-focus;
-            color: c.$nhsw-colour-text-primary;
+            background-color: c.$nhswales-focus-colour;
+            color: c.$nhswales-primary-text-colour;
             border-color: transparent;
-            box-shadow: 0 2px 0 c.$nhsw-colour-border-primary;
+            box-shadow: 0 2px 0 c.$nhswales-primary-border-colour;
         }
 
         &.nhsw-button--reverse {
-            color: c.$nhsw-colour-background-white;
+            color: c.$nhswales-page-background-white;
 
             &:not(:disabled):not(:focus):hover {
-                color: c.$nhsw-colour-background-white;
+                color: c.$nhswales-page-background-white;
                 text-decoration: none;
             }
         }
@@ -170,19 +170,19 @@
     }
 
     &--primary:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
-        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+        box-shadow: 0 2px 0 c.$nhswales-primary-button-shadow;
     }
 
     &--secondary:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
-        box-shadow: 0 2px 0 c.$nhsw-colour-border-secondary;
+        box-shadow: 0 2px 0 c.$nhswales-secondary-border-colour;
     }
 
     &--exceptional:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
-        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-exceptional-button;
+        box-shadow: 0 2px 0 c.$nhswales-exceptional-button-shadow;
     }
 
     &--warning:active:not(:disabled):not([disabled]):not(.nhsw-button--disabled) {
-        box-shadow: 0 2px 0 c.$nhsw-colour-shadow-primary-button;
+        box-shadow: 0 2px 0 c.$nhswales-primary-button-shadow;
     }
 }
 

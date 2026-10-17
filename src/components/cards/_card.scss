@@ -4,8 +4,8 @@
 
 .nhsw-card {
   position: relative;
-  background-color: c.$nhsw-colour-background-white;
-  border: 1px solid c.$nhsw-colour-border-grey;
+  background-color: c.$nhswales-page-background-white;
+  border: 1px solid c.$nhswales-grey-border-colour;
   padding: 1rem;
   height: calc(100% - 2rem);
   margin-bottom: 2rem;
@@ -16,11 +16,11 @@
   overflow-wrap: anywhere;
 
   &:has(.nhsw-card__title-link) {
-    box-shadow: 0 4px 0 c.$nhsw-colour-border-grey;
+    box-shadow: 0 4px 0 c.$nhswales-grey-border-colour;
   }
 
   &:has(.nhsw-card__title-link:hover) {
-    border-color: c.$nhsw-colour-border-secondary;
+    border-color: c.$nhswales-secondary-border-colour;
     cursor: pointer;
   }
 
@@ -42,7 +42,7 @@
 }
 
 .nhsw-card__title-link {
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
   text-decoration: underline;
 
   &::after {
@@ -52,7 +52,7 @@
   }
 
   &:hover {
-    color: c.$nhsw-colour-link-hover;
+    color: c.$nhswales-link-hover-colour;
     text-decoration: none;
   }
 
@@ -61,8 +61,8 @@
     // height, instead of the parent heading's line-height "strut".
     display: inline-block;
     outline: none;
-    background-color: c.$nhsw-colour-focus;
-    color: c.$nhsw-colour-focus-text;
+    background-color: c.$nhswales-focus-colour;
+    color: c.$nhswales-focus-text-colour;
     line-height: 1;
     text-decoration: underline;
     text-decoration-thickness: 3px;
@@ -70,12 +70,12 @@
 }
 
 .nhsw-card .nhsw-link:hover {
-  color: c.$nhsw-colour-link-hover;
+  color: c.$nhswales-link-hover-colour;
 }
 
 .nhsw-card__description {
   margin: 0 0 1.5rem;
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
   font-size: t.$nhsw-font-size-body;
   line-height: t.$nhsw-line-height-body;
 }
@@ -88,8 +88,8 @@
   height: 1.5rem;
   margin-right: 0.5rem;
   border-radius: 50%;
-  background-color: c.$nhsw-colour-link;
-  color: c.$nhsw-colour-background-white;
+  background-color: c.$nhswales-link-colour;
+  color: c.$nhswales-page-background-white;
   font-size: 0.875rem;
   font-weight: t.$nhsw-font-weight-bold;
   vertical-align: middle;
@@ -98,7 +98,7 @@
 .nhsw-card__stat {
   display: block;
   margin: 0 0 0.5rem;
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
   font-size: 2.5rem;
   font-weight: t.$nhsw-font-weight-bold;
   line-height: 1.1;
@@ -118,8 +118,8 @@
   height: 160px;
   margin: 0 0 1rem;
   padding: 1rem;
-  border: 1px solid c.$nhsw-colour-border-grey;
-  background-color: c.$nhsw-colour-background-white;
+  border: 1px solid c.$nhswales-grey-border-colour;
+  background-color: c.$nhswales-page-background-white;
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -222,7 +222,7 @@
     height: 2rem;
     margin-top: -1rem;
     border-radius: 50%;
-    background-color: c.$nhsw-colour-link;
+    background-color: c.$nhswales-link-colour;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.11 -0.11 6.94 11.22' fill='none'%3E%3Cpath d='M2.09311 10.4268C1.6622 10.8575 1.00449 10.8575 0.573578 10.4268C0.142613 9.99579 0.142613 9.33721 0.573578 8.90625L3.97983 5.5L0.573577 2.09375C0.142613 1.66279 0.142613 1.00421 0.573577 0.573243C1.00449 0.142495 1.66219 0.142496 2.09311 0.573243L6.2601 4.74023C6.35805 4.83821 6.44182 4.94585 6.49936 5.0752C6.55742 5.20582 6.58334 5.34583 6.58334 5.5C6.58334 5.65417 6.55742 5.79418 6.49936 5.9248C6.44182 6.05415 6.35805 6.16179 6.2601 6.25977L2.09311 10.4268Z' fill='white' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E");
     background-position: center;
     background-repeat: no-repeat;
@@ -232,7 +232,7 @@
 }
 
 .nhsw-card:has(.nhsw-card__title-link:hover).nhsw-card--chevron .nhsw-card__title-link::before {
-  background-color: c.$nhsw-colour-link-hover;
+  background-color: c.$nhswales-link-hover-colour;
 }
 
 .nhsw-card-group {

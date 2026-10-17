@@ -40,9 +40,9 @@
   }
 
   &:focus {
-    outline: 3px solid c.$nhsw-colour-focus;
+    outline: 3px solid c.$nhswales-focus-colour;
     outline-offset: 0;
-    box-shadow: inset 0 0 0 2px c.$nhsw-colour-border-primary;
+    box-shadow: inset 0 0 0 2px c.$nhswales-primary-border-colour;
   }
 
   &::-webkit-search-cancel-button,
@@ -64,7 +64,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
   cursor: pointer;
 
   &[hidden] {
@@ -91,8 +91,8 @@
   padding: 0;
   border: 0;
   border-radius: 0 4px 4px 0;
-  background-color: c.$nhsw-colour-link;
-  color: c.$nhsw-colour-text-exceptional;
+  background-color: c.$nhswales-link-colour;
+  color: c.$nhswales-exceptional-text-colour;
   cursor: pointer;
 
   &:hover {
@@ -116,14 +116,14 @@
   max-width: 1024px;
   margin: 0;
   padding: 0;
-  border-top: 1px solid c.$nhsw-colour-border-grey;
+  border-top: 1px solid c.$nhswales-grey-border-colour;
   list-style: none;
 }
 
 .nhsw-search-results__item {
   margin: 0;
   padding: 24px 0;
-  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+  border-bottom: 1px solid c.$nhswales-grey-border-colour;
 }
 
 .nhsw-search-results__title {

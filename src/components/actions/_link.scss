@@ -4,27 +4,27 @@
   position: relative;
   display: inline-block;
 
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
   text-decoration: underline;
   text-underline-offset: 0.12em;
 
   &:visited {
-    color: c.$nhsw-colour-link-visited;
+    color: c.$nhswales-link-visited-colour;
   }
 
   &:hover {
-    color: c.$nhsw-colour-link-hover;
+    color: c.$nhswales-link-hover-colour;
     text-decoration: none;
   }
 
   &:active {
-    color: c.$nhsw-colour-link-active;
+    color: c.$nhswales-link-active-colour;
   }
 
   &:focus {
     outline: none;
-    background-color: c.$nhsw-colour-focus;
-    color: c.$nhsw-colour-text-primary;
+    background-color: c.$nhswales-focus-colour;
+    color: c.$nhswales-primary-text-colour;
     text-decoration: none;
   }
 
@@ -35,20 +35,20 @@
     right: 0;
     bottom: -4px;
     height: 4px;
-    background: c.$nhsw-colour-text-primary;
+    background: c.$nhswales-primary-text-colour;
   }
 }
 
 .nhsw-link--visited-demo {
-  color: c.$nhsw-colour-link-visited;
+  color: c.$nhswales-link-visited-colour;
 }
 
 .nhsw-link--focus-demo {
   position: relative;
   display: inline-block;
   padding: 0 0.15rem;
-  background-color: c.$nhsw-colour-focus;
-  color: c.$nhsw-colour-text-primary;
+  background-color: c.$nhswales-focus-colour;
+  color: c.$nhswales-primary-text-colour;
   text-decoration: none;
 }
 
@@ -59,7 +59,7 @@
   right: 0;
   bottom: -4px;
   height: 4px;
-  background: c.$nhsw-colour-text-primary;
+  background: c.$nhswales-primary-text-colour;
 }
 
 .nhsw-link__icon {

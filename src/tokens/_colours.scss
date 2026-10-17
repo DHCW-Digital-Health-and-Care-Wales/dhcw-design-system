@@ -1,16 +1,16 @@
-$nhsw-colour-text-primary: #212b32;
-$nhsw-colour-text-secondary: #4c6272;
-$nhsw-colour-text-exceptional: #ffffff;
-$nhsw-colour-text-blue: #1b365d;
+$nhswales-primary-text-colour: #212b32;
+$nhswales-secondary-text-colour: #4c6272;
+$nhswales-exceptional-text-colour: #ffffff;
+$nhswales-blue-text-colour: #1b365d;
 
-$nhsw-colour-link: #005aa8;
+$nhswales-link-colour: #005aa8;
 
-$nhsw-colour-button-primary: #1b365d;
+$nhswales-primary-button: #1b365d;
 $nhsw-colour-button-primary-hover: #32598a;
 $nhsw-colour-button-primary-hover-box-shadow: #32598a;
 $nhsw-colour-button-primary-active: #21355C;
-$nhsw-colour-button-primary-interrupt: #364a73;
-$nhsw-colour-button-secondary: #4c6272;
+$nhswales-primary-button-interrupt: #364a73;
+$nhswales-secondary-button: #4c6272;
 $nhsw-colour-button-secondary-hover: #F2F2F2;
 $nhsw-colour-button-secondary-hover-box-shadow: #212B32;
 $nhsw-colour-button-secondary-active: #32414C;
@@ -19,49 +19,49 @@ $nhsw-colour-button-outline-hover: #F2F2F2;
 $nhsw-colour-button-outline-hover-box-shadow: #4C6272;
 $nhsw-colour-button-outline-hover-border: #4C6272;
 $nhsw-colour-button-outline-active: #FFFFFF;
-$nhsw-colour-button-delete: #d5281b;
+$nhswales-delete-button: #d5281b;
 $nhsw-colour-button-delete-hover: #902419;
 $nhsw-colour-button-delete-hover-box-shadow: #760000;
 
 $nhsw-colour-button-delete-active: #651911;
-$nhsw-colour-button-exceptional-light: #f5bb6b;
+$nhswales-exceptional-button-light: #f5bb6b;
 $nhsw-colour-button-exceptional-light-hover: #E3B36A;
 $nhsw-colour-button-exceptional-light-active: #EFBD70;
 
-$nhsw-colour-background-grey: #f0f4f5;
+$nhswales-page-background-grey: #f0f4f5;
 $nhsw-colour-file-upload-status-background: #dbe0e3;
-$nhsw-colour-background-white: #ffffff;
-$nhsw-colour-background-blue: #1b365d;
+$nhswales-page-background-white: #ffffff;
+$nhswales-page-background-blue: #1b365d;
 
-$nhsw-colour-border-primary: #212b32;
-$nhsw-colour-border-secondary: #4c6272;
-$nhsw-colour-border-grey: #d8dde0;
-$nhsw-colour-border-gold: #aa8630;
+$nhswales-primary-border-colour: #212b32;
+$nhswales-secondary-border-colour: #4c6272;
+$nhswales-grey-border-colour: #d8dde0;
+$nhswales-gold-border-colour: #aa8630;
 $nhsw-colour-choice-hover-ring: #afb8bf;
 
-$nhsw-colour-shadow-primary-button: #0e1b2f;
-$nhsw-colour-shadow-exceptional-button: #554318;
+$nhswales-primary-button-shadow: #0e1b2f;
+$nhswales-exceptional-button-shadow: #554318;
 
-$nhsw-colour-focus: #ffeb3b;
+$nhswales-focus-colour: #ffeb3b;
 
 $nhsw-colour-warning-callout-background: #fff9c4;
 $nhsw-colour-warning-callout-heading: #ffeb3b;
 
-$nhsw-colour-input-text: $nhsw-colour-text-primary;
-$nhsw-colour-input-placeholder: $nhsw-colour-text-secondary;
-$nhsw-colour-input-background: $nhsw-colour-background-white;
-$nhsw-colour-input-border: $nhsw-colour-border-secondary;
-$nhsw-colour-input-border-hover: $nhsw-colour-border-primary;
-$nhsw-colour-input-focus: $nhsw-colour-focus;
-$nhsw-colour-input-invalid: $nhsw-colour-button-delete;
-$nhsw-colour-input-disabled-background: $nhsw-colour-background-grey;
-$nhsw-colour-input-disabled-text: $nhsw-colour-text-secondary;
+$nhsw-colour-input-text: $nhswales-primary-text-colour;
+$nhsw-colour-input-placeholder: $nhswales-secondary-text-colour;
+$nhsw-colour-input-background: $nhswales-page-background-white;
+$nhsw-colour-input-border: $nhswales-secondary-border-colour;
+$nhsw-colour-input-border-hover: $nhswales-primary-border-colour;
+$nhsw-colour-input-focus: $nhswales-focus-colour;
+$nhsw-colour-input-invalid: $nhswales-delete-button;
+$nhsw-colour-input-disabled-background: $nhswales-page-background-grey;
+$nhsw-colour-input-disabled-text: $nhswales-secondary-text-colour;
 
-$nhsw-colour-link-visited: #330072;
-$nhsw-colour-link-hover: #7c2855;
-$nhsw-colour-link-active: #002f5c;
-$nhsw-colour-focus: #ffeb3b;
-$nhsw-colour-focus-text: #212b32;
+$nhswales-link-visited-colour: #330072;
+$nhswales-link-hover-colour: #7c2855;
+$nhswales-link-active-colour: #002f5c;
+$nhswales-focus-colour: #ffeb3b;
+$nhswales-focus-text-colour: #212b32;
 $nhsw-colour-site-header-background: #005eb8;
 $nhsw-colour-site-header-border: #337ec6;
 $nhsw-colour-site-footer-background: #d8dde0;

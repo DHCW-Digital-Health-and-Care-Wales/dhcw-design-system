@@ -3,7 +3,7 @@
 @use "../../utilities/breakpoints" as b;
 @use "../../utilities/focus-ring" as u;
 
-$nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
+$nhsw-colour-action-link-hover-text: c.$nhswales-link-hover-colour;
 
 .nhsw-action-link {
   display: flex;
@@ -11,7 +11,7 @@ $nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
   width: fit-content;
   max-width: 100%;
   margin-bottom: 24px;
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
   text-decoration: none;
 
   &:hover {
@@ -28,16 +28,16 @@ $nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
     @include u.nhsw-link-focus-state;
 
     .nhsw-action-link__text {
-      color: c.$nhsw-colour-focus-text;
+      color: c.$nhswales-focus-text-colour;
     }
 
     .nhsw-action-link__icon {
-      fill: c.$nhsw-colour-focus-text;
+      fill: c.$nhswales-focus-text-colour;
     }
   }
 
   &:visited {
-    color: c.$nhsw-colour-link-visited;
+    color: c.$nhswales-link-visited-colour;
   }
 
   &:active {
@@ -51,7 +51,7 @@ $nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
     width: 32px;
     height: 32px;
     margin-right: 8px;
-    fill: c.$nhsw-colour-link;
+    fill: c.$nhswales-link-colour;
   }
 
   &__text {
@@ -70,7 +70,7 @@ $nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
 
   &--navy {
     .nhsw-action-link__icon {
-      fill: c.$nhsw-colour-button-primary;
+      fill: c.$nhswales-primary-button;
     }
 
     &:hover .nhsw-action-link__icon {
@@ -80,7 +80,7 @@ $nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
 
   &--red {
     .nhsw-action-link__icon {
-      fill: c.$nhsw-colour-button-delete;
+      fill: c.$nhswales-delete-button;
     }
 
     &:hover .nhsw-action-link__icon {
@@ -89,22 +89,22 @@ $nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
   }
 
   &--reverse {
-    color: c.$nhsw-colour-text-exceptional;
+    color: c.$nhswales-exceptional-text-colour;
 
     .nhsw-action-link__icon {
-      fill: c.$nhsw-colour-background-white;
+      fill: c.$nhswales-page-background-white;
     }
 
     &:visited {
-      color: c.$nhsw-colour-text-exceptional;
+      color: c.$nhswales-exceptional-text-colour;
     }
 
     &:hover .nhsw-action-link__icon {
-      fill: c.$nhsw-colour-background-white;
+      fill: c.$nhswales-page-background-white;
     }
 
     &:hover .nhsw-action-link__text {
-      color: c.$nhsw-colour-text-exceptional;
+      color: c.$nhswales-exceptional-text-colour;
       text-decoration: underline;
       text-decoration-thickness: 2px;
       text-underline-offset: 0.12em;
@@ -112,12 +112,12 @@ $nhsw-colour-action-link-hover-text: c.$nhsw-colour-link-hover;
 
     &:focus {
       .nhsw-action-link__text {
-        color: c.$nhsw-colour-focus-text;
+        color: c.$nhswales-focus-text-colour;
         text-decoration: none;
       }
 
       .nhsw-action-link__icon {
-        fill: c.$nhsw-colour-focus-text;
+        fill: c.$nhswales-focus-text-colour;
       }
     }
   }

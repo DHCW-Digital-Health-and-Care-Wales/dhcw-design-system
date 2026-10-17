@@ -87,7 +87,7 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: c.$nhsw-colour-text-primary;
+      background: c.$nhswales-primary-text-colour;
       opacity: 0;
     }
   }
@@ -99,7 +99,7 @@
     overflow-wrap: break-word;
     padding: 0 12px 4px;
     margin: -4px 0 0;
-    color: c.$nhsw-colour-text-secondary;
+    color: c.$nhswales-secondary-text-colour;
     font-size: 1.1875rem;
     font-weight: 400;
     line-height: 24px;
@@ -108,7 +108,7 @@
   &__divider {
     width: 40px;
     margin: 6px 0;
-    color: c.$nhsw-colour-text-primary;
+    color: c.$nhswales-primary-text-colour;
     font-size: 1.1875rem;
     font-weight: 400;
     text-align: center;
@@ -121,7 +121,7 @@
   &__conditional {
     margin: 6px 0 2px 18px;
     padding-left: 30px;
-    border-left: 4px solid c.$nhsw-colour-border-secondary;
+    border-left: 4px solid c.$nhswales-secondary-border-colour;
 
     &--hidden {
       display: none;
@@ -196,7 +196,7 @@
     }
 
     .nhsw-radios__item:hover .nhsw-radios__input:not(:disabled):focus + .nhsw-radios__label::before {
-      box-shadow: 0 0 0 4px c.$nhsw-colour-focus, 0 0 0 8px c.$nhsw-colour-choice-hover-ring;
+      box-shadow: 0 0 0 4px c.$nhswales-focus-colour, 0 0 0 8px c.$nhsw-colour-choice-hover-ring;
     }
 
     // The line is centred under the small ring, and the content lines up with the

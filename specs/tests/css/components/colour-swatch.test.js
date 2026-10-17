@@ -8,7 +8,7 @@ const page = fs.readFileSync(path.join(root, 'preview/styles/colours.html'), 'ut
 const tokensScss = fs.readFileSync(path.join(root, 'src/tokens/_colours.scss'), 'utf8');
 
 const tokens = {};
-for (const m of tokensScss.matchAll(/\$(nhsw-colour-[\w-]+):\s*(#[0-9a-fA-F]{6})/g)) {
+for (const m of tokensScss.matchAll(/\$(nhsw(?:-colour|ales)-[\w-]+):\s*(#[0-9a-fA-F]{6})/g)) {
   tokens[m[1]] = m[2].toLowerCase();
 }
 
@@ -20,30 +20,30 @@ const swatches = [
 
 // Swatch modifier -> the design token the library actually uses for it.
 const tokenFor = {
-  'primary-text-colour': 'nhsw-colour-text-primary',
-  'exceptional-text-colour': 'nhsw-colour-text-exceptional',
-  'blue-text-colour': 'nhsw-colour-text-blue',
-  'secondary-text-colour': 'nhsw-colour-text-secondary',
-  'link-colour': 'nhsw-colour-link',
-  'link-hover-colour': 'nhsw-colour-link-hover',
-  'link-visited-colour': 'nhsw-colour-link-visited',
-  'link-active-colour': 'nhsw-colour-link-active',
-  'focus-colour': 'nhsw-colour-focus',
-  'focus-text-colour': 'nhsw-colour-focus-text',
-  'primary-button-interrupt': 'nhsw-colour-button-primary-interrupt',
-  'primary-button': 'nhsw-colour-button-primary',
-  'secondary-button': 'nhsw-colour-button-secondary',
-  'delete-button': 'nhsw-colour-button-delete',
-  'exceptional-button-light': 'nhsw-colour-button-exceptional-light',
-  'page-background-grey': 'nhsw-colour-background-grey',
-  'page-background-white': 'nhsw-colour-background-white',
-  'page-background-blue': 'nhsw-colour-background-blue',
-  'primary-border-colour': 'nhsw-colour-border-primary',
-  'secondary-border-colour': 'nhsw-colour-border-secondary',
-  'grey-border-colour': 'nhsw-colour-border-grey',
-  'exceptional-button-shadow': 'nhsw-colour-shadow-exceptional-button',
-  'primary-button-shadow': 'nhsw-colour-shadow-primary-button',
-  'gold-border-colour': 'nhsw-colour-border-gold',
+  'primary-text-colour': 'nhswales-primary-text-colour',
+  'exceptional-text-colour': 'nhswales-exceptional-text-colour',
+  'blue-text-colour': 'nhswales-blue-text-colour',
+  'secondary-text-colour': 'nhswales-secondary-text-colour',
+  'link-colour': 'nhswales-link-colour',
+  'link-hover-colour': 'nhswales-link-hover-colour',
+  'link-visited-colour': 'nhswales-link-visited-colour',
+  'link-active-colour': 'nhswales-link-active-colour',
+  'focus-colour': 'nhswales-focus-colour',
+  'focus-text-colour': 'nhswales-focus-text-colour',
+  'primary-button-interrupt': 'nhswales-primary-button-interrupt',
+  'primary-button': 'nhswales-primary-button',
+  'secondary-button': 'nhswales-secondary-button',
+  'delete-button': 'nhswales-delete-button',
+  'exceptional-button-light': 'nhswales-exceptional-button-light',
+  'page-background-grey': 'nhswales-page-background-grey',
+  'page-background-white': 'nhswales-page-background-white',
+  'page-background-blue': 'nhswales-page-background-blue',
+  'primary-border-colour': 'nhswales-primary-border-colour',
+  'secondary-border-colour': 'nhswales-secondary-border-colour',
+  'grey-border-colour': 'nhswales-grey-border-colour',
+  'exceptional-button-shadow': 'nhswales-exceptional-button-shadow',
+  'primary-button-shadow': 'nhswales-primary-button-shadow',
+  'gold-border-colour': 'nhswales-gold-border-colour',
 };
 
 describe('Colours page swatches', () => {

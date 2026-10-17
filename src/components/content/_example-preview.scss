@@ -5,35 +5,35 @@
 .nhsw-example-preview {
   min-width: 0;
   margin: 24px 0 32px;
-  border: 1px solid c.$nhsw-colour-border-grey;
+  border: 1px solid c.$nhswales-grey-border-colour;
 
   &__toolbar,
   &__footer {
     padding: 12px 16px;
-    background-color: c.$nhsw-colour-background-grey;
+    background-color: c.$nhswales-page-background-grey;
   }
 
   &__toolbar {
-    border-bottom: 1px solid c.$nhsw-colour-border-grey;
+    border-bottom: 1px solid c.$nhswales-grey-border-colour;
   }
 
   &__footer {
     display: flex;
     gap: 24px;
-    border-top: 1px solid c.$nhsw-colour-border-grey;
+    border-top: 1px solid c.$nhswales-grey-border-colour;
   }
 
   &__body {
     position: relative;
     padding: 16px;
-    background-color: c.$nhsw-colour-background-white;
+    background-color: c.$nhswales-page-background-white;
 
     @include b.nhsw-from-tablet {
       padding: 32px 24px;
     }
 
     &--dark {
-      background-color: c.$nhsw-colour-background-blue;
+      background-color: c.$nhswales-page-background-blue;
     }
 
     // The example sits inline in the docs page, so a navigation demo would
@@ -48,8 +48,8 @@
     display: block;
     width: 100%;
     height: 560px;
-    border: 1px solid c.$nhsw-colour-border-grey;
-    background-color: c.$nhsw-colour-background-white;
+    border: 1px solid c.$nhswales-grey-border-colour;
+    background-color: c.$nhswales-page-background-white;
 
     &--short {
       height: 440px;
@@ -62,7 +62,7 @@
     border: 0;
     margin: 0;
     padding: 0;
-    color: c.$nhsw-colour-link;
+    color: c.$nhswales-link-colour;
     font-family: inherit;
     font-size: 0.9375rem;
     line-height: 1.5;
@@ -70,7 +70,7 @@
     cursor: pointer;
 
     &:hover {
-      color: c.$nhsw-colour-link-hover;
+      color: c.$nhswales-link-hover-colour;
     }
 
     &:focus {

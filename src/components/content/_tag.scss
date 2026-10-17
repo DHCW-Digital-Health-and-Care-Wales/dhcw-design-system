@@ -7,7 +7,7 @@
   padding: 4px 8px;
   border: 1px solid #183154;
   background-color: #183154;
-  color: c.$nhsw-colour-text-exceptional;
+  color: c.$nhswales-exceptional-text-colour;
   font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.2;
@@ -21,8 +21,8 @@
 
   &--white {
     background-color: #ffffff;
-    border-color: c.$nhsw-colour-text-primary;
-    color: c.$nhsw-colour-text-primary;
+    border-color: c.$nhswales-primary-text-colour;
+    color: c.$nhswales-primary-text-colour;
   }
 
   &--grey {
@@ -82,7 +82,7 @@
   &--dhcw-blue {
     background-color: #004281;
     border-color: #004281;
-    color: c.$nhsw-colour-text-exceptional;
+    color: c.$nhswales-exceptional-text-colour;
   }
 
   &--no-colour {

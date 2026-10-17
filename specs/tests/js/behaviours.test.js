@@ -928,4 +928,63 @@ describe.each(BUILDS)('nhsw-behaviours.js (%s)', (label, SCRIPT) => {
       expect(document.activeElement).toBe(document.getElementById('name'));
     });
   });
+
+  describe('preventing double clicks (data-prevent-double-click)', () => {
+    const click = (el) => {
+      const event = new MouseEvent('click', { bubbles: true, cancelable: true });
+      el.dispatchEvent(event);
+      return event;
+    };
+
+    beforeEach(() => {
+      vi.useFakeTimers();
+      setBody(`
+        <button id="guarded" class="nhsw-button" data-prevent-double-click="true">Save <span id="inner">now</span></button>
+        <button id="other" class="nhsw-button" data-prevent-double-click="true">Other</button>
+        <button id="plain" class="nhsw-button">Plain</button>
+        <button id="off" class="nhsw-button" data-prevent-double-click="false">Off</button>
+        <a id="link" class="nhsw-button" role="button" href="#next" data-prevent-double-click="true">Link</a>
+      `);
+      runScript(SCRIPT);
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('lets the first click through and ignores a second one straight after', () => {
+      expect(click(document.getElementById('guarded')).defaultPrevented).toBe(false);
+      expect(click(document.getElementById('guarded')).defaultPrevented).toBe(true);
+    });
+
+    it('also ignores a second click on something inside the button', () => {
+      click(document.getElementById('guarded'));
+      expect(click(document.getElementById('inner')).defaultPrevented).toBe(true);
+    });
+
+    it('lets the button be clicked again once a second has passed', () => {
+      click(document.getElementById('guarded'));
+      vi.advanceTimersByTime(999);
+      expect(click(document.getElementById('guarded')).defaultPrevented).toBe(true);
+      vi.advanceTimersByTime(1);
+      expect(click(document.getElementById('guarded')).defaultPrevented).toBe(false);
+    });
+
+    it('keeps a separate timer for each button', () => {
+      click(document.getElementById('guarded'));
+      expect(click(document.getElementById('other')).defaultPrevented).toBe(false);
+    });
+
+    it('works on a button-styled link', () => {
+      expect(click(document.getElementById('link')).defaultPrevented).toBe(false);
+      expect(click(document.getElementById('link')).defaultPrevented).toBe(true);
+    });
+
+    it('leaves buttons without the attribute, or set to anything but true, alone', () => {
+      for (const id of ['plain', 'off']) {
+        expect(click(document.getElementById(id)).defaultPrevented).toBe(false);
+        expect(click(document.getElementById(id)).defaultPrevented).toBe(false);
+      }
+    });
+  });
 });

@@ -7,7 +7,7 @@
   margin-bottom: 24px;
   padding: 32px 40px;
   background-color: #007f3b;
-  color: c.$nhsw-colour-text-exceptional;
+  color: c.$nhswales-exceptional-text-colour;
   text-align: center;
 
   &:not(:has(.nhsw-panel__icon)) {
@@ -20,7 +20,7 @@
   height: 36px;
   margin-bottom: 8px;
   fill: none;
-  stroke: c.$nhsw-colour-text-exceptional;
+  stroke: c.$nhswales-exceptional-text-colour;
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -32,7 +32,7 @@
   @include type.nhsw-heading-xl;
 
   margin: 0 0 16px;
-  color: c.$nhsw-colour-text-exceptional;
+  color: c.$nhswales-exceptional-text-colour;
   word-break: break-word;
   overflow-wrap: break-word;
 
@@ -40,14 +40,14 @@
     @include type.nhsw-heading-l;
 
     margin: 0 0 16px;
-    color: c.$nhsw-colour-text-exceptional;
+    color: c.$nhswales-exceptional-text-colour;
   }
 
   &--m {
     @include type.nhsw-heading-m;
 
     margin: 0 0 16px;
-    color: c.$nhsw-colour-text-exceptional;
+    color: c.$nhswales-exceptional-text-colour;
   }
 }
 
@@ -55,11 +55,11 @@
   margin: 0;
   font-size: t.$nhsw-font-size-h3-mobile;
   line-height: t.$nhsw-line-height-h3-mobile;
-  color: c.$nhsw-colour-text-exceptional;
+  color: c.$nhswales-exceptional-text-colour;
 }
 
 .nhsw-panel--navy {
-  background-color: c.$nhsw-colour-button-primary;
+  background-color: c.$nhswales-primary-button;
 }
 
 // Smaller panel, from the Figma panel: 32px/80px padding, 16px between the parts, a 32px/38px

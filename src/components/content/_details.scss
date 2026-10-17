@@ -2,7 +2,7 @@
 @use "../../utilities/breakpoints" as b;
 
 .nhsw-details {
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
   margin-bottom: 16px;
   font-size: 1rem;
   line-height: 1.5;
@@ -15,14 +15,14 @@
   }
 
   &__summary {
-    color: c.$nhsw-colour-link;
+    color: c.$nhswales-link-colour;
     cursor: pointer;
     display: inline-block;
     padding-left: 24px;
     position: relative;
 
     &:hover {
-      color: c.$nhsw-colour-link-hover;
+      color: c.$nhswales-link-hover-colour;
     }
 
     &::before {
@@ -43,9 +43,9 @@
     }
 
     &:focus {
-      background-color: c.$nhsw-colour-focus;
-      box-shadow: 0 -2px c.$nhsw-colour-focus, 0 4px c.$nhsw-colour-text-primary;
-      color: c.$nhsw-colour-text-primary;
+      background-color: c.$nhswales-focus-colour;
+      box-shadow: 0 -2px c.$nhswales-focus-colour, 0 4px c.$nhswales-primary-text-colour;
+      color: c.$nhswales-primary-text-colour;
       outline: 4px solid transparent;
       text-decoration: none;
     }
@@ -76,7 +76,7 @@
   }
 
   &__text {
-    border-left: 4px solid c.$nhsw-colour-border-grey;
+    border-left: 4px solid c.$nhswales-grey-border-colour;
     margin-top: 8px;
     padding: 16px;
     padding-left: 20px;

@@ -6,8 +6,8 @@
   left: 0;
   z-index: 100;
   padding: 12px 16px;
-  background-color: c.$nhsw-colour-focus;
-  color: c.$nhsw-colour-focus-text;
+  background-color: c.$nhswales-focus-colour;
+  color: c.$nhswales-focus-text-colour;
   font-weight: 700;
   text-decoration: none;
   transform: translateY(-100%);
@@ -17,6 +17,6 @@
     outline: none;
     transform: translateY(0);
     clip-path: none;
-    box-shadow: 0 4px 0 c.$nhsw-colour-border-primary;
+    box-shadow: 0 4px 0 c.$nhswales-primary-border-colour;
   }
 }

@@ -5,13 +5,13 @@ $nhsw-colour-phase-banner-tag-border: #004281;
 $nhsw-colour-phase-banner-tag-background: #cce0f1;
 
 .nhsw-phase-banner {
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
 
   // The line stops short of the right edge and the tag lines up with the
   // first primary navigation link (2rem container padding plus its 4px inset).
   &__container {
     padding: 10px 16px;
-    border-bottom: 1px solid c.$nhsw-colour-border-grey;
+    border-bottom: 1px solid c.$nhswales-grey-border-colour;
 
     @include b.nhsw-from-tablet {
       margin-right: 2.5rem;
@@ -45,7 +45,7 @@ $nhsw-colour-phase-banner-tag-background: #cce0f1;
   }
 
   &--reverse {
-    color: c.$nhsw-colour-text-exceptional;
+    color: c.$nhswales-exceptional-text-colour;
 
     .nhsw-phase-banner__container {
       margin-right: 0;
@@ -62,13 +62,13 @@ $nhsw-colour-phase-banner-tag-background: #cce0f1;
       padding: 0 8px;
       border-color: $nhsw-colour-phase-banner-tag-border;
       background-color: $nhsw-colour-phase-banner-tag-border;
-      color: c.$nhsw-colour-text-exceptional;
+      color: c.$nhswales-exceptional-text-colour;
       font-size: 0.75rem;
       line-height: 18px;
     }
 
     .nhsw-link {
-      color: c.$nhsw-colour-text-exceptional;
+      color: c.$nhswales-exceptional-text-colour;
     }
   }
 }

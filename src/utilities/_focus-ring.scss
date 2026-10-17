@@ -6,16 +6,16 @@
 }
 
 @mixin nhsw-choice-input-focus-ring {
-    outline: 3px solid c.$nhsw-colour-focus;
+    outline: 3px solid c.$nhswales-focus-colour;
     outline-offset: 1px;
-    box-shadow: 0 0 0 4px c.$nhsw-colour-focus;
-    border-color: c.$nhsw-colour-border-primary;
+    box-shadow: 0 0 0 4px c.$nhswales-focus-colour;
+    border-color: c.$nhswales-primary-border-colour;
     border-width: 4px;
 }
 
 @mixin nhsw-link-focus-state($text-colour: null) {
-    background-color: c.$nhsw-colour-focus;
-    border-bottom: max(4px, 0.25rem) solid c.$nhsw-colour-text-primary;
+    background-color: c.$nhswales-focus-colour;
+    border-bottom: max(4px, 0.25rem) solid c.$nhswales-primary-text-colour;
 
     @if $text-colour {
         color: $text-colour;

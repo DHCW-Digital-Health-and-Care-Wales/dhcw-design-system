@@ -20,7 +20,7 @@
   &__caption {
     display: table-caption;
     text-align: left;
-    color: c.$nhsw-colour-text-primary;
+    color: c.$nhswales-primary-text-colour;
     font-weight: 700;
     margin-bottom: 8px;
 
@@ -62,7 +62,7 @@
 
   &__head {
     th {
-      border-bottom: 2px solid c.$nhsw-colour-border-grey;
+      border-bottom: 2px solid c.$nhswales-grey-border-colour;
     }
   }
 
@@ -90,7 +90,7 @@
   &__body {
     .nhsw-table__header {
       font-weight: 400;
-      border-bottom: 1px solid c.$nhsw-colour-border-grey;
+      border-bottom: 1px solid c.$nhswales-grey-border-colour;
     }
   }
 
@@ -100,7 +100,7 @@
     vertical-align: top;
     word-break: break-word;
     overflow-wrap: break-word;
-    border-bottom: 1px solid c.$nhsw-colour-border-grey;
+    border-bottom: 1px solid c.$nhswales-grey-border-colour;
 
     @include b.nhsw-from-tablet {
       padding-top: 12px;
@@ -147,7 +147,7 @@
     }
 
     th {
-      border-bottom: 2px solid c.$nhsw-colour-border-grey;
+      border-bottom: 2px solid c.$nhswales-grey-border-colour;
     }
   }
 
@@ -167,7 +167,7 @@
   .nhsw-table__body {
     .nhsw-table__header {
       font-weight: 400;
-      border-bottom: 1px solid c.$nhsw-colour-border-grey;
+      border-bottom: 1px solid c.$nhswales-grey-border-colour;
     }
 
     .nhsw-table__row {
@@ -179,7 +179,7 @@
 
     td,
     th[scope="row"] {
-      border-bottom: 1px solid c.$nhsw-colour-border-grey;
+      border-bottom: 1px solid c.$nhswales-grey-border-colour;
 
       @media (max-width: 48rem) {
         display: flex;
@@ -189,7 +189,7 @@
         text-align: right;
 
         &:last-child {
-          border-bottom: 3px solid c.$nhsw-colour-border-grey;
+          border-bottom: 3px solid c.$nhswales-grey-border-colour;
         }
       }
     }
@@ -226,8 +226,8 @@
   margin-bottom: 40px;
   margin-top: 40px;
   padding: 24px;
-  background-color: c.$nhsw-colour-background-white;
-  border: 1px solid c.$nhsw-colour-border-grey;
+  background-color: c.$nhswales-page-background-white;
+  border: 1px solid c.$nhswales-grey-border-colour;
   padding-top: 0 !important; // stylelint-disable-line
 
   @include b.nhsw-from-tablet {
@@ -245,8 +245,8 @@
 .nhsw-table__heading-tab {
   font-size: 1.25rem;
   line-height: 1.4;
-  background-color: c.$nhsw-colour-background-blue;
-  color: c.$nhsw-colour-text-exceptional;
+  background-color: c.$nhswales-page-background-blue;
+  color: c.$nhswales-exceptional-text-colour;
   display: inline-block;
   margin: 0 0 8px -25px;
   padding: 8px 24px;

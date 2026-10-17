@@ -2,7 +2,7 @@
 
 .nhsw-cookie-banner {
   padding: 1.5rem 0 0.5rem;
-  background-color: c.$nhsw-colour-background-white;
+  background-color: c.$nhswales-page-background-white;
 
   &[hidden] {
     display: none;
@@ -26,17 +26,17 @@
   border: 0;
   background: none;
   font: inherit;
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
   text-decoration: underline;
   cursor: pointer;
 
   &:hover {
-    color: c.$nhsw-colour-link-hover;
+    color: c.$nhswales-link-hover-colour;
   }
 
   &:focus {
-    background-color: c.$nhsw-colour-focus;
-    color: c.$nhsw-colour-focus-text;
-    outline: 3px solid c.$nhsw-colour-focus;
+    background-color: c.$nhswales-focus-colour;
+    color: c.$nhswales-focus-text-colour;
+    outline: 3px solid c.$nhswales-focus-colour;
   }
 }

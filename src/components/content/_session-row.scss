@@ -8,7 +8,7 @@
   gap: 8px 16px;
   padding: 12px 16px;
   background-color: #ffffff;
-  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+  border-bottom: 1px solid c.$nhswales-grey-border-colour;
   text-decoration: none;
   color: inherit;
 
@@ -25,21 +25,21 @@
 .nhsw-session-row__title {
   display: block;
   margin: 0 0 4px;
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
   font-weight: 700;
   text-decoration: underline;
 }
 
 .nhsw-session-row__meta {
   display: block;
-  color: c.$nhsw-colour-text-secondary;
+  color: c.$nhswales-secondary-text-colour;
   font-size: 1rem;
 }
 
 .nhsw-session-row__detail {
   flex: 2 1 10rem;
   min-width: 8rem;
-  color: c.$nhsw-colour-text-secondary;
+  color: c.$nhswales-secondary-text-colour;
   font-size: 1rem;
 }
 
@@ -54,8 +54,8 @@
   flex-direction: column;
   align-items: center;
   padding: 4px 10px;
-  border: 1px solid c.$nhsw-colour-text-blue;
-  background-color: c.$nhsw-colour-background-grey;
+  border: 1px solid c.$nhswales-blue-text-colour;
+  background-color: c.$nhswales-page-background-grey;
   font-size: 0.875rem;
   font-weight: 700;
   text-align: center;
@@ -65,7 +65,7 @@
   flex-shrink: 0;
   width: 16px;
   height: 16px;
-  color: c.$nhsw-colour-text-secondary;
+  color: c.$nhswales-secondary-text-colour;
 }
 
 .nhsw-session-row__badge:first-child {

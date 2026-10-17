@@ -15,7 +15,7 @@ $nhsw-dashboard-header-height: 67px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: c.$nhsw-colour-background-white;
+  background-color: c.$nhswales-page-background-white;
 
   @include b.nhsw-from-tablet {
     flex-direction: row;
@@ -24,8 +24,8 @@ $nhsw-dashboard-header-height: 67px;
   &__sidebar {
     flex-shrink: 0;
     padding: 0 0 1rem;
-    background-color: c.$nhsw-colour-background-blue;
-    color: c.$nhsw-colour-text-exceptional;
+    background-color: c.$nhswales-page-background-blue;
+    color: c.$nhswales-exceptional-text-colour;
 
     @include b.nhsw-from-tablet {
       width: $nhsw-dashboard-sidebar-width;
@@ -41,7 +41,7 @@ $nhsw-dashboard-header-height: 67px;
     margin-bottom: 0.5rem;
     padding: 0 1rem;
     border-bottom: 1px solid $nhsw-dashboard-nav-divider;
-    color: c.$nhsw-colour-text-exceptional;
+    color: c.$nhswales-exceptional-text-colour;
     font-family: t.$nhsw-font-family-base;
     font-size: 1.1rem;
     line-height: 24px;
@@ -73,7 +73,7 @@ $nhsw-dashboard-header-height: 67px;
     height: 3rem;
     padding: 0.75rem 1rem 0.75rem calc(1rem - #{$nhsw-dashboard-nav-edge});
     border-left: $nhsw-dashboard-nav-edge solid transparent;
-    color: c.$nhsw-colour-text-exceptional;
+    color: c.$nhswales-exceptional-text-colour;
     font-family: t.$nhsw-font-family-base;
     font-size: 1.1rem;
     text-decoration: none;
@@ -81,19 +81,19 @@ $nhsw-dashboard-header-height: 67px;
 
     &:hover {
       background-color: $nhsw-dashboard-nav-active;
-      border-left-color: c.$nhsw-colour-text-exceptional;
+      border-left-color: c.$nhswales-exceptional-text-colour;
     }
 
     &:focus {
       outline: none;
-      background-color: c.$nhsw-colour-focus;
-      border-left-color: c.$nhsw-colour-text-primary;
-      color: c.$nhsw-colour-text-primary;
+      background-color: c.$nhswales-focus-colour;
+      border-left-color: c.$nhswales-primary-text-colour;
+      color: c.$nhswales-primary-text-colour;
     }
 
     &--current {
       background-color: $nhsw-dashboard-nav-active;
-      border-left-color: c.$nhsw-colour-text-exceptional;
+      border-left-color: c.$nhswales-exceptional-text-colour;
     }
 
     &--disabled,
@@ -128,8 +128,8 @@ $nhsw-dashboard-header-height: 67px;
     box-sizing: border-box;
     min-height: $nhsw-dashboard-header-height;
     padding: 12px 20px;
-    border-bottom: 1px solid c.$nhsw-colour-link;
-    background-color: c.$nhsw-colour-background-white;
+    border-bottom: 1px solid c.$nhswales-link-colour;
+    background-color: c.$nhswales-page-background-white;
   }
 
   // The account chips match the logged-in header: bordered 40px chips, 16px text and a
@@ -141,9 +141,9 @@ $nhsw-dashboard-header-height: 67px;
     box-sizing: border-box;
     min-height: 40px;
     padding: 4px 12px 4px 4px;
-    border: 1px solid c.$nhsw-colour-border-grey;
+    border: 1px solid c.$nhswales-grey-border-colour;
     border-radius: 4px;
-    color: c.$nhsw-colour-text-primary;
+    color: c.$nhswales-primary-text-colour;
     font-size: t.$nhsw-font-size-body-small;
     line-height: t.$nhsw-line-height-body-small;
   }
@@ -156,8 +156,8 @@ $nhsw-dashboard-header-height: 67px;
     height: 32px;
     padding: 4px;
     border-radius: 4px;
-    background-color: c.$nhsw-colour-link;
-    color: c.$nhsw-colour-background-white;
+    background-color: c.$nhswales-link-colour;
+    color: c.$nhswales-page-background-white;
 
     svg {
       display: block;
@@ -168,7 +168,7 @@ $nhsw-dashboard-header-height: 67px;
 
   &__exit {
     margin-left: 24px;
-    color: c.$nhsw-colour-link;
+    color: c.$nhswales-link-colour;
     font-size: t.$nhsw-font-size-body-small;
     line-height: t.$nhsw-line-height-body-small;
   }

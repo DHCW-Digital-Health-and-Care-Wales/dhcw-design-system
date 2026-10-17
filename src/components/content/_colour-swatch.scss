@@ -4,30 +4,30 @@
 $nhsw-colour-swatch-text-on-gold: #0b0c0c;
 
 $nhsw-colour-swatches: (
-  "primary-text-colour": (c.$nhsw-colour-text-primary, c.$nhsw-colour-text-exceptional),
-  "exceptional-text-colour": (c.$nhsw-colour-text-exceptional, c.$nhsw-colour-text-primary),
-  "blue-text-colour": (c.$nhsw-colour-text-blue, c.$nhsw-colour-text-exceptional),
-  "secondary-text-colour": (c.$nhsw-colour-text-secondary, c.$nhsw-colour-text-exceptional),
-  "link-colour": (c.$nhsw-colour-link, c.$nhsw-colour-text-exceptional),
-  "link-hover-colour": (c.$nhsw-colour-link-hover, c.$nhsw-colour-text-exceptional),
-  "link-visited-colour": (c.$nhsw-colour-link-visited, c.$nhsw-colour-text-exceptional),
-  "link-active-colour": (c.$nhsw-colour-link-active, c.$nhsw-colour-text-exceptional),
-  "focus-colour": (c.$nhsw-colour-focus, c.$nhsw-colour-text-primary),
-  "focus-text-colour": (c.$nhsw-colour-text-primary, c.$nhsw-colour-text-exceptional),
-  "primary-button-interrupt": (c.$nhsw-colour-button-primary-interrupt, c.$nhsw-colour-text-exceptional),
-  "primary-button": (c.$nhsw-colour-button-primary, c.$nhsw-colour-text-exceptional),
-  "secondary-button": (c.$nhsw-colour-button-secondary, c.$nhsw-colour-text-exceptional),
-  "delete-button": (c.$nhsw-colour-button-delete, c.$nhsw-colour-text-exceptional),
-  "exceptional-button-light": (c.$nhsw-colour-button-exceptional-light, c.$nhsw-colour-text-primary),
-  "page-background-grey": (c.$nhsw-colour-background-grey, c.$nhsw-colour-text-secondary),
-  "page-background-white": (c.$nhsw-colour-background-white, c.$nhsw-colour-text-secondary),
-  "page-background-blue": (c.$nhsw-colour-background-blue, c.$nhsw-colour-text-exceptional),
-  "primary-border-colour": (c.$nhsw-colour-border-primary, c.$nhsw-colour-text-exceptional),
-  "secondary-border-colour": (c.$nhsw-colour-border-secondary, c.$nhsw-colour-text-exceptional),
-  "grey-border-colour": (c.$nhsw-colour-border-grey, c.$nhsw-colour-text-primary),
-  "exceptional-button-shadow": (c.$nhsw-colour-shadow-exceptional-button, c.$nhsw-colour-text-exceptional),
-  "primary-button-shadow": (c.$nhsw-colour-shadow-primary-button, c.$nhsw-colour-text-exceptional),
-  "gold-border-colour": (c.$nhsw-colour-border-gold, $nhsw-colour-swatch-text-on-gold)
+  "primary-text-colour": (c.$nhswales-primary-text-colour, c.$nhswales-exceptional-text-colour),
+  "exceptional-text-colour": (c.$nhswales-exceptional-text-colour, c.$nhswales-primary-text-colour),
+  "blue-text-colour": (c.$nhswales-blue-text-colour, c.$nhswales-exceptional-text-colour),
+  "secondary-text-colour": (c.$nhswales-secondary-text-colour, c.$nhswales-exceptional-text-colour),
+  "link-colour": (c.$nhswales-link-colour, c.$nhswales-exceptional-text-colour),
+  "link-hover-colour": (c.$nhswales-link-hover-colour, c.$nhswales-exceptional-text-colour),
+  "link-visited-colour": (c.$nhswales-link-visited-colour, c.$nhswales-exceptional-text-colour),
+  "link-active-colour": (c.$nhswales-link-active-colour, c.$nhswales-exceptional-text-colour),
+  "focus-colour": (c.$nhswales-focus-colour, c.$nhswales-primary-text-colour),
+  "focus-text-colour": (c.$nhswales-primary-text-colour, c.$nhswales-exceptional-text-colour),
+  "primary-button-interrupt": (c.$nhswales-primary-button-interrupt, c.$nhswales-exceptional-text-colour),
+  "primary-button": (c.$nhswales-primary-button, c.$nhswales-exceptional-text-colour),
+  "secondary-button": (c.$nhswales-secondary-button, c.$nhswales-exceptional-text-colour),
+  "delete-button": (c.$nhswales-delete-button, c.$nhswales-exceptional-text-colour),
+  "exceptional-button-light": (c.$nhswales-exceptional-button-light, c.$nhswales-primary-text-colour),
+  "page-background-grey": (c.$nhswales-page-background-grey, c.$nhswales-secondary-text-colour),
+  "page-background-white": (c.$nhswales-page-background-white, c.$nhswales-secondary-text-colour),
+  "page-background-blue": (c.$nhswales-page-background-blue, c.$nhswales-exceptional-text-colour),
+  "primary-border-colour": (c.$nhswales-primary-border-colour, c.$nhswales-exceptional-text-colour),
+  "secondary-border-colour": (c.$nhswales-secondary-border-colour, c.$nhswales-exceptional-text-colour),
+  "grey-border-colour": (c.$nhswales-grey-border-colour, c.$nhswales-primary-text-colour),
+  "exceptional-button-shadow": (c.$nhswales-exceptional-button-shadow, c.$nhswales-exceptional-text-colour),
+  "primary-button-shadow": (c.$nhswales-primary-button-shadow, c.$nhswales-exceptional-text-colour),
+  "gold-border-colour": (c.$nhswales-gold-border-colour, $nhsw-colour-swatch-text-on-gold)
 );
 
 .nhsw-colour-swatches {
@@ -65,6 +65,6 @@ $nhsw-colour-swatches: (
   }
 
   &--page-background-grey {
-    border: 1px solid c.$nhsw-colour-border-grey;
+    border: 1px solid c.$nhswales-grey-border-colour;
   }
 }

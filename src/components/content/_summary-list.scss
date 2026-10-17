@@ -10,7 +10,7 @@
   &__row {
     display: flex;
     flex-wrap: wrap;
-    border-bottom: 1px solid c.$nhsw-colour-border-grey;
+    border-bottom: 1px solid c.$nhswales-grey-border-colour;
     padding: 8px 0;
 
     @include b.nhsw-from-desktop {
@@ -65,7 +65,7 @@
     }
 
     a:hover {
-      color: c.$nhsw-colour-link-hover;
+      color: c.$nhswales-link-hover-colour;
     }
   }
 

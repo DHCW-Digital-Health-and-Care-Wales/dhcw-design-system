@@ -23,10 +23,10 @@
 
     &:focus:not(:active) {
         outline: none;
-        background-color: c.$nhsw-colour-focus;
-        color: c.$nhsw-colour-text-primary;
+        background-color: c.$nhswales-focus-colour;
+        color: c.$nhswales-primary-text-colour;
         border-color: transparent;
-        box-shadow: 0 2px 0 c.$nhsw-colour-border-primary;
+        box-shadow: 0 2px 0 c.$nhswales-primary-border-colour;
     }
 
     &:disabled,

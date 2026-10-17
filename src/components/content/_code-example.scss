@@ -4,8 +4,8 @@
   margin-bottom: 24px;
 
   pre {
-    background-color: c.$nhsw-colour-background-grey;
-    border-left: 4px solid c.$nhsw-colour-border-grey;
+    background-color: c.$nhswales-page-background-grey;
+    border-left: 4px solid c.$nhswales-grey-border-colour;
     padding: 16px;
     overflow-x: auto;
     margin: 0;
@@ -16,6 +16,6 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.875rem;
     line-height: 1.5;
-    color: c.$nhsw-colour-text-primary;
+    color: c.$nhswales-primary-text-colour;
   }
 }

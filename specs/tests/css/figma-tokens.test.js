@@ -21,25 +21,25 @@ beforeAll(() => {
   colourCss = compileProbe(`
     @use "tokens/colours" as c;
     :root {
-      --primary-text: #{c.$nhsw-colour-text-primary};
-      --secondary-text: #{c.$nhsw-colour-text-secondary};
-      --exceptional-text: #{c.$nhsw-colour-text-exceptional};
-      --blue-text: #{c.$nhsw-colour-text-blue};
-      --link: #{c.$nhsw-colour-link};
-      --primary-button: #{c.$nhsw-colour-button-primary};
-      --secondary-button: #{c.$nhsw-colour-button-secondary};
-      --delete-button: #{c.$nhsw-colour-button-delete};
-      --exceptional-button-light: #{c.$nhsw-colour-button-exceptional-light};
-      --page-background-grey: #{c.$nhsw-colour-background-grey};
-      --page-background-white: #{c.$nhsw-colour-background-white};
-      --page-background-blue: #{c.$nhsw-colour-background-blue};
-      --primary-border: #{c.$nhsw-colour-border-primary};
-      --secondary-border: #{c.$nhsw-colour-border-secondary};
-      --grey-border: #{c.$nhsw-colour-border-grey};
-      --gold-border: #{c.$nhsw-colour-border-gold};
-      --primary-button-shadow: #{c.$nhsw-colour-shadow-primary-button};
-      --exceptional-button-shadow: #{c.$nhsw-colour-shadow-exceptional-button};
-      --focus: #{c.$nhsw-colour-focus};
+      --primary-text: #{c.$nhswales-primary-text-colour};
+      --secondary-text: #{c.$nhswales-secondary-text-colour};
+      --exceptional-text: #{c.$nhswales-exceptional-text-colour};
+      --blue-text: #{c.$nhswales-blue-text-colour};
+      --link: #{c.$nhswales-link-colour};
+      --primary-button: #{c.$nhswales-primary-button};
+      --secondary-button: #{c.$nhswales-secondary-button};
+      --delete-button: #{c.$nhswales-delete-button};
+      --exceptional-button-light: #{c.$nhswales-exceptional-button-light};
+      --page-background-grey: #{c.$nhswales-page-background-grey};
+      --page-background-white: #{c.$nhswales-page-background-white};
+      --page-background-blue: #{c.$nhswales-page-background-blue};
+      --primary-border: #{c.$nhswales-primary-border-colour};
+      --secondary-border: #{c.$nhswales-secondary-border-colour};
+      --grey-border: #{c.$nhswales-grey-border-colour};
+      --gold-border: #{c.$nhswales-gold-border-colour};
+      --primary-button-shadow: #{c.$nhswales-primary-button-shadow};
+      --exceptional-button-shadow: #{c.$nhswales-exceptional-button-shadow};
+      --focus: #{c.$nhswales-focus-colour};
     }
   `);
 

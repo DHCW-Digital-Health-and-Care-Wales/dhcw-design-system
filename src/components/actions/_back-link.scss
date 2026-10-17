@@ -2,7 +2,7 @@
 @use "../../tokens/typography" as t;
 @use "../../utilities/focus-ring" as u;
 
-$nhsw-colour-back-link-hover: c.$nhsw-colour-link-hover;
+$nhsw-colour-back-link-hover: c.$nhswales-link-hover-colour;
 
 .nhsw-back-link {
   display: inline-flex;
@@ -11,7 +11,7 @@ $nhsw-colour-back-link-hover: c.$nhsw-colour-link-hover;
   max-width: 100%;
   padding-left: 14px;
   overflow-wrap: anywhere;
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
   font-size: t.$nhsw-font-size-body;
   text-decoration: underline;
 
@@ -34,7 +34,7 @@ $nhsw-colour-back-link-hover: c.$nhsw-colour-link-hover;
 
   &:focus {
     outline: none;
-    @include u.nhsw-link-focus-state(c.$nhsw-colour-text-primary);
+    @include u.nhsw-link-focus-state(c.$nhswales-primary-text-colour);
     text-decoration: none;
   }
 
@@ -46,15 +46,15 @@ $nhsw-colour-back-link-hover: c.$nhsw-colour-link-hover;
   }
 
   &--reverse {
-    color: c.$nhsw-colour-background-white;
+    color: c.$nhswales-page-background-white;
 
     &:hover {
-      color: c.$nhsw-colour-background-white;
+      color: c.$nhswales-page-background-white;
       text-decoration: none;
     }
 
     &:focus {
-      color: c.$nhsw-colour-text-primary;
+      color: c.$nhswales-primary-text-colour;
     }
   }
 }

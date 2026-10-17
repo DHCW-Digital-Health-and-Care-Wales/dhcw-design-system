@@ -551,4 +551,23 @@
       event.preventDefault();
     });
   });
+
+  // Prevent double clicks, as in the NHS.UK frontend. A button or button-styled link marked
+  // data-prevent-double-click="true" ignores any further click for a second after one gets through,
+  // so a form is not sent twice. Each button keeps its own timer.
+  var DOUBLE_CLICK_MS = 1000;
+  var recentlyClicked = new WeakSet();
+
+  document.addEventListener('click', function (event) {
+    var button = event.target instanceof Element ? event.target.closest('[data-prevent-double-click="true"]') : null;
+    if (!button) return;
+    if (recentlyClicked.has(button)) {
+      event.preventDefault();
+      return;
+    }
+    recentlyClicked.add(button);
+    setTimeout(function () {
+      recentlyClicked.delete(button);
+    }, DOUBLE_CLICK_MS);
+  });
 }());

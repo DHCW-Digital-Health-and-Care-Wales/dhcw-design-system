@@ -10,7 +10,7 @@
   list-style: none;
   margin: 0 0 0;
   padding: 0;
-  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+  border-bottom: 1px solid c.$nhswales-grey-border-colour;
 }
 
 .nhsw-tabs__tab {
@@ -23,7 +23,7 @@
   padding: 0.5rem 1rem;
   background: none;
   border: none;
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
   font-family: t.$nhsw-font-family-base;
   font-size: t.$nhsw-font-size-body-small;
   line-height: 1.6875rem;
@@ -34,7 +34,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background-color: c.$nhsw-colour-border-grey;
+    background-color: c.$nhswales-grey-border-colour;
     z-index: -1;
   }
 
@@ -46,10 +46,10 @@
     outline: none;
 
     .nhsw-tabs__tab-text {
-      background-color: c.$nhsw-colour-focus;
-      color: c.$nhsw-colour-focus-text;
+      background-color: c.$nhswales-focus-colour;
+      color: c.$nhswales-focus-text-colour;
       text-decoration: none;
-      box-shadow: inset 0 -3px 0 c.$nhsw-colour-focus-text;
+      box-shadow: inset 0 -3px 0 c.$nhswales-focus-text-colour;
     }
   }
 
@@ -59,9 +59,9 @@
     font-weight: t.$nhsw-font-weight-regular;
 
     &::before {
-      background-color: c.$nhsw-colour-background-white;
-      border: 1px solid c.$nhsw-colour-border-grey;
-      border-bottom: 1px solid c.$nhsw-colour-background-white;
+      background-color: c.$nhswales-page-background-white;
+      border: 1px solid c.$nhswales-grey-border-colour;
+      border-bottom: 1px solid c.$nhswales-page-background-white;
     }
 
     .nhsw-tabs__tab-text {
@@ -75,8 +75,8 @@
 }
 
 .nhsw-tabs__panel {
-  background-color: c.$nhsw-colour-background-white;
-  border: 1px solid c.$nhsw-colour-border-grey;
+  background-color: c.$nhswales-page-background-white;
+  border: 1px solid c.$nhswales-grey-border-colour;
   border-top: none;
   padding: 1rem;
 
@@ -103,7 +103,7 @@
     content: "\2014\00a0 Contents";
     display: block;
     margin-bottom: 0.5rem;
-    color: c.$nhsw-colour-text-primary;
+    color: c.$nhswales-primary-text-colour;
     font-family: t.$nhsw-font-family-base;
     font-size: t.$nhsw-font-size-body;
     font-weight: t.$nhsw-font-weight-bold;
@@ -114,7 +114,7 @@
     display: inline-block;
     margin-bottom: 0;
     padding: 0.25rem 0;
-    color: c.$nhsw-colour-link;
+    color: c.$nhswales-link-colour;
   }
 
   .nhsw-tabs__tab::before,
@@ -132,12 +132,12 @@
     content: "\2014";
     content: "\2014" / "";
     margin-right: 0.5rem;
-    color: c.$nhsw-colour-text-primary;
+    color: c.$nhswales-primary-text-colour;
   }
 
   .nhsw-tabs__panel {
     margin-top: 1rem;
-    border-top: 1px solid c.$nhsw-colour-border-grey;
+    border-top: 1px solid c.$nhswales-grey-border-colour;
 
     &:focus {
       outline: none;

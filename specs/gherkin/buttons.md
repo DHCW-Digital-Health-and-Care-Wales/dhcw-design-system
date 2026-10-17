@@ -37,12 +37,12 @@ Feature: Buttons — automated coverage
 
       Examples:
         | token                            | hex     |
-        | $nhsw-colour-button-primary      | #1b365d |
-        | $nhsw-colour-button-secondary    | #4c6272 |
-        | $nhsw-colour-button-delete       | #d5281b |
-        | $nhsw-colour-button-exceptional-light | #f5bb6b |
-        | $nhsw-colour-shadow-primary-button    | #0e1b2f |
-        | $nhsw-colour-shadow-exceptional-button | #554318 |
+        | $nhswales-primary-button      | #1b365d |
+        | $nhswales-secondary-button    | #4c6272 |
+        | $nhswales-delete-button       | #d5281b |
+        | $nhswales-exceptional-button-light | #f5bb6b |
+        | $nhswales-primary-button-shadow    | #0e1b2f |
+        | $nhswales-exceptional-button-shadow | #554318 |
 ```
 
 ## Manual test scenarios

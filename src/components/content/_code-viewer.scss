@@ -3,7 +3,7 @@
 .preview-section {
   margin-bottom: 48px;
   padding-bottom: 24px;
-  border-bottom: 1px solid c.$nhsw-colour-border-grey;
+  border-bottom: 1px solid c.$nhswales-grey-border-colour;
 
   &:last-child {
     border-bottom: none;
@@ -21,12 +21,12 @@
 .nhsw-code-viewer {
   margin-top: 24px;
   margin-bottom: 32px;
-  border: 1px solid c.$nhsw-colour-border-grey;
+  border: 1px solid c.$nhswales-grey-border-colour;
 
   &__header {
     display: flex;
     align-items: stretch;
-    background-color: c.$nhsw-colour-text-primary;
+    background-color: c.$nhswales-primary-text-colour;
     border-bottom: 1px solid #4c6272;
   }
 
@@ -56,11 +56,11 @@
 
     &--active {
       color: #fff;
-      border-bottom-color: c.$nhsw-colour-link;
+      border-bottom-color: c.$nhswales-link-colour;
     }
 
     &:focus {
-      outline: 3px solid c.$nhsw-colour-focus;
+      outline: 3px solid c.$nhswales-focus-colour;
       outline-offset: 0;
     }
   }
@@ -86,7 +86,7 @@
     }
 
     &:focus {
-      outline: 3px solid c.$nhsw-colour-focus;
+      outline: 3px solid c.$nhswales-focus-colour;
       outline-offset: 0;
     }
 

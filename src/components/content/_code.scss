@@ -1,7 +1,7 @@
 @use "../../tokens/colours" as c;
 
 .nhsw-code {
-  color: c.$nhsw-colour-button-delete;
+  color: c.$nhswales-delete-button;
   font-family: Consolas, "Courier New", monospace;
   font-size: 1em;
   overflow-wrap: anywhere;

@@ -19,24 +19,24 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: c.$nhsw-colour-button-primary;
-  color: c.$nhsw-colour-text-exceptional;
+  background-color: c.$nhswales-primary-button;
+  color: c.$nhswales-exceptional-text-colour;
   font-weight: 700;
   font-style: normal;
 }
 
 .nhsw-warning-text__text {
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
   font-weight: 700;
 }
 
 .nhsw-warning-text--reverse {
   .nhsw-warning-text__icon {
-    background-color: c.$nhsw-colour-background-white;
-    color: c.$nhsw-colour-button-primary;
+    background-color: c.$nhswales-page-background-white;
+    color: c.$nhswales-primary-button;
   }
 
   .nhsw-warning-text__text {
-    color: c.$nhsw-colour-text-exceptional;
+    color: c.$nhswales-exceptional-text-colour;
   }
 }

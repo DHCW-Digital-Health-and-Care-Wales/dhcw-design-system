@@ -1,12 +1,12 @@
 @use "../../tokens/colours" as c;
 
-$nhsw-colour-expander-hover: c.$nhsw-colour-link-hover;
+$nhsw-colour-expander-hover: c.$nhswales-link-hover-colour;
 $nhsw-colour-expander-hover-border: #4c6272;
 
 .nhsw-expander {
   margin-bottom: 24px;
-  background-color: c.$nhsw-colour-background-white;
-  border: 1px solid c.$nhsw-colour-border-grey;
+  background-color: c.$nhswales-page-background-white;
+  border: 1px solid c.$nhswales-grey-border-colour;
   border-bottom-width: 4px;
 
   &:hover {
@@ -34,28 +34,28 @@ $nhsw-colour-expander-hover-border: #4c6272;
 
   &--reverse {
     background-color: transparent;
-    border-color: c.$nhsw-colour-background-white;
+    border-color: c.$nhswales-page-background-white;
 
     .nhsw-expander__link-text {
-      color: c.$nhsw-colour-background-white;
+      color: c.$nhswales-page-background-white;
     }
 
     .nhsw-expander__icon {
-      background-color: c.$nhsw-colour-background-white;
-      color: c.$nhsw-colour-button-primary;
+      background-color: c.$nhswales-page-background-white;
+      color: c.$nhswales-primary-button;
     }
 
     &:hover {
-      border-color: c.$nhsw-colour-background-white;
+      border-color: c.$nhswales-page-background-white;
       box-shadow: none;
 
       .nhsw-expander__link-text {
-        color: c.$nhsw-colour-background-white;
+        color: c.$nhswales-page-background-white;
         text-decoration: none;
       }
 
       .nhsw-expander__icon {
-        background-color: c.$nhsw-colour-background-white;
+        background-color: c.$nhswales-page-background-white;
       }
     }
   }
@@ -76,18 +76,18 @@ $nhsw-colour-expander-hover-border: #4c6272;
     outline: none;
 
     .nhsw-expander__heading {
-      background-color: c.$nhsw-colour-focus;
-      box-shadow: inset 0 -4px 0 c.$nhsw-colour-text-primary;
+      background-color: c.$nhswales-focus-colour;
+      box-shadow: inset 0 -4px 0 c.$nhswales-primary-text-colour;
     }
 
     .nhsw-expander__link-text {
-      color: c.$nhsw-colour-focus-text;
+      color: c.$nhswales-focus-text-colour;
       text-decoration: none;
     }
 
     .nhsw-expander__icon {
-      background-color: c.$nhsw-colour-focus-text;
-      color: c.$nhsw-colour-background-white;
+      background-color: c.$nhswales-focus-text-colour;
+      color: c.$nhswales-page-background-white;
     }
   }
 }
@@ -108,8 +108,8 @@ $nhsw-colour-expander-hover-border: #4c6272;
   height: 28px;
   margin-right: 12px;
   border-radius: 50%;
-  background-color: c.$nhsw-colour-link;
-  color: c.$nhsw-colour-background-white;
+  background-color: c.$nhswales-link-colour;
+  color: c.$nhswales-page-background-white;
 
   &::before {
     content: "+";
@@ -123,7 +123,7 @@ $nhsw-colour-expander-hover-border: #4c6272;
 }
 
 .nhsw-expander__link-text {
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
   text-decoration: underline;
   overflow-wrap: anywhere;
   min-width: 0;

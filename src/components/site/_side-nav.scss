@@ -5,7 +5,7 @@
 
 .nhsw-side-nav {
   flex: 0 0 13.8125rem;
-  border-right: 1px solid c.$nhsw-colour-border-grey;
+  border-right: 1px solid c.$nhswales-grey-border-colour;
 
   @media (max-width: 40rem) {
     display: none;
@@ -14,7 +14,7 @@
 
 .nhsw-side-nav__heading {
   margin: 0 0 20px;
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
   font-size: t.$nhsw-font-size-body;
   font-weight: t.$nhsw-font-weight-bold;
 }
@@ -33,14 +33,14 @@
   position: relative;
   padding: 0 0 0 12px;
   border-left: 4px solid transparent;
-  color: c.$nhsw-colour-link;
+  color: c.$nhswales-link-colour;
   font-size: t.$nhsw-font-size-body;
   font-weight: t.$nhsw-font-weight-regular;
   line-height: 1.4;
   text-decoration: none;
 
   &:hover {
-    color: c.$nhsw-colour-link-hover;
+    color: c.$nhswales-link-hover-colour;
     text-decoration: none;
   }
 
@@ -48,14 +48,14 @@
     outline: none;
 
     span {
-      background-color: c.$nhsw-colour-focus;
-      color: c.$nhsw-colour-focus-text;
-      box-shadow: 0 4px 0 0 c.$nhsw-colour-focus-text;
+      background-color: c.$nhswales-focus-colour;
+      color: c.$nhswales-focus-text-colour;
+      box-shadow: 0 4px 0 0 c.$nhswales-focus-text-colour;
     }
   }
 
   &--current {
-    color: c.$nhsw-colour-link;
+    color: c.$nhswales-link-colour;
     font-weight: t.$nhsw-font-weight-bold;
     text-decoration: none;
 
@@ -67,7 +67,7 @@
       transform: translateY(-50%);
       width: 4px;
       height: 1.75rem;
-      background-color: c.$nhsw-colour-link;
+      background-color: c.$nhswales-link-colour;
     }
   }
 }
@@ -82,7 +82,7 @@
     bottom: 0;
     left: 0;
     width: 4px;
-    background-color: c.$nhsw-colour-link;
+    background-color: c.$nhswales-link-colour;
   }
 }
 

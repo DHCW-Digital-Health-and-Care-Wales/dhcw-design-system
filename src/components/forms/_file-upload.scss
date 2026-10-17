@@ -5,10 +5,10 @@
   flex-direction: column;
   gap: 20px;
   padding: 28px;
-  border: 1px dashed c.$nhsw-colour-border-secondary;
+  border: 1px dashed c.$nhswales-secondary-border-colour;
 
   &:hover {
-    background-color: c.$nhsw-colour-background-white;
+    background-color: c.$nhswales-page-background-white;
 
     .nhsw-file-upload__input:not(:focus) + .nhsw-file-upload__button {
       background-color: c.$nhsw-colour-button-secondary-hover;
@@ -17,7 +17,7 @@
   }
 
   &--has-file {
-    background-color: c.$nhsw-colour-background-white;
+    background-color: c.$nhswales-page-background-white;
     border-style: solid;
   }
 }
@@ -27,11 +27,11 @@
   padding: 10px;
   overflow-wrap: break-word;
   background-color: c.$nhsw-colour-file-upload-status-background;
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
 
   &--filled {
-    background-color: c.$nhsw-colour-text-secondary;
-    color: c.$nhsw-colour-background-white;
+    background-color: c.$nhswales-secondary-text-colour;
+    color: c.$nhswales-page-background-white;
   }
 }
 
@@ -54,15 +54,15 @@
   white-space: nowrap;
 
   &:focus + .nhsw-file-upload__button {
-    background-color: c.$nhsw-colour-focus;
-    color: c.$nhsw-colour-text-primary;
+    background-color: c.$nhswales-focus-colour;
+    color: c.$nhswales-primary-text-colour;
     border: none;
-    box-shadow: 0 2px 0 c.$nhsw-colour-border-primary;
+    box-shadow: 0 2px 0 c.$nhswales-primary-border-colour;
   }
 }
 
 .nhsw-file-upload__hint {
-  color: c.$nhsw-colour-text-primary;
+  color: c.$nhswales-primary-text-colour;
 }
 
 .nhsw-file-upload--reverse {

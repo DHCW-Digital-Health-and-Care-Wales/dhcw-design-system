@@ -3,7 +3,7 @@
 .nhsw-inset-text {
   margin: 0 0 2rem;
   padding: 1.5rem 1.5rem 1.5rem 2rem;
-  border-left: 0.5rem solid c.$nhsw-colour-border-gold;
+  border-left: 0.5rem solid c.$nhswales-gold-border-colour;
   max-width: 40rem;
 }
 
@@ -11,8 +11,8 @@
   margin-bottom: 0;
 }
 
-.nhsw-inset-text--navy    { border-left-color: c.$nhsw-colour-background-blue; }
-.nhsw-inset-text--blue    { border-left-color: c.$nhsw-colour-link; }
-.nhsw-inset-text--grey    { border-left-color: c.$nhsw-colour-border-secondary; }
-.nhsw-inset-text--red     { border-left-color: c.$nhsw-colour-button-delete; }
+.nhsw-inset-text--navy    { border-left-color: c.$nhswales-page-background-blue; }
+.nhsw-inset-text--blue    { border-left-color: c.$nhswales-link-colour; }
+.nhsw-inset-text--grey    { border-left-color: c.$nhswales-secondary-border-colour; }
+.nhsw-inset-text--red     { border-left-color: c.$nhswales-delete-button; }
 .nhsw-inset-text--yellow  { border-left-color: c.$nhsw-colour-warning-callout-heading; }

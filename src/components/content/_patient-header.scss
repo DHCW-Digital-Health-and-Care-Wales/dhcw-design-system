@@ -7,8 +7,8 @@
 .nhsw-patient-header {
   margin: 0 0 32px;
   padding: 20px 0;
-  background-color: c.$nhsw-colour-background-white;
-  color: c.$nhsw-colour-text-primary;
+  background-color: c.$nhswales-page-background-white;
+  color: c.$nhswales-primary-text-colour;
   font-family: t.$nhsw-font-family-base;
   font-size: t.$nhsw-font-size-body-small;
   line-height: t.$nhsw-line-height-body-small;
@@ -60,7 +60,7 @@
   gap: 8px;
   margin: 0;
   padding-right: 16px;
-  border-right: 1px solid c.$nhsw-colour-border-grey;
+  border-right: 1px solid c.$nhswales-grey-border-colour;
 
   &:last-child {
     padding-right: 0;
