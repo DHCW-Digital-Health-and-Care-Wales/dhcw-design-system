@@ -1,6 +1,6 @@
 {
   "name": "dhcw-design-system",
-  "version": "0.1.66",
+  "version": "0.1.67",
   "description": "Digital Health and Care Wales design system: Sass styles, JavaScript behaviours and Nunjucks components.",
   "keywords": [
     "design-system",
