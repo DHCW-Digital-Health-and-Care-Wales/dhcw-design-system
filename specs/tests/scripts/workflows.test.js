@@ -13,6 +13,16 @@ const ci = load('.github/workflows/ci.yml');
 const steps = release.jobs.release.steps;
 const step = (name) => steps.find((s) => s.name === name);
 
+const DIST_FILES = [
+  'dist/nhsw.css',
+  'dist/nhsw.min.css',
+  'dist/nhsw-behaviours.js',
+  'dist/nhsw-behaviours.min.js',
+  'dist/nhsw-date-picker.js',
+  'dist/nhsw-date-picker.min.js',
+  'dist/nhsw-nunjucks-components.zip',
+];
+
 describe('Release workflow', () => {
   const inputs = release.on.workflow_dispatch.inputs;
 
@@ -39,6 +49,13 @@ describe('Release workflow', () => {
     expect(names.indexOf('Prepare npm package files')).toBeGreaterThan(names.indexOf('Build JS'));
     expect(names.indexOf('Prepare npm package files')).toBeLessThan(names.indexOf('Commit version bump'));
     expect(names[names.length - 1]).toBe('Publish to npm');
+  });
+
+  it('commits the compiled files in dist with the version bump, so a tagged install gets current styles', () => {
+    const run = step('Commit version bump').run;
+    for (const file of DIST_FILES) {
+      expect(run, file).toContain(file);
+    }
   });
 
   it('marks a version with a hyphen as a GitHub pre-release', () => {
@@ -94,5 +111,28 @@ describe('CI workflow', () => {
 
   it('never publishes to npm automatically on a push to main', () => {
     expect(read('.github/workflows/ci.yml')).not.toContain('npm publish');
+  });
+
+  it('has no comments, as the pipeline files are kept comment-free', () => {
+    expect(read('.github/workflows/ci.yml')).not.toMatch(/^\s*#/m);
+  });
+
+  describe('auto-release job', () => {
+    const autoSteps = ci.jobs['auto-release'].steps;
+    const names = autoSteps.map((s) => s.name);
+
+    it('copies the built CSS into dist after building and before committing', () => {
+      const copy = autoSteps.find((s) => s.name === 'Copy built CSS into dist');
+      expect(copy.run).toContain('prepare-npm-package.js');
+      expect(names.indexOf('Copy built CSS into dist')).toBeGreaterThan(names.indexOf('Build CSS and JS'));
+      expect(names.indexOf('Copy built CSS into dist')).toBeLessThan(names.indexOf('Commit version bump'));
+    });
+
+    it('commits the compiled files in dist with the version bump, so a tagged install gets current styles', () => {
+      const run = autoSteps.find((s) => s.name === 'Commit version bump').run;
+      for (const file of DIST_FILES) {
+        expect(run, file).toContain(file);
+      }
+    });
   });
 });

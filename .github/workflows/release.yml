@@ -83,7 +83,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json
+          git add package.json package-lock.json dist/nhsw.css dist/nhsw.min.css dist/nhsw-behaviours.js dist/nhsw-behaviours.min.js dist/nhsw-date-picker.js dist/nhsw-date-picker.min.js dist/nhsw-nunjucks-components.zip
           git commit -m "chore(release): v${{ steps.version.outputs.version }}"
           git tag "v${{ steps.version.outputs.version }}"
           git push origin HEAD

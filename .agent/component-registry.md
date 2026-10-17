@@ -414,6 +414,8 @@ Supports:
 Requires:
 - nhsw-link (card actions)
 
+Group cards in `nhsw-card-group`, with each card in an `nhsw-card-group__item`.
+
 ### Site
 
 ## nhsw-bottom-nav
@@ -439,6 +441,17 @@ Supports:
 
 Requires:
 - nhsw-link
+
+## nhsw-cookie-banner
+Cookie consent banner shown at the top of the page until the user makes a choice. No macro yet; the docs site's markup is in `preview/_includes/cookie-banner.html`.
+
+Supports:
+- nhsw-cookie-banner__actions (the accept and reject buttons)
+- nhsw-cookie-banner__confirmation (the message shown after a choice)
+- nhsw-cookie-settings-link (footer link to reopen cookie settings)
+
+Requires:
+- nhsw-button
 
 ## nhsw-site-header
 Site header (macro: `nhswHeader`, `src/components/header/`): logo/service name, optional search form, an optional nav row, and an optional full-width hero band.
@@ -514,3 +527,14 @@ Patient banner shown above the page content, from the Figma banner: a white bar 
 
 ## nhsw-search
 Search box for the search results page: `nhsw-search` holds `nhsw-search__field` (the 40px input, `nhsw-search__input`, with a `nhsw-search__clear` button inside it) and the blue `nhsw-search__button`. Results sit in an `nhsw-search-results` list of `nhsw-search-results__item` entries, each with a 24px bold `nhsw-search-results__title` link and an `nhsw-search-results__description`; `nhsw-search-results__summary` is the "1 – 10 of 23 results" line and `nhsw-search-results__pagination` wraps the Next/Previous links. `nhsw-main-wrapper--grey` gives the page the light grey background. The docs site search page is `preview/search.html`; `preview/assets/nhsw-search.js` reads the `q` and `page` query values and searches `preview/assets/search-index.js`, which `npm run build:search` generates from every documentation page (title, address, section, intro or first paragraph, headings and the start of the text). Results are ordered by how close each page is to the search (a page called exactly that first, then headings, descriptions and body text), and a whole section name in the search, such as components or styles, limits the results to that section.
+
+### Utilities
+
+## nhsw-visually-hidden
+Hides content visually but keeps it available to screen readers, for example the "Error:" prefix on error messages.
+
+## nhsw-caption-s / -m / -l / -xl
+Caption text shown above a heading, such as the section a question page belongs to.
+
+## nhsw-u-secondary-text-colour
+Sets text to the secondary text colour.
