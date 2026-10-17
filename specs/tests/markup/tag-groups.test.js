@@ -54,3 +54,10 @@ describe('every two-part tag is announced as one phrase, "Tag: <category>: <stat
     expect(tagPage.raw).not.toMatch(/&lt;span class="nhsw-tag-group"&gt;\s*\{\{ nhswTag\(/);
   });
 });
+
+describe('All tag colours example page', () => {
+  it('sits on the white example panel so the red class names keep AA contrast', () => {
+    const html = fs.readFileSync(path.join(projectRoot, 'preview/examples/tag-all-colours.html'), 'utf8');
+    expect(html).toMatch(/<div class="nhsw-example-preview__body">\s*<table class="nhsw-table">[\s\S]*<\/table>\s*<\/div>\s*$/);
+  });
+});
