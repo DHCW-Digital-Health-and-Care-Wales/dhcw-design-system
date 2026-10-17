@@ -111,13 +111,13 @@ describe('Notification banner Variants tab matches the design', () => {
     );
   });
 
-  it('shows each example straight after its heading, on a grey panel, before the guidance', () => {
+  it('shows each example straight after its heading, before the guidance', () => {
     const info = variants.indexOf('>Information banner<');
     const success = variants.indexOf('>Success banner<');
-    expect(variants.indexOf('id="nb-service" grey=true')).toBeGreaterThan(info);
-    expect(variants.indexOf('id="nb-service" grey=true')).toBeLessThan(variants.indexOf('Use an information banner to tell users'));
-    expect(variants.indexOf('id="nb-success" grey=true')).toBeGreaterThan(success);
-    expect(variants.indexOf('id="nb-success" grey=true')).toBeLessThan(variants.indexOf('Use a success banner to confirm'));
+    expect(variants.indexOf('id="nb-service"')).toBeGreaterThan(info);
+    expect(variants.indexOf('id="nb-service"')).toBeLessThan(variants.indexOf('Use an information banner to tell users'));
+    expect(variants.indexOf('id="nb-success"')).toBeGreaterThan(success);
+    expect(variants.indexOf('id="nb-success"')).toBeLessThan(variants.indexOf('Use a success banner to confirm'));
   });
 
   it('has the guidance paragraphs in the design\'s order and wording', () => {
@@ -150,5 +150,14 @@ describe('Text input page address', () => {
       expect(text).not.toContain('/components/input.html');
       expect(text).toContain('/components/text-input.html');
     }
+  });
+});
+
+describe('Patient header under a back link', () => {
+  it('leaves 16px between the back link and the banner', () => {
+    const patient = compileProbe('@use "components/content/patient-header";');
+    const start = patient.indexOf('.nhsw-back-link + .nhsw-patient-header {');
+    expect(start).toBeGreaterThan(-1);
+    expect(patient.slice(start, patient.indexOf('}', start))).toMatch(/margin-top:\s*16px/);
   });
 });

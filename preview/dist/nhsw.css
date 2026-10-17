@@ -2120,6 +2120,10 @@ body {
   padding-left: 16px;
 }
 
+.nhsw-back-link + .nhsw-patient-header {
+  margin-top: 16px;
+}
+
 .nhsw-timeout-modal {
   position: static;
   max-width: 25rem;
@@ -3122,9 +3126,6 @@ body {
 .nhsw-example-preview__body--dark {
   background-color: #1b365d;
 }
-.nhsw-example-preview__body--grey {
-  background-color: #f0f4f5;
-}
 .nhsw-example-preview__body .nhsw-site-header__nav {
   display: block;
 }
@@ -3201,6 +3202,10 @@ body {
   margin-top: 8px;
   color: #4c6272;
   font-size: 0.9375rem;
+}
+
+.nhsw-example-screenshot + .nhsw-example-screenshot {
+  margin-top: 16px;
 }
 
 .nhsw-search {

@@ -79,3 +79,8 @@
 .nhsw-patient-header__row--identity .nhsw-patient-header__details {
   padding-left: 16px;
 }
+
+// A back link directly above the banner needs some space, or the two look squashed together.
+.nhsw-back-link + .nhsw-patient-header {
+  margin-top: 16px;
+}

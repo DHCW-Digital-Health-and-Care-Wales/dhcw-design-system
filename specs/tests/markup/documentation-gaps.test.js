@@ -61,3 +61,17 @@ describe('the "Examples" tab consistently uses screenshot-placeholder.html, not 
     expect(examplesTabHtml).not.toMatch(/\{%\s*include\s+example-preview\.html/);
   });
 });
+
+describe('component "Examples" tabs show the exported example images', () => {
+  const pages = findDocPages().filter((p) => p.startsWith('preview/components/'));
+  const withExamples = pages.filter((p) => /id="panel-examples"/.test(fs.readFileSync(path.join(projectRoot, p), 'utf8')));
+
+  it.each(withExamples)('%s has no screenshot placeholder left, and every image it uses exists', (relativePath) => {
+    const text = fs.readFileSync(path.join(projectRoot, relativePath), 'utf8');
+    const examples = text.match(/id="panel-examples"[\s\S]*$/)[0];
+    expect(examples).not.toContain('screenshot-placeholder.html');
+    for (const [, src] of examples.matchAll(/example-screenshot\.html src="([^"]+)"/g)) {
+      expect(fs.existsSync(path.join(projectRoot, 'preview', src)), src).toBe(true);
+    }
+  });
+});

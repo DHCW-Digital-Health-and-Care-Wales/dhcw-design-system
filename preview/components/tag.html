@@ -29,7 +29,7 @@ tabs:
       </tbody>
     </table>
   {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tag-overview" grey=true open_url="/examples/tag-status.html" body=example_body %}
+  {% include example-preview.html id="tag-overview" open_url="/examples/tag-status.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--red"&gt;Urgent&lt;/strong&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "tag/macro.njk" import nhswTag %}
@@ -81,7 +81,7 @@ tabs:
         </tbody>
       </table>
     {% endraw %}{% endcapture %}
-    {% include example-preview.html id="tag-two-status" grey=true open_url="/examples/tag-two-status.html" body=example_body %}
+    {% include example-preview.html id="tag-two-status" open_url="/examples/tag-two-status.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;
 &lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;/strong&gt;{% endraw %}{% endcapture %}
@@ -113,7 +113,7 @@ tabs:
         </tbody>
       </table>
     {% endraw %}{% endcapture %}
-    {% include example-preview.html id="tag-all-colours" grey=true open_url="/examples/tag-all-colours.html" body=example_body %}
+    {% include example-preview.html id="tag-all-colours" open_url="/examples/tag-all-colours.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--white"&gt;In progress&lt;/strong&gt;
 &lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;
@@ -143,7 +143,7 @@ tabs:
       <strong class="nhsw-tag nhsw-tag--green">New<br>22 of 80</strong>
     </p>
   {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tag-solid" grey=true open_url="/examples/tag-colour-solid.html" body=example_body %}
+  {% include example-preview.html id="tag-solid" open_url="/examples/tag-colour-solid.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--blue"&gt;Active&lt;br&gt;28 of 80&lt;/strong&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswTag({ html: "Active&lt;br&gt;28 of 80", classes: "nhsw-tag--blue" }) }}{% endraw %}{% endcapture %}
@@ -161,7 +161,7 @@ tabs:
       <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--yellow">Had a refusal</strong></span>
     </p>
   {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tag-tint" grey=true open_url="/examples/tag-colour-tint.html" body=example_body %}
+  {% include example-preview.html id="tag-tint" open_url="/examples/tag-colour-tint.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;span class="nhsw-tag-group"&gt;
   &lt;span class="nhsw-visually-hidden"&gt;Tag: &lt;/span&gt;
@@ -191,7 +191,7 @@ tabs:
 
   <h3 class="nhsw-h3">Welsh Immunisation System (WIS)</h3>
   <p class="nhsw-body">This example shows a session results page from the School-age Immunisations service within WIS. It uses tags within the search list to clearly indicate the progress or state of a child's record.</p>
-  {% include screenshot-placeholder.html alt="Session results search list with consent status tags" %}
+  {% include example-screenshot.html src="/assets/examples/wis-session-results-tags.png" alt="Session results search list with consent status tags" %}
 
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>

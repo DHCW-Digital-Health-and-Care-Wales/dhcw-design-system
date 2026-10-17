@@ -1,4 +1,6 @@
 <figure class="nhsw-example-screenshot">
-  <img class="nhsw-example-screenshot__image" src="{{ include.src | relative_url }}" alt="{{ include.text }}">
+  <img class="nhsw-example-screenshot__image" src="{{ include.src | relative_url }}" alt="{{ include.alt | default: include.text }}">
+  {%- if include.text %}
   <figcaption class="nhsw-example-screenshot__caption nhsw-caption-s">{{ include.text }}</figcaption>
+  {%- endif %}
 </figure>
