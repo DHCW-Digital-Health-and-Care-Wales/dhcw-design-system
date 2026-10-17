@@ -262,6 +262,8 @@ Supports:
 - nhsw-session-row__detail
 - nhsw-session-row__badges, __badge
 - nhsw-session-row__chevron
+- nhsw-session-row__location
+- nhsw-session-row__recurring, __icon
 
 Requires:
 - nhsw-link (the optional location link inside __detail)
@@ -509,3 +511,6 @@ Inline code in the destructive red colour, used for code and variable names in d
 ## nhsw-patient-header
 Patient banner shown above the page content, from the Figma banner: a white bar with 20px above and below and 32px of space after it, in 16px text. `nhsw-patient-header__inner` holds the rows (8px gap, 8px 40px 16px padding from desktop). A row (`nhsw-patient-header__row`, `--identity` for the first) holds the patient name (`nhsw-patient-header__name`, 26px bold) and a `nhsw-patient-header__details` description list of `nhsw-patient-header__item` entries (bold term, value), separated by 1px dividers. Further rows can hold items such as adverse reactions, with a `nhsw-link` such as View or change.
 
+
+## nhsw-search
+Search box for the search results page: `nhsw-search` holds `nhsw-search__field` (the 40px input, `nhsw-search__input`, with a `nhsw-search__clear` button inside it) and the blue `nhsw-search__button`. Results sit in an `nhsw-search-results` list of `nhsw-search-results__item` entries, each with a 24px bold `nhsw-search-results__title` link and an `nhsw-search-results__description`; `nhsw-search-results__summary` is the "1 – 10 of 23 results" line and `nhsw-search-results__pagination` wraps the Next/Previous links. `nhsw-main-wrapper--grey` gives the page the light grey background. The docs site search page is `preview/search.html`; `preview/assets/nhsw-search.js` reads the `q` and `page` query values and searches `preview/assets/search-index.js`, which `npm run build:search` generates from every documentation page (title, address, section, intro or first paragraph, headings and the start of the text). Results are ordered by how close each page is to the search (a page called exactly that first, then headings, descriptions and body text), and a whole section name in the search, such as components or styles, limits the results to that section.

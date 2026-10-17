@@ -3,7 +3,7 @@ layout: component
 title: Tag
 container: fluid
 updated: October 2026
-intro: Use the Tag component to show users the status of something.
+intro: Use the tag component to show users the status of something.
 tabs:
   - id: how-to-use
     label: "How to use"
@@ -17,19 +17,19 @@ tabs:
 <div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
-    <table class="nhsw-body" role="presentation">
-      <thead><tr><th>Application</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Les Hunter</td><td><strong class="nhsw-tag nhsw-tag--red">Urgent</strong></td></tr>
-        <tr><td>Naomi Edwards</td><td><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
-        <tr><td>Lyra Louth</td><td><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
-        <tr><td>Michelle Flynn</td><td><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
-        <tr><td>Brian Okello</td><td><strong class="nhsw-tag nhsw-tag--green">Finished</strong></td></tr>
-        <tr><td>Lisa Lenehan</td><td><strong class="nhsw-tag nhsw-tag--yellow">Waiting on</strong></td></tr>
+    <table class="nhsw-table">
+      <thead class="nhsw-table__head"><tr class="nhsw-table__row"><th scope="col" class="nhsw-table__header">Application</th><th scope="col" class="nhsw-table__header">Status</th></tr></thead>
+      <tbody class="nhsw-table__body">
+        <tr class="nhsw-table__row"><td class="nhsw-table__cell">Les Hunter</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--red">Urgent</strong></td></tr>
+        <tr class="nhsw-table__row"><td class="nhsw-table__cell">Naomi Edwards</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
+        <tr class="nhsw-table__row"><td class="nhsw-table__cell">Lyra Louth</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
+        <tr class="nhsw-table__row"><td class="nhsw-table__cell">Michelle Flynn</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--blue">New</strong></td></tr>
+        <tr class="nhsw-table__row"><td class="nhsw-table__cell">Brian Okello</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--green">Finished</strong></td></tr>
+        <tr class="nhsw-table__row"><td class="nhsw-table__cell">Lisa Lenehan</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--yellow">Waiting on</strong></td></tr>
       </tbody>
     </table>
   {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tag-overview" open_url="/examples/tag-status.html" body=example_body %}
+  {% include example-preview.html id="tag-overview" grey=true open_url="/examples/tag-status.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--red"&gt;Urgent&lt;/strong&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "tag/macro.njk" import nhswTag %}
@@ -41,7 +41,7 @@ tabs:
   {% include code-viewer.html id="tag-overview" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">When to use tags</h2>
-  <p class="nhsw-body">Use the tag component when it's possible for something to have more than 1 status and it's useful for the user to know about that status. For example, you can use a tag to show whether an item in a task list has been "completed".</p>
+  <p class="nhsw-body">Use the tag component when it's possible for something to have more than 1 status and it's useful for the user to know about that status. For example, you can use a tag to show whether an item in a task list has been "finished".</p>
 
   <h2 class="nhsw-h2">How to use tags</h2>
   <p class="nhsw-body">Tags should just be used to indicate a status. Do not add links. Use adjectives rather than verbs for the names of your tags. Using a verb might make a user think that clicking on them will do something.</p>
@@ -66,57 +66,54 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Tag variants</h2>
 
-  <section class="preview-section">
+  <section class="preview-section preview-section--no-divider">
     <h3 class="nhsw-h3">Showing 1 or 2 tags</h3>
-    <p class="nhsw-body">Sometimes a single status is enough. For example, if you need to tell users which parts of an application they've finished and which they have not, you may only need a "Completed" tag. Because the user understands that if something does not have a tag, that means it's incomplete.</p>
-    <p class="nhsw-body">Or it can make sense to have 2 statuses. For example, you may find that you need 1 tag for "Active" users and 1 for "Inactive" users.</p>
-
     {% capture example_body %}{% raw %}
-      <table class="nhsw-body" role="presentation">
-        <thead><tr><th>Application</th><th>Status</th></tr></thead>
-        <tbody>
-          <tr><td>Les Hunter</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
-          <tr><td>Naomi Edwards</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
-          <tr><td>Lyra Louth</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
-          <tr><td>Michelle Flynn</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
-          <tr><td>Brian Okello</td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
-          <tr><td>Lisa Lenehan</td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+      <table class="nhsw-table">
+        <thead class="nhsw-table__head"><tr class="nhsw-table__row"><th scope="col" class="nhsw-table__header">Application</th><th scope="col" class="nhsw-table__header">Status</th></tr></thead>
+        <tbody class="nhsw-table__body">
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell">Les Hunter</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell">Naomi Edwards</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell">Lyra Louth</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell">Michelle Flynn</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell">Brian Okello</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell">Lisa Lenehan</td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
         </tbody>
       </table>
     {% endraw %}{% endcapture %}
-    {% include example-preview.html id="tag-two-status" open_url="/examples/tag-two-status.html" body=example_body %}
+    {% include example-preview.html id="tag-two-status" grey=true open_url="/examples/tag-two-status.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;
 &lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;/strong&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }}
 {{ nhswTag({ text: "Active", classes: "nhsw-tag--dhcw-blue" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="tag-two-status" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Use a single status tag when users only need to know whether something has been completed. For example, you might show a “Completed tag” and leave incomplete items untagged.</p>
+    <p class="nhsw-body">In some cases, it may be helpful to use 2 status tags to show different states. For example, you could use “Active” and “Inactive” tags to help users understand the current status of an account, service or item.</p>
   </section>
 
-  <section class="preview-section">
+  <section class="preview-section preview-section--no-divider">
     <h3 class="nhsw-h3">Showing multiple tags</h3>
-    <p class="nhsw-body">Tags should be helpful to users. The more you add, the harder it is for users to remember them. So start with the smallest number of statuses you think might work, then add more if your user research shows there's a need for them.</p>
-    <p class="nhsw-body">If you need more tag colours, you can use the following tints.</p>
-
     {% capture example_body %}{% raw %}
-      <table class="nhsw-body" role="presentation">
-        <thead><tr><th>Class name</th><th>Tag</th></tr></thead>
-        <tbody>
-          <tr><td><code>nhsw-tag--white</code></td><td><strong class="nhsw-tag nhsw-tag--white">In progress</strong></td></tr>
-          <tr><td><code>nhsw-tag--grey</code></td><td><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
-          <tr><td><code>nhsw-tag--aqua-green</code></td><td><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></td></tr>
-          <tr><td><code>nhsw-tag--blue</code></td><td><strong class="nhsw-tag nhsw-tag--blue">Active</strong></td></tr>
-          <tr><td><code>nhsw-tag--green</code></td><td><strong class="nhsw-tag nhsw-tag--green">New</strong></td></tr>
-          <tr><td><code>nhsw-tag--orange</code></td><td><strong class="nhsw-tag nhsw-tag--orange">Declined</strong></td></tr>
-          <tr><td><code>nhsw-tag--pink</code></td><td><strong class="nhsw-tag nhsw-tag--pink">Sent</strong></td></tr>
-          <tr><td><code>nhsw-tag--purple</code></td><td><strong class="nhsw-tag nhsw-tag--purple">Received</strong></td></tr>
-          <tr><td><code>nhsw-tag--red</code></td><td><strong class="nhsw-tag nhsw-tag--red">Rejected</strong></td></tr>
-          <tr><td><code>nhsw-tag--yellow</code></td><td><strong class="nhsw-tag nhsw-tag--yellow">Delayed</strong></td></tr>
-          <tr><td><code>nhsw-tag--dhcw-blue</code></td><td><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
+      <table class="nhsw-table">
+        <thead class="nhsw-table__head"><tr class="nhsw-table__row"><th scope="col" class="nhsw-table__header">Class name</th><th scope="col" class="nhsw-table__header">Tag</th></tr></thead>
+        <tbody class="nhsw-table__body">
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--white</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--white">In progress</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--grey</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--grey">Inactive</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--aqua-green</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--aqua-green">Pending</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--blue</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--blue">Active</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--green</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--green">New</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--orange</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--orange">Declined</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--pink</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--pink">Sent</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--purple</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--purple">Received</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--red</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--red">Rejected</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--yellow</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--yellow">Delayed</strong></td></tr>
+          <tr class="nhsw-table__row"><td class="nhsw-table__cell"><code style="color: #d4351c;">nhsw-tag--dhcw-blue</code></td><td class="nhsw-table__cell"><strong class="nhsw-tag nhsw-tag--dhcw-blue">Active</strong></td></tr>
         </tbody>
       </table>
     {% endraw %}{% endcapture %}
-    {% include example-preview.html id="tag-all-colours" open_url="/examples/tag-all-colours.html" body=example_body %}
+    {% include example-preview.html id="tag-all-colours" grey=true open_url="/examples/tag-all-colours.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--white"&gt;In progress&lt;/strong&gt;
 &lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;
@@ -125,46 +122,46 @@ tabs:
 {{ nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }}
 {{ nhswTag({ text: "Pending", classes: "nhsw-tag--aqua-green" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="tag-all-colours" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Keep the number of status tags to a minimum. The more statuses you use, the harder they are for users to understand and remember.</p>
+    <p class="nhsw-body">Start with the smallest number of statuses that meet user needs. Only add more statuses if user research shows they are necessary.</p>
+    <p class="nhsw-body">If you need additional status colours, use the colour tints displayed above.</p>
   </section>
 
   <h3 class="nhsw-h3">Tags and colour</h3>
-  <p class="nhsw-body">You can use colour to help distinguish between different tags, or to help draw the user's attention to a tag if it's especially important. For example, it makes sense to use <code>nhsw-tag--red</code> for a tag that reads "Urgent".</p>
+  <p class="nhsw-body">You can use colour to help distinguish between different tags, or to help draw the user's attention to a tag if it's especially important. For example, it makes sense to use <code style="color: #d4351c;">nhsw-tag--red</code> for a tag that reads "Urgent".</p>
   <p class="nhsw-body">Do not rely on colour alone to convey information because it's not accessible. If you use the same tag in more than 1 place, make sure you keep the colour consistent.</p>
-  <p class="nhsw-body">Because tags with solid colours tend to stand out more, it's usually best to avoid mixing solid colours and tints: use one or the other. This matters less if you're only using 2 colours. For example, it's okay to use the <code>nhsw-tag--grey</code> and solid blue tags together if you only need 2 statuses.</p>
-  <p class="nhsw-body">We use a border of the same colour as the tag text to stand out against the NHS page background colour.</p>
+  <p class="nhsw-body">Because tags with solid colours tend to stand out more, it's usually best to avoid mixing solid colours and tints: use one or the other. This matters less if you're only using 2 colours. For example, it's okay to use the <code style="color: #d4351c;">nhsw-tag--grey</code> and solid blue tags together if you only need 2 statuses.</p>
+  <p class="nhsw-body">We use a border of the same colour as the tag text to stand out against the page background colour.</p>
 
   <h3 class="nhsw-h3">Tags and subtext</h3>
-  <p class="nhsw-body">Use the subtext under the status tag to show key supporting information. This can help users understand the status at a glance without needing to view additional details.</p>
-  <p class="nhsw-body">For example, the subtext could show how many items are in a particular state, such as "21 of 80", to give users context about progress or workload.</p>
-
   {% capture example_body %}{% raw %}
     <p class="nhsw-body">
       <strong class="nhsw-tag nhsw-tag--white">In progress<br>21 of 80</strong>
       <strong class="nhsw-tag nhsw-tag--grey">Inactive<br>9 of 80</strong>
-      <strong class="nhsw-tag nhsw-tag--dhcw-blue">Active<br>28 of 80</strong>
+      <strong class="nhsw-tag nhsw-tag--blue">Active<br>28 of 80</strong>
       <strong class="nhsw-tag nhsw-tag--green">New<br>22 of 80</strong>
     </p>
   {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tag-solid" open_url="/examples/tag-colour-solid.html" body=example_body %}
+  {% include example-preview.html id="tag-solid" grey=true open_url="/examples/tag-colour-solid.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;br&gt;28 of 80&lt;/strong&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswTag({ html: "Active&lt;br&gt;28 of 80", classes: "nhsw-tag--dhcw-blue" }) }}{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--blue"&gt;Active&lt;br&gt;28 of 80&lt;/strong&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswTag({ html: "Active&lt;br&gt;28 of 80", classes: "nhsw-tag--blue" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-solid" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h3 class="nhsw-h3">Two-part tags</h3>
-  <p class="nhsw-body">Use two-part (compound) tags when you need to combine a category name with its status. They are useful in complex views where users need to quickly understand both what something is and its current state.</p>
-  <p class="nhsw-body">For example, in a vaccination service, a tag could show a vaccine type on the left, such as "Flu", "HPV" or "MMRV", and its status on the right, such as "Due vaccination", "Vaccinated", "Needs triage" or "Had a refusal".</p>
-  <p class="nhsw-body">Include visually hidden text so that screen readers announce the two parts as one tag. Put <code>Tag: </code> before the first part and <code>: </code> between the two parts, so that "Flu" and "Due vaccination" are read as "Tag: Flu: Due vaccination". The Nunjucks <code>nhswTagGroup</code> macro adds this for you.</p>
+  <p class="nhsw-body">Use the subtext under the status tag to show key supporting information. This can help users understand the status at a glance without needing to view additional details.</p>
+  <p class="nhsw-body">For example, the subtext could show how many items are in a particular state, such as “21 of 80”, to give users context about progress or workload.</p>
 
+  <h3 class="nhsw-h3">Two-part tags</h3>
   {% capture example_body %}{% raw %}
     <p class="nhsw-body">
-      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">Flu</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong></span><br><br>
-      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">HPV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--blue">Vaccinated</strong></span><br><br>
-      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--blue">Needs triage</strong></span><br><br>
+      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">Flu</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--green">Due vaccination</strong></span>
+      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">HPV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--white">Vaccinated</strong></span>
+      <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--blue">Needs triage</strong></span>
       <span class="nhsw-tag-group"><span class="nhsw-visually-hidden">Tag: </span><strong class="nhsw-tag nhsw-tag--white">MMRV</strong><span class="nhsw-visually-hidden">: </span><strong class="nhsw-tag nhsw-tag--yellow">Had a refusal</strong></span>
     </p>
   {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tag-tint" open_url="/examples/tag-colour-tint.html" body=example_body %}
+  {% include example-preview.html id="tag-tint" grey=true open_url="/examples/tag-colour-tint.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;span class="nhsw-tag-group"&gt;
   &lt;span class="nhsw-visually-hidden"&gt;Tag: &lt;/span&gt;
@@ -179,6 +176,9 @@ tabs:
   status: { text: "Due vaccination", classes: "nhsw-tag--green" }
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-tint" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">Use two-part (compound) tags when you need to combine a category name with its status. They are useful in complex views where users need to quickly understand both what something is and its current state.</p>
+  <p class="nhsw-body">For example, in a vaccination service, a tag could show a vaccine type on the left, such as "Flu", "HPV" or "MMRV", and its status on the right, such as "Due vaccination", "Vaccinated", "Needs triage" or "Had a refusal".</p>
 
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>

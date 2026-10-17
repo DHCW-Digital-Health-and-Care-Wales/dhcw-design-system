@@ -256,94 +256,11 @@ tabs:
   <p class="nhsw-body">Use table headers (<code style="color: #d4351c;">&lt;th&gt;</code>) to tell users what sort of data the rows and columns contain. The combination of row and column headers helps screen reader users identify the data in each cell. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.2.1 Info and Relationships, level A</a>.</p>
   <p class="nhsw-body">If users need to refer to the first column to understand the context of a cell, for example a name or day of the week, make sure this column's cells are table headers with the <code style="color: #d4351c;">scope="row"</code> attribute.</p>
 
-  <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/table/">Tables in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/61">Table on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
-
-
-  <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
-
-</div>
-
-<!-- Variants -->
-<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
-  <h2 class="nhsw-h2">Table variants</h2>
-
   <h3 class="nhsw-h3">Tables with a lot of data</h3>
   <p class="nhsw-body">If possible, you should aim to have less data in your tables. If you have a lot of data, try to organise it into multiple tables or multiple pages.</p>
 
-  <h3 class="nhsw-h3">Displaying missing data</h3>
-  <p class="nhsw-body">Do not leave empty cells in your table. The only exception can be the top left cell. If you have missing data, include some short text to explain why it's missing, such as:</p>
-  <ul class="nhsw-body">
-    <li>"No data"</li>
-    <li>"Not applicable"</li>
-    <li>"Not known"</li>
-  </ul>
-  <p class="nhsw-body">To distinguish the text from other table content, use the <code style="color: #d4351c;">nhsw-body--secondary</code> modifier class to make it dark grey.</p>
 
-  {% capture example_body %}{% raw %}
-    <table class="nhsw-table">
-      <caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m">Vaccinations given</caption>
-      <thead class="nhsw-table__head">
-        <tr class="nhsw-table__row">
-          <th scope="col" class="nhsw-table__header">Date</th>
-          <th scope="col" class="nhsw-table__header">Vaccine</th>
-          <th scope="col" class="nhsw-table__header">Product</th>
-        </tr>
-      </thead>
-      <tbody class="nhsw-table__body">
-        <tr class="nhsw-table__row">
-          <th scope="row" class="nhsw-table__header">10 July 2026</th>
-          <td class="nhsw-table__cell">RSV</td>
-          <td class="nhsw-table__cell">Abrysvo</td>
-        </tr>
-        <tr class="nhsw-table__row">
-          <th scope="row" class="nhsw-table__header">6 September 2023</th>
-          <td class="nhsw-table__cell">Flu</td>
-          <td class="nhsw-table__cell nhsw-body--secondary">No data</td>
-        </tr>
-      </tbody>
-    </table>
-  {% endraw %}{% endcapture %}
-  {% include example-preview.html id="tbl-missing" open_url="/examples/table-missing-data.html" body=example_body %}
-
-  {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m"&gt;Vaccinations given&lt;/caption&gt;
-  &lt;thead class="nhsw-table__head"&gt;
-    &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="col" class="nhsw-table__header"&gt;Date&lt;/th&gt;
-      &lt;th scope="col" class="nhsw-table__header"&gt;Vaccine&lt;/th&gt;
-      &lt;th scope="col" class="nhsw-table__header"&gt;Product&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody class="nhsw-table__body"&gt;
-    &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="row" class="nhsw-table__header"&gt;10 July 2026&lt;/th&gt;
-      &lt;td class="nhsw-table__cell"&gt;RSV&lt;/td&gt;
-      &lt;td class="nhsw-table__cell"&gt;Abrysvo&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr class="nhsw-table__row"&gt;
-      &lt;th scope="row" class="nhsw-table__header"&gt;6 September 2023&lt;/th&gt;
-      &lt;td class="nhsw-table__cell"&gt;Flu&lt;/td&gt;
-      &lt;td class="nhsw-table__cell nhsw-body--secondary"&gt;No data&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswTable({
-  caption: "Vaccinations given",
-  head: [
-    { text: "Date" },
-    { text: "Vaccine" },
-    { text: "Product" }
-  ],
-  rows: [
-    [ { text: "10 July 2026" }, { text: "RSV" }, { text: "Abrysvo" } ],
-    [ { text: "6 September 2023" }, { text: "Flu" }, { text: "No data", classes: "nhsw-body--secondary" } ]
-  ]
-}) }}{% endraw %}{% endcapture %}
-  {% include code-viewer.html id="tbl-missing" html=html_sample njk=njk_sample toggleable=true %}
-
-  <section class="preview-section">
+  <section class="preview-section preview-section--no-divider">
     <h3 class="nhsw-h3">Responsive table</h3>
     <p class="nhsw-body">The responsive table stacks vertically on small screens, using inline headings to label each cell.</p>
 
@@ -414,6 +331,189 @@ tabs:
     {% include code-viewer.html id="tbl-responsive" html=html_sample njk=njk_sample toggleable=true %}
   </section>
 
+  <h2 class="nhsw-h2">Source</h2>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/table/">Tables in the GOV.UK Design System</a>.</p>
+  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/61">Table on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
+
+
+  <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
+
+</div>
+
+<!-- Variants -->
+<div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
+  <h2 class="nhsw-h2">Table variants</h2>
+
+  <h3 class="nhsw-h3">Displaying missing data</h3>
+  {% capture example_body %}{% raw %}
+    <table class="nhsw-table">
+      <caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m">Vaccinations given</caption>
+      <thead class="nhsw-table__head">
+        <tr class="nhsw-table__row">
+          <th scope="col" class="nhsw-table__header">Date</th>
+          <th scope="col" class="nhsw-table__header">Vaccine</th>
+          <th scope="col" class="nhsw-table__header">Product</th>
+        </tr>
+      </thead>
+      <tbody class="nhsw-table__body">
+        <tr class="nhsw-table__row">
+          <th scope="row" class="nhsw-table__header">10 July 2026</th>
+          <td class="nhsw-table__cell">RSV</td>
+          <td class="nhsw-table__cell">Abrysvo</td>
+        </tr>
+        <tr class="nhsw-table__row">
+          <th scope="row" class="nhsw-table__header">6 September 2023</th>
+          <td class="nhsw-table__cell">Flu</td>
+          <td class="nhsw-table__cell nhsw-u-secondary-text-colour">No data</td>
+        </tr>
+      </tbody>
+    </table>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="tbl-missing" grey=true open_url="/examples/table-missing-data.html" body=example_body %}
+
+  {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m"&gt;Vaccinations given&lt;/caption&gt;
+  &lt;thead class="nhsw-table__head"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Date&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Vaccine&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Product&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="nhsw-table__body"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;10 July 2026&lt;/th&gt;
+      &lt;td class="nhsw-table__cell"&gt;RSV&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;Abrysvo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="row" class="nhsw-table__header"&gt;6 September 2023&lt;/th&gt;
+      &lt;td class="nhsw-table__cell"&gt;Flu&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-u-secondary-text-colour"&gt;No data&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{{ nhswTable({
+  caption: "Vaccinations given",
+  head: [
+    { text: "Date" },
+    { text: "Vaccine" },
+    { text: "Product" }
+  ],
+  rows: [
+    [ { text: "10 July 2026" }, { text: "RSV" }, { text: "Abrysvo" } ],
+    [ { text: "6 September 2023" }, { text: "Flu" }, { text: "No data", classes: "nhsw-u-secondary-text-colour" } ]
+  ]
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="tbl-missing" html=html_sample njk=njk_sample toggleable=true %}
+
+
+  <p class="nhsw-body">Do not leave empty cells in a table. The only exception can be the top left cell, where an empty cell may be needed to support the table structure.</p>
+  <p class="nhsw-body">If you have missing data, include some short text to explain why it's missing, such as:</p>
+  <ul class="nhsw-body">
+    <li>"No data"</li>
+    <li>"Not applicable"</li>
+    <li>"Not known"</li>
+  </ul>
+  <p class="nhsw-body">To distinguish the text from other table content, use the <code style="color: #d4351c;">nhsw-u-secondary-text-colour</code> modifier class to make it dark grey.</p>
+
+  <h3 class="nhsw-h3">Session row</h3>
+  <p class="nhsw-body">You can use the session row to list items that require multiple layers of structured context (such as primary identifiers, secondary clinical metadata and status tags).</p>
+
+  <h4 class="nhsw-h4">Standard session row</h4>
+  {% capture example_body %}{% raw %}
+    <a class="nhsw-session-row" href="#">
+      <div class="nhsw-session-row__main">
+        <span class="nhsw-session-row__title">Children routine imms morning</span>
+        <span class="nhsw-session-row__meta">8am to 5pm &nbsp;|&nbsp; <span class="nhsw-session-row__recurring"><svg class="nhsw-session-row__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg> Recurring session</span></span>
+      </div>
+      <div class="nhsw-session-row__detail">Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus</div>
+      <div class="nhsw-session-row__badges">
+        <span class="nhsw-session-row__badge">To do<br>21 of 87</span>
+        <span class="nhsw-session-row__badge">Free<br>11</span>
+      </div>
+      <svg class="nhsw-session-row__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+    </a>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="tbl-session" grey=true open_url="/examples/table-session-row.html" body=example_body %}
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-session-row" href="#"&gt;
+  &lt;div class="nhsw-session-row__main"&gt;
+    &lt;span class="nhsw-session-row__title"&gt;Children routine imms morning&lt;/span&gt;
+    &lt;span class="nhsw-session-row__meta"&gt;8am to 5pm &amp;nbsp;|&amp;nbsp; &lt;span class="nhsw-session-row__recurring"&gt;&lt;svg class="nhsw-session-row__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"&gt;&lt;path d="M17 2l4 4-4 4"/&gt;&lt;path d="M3 11v-1a4 4 0 0 1 4-4h14"/&gt;&lt;path d="M7 22l-4-4 4-4"/&gt;&lt;path d="M21 13v1a4 4 0 0 1-4 4H3"/&gt;&lt;/svg&gt; Recurring session&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-session-row__detail"&gt;Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus&lt;/div&gt;
+  &lt;div class="nhsw-session-row__badges"&gt;
+    &lt;span class="nhsw-session-row__badge"&gt;To do&lt;br&gt;21 of 87&lt;/span&gt;
+    &lt;span class="nhsw-session-row__badge"&gt;Free&lt;br&gt;11&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;svg class="nhsw-session-row__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true"&gt;&lt;path d="M9 6l6 6-6 6" /&gt;&lt;/svg&gt;
+&lt;/a&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "session-row/macro.njk" import nhswSessionRow %}
+
+{{ nhswSessionRow({
+  title: "Children routine imms morning",
+  meta: "8am to 5pm",
+  recurring: true,
+  detail: "Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus",
+  badges: [
+    { label: "To do", value: "21 of 87" },
+    { label: "Free", value: "11" }
+  ],
+  href: "#"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="tbl-session" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">Use the standard session row to show key information about a session.</p>
+  <p class="nhsw-body">It helps users compare sessions by displaying the session name, time, supporting information and status in a clear, scannable layout.</p>
+
+  <h4 class="nhsw-h4">Session row with location</h4>
+  {% capture example_body %}{% raw %}
+    <div class="nhsw-session-row">
+      <div class="nhsw-session-row__main">
+        <a class="nhsw-session-row__title" href="#">Children routine imms morning</a>
+        <span class="nhsw-session-row__meta">8am to 5pm &nbsp;|&nbsp; <span class="nhsw-session-row__recurring"><svg class="nhsw-session-row__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg> Recurring session</span></span>
+      </div>
+      <div class="nhsw-session-row__detail">Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus</div>
+      <div class="nhsw-session-row__location"><a class="nhsw-link" href="#">Four Elms Medical Centre</a></div>
+      <div class="nhsw-session-row__badges">
+        <span class="nhsw-session-row__badge">To do<br>21 of 87</span>
+        <span class="nhsw-session-row__badge">Free<br>11</span>
+      </div>
+      <svg class="nhsw-session-row__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
+    </div>
+  {% endraw %}{% endcapture %}
+  {% include example-preview.html id="tbl-session-location" grey=true open_url="/examples/table-session-row-location.html" body=example_body %}
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-session-row"&gt;
+  &lt;div class="nhsw-session-row__main"&gt;
+    &lt;a class="nhsw-session-row__title" href="#"&gt;Children routine imms morning&lt;/a&gt;
+    &lt;span class="nhsw-session-row__meta"&gt;8am to 5pm &amp;nbsp;|&amp;nbsp; &lt;span class="nhsw-session-row__recurring"&gt;&lt;svg class="nhsw-session-row__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"&gt;&lt;path d="M17 2l4 4-4 4"/&gt;&lt;path d="M3 11v-1a4 4 0 0 1 4-4h14"/&gt;&lt;path d="M7 22l-4-4 4-4"/&gt;&lt;path d="M21 13v1a4 4 0 0 1-4 4H3"/&gt;&lt;/svg&gt; Recurring session&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="nhsw-session-row__detail"&gt;Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus&lt;/div&gt;
+  &lt;div class="nhsw-session-row__location"&gt;&lt;a class="nhsw-link" href="#"&gt;Four Elms Medical Centre&lt;/a&gt;&lt;/div&gt;
+  &lt;div class="nhsw-session-row__badges"&gt;
+    &lt;span class="nhsw-session-row__badge"&gt;To do&lt;br&gt;21 of 87&lt;/span&gt;
+    &lt;span class="nhsw-session-row__badge"&gt;Free&lt;br&gt;11&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;svg class="nhsw-session-row__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true"&gt;&lt;path d="M9 6l6 6-6 6" /&gt;&lt;/svg&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "session-row/macro.njk" import nhswSessionRow %}
+
+{{ nhswSessionRow({
+  title: "Children routine imms morning",
+  meta: "8am to 5pm",
+  recurring: true,
+  detail: "Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus",
+  location: { text: "Four Elms Medical Centre", href: "#" },
+  badges: [
+    { label: "To do", value: "21 of 87" },
+    { label: "Free", value: "11" }
+  ],
+  href: "#"
+}) }}{% endraw %}{% endcapture %}
+  {% include code-viewer.html id="tbl-session-location" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">Use the session row with location when users need to know where a session takes place.</p>
+  <p class="nhsw-body">It includes a location alongside the session details, helping users find and compare sessions based on where they are delivered.</p>
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 

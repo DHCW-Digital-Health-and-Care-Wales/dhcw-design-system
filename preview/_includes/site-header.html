@@ -7,11 +7,13 @@
         </span>
         <span class="nhsw-site-header__title">Design system</span>
       </a>
-      <form class="nhsw-site-header__search" role="search" onsubmit="return false;">
+      {% unless page.hide_header_search %}
+      <form class="nhsw-site-header__search" role="search" action="{{ '/search.html' | relative_url }}" method="get">
         <label class="nhsw-visually-hidden" for="site-search">Search the design system</label>
-        <input id="site-search" class="nhsw-site-header__search-input" type="search" placeholder="Search the design system">
+        <input id="site-search" class="nhsw-site-header__search-input" type="search" name="q" placeholder="Search the design system" autocomplete="off">
         <button class="nhsw-site-header__search-button" type="submit" aria-label="Search"></button>
       </form>
+      {% endunless %}
     </div>
   </div>
 </header>

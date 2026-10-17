@@ -130,6 +130,7 @@ async function renderPage(engine, siteData, absFilePath) {
 }
 
 async function build() {
+  require('./build-search-index').writeIndex();
   const siteData = loadSiteData();
   const engine = buildEngine(siteData);
 

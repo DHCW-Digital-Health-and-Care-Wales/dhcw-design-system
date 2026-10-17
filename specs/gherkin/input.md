@@ -1,7 +1,7 @@
 # Text input
 
 **Component classes:** `.nhsw-input`, `--full`, `--half`, `--width-10` (etc.), `.nhsw-is-invalid`, `.nhsw-input-wrapper`, `__prefix`, `__suffix`
-**Doc page:** `preview/components/input.html`
+**Doc page:** `preview/components/text-input.html`
 **Source:** `src/components/forms/_input.scss`, `src/components/forms/_input-wrapper.scss`
 **Example fixtures:** `input-page-question.html`, `input-multi-question.html`, `input-fixed-widths.html`, `input-fluid-widths.html`, `input-hint.html`, `input-account-number.html`, `input-prefix-suffix.html`
 

@@ -1,3 +1,4 @@
+@use "../tokens/colours" as c;
 @use "../tokens/spacing" as s;
 @use "../utilities/breakpoints" as b;
 
@@ -38,4 +39,8 @@
     padding-top: s.$nhsw-main-wrapper-padding-large-tablet;
     padding-bottom: s.$nhsw-main-wrapper-padding-large-tablet;
   }
+}
+
+.nhsw-main-wrapper--grey {
+  background-color: c.$nhsw-colour-background-grey;
 }

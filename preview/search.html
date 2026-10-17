@@ -1,0 +1,33 @@
+---
+layout: simple
+title: Search
+container: fluid
+no_side_nav: true
+main_modifier: grey
+hide_header_search: true
+hide_phase_banner: true
+breadcrumb_parent_title: Home
+breadcrumb_parent_url: /index.html
+extra_scripts:
+  - /assets/search-index.js
+  - /assets/nhsw-search.js
+---
+<div id="search-app" data-base="{{ '/' | relative_url }}">
+  <h1 class="nhsw-h1 nhsw-search__heading" id="search-heading">Search</h1>
+
+  <form class="nhsw-search" role="search" action="{{ '/search.html' | relative_url }}" method="get">
+    <label class="nhsw-visually-hidden" for="search-query">Search the design system</label>
+    <div class="nhsw-search__field">
+      <input id="search-query" class="nhsw-search__input" type="search" name="q" placeholder="Search" autocomplete="off">
+      <button class="nhsw-search__clear" id="search-clear" type="button" aria-label="Clear search" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" focusable="false" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+    </div>
+    <button class="nhsw-search__button" type="submit" aria-label="Search">
+      <svg viewBox="0 0 17 18" fill="currentColor" focusable="false" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.6043 11.1943L16.7143 15.2943C16.9036 15.4821 17.0101 15.7377 17.0101 16.0043C17.0101 16.2709 16.9036 16.5265 16.7143 16.7143C16.5265 16.9036 16.2709 17.0101 16.0043 17.0101C15.7377 17.0101 15.4821 16.9036 15.2943 16.7143L11.1943 12.6043C8.25441 14.8045 4.11403 14.359 1.70951 11.5837C-0.69502 8.80843 -0.546265 4.64682 2.05028 2.05028C4.64682 -0.546265 8.80843 -0.69502 11.5837 1.70951C14.359 4.11403 14.8045 8.25441 12.6043 11.1943ZM7.00431 2.00431C4.24288 2.00431 2.00431 4.24288 2.00431 7.00431C2.00431 9.76573 4.24288 12.0043 7.00431 12.0043C9.76573 12.0043 12.0043 9.76573 12.0043 7.00431C12.0043 4.24288 9.76573 2.00431 7.00431 2.00431Z"/></svg>
+    </button>
+  </form>
+
+  <div id="search-output" aria-live="polite"></div>
+  <noscript><p class="nhsw-body">Search needs JavaScript. You can browse every page from the <a class="nhsw-link" href="{{ '/site-map.html' | relative_url }}">site map</a>.</p></noscript>
+</div>

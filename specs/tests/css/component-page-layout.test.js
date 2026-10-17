@@ -139,3 +139,16 @@ describe('Notification banner Variants tab matches the design', () => {
     expect(variants).toMatch(/nhsw-back-to-top"><a class="nhsw-link" href="#maincontent">[\s\S]*Back to top<\/a><\/p>\s*<\/div>\s*$/);
   });
 });
+
+describe('Text input page address', () => {
+  it('lives at /components/text-input.html, and every link to it uses that address', () => {
+    expect(fs.existsSync(path.join(root, 'preview/components/text-input.html'))).toBe(true);
+    expect(fs.existsSync(path.join(root, 'preview/components/input.html'))).toBe(false);
+    expect(read('preview/_data/side_nav.yml')).toContain('url: /components/text-input.html');
+    for (const file of ['preview/components/index.html', 'preview/components/expander.html', 'preview/components/textarea.html', 'preview/testing/input.html']) {
+      const text = read(file);
+      expect(text).not.toContain('/components/input.html');
+      expect(text).toContain('/components/text-input.html');
+    }
+  });
+});

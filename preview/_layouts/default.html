@@ -15,7 +15,7 @@
   <a class="nhsw-skip-link" href="#maincontent">Skip to main content</a>
   {% include site-header.html %}
   {% include primary-nav.html %}
-  {% include phase-banner.html %}
+  {% unless page.hide_phase_banner %}{% include phase-banner.html %}{% endunless %}
 
   {{ content }}
 

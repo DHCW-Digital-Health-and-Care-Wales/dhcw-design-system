@@ -3,7 +3,8 @@
 
   params:
     title       string  (required) - session title
-    meta        string  - meta line, e.g. "8am to 5pm | Recurring session"
+    meta        string  - meta line, e.g. "8am to 5pm"
+    recurring   boolean - adds "| Recurring session" with a recurring icon after the meta
     detail      string  - detail text shown before the optional location link
     location    object  - { text, href } - optional location link shown after detail
     badges      array   - list of { label, value }, each rendered as a badge
@@ -12,20 +13,23 @@
     attributes  object  - extra HTML attributes
 #}
 {%- macro nhswSessionRow(params) -%}
-<a class="nhsw-session-row{% if params.classes %} {{ params.classes }}{% endif %}" href="{{ params.href }}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- set tag = "div" if params.location else "a" -%}
+<{{ tag }} class="nhsw-session-row{% if params.classes %} {{ params.classes }}{% endif %}"{% if not params.location %} href="{{ params.href }}"{% endif %}{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
   <div class="nhsw-session-row__main">
+{%- if params.location %}
+    <a class="nhsw-session-row__title" href="{{ params.href }}">{{ params.title }}</a>
+{%- else %}
     <span class="nhsw-session-row__title">{{ params.title }}</span>
-{%- if params.meta %}
-    <span class="nhsw-session-row__meta">{{ params.meta }}</span>
+{%- endif %}
+{%- if params.meta or params.recurring %}
+    <span class="nhsw-session-row__meta">{{ params.meta }}{% if params.recurring %}{% if params.meta %} &nbsp;|&nbsp; {% endif %}<span class="nhsw-session-row__recurring"><svg class="nhsw-session-row__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg> Recurring session</span>{% endif %}</span>
 {%- endif %}
   </div>
-{%- if params.detail or params.location %}
-  <div class="nhsw-session-row__detail">
-    {{ params.detail }}
-{%- if params.location %}<br>
-    <a class="nhsw-link" href="{{ params.location.href }}">{{ params.location.text }}</a>
+{%- if params.detail %}
+  <div class="nhsw-session-row__detail">{{ params.detail }}</div>
 {%- endif %}
-  </div>
+{%- if params.location %}
+  <div class="nhsw-session-row__location"><a class="nhsw-link" href="{{ params.location.href }}">{{ params.location.text }}</a></div>
 {%- endif %}
 {%- if params.badges and params.badges.length %}
   <div class="nhsw-session-row__badges">
@@ -37,5 +41,5 @@
   <svg class="nhsw-session-row__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true">
     <path d="M9 6l6 6-6 6" />
   </svg>
-</a>
+</{{ tag }}>
 {%- endmacro -%}
