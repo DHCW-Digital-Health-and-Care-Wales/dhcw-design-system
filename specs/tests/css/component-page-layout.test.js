@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
+import { load as loadYaml } from 'js-yaml';
 import { compileProbe, block } from '../support/compile-scss.js';
 
 const root = path.resolve(import.meta.dirname, '../../..');
@@ -150,6 +151,26 @@ describe('Text input page address', () => {
       expect(text).not.toContain('/components/input.html');
       expect(text).toContain('/components/text-input.html');
     }
+  });
+});
+
+describe('Side navigation on the testing pages', () => {
+  const nav = loadYaml(read('preview/_data/side_nav.yml'));
+
+  it('links every item to a testing page that exists', () => {
+    const missing = nav
+      .filter((item) => item.testing !== false && item.url !== '#')
+      .map((item) => {
+        const basename = item.url.split('/').pop().replace('.html', '');
+        return item.testing_url || (basename === 'index' ? '/testing/index.html' : `/testing/${basename}.html`);
+      })
+      .filter((target) => !fs.existsSync(path.join(root, 'preview', target)));
+    expect(missing).toEqual([]);
+  });
+
+  it('sends Text input to the testing page named input, and the include honours testing_url', () => {
+    expect(nav.find((item) => item.url === '/components/text-input.html').testing_url).toBe('/testing/input.html');
+    expect(read('preview/_includes/side-nav.html')).toContain('item.testing_url');
   });
 });
 

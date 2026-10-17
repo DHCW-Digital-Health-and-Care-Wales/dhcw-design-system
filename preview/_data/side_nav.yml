@@ -54,5 +54,6 @@
   url: /components/textarea.html
 - title: Text input
   url: /components/text-input.html
+  testing_url: /testing/input.html
 - title: Warning callouts
   url: /components/warning-callout.html

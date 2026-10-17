@@ -15,7 +15,9 @@
         {% endif %}
         {% if in_testing %}
           {% assign basename = item.url | split: "/" | last | remove: ".html" %}
-          {% if basename == "index" %}
+          {% if item.testing_url %}
+            {% assign target_url = item.testing_url %}
+          {% elsif basename == "index" %}
             {% assign target_url = "/testing/index.html" %}
           {% else %}
             {% assign target_url = "/testing/" | append: basename | append: ".html" %}
