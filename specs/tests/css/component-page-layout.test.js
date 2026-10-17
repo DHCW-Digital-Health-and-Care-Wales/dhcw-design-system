@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { compileProbe } from '../support/compile-scss.js';
+import { compileProbe, block } from '../support/compile-scss.js';
 
 const root = path.resolve(import.meta.dirname, '../../..');
 const read = (rel) => fs.readFileSync(path.join(root, rel), 'utf8');
@@ -159,5 +159,12 @@ describe('Patient header under a back link', () => {
     const start = patient.indexOf('.nhsw-back-link + .nhsw-patient-header {');
     expect(start).toBeGreaterThan(-1);
     expect(patient.slice(start, patient.indexOf('}', start))).toMatch(/margin-top:\s*16px/);
+  });
+});
+
+describe('example screenshots', () => {
+  it('sit on the left of their frame, not centred', () => {
+    const css = compileProbe('@use "components/content/example-screenshot";');
+    expect(block(css, '.nhsw-example-screenshot')).toMatch(/text-align:\s*left/);
   });
 });
