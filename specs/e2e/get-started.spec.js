@@ -1,13 +1,13 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('Get started side navigation', () => {
-  test('shows the "Setup" heading and its 3 links, highlighting the current page', async ({ page }) => {
-    await page.goto('/get-started/prototyping.html');
+  test('shows the "Setup" heading and its link, highlighting the current page', async ({ page }) => {
+    await page.goto('/get-started/setting-up-figma-prototypes.html');
     await expect(page.locator('.nhsw-side-nav__heading')).toHaveText('Setup');
     const links = page.locator('.nhsw-side-nav__link');
-    await expect(links).toHaveCount(3);
-    await expect(links).toContainText(['Prototyping', 'Setting up coded prototypes', 'Setting up Figma prototypes']);
-    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveText('Prototyping');
+    await expect(links).toHaveCount(1);
+    await expect(links).toContainText(['Setting up Figma prototypes']);
+    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveText('Setting up Figma prototypes');
   });
 
   test('legal pages and the Get started index page have no side nav at all', async ({ page }) => {
