@@ -41,7 +41,7 @@ tabs:
   </ul>
 
   <h2 class="nhsw-h2">When not to use a button</h2>
-  <p class="nhsw-body">Do not use buttons as links:</p>
+  <p class="nhsw-body">Do not use buttons as links. This includes:</p>
   <ul class="nhsw-body">
     <li>to pages which are not part of your user journey</li>
     <li>from one flat content page to another</li>
@@ -55,31 +55,31 @@ tabs:
   <h3 class="nhsw-h3">Button text</h3>
   <p class="nhsw-body">Write button text in sentence case, describing the action it performs. For example:</p>
   <ul class="nhsw-body">
-    <li>"Start now" on the <a class="nhsw-link" href="#">start page</a> of your service</li>
+    <li>"Start now" on the start page of your service</li>
     <li>"Log in" to an account a user has already created</li>
     <li>"Continue" whether the service saves or does not save a user's information</li>
     <li>"Save and continue" when the service saves a user's information but your research shows you need to reassure them that it does</li>
     <li>"Save and come back later" when a user can save their information and come back later</li>
     <li>"Add another" to add another item to a list or group</li>
     <li>"Pay" to make a payment</li>
-    <li>"Confirm and send" on a <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/patterns/check-answers/">check answers page</a> that does not have any legal content a user must agree to</li>
-    <li>"Confirm and save" on a <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/patterns/check-answers/">check answers page</a> on a staff-facing service where data is not being sent to another person or system</li>
-    <li>"Accept and send" on a <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/patterns/check-answers/">check answers page</a> that has legal content a user must agree to</li>
+    <li>"Confirm and send" on a check answers page that does not have any legal content a user must agree to</li>
+    <li>"Confirm and save" on a check answers page on a staff-facing service where data is not being sent to another person or system</li>
+    <li>"Accept and send" on a check answers page that has legal content a user must agree to</li>
     <li>"Log out" when a user is logged in to an account</li>
   </ul>
   <p class="nhsw-body">You may need to include more or different words to better describe the action. For example, "Add another address" and "Accept and book the appointment".</p>
 
-  <h3 class="nhsw-h3">Stop users from accidentally sending information more than once</h3>
-  <p class="nhsw-body">Sometimes, users double click buttons because they:</p>
+  <h3 class="nhsw-h3">Preventing double clicks</h3>
+  <p class="nhsw-body">Some users may select a button more than once. This can happen because they:</p>
   <ul class="nhsw-body">
-    <li>have used operating systems where they have to double click items to make them work</li>
-    <li>are experiencing a slow connection, which means they are not getting feedback on their action quickly enough</li>
-    <li>have motor impairments such as hand tremors which cause them to click the button involuntarily</li>
+    <li>are used to double-clicking items</li>
+    <li>have a slow connection and do not get feedback quickly enough</li>
+    <li>have a motor impairment that causes an unintended second click</li>
   </ul>
-  <p class="nhsw-body">In some cases, this can mean their information is sent twice.</p>
-  <p class="nhsw-body">If your research shows that users are frequently sending information twice, you can configure the button to ignore the 2nd click. To do this, set the data-prevent-double-click attribute to true. You can do this directly in the HTML.</p>
-  <p class="nhsw-body">This feature will prevent double clicks for users that have JavaScript enabled. However, you should also think about the issue server-side to protect against attacks.</p>
-  <p class="nhsw-body">In the case of slow connections, aim to give the user information about what's happening, for example by showing a loading spinner or a modal, before using data-prevent-double-click.</p>
+  <p class="nhsw-body">In some cases, this can cause information to be submitted more than once.</p>
+  <p class="nhsw-body">If research shows this is a problem, you can configure the button to ignore a second click by setting <code style="color: #d4351c;">data-prevent-double-click</code> attribute to <code style="color: #d4351c;">true</code> You can do this directly in the HTML.</p>
+  <p class="nhsw-body">This only prevents double clicks when JavaScript is enabled. You should also prevent duplicate submissions on the server side.</p>
+  <p class="nhsw-body">For slow connections, give users clear feedback that something is happening before preventing double clicks, for example by showing a loading indicator.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
@@ -115,9 +115,8 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-primary" html=html_sample njk=njk_sample toggleable=true %}
 
-    <h4 class="nhsw-h4">When to use a primary button</h4>
-    <p class="nhsw-body">Use a primary button for the main call to action on a page, for example to help users start an application or save their progress.</p>
-    <p class="nhsw-body">Use only 1 primary button on a page. Having more than 1 reduces their impact and makes it harder for users to know what to do next.</p>
+    <p class="nhsw-body">Use a primary button for the main action on a page, for example to start an application, continue to the next step or save information.</p>
+    <p class="nhsw-body">Use only one primary button on a page. More than one can make it harder for users to understand what they should do next.</p>
   </section>
 
   <section class="preview-section">
@@ -135,14 +134,13 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-secondary" html=html_sample njk=njk_sample toggleable=true %}
 
-    <h4 class="nhsw-h4">When to use a secondary button</h4>
-    <p class="nhsw-body">Use a secondary button when an action is less important than the primary action on the page. You can also use them when offering users an optional action that they do not need to complete to continue. Examples include:</p>
+    <p class="nhsw-body">Use a secondary button for an action that is less important than the primary action on the page. You can also use one for an optional action that users do not need to complete to continue. Examples include:</p>
     <ul class="nhsw-body">
       <li>save a draft</li>
       <li>change your answers</li>
       <li>print this page</li>
     </ul>
-    <p class="nhsw-body">Pages with too many calls to action make it hard for users to know what to do next. Before adding lots of secondary buttons, try to simplify the page or break the content down across multiple pages.</p>
+    <p class="nhsw-body">Too many actions on a page can make it harder for users to know what to do next. Before adding several secondary buttons, consider simplifying the page or splitting the journey into separate steps.</p>
   </section>
 
   <section class="preview-section">
@@ -160,7 +158,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-exceptional" html=html_sample njk=njk_sample toggleable=true %}
 
-    <p class="nhsw-body">Use an exception button for actions that flag, report, or override an unexpected issue that falls outside the normal process. These actions are typically used to handle rare edge cases. Examples include:</p>
+    <p class="nhsw-body">Use an exception button for an action that is only needed in an unusual situation or when something has gone wrong. Examples include:</p>
     <ul class="nhsw-body">
       <li>report an issue</li>
       <li>record an exception</li>
@@ -183,10 +181,10 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-warning" html=html_sample njk=njk_sample toggleable=true %}
 
-    <p class="nhsw-body">Warning buttons are designed to make users think carefully before they use them. They are only effective if used very sparingly. Most services should not need one.</p>
-    <p class="nhsw-body">Only use warning buttons for actions with serious destructive consequences that a user cannot easily undo, for example permanently deleting an account.</p>
-    <p class="nhsw-body">For important destructive actions like this, include an additional step to confirm it. Use another style of button for the initial call to action, then a warning button for the final confirmation.</p>
-    <p class="nhsw-body">Do not only rely on the red colour of a warning button to communicate the serious nature of the action. This is because not all users will be able to see the colour or understand what it means. Make sure the context and button text make clear what will happen if the user selects it.</p>
+    <p class="nhsw-body">Use a warning button for an action that has serious consequences and cannot easily be undone, for example permanently deleting an account or record.</p>
+    <p class="nhsw-body">Use warning buttons sparingly. Most services should not need one.</p>
+    <p class="nhsw-body">For destructive actions, ask users to confirm before completing the action. Use another button style for the initial action and a warning button for the final confirmation.</p>
+    <p class="nhsw-body">Do not rely on the red colour alone to show that an action is destructive. This is because not all users will be able to see the colour or understand what it means. Use clear button text and supporting content to explain what will happen.</p>
   </section>
 
   <section class="preview-section">
@@ -204,7 +202,9 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-warning-outline" html=html_sample njk=njk_sample toggleable=true %}
 
-    <p class="nhsw-body">Use the small, outlined delete button for a lower-emphasis destructive action inside a tight space, such as a row in a list or table, where a full-size warning button would be too visually heavy.</p>
+    <p class="nhsw-body">Use a small delete button for a lower-emphasis destructive action where space is limited, such as deleting an item from a list or table.</p>
+        <p class="nhsw-body">Use a warning button instead when the destructive action has serious consequences or cannot easily be undone.</p>
+
   </section>
 
   <section class="preview-section">
@@ -226,13 +226,15 @@ tabs:
 {{ nhswButton({ text: "Clear filters", classes: "nhsw-button--secondary nhsw-button--small" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-small" html=html_sample njk=njk_sample toggleable=true %}
 
-    <p class="nhsw-body">Use smaller buttons sparingly. First try using a standard button.</p>
-    <p class="nhsw-body">Only use smaller buttons when:</p>
+    <p class="nhsw-body">Use small buttons sparingly. Use a standard button by default.</p>
+    <p class="nhsw-body">Only use a small button when:</p>
     <ul class="nhsw-body">
       <li>space is limited, for example in a card or panel</li>
-      <li>there are several actions of a similar priority that a user can take, for example on a staff-facing system</li>
+      <li>users have several actions of similar importance to choose from, for example in a staff-facing service</li>
     </ul>
-    <p class="nhsw-body">Do not mix up button sizes within button groups. For example, do not group a smaller button with a standard button. Only use 1 primary button in a group.</p>
+    <p class="nhsw-body">Keep buttons in a group the same size. Do not place a small button and a standard button in the same group.</p>
+        <p class="nhsw-body">Use only one primary button in a group so it is clear which is the main action.</p>
+
   </section>
 
   <section class="preview-section">

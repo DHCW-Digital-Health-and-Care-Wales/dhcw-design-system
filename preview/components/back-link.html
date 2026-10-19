@@ -31,20 +31,20 @@ tabs:
   {% include code-viewer.html id="bl-overview" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">When to use a back link</h2>
-  <p class="nhsw-body">Use back links in transactional services and multi-page forms to help users return to the previous step and review or change their answers.</p>
+  <p class="nhsw-body">Use back links in transactional services and multi-page forms to help users return to the previous step. This allows them to review or change their answers.</p>
   <p class="nhsw-body">Back links are recommended on question pages. Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/question-pages/">Question pages in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">You can also use back links on other pages in a multi-page journey where users may need to move backwards through the process.</p>
-  <p class="nhsw-body">Use buttons to start transactional journeys and carry out actions, like saving information.</p>
+  <p class="nhsw-body">You can also use back links on other pages in a multi-page journey where users may need to return to an earlier step.</p>
 
   <h2 class="nhsw-h2">When not to use a back link</h2>
-  <p class="nhsw-body">Do not use a back link on a content page, for example a service information page or an accessibility statement. Users can arrive on these pages from different places, so a back link may not take them where they expect.</p>
-  <p class="nhsw-body">Do not use a back link with <a class="nhsw-link" href="{{ '/components/breadcrumb.html' | relative_url }}">breadcrumbs</a>.</p>
+  <p class="nhsw-body">Do not use a back link to start a service or complete an action. Use a <a class="nhsw-link" href="{{ '/components/buttons' | relative_url }}">button</a> for actions such as continuing to the next step, saving information or submitting a form.</p>
+  <p class="nhsw-body">Do not use a back link on content pages, for example service information pages or accessibility statements. Users may arrive on these pages in different ways, so a back link may not take them where they expect.</p>
+  <p class="nhsw-body">Do not use a back link and <a class="nhsw-link" href="{{ '/components/breadcrumb.html' | relative_url }}">breadcrumbs</a> on the same page.</p>
 
   <h2 class="nhsw-h2">How to use a back link</h2>
-  <p class="nhsw-body">Make sure the text used in the link describes the action, for example "Back". Carry out research with users to find the words that help them the most.</p>
-  <p class="nhsw-body">The link should take users back to the page they were on in the state they last saw it.</p>
-  <p class="nhsw-body">Generally, the back link should go at the top left of the page.</p>
-  <p class="nhsw-body">If you put the back link in a different position, do not put it close to other links or buttons where it might distract users from what they need to do. Also think about people who use a screen reader: is the page read out in a logical order?</p>
+  <p class="nhsw-body">Use "Back" as the link text. If research shows that different wording helps users understand where the link will take them, use that instead.</p>
+  <p class="nhsw-body">The back link should return users to the previous page in the same state they left it, including any information they entered or selected.</p>
+  <p class="nhsw-body">Place the back link at the top left of the page.</p>
+  <p class="nhsw-body">If you place it somewhere else, make sure it is not close to other links or buttons where it could distract users or be mistaken for another action. Make sure the page content is read in a logical order by screen readers.</p>
 
   <h3 class="nhsw-h3">Back link as a button</h3>
   <p class="nhsw-body">You can render the back link as a <code style="color: #d4351c;">button</code> element if necessary in order to post form data back to the previous page.</p>
@@ -87,7 +87,6 @@ tabs:
   {% include code-viewer.html id="bl-dark" html=html_sample njk=njk_sample toggleable=true %}
 
   <p class="nhsw-body">Use this back link variant on dark backgrounds where the standard action link may not provide sufficient contrast.</p>
-  <p class="nhsw-body">To make sure all users can see the back link, the background colour must have a contrast ratio of at least 4.5:1 against white to meet <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 2.2 success criterion 1.4.3 Contrast (minimum), level AA (W3C)</a>.</p>
 
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
