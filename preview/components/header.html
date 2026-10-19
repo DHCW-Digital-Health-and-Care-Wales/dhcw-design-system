@@ -3,7 +3,7 @@ layout: component
 title: Header
 container: fluid
 updated: October 2026
-intro: Use the site header to show users they are on an NHS Wales service and to give access to primary navigation and search.
+intro: Use the site header to show users they are on a DHCW service and to give access to primary navigation and search.
 body_class: nhsw-has-bottom-nav
 after_footer: |
   <!-- Mobile bottom navigation – fixed to viewport bottom, only visible below 40rem -->
@@ -116,19 +116,23 @@ tabs:
   {% include code-viewer.html id="hd-overview" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">When to use the header</h2>
-  <p class="nhsw-body">Use the site header on every page of a public-facing or internal service to show users they are on an official NHS Wales digital service.</p>
-  <p class="nhsw-body">If you use the page template, you'll get the header without having to add it, as it's included by default.</p>
+  <p class="nhsw-body">Use a site header on every page of a public-facing or internal service to show users they are on an official DHCW digital service.</p>
+  <p class="nhsw-body">If you use the <a class="nhsw-link" href="{{ '/styles/page-template.html' | relative_url }}">page template</a>, the header is included by default.</p>
 
   <h2 class="nhsw-h2">How to use the header</h2>
-  <p class="nhsw-body">The site header uses the NHS Wales blue (<code>#005eb8</code>) as its background. The search button uses the dark navy (<code>#1b365d</code>) to stand out against the blue bar.</p>
+  <p class="nhsw-body">The header contains the NHS Wales logo and service name. It can also include search when users need to search the service.</p>
+   <p class="nhsw-body">Keep the number of items in the header to a minimum so users can easily identify the service and the actions available to them.</p>
+    <p class="nhsw-body">Use a short, clear service name that helps users understand which service they are using.</p>
+
 
   <h3 class="nhsw-h3">With navigation</h3>
-  <p class="nhsw-body">Include a <code>&lt;nav class="nhsw-site-header__nav"&gt;</code> element immediately after the closing <code>&lt;/div&gt;</code> of <code>nhsw-site-header__container</code> to add a navigation row below the top bar. See the <a class="nhsw-link" href="{{ '/components/site-navigation.html' | relative_url }}">site navigation component</a> for details.</p>
-  <p class="nhsw-body">The nav row is automatically hidden on mobile (below 40rem) &ndash; use the mobile bottom navigation variant instead on small screens.</p>
-  <p class="nhsw-body">Mark the active link with <code>nhsw-site-header__nav-link--current</code> and <code>aria-current="page"</code>.</p>
+  <p class="nhsw-body">Add site navigation when users need to move between the main sections of your service.</p>
+  <p class="nhsw-body">Include a <code style="color: #d5281b;">&lt;nav class="nhsw-site-header__nav"&gt;</code> element immediately after the closing <code style="color: #d5281b;">&lt;/div&gt;</code> of <code style="color: #d5281b;">nhsw-site-header__container</code> to add a navigation row below the top bar. See the <a class="nhsw-link" href="{{ '/components/site-navigation.html' | relative_url }}">site navigation component</a> for more guidance</p>
+  <p class="nhsw-body">On smaller screens, the navigation is hidden. Use the mobile bottom navigation instead.</p>
+  <p class="nhsw-body">Use <code style="color: #d5281b;">nhsw-site-header__nav-link--current</code> and <code style="color: #d5281b;">aria-current="page"</code> to show the current page.</p>
 
   <h3 class="nhsw-h3">Without navigation</h3>
-  <p class="nhsw-body">Simply omit the <code>&lt;nav&gt;</code> element. The top bar works independently.</p>
+  <p class="nhsw-body">If your service does not need site navigation, do not include the <code style="color: #d5281b;">&lt;nav&gt;</code> element. The header can be used on its own.</p>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Without a search bar</h3>
@@ -164,32 +168,32 @@ tabs:
     {% capture njk_sample %}{% raw %}{{ nhswHeader({ serviceName: "Service name", serviceUrl: "/", search: false }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="hd-no-search" html=html_sample njk=njk_sample toggleable=true %}
 
-    <p class="nhsw-body">Simply omit the <code>&lt;form class="nhsw-site-header__search"&gt;</code> element. The top bar works independently.</p>
+    <p class="nhsw-body">If your service does not need search, remove the <code style="color: #d5281b;>&lt;form class="nhsw-site-header__search"&gt;</code> element. The header can be used without search.</p>
   </section>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Mobile bottom navigation</h3>
-    <p class="nhsw-body">On screens narrower than 40rem the header nav bar is hidden. Use <code>nhsw-bottom-nav</code> to provide navigation at the bottom of the viewport instead, following the mobile app pattern.</p>
-    <p class="nhsw-body">The bottom nav is always hidden on desktop &ndash; it is only ever visible on mobile. Resize your browser window below 640px to see the bar at the bottom of this page.</p>
+    <p class="nhsw-body">On smaller screens, the header navigation is hidden. Use <code style="color: #d5281b;">nhsw-bottom-nav</code> to show the main navigation at the bottom of the screen instead.</p>
+    <p class="nhsw-body">The bottom navigation is only shown on mobile.</p>
 
     <h4 class="nhsw-h4">Preventing content overlap</h4>
-    <p class="nhsw-body">Add <code>nhsw-has-bottom-nav</code> to <code>&lt;body&gt;</code> when the bottom nav is present. This class adds <code>padding-bottom: 5rem</code> to <code>nhsw-main-wrapper</code> on mobile so page content is never hidden behind the fixed bar.</p>
+    <p class="nhsw-body">When using bottom navigation, add <code style="color: #d5281b;">nhsw-has-bottom-nav</code> to <code style="color: #d5281b;">&lt;body&gt;</code>. This adds space at the bottom of the page so content is not hidden behind the navigation.</p>
 
-    <h4 class="nhsw-h4">Active state</h4>
-    <p class="nhsw-body">Mark the current page link with <code>nhsw-bottom-nav__link--current</code> and <code>aria-current="page"</code>.</p>
+    <h4 class="nhsw-h4">Current page</h4>
+    <p class="nhsw-body">Use <code style="color: #d5281b;">nhsw-bottom-nav__link--current</code> and <code>aria-current="page"</code> to show which page the user is currently viewing.</p>
 
     <h4 class="nhsw-h4">Icons</h4>
-    <p class="nhsw-body">Place any inline SVG inside <code>nhsw-bottom-nav__icon</code>. Decorative icons should carry <code>aria-hidden="true"</code>. The visible label text in <code>nhsw-bottom-nav__label</code> provides the accessible name.</p>
+    <p class="nhsw-body">Place icons inside <code style="color: #d5281b;">nhsw-bottom-nav__icon</code>. If an icon is decorative, use <code style="color: #d5281b;">aria-hidden="true"</code> so screen readers ignore it. Use <code style="color: #d5281b;">nhsw-bottom-nav__label</code>forhe visible link text.</p>
   </section>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">The header must use a semantic <code>&lt;header&gt;</code> element so assistive technologies can identify it as a landmark. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">Headers must use a semantic <code style="color: #d5281b;">&lt;header&gt;</code> element so assistive technologies can identify it as a landmark. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
 
   <p class="nhsw-body">The search input must have a visible or programmatically associated label. Do not rely on placeholder text alone. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">WCAG 2.2 Success Criterion 3.3.2 Labels or Instructions, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/header">Headers in the NHS Wales Design System</a>.</p>
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/header">Headers in the NHS England Design System</a>.</p>
 
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
@@ -199,12 +203,7 @@ tabs:
 <!-- Variants -->
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Header variants</h2>
-  <p class="nhsw-body">Account information and links can be used with the other header features, for example service name and search. However, keep the number of items in the header to a minimum.</p>
-  <p class="nhsw-body">When allowing users to log in to your service, make sure you have a visible service name, so that they know which system they are logging in to.</p>
-  <p class="nhsw-body">You can add multiple items to the account information, such as the logged-in user's name and role. Items can be links or just plain text information.</p>
-  <p class="nhsw-body">Keep the number of links to a minimum. If you have more than 3 account links, consider combining functions and putting them on a separate page. For example, an account settings page could include actions like change name, change role and reset password. Test with users so you know which combination of items best meets their needs.</p>
-  <p class="nhsw-body">If you use a log out link, put it last in the list, showing top right on desktop screens and last on small screens. If you put log out and other account actions on a separate page, show the log out link last.</p>
-
+  
   <h3 class="nhsw-h3">Logged-in header</h3>
   {% capture example_body %}
       <header class="nhsw-site-header nhsw-site-header--light nhsw-site-header--compact">
@@ -295,6 +294,14 @@ tabs:
   &lt;/div&gt;
 &lt;/header&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="hd-li-dark" html=html_sample njk=njk_sample toggleable=true %}
+  <p class="nhsw-body">Use this variant when users are signed in to a service.</p>
+    <p class="nhsw-body">You can show account information such as the user’s name and role. Account information can be links or plain text.</p>
+      <p class="nhsw-body">Keep account links to a minimum. If you need more than 3, consider moving them to a separate account page.</p>
+      <p class="nhsw-body">Put ‘Log out’ last in the list of account links on both desktop and smaller screens.</p>
+
+
+
+
 
   <h3 class="nhsw-h3">Logged-in header (with service name)</h3>
   {% capture example_body %}
@@ -392,13 +399,21 @@ tabs:
   &lt;/div&gt;
 &lt;/header&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="hd-sn-dark" html=html_sample njk=njk_sample toggleable=true %}
+    <p class="nhsw-body">Use this variant when users are signed in and need to know which service they are using.</p>
+    <p class="nhsw-body">Always show the service name when users sign in to a service. This helps them understand which service or system they have accessed.</p>
+      <p class="nhsw-body">You can use account information and links alongside other header features, such as search. Keep the number of items in the header to a minimum.</p>
+  
   <h3 class="nhsw-h3">User information</h3>
-  <p class="nhsw-body">Consider whether you need to show the user information about the account they have logged in to. This may depend on whether they:</p>
+  <p class="nhsw-body">Consider showing account information if users:</p>
   <ul class="nhsw-body">
     <li>share a computer</li>
-    <li>have multiple accounts or roles</li>
+    <li>have more than one account or role</li>
+        <li>need to confirm which organisation or service they are working in</li>
+
   </ul>
-  <p class="nhsw-body">When showing the user their account, you can highlight this with the profile icon (on the <a class="nhsw-link" href="{{ '/styles/icons.html' | relative_url }}">icons page</a>). Only show the icon next to 1 item. Test with users how best to display the user's account information, for example, whether to show their full name or their email address.</p>
+  <p class="nhsw-body">Show only the information users need to identify their account, such as their name, email address, role or organisation.</p>
+    <p class="nhsw-body">Use the profile icon on the <a class="nhsw-link" href="{{ '/styles/icons.html' | relative_url }}">icons page</a> to highlight one item of account information. Do not use it for more than one item.</p>
+    <p class="nhsw-body">Test the account information with users to find out which details help them identify the correct account, for example their full name or their email address.</p>
 
   <h3 class="nhsw-h3">Public facing header</h3>
   {% capture example_body %}
@@ -455,8 +470,8 @@ tabs:
 &lt;/header&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="hd-pf-dark" html=html_sample njk=njk_sample toggleable=true %}
 
-  <p class="nhsw-body">For internal and clinician-facing screens, use the simplified logo to keep the interface clean and uncluttered.</p>
-  <p class="nhsw-body">For public-facing interfaces, always use the standard DHCW logo to maintain consistent branding.</p>
+  <p class="nhsw-body">Use this variant for public-facing services.</p>
+    <p class="nhsw-body">Use the standard DHCW or NHS Wales logo to provide consistent branding and help users recognise that they are using an official NHS Wales service.</p>
 
   <h3 class="nhsw-h3">Patient header</h3>
   {% capture example_body %}
@@ -555,8 +570,15 @@ tabs:
 &lt;/section&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="hd-patient" html=html_sample njk=njk_sample toggleable=true %}
 
-  <p class="nhsw-body">You can use the patient header on any screen where a user is viewing, editing, or performing actions on a specific patient's record (such as prescribing, documenting notes or booking appointments).</p>
-  <p class="nhsw-body">You can change or adapt the fields in the header based on your specific service needs. However, patient identification remains a clinical safety priority. Never allow secondary information (such as a home address, phone number or administrative notes) to overcrowd the banner to the point that core identifiers become difficult to find and read.</p>
+  <p class="nhsw-body">Use the patient header on pages where users view, edit or act on a specific patient’s record, for example when:</p>
+  <ul>
+    <li>prescribing medication</li>
+    <li>recording clinical notes</li>
+    <li>booking an appointment</li>
+  </ul>
+  <p class="nhsw-body">You can adapt the information shown to meet the needs of your service. However, users must always be able to identify the correct patient quickly and accurately.</p>
+    <p class="nhsw-body">Prioritise core patient identifiers. Do not add secondary information, such as contact details or administrative notes, if it makes the core identifiers difficult to find or read.</p>
+
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 </div>
