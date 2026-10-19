@@ -67,18 +67,18 @@ tabs:
   {% include code-viewer.html id="di-overview" html=html_sample njk=njk_sample toggleable=true %}
 
   <h2 class="nhsw-h2">When to use date input</h2>
-  <p class="nhsw-body">Use date input to help users enter a date they are likely to know, like their date of birth.</p>
+  <p class="nhsw-body">Use date input when users are likely to know the exact date, for example their date of birth.</p>
 
   <h2 class="nhsw-h2">When not to use date input</h2>
   <p class="nhsw-body">Do not use date input if users are unlikely to know the exact date you're asking about.</p>
 
   <h2 class="nhsw-h2">How to use date input</h2>
-  <p class="nhsw-body">Date input consists of 3 fields to let users enter a day, month and year.</p>
-  <p class="nhsw-body">Group the 3 date fields together in a <code style="color: #d4351c;">&lt;fieldset&gt;</code> with a <code style="color: #d4351c;">&lt;legend&gt;</code> that describes them. You can see an example at the top of this page. The legend is usually a question, like "What is your date of birth?".</p>
-  <p class="nhsw-body">If you are asking just <a class="nhsw-link" href="#">1 question per page</a> as we recommend, you can set the contents of the <code style="color: #d4351c;">&lt;legend&gt;</code> as the page heading. This is good practice as it means that screen reader users will only hear the contents once.</p>
-  <p class="nhsw-body">Read more on the GOV.UK Design System about how to <a class="nhsw-link" href="#">ask users for dates</a> and <a class="nhsw-link" href="https://design-system.service.gov.uk/get-started/labels-legends-headings/">making labels and legends headings</a>.</p>
-  <p class="nhsw-body">Never automatically tab users between the fields of the date input because this can be confusing and may clash with normal keyboard controls.</p>
-
+  <p class="nhsw-body">Date input consists of three fields to let users enter a day, month and year.</p>
+  <p class="nhsw-body">Group the fields together in a <code style="color: #d4351c;">&lt;fieldset&gt;</code> and use a <code style="color: #d4351c;">&lt;legend&gt;</code> to describe them. The legend is usually a question, like "What is your date of birth?".</p>
+  <p class="nhsw-body">If you're asking one question per page, you can set the contents of the <code style="color: #d4351c;">&lt;legend&gt;</code> as the page heading. This is good practice as it means that screen reader users do not hear the same information twice.</p>
+    <p class="nhsw-body">Never automatically move users between the day, month and year fields. This can be confusing and interfere with keyboard navigation.</p>
+<p class="nhsw-body">Read more on the GOV.UK Design System about <a class="nhsw-link" href="https://design-system.service.gov.uk/get-started/labels-legends-headings/">making labels and legends headings</a>.</p>
+  
   <h3 class="nhsw-h3">If you're asking more than one question on the page</h3>
   <p class="nhsw-body">If you're asking more than one question on the page, do not set the contents of the <code style="color: #d4351c;">&lt;legend&gt;</code> as the page heading. Read more on the GOV.UK Design System about <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/question-pages/#asking-multiple-questions-on-a-page">asking multiple questions on question pages</a>.</p>
   <p class="nhsw-body">Follow <a class="nhsw-link" href="https://design-system.service.gov.uk/components/date-input#error-messages">GOV.UK guidance on error messages for date inputs</a>.</p>

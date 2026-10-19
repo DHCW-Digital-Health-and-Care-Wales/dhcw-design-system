@@ -31,7 +31,7 @@ tabs:
         </div>
         <div class="nhsw-checkboxes__item">
           <input class="nhsw-checkboxes__input" id="cb-ov-3" name="cb-ov" type="checkbox" value="text">
-          <label class="nhsw-label nhsw-checkboxes__label" for="cb-ov-3">Test message</label>
+          <label class="nhsw-label nhsw-checkboxes__label" for="cb-ov-3">Text message</label>
         </div>
       </div>
     </fieldset>
@@ -82,8 +82,6 @@ tabs:
   <p class="nhsw-body">Read more about using <a class="nhsw-link" href="#">fieldset</a>.</p>
 
   <h3 class="nhsw-h3">Error messages</h3>
-  <p class="nhsw-body">Style error messages like this.</p>
-
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group nhsw-form-group--error">
       <fieldset class="nhsw-fieldset" aria-describedby="cb-contact3-hint cb-contact3-error">
@@ -133,11 +131,13 @@ tabs:
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="cb-error" html=html_sample njk=njk_sample toggleable=true %}
+    <p class="nhsw-body">Use this style to show users when there is a problem with their checkbox selection and explain what they need to do to fix it.</p>
+
 
   <p class="nhsw-body">Follow:</p>
   <ul class="nhsw-body">
-    <li><a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/error-message">our guidance on error messages</a></li>
-    <li><a class="nhsw-link" href="https://design-system.service.gov.uk/components/checkboxes/">GOV.UK design system guidance on error messages for checkboxes</a></li>
+    <li><a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/error-message">NHS England Design System guidance on error messages</a></li>
+    <li><a class="nhsw-link" href="https://design-system.service.gov.uk/components/checkboxes/">GOV.UK Design System guidance on error messages for checkboxes</a></li>
   </ul>
 
   <h2 class="nhsw-h2">Accessibility</h2>
@@ -146,9 +146,7 @@ tabs:
   <p class="nhsw-body">However, <a class="nhsw-link" href="https://accessibility.blog.gov.uk/2021/09/21/an-update-on-the-accessibility-of-conditionally-revealed-questions/">GOV.UK research into conditionally revealed questions</a> found that this was less of an issue when questions were simple and easy to understand. Complex questions are more likely to cause confusion for users.</p>
 
   <h2 class="nhsw-h2">Source</h2>
-  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/checkboxes/">Checkboxes in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system">Checkboxes on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
-
+  <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/checkboxes/">Checkboxes in the GOV.UK Design System</a>, including the latest updates and resolved issues.</p>
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 
