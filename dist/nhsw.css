@@ -309,6 +309,11 @@
   overflow: auto;
   vertical-align: top;
 }
+@media (min-width: 40.0625em) {
+  .nhsw-textarea {
+    width: 66.6667%;
+  }
+}
 .nhsw-textarea--small {
   min-height: 80px;
 }
