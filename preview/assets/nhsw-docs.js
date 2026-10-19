@@ -84,6 +84,11 @@
     code.innerHTML = highlightHtml(code.textContent);
   });
 
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('.nhsw-example-preview__body a[href="#"]');
+    if (link) event.preventDefault();
+  });
+
   var toggleButtons = document.querySelectorAll('.nhsw-example-preview__footer-button[data-toggle]');
 
   function activeTabName(viewer) {

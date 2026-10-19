@@ -206,3 +206,29 @@ describe('code viewer Close button and HTML syntax colouring', () => {
     expect(code.textContent).toBe('<button class="nhsw-button" disabled>Save & go</button>');
   });
 });
+
+describe('placeholder links inside embedded examples', () => {
+  beforeEach(() => {
+    setBody(`
+      <div class="nhsw-example-preview__body"><a id="demo" href="#"><span id="inner">Action link</span></a><a id="real" href="/somewhere">Real</a></div>
+      <a id="outside" href="#">Back to top</a>
+    `);
+    runScript(SCRIPT);
+  });
+
+  const click = (el) => {
+    const event = new Event('click', { bubbles: true, cancelable: true });
+    el.dispatchEvent(event);
+    return event.defaultPrevented;
+  };
+
+  it('does not follow a "#" link in an example, even when the click lands on a child element', () => {
+    expect(click(document.getElementById('demo'))).toBe(true);
+    expect(click(document.getElementById('inner'))).toBe(true);
+  });
+
+  it('leaves real links and links outside examples alone', () => {
+    expect(click(document.getElementById('real'))).toBe(false);
+    expect(click(document.getElementById('outside'))).toBe(false);
+  });
+});
