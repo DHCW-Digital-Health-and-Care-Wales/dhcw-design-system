@@ -22,7 +22,7 @@
       padding: 0;
     }
 
-    .nhsw-label:not(.nhsw-label--bold) {
+    .nhsw-label {
       font-weight: t.$nhsw-font-weight-regular;
       font-size: t.$nhsw-font-size-body-mobile;
       line-height: t.$nhsw-line-height-body-mobile;

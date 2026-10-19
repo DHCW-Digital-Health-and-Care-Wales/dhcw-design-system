@@ -301,12 +301,13 @@ describe('label weight modifiers', () => {
   const label = compileProbe(`@use "components/forms/label";`);
   const group = compileProbe(`@use "components/forms/form-group";`);
 
-  it('has bold and regular label modifiers', () => {
-    expect(block(label, '\.nhsw-label--bold')).toMatch(/font-weight:\s*700/);
+  it('has a regular weight label modifier, and the default label stays bold', () => {
     expect(block(label, '\.nhsw-label--regular')).toMatch(/font-weight:\s*400/);
+    expect(block(label, '\.nhsw-label')).toMatch(/font-weight:\s*700/);
+    expect(label).not.toContain('nhsw-label--bold');
   });
 
-  it('an error group still drops the label to regular weight, unless the label is the bold modifier', () => {
-    expect(group).toContain('.nhsw-form-group--error .nhsw-label:not(.nhsw-label--bold) {');
+  it('an error group drops the label to regular weight', () => {
+    expect(group).toContain('.nhsw-form-group--error .nhsw-label {');
   });
 });

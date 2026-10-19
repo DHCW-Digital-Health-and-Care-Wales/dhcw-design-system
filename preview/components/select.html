@@ -77,7 +77,7 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group nhsw-form-group--error">
-      <label class="nhsw-label nhsw-label--bold" for="sel-htu-err">Choose region</label>
+      <label class="nhsw-label nhsw-label--regular" for="sel-htu-err">Choose region</label>
       <div class="nhsw-hint" id="sel-htu-err-hint">This can be different to what you selected before</div>
       <p class="nhsw-error-message" id="sel-htu-err-error"><span class="nhsw-visually-hidden">Error: </span>Choose region</p>
       <select id="sel-htu-err" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="sel-htu-err-hint sel-htu-err-error">
@@ -88,7 +88,7 @@ tabs:
   {% include example-preview.html id="sel-htu-error" open_url="/examples/select-error.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
-  &lt;label class="nhsw-label nhsw-label--bold" for="region"&gt;Choose region&lt;/label&gt;
+  &lt;label class="nhsw-label nhsw-label--regular" for="region"&gt;Choose region&lt;/label&gt;
   &lt;div class="nhsw-hint" id="region-hint"&gt;This can be different to what you selected before&lt;/div&gt;
   &lt;p class="nhsw-error-message" id="region-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Choose region&lt;/p&gt;
   &lt;select id="region" name="region" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="region-hint region-error"&gt;
@@ -101,7 +101,7 @@ tabs:
 
 {{ nhswSelect({
   id: "region",
-  label: { text: "Choose region", classes: "nhsw-label--bold" },
+  label: { text: "Choose region", classes: "nhsw-label--regular" },
   hint: { text: "This can be different to what you selected before" },
   errorMessage: { text: "Choose region" },
   items: [
