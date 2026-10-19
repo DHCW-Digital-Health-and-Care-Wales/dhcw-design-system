@@ -232,3 +232,24 @@ describe('placeholder links inside embedded examples', () => {
     expect(click(document.getElementById('outside'))).toBe(false);
   });
 });
+
+describe('floating Back to top', () => {
+  beforeEach(() => {
+    document.documentElement.classList.remove('nhsw-is-scrolled');
+    setBody('<p class="nhsw-back-to-top"><a href="#maincontent">Back to top</a></p>');
+  });
+
+  it('is only marked as scrolled once the page has been scrolled past 300px', () => {
+    Object.defineProperty(window, 'scrollY', { value: 0, configurable: true });
+    runScript(SCRIPT);
+    expect(document.documentElement.classList.contains('nhsw-is-scrolled')).toBe(false);
+
+    Object.defineProperty(window, 'scrollY', { value: 500, configurable: true });
+    window.dispatchEvent(new Event('scroll'));
+    expect(document.documentElement.classList.contains('nhsw-is-scrolled')).toBe(true);
+
+    Object.defineProperty(window, 'scrollY', { value: 10, configurable: true });
+    window.dispatchEvent(new Event('scroll'));
+    expect(document.documentElement.classList.contains('nhsw-is-scrolled')).toBe(false);
+  });
+});

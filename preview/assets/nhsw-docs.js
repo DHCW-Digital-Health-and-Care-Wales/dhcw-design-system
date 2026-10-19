@@ -84,6 +84,13 @@
     code.innerHTML = highlightHtml(code.textContent);
   });
 
+  function syncScrolled() {
+    document.documentElement.classList.toggle('nhsw-is-scrolled', window.scrollY > 300);
+  }
+
+  window.addEventListener('scroll', syncScrolled, { passive: true });
+  syncScrolled();
+
   document.addEventListener('click', function (event) {
     var link = event.target.closest && event.target.closest('.nhsw-example-preview__body a[href="#"]');
     if (link) event.preventDefault();

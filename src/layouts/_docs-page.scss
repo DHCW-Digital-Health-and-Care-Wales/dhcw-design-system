@@ -83,9 +83,34 @@
   }
 }
 
-// "Back to top" at the end of a tab, set off by a divider.
+// "Back to top" floats at the bottom right of the window once the page has been
+// scrolled (nhsw-docs.js adds nhsw-is-scrolled to the root element).
 .nhsw-back-to-top {
-  margin: 40px 0 0;
-  padding-top: 24px;
-  border-top: 1px solid c.$nhswales-grey-border-colour;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 100;
+  margin: 0;
+  padding: 8px 16px;
+  background-color: c.$nhswales-page-background-white;
+  border: 1px solid c.$nhswales-grey-border-colour;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s;
+
+  @include b.nhsw-from-tablet {
+    right: 32px;
+    bottom: 32px;
+  }
+
+  .nhsw-is-scrolled & {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
