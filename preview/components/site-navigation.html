@@ -205,8 +205,7 @@ tabs:
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Site navigation with an overflow menu</h3>
-    <p class="nhsw-body">By default, site navigation is hidden on small screens. Use the overflow menu variant when users still need the navigation on a small screen, or when they zoom in. Links that do not fit move into a "More" menu, and the "More" button only appears when it is needed.</p>
-    <p class="nhsw-body">Make your browser window narrower to see links move into the menu.</p>
+
 
     {% capture example_body %}{% raw %}
       <nav class="nhsw-site-header__nav nhsw-site-header__nav--overflow" aria-label="Primary navigation">
@@ -241,7 +240,8 @@ tabs:
   overflowMenu: true
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-overflow" html=html_sample njk=njk_sample toggleable=true %}
-
+   <p class="nhsw-body">By default, site navigation is hidden on small screens. Use the overflow menu variant when users still need the navigation on a small screen, or when they zoom in. Links that do not fit move into a "More" menu, and the "More" button only appears when it is needed.</p>
+    <p class="nhsw-body">Make your browser window narrower to see links move into the menu.</p>
     <p class="nhsw-body">This variant needs the <code style="color: #d4351c;">nhsw-behaviours.js</code> script, which works out which links fit and moves the rest into the menu. Without it, the links wrap onto more lines and the "More" button stays hidden.</p>
     <p class="nhsw-body">Users can open the menu with the keyboard, and close it with the Escape key. An open menu pushes the content below it down instead of covering it.</p>
   </section>
