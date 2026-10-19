@@ -254,21 +254,19 @@ tabs:
   <h3 class="nhsw-h3">Where to put the error summary</h3>
   <p class="nhsw-body">Put the error summary at the top of the <code>main</code> container. If your page includes breadcrumbs or a back link, place it below these, but above the <code>&lt;h1&gt;</code>.</p>
 
-  <h3 class="nhsw-h3">Timeout</h3>
-
   {% capture example_body %}{% raw %}
     <div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1">
       <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-timeout">There is a problem</h2>
       <ul class="nhsw-error-summary__list">
-        <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name">Your login attempt timed out. Login will start from the beginning.</a></li>
+        <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name-timeout">Your login attempt timed out. Login will start from the beginning.</a></li>
       </ul>
     </div>
 
     <h2 class="nhsw-h2">Your details</h2>
     <div class="nhsw-form-group nhsw-form-group--error">
-      <label class="nhsw-label" for="full-name">Full name</label>
-      <p class="nhsw-error-message" id="full-name-error"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
-      <input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true">
+      <label class="nhsw-label" for="full-name-timeout">Full name</label>
+      <p class="nhsw-error-message" id="full-name-timeout-error"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
+      <input class="nhsw-input" id="full-name-timeout" name="full-name" type="text" aria-describedby="full-name-timeout-error" aria-invalid="true">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-timeout" open_url="/examples/error-summary-timeout.html" body=example_body %}
@@ -276,26 +274,26 @@ tabs:
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title-timeout"&gt;There is a problem&lt;/h2&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
-    &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#full-name"&gt;Your login attempt timed out. Login will start from the beginning.&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#full-name-timeout"&gt;Your login attempt timed out. Login will start from the beginning.&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
 
 &lt;h2 class="nhsw-h2"&gt;Your details&lt;/h2&gt;
 &lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
-  &lt;label class="nhsw-label" for="full-name"&gt;Full name&lt;/label&gt;
-  &lt;p class="nhsw-error-message" id="full-name-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Enter your full name&lt;/p&gt;
-  &lt;input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true"&gt;
+  &lt;label class="nhsw-label" for="full-name-timeout"&gt;Full name&lt;/label&gt;
+  &lt;p class="nhsw-error-message" id="full-name-timeout-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Enter your full name&lt;/p&gt;
+  &lt;input class="nhsw-input" id="full-name-timeout" name="full-name" type="text" aria-describedby="full-name-timeout-error" aria-invalid="true"&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
   titleText: "There is a problem",
   errorList: [
-    { text: "Your login attempt timed out. Login will start from the beginning.", href: "#full-name" }
+    { text: "Your login attempt timed out. Login will start from the beginning.", href: "#full-name-timeout" }
   ]
 }) }}
 
 &lt;h2 class="nhsw-h2"&gt;Your details&lt;/h2&gt;
 {{ nhswInput({
-  id: "full-name",
+  id: "full-name-timeout",
   label: { text: "Full name" },
   errorMessage: { text: "Enter your full name" }
 }) }}{% endraw %}{% endcapture %}

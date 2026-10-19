@@ -16,3 +16,27 @@ describe('code viewer Figma tab', () => {
     expect(include).toContain('(opens in a new tab)');
   });
 });
+
+describe('checkboxes guidance', () => {
+  it('links "radio" in the "only choose one option" guidance to the radios page', () => {
+    const page = fs.readFileSync(path.join(root, 'preview/components/checkboxes.html'), 'utf8');
+    expect(page).toContain(`In this case, use a <a class="nhsw-link" href="{{ '/components/radios.html' | relative_url }}">radio</a>.`);
+  });
+});
+
+describe('error summary page examples', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/error-summary.html'), 'utf8');
+  const rendered = page.split('\n').filter((line) => !line.includes('&lt;') && !line.includes('{% include'));
+
+  it('no id is used by more than one example on the page, so each summary link goes to its own example', () => {
+    const ids = rendered.join('\n').match(/\sid="[^"]+"/g) || [];
+    const dupes = ids.filter((id, i) => ids.indexOf(id) !== i);
+    expect(dupes).toEqual([]);
+  });
+
+  it('the timeout summary link points at the field in its own example, and has no separate Timeout heading', () => {
+    expect(page).toContain('href="#full-name-timeout">Your login attempt timed out');
+    expect(page).toContain('id="full-name-timeout"');
+    expect(page).not.toContain('<h3 class="nhsw-h3">Timeout</h3>');
+  });
+});
