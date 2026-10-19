@@ -66,6 +66,9 @@
 }
 
 .nhsw-file-upload--reverse {
+  box-sizing: border-box;
+  max-width: 343px;
+
   .nhsw-file-upload__actions {
     flex-direction: row-reverse;
     justify-content: flex-end;

@@ -80,13 +80,16 @@ describe('Back to top at the bottom of every tab', () => {
   const dir = path.join(root, 'preview/components');
   const pages = fs.readdirSync(dir).filter((f) => f.endsWith('.html') && f !== 'index.html');
 
-  it('is set off by a divider, with space above', () => {
+  it('floats at the bottom right of the window and only appears once the page is scrolled', () => {
     const docs = compileProbe('@use "layouts/docs-page";');
     const start = docs.indexOf('\n.nhsw-back-to-top {');
     expect(start).toBeGreaterThan(-1);
     const rule = docs.slice(start, docs.indexOf('}', start));
-    expect(rule).toMatch(/border-top:\s*1px solid #d8dde0/);
-    expect(rule).toMatch(/margin:\s*40px 0 0/);
+    expect(rule).toMatch(/position:\s*fixed/);
+    expect(rule).toMatch(/bottom:\s*16px/);
+    expect(rule).toMatch(/right:\s*16px/);
+    expect(rule).toMatch(/visibility:\s*hidden/);
+    expect(docs).toMatch(/\.nhsw-is-scrolled \.nhsw-back-to-top\s*\{\s*opacity:\s*1;\s*visibility:\s*visible/);
   });
 
   it.each(pages)('%s ends each of its three tabs with a Back to top link', (page) => {

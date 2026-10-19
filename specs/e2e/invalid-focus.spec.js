@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('a focused invalid text input keeps the red border and shows the yellow outline', async ({ page }) => {
+test('a focused invalid text input swaps the red border for near-black and shows the yellow outline', async ({ page }) => {
   await page.goto('/examples/input-hint.html');
   const style = await page.evaluate(() => {
     const el = document.querySelector('.nhsw-input');
@@ -9,8 +9,9 @@ test('a focused invalid text input keeps the red border and shows the yellow out
     const s = getComputedStyle(el);
     return { border: s.borderTopColor, shadow: s.boxShadow, outline: s.outlineColor };
   });
-  expect(style.border).toBe('rgb(213, 40, 27)');
-  expect(style.shadow).toContain('rgb(213, 40, 27)');
+  expect(style.border).toBe('rgb(33, 43, 50)');
+  expect(style.shadow).toContain('rgb(33, 43, 50)');
+  expect(style.shadow).not.toContain('rgb(213, 40, 27)');
   expect(style.outline).not.toBe('rgb(213, 40, 27)');
 });
 

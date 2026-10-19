@@ -7,7 +7,7 @@ test.describe('Primary navigation active state', () => {
     { url: '/components/header.html', label: 'Components' },
     { url: '/testing/checkboxes.html', label: 'Components' },
     { url: '/get-started/index.html', label: 'Get started' },
-    { url: '/get-started/prototyping.html', label: 'Get started' },
+    { url: '/get-started/setting-up-figma-prototypes.html', label: 'Get started' },
     { url: '/styles.html', label: 'Styles' },
   ];
 
@@ -39,11 +39,11 @@ test.describe('Primary navigation active state', () => {
 
 test.describe('Breadcrumbs', () => {
   test('a Get started sub-page shows only its ancestors, not the current page', async ({ page }) => {
-    await page.goto('/get-started/prototyping.html');
+    await page.goto('/get-started/setting-up-figma-prototypes.html');
     const crumbs = page.locator('.nhsw-breadcrumb__list-item');
     await expect(crumbs).toHaveCount(1);
     await expect(crumbs.nth(0)).toContainText('Home');
-    await expect(page.locator('.nhsw-breadcrumb')).not.toContainText('Prototyping');
+    await expect(page.locator('.nhsw-breadcrumb')).not.toContainText('Setting up Figma prototypes');
   });
 
   test('a legal page shows only its ancestors, not the current page', async ({ page }) => {

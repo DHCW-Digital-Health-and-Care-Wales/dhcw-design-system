@@ -232,3 +232,61 @@ describe('placeholder links inside embedded examples', () => {
     expect(click(document.getElementById('outside'))).toBe(false);
   });
 });
+
+describe('floating Back to top', () => {
+  beforeEach(() => {
+    document.documentElement.classList.remove('nhsw-is-scrolled');
+    setBody('<p class="nhsw-back-to-top"><a href="#maincontent">Back to top</a></p>');
+  });
+
+  it('is only marked as scrolled once the page has been scrolled past 300px', () => {
+    Object.defineProperty(window, 'scrollY', { value: 0, configurable: true });
+    runScript(SCRIPT);
+    expect(document.documentElement.classList.contains('nhsw-is-scrolled')).toBe(false);
+
+    Object.defineProperty(window, 'scrollY', { value: 500, configurable: true });
+    window.dispatchEvent(new Event('scroll'));
+    expect(document.documentElement.classList.contains('nhsw-is-scrolled')).toBe(true);
+
+    Object.defineProperty(window, 'scrollY', { value: 10, configurable: true });
+    window.dispatchEvent(new Event('scroll'));
+    expect(document.documentElement.classList.contains('nhsw-is-scrolled')).toBe(false);
+  });
+});
+
+describe('links into a hidden tab', () => {
+  beforeEach(() => {
+    window.history.replaceState(null, '', '/');
+    setBody(`
+      <a id="go" href="#success-banner">the success banner</a>
+      <a id="plain" href="#visible">visible</a>
+      <div class="nhsw-tabs">
+        <button id="tab-how" aria-controls="panel-how">How</button>
+        <button id="tab-variants" aria-controls="panel-variants">Variants</button>
+        <div id="panel-how" aria-labelledby="tab-how"><h3 id="visible">Visible</h3></div>
+        <div id="panel-variants" class="nhsw-tabs__panel--hidden" aria-labelledby="tab-variants"><h3 id="success-banner">Success banner</h3></div>
+      </div>
+    `);
+    document.getElementById('tab-variants').addEventListener('click', () => {
+      document.getElementById('panel-variants').classList.remove('nhsw-tabs__panel--hidden');
+    });
+    Element.prototype.scrollIntoView = vi.fn();
+    runScript(SCRIPT);
+  });
+
+  const click = (el) => {
+    const event = new Event('click', { bubbles: true, cancelable: true });
+    el.dispatchEvent(event);
+    return event.defaultPrevented;
+  };
+
+  it('opens the tab holding the target, then moves focus to the heading', () => {
+    expect(click(document.getElementById('go'))).toBe(true);
+    expect(document.getElementById('panel-variants').classList.contains('nhsw-tabs__panel--hidden')).toBe(false);
+    expect(document.activeElement).toBe(document.getElementById('success-banner'));
+  });
+
+  it('leaves links to something already visible to the browser', () => {
+    expect(click(document.getElementById('plain'))).toBe(false);
+  });
+});

@@ -46,7 +46,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="wc-overview" html=html_sample njk=njk_sample toggleable=true %}
 
-  <h2 class="nhsw-h2">When to use a warning callout</h2>
+  <h2 class="nhsw-h2" id="warning-callout">When to use a warning callout</h2>
   <p class="nhsw-body">Use this callout for important information that:</p>
   <ul class="nhsw-body">
     <li>someone needs to be aware of before doing anything else</li>
@@ -140,7 +140,7 @@ tabs:
     <h4 class="nhsw-h4">When not to use important information</h4>
     <p class="nhsw-body">Do not use a important information</p>
     <ul class="nhsw-body">
-      <li>if the information is critical or relates to a significant risk, use a <a class="nhsw-link" href="#">warning callout</a> instead.</li>
+      <li>if the information is critical or relates to a significant risk, use a <a class="nhsw-link" href="#warning-callout">warning callout</a> instead.</li>
       <li>in transactional services, NHS England and DHCW have not yet tested this variant in transactional user journeys</li>
     </ul>
   </section>

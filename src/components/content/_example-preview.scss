@@ -53,6 +53,24 @@
     }
   }
 
+  // Cards shown on the documentation pages take the width of their content, as
+  // in the design, instead of stretching across the whole example.
+  &__body > .nhsw-card:not(.nhsw-card--top-task):has(> .nhsw-card__title .nhsw-card__title-link) {
+    width: 100%;
+    max-width: 440px;
+    min-height: 220px;
+  }
+
+  &__body > .nhsw-card:has(> .nhsw-card__stat) {
+    width: fit-content;
+    min-width: 170px;
+    min-height: 0;
+  }
+
+  &__body > .nhsw-card:has(> .nhsw-card__image) {
+    max-width: 27.375rem;
+  }
+
   &__frame {
     display: block;
     width: 100%;
