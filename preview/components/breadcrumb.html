@@ -60,13 +60,14 @@ tabs:
   </ul>
 
   <h2 class="nhsw-h2">When not to use breadcrumbs</h2>
-  <p class="nhsw-body">Do not use breadcrumbs in transactional journeys. They introduce additional navigation options that users do not need while completing a task and may encourage navigation away from the journey before it is complete.</p>
+  <p class="nhsw-body">Do not use breadcrumbs in transactional journeys.</p>
+  <p class="nhs-body">They can distract users from completing their task and encourage them to leave the journey before they have finished.</p>
 
   <h2 class="nhsw-h2">How to use breadcrumbs</h2>
-  <p class="nhsw-body">If the full breadcrumb trail doesn't fit the screen size, it can wrap onto 2 lines, but do not break a breadcrumb if it doesn't fit the line.</p>
-  <p class="nhsw-body">You do not need to show the current page in the breadcrumb because this information is in the H1.</p>
-  <p class="nhsw-body">On mobile, we replace the full breadcrumb trail with a "Back to [parent]" link.</p>
-  <p class="nhsw-body">We use <code style="color: #d4351c;">aria-label="breadcrumb"</code> as a label in the nav element to let people who use screen readers know what it is.</p>
+  <p class="nhsw-body">If the full breadcrumb trail does not fit on one line, allow it to wrap onto two lines. Keep each breadcrumb link on the same line.</p>
+  <p class="nhsw-body">Do not include the current page in the breadcrumb trail. The page heading already tells users where they are.</p>
+  <p class="nhsw-body">On smaller screens, replace the full breadcrumb trail with a "Back to [parent page]" link.</p>
+  <p class="nhsw-body">Add <code style="color: #d4351c;">aria-label="breadcrumb"</code> to the nav element so screen reader users can identify the breadcrumb navigation.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
@@ -124,7 +125,6 @@ tabs:
   {% include code-viewer.html id="bc-dark" html=html_sample njk=njk_sample toggleable=true %}
 
   <p class="nhsw-body">This breadcrumbs variant is designed for use on dark backgrounds, where the standard version may not provide enough contrast.</p>
-  <p class="nhsw-body">To make sure all users can see the links and arrows, the background colour must have a contrast ratio of at least 4.5:1 against white to meet <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 2.2 success criterion 1.4.3 Contrast (minimum), level AA (W3C)</a>.</p>
   <p class="nhsw-body">Use the <code style="color: #d4351c;">nhsw-breadcrumb--reverse</code> modifier class to show white links and arrows on dark backgrounds.</p>
 
 
