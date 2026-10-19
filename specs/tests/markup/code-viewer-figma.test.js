@@ -229,3 +229,29 @@ describe('select page label weights', () => {
     }
   });
 });
+
+describe('select page: meaningful example copy and the multiple options heading', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/select.html'), 'utf8');
+
+  it('no example still uses placeholder copy', () => {
+    expect(page).not.toContain('Hint text goes here');
+    expect(page).not.toContain('Error message goes here');
+    expect(page).not.toContain('Label desktop');
+  });
+
+  it('the error and hint examples read: label, hint, error message, in the example and both samples', () => {
+    expect(page).toContain('<div class="nhsw-hint" id="sel-htu-err-hint">This can be different to what you selected before</div>');
+    expect(page).toContain('</span>Choose region</p>');
+    expect(page).toContain('hint: { text: "This can be different to what you selected before" },');
+    expect(page).toContain('errorMessage: { text: "Choose region" },');
+    expect(page).toContain('<div class="nhsw-hint" id="sel-hint-hint">This can be different to what you selected before</div>');
+  });
+
+  it('puts a heading before the paragraph about not selecting multiple options', () => {
+    const heading = page.indexOf('<h3 class="nhsw-h3">Avoid adding functionality to allow selecting multiple options</h3>');
+    const paragraph = page.indexOf('The select component does not support selecting multiple options');
+    expect(heading).toBeGreaterThan(-1);
+    expect(heading).toBeLessThan(paragraph);
+    expect(paragraph - heading).toBeLessThan(200);
+  });
+});

@@ -78,8 +78,8 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label nhsw-label--bold" for="sel-htu-err">Choose region</label>
-      <div class="nhsw-hint" id="sel-htu-err-hint">Hint text goes here</div>
-      <p class="nhsw-error-message" id="sel-htu-err-error"><span class="nhsw-visually-hidden">Error: </span>Error message goes here</p>
+      <div class="nhsw-hint" id="sel-htu-err-hint">This can be different to what you selected before</div>
+      <p class="nhsw-error-message" id="sel-htu-err-error"><span class="nhsw-visually-hidden">Error: </span>Choose region</p>
       <select id="sel-htu-err" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="sel-htu-err-hint sel-htu-err-error">
         <option>Choose region</option>
       </select>
@@ -89,8 +89,8 @@ tabs:
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
   &lt;label class="nhsw-label nhsw-label--bold" for="region"&gt;Choose region&lt;/label&gt;
-  &lt;div class="nhsw-hint" id="region-hint"&gt;Hint text goes here&lt;/div&gt;
-  &lt;p class="nhsw-error-message" id="region-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Error message goes here&lt;/p&gt;
+  &lt;div class="nhsw-hint" id="region-hint"&gt;This can be different to what you selected before&lt;/div&gt;
+  &lt;p class="nhsw-error-message" id="region-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Choose region&lt;/p&gt;
   &lt;select id="region" name="region" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="region-hint region-error"&gt;
     &lt;option value=""&gt;Choose region&lt;/option&gt;
     &lt;option value="north-wales"&gt;North Wales&lt;/option&gt;
@@ -102,8 +102,8 @@ tabs:
 {{ nhswSelect({
   id: "region",
   label: { text: "Choose region", classes: "nhsw-label--bold" },
-  hint: { text: "Hint text goes here" },
-  errorMessage: { text: "Error message goes here" },
+  hint: { text: "This can be different to what you selected before" },
+  errorMessage: { text: "Choose region" },
   items: [
     { value: "", text: "Choose region" },
     { value: "north-wales", text: "North Wales" },
@@ -112,6 +112,7 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="sel-htu-error" html=html_sample njk=njk_sample toggleable=true %}
 
+  <h3 class="nhsw-h3">Avoid adding functionality to allow selecting multiple options</h3>
   <p class="nhsw-body">The select component does not support selecting multiple options, as there's a history of poor usability and assistive technology support for <code style="color: #d4351c;">&lt;select multiple&gt;</code>. If you need to ask the user to pick more than 1 item from a list, it's almost always better to use another method, such as a list of <a class="nhsw-link" href="{{ '/components/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
   <p class="nhsw-body">Read <a class="nhsw-link" href="https://www.24a11y.com/2019/select-your-poison/">Select your poison (24 Accessibility)</a>.</p>
 
@@ -139,7 +140,7 @@ tabs:
     {% capture example_body %}{% raw %}
       <div class="nhsw-form-group">
         <label class="nhsw-label nhsw-label--regular" for="sel-hint">Choose region</label>
-        <div class="nhsw-hint" id="sel-hint-hint">Hint text goes here</div>
+        <div class="nhsw-hint" id="sel-hint-hint">This can be different to what you selected before</div>
         <select id="sel-hint" class="nhsw-select" aria-describedby="sel-hint-hint">
           <option>Choose region</option>
         </select>
@@ -149,7 +150,7 @@ tabs:
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
   &lt;label class="nhsw-label nhsw-label--regular" for="region"&gt;Choose region&lt;/label&gt;
-  &lt;div class="nhsw-hint" id="region-hint"&gt;Hint text goes here&lt;/div&gt;
+  &lt;div class="nhsw-hint" id="region-hint"&gt;This can be different to what you selected before&lt;/div&gt;
   &lt;select id="region" name="region" class="nhsw-select" aria-describedby="region-hint"&gt;
     &lt;option value=""&gt;Choose region&lt;/option&gt;
     &lt;option value="north-wales"&gt;North Wales&lt;/option&gt;
@@ -161,7 +162,7 @@ tabs:
 {{ nhswSelect({
   id: "region",
   label: { text: "Choose region", classes: "nhsw-label--regular" },
-  hint: { text: "Hint text goes here" },
+  hint: { text: "This can be different to what you selected before" },
   items: [
     { value: "", text: "Choose region" },
     { value: "north-wales", text: "North Wales" },
