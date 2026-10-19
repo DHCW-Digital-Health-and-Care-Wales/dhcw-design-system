@@ -118,3 +118,51 @@ describe('warning callout page: important information variant', () => {
     expect(page.match(/id="warning-callout"/g)).toHaveLength(1);
   });
 });
+
+describe('pagination page: gaps in the page numbering', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/pagination.html'), 'utf8');
+  const list = page.slice(page.indexOf('Use ellipses (…) to show gaps'), page.indexOf('</ul>', page.indexOf('Use ellipses (…) to show gaps')));
+
+  it('puts the current page in square brackets in each example', () => {
+    const items = [...list.matchAll(/<li>(.*?)<\/li>/g)].map((m) => m[1].replace(/<\/?strong>/g, ''));
+    expect(items).toEqual([
+      '[1] 2 … 100',
+      '1 [2] 3 … 100',
+      '1 2 [3] 4 … 100',
+      '1 2 3 [4] 5 … 100',
+      '1 … 4 [5] 6 … 100',
+      '1 … 97 [98] 99 100',
+      '1 … 98 [99] 100',
+      '1 … 99 [100]',
+    ]);
+  });
+});
+
+describe('pagination variants: structure and descriptions', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/pagination.html'), 'utf8');
+  const variants = page.slice(page.indexOf('id="panel-variants"'), page.indexOf('id="panel-examples"'));
+  const at = (text) => variants.indexOf(text);
+
+  it('content pages: heading, then the component, then the description', () => {
+    const order = [
+      'For navigating between content pages</h3>',
+      '{% include example-preview.html id="pg-content"',
+      '{% include code-viewer.html id="pg-content"',
+      "Use pagination at the bottom of pages of content to allow users to navigate around a topic that's divided into multiple pages (up to 8 pages).",
+    ].map(at);
+    expect(order.every((i) => i > -1)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+  });
+
+  it('1st and last pages: each example is followed by its description', () => {
+    const order = [
+      '{% include code-viewer.html id="pg-first"',
+      'Do not show a “Previous” link on the first page of a set of results. There is no page before the first page.',
+      '{% include example-preview.html id="pg-last"',
+      '{% include code-viewer.html id="pg-last"',
+      'Do not show a “Next” link on the last page of a set of results. There are no more pages after the last page.',
+    ].map(at);
+    expect(order.every((i) => i > -1)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+  });
+});

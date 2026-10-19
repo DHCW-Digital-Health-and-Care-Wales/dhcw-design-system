@@ -138,7 +138,6 @@ tabs:
 
   <section class="preview-section">
     <h3 class="nhsw-h3">For navigating between content pages</h3>
-    <p class="nhsw-body">Use pagination at the bottom of pages of content to allow users to navigate around a topic that's divided into multiple pages (up to 8 pages).</p>
 
     {% capture example_body %}{% raw %}
       <nav class="nhsw-pagination" role="navigation" aria-label="Pagination">
@@ -193,6 +192,8 @@ tabs:
   next: { title: "Next", label: "Symptoms", href: "/symptoms" }
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pg-content" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Use pagination at the bottom of pages of content to allow users to navigate around a topic that's divided into multiple pages (up to 8 pages).</p>
   </section>
 
   <section class="preview-section">
@@ -283,14 +284,14 @@ tabs:
     <p class="nhsw-body">For larger screens, you can show the page numbers for 2 or more pages before and after the current page.</p>
     <p class="nhsw-body">Use ellipses (…) to show gaps in the page numbering. For example:</p>
     <ul class="nhsw-body">
-      <li><strong>1</strong> 2 … 100</li>
-      <li>1 <strong>2</strong> 3 … 100</li>
-      <li>1 2 <strong>3</strong> 4 … 100</li>
-      <li>1 2 3 <strong>4</strong> 5 … 100</li>
-      <li>1 … 4 <strong>5</strong> 6 … 100</li>
-      <li>1 … 97 <strong>98</strong> 99 100</li>
-      <li>1 … 98 <strong>99</strong> 100</li>
-      <li>1 … 99 <strong>100</strong></li>
+      <li><strong>[1]</strong> 2 … 100</li>
+      <li>1 <strong>[2]</strong> 3 … 100</li>
+      <li>1 2 <strong>[3]</strong> 4 … 100</li>
+      <li>1 2 3 <strong>[4]</strong> 5 … 100</li>
+      <li>1 … 4 <strong>[5]</strong> 6 … 100</li>
+      <li>1 … 97 <strong>[98]</strong> 99 100</li>
+      <li>1 … 98 <strong>[99]</strong> 100</li>
+      <li>1 … 99 <strong>[100]</strong></li>
     </ul>
   </section>
 
@@ -338,6 +339,8 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pg-first" html=html_sample njk=njk_sample toggleable=true %}
 
+    <p class="nhsw-body">Do not show a “Previous” link on the first page of a set of results. There is no page before the first page.</p>
+
     {% capture example_body %}{% raw %}
       <nav class="nhsw-pagination nhsw-pagination--numbered" role="navigation" aria-label="Pagination">
         <a href="#" class="nhsw-pagination__previous" rel="prev">
@@ -378,6 +381,8 @@ tabs:
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pg-last" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Do not show a “Next” link on the last page of a set of results. There are no more pages after the last page.</p>
   </section>
 
 
