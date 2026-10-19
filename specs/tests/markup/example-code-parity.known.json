@@ -15,8 +15,6 @@
     "components/radios.html#rd-inline",
     "components/radios.html#rd-conditional",
     "components/select.html#sel-overview",
-    "components/select.html#sel-htu-error",
-    "components/select.html#sel-hint",
     "components/skip-link.html#sl-overview",
     "components/table.html#tbl-caption",
     "components/table.html#tbl-numeric",

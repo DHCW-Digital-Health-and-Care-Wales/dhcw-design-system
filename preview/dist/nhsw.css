@@ -1026,6 +1026,12 @@
 .nhsw-checkboxes--small .nhsw-checkboxes__hint {
   font-size: 1rem;
 }
+.nhsw-checkboxes--small .nhsw-checkboxes__item:hover .nhsw-checkboxes__input:not(:disabled) + .nhsw-checkboxes__label::before {
+  box-shadow: 0 0 0 4px #afb8bf;
+}
+.nhsw-checkboxes--small .nhsw-checkboxes__item:hover .nhsw-checkboxes__input:not(:disabled):focus + .nhsw-checkboxes__label::before {
+  box-shadow: 0 0 0 4px #ffeb3b, 0 0 0 8px #afb8bf;
+}
 
 .nhsw-input-wrapper {
   display: inline-flex;
@@ -2078,6 +2084,11 @@ body {
     padding: 32px 80px;
   }
 }
+@media (min-width: 40.0625em) {
+  .nhsw-panel--small:not(:has(.nhsw-panel__icon)) {
+    padding: 32px 40px;
+  }
+}
 .nhsw-panel--small .nhsw-panel__icon {
   width: 32px;
   height: 32px;
@@ -2382,6 +2393,7 @@ body {
   color: #005aa8;
   font-weight: 400;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 .nhsw-pagination--numbered .nhsw-pagination__previous:hover,
 .nhsw-pagination--numbered .nhsw-pagination__next:hover {
@@ -2473,6 +2485,7 @@ body {
   font-weight: 400;
   text-align: center;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 .nhsw-pagination--numbered .nhsw-pagination__number-link:hover {
   background-color: #d8dde0;
@@ -4222,6 +4235,10 @@ body {
   gap: 16px;
   padding: 32px;
 }
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) .nhsw-card__image {
+  align-self: stretch;
+  margin-bottom: 1rem;
+}
 .nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) .nhsw-card__title,
 .nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) .nhsw-card__description {
   align-self: stretch;
@@ -4340,10 +4357,10 @@ body {
 
 .nhsw-card__image {
   display: block;
-  width: calc(100% + 2rem);
+  width: calc(100% + 4rem);
   max-width: none;
   height: auto;
-  margin: -1rem -1rem 1rem;
+  margin: -2rem -2rem 2rem;
 }
 
 .nhsw-card__preview {
@@ -4433,7 +4450,7 @@ body {
   width: 264px;
   max-width: 100%;
   min-height: 160px;
-  padding: 48px;
+  padding: 2rem;
 }
 .nhsw-card.nhsw-card--top-task:not(.nhsw-card--preview):not(.nhsw-card--flat) .nhsw-card__title {
   max-width: 168px;

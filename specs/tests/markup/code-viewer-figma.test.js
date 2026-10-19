@@ -263,7 +263,7 @@ describe('select page: when not to use select', () => {
 });
 
 describe('cards page: heading sizes in the accessibility examples', () => {
-  const page = fs.readFileSync(path.join(root, 'preview/components/cards.html'), 'utf8');
+  const page = fs.readFileSync(path.join(root, 'preview/components/cards.html'), 'utf8').replace(/\r\n/g, '\n');
   const sizes = page.slice(page.indexOf('id="card-heading-sizes"') - 2500, page.indexOf('id="card-heading-sizes" html'));
 
   it('size l is an h2, m is an h3 and s is an h4, in the example, the HTML sample and the Nunjucks sample', () => {
@@ -272,5 +272,67 @@ describe('cards page: heading sizes in the accessibility examples', () => {
       expect(sizes).toContain(`&lt;h${level} class="nhsw-card__title nhsw-card__title--${size}"&gt;Heading level ${size}&lt;/h${level}&gt;`);
       expect(sizes).toContain(`headingLevel: ${level},\n  titleSize: "${size}",`);
     }
+  });
+});
+
+describe('styles home page', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/styles.html'), 'utf8').replace(/\r\n/g, '\n');
+
+  it('is the "All styles" page: heading, introduction, then a card for each style', () => {
+    expect(page).toContain('<h1 class="nhsw-h1">All styles</h1>');
+    expect(page).toContain('Make your service look and feel like other NHS Wales services with these tested styles.');
+    const cards = [...page.matchAll(/<h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="\{\{ '([^']+)' \| relative_url \}\}">([^<]+)<\/a><\/h3>\s*<p class="nhsw-card__description">([^<]+)<\/p>/g)]
+      .map((m) => [m[2], m[1], m[3]]);
+    expect(cards).toEqual([
+      ['Colours', '/styles/colours.html', 'Apply the NHS Wales colour palette consistently across your service.'],
+      ['Icons', '/styles/icons.html', 'Use approved icons to help users understand and navigate content.'],
+      ['Layout', '/styles/layout.html', 'Create clear, consistent and responsive page layouts.'],
+      ['Page templates', '/patterns/page-templates.html', 'Use templates to create pages that are consistent with other services.'],
+      ['Typography', '/styles/typography.html', 'Use typography standards to make content clear, readable and accessible.'],
+    ]);
+  });
+
+  it('lays the cards out three to a row, like the components page', () => {
+    expect(page).toContain('<ul class="nhsw-grid-row nhsw-card-group" role="list">');
+    expect(page.match(/nhsw-grid-column-one-third nhsw-card-group__item/g)).toHaveLength(5);
+  });
+
+  it('the side navigation calls the page "All styles"', () => {
+    expect(fs.readFileSync(path.join(root, 'preview/_data/styles_nav.yml'), 'utf8')).toContain('- title: All styles');
+  });
+});
+
+describe('card with an image example opened in a new tab', () => {
+  it('shows the card in a half width column, not the full width of the page', () => {
+    const example = fs.readFileSync(path.join(root, 'preview/examples/card-image.html'), 'utf8');
+    expect(example).toMatch(/<ul class="nhsw-grid-row nhsw-card-group" role="list">\s*<li class="nhsw-grid-column-one-half nhsw-card-group__item">\s*<div class="nhsw-card">/);
+  });
+});
+
+describe('select examples show the dropdown options', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/select.html'), 'utf8').replace(/\r\n/g, '\n');
+  const regions = ['Choose region', 'North Wales', 'Mid Wales', 'West Wales', 'South Wales'];
+
+  it.each([['sel-ov', 'overview'], ['sel-htu-err', 'error message'], ['sel-hint', 'select with hint (variants)']])('the %s (%s) live example lists every option', (id) => {
+    const start = page.indexOf(`id="${id}"`);
+    const select = page.slice(start, page.indexOf('</select>', start));
+    for (const region of regions) expect(select, `${id} is missing "${region}"`).toContain(`<option>${region}</option>`);
+  });
+
+  it('every HTML and Nunjucks sample on the page lists the same five options', () => {
+    expect(page.match(/&lt;option value="south-wales"&gt;South Wales&lt;\/option&gt;/g)).toHaveLength(3);
+    expect(page.match(/\{ value: "south-wales", text: "South Wales" \}/g)).toHaveLength(3);
+  });
+});
+
+describe('styles home page has no breadcrumb, like the design', () => {
+  it('turns the breadcrumb off for this page only', () => {
+    const page = fs.readFileSync(path.join(root, 'preview/styles.html'), 'utf8');
+    expect(page).toContain('no_breadcrumb: true');
+    const include = fs.readFileSync(path.join(root, 'preview/_includes/breadcrumb.html'), 'utf8');
+    expect(include).toMatch(/^\{% unless page\.no_breadcrumb %\}/);
+    expect(include.trimEnd()).toMatch(/\{% endunless %\}$/);
+    const others = ['preview/index.html', 'preview/components/index.html', 'preview/get-started/index.html'];
+    for (const file of others) expect(fs.readFileSync(path.join(root, file), 'utf8')).not.toContain('no_breadcrumb');
   });
 });

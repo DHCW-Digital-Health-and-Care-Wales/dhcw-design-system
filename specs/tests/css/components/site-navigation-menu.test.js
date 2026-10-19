@@ -178,21 +178,15 @@ describe('card examples on the docs pages are sized to their content', () => {
     expect(preview).toMatch(/\.nhsw-card:has\(> \.nhsw-card__image\) \{\s*max-width: 27\.375rem/);
   });
 
-  it('clickable cards follow the Figma sizes: 440px wide with 32px padding, stat card 24px padding, top task card 264px with 48px padding, all left aligned', () => {
+  it('clickable cards follow the Figma sizes: 440px wide with 32px padding, stat card 24px padding, top task card 264px, all left aligned', () => {
     expect(preview).toMatch(/\.nhsw-card:not\(\.nhsw-card--top-task\):has\(> \.nhsw-card__title \.nhsw-card__title-link\) \{\s*width: 100%;\s*max-width: 440px;\s*min-height: 220px/);
     expect(card).toMatch(/\.nhsw-card:not\(\.nhsw-card--preview\):not\(\.nhsw-card--flat\):has\(\.nhsw-card__title-link\) \{[^}]*gap: 16px;\s*padding: 32px/);
     expect(card).toMatch(/\.nhsw-card:not\(\.nhsw-card--preview\):not\(\.nhsw-card--flat\):has\(> \.nhsw-card__stat\) \{\s*gap: 4px;\s*padding: 24px/);
     const top = block(card, '\\.nhsw-card\\.nhsw-card--top-task:not\\(\\.nhsw-card--preview\\):not\\(\\.nhsw-card--flat\\)');
     expect(top).toMatch(/width:\s*264px/);
-    expect(top).toMatch(/padding:\s*48px/);
+    expect(top).toMatch(/padding:\s*2rem/);
     expect(top).not.toMatch(/text-align/);
     expect(preview).not.toContain('.nhsw-card--top-task {');
-  });
-
-  it('the card image runs edge to edge across the top of the card', () => {
-    const image = block(card, '\.nhsw-card__image');
-    expect(image).toMatch(/margin:\s*-1rem -1rem 1rem/);
-    expect(image).toMatch(/width:\s*calc\(100% \+ 2rem\)/);
   });
 });
 
@@ -332,5 +326,45 @@ describe('non-clickable cards and heading sizes', () => {
     expect(card).toMatch(/\.nhsw-card__title--s\s*\{\s*font-size:\s*1\.1875rem/);
     expect(card).toMatch(/@media[^{]*\{\s*\.nhsw-card__title--l\s*\{\s*font-size:\s*2\.25rem/);
     expect(card).toMatch(/@media[^{]*\{\s*\.nhsw-card__title--s\s*\{\s*font-size:\s*1\.375rem/);
+  });
+});
+
+describe('card padding and the card image', () => {
+  const card = compileProbe(`@use "components/cards/card";`);
+
+  it('the second top task card has the same 32px padding as the other cards', () => {
+    expect(block(card, '\\.nhsw-card\\.nhsw-card--top-task:not\\(\\.nhsw-card--preview\\):not\\(\\.nhsw-card--flat\\)')).toMatch(/padding:\s*2rem/);
+  });
+
+  it('the image runs edge to edge across the top, cancelling the 32px padding, with the padding kept for the content below', () => {
+    const image = block(card, '\\.nhsw-card__image');
+    expect(image).toMatch(/margin:\s*-2rem -2rem 2rem/);
+    expect(image).toMatch(/width:\s*calc\(100% \+ 4rem\)/);
+    expect(card).toMatch(/\.nhsw-card__image\s*\{\s*align-self:\s*stretch;\s*margin-bottom:\s*1rem/);
+  });
+});
+
+describe('pagination underline thickness is the same in every variant', () => {
+  const css = compileProbe(`@use "components/content/pagination";`);
+  const selectors = [
+    '.nhsw-pagination--numbered .nhsw-pagination__previous,\n.nhsw-pagination--numbered .nhsw-pagination__next',
+    '.nhsw-pagination--numbered .nhsw-pagination__number-link',
+    '.nhsw-pagination__link .nhsw-pagination__title',
+    '.nhsw-pagination__page',
+  ];
+
+  it.each(selectors)('%s is underlined at 1px', (selector) => {
+    const start = css.indexOf(`\n${selector} {`);
+    expect(start).toBeGreaterThan(-1);
+    expect(css.slice(start, css.indexOf('}', start))).toMatch(/text-decoration-thickness:\s*1px/);
+  });
+});
+
+describe('panel without an icon (small)', () => {
+  const css = compileProbe(`@use "components/content/panel";`);
+
+  it('keeps the standard 40px side padding from the tablet breakpoint, not the 80px of the icon version', () => {
+    expect(css).toMatch(/\.nhsw-panel--small:not\(:has\(\.nhsw-panel__icon\)\)\s*\{\s*padding:\s*32px 40px/);
+    expect(css).toMatch(/\.nhsw-panel--small\s*\{\s*padding:\s*32px 80px/);
   });
 });

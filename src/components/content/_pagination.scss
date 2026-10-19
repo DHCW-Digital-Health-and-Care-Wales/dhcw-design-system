@@ -154,6 +154,7 @@
     color: c.$nhswales-link-colour;
     font-weight: 400;
     text-decoration: underline;
+    text-decoration-thickness: 1px;
 
     &:hover {
       background-color: c.$nhswales-grey-border-colour;
@@ -253,6 +254,7 @@
     font-weight: 400;
     text-align: center;
     text-decoration: underline;
+    text-decoration-thickness: 1px;
 
     &:hover {
       background-color: c.$nhswales-grey-border-colour;

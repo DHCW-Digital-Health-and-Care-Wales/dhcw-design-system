@@ -43,6 +43,13 @@
   gap: 16px;
   padding: 32px;
 
+  // The image runs edge to edge across the top; the 32px padding applies to the content
+  // below it (the 16px flex gap plus 16px here).
+  .nhsw-card__image {
+    align-self: stretch;
+    margin-bottom: 1rem;
+  }
+
   .nhsw-card__title,
   .nhsw-card__description {
     align-self: stretch;
@@ -171,10 +178,10 @@
 
 .nhsw-card__image {
   display: block;
-  width: calc(100% + 2rem);
+  width: calc(100% + 4rem);
   max-width: none;
   height: auto;
-  margin: -1rem -1rem 1rem;
+  margin: -2rem -2rem 2rem;
 }
 
 .nhsw-card__preview {
@@ -274,7 +281,7 @@
   width: 264px;
   max-width: 100%;
   min-height: 160px;
-  padding: 48px;
+  padding: 2rem;
 
   .nhsw-card__title {
     max-width: 168px;

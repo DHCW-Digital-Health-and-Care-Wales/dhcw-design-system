@@ -71,6 +71,13 @@
     padding: 32px 80px;
   }
 
+  // Without an icon the text is left aligned and keeps the standard 40px side padding.
+  &:not(:has(.nhsw-panel__icon)) {
+    @include b.nhsw-from-tablet {
+      padding: 32px 40px;
+    }
+  }
+
   .nhsw-panel__icon {
     width: 32px;
     height: 32px;
