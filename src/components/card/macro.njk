@@ -14,7 +14,10 @@
                               either), title renders as plain text
                               (non-clickable card).
     headingLevel  integer  - 2/3/4/5, defaults to 3. Controls the title tag
-                              (h2/h3/h4/h5); the class is always nhsw-card__title.
+                              (h2/h3/h4/h5). It does not change the size.
+    titleSize     string   - "l", "m" or "s". Adds nhsw-card__title--l/--m/--s to set the
+                              size of the title (l matches an h2, m an h3, s an h4).
+                              Defaults to the standard card title size.
     description   string   - body text, wrapped in <p class="nhsw-card__description">
     html          string   - free-form body HTML, used as-is instead of
                               description. Takes precedence over description.
@@ -42,6 +45,7 @@
 #}
 {%- macro nhswCard(params) -%}
 {%- set headingTag = "h" ~ (params.headingLevel or 3) -%}
+{%- set titleClass = "nhsw-card__title" ~ (" nhsw-card__title--" ~ params.titleSize if params.titleSize else "") -%}
 {%- set titleInner -%}
 {%- if params.icon %}<span class="nhsw-card__icon" aria-hidden="true">{{ params.icon.html | safe if params.icon.html is defined else "i" }}</span>{% endif -%}
 {%- if params.titleHtml %}{{ params.titleHtml | safe }}{% elif params.titleHref %}<a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>{% else %}{{ params.title }}{% endif -%}
@@ -66,7 +70,7 @@
   <a class="nhsw-card__title-link" href="{{ params.titleHref }}">{{ params.title }}</a>
 {%- elif params.actions %}
   <div class="nhsw-card__header">
-    <{{ headingTag }} class="nhsw-card__title">{{ titleInner | safe }}</{{ headingTag }}>
+    <{{ headingTag }} class="{{ titleClass }}">{{ titleInner | safe }}</{{ headingTag }}>
     <ul class="nhsw-card__actions">
 {%- for action in params.actions %}
       <li><a class="nhsw-link" href="{{ action.href }}">{{ action.html | safe if action.html else action.text }}</a></li>
@@ -74,7 +78,7 @@
     </ul>
   </div>
 {%- else %}
-  <{{ headingTag }} class="nhsw-card__title">{{ titleInner | safe }}</{{ headingTag }}>
+  <{{ headingTag }} class="{{ titleClass }}">{{ titleInner | safe }}</{{ headingTag }}>
 {%- endif %}
 {%- if params.html %}
   {{ params.html | safe }}

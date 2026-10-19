@@ -4228,6 +4228,16 @@ body {
   margin: 0;
 }
 
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):not(:has(.nhsw-card__title-link)) {
+  padding: 2rem;
+}
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):not(:has(.nhsw-card__title-link)) .nhsw-card__title:has(+ .nhsw-card__description) {
+  margin-bottom: 1.5rem;
+}
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):not(:has(.nhsw-card__title-link)) .nhsw-card__description {
+  margin-bottom: 0;
+}
+
 .nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(> .nhsw-card__stat) {
   gap: 4px;
   padding: 24px;
@@ -4241,6 +4251,33 @@ body {
   font-size: 1.625rem;
   font-weight: 700;
   line-height: 2rem;
+}
+
+.nhsw-card__title--l {
+  font-size: 1.6875rem;
+  line-height: 2.0625rem;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-card__title--l {
+    font-size: 2.25rem;
+    line-height: 2.625rem;
+  }
+}
+
+.nhsw-card__title--m {
+  font-size: 1.625rem;
+  line-height: 2rem;
+}
+
+.nhsw-card__title--s {
+  font-size: 1.1875rem;
+  line-height: 1.6875rem;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-card__title--s {
+    font-size: 1.375rem;
+    line-height: 2.0625rem;
+  }
 }
 
 .nhsw-card__title-link {

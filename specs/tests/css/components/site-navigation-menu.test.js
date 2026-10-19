@@ -311,3 +311,26 @@ describe('label weight modifiers', () => {
     expect(group).toContain('.nhsw-form-group--error .nhsw-label {');
   });
 });
+
+describe('non-clickable cards and heading sizes', () => {
+  const card = compileProbe(`@use "components/cards/card";`);
+
+  it('non-clickable cards have 2rem padding, with 1.5rem under a basic card title and nothing under its description', () => {
+    const selector = '.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):not(:has(.nhsw-card__title-link))';
+    const start = card.indexOf(`${selector} {`);
+    expect(start).toBeGreaterThan(-1);
+    expect(card.slice(start, card.indexOf('}', start))).toMatch(/padding:\s*2rem/);
+    const title = card.indexOf(`${selector} .nhsw-card__title:has(+ .nhsw-card__description) {`);
+    expect(card.slice(title, card.indexOf('}', title))).toMatch(/margin-bottom:\s*1\.5rem/);
+    const description = card.indexOf(`${selector} .nhsw-card__description {`);
+    expect(card.slice(description, card.indexOf('}', description))).toMatch(/margin-bottom:\s*0/);
+  });
+
+  it('card title sizes: l matches an h2, m an h3 and s an h4', () => {
+    expect(block(card, '\.nhsw-card__title--m')).toMatch(/font-size:\s*1\.625rem/);
+    expect(card).toMatch(/\.nhsw-card__title--l\s*\{\s*font-size:\s*1\.6875rem/);
+    expect(card).toMatch(/\.nhsw-card__title--s\s*\{\s*font-size:\s*1\.1875rem/);
+    expect(card).toMatch(/@media[^{]*\{\s*\.nhsw-card__title--l\s*\{\s*font-size:\s*2\.25rem/);
+    expect(card).toMatch(/@media[^{]*\{\s*\.nhsw-card__title--s\s*\{\s*font-size:\s*1\.375rem/);
+  });
+});

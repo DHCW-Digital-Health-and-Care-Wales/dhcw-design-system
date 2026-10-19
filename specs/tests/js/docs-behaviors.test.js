@@ -290,3 +290,79 @@ describe('links into a hidden tab', () => {
     expect(click(document.getElementById('plain'))).toBe(false);
   });
 });
+
+describe('birthday confetti', () => {
+  const layer = () => document.querySelector('[data-nhsw-fx]');
+  const run = (date, search = '') => {
+    vi.setSystemTime(date);
+    window.history.replaceState(null, '', '/' + search);
+    runScript(SCRIPT);
+  };
+
+  beforeEach(() => {
+    vi.useFakeTimers();
+    window.localStorage.clear();
+    setBody('<p>page</p>');
+    Element.prototype.animate = vi.fn(() => ({}));
+    window.matchMedia = vi.fn(() => ({ matches: false }));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    delete Element.prototype.animate;
+    window.history.replaceState(null, '', '/');
+  });
+
+  it('rains coloured confetti on 23 October, hidden from screen readers and never blocking clicks', () => {
+    run(new Date(2026, 9, 23, 10, 0));
+    expect(layer()).not.toBeNull();
+    expect(layer().getAttribute('aria-hidden')).toBe('true');
+    expect(layer().style.pointerEvents).toBe('none');
+    expect(layer().children.length).toBeGreaterThan(50);
+    expect(Element.prototype.animate).toHaveBeenCalledTimes(layer().children.length);
+  });
+
+  it('comes back every following year on 23 October', () => {
+    run(new Date(2027, 9, 23));
+    expect(layer()).not.toBeNull();
+  });
+
+  it('removes itself once it has finished', () => {
+    run(new Date(2026, 9, 23));
+    vi.advanceTimersByTime(10000);
+    expect(layer()).toBeNull();
+  });
+
+  it('does nothing on any other day, or before the first birthday', () => {
+    run(new Date(2026, 9, 22));
+    expect(layer()).toBeNull();
+    run(new Date(2026, 9, 24));
+    expect(layer()).toBeNull();
+    run(new Date(2025, 9, 23));
+    expect(layer()).toBeNull();
+    run(new Date(2026, 8, 23));
+    expect(layer()).toBeNull();
+  });
+
+  it('shows only once per visitor per year', () => {
+    run(new Date(2026, 9, 23));
+    vi.advanceTimersByTime(10000);
+    expect(layer()).toBeNull();
+    run(new Date(2026, 9, 23, 15, 0));
+    expect(layer()).toBeNull();
+    run(new Date(2027, 9, 23));
+    expect(layer()).not.toBeNull();
+  });
+
+  it('stays still for visitors who prefer reduced motion', () => {
+    window.matchMedia = vi.fn(() => ({ matches: true }));
+    run(new Date(2026, 9, 23));
+    expect(layer()).toBeNull();
+  });
+
+  it('can be previewed on any day with ?confetti, without using up the yearly one', () => {
+    run(new Date(2026, 5, 1), '?confetti');
+    expect(layer()).not.toBeNull();
+    expect(window.localStorage.getItem('nhsw-birthday-confetti')).toBeNull();
+  });
+});

@@ -261,3 +261,16 @@ describe('select page: when not to use select', () => {
     expect(page).toContain(`such as <a class="nhsw-link" href="{{ '/components/radios.html' | relative_url }}">radios</a>.`);
   });
 });
+
+describe('cards page: heading sizes in the accessibility examples', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/cards.html'), 'utf8');
+  const sizes = page.slice(page.indexOf('id="card-heading-sizes"') - 2500, page.indexOf('id="card-heading-sizes" html'));
+
+  it('size l is an h2, m is an h3 and s is an h4, in the example, the HTML sample and the Nunjucks sample', () => {
+    for (const [level, size] of [['2', 'l'], ['3', 'm'], ['4', 's']]) {
+      expect(sizes).toContain(`<h${level} class="nhsw-card__title nhsw-card__title--${size}">Heading level ${size}</h${level}>`);
+      expect(sizes).toContain(`&lt;h${level} class="nhsw-card__title nhsw-card__title--${size}"&gt;Heading level ${size}&lt;/h${level}&gt;`);
+      expect(sizes).toContain(`headingLevel: ${level},\n  titleSize: "${size}",`);
+    }
+  });
+});

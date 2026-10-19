@@ -50,6 +50,20 @@
   }
 }
 
+// Non-clickable cards (basic, with links, with actions): 32px padding. A basic card has
+// 24px under its title and none under its description.
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):not(:has(.nhsw-card__title-link)) {
+  padding: 2rem;
+
+  .nhsw-card__title:has(+ .nhsw-card__description) {
+    margin-bottom: 1.5rem;
+  }
+
+  .nhsw-card__description {
+    margin-bottom: 0;
+  }
+}
+
 // Card with a stat: 24px padding and 4px between the number and the link.
 .nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(> .nhsw-card__stat) {
   gap: 4px;
@@ -65,6 +79,31 @@
   font-size: t.$nhsw-font-size-h3;
   font-weight: t.$nhsw-font-weight-bold;
   line-height: t.$nhsw-line-height-h3;
+}
+
+.nhsw-card__title--l {
+  font-size: t.$nhsw-font-size-h2-mobile;
+  line-height: t.$nhsw-line-height-h2-mobile;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-h2;
+    line-height: t.$nhsw-line-height-h2;
+  }
+}
+
+.nhsw-card__title--m {
+  font-size: t.$nhsw-font-size-h3;
+  line-height: t.$nhsw-line-height-h3;
+}
+
+.nhsw-card__title--s {
+  font-size: t.$nhsw-font-size-h4-mobile;
+  line-height: t.$nhsw-line-height-h4-mobile;
+
+  @include b.nhsw-from-tablet {
+    font-size: t.$nhsw-font-size-h4;
+    line-height: t.$nhsw-line-height-h4;
+  }
 }
 
 .nhsw-card__title-link {

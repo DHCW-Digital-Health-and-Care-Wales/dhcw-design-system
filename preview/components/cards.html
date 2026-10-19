@@ -68,19 +68,20 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-card">
-      <h3 class="nhsw-card__title">Heading level m</h3>
+      <h3 class="nhsw-card__title nhsw-card__title--m">Heading level m</h3>
       <p class="nhsw-card__description">Card description text goes here.</p>
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="card-heading-level" open_url="/examples/card-nonclickable.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
-  &lt;h3 class="nhsw-card__title"&gt;Heading level m&lt;/h3&gt;
+  &lt;h3 class="nhsw-card__title nhsw-card__title--m"&gt;Heading level m&lt;/h3&gt;
   &lt;p class="nhsw-card__description"&gt;Card description text goes here.&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswCard({
   title: "Heading level m",
   headingLevel: 3,
+  titleSize: "m",
   description: "Card description text goes here."
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="card-heading-level" html=html_sample njk=njk_sample toggleable=true %}
@@ -89,45 +90,48 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-card">
-      <h2 class="nhsw-card__title">Heading level l</h2>
+      <h2 class="nhsw-card__title nhsw-card__title--l">Heading level l</h2>
       <p class="nhsw-card__description">Card description text goes here.</p>
     </div>
     <div class="nhsw-card">
-      <h3 class="nhsw-card__title">Heading level m</h3>
+      <h3 class="nhsw-card__title nhsw-card__title--m">Heading level m</h3>
       <p class="nhsw-card__description">Card description text goes here.</p>
     </div>
     <div class="nhsw-card">
-      <h4 class="nhsw-card__title">Heading level s</h4>
+      <h4 class="nhsw-card__title nhsw-card__title--s">Heading level s</h4>
       <p class="nhsw-card__description">Card description text goes here.</p>
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="card-heading-sizes" open_url="/examples/card-nonclickable.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
-  &lt;h2 class="nhsw-card__title"&gt;Heading level l&lt;/h2&gt;
+  &lt;h2 class="nhsw-card__title nhsw-card__title--l"&gt;Heading level l&lt;/h2&gt;
   &lt;p class="nhsw-card__description"&gt;Card description text goes here.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="nhsw-card"&gt;
-  &lt;h3 class="nhsw-card__title"&gt;Heading level m&lt;/h3&gt;
+  &lt;h3 class="nhsw-card__title nhsw-card__title--m"&gt;Heading level m&lt;/h3&gt;
   &lt;p class="nhsw-card__description"&gt;Card description text goes here.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="nhsw-card"&gt;
-  &lt;h4 class="nhsw-card__title"&gt;Heading level s&lt;/h4&gt;
+  &lt;h4 class="nhsw-card__title nhsw-card__title--s"&gt;Heading level s&lt;/h4&gt;
   &lt;p class="nhsw-card__description"&gt;Card description text goes here.&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswCard({
   title: "Heading level l",
   headingLevel: 2,
+  titleSize: "l",
   description: "Card description text goes here."
 }) }}
 {{ nhswCard({
   title: "Heading level m",
   headingLevel: 3,
+  titleSize: "m",
   description: "Card description text goes here."
 }) }}
 {{ nhswCard({
   title: "Heading level s",
   headingLevel: 4,
+  titleSize: "s",
   description: "Card description text goes here."
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="card-heading-sizes" html=html_sample njk=njk_sample toggleable=true %}
