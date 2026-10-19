@@ -41,12 +41,19 @@ async function main() {
         filePath = path.join(filePath, 'index.html');
       }
       fs.access(filePath, fs.constants.R_OK, (accessErr) => {
-        if (accessErr) {
-          res.writeHead(404, { 'Content-Type': 'text/plain' });
-          res.end('Not found: ' + urlPath);
+        if (!accessErr) {
+          serveFile(res, filePath);
           return;
         }
-        serveFile(res, filePath);
+        const htmlPath = `${filePath}.html`;
+        fs.access(htmlPath, fs.constants.R_OK, (htmlErr) => {
+          if (htmlErr || path.extname(filePath)) {
+            res.writeHead(404, { 'Content-Type': 'text/plain' });
+            res.end('Not found: ' + urlPath);
+            return;
+          }
+          serveFile(res, htmlPath);
+        });
       });
     });
   });
