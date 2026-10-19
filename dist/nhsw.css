@@ -65,6 +65,9 @@
     line-height: 1.75rem;
   }
 }
+.nhsw-label--regular {
+  font-weight: 400;
+}
 .nhsw-label--s {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -164,6 +167,12 @@
 }
 .nhsw-error-summary__link.nhsw-link:hover {
   color: #951c13;
+}
+
+.nhsw-error-summary--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
 }
 
 .nhsw-input {
@@ -1123,6 +1132,12 @@
   justify-content: flex-end;
 }
 
+.nhsw-file-upload--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
 html {
   font-size: 1rem;
 }
@@ -1523,6 +1538,12 @@ body {
     outline: none;
   }
 }
+.nhsw-tabs--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
 .nhsw-summary-list {
   margin: 0 0 20px;
   padding: 0;
@@ -1595,6 +1616,12 @@ body {
   border-bottom: 0;
 }
 
+.nhsw-summary-list--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
 .nhsw-summary-card {
   margin: 0 0 24px;
   border: 1px solid #d8dde0;
@@ -1645,6 +1672,12 @@ body {
   margin: 0;
   padding: 12px 24px;
   background-color: #ffffff;
+}
+
+.nhsw-summary-card--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
 }
 
 .nhsw-tag {
@@ -1935,6 +1968,12 @@ body {
   padding: 0 24px 24px;
 }
 
+.nhsw-expander--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
 .nhsw-panel {
   margin-bottom: 24px;
   padding: 32px 40px;
@@ -2052,6 +2091,12 @@ body {
 .nhsw-panel--small .nhsw-panel__body {
   font-size: 1.1875rem;
   line-height: 1.6875rem;
+}
+
+.nhsw-panel--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
 }
 
 .nhsw-patient-header {
@@ -2723,6 +2768,18 @@ body {
   }
 }
 
+.nhsw-table--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
+.nhsw-table-responsive--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
 .nhsw-session-row {
   display: flex;
   flex-wrap: wrap;
@@ -3198,6 +3255,20 @@ body {
 }
 .nhsw-example-preview__body > .nhsw-card:has(> .nhsw-card__image) {
   max-width: 27.375rem;
+}
+.nhsw-example-preview__body > .nhsw-error-summary:not([class*="--full"]), .nhsw-example-preview__body > .nhsw-error-summary:not([class*="--full"]) ~ .nhsw-form-group, .nhsw-example-preview__body > .nhsw-file-upload:not([class*="--full"]):not(.nhsw-file-upload--reverse), .nhsw-example-preview__body > .nhsw-table:not([class*="--full"]), .nhsw-example-preview__body > .nhsw-summary-list:not([class*="--full"]), .nhsw-example-preview__body > .nhsw-summary-card:not([class*="--full"]), .nhsw-example-preview__body > .nhsw-table-responsive:not([class*="--full"]), .nhsw-example-preview__body > .nhsw-tabs:not([class*="--full"]) {
+  box-sizing: border-box;
+  max-width: max(66.6667%, 640px);
+}
+.nhsw-example-preview__body > .nhsw-panel:not([class*="--full"]) {
+  max-width: 960px;
+}
+.nhsw-example-preview__body > .nhsw-site-header__nav:not([class*="--full"]) {
+  width: fit-content;
+  max-width: 100%;
+}
+.nhsw-example-preview__body .nhsw-input:not([class*=nhsw-input--]) {
+  max-width: 730px;
 }
 .nhsw-example-preview__frame {
   display: block;
@@ -4113,6 +4184,12 @@ body {
   background-color: #00703c;
 }
 
+.nhsw-notification-banner--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+
 .nhsw-card {
   position: relative;
   background-color: #ffffff;
@@ -4834,6 +4911,12 @@ body {
 .nhsw-site-header__logo--icon img,
 .nhsw-site-header__logo--icon svg {
   height: 2.5rem;
+}
+
+.nhsw-site-header__nav--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
 }
 
 .nhsw-phase-banner {
