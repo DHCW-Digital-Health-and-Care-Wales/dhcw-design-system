@@ -110,7 +110,7 @@ describe('Notification banner Variants tab matches the design', () => {
   const variants = page.slice(page.indexOf('id="panel-variants"'), page.indexOf('<!-- Examples -->'));
 
   it('has the headings Notification banner variants, Information banner and Success banner, in that order', () => {
-    expect([...variants.matchAll(/<h([23]) class="nhsw-h\1">([^<]*)<\/h\1>/g)].map((m) => m[2])).toEqual(
+    expect([...variants.matchAll(/<h([23]) class="nhsw-h\1"(?: id="[^"]*")?>([^<]*)<\/h\1>/g)].map((m) => m[2])).toEqual(
       ['Notification banner variants', 'Information banner', 'Success banner'],
     );
   });
