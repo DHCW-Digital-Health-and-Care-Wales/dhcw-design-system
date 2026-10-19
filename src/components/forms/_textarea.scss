@@ -1,5 +1,6 @@
 @use "../../foundations/input-base" as base;
 @use "../../tokens/colours" as c;
+@use "../../utilities/breakpoints" as b;
 
 .nhsw-textarea {
   @include base.nhsw-input-base;
@@ -11,6 +12,10 @@
   resize: vertical;
   overflow: auto;
   vertical-align: top;
+
+  @include b.nhsw-from-tablet {
+    width: 66.6667%;
+  }
 
   &--small {
     min-height: 80px;

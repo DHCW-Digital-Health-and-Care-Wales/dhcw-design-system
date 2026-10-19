@@ -16,6 +16,16 @@ tabs:
 <!-- How to use -->
 <div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
+  <div class="nhsw-warning-callout">
+    <h3 class="nhsw-warning-callout__heading">
+      <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
+      <span class="nhsw-warning-callout__heading-text"><span class="nhsw-visually-hidden">Important: </span>Consider an alternative first</span>
+    </h3>
+    <div class="nhsw-warning-callout__content">
+      <p class="nhsw-body">Use textareas with caution. In public-facing services, users may enter unexpected clinical or safeguarding information. Consider structured questions, radios or checkboxes first.</p>
+    </div>
+  </div>
+
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label" for="ta-ov-mobility">Can you provide more detail about how you move about (your mobility)?</label>
@@ -61,16 +71,6 @@ tabs:
     <li>ignore guidance in hint text, such as "Do not include personal information like your name, date of birth or NHS number"</li>
   </ul>
   <p class="nhsw-body">Consider other ways to collect the information you need. Use structured, closed questions if possible. For example, let users select from options using <a class="nhsw-link" href="{{ '/components/radios.html' | relative_url }}">radios</a> or <a class="nhsw-link" href="{{ '/components/checkboxes.html' | relative_url }}">checkboxes</a>.</p>
-
-  <div class="nhsw-warning-callout">
-    <h3 class="nhsw-warning-callout__heading">
-      <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
-      <span class="nhsw-warning-callout__heading-text"><span class="nhsw-visually-hidden">Important: </span>Consider the risks</span>
-    </h3>
-    <div class="nhsw-warning-callout__content">
-      <p class="nhsw-body">Only use a textarea when your team has considered the alternatives and agreed that it is the best way to meet user and business needs.</p>
-    </div>
-  </div>
 
   <h2 class="nhsw-h2">When not to use textarea</h2>
   <p class="nhsw-body">If you want users to enter a single line answer, such as a phone number or name, use <a class="nhsw-link" href="{{ '/components/text-input.html' | relative_url }}">text input</a>.</p>

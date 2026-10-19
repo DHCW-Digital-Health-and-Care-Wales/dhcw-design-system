@@ -166,3 +166,24 @@ describe('pagination variants: structure and descriptions', () => {
     expect([...order].sort((a, b) => a - b)).toEqual(order);
   });
 });
+
+describe('textarea page: warning callout and width', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/textarea.html'), 'utf8');
+
+  it('puts the warning callout at the top of How to use, before the first example, with the updated text', () => {
+    const callout = page.indexOf('<div class="nhsw-warning-callout">');
+    expect(callout).toBeGreaterThan(page.indexOf('id="panel-how-to-use"'));
+    expect(callout).toBeLessThan(page.indexOf('{% include example-preview.html id="ta-overview"'));
+    expect(page).toContain('Consider an alternative first</span>');
+    expect(page).toContain('Use textareas with caution. In public-facing services, users may enter unexpected clinical or safeguarding information. Consider structured questions, radios or checkboxes first.');
+    expect(page.match(/<div class="nhsw-warning-callout">/g)).toHaveLength(1);
+    expect(page).not.toContain('Consider the risks');
+  });
+
+  it('is two-thirds wide from tablet up, and the full modifier still makes it full width', async () => {
+    const { compileProbe } = await import('../support/compile-scss.js');
+    const css = compileProbe('@use "components/forms/textarea";');
+    expect(css).toMatch(/@media[^{]*\{\s*\.nhsw-textarea\s*\{\s*width:\s*66\.6667%/);
+    expect(css).toMatch(/\.nhsw-textarea--full\s*\{\s*width:\s*100%/);
+  });
+});
