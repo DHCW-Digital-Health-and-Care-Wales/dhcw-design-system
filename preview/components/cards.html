@@ -64,24 +64,24 @@ tabs:
 
   <p class="nhsw-body">Use headings correctly to reflect the page structure. Learn more about <a class="nhsw-link" href="https://service-manual.nhs.uk/accessibility/design#use-headings-correctly">how to use headings correctly in the NHS England Design System</a>.</p>
  <p class="nhsw-body">If you need to, change the level of the heading. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
-  <p class="nhsw-body">Here's an example of replacing the default <code style="color: #d4351c;">h2</code> heading with an <code style="color: #d4351c;">h3</code>.</p>
+  <p class="nhsw-body">Here's an example of replacing the default <code style="color: #d4351c;">l</code> (or <code style="color: #d4351c;">h2</code>) heading with an <code style="color: #d4351c;">m</code> (or <code style="color: #d4351c;">h3</code>).</p>
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-card">
-      <h3 class="nhsw-card__title">Manage your appointments</h3>
-      <p class="nhsw-card__description">View, change or cancel your upcoming appointments.</p>
+      <h3 class="nhsw-card__title">Heading level m</h3>
+      <p class="nhsw-card__description">Card description text goes here.</p>
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="card-heading-level" open_url="/examples/card-nonclickable.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
-  &lt;h3 class="nhsw-card__title"&gt;Manage your appointments&lt;/h3&gt;
-  &lt;p class="nhsw-card__description"&gt;View, change or cancel your upcoming appointments.&lt;/p&gt;
+  &lt;h3 class="nhsw-card__title"&gt;Heading level m&lt;/h3&gt;
+  &lt;p class="nhsw-card__description"&gt;Card description text goes here.&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswCard({
-  title: "Manage your appointments",
+  title: "Heading level m",
   headingLevel: 3,
-  description: "View, change or cancel your upcoming appointments."
+  description: "Card description text goes here."
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="card-heading-level" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -89,46 +89,46 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-card">
-      <h2 class="nhsw-card__title">Manage your appointments</h2>
-      <p class="nhsw-card__description">View, change or cancel your upcoming appointments.</p>
+      <h2 class="nhsw-card__title">Heading level l</h2>
+      <p class="nhsw-card__description">Card description text goes here.</p>
     </div>
     <div class="nhsw-card">
-      <h3 class="nhsw-card__title">Manage your appointments</h3>
-      <p class="nhsw-card__description">View, change or cancel your upcoming appointments.</p>
+      <h3 class="nhsw-card__title">Heading level m</h3>
+      <p class="nhsw-card__description">Card description text goes here.</p>
     </div>
     <div class="nhsw-card">
-      <h4 class="nhsw-card__title">Manage your appointments</h4>
-      <p class="nhsw-card__description">View, change or cancel your upcoming appointments.</p>
+      <h4 class="nhsw-card__title">Heading level s</h4>
+      <p class="nhsw-card__description">Card description text goes here.</p>
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="card-heading-sizes" open_url="/examples/card-nonclickable.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
-  &lt;h2 class="nhsw-card__title"&gt;Manage your appointments&lt;/h2&gt;
-  &lt;p class="nhsw-card__description"&gt;View, change or cancel your upcoming appointments.&lt;/p&gt;
+  &lt;h2 class="nhsw-card__title"&gt;Heading level l&lt;/h2&gt;
+  &lt;p class="nhsw-card__description"&gt;Card description text goes here.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="nhsw-card"&gt;
-  &lt;h3 class="nhsw-card__title"&gt;Manage your appointments&lt;/h3&gt;
-  &lt;p class="nhsw-card__description"&gt;View, change or cancel your upcoming appointments.&lt;/p&gt;
+  &lt;h3 class="nhsw-card__title"&gt;Heading level m&lt;/h3&gt;
+  &lt;p class="nhsw-card__description"&gt;Card description text goes here.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="nhsw-card"&gt;
-  &lt;h4 class="nhsw-card__title"&gt;Manage your appointments&lt;/h4&gt;
-  &lt;p class="nhsw-card__description"&gt;View, change or cancel your upcoming appointments.&lt;/p&gt;
+  &lt;h4 class="nhsw-card__title"&gt;Heading level s&lt;/h4&gt;
+  &lt;p class="nhsw-card__description"&gt;Card description text goes here.&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswCard({
-  title: "Manage your appointments",
+  title: "Heading level l",
   headingLevel: 2,
-  description: "View, change or cancel your upcoming appointments."
+  description: "Card description text goes here."
 }) }}
 {{ nhswCard({
-  title: "Manage your appointments",
+  title: "Heading level m",
   headingLevel: 3,
-  description: "View, change or cancel your upcoming appointments."
+  description: "Card description text goes here."
 }) }}
 {{ nhswCard({
-  title: "Manage your appointments",
+  title: "Heading level s",
   headingLevel: 4,
-  description: "View, change or cancel your upcoming appointments."
+  description: "Card description text goes here."
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="card-heading-sizes" html=html_sample njk=njk_sample toggleable=true %}
 
