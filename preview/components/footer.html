@@ -3,7 +3,7 @@ layout: component
 title: Footer
 container: fluid
 updated: October 2026
-intro: Use the footer to provide consistent navigation and access to supporting information that users expect to find across NHS Wales services.
+intro: Use the footer to provide consistent navigation and access to supporting information that users expect to find across DHCW services.
 tabs:
   - id: how-to-use
     label: "How to use"
@@ -78,7 +78,7 @@ tabs:
 
   <p class="nhsw-body">If you include links to 'help' pages within the footer component, make sure to place those links consistently within the footer content.</p>
   <p class="nhsw-body">Keep links to a minimum, especially in a transactional journey. Too many links can distract users. Link to specific policies for the transaction, if appropriate.</p>
-  <p class="nhsw-body">If your total number of links is less than 7, arrange them horizontally in lines.</p>
+  <p class="nhsw-body">If your total number of links is less than seven, arrange them horizontally in lines.</p>
 
   <h3 class="nhsw-h3">Copyright</h3>
   <p class="nhsw-body">Your copyright statement must reflect the ownership of your website or service.</p>
@@ -86,7 +86,7 @@ tabs:
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">Make sure that users can successfully <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/footer#wcag-consistent-links">find help links in a consistent place on each page</a>.</p>
+  <p class="nhsw-body">Make sure users can find help links in a consistent place on each page. Read the <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/footer#wcag-consistent-links">NHS England Design System guidance on consistent help links</a>.</p>
   <p class="nhsw-body">If you include links to "help" pages in a footer, make sure to place those links consistently in the footer content. Also make sure that "help" links always work in a similar way across each page. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html">WCAG 2.2 Success Criterion 3.2.6 Consistent Help, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
@@ -130,9 +130,7 @@ tabs:
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Footer with navigation links</h3>
-    <p class="nhsw-body">If your users need lots of footer links to help them navigate a complex information architecture, include navigation links and arrange the links in columns.</p>
-    <p class="nhsw-body">The navigation links give users another route to the most visited content on the site. They act as a safety net for users who have not found content through the main navigation.</p>
-    <p class="nhsw-body">There is a line below the columns to separate them from the meta information, for example the copyright notice.</p>
+
 
     {% capture example_body %}{% raw %}
       <footer class="nhsw-site-footer">
@@ -215,12 +213,13 @@ tabs:
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ft-nav" html=html_sample njk=njk_sample toggleable=true %}
+        <p class="nhsw-body">If your users need lots of footer links to help them navigate a complex information architecture, include navigation links and arrange the links in columns.</p>
+    <p class="nhsw-body">The navigation links give users another route to the most visited content on the site. They act as a safety net for users who have not found content through the main navigation.</p>
+    <p class="nhsw-body">There is a line below the columns to separate them from the meta information, for example the copyright notice.</p>
   </section>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Footer with an open licence</h3>
-    <p class="nhsw-body">If your organisation or service encourages people to reuse and adapt its information under the Open Government Licence, show the licence statement below the links and above the copyright line, each as its own row.</p>
-
     {% capture example_body %}{% raw %}
       <footer class="nhsw-site-footer">
         <div class="nhsw-site-footer__container nhsw-site-footer__container--stacked">
@@ -271,6 +270,8 @@ tabs:
   }
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ft-licence" html=html_sample njk=njk_sample toggleable=true %}
+        <p class="nhsw-body">If your service encourages people to reuse and adapt its information under the Open Government Licence, show the licence statement below the links and above the copyright line, each as its own row.</p>
+
   </section>
 
 
