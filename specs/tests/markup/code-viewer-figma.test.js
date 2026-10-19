@@ -255,3 +255,10 @@ describe('select page: meaningful example copy and the multiple options heading'
     expect(paragraph - heading).toBeLessThan(200);
   });
 });
+
+describe('select page: when not to use select', () => {
+  it('links "radios" to the Radios page', () => {
+    const page = fs.readFileSync(path.join(root, 'preview/components/select.html'), 'utf8');
+    expect(page).toContain(`such as <a class="nhsw-link" href="{{ '/components/radios.html' | relative_url }}">radios</a>.`);
+  });
+});
