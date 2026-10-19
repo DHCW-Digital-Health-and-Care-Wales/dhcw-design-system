@@ -1109,6 +1109,10 @@
   color: #212b32;
 }
 
+.nhsw-file-upload--reverse {
+  box-sizing: border-box;
+  max-width: 343px;
+}
 .nhsw-file-upload--reverse .nhsw-file-upload__actions {
   flex-direction: row-reverse;
   justify-content: flex-end;

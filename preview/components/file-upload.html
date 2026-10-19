@@ -87,11 +87,10 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">File upload variants</h2>
 
-  <h3 class="nhsw-h3">Mobile version of the file upload</h3>
-  <p class="nhsw-body">On smaller screens such as on mobile, you can use the smaller file upload version.</p>
+  <h3 class="nhsw-h3">File upload for small screens</h3>
 
   {% capture example_body %}{% raw %}
-    <h2 class="nhsw-h2">Upload a file</h2>
+    <h3 class="nhsw-h3">Upload a file</h3>
     <div class="nhsw-file-upload nhsw-file-upload--reverse">
       <span class="nhsw-file-upload__status">No file chosen</span>
       <div class="nhsw-file-upload__actions">
@@ -103,7 +102,7 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="fu-mobile" open_url="/examples/file-upload-reverse.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;h2 class="nhsw-h2"&gt;Upload a file&lt;/h2&gt;
+  {% capture html_sample %}{% raw %}&lt;h3 class="nhsw-h3"&gt;Upload a file&lt;/h3&gt;
 &lt;div class="nhsw-file-upload nhsw-file-upload--reverse"&gt;
   &lt;span class="nhsw-file-upload__status"&gt;No file chosen&lt;/span&gt;
   &lt;div class="nhsw-file-upload__actions"&gt;
@@ -112,13 +111,16 @@ tabs:
     &lt;span class="nhsw-file-upload__hint"&gt;or drop file&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}&lt;h2 class="nhsw-h2"&gt;Upload a file&lt;/h2&gt;
+  {% capture njk_sample %}{% raw %}&lt;h3 class="nhsw-h3"&gt;Upload a file&lt;/h3&gt;
 {{ nhswFileUpload({
   id: "file-upload-mobile",
   name: "file-upload-mobile",
   classes: "nhsw-file-upload--reverse"
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="fu-mobile" html=html_sample njk=njk_sample toggleable=true %}
+
+  <p class="nhsw-body">Use the small screen variant when file uploads need to be completed on mobile devices or narrow viewports.</p>
+  <p class="nhsw-body">The layout is optimised for smaller screens, helping users upload files easily without affecting the component's functionality or accessibility.</p>
 
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
