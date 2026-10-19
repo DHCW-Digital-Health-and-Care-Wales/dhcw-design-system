@@ -54,3 +54,9 @@ $nhsw-colour-notification-success: #00703c;
     }
   }
 }
+
+.nhsw-notification-banner--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}

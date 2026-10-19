@@ -187,3 +187,19 @@ describe('textarea page: warning callout and width', () => {
     expect(css).toMatch(/\.nhsw-textarea--full\s*\{\s*width:\s*100%/);
   });
 });
+
+describe('textarea first example label', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/textarea.html'), 'utf8');
+  const first = page.slice(page.indexOf('id="panel-how-to-use"'), page.indexOf('{% include code-viewer.html id="ta-overview"'));
+
+  it('uses the extra large label in the example, its HTML sample and its Nunjucks sample', () => {
+    expect(first).toContain('<label class="nhsw-label nhsw-label--xl" for="ta-ov-mobility">');
+    expect(first).toContain('&lt;label class="nhsw-label nhsw-label--xl" for="mobility"&gt;');
+    expect(first).toContain('(your mobility)?", classes: "nhsw-label--xl" }');
+  });
+
+  it('the standalone example matches', () => {
+    const example = fs.readFileSync(path.join(root, 'preview/examples/textarea-default.html'), 'utf8');
+    expect(example).toContain('<label class="nhsw-label nhsw-label--xl" for="ta-mobility">');
+  });
+});

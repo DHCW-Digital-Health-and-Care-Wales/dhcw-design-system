@@ -1,6 +1,8 @@
 @use "../../tokens/colours" as c;
 @use "../../utilities/breakpoints" as b;
 
+$nhsw-example-component-width: max(66.6667%, 640px);
+
 .nhsw-example-preview {
   min-width: 0;
   margin: 24px 0 32px;
@@ -69,6 +71,31 @@
 
   &__body > .nhsw-card:has(> .nhsw-card__image) {
     max-width: 27.375rem;
+  }
+
+  &__body > .nhsw-error-summary:not([class*="--full"]),
+  &__body > .nhsw-error-summary:not([class*="--full"]) ~ .nhsw-form-group,
+  &__body > .nhsw-file-upload:not([class*="--full"]):not(.nhsw-file-upload--reverse),
+  &__body > .nhsw-table:not([class*="--full"]),
+  &__body > .nhsw-summary-list:not([class*="--full"]),
+  &__body > .nhsw-summary-card:not([class*="--full"]),
+  &__body > .nhsw-table-responsive:not([class*="--full"]),
+  &__body > .nhsw-tabs:not([class*="--full"]) {
+    box-sizing: border-box;
+    max-width: $nhsw-example-component-width;
+  }
+
+  &__body > .nhsw-panel:not([class*="--full"]) {
+    max-width: 960px;
+  }
+
+  &__body > .nhsw-site-header__nav:not([class*="--full"]) {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  &__body .nhsw-input:not([class*="nhsw-input--"]) {
+    max-width: 730px;
   }
 
   &__frame {

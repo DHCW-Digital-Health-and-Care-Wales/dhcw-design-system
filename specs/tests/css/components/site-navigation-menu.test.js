@@ -234,3 +234,65 @@ describe('Back to top on every page', () => {
     expect(fs.readFileSync(path.join(root, 'preview/_layouts/workshop.html'), 'utf8')).toContain('id="maincontent"');
   });
 });
+
+describe('component examples on the docs pages follow the design widths', () => {
+  const css = compileProbe(`@use "components/content/example-preview";`);
+  const rule = (selector) => {
+    const start = css.indexOf(selector);
+    return start === -1 ? '' : css.slice(start, css.indexOf('}', start));
+  };
+
+  it('holds error summary, file upload, tables and tabs to two-thirds (at least 640px), border-box so padding is included', () => {
+    const group = rule('.nhsw-example-preview__body > .nhsw-error-summary:not([class*="--full"]),');
+    for (const selector of ['.nhsw-error-summary', '.nhsw-error-summary:not([class*="--full"]) ~ .nhsw-form-group', '.nhsw-file-upload', '.nhsw-table', '.nhsw-summary-list', '.nhsw-summary-card', '.nhsw-table-responsive', '.nhsw-tabs']) {
+      expect(group).toContain(`.nhsw-example-preview__body > ${selector}`);
+    }
+    expect(group).toMatch(/box-sizing:\s*border-box/);
+    expect(group).toMatch(/max-width:\s*max\(66\.6667%,\s*640px\)/);
+  });
+
+  it('leaves the small screen file upload at its own 343px, which the 640px cap must not override', () => {
+    expect(css).toContain('.nhsw-file-upload:not([class*="--full"]):not(.nhsw-file-upload--reverse)');
+    const upload = compileProbe('@use "components/forms/file-upload";');
+    expect(block(upload, '\.nhsw-file-upload--reverse')).toMatch(/max-width:\s*343px/);
+  });
+
+  it('caps the panel at the 960px page width and sizes the site navigation to its content', () => {
+    expect(rule('.nhsw-example-preview__body > .nhsw-panel:not([class*="--full"])')).toMatch(/max-width:\s*960px/);
+    expect(rule('.nhsw-example-preview__body > .nhsw-site-header__nav:not([class*="--full"])')).toMatch(/width:\s*fit-content/);
+  });
+
+  it('keeps plain text inputs to 730px but leaves the fixed and fluid width classes alone', () => {
+    expect(css).toContain('.nhsw-example-preview__body .nhsw-input:not([class*=nhsw-input--]) {');
+    expect(rule('.nhsw-example-preview__body .nhsw-input:not([class*=nhsw-input--])')).toMatch(/max-width:\s*730px/);
+  });
+});
+
+describe('--full width modifiers', () => {
+  const cases = [
+    ['components/forms/error-summary', 'nhsw-error-summary'],
+    ['components/content/expander', 'nhsw-expander'],
+    ['components/forms/file-upload', 'nhsw-file-upload'],
+    ['components/callouts/notification-banner', 'nhsw-notification-banner'],
+    ['components/content/panel', 'nhsw-panel'],
+    ['components/content/table', 'nhsw-table'],
+    ['components/content/summary-list', 'nhsw-summary-list'],
+    ['components/content/summary-card', 'nhsw-summary-card'],
+    ['components/content/table', 'nhsw-table-responsive'],
+    ['components/content/tabs', 'nhsw-tabs'],
+    ['components/site/header', 'nhsw-site-header__nav'],
+    ['components/forms/textarea', 'nhsw-textarea'],
+    ['components/forms/input', 'nhsw-input'],
+  ];
+
+  it.each(cases)('%s has a %s--full modifier that fills the width', (module, cls) => {
+    const css = compileProbe(`@use "${module}";`);
+    const full = block(css, `\.${cls}--full`);
+    expect(full).toMatch(/width:\s*100%/);
+  });
+
+  it('the docs width caps step aside for any --full modifier', () => {
+    const css = compileProbe(`@use "components/content/example-preview";`);
+    expect(css.match(/:not\(\[class\*="--full"\]\)/g).length).toBeGreaterThanOrEqual(8);
+  });
+});
