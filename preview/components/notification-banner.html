@@ -60,7 +60,7 @@ tabs:
 
   <h2 class="nhsw-h2">When not to use a notification banner</h2>
   <p class="nhsw-body">Use notification banners sparingly. There's evidence that people often miss banners. Using them too often is likely to make this problem worse. See <a class="nhsw-link" href="https://www.nngroup.com/articles/banner-blindness-old-and-new-findings/">Banner blindness revisited by Nielsen Norman Group</a>.</p>
-  <p class="nhsw-body">Avoid showing more than 1 notification banner on the same page. Instead, combine the messages in a single notification banner. If the messages are too different to combine, decide which is your highest priority message and show that one.</p>
+  <p class="nhsw-body">Avoid showing more than one notification banner on the same page. Instead, combine the messages in a single notification banner. If the messages are too different to combine, decide which is your highest priority message and show that one.</p>
   <p class="nhsw-body">If the information is directly relevant to the thing the user is doing on that page, put the information in the main page content instead. If it needs to stand out, use:</p>
   <ul class="nhsw-body">
     <li><a class="nhsw-link" href="{{ '/components/inset-text.html' | relative_url }}">inset text component</a></li>
@@ -70,13 +70,13 @@ tabs:
   <p class="nhsw-body">Do not show a notification banner and an error summary component on the same page. Just show the error summary.</p>
 
   <h2 class="nhsw-h2">How to use a notification banner</h2>
-  <p class="nhsw-body">Put the notification banner at top of the main container. If your page includes breadcrumbs or a back link, place it below these but before the h1.</p>
+  <p class="nhsw-body">Put the notification banner at top of the main container. If your page includes breadcrumbs or a back link, place it below these but before the <code style="color: #d4351c;">&lt;h1&gt;</a>.</p>
   <p class="nhsw-body">The notification banner should be the same width as the page's other content, such as components, headings and body text. For example, if the other content takes up two-thirds of the screen on desktop devices, then the notification banner should also take up two-thirds. <a class="nhsw-link" href="https://www.figma.com/design/pjWknZvvTMuVNKoMWvCfOc/Design-System-Website?node-id=1130-24460&t=Z5yEFWw4Lzj55snr-0">Read about how to lay out pages</a>.</p>
   <p class="nhsw-body">Use <code style="color: #d4351c;">role="region"</code> and <code style="color: #d4351c;">aria-labelledby="nhsw-notification-banners-title"</code> (with <code style="color: #d4351c;">id="nhsw-notification-banners-title"</code> on <code>nhsw-notification-banners__title</code>) so that screen reader users can navigate to the notification banner.</p>
 
   <h3 class="nhsw-h3">Notification banner headings</h3>
   <p class="nhsw-body">The notification banner starts with a heading like "Important" or "Success". This is usually an <code style="color: #d4351c;">&lt;h2&gt;</code>.</p>
-  <p class="nhsw-body">If you need a heading in the banner content, place it in <code style="color: #d4351c;">&lt;div class="nhsw-notification-banner__content"&gt;</code>. It will normally be an <code>&lt;h3&gt;</code>.</p>
+  <p class="nhsw-body">If you need a heading in the banner content, place it in <code style="color: #d4351c;">&lt;div class="nhsw-notification-banner__content"&gt;</code>. It will normally be an <code style="color: #d4351c;">&lt;h3&gt;</code>.</p>
   <p class="nhsw-body">Do not use a heading for single line notifications. You can apply the <code style="color: #d4351c;">nhsw-notification-banners__heading</code> class to a paragraph to make it stand out.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
@@ -89,7 +89,6 @@ tabs:
 
   <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/notification-banner/">Notification banners in GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/2">Notification banners on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
