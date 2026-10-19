@@ -551,4 +551,20 @@
       event.preventDefault();
     });
   });
+
+  var DOUBLE_CLICK_MS = 1000;
+  var recentlyClicked = new WeakSet();
+
+  document.addEventListener('click', function (event) {
+    var button = event.target instanceof Element ? event.target.closest('[data-prevent-double-click="true"]') : null;
+    if (!button) return;
+    if (recentlyClicked.has(button)) {
+      event.preventDefault();
+      return;
+    }
+    recentlyClicked.add(button);
+    setTimeout(function () {
+      recentlyClicked.delete(button);
+    }, DOUBLE_CLICK_MS);
+  });
 }());

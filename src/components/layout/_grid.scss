@@ -13,6 +13,10 @@ body {
   @include layout.nhsw-container($max-width: s.$nhsw-page-width-wide);
 }
 
+.nhsw-wide-container {
+  @include layout.nhsw-container($max-width: s.$nhsw-page-width-wide-container);
+}
+
 .nhsw-fluid-container {
   width: 100%;
   padding-left: s.$nhsw-container-margin-mobile;

@@ -3820,6 +3820,24 @@ body {
   }
 }
 
+.nhsw-wide-container {
+  max-width: 1100px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+@media (min-width: 48.0625em) {
+  .nhsw-wide-container {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .nhsw-wide-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .nhsw-fluid-container {
   width: 100%;
   padding-left: 16px;
@@ -5207,6 +5225,11 @@ body {
   list-style: none;
   margin: 20px 0 0;
   padding: 0;
+}
+
+.nhsw-wide-container .nhsw-side-nav__heading,
+.nhsw-wide-container .nhsw-side-nav__link {
+  font-size: 1rem;
 }
 
 .nhsw-layout {

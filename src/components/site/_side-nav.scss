@@ -99,6 +99,11 @@
   padding: 0;
 }
 
+.nhsw-wide-container .nhsw-side-nav__heading,
+.nhsw-wide-container .nhsw-side-nav__link {
+  font-size: t.$nhsw-font-size-body-small;
+}
+
 .nhsw-layout {
   display: flex;
   flex-wrap: wrap;
