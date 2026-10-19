@@ -249,7 +249,7 @@
   padding: 0;
 }
 
-.nhsw-card--chevron.nhsw-card:has(.nhsw-card__title-link) {
+.nhsw-card--chevron.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) {
   padding-right: 5rem;
 }
 
