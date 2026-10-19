@@ -84,6 +84,30 @@
     code.innerHTML = highlightHtml(code.textContent);
   });
 
+  function showTabTarget(hash) {
+    var id = hash && hash.charAt(0) === '#' ? decodeURIComponent(hash.slice(1)) : '';
+    var target = id && document.getElementById(id);
+    var panel = target && target.closest('.nhsw-tabs__panel--hidden');
+    if (!panel) return false;
+    var tab = document.getElementById(panel.getAttribute('aria-labelledby'));
+    if (!tab) return false;
+    tab.click();
+    target.setAttribute('tabindex', '-1');
+    target.scrollIntoView();
+    target.focus({ preventScroll: true });
+    return true;
+  }
+
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('a[href^="#"]');
+    if (link && showTabTarget(link.getAttribute('href'))) {
+      event.preventDefault();
+      if (window.history && history.replaceState) history.replaceState(null, '', link.getAttribute('href'));
+    }
+  });
+
+  showTabTarget(window.location.hash);
+
   function syncScrolled() {
     document.documentElement.classList.toggle('nhsw-is-scrolled', window.scrollY > 300);
   }

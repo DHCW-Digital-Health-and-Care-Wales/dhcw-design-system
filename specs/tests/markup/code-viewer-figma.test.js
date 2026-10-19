@@ -95,3 +95,26 @@ describe('footer page: how to use the footer', () => {
     expect([...order].sort((a, b) => a - b)).toEqual(order);
   });
 });
+
+describe('notification banner page: the two versions link to their variants', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/notification-banner.html'), 'utf8');
+
+  it('links the information and success banners to the matching variant headings', () => {
+    expect(page).toContain('<a class="nhsw-link" href="#information-banner">the information banner (blue)</a>');
+    expect(page).toContain('<a class="nhsw-link" href="#success-banner">the success banner (green)</a>');
+    expect(page).toContain('<h3 class="nhsw-h3" id="information-banner">Information banner</h3>');
+    expect(page).toContain('<h3 class="nhsw-h3" id="success-banner">Success banner</h3>');
+  });
+});
+
+describe('warning callout page: important information variant', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/warning-callout.html'), 'utf8');
+
+  it('links "warning callout" in "when not to use" to the warning callout section on the How to use tab', () => {
+    expect(page).toContain('use a <a class="nhsw-link" href="#warning-callout">warning callout</a> instead.');
+    const target = page.indexOf('id="warning-callout"');
+    expect(target).toBeGreaterThan(page.indexOf('id="panel-how-to-use"'));
+    expect(target).toBeLessThan(page.indexOf('id="panel-variants"'));
+    expect(page.match(/id="warning-callout"/g)).toHaveLength(1);
+  });
+});

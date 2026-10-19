@@ -48,8 +48,8 @@ tabs:
   <p class="nhsw-body">A notification banner lets you tell the user about something that's not directly relevant to the thing they're trying to do on that page of the service.</p>
   <p class="nhsw-body">There are 2 versions of the notification banner:</p>
   <ul class="nhsw-body">
-    <li>the information banner (blue)</li>
-    <li>the success banner (green)</li>
+    <li><a class="nhsw-link" href="#information-banner">the information banner (blue)</a></li>
+    <li><a class="nhsw-link" href="#success-banner">the success banner (green)</a></li>
   </ul>
   <p class="nhsw-body">Use the information banner to tell the user about:</p>
   <ul class="nhsw-body">
@@ -100,7 +100,7 @@ tabs:
 <div class="nhsw-tabs__panel nhsw-tabs__panel--hidden" id="panel-variants" role="tabpanel" aria-labelledby="tab-variants">
   <h2 class="nhsw-h2">Notification banner variants</h2>
 
-  <h3 class="nhsw-h3">Information banner</h3>
+  <h3 class="nhsw-h3" id="information-banner">Information banner</h3>
   <section class="preview-section preview-section--no-divider">
     {% capture example_body %}{% raw %}
       <div class="nhsw-notification-banner" role="region" aria-labelledby="notification-title-service">
@@ -142,7 +142,7 @@ tabs:
     <li>in an account-type service, you might need to tell the user that there's a deadline approaching or that a payment is overdue</li>
   </ul>
 
-  <h3 class="nhsw-h3">Success banner</h3>
+  <h3 class="nhsw-h3" id="success-banner">Success banner</h3>
   <section class="preview-section preview-section--no-divider">
     {% capture example_body %}{% raw %}
       <div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success">
