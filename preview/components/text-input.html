@@ -286,8 +286,6 @@ tabs:
   <h3 class="nhsw-h3">Asking for numbers</h3>
 
   <h4 class="nhsw-h4">Whole numbers</h4>
-  <p class="nhsw-body">If you're asking the user to enter a whole number, set the <code style="color: #d4351c;">inputmode</code> attribute to <code style="color: #d4351c;">numeric</code> to use the numeric keypad on devices with on-screen keyboards.</p>
-
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
       <label class="nhsw-label" for="ti-account">What is your account number?</label>
@@ -304,6 +302,8 @@ tabs:
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "account", label: { text: "What is your account number?" }, hint: { text: "Must be between 6 and 8 digits long" }, classes: "nhsw-input--width-10", inputmode: "numeric" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-account" html=html_sample njk=njk_sample toggleable=true %}
+    <p class="nhsw-body">If you're asking the user to enter a whole number, set the <code style="color: #d4351c;">inputmode</code> attribute to <code style="color: #d4351c;">numeric</code> to use the numeric keypad on devices with on-screen keyboards.</p>
+
 
   <h4 class="nhsw-h4">Decimal numbers</h4>
   <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/text-input/#asking-for-decimal-numbers">Asking for decimal numbers in the GOV.UK Design System</a>.</p>
