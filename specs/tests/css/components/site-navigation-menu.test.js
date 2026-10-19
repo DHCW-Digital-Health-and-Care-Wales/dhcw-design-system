@@ -210,3 +210,27 @@ describe('reverse breadcrumbs and card title links', () => {
     expect(page).not.toMatch(/<li>\s*<a class="nhsw-card__title-link"/);
   });
 });
+
+describe('example screenshots on the Examples tab', () => {
+  it('have no grey background, border or padding behind or around the image', () => {
+    const css = compileProbe(`@use "components/content/example-screenshot";`);
+    const frame = block(css, '\.nhsw-example-screenshot');
+    expect(frame).not.toMatch(/background/);
+    expect(frame).not.toMatch(/border/);
+    expect(frame).not.toMatch(/padding/);
+    expect(block(css, '\.nhsw-example-screenshot__image')).not.toMatch(/border/);
+  });
+});
+
+describe('Back to top on every page', () => {
+  it('is added by the default layout to every page except component pages, which have their own at the end of each tab', async () => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const root = path.resolve(import.meta.dirname, '../../../..');
+    const layout = fs.readFileSync(path.join(root, 'preview/_layouts/default.html'), 'utf8');
+    expect(layout).toContain("{% unless page.layout == 'component' %}{% include back-to-top.html %}{% endunless %}");
+    const include = fs.readFileSync(path.join(root, 'preview/_includes/back-to-top.html'), 'utf8');
+    expect(include).toContain('<p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent">');
+    expect(fs.readFileSync(path.join(root, 'preview/_layouts/workshop.html'), 'utf8')).toContain('id="maincontent"');
+  });
+});

@@ -19,6 +19,8 @@
 
   {{ content }}
 
+  {% unless page.layout == 'component' %}{% include back-to-top.html %}{% endunless %}
+
   {% include site-footer.html %}
 
   {% if page.after_footer %}{{ page.after_footer }}{% endif %}

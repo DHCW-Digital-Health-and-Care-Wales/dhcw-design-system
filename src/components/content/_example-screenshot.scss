@@ -2,15 +2,11 @@
 
 .nhsw-example-screenshot {
   margin: 0;
-  padding: 24px;
-  background-color: c.$nhswales-page-background-grey;
-  border: 1px solid c.$nhswales-grey-border-colour;
   text-align: left;
 
   &__image {
     max-width: 100%;
     height: auto;
-    border: 1px solid c.$nhswales-grey-border-colour;
   }
 
   &__caption {

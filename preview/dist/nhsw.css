@@ -3256,15 +3256,11 @@ body {
 
 .nhsw-example-screenshot {
   margin: 0;
-  padding: 24px;
-  background-color: #f0f4f5;
-  border: 1px solid #d8dde0;
   text-align: left;
 }
 .nhsw-example-screenshot__image {
   max-width: 100%;
   height: auto;
-  border: 1px solid #d8dde0;
 }
 .nhsw-example-screenshot__caption {
   margin-top: 8px;
