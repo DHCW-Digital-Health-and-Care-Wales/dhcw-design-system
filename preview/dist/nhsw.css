@@ -3015,73 +3015,78 @@ body {
   margin-top: 24px;
   margin-bottom: 32px;
   border: 1px solid #d8dde0;
+  background-color: #f0f4f5;
 }
 .nhsw-code-viewer__header {
   display: flex;
   align-items: stretch;
-  background-color: #212b32;
-  border-bottom: 1px solid #4c6272;
+  border-bottom: 1px solid #d8dde0;
 }
 .nhsw-code-viewer__tabs {
   display: flex;
-  flex: 1;
+  flex: none;
   align-items: stretch;
 }
-.nhsw-code-viewer__tab {
+.nhsw-code-viewer__tab, .nhsw-code-viewer__link {
   display: inline-flex;
   align-items: center;
-  padding: 10px 16px;
+  padding: 16px 24px 12px;
   background: none;
   border: 0;
-  border-bottom: 3px solid transparent;
-  color: #adb9c4;
+  border-bottom: 4px solid transparent;
+  color: #005aa8;
   cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 1rem;
   line-height: 1.5;
   text-align: left;
+  text-decoration: none;
 }
-.nhsw-code-viewer__tab:hover {
-  color: #fff;
+.nhsw-code-viewer__tab span, .nhsw-code-viewer__link span {
+  text-decoration: underline;
 }
-.nhsw-code-viewer__tab--active {
-  color: #fff;
+@media (min-width: 40.0625em) {
+  .nhsw-code-viewer__tab, .nhsw-code-viewer__link {
+    font-size: 1.1875rem;
+  }
+}
+.nhsw-code-viewer__tab:hover, .nhsw-code-viewer__link:hover {
+  color: #7c2855;
+}
+.nhsw-code-viewer__tab:hover span, .nhsw-code-viewer__link:hover span {
+  text-decoration: none;
+}
+.nhsw-code-viewer__tab--active, .nhsw-code-viewer__link--active {
   border-bottom-color: #005aa8;
+  color: #212b32;
 }
-.nhsw-code-viewer__tab:focus {
-  outline: 3px solid #ffeb3b;
-  outline-offset: 0;
+.nhsw-code-viewer__tab--active span, .nhsw-code-viewer__link--active span {
+  text-decoration: none;
+}
+.nhsw-code-viewer__tab--active:hover, .nhsw-code-viewer__link--active:hover {
+  color: #212b32;
+}
+.nhsw-code-viewer__tab:focus, .nhsw-code-viewer__link:focus {
+  outline: none;
+}
+.nhsw-code-viewer__tab:focus span, .nhsw-code-viewer__link:focus span {
+  background-color: #ffeb3b;
+  box-shadow: 0 4px 0 0 #212b32;
+  color: #212b32;
+  text-decoration: none;
 }
 .nhsw-code-viewer__copy {
-  display: inline-flex;
-  align-items: center;
-  margin: 6px 8px 6px auto;
-  padding: 4px 12px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 3px;
-  color: #adb9c4;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: 13px;
-  white-space: nowrap;
-}
-.nhsw-code-viewer__copy:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.6);
-}
-.nhsw-code-viewer__copy:focus {
-  outline: 3px solid #ffeb3b;
-  outline-offset: 0;
+  align-self: flex-start;
+  margin: 12px 16px 0 auto;
 }
 .nhsw-code-viewer__copy--copied {
-  color: #85994b;
-  border-color: #85994b;
+  color: #005aa8;
 }
 .nhsw-code-viewer__panel {
-  background-color: #1b2733;
-  padding: 24px;
+  position: relative;
+  margin: 16px;
+  padding: 24px 16px;
+  background-color: #ffffff;
   overflow-x: auto;
 }
 .nhsw-code-viewer__panel--hidden {
@@ -3095,7 +3100,41 @@ body {
   font-family: "Courier New", Courier, monospace;
   font-size: 14px;
   line-height: 1.6;
-  color: #c8d3d9;
+  color: #212b32;
+}
+.nhsw-code-viewer__footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 16px;
+  border-top: 1px solid #d8dde0;
+}
+.nhsw-code-viewer__footer .nhsw-example-preview__footer-button {
+  font-size: 1rem;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-code-viewer__footer .nhsw-example-preview__footer-button {
+    font-size: 1.1875rem;
+  }
+}
+.nhsw-code-viewer .nhsw-code-token--tag {
+  color: #1b365d;
+}
+.nhsw-code-viewer .nhsw-code-token--attr {
+  color: #007f3b;
+}
+.nhsw-code-viewer .nhsw-code-token--value {
+  color: #d5281b;
+}
+
+.nhsw-example-preview:has(+ .nhsw-code-viewer:not([hidden])) {
+  margin-bottom: 0;
+}
+.nhsw-example-preview:has(+ .nhsw-code-viewer:not([hidden])) .nhsw-example-preview__footer {
+  display: none;
+}
+.nhsw-example-preview:has(+ .nhsw-code-viewer:not([hidden])) + .nhsw-code-viewer {
+  margin-top: 0;
+  border-top: 0;
 }
 
 .nhsw-example-preview {
@@ -3118,7 +3157,7 @@ body {
 .nhsw-example-preview__body {
   position: relative;
   padding: 16px;
-  background-color: #ffffff;
+  background-color: #f0f4f5;
 }
 @media (min-width: 40.0625em) {
   .nhsw-example-preview__body {
@@ -3128,6 +3167,12 @@ body {
 .nhsw-example-preview__body--dark {
   background-color: #1b365d;
 }
+.nhsw-example-preview__body--white {
+  background-color: #ffffff;
+}
+.nhsw-example-preview__body--white {
+  background-color: #ffffff;
+}
 .nhsw-example-preview__body .nhsw-site-header__nav {
   display: block;
 }
@@ -3136,7 +3181,7 @@ body {
   width: 100%;
   height: 560px;
   border: 1px solid #d8dde0;
-  background-color: #ffffff;
+  background-color: #f0f4f5;
 }
 .nhsw-example-preview__frame--short {
   height: 440px;
@@ -3158,8 +3203,11 @@ body {
   color: #7c2855;
 }
 .nhsw-example-preview__footer-button:focus {
-  outline: 3px solid #ffeb3b;
-  outline-offset: 0;
+  outline: none;
+  background-color: #ffeb3b;
+  box-shadow: 0 4px 0 0 #212b32;
+  color: #212b32;
+  text-decoration: none;
 }
 
 .nhsw-screenshot-placeholder {

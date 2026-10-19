@@ -62,6 +62,28 @@
     }
   });
 
+  function escapeHtml(text) {
+    return text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function highlightHtml(source) {
+    return source.split(/(<[^>]*>)/).map(function (part) {
+      if (part.charAt(0) !== '<') return escapeHtml(part);
+      var match = /^(<\/?)([^\s>\/]*)([\s\S]*?)(\/?>)$/.exec(part);
+      if (!match) return escapeHtml(part);
+      var attrs = match[3].replace(/([^\s=]+)(?:=("[^"]*"|'[^']*'))?/g, function (all, name, value) {
+        return '<span class="nhsw-code-token--attr">' + escapeHtml(name) + '</span>' +
+          (value ? '=<span class="nhsw-code-token--value">' + escapeHtml(value) + '</span>' : '');
+      });
+      return '<span class="nhsw-code-token--tag">' + escapeHtml(match[1] + match[2]) + '</span>' + attrs +
+        '<span class="nhsw-code-token--tag">' + escapeHtml(match[4]) + '</span>';
+    }).join('');
+  }
+
+  document.querySelectorAll('[data-module="nhsw-code-viewer"] .nhsw-code-viewer__panel[id$="-html"] code').forEach(function (code) {
+    code.innerHTML = highlightHtml(code.textContent);
+  });
+
   var toggleButtons = document.querySelectorAll('.nhsw-example-preview__footer-button[data-toggle]');
 
   function activeTabName(viewer) {
@@ -97,6 +119,18 @@
 
   document.querySelectorAll('[data-module="nhsw-code-viewer"] .nhsw-code-viewer__tab').forEach(function (tab) {
     tab.addEventListener('click', syncToggleButtons);
+  });
+
+  document.querySelectorAll('[data-close]').forEach(function (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+      var id = closeBtn.getAttribute('data-close');
+      var target = document.getElementById(id);
+      if (!target) return;
+      target.hidden = true;
+      syncToggleButtons();
+      var opener = document.querySelector('.nhsw-example-preview__footer-button[data-toggle="' + id + '"]');
+      if (opener) opener.focus();
+    });
   });
 
   function selectViewerTab(viewer, name) {

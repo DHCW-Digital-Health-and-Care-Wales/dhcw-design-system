@@ -1,5 +1,4 @@
 @use "../../tokens/colours" as c;
-@use "../../utilities/focus-ring" as u;
 @use "../../utilities/breakpoints" as b;
 
 .nhsw-example-preview {
@@ -26,7 +25,7 @@
   &__body {
     position: relative;
     padding: 16px;
-    background-color: c.$nhswales-page-background-white;
+    background-color: c.$nhswales-page-background-grey;
 
     @include b.nhsw-from-tablet {
       padding: 32px 24px;
@@ -34,6 +33,16 @@
 
     &--dark {
       background-color: c.$nhswales-page-background-blue;
+    }
+
+    // TEMPORARY: white body so tag-all-colours passes axe colour contrast on grey. Remove once its class-name text colour is fixed.
+    &--white {
+      background-color: c.$nhswales-page-background-white;
+    }
+
+    // Temporary: keeps the all-tag-colours example white so its red class names pass axe contrast.
+    &--white {
+      background-color: c.$nhswales-page-background-white;
     }
 
     // The example sits inline in the docs page, so a navigation demo would
@@ -49,7 +58,7 @@
     width: 100%;
     height: 560px;
     border: 1px solid c.$nhswales-grey-border-colour;
-    background-color: c.$nhswales-page-background-white;
+    background-color: c.$nhswales-page-background-grey;
 
     &--short {
       height: 440px;
@@ -74,7 +83,11 @@
     }
 
     &:focus {
-      @include u.nhsw-focus-ring;
+      outline: none;
+      background-color: c.$nhswales-focus-colour;
+      box-shadow: 0 4px 0 0 c.$nhswales-focus-text-colour;
+      color: c.$nhswales-focus-text-colour;
+      text-decoration: none;
     }
   }
 }

@@ -76,3 +76,95 @@ describe('example boxes on the component pages keep a navigation demo in view', 
     expect(block(css, '\\.nhsw-example-preview__body \\.nhsw-site-header__nav')).toMatch(/display:\s*block/);
   });
 });
+
+describe('example previews use the NHSW grey background', () => {
+  const css = compileProbe(`@use "components/content/example-preview";`);
+
+  it('the example body and the framed example are grey, not white', () => {
+    expect(block(css, '\.nhsw-example-preview__body')).toMatch(/background-color:\s*#f0f4f5/);
+    expect(block(css, '\.nhsw-example-preview__frame')).toMatch(/background-color:\s*#f0f4f5/);
+  });
+
+  it('the dark variant keeps its blue background', () => {
+    expect(block(css, '\.nhsw-example-preview__body--dark')).toMatch(/background-color:\s*#1b365d/);
+  });
+});
+
+describe('code viewer matches the example window design', () => {
+  const css = compileProbe(`@use "components/content/code-viewer";`);
+
+  it('is grey with a white code panel, and the tabs are links with a blue bar under the active one', () => {
+    expect(block(css, '\.nhsw-code-viewer')).toMatch(/background-color:\s*#f0f4f5/);
+    expect(block(css, '\.nhsw-code-viewer__panel')).toMatch(/background-color:\s*#ffffff/);
+    expect(block(css, '\.nhsw-code-viewer__tab span, \.nhsw-code-viewer__link span')).toMatch(/text-decoration:\s*underline/);
+    expect(block(css, '\.nhsw-code-viewer__tab, \.nhsw-code-viewer__link')).toMatch(/text-decoration:\s*none/);
+    expect(block(css, '\.nhsw-code-viewer__tab--active, \.nhsw-code-viewer__link--active')).toMatch(/border-bottom-color:\s*#005aa8/);
+  });
+
+  it('colours tags, attributes and values', () => {
+    expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--attr\s*\{\s*color:\s*#007f3b/);
+    expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--value\s*\{\s*color:\s*#d5281b/);
+  });
+
+  it('an open viewer joins the example above it and hides the example footer', () => {
+    expect(css).toContain('.nhsw-example-preview:has(+ .nhsw-code-viewer:not([hidden]))');
+  });
+});
+
+describe('code window focus states behave like links, not buttons', () => {
+  const viewer = compileProbe(`@use "components/content/code-viewer";`);
+  const preview = compileProbe(`@use "components/content/example-preview";`);
+
+  it('focusing a tab highlights only its text, with a black bar underneath, and leaves the tab itself unfilled', () => {
+    expect(block(viewer, '\.nhsw-code-viewer__tab:focus, \.nhsw-code-viewer__link:focus')).toMatch(/outline:\s*none/);
+    expect(block(viewer, '\.nhsw-code-viewer__tab:focus, \.nhsw-code-viewer__link:focus')).not.toMatch(/background-color/);
+    const text = block(viewer, '\.nhsw-code-viewer__tab:focus span, \.nhsw-code-viewer__link:focus span');
+    expect(text).toMatch(/background-color:\s*#ffeb3b/);
+    expect(text).toMatch(/box-shadow:\s*0 4px 0 0 #212b32/);
+  });
+
+  it('the HTML, Nunjucks and Close links use the same link focus, with no outline', () => {
+    const focus = block(preview, '\.nhsw-example-preview__footer-button:focus');
+    expect(focus).toMatch(/outline:\s*none/);
+    expect(focus).toMatch(/background-color:\s*#ffeb3b/);
+    expect(focus).toMatch(/box-shadow:\s*0 4px 0 0 #212b32/);
+  });
+});
+
+describe('code window: larger Close link and optional Figma tab', () => {
+  const viewer = compileProbe(`@use "components/content/code-viewer";`);
+  const preview = compileProbe(`@use "components/content/example-preview";`);
+
+  it('Close is larger than the example footer links', () => {
+    expect(block(viewer, '\.nhsw-code-viewer__footer \.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*1rem/);
+    expect(block(preview, '\.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*0\.9375rem/);
+  });
+
+  it('the Figma link is styled like the tabs and takes the same link focus', () => {
+    expect(viewer).toMatch(/\.nhsw-code-viewer__tab,\s*\.nhsw-code-viewer__link\s*\{/);
+    expect(viewer).toMatch(/\.nhsw-code-viewer__link:focus span\s*\{/);
+  });
+
+  it('the all-tag-colours example can opt into a temporary white background', () => {
+    expect(block(preview, '\.nhsw-example-preview__body--white')).toMatch(/background-color:\s*#ffffff/);
+  });
+});
+
+describe('temporary white example body for the tag colours page', () => {
+  it('has a white body modifier, used only by tag-all-colours', async () => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const css = compileProbe(`@use "components/content/example-preview";`);
+    expect(block(css, '\.nhsw-example-preview__body--white')).toMatch(/background-color:\s*#ffffff/);
+    const page = fs.readFileSync(path.resolve(import.meta.dirname, '../../../../preview/examples/tag-all-colours.html'), 'utf8');
+    expect(page).toContain('nhsw-example-preview__body--white');
+  });
+});
+
+describe('code viewer Figma tab and larger Close', () => {
+  it('styles the Figma link like a tab and keeps Close at body size', () => {
+    const css = compileProbe(`@use "components/content/code-viewer";`);
+    expect(css).toMatch(/\.nhsw-code-viewer__link/);
+    expect(css).toMatch(/\.nhsw-code-viewer__footer \.nhsw-example-preview__footer-button\s*\{\s*font-size:\s*1rem/);
+  });
+});

@@ -176,3 +176,33 @@ describe('Hidden docs-site easter egg', () => {
     expect(layer()).toBeNull();
   });
 });
+
+describe('code viewer Close button and HTML syntax colouring', () => {
+  beforeEach(() => {
+    setBody(`
+      <button class="nhsw-example-preview__footer-button" data-toggle="code-y" data-tab="html" aria-controls="code-y" aria-expanded="true">HTML</button>
+      <div id="code-y" data-module="nhsw-code-viewer">
+        <button class="nhsw-code-viewer__tab nhsw-code-viewer__tab--active" aria-selected="true" aria-controls="cv-y-html">HTML</button>
+        <div id="cv-y-html" class="nhsw-code-viewer__panel"><pre><code>&lt;button class="nhsw-button" disabled&gt;Save &amp; go&lt;/button&gt;</code></pre></div>
+        <button type="button" data-close="code-y">Close</button>
+      </div>
+    `);
+    runScript(SCRIPT);
+  });
+
+  it('Close hides the viewer, collapses the HTML button and returns focus to it', () => {
+    document.querySelector('[data-close]').dispatchEvent(new Event('click'));
+    expect(document.getElementById('code-y').hidden).toBe(true);
+    const opener = document.querySelector('[data-toggle]');
+    expect(opener.getAttribute('aria-expanded')).toBe('false');
+    expect(document.activeElement).toBe(opener);
+  });
+
+  it('colours tag names, attribute names and attribute values, without changing the copied text', () => {
+    const code = document.querySelector('#cv-y-html code');
+    expect(code.querySelector('.nhsw-code-token--attr').textContent).toBe('class');
+    expect(code.querySelector('.nhsw-code-token--value').textContent).toBe('"nhsw-button"');
+    expect(code.querySelector('.nhsw-code-token--tag').textContent).toBe('<button');
+    expect(code.textContent).toBe('<button class="nhsw-button" disabled>Save & go</button>');
+  });
+});
