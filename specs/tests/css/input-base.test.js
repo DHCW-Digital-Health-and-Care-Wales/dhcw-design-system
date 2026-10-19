@@ -44,3 +44,18 @@ describe('shared input focus/hover: no hover border change, focus looks like a t
     expect(focus).toMatch(/box-shadow:\s*inset 0 0 0 2px #212b32/);
   });
 });
+
+describe('shared input error state: focus swaps the red border for near-black', () => {
+  const css = compileProbe(`@use "components/forms/input";`);
+  const focused = block(css, '\\.nhsw-input\\[aria-invalid=true\\]:focus, \\.nhsw-input\\.nhsw-is-invalid:focus');
+
+  it('keeps the red border when not focused', () => {
+    expect(block(css, '\\.nhsw-input\\[aria-invalid=true\\], \\.nhsw-input\\.nhsw-is-invalid')).toMatch(/border-color:\s*#d5281b/);
+  });
+
+  it('uses the primary near-black for the border and inset ring on focus, with no red', () => {
+    expect(focused).toMatch(/border-color:\s*#212b32/);
+    expect(focused).toMatch(/box-shadow:\s*inset 0 0 0 2px #212b32/);
+    expect(focused).not.toMatch(/#d5281b/);
+  });
+});
