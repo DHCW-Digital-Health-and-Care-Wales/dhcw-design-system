@@ -19,6 +19,14 @@
     line-height: t.$nhsw-line-height-body;
   }
 
+  &--bold {
+    font-weight: t.$nhsw-font-weight-bold;
+  }
+
+  &--regular {
+    font-weight: t.$nhsw-font-weight-regular;
+  }
+
   &--s {
     font-size: t.$nhsw-font-size-body-small;
     line-height: t.$nhsw-line-height-body-small;

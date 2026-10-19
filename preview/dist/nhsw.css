@@ -18,13 +18,13 @@
   border: 0;
   padding: 0;
 }
-.nhsw-form-group--error .nhsw-label {
+.nhsw-form-group--error .nhsw-label:not(.nhsw-label--bold) {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 @media (min-width: 40.0625em) {
-  .nhsw-form-group--error .nhsw-label {
+  .nhsw-form-group--error .nhsw-label:not(.nhsw-label--bold) {
     font-size: 1.1875rem;
     line-height: 1.75rem;
   }
@@ -64,6 +64,12 @@
     font-size: 1.1875rem;
     line-height: 1.75rem;
   }
+}
+.nhsw-label--bold {
+  font-weight: 700;
+}
+.nhsw-label--regular {
+  font-weight: 400;
 }
 .nhsw-label--s {
   font-size: 1rem;

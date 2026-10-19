@@ -28,7 +28,7 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
-      <label class="nhsw-label" for="sel-ov">Choose region</label>
+      <label class="nhsw-label nhsw-label--regular" for="sel-ov">Choose region</label>
       <select id="sel-ov" class="nhsw-select">
         <option>Choose region</option>
         <option>North Wales</option>
@@ -41,7 +41,7 @@ tabs:
   {% include example-preview.html id="sel-overview" open_url="/examples/select-hint.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
-  &lt;label class="nhsw-label" for="region"&gt;Choose region&lt;/label&gt;
+  &lt;label class="nhsw-label nhsw-label--regular" for="region"&gt;Choose region&lt;/label&gt;
   &lt;select id="region" name="region" class="nhsw-select"&gt;
     &lt;option value="" selected&gt;Choose region&lt;/option&gt;
     &lt;option value="north-wales"&gt;North Wales&lt;/option&gt;
@@ -53,7 +53,7 @@ tabs:
 {{ nhswSelect({
   id: "region",
   name: "region",
-  label: { text: "Choose region" },
+  label: { text: "Choose region", classes: "nhsw-label--regular" },
   items: [
     { value: "", text: "Choose region", selected: true },
     { value: "north-wales", text: "North Wales" },
@@ -77,7 +77,7 @@ tabs:
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group nhsw-form-group--error">
-      <label class="nhsw-label" for="sel-htu-err">Label desktop</label>
+      <label class="nhsw-label nhsw-label--bold" for="sel-htu-err">Choose region</label>
       <div class="nhsw-hint" id="sel-htu-err-hint">Hint text goes here</div>
       <p class="nhsw-error-message" id="sel-htu-err-error"><span class="nhsw-visually-hidden">Error: </span>Error message goes here</p>
       <select id="sel-htu-err" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="sel-htu-err-hint sel-htu-err-error">
@@ -88,7 +88,7 @@ tabs:
   {% include example-preview.html id="sel-htu-error" open_url="/examples/select-error.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
-  &lt;label class="nhsw-label" for="region"&gt;Label desktop&lt;/label&gt;
+  &lt;label class="nhsw-label nhsw-label--bold" for="region"&gt;Choose region&lt;/label&gt;
   &lt;div class="nhsw-hint" id="region-hint"&gt;Hint text goes here&lt;/div&gt;
   &lt;p class="nhsw-error-message" id="region-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Error message goes here&lt;/p&gt;
   &lt;select id="region" name="region" class="nhsw-select nhsw-is-invalid" aria-invalid="true" aria-describedby="region-hint region-error"&gt;
@@ -101,7 +101,7 @@ tabs:
 
 {{ nhswSelect({
   id: "region",
-  label: { text: "Label desktop" },
+  label: { text: "Choose region", classes: "nhsw-label--bold" },
   hint: { text: "Hint text goes here" },
   errorMessage: { text: "Error message goes here" },
   items: [
@@ -138,7 +138,7 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-form-group">
-        <label class="nhsw-label" for="sel-hint">Choose region</label>
+        <label class="nhsw-label nhsw-label--regular" for="sel-hint">Choose region</label>
         <div class="nhsw-hint" id="sel-hint-hint">Hint text goes here</div>
         <select id="sel-hint" class="nhsw-select" aria-describedby="sel-hint-hint">
           <option>Choose region</option>
@@ -148,7 +148,7 @@ tabs:
     {% include example-preview.html id="sel-hint" open_url="/examples/select-hint.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
-  &lt;label class="nhsw-label" for="region"&gt;Choose region&lt;/label&gt;
+  &lt;label class="nhsw-label nhsw-label--regular" for="region"&gt;Choose region&lt;/label&gt;
   &lt;div class="nhsw-hint" id="region-hint"&gt;Hint text goes here&lt;/div&gt;
   &lt;select id="region" name="region" class="nhsw-select" aria-describedby="region-hint"&gt;
     &lt;option value=""&gt;Choose region&lt;/option&gt;
@@ -160,7 +160,7 @@ tabs:
 
 {{ nhswSelect({
   id: "region",
-  label: { text: "Choose region" },
+  label: { text: "Choose region", classes: "nhsw-label--regular" },
   hint: { text: "Hint text goes here" },
   items: [
     { value: "", text: "Choose region" },

@@ -38,7 +38,7 @@ describe('error summary link and field error styling', () => {
   });
 
   it('label inside an errored field group matches the error message size and drops the bold', () => {
-    const label = block(css, '\\.nhsw-form-group--error \\.nhsw-label');
+    const label = block(css, '\\.nhsw-form-group--error \\.nhsw-label:not\\(\\.nhsw-label--bold\\)');
     expect(label).toMatch(/font-weight:\s*400/);
     expect(label).toMatch(/font-size:\s*1rem/);
   });

@@ -203,3 +203,29 @@ describe('textarea first example label', () => {
     expect(example).toContain('<label class="nhsw-label nhsw-label--xl" for="ta-mobility">');
   });
 });
+
+describe('select page label weights', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/select.html'), 'utf8');
+
+  it('the error example label is bold, in the example and both samples', () => {
+    expect(page).toContain('<label class="nhsw-label nhsw-label--bold" for="sel-htu-err">');
+    expect(page).toContain('&lt;label class="nhsw-label nhsw-label--bold" for="region"&gt;Choose region');
+    expect(page).toContain('label: { text: "Choose region", classes: "nhsw-label--bold" },');
+  });
+
+  it('every other label on the page is regular weight, and none is left as the bold default', () => {
+    const labels = [...page.matchAll(/<label class="([^"]*)"/g)].map((m) => m[1]);
+    const others = labels.filter((c) => !c.includes('nhsw-label--bold'));
+    expect(others.length).toBeGreaterThan(0);
+    for (const c of others) expect(c).toContain('nhsw-label--regular');
+  });
+
+  it('the select examples follow the same rule: bold in the error example, regular otherwise', () => {
+    const dir = path.join(root, 'preview/examples');
+    for (const f of fs.readdirSync(dir).filter((n) => n.startsWith('select-'))) {
+      const html = fs.readFileSync(path.join(dir, f), 'utf8');
+      const expected = html.includes('nhsw-form-group--error') ? 'nhsw-label--bold' : 'nhsw-label--regular';
+      for (const m of html.matchAll(/<label class="([^"]*)"/g)) expect(m[1], f).toContain(expected);
+    }
+  });
+});

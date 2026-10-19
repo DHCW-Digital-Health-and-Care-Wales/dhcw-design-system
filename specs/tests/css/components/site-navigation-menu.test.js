@@ -296,3 +296,17 @@ describe('--full width modifiers', () => {
     expect(css.match(/:not\(\[class\*="--full"\]\)/g).length).toBeGreaterThanOrEqual(8);
   });
 });
+
+describe('label weight modifiers', () => {
+  const label = compileProbe(`@use "components/forms/label";`);
+  const group = compileProbe(`@use "components/forms/form-group";`);
+
+  it('has bold and regular label modifiers', () => {
+    expect(block(label, '\.nhsw-label--bold')).toMatch(/font-weight:\s*700/);
+    expect(block(label, '\.nhsw-label--regular')).toMatch(/font-weight:\s*400/);
+  });
+
+  it('an error group still drops the label to regular weight, unless the label is the bold modifier', () => {
+    expect(group).toContain('.nhsw-form-group--error .nhsw-label:not(.nhsw-label--bold) {');
+  });
+});
