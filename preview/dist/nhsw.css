@@ -3176,6 +3176,19 @@ body {
 .nhsw-example-preview__body .nhsw-site-header__nav {
   display: block;
 }
+.nhsw-example-preview__body > .nhsw-card:not(.nhsw-card--top-task):has(> .nhsw-card__title .nhsw-card__title-link) {
+  width: 100%;
+  max-width: 440px;
+  min-height: 220px;
+}
+.nhsw-example-preview__body > .nhsw-card:has(> .nhsw-card__stat) {
+  width: fit-content;
+  min-width: 170px;
+  min-height: 0;
+}
+.nhsw-example-preview__body > .nhsw-card:has(> .nhsw-card__image) {
+  max-width: 27.375rem;
+}
 .nhsw-example-preview__frame {
   display: block;
   width: 100%;
@@ -4119,6 +4132,27 @@ body {
   margin: 0;
 }
 
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 32px;
+}
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) .nhsw-card__title,
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) .nhsw-card__description {
+  align-self: stretch;
+  margin: 0;
+}
+
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(> .nhsw-card__stat) {
+  gap: 4px;
+  padding: 24px;
+}
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(> .nhsw-card__stat) .nhsw-card__stat {
+  margin: 0;
+}
+
 .nhsw-card__title {
   margin: 0 0 0.5rem;
   font-size: 1.625rem;
@@ -4179,16 +4213,17 @@ body {
   display: block;
   margin: 0 0 0.5rem;
   color: #212b32;
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 2.625rem;
 }
 
 .nhsw-card__image {
   display: block;
-  width: 100%;
+  width: calc(100% + 2rem);
+  max-width: none;
   height: auto;
-  margin: 0 0 1rem;
+  margin: -1rem -1rem 1rem;
 }
 
 .nhsw-card__preview {
@@ -4273,11 +4308,26 @@ body {
   margin: 0;
 }
 
+.nhsw-card.nhsw-card--top-task:not(.nhsw-card--preview):not(.nhsw-card--flat) {
+  box-sizing: border-box;
+  width: 264px;
+  max-width: 100%;
+  min-height: 160px;
+  padding: 48px;
+}
+.nhsw-card.nhsw-card--top-task:not(.nhsw-card--preview):not(.nhsw-card--flat) .nhsw-card__title {
+  max-width: 168px;
+}
+
 .nhsw-card--flat {
   background-color: transparent;
   border: none;
   box-shadow: none;
   padding: 0;
+}
+
+.nhsw-card--chevron.nhsw-card:has(.nhsw-card__title-link) {
+  padding-right: 5rem;
 }
 
 .nhsw-card--chevron {
@@ -5397,9 +5447,11 @@ body {
   color: #4c6272;
 }
 .nhsw-breadcrumb--reverse .nhsw-breadcrumb__list-item,
-.nhsw-breadcrumb--reverse .nhsw-breadcrumb__list-item:not(:last-child)::after,
 .nhsw-breadcrumb--reverse .nhsw-breadcrumb__current {
   color: #ffffff;
+}
+.nhsw-breadcrumb--reverse .nhsw-breadcrumb__list-item:not(:last-child)::after {
+  background-color: #ffffff;
 }
 .nhsw-breadcrumb--reverse .nhsw-breadcrumb__link {
   color: #ffffff;

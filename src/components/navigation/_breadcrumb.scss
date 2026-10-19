@@ -68,9 +68,12 @@ $nhsw-colour-breadcrumb-link-hover: c.$nhswales-link-hover-colour;
 
   &--reverse {
     .nhsw-breadcrumb__list-item,
-    .nhsw-breadcrumb__list-item:not(:last-child)::after,
     .nhsw-breadcrumb__current {
       color: c.$nhswales-page-background-white;
+    }
+
+    .nhsw-breadcrumb__list-item:not(:last-child)::after {
+      background-color: c.$nhswales-page-background-white;
     }
 
     .nhsw-breadcrumb__link {

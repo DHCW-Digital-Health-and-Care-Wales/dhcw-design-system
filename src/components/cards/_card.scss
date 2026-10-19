@@ -34,6 +34,32 @@
   }
 }
 
+// Clickable card (Figma "Cards / Clickable"): 32px padding, 16px between the title
+// and the description, the title stretching across the card.
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 32px;
+
+  .nhsw-card__title,
+  .nhsw-card__description {
+    align-self: stretch;
+    margin: 0;
+  }
+}
+
+// Card with a stat: 24px padding and 4px between the number and the link.
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(> .nhsw-card__stat) {
+  gap: 4px;
+  padding: 24px;
+
+  .nhsw-card__stat {
+    margin: 0;
+  }
+}
+
 .nhsw-card__title {
   margin: 0 0 0.5rem;
   font-size: t.$nhsw-font-size-h3;
@@ -99,16 +125,17 @@
   display: block;
   margin: 0 0 0.5rem;
   color: c.$nhswales-primary-text-colour;
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: t.$nhsw-font-weight-bold;
-  line-height: 1.1;
+  line-height: 2.625rem;
 }
 
 .nhsw-card__image {
   display: block;
-  width: 100%;
+  width: calc(100% + 2rem);
+  max-width: none;
   height: auto;
-  margin: 0 0 1rem;
+  margin: -1rem -1rem 1rem;
 }
 
 .nhsw-card__preview {
@@ -203,11 +230,27 @@
   }
 }
 
+.nhsw-card.nhsw-card--top-task:not(.nhsw-card--preview):not(.nhsw-card--flat) {
+  box-sizing: border-box;
+  width: 264px;
+  max-width: 100%;
+  min-height: 160px;
+  padding: 48px;
+
+  .nhsw-card__title {
+    max-width: 168px;
+  }
+}
+
 .nhsw-card--flat {
   background-color: transparent;
   border: none;
   box-shadow: none;
   padding: 0;
+}
+
+.nhsw-card--chevron.nhsw-card:has(.nhsw-card__title-link) {
+  padding-right: 5rem;
 }
 
 .nhsw-card--chevron {

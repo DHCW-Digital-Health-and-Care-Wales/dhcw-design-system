@@ -164,6 +164,19 @@ tabs:
     {% capture njk_sample %}{% raw %}{{ nhswCard({ title: "Manage appointments", titleHref: "/appointments", description: "View, change or cancel your upcoming appointments." }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="card-top-task" html=html_sample njk=njk_sample toggleable=true %}
 
+    {% capture example_body %}{% raw %}
+      <div class="nhsw-card nhsw-card--top-task">
+        <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Order a repeat prescription</a></h3>
+      </div>
+    {% endraw %}{% endcapture %}
+    {% include example-preview.html id="card-top-task-title" open_url="/examples/card-top-task.html" body=example_body %}
+
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-card nhsw-card--top-task"&gt;
+  &lt;h3 class="nhsw-card__title"&gt;&lt;a class="nhsw-card__title-link" href="/repeat-prescription"&gt;Order a repeat prescription&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswCard({ title: "Order a repeat prescription", titleHref: "/repeat-prescription", classes: "nhsw-card--top-task" }) }}{% endraw %}{% endcapture %}
+    {% include code-viewer.html id="card-top-task-title" html=html_sample njk=njk_sample toggleable=true %}
+
     <p class="nhsw-body">Use top task cards to help users quickly access important information or common tasks.</p>
     <p class="nhsw-body">Place them near the top of a page, above other cards or navigation options.</p>
     <p class="nhsw-body">Only use top task cards for content or services that users need most often. They should provide a clear shortcut to high-priority information.</p>
@@ -261,7 +274,7 @@ tabs:
 
     {% capture example_body %}
       <div class="nhsw-card">
-        <img class="nhsw-card__image" src="{{ '/assets/nhsw-logo.svg' | relative_url }}" alt="">
+        <img class="nhsw-card__image" src="{{ '/assets/card-image-example.png' | relative_url }}" alt="">
         <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Manage appointments</a></h3>
         <p class="nhsw-card__description">View, change or cancel your upcoming appointments.</p>
       </div>
@@ -294,8 +307,8 @@ tabs:
     <p class="nhsw-body">Use basic cards to highlight important information within a page. They are not clickable and should not be used for navigation.</p>
         <p class="nhsw-body">Consider using these components, which may be more suitable for highlighting important information within a page:</p>
      <ul class="nhsw-body">
-      <li> <a class="nhsw-card__title-link" href="https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/components/inset-text.html">inset text</a></li>
-       <li> <a class="nhsw-card__title-link" href="https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/components/warning-callout.html">a warning callout</a></li>
+      <li> <a class="nhsw-link" href="https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/components/inset-text.html">inset text</a></li>
+       <li> <a class="nhsw-link" href="https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/components/warning-callout.html">a warning callout</a></li>
     </ul>
 
 

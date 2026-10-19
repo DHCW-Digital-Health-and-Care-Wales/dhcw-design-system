@@ -168,3 +168,45 @@ describe('code viewer Figma tab and larger Close', () => {
     expect(css).toMatch(/\.nhsw-code-viewer__footer \.nhsw-example-preview__footer-button\s*\{\s*font-size:\s*1rem/);
   });
 });
+
+describe('card examples on the docs pages are sized to their content', () => {
+  const preview = compileProbe(`@use "components/content/example-preview";`);
+  const card = compileProbe(`@use "components/cards/card";`);
+
+  it('stat and image cards no longer stretch across the whole example', () => {
+    expect(preview).toMatch(/\.nhsw-card:has\(> \.nhsw-card__stat\) \{\s*width: fit-content;\s*min-width: 170px/);
+    expect(preview).toMatch(/\.nhsw-card:has\(> \.nhsw-card__image\) \{\s*max-width: 27\.375rem/);
+  });
+
+  it('clickable cards follow the Figma sizes: 440px wide with 32px padding, stat card 24px padding, top task card 264px with 48px padding, all left aligned', () => {
+    expect(preview).toMatch(/\.nhsw-card:not\(\.nhsw-card--top-task\):has\(> \.nhsw-card__title \.nhsw-card__title-link\) \{\s*width: 100%;\s*max-width: 440px;\s*min-height: 220px/);
+    expect(card).toMatch(/\.nhsw-card:not\(\.nhsw-card--preview\):not\(\.nhsw-card--flat\):has\(\.nhsw-card__title-link\) \{[^}]*gap: 16px;\s*padding: 32px/);
+    expect(card).toMatch(/\.nhsw-card:not\(\.nhsw-card--preview\):not\(\.nhsw-card--flat\):has\(> \.nhsw-card__stat\) \{\s*gap: 4px;\s*padding: 24px/);
+    const top = block(card, '\\.nhsw-card\\.nhsw-card--top-task:not\\(\\.nhsw-card--preview\\):not\\(\\.nhsw-card--flat\\)');
+    expect(top).toMatch(/width:\s*264px/);
+    expect(top).toMatch(/padding:\s*48px/);
+    expect(top).not.toMatch(/text-align/);
+    expect(preview).not.toContain('.nhsw-card--top-task {');
+  });
+
+  it('the card image runs edge to edge across the top of the card', () => {
+    const image = block(card, '\.nhsw-card__image');
+    expect(image).toMatch(/margin:\s*-1rem -1rem 1rem/);
+    expect(image).toMatch(/width:\s*calc\(100% \+ 2rem\)/);
+  });
+});
+
+describe('reverse breadcrumbs and card title links', () => {
+  it('the chevrons between reverse breadcrumbs are filled white, not grey', () => {
+    const css = compileProbe(`@use "components/navigation/breadcrumb";`);
+    const rule = block(css, '\\.nhsw-breadcrumb--reverse \\.nhsw-breadcrumb__list-item:not\\(:last-child\\)::after');
+    expect(rule).toMatch(/background-color:\s*#ffffff/);
+  });
+
+  it('plain list links on the Cards page use the normal link class, not the card title link', async () => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const page = fs.readFileSync(path.resolve(import.meta.dirname, '../../../../preview/components/cards.html'), 'utf8');
+    expect(page).not.toMatch(/<li>\s*<a class="nhsw-card__title-link"/);
+  });
+});
