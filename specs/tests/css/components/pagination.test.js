@@ -23,6 +23,20 @@ describe('numbered pagination: underline is default, hover removes it (not the o
   });
 });
 
+describe('pagination typography', () => {
+  const css = compileProbe(`@use "components/content/pagination";`);
+
+  it('numbered Previous/Next use the same 400 weight as the page numbers', () => {
+    const base = block(css, '\.nhsw-pagination--numbered \.nhsw-pagination__previous,\n\.nhsw-pagination--numbered \.nhsw-pagination__next');
+    expect(base).toMatch(/font-weight:\s*400/);
+  });
+
+  it('content pagination underlines the title and the page name at the same 1px thickness', () => {
+    expect(block(css, '\.nhsw-pagination__link \.nhsw-pagination__title')).toMatch(/text-decoration-thickness:\s*1px/);
+    expect(block(css, '\.nhsw-pagination__page')).toMatch(/text-decoration-thickness:\s*1px/);
+  });
+});
+
 describe('pagination colour coverage (Figma tokens)', () => {
   let css = '';
 

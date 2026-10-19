@@ -2252,6 +2252,7 @@ body {
 .nhsw-pagination__link .nhsw-pagination__title {
   font-weight: 400;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 .nhsw-pagination__link:hover {
   color: #7c2855;
@@ -2292,6 +2293,7 @@ body {
   line-height: 1.71429;
   display: block;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 @media (min-width: 40.0625em) {
   .nhsw-pagination__page {
@@ -2324,7 +2326,7 @@ body {
   padding: 10px 12px;
   box-sizing: border-box;
   color: #005aa8;
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: underline;
 }
 .nhsw-pagination--numbered .nhsw-pagination__previous:hover,

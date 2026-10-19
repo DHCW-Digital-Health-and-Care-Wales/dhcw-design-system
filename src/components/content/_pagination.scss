@@ -76,6 +76,7 @@
   .nhsw-pagination__title {
     font-weight: 400;
     text-decoration: underline;
+    text-decoration-thickness: 1px;
   }
 
   &:hover {
@@ -120,6 +121,7 @@
   line-height: 1.71429;
   display: block;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 
   @include b.nhsw-from-tablet {
     font-size: 1rem;
@@ -150,7 +152,7 @@
     padding: 10px 12px;
     box-sizing: border-box;
     color: c.$nhswales-link-colour;
-    font-weight: 700;
+    font-weight: 400;
     text-decoration: underline;
 
     &:hover {

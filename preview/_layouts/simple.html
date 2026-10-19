@@ -2,7 +2,7 @@
 layout: default
 ---
 <main class="nhsw-main-wrapper{% if page.main_modifier %} nhsw-main-wrapper--{{ page.main_modifier }}{% endif %}" id="maincontent">
-  <div class="{% if page.container == 'fluid' %}nhsw-fluid-container{% else %}nhsw-width-container{% endif %}">
+  <div class="{% if page.container == 'fluid' %}nhsw-fluid-container{% else %}nhsw-wide-container{% endif %}">
     {% if page.no_side_nav %}
 
       {% include breadcrumb.html %}
