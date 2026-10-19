@@ -2364,6 +2364,7 @@ body {
 }
 .nhsw-pagination--numbered .nhsw-pagination__title {
   font-size: inherit;
+  font-weight: inherit;
   line-height: inherit;
 }
 .nhsw-pagination--numbered .nhsw-pagination__icon {
