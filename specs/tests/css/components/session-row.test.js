@@ -39,8 +39,10 @@ describe('session row matches its list-item structure', () => {
     expect(block(css, '\\.nhsw-session-row__divider')).toMatch(/width:\s*1px/);
   });
 
-  it('a row with no location is clickable all over through its title link, and the recurring link stays above that', () => {
-    expect(css).toContain('.nhsw-session-row:not(:has(.nhsw-session-row__location)) .nhsw-session-row__title::after {');
+  it('a row is clickable all over through its title link, with or without a location, and the recurring and location links stay above that', () => {
+    expect(css).toContain('.nhsw-session-row .nhsw-session-row__title::after {');
+    expect(css).toContain('.nhsw-session-row:has(.nhsw-session-row__title:hover) {');
+    expect(css).not.toContain(':not(:has(.nhsw-session-row__location))');
     expect(block(css, '\\.nhsw-session-row__recurring')).toMatch(/z-index:\s*1/);
     expect(block(css, '\\.nhsw-session-row__location')).toMatch(/z-index:\s*1/);
   });

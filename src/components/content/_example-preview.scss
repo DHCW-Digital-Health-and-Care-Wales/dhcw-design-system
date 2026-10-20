@@ -55,6 +55,15 @@ $nhsw-example-component-width: max(66.6667%, 640px);
     }
   }
 
+  // A footer is the full width of the page, so it fills the example instead of sitting inside the padding.
+  &__body:has(> .nhsw-site-footer:only-child) {
+    padding: 0;
+
+    > .nhsw-site-footer {
+      margin-top: 0;
+    }
+  }
+
   // Cards shown on the documentation pages take the width of their content, as
   // in the design, instead of stretching across the whole example.
   &__body > .nhsw-card:not(.nhsw-card--top-task):has(> .nhsw-card__title .nhsw-card__title-link) {

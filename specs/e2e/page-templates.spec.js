@@ -96,3 +96,10 @@ test.describe('Page template previews', () => {
     expect(scrollWidth).toBeLessThanOrEqual(400);
   });
 });
+
+test.describe('Back to top', () => {
+  test('the Page templates page has a single Back to top link', async ({ page }) => {
+    await page.goto('/patterns/page-templates.html');
+    await expect(page.locator('main a[href="#maincontent"], .nhsw-back-to-top a')).toHaveCount(1);
+  });
+});

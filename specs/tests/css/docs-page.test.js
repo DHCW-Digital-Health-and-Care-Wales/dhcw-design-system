@@ -106,3 +106,20 @@ describe('the Page templates page sits under Styles', () => {
     expect(page).toContain('breadcrumb_parent_url: /styles.html');
   });
 });
+
+describe('a footer example fills its preview', () => {
+  const css = compileProbe('@use "components/content/example-preview";');
+
+  it('has no padding around the footer, and the footer has no top margin', () => {
+    expect(block(css, '\\.nhsw-example-preview__body:has\\(> \\.nhsw-site-footer:only-child\\)')).toMatch(/padding:\s*0/);
+    expect(block(css, '\\.nhsw-example-preview__body:has\\(> \\.nhsw-site-footer:only-child\\) > \\.nhsw-site-footer')).toMatch(/margin-top:\s*0/);
+  });
+});
+
+describe('links in page text use the NHSW link styling', () => {
+  for (const page of ['preview/components/radios.html', 'preview/components/skip-link.html', 'preview/privacy-policy.html']) {
+    it(`${page} has no plain links`, () => {
+      expect(read(page)).not.toMatch(/<a href=/);
+    });
+  }
+});

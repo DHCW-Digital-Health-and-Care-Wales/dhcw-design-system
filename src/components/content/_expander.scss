@@ -112,14 +112,16 @@ $nhsw-colour-expander-hover-border: #4c6272;
   color: c.$nhswales-page-background-white;
 
   &::before {
-    content: "+";
-    font-size: 1.125rem;
-    line-height: 1;
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2014%2014%27%20fill=%27none%27%3E%3Cpath%20d=%27M6.93294%201.33311V12.5331M1.33311%206.93319H12.5331%27%20stroke=%27black%27%20stroke-width=%272.66667%27%20stroke-linecap=%27round%27/%3E%3C/svg%3E") center / contain no-repeat;
   }
 }
 
 .nhsw-expander__button[aria-expanded="true"] .nhsw-expander__icon::before {
-  content: "\2212";
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2014%2014%27%20fill=%27none%27%3E%3Cpath%20d=%27M1.33311%206.93319H12.5331%27%20stroke=%27black%27%20stroke-width=%272.66667%27%20stroke-linecap=%27round%27/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .nhsw-expander__link-text {

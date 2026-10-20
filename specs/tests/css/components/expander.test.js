@@ -112,4 +112,16 @@ describe('expander hover/focus states and default appearance', () => {
     const reverseHoverIcon = block(css, '\\.nhsw-expander--reverse:hover \\.nhsw-expander__icon');
     expect(reverseHoverIcon).toMatch(/background-color:\s*#ffffff/);
   });
+  it('the icon is the Figma plus (14px, round caps), turning into a minus when open, and takes the icon colour', () => {
+    const icon = block(css, '\\.nhsw-expander__icon::before');
+    expect(icon).toMatch(/width:\s*14px/);
+    expect(icon).toMatch(/height:\s*14px/);
+    expect(icon).toMatch(/background-color:\s*currentColor/);
+    expect(icon).toContain('M6.93294%201.33311V12.5331M1.33311%206.93319H12.5331');
+    expect(icon).toContain('stroke-width=%272.66667%27');
+    expect(icon).toContain('stroke-linecap=%27round%27');
+    const open = block(css, '\\.nhsw-expander__button\\[aria-expanded=true\\] \\.nhsw-expander__icon::before');
+    expect(open).toContain('M1.33311%206.93319H12.5331');
+    expect(open).not.toContain('V12.5331');
+  });
 });
