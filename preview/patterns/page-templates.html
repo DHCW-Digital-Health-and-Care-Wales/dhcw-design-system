@@ -57,13 +57,13 @@ breadcrumb_parent_url: /styles.html
 {% include example-preview.html id="pt-default" open_url="/examples/page-template-default.html" body=example_body %}
 
 {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;&lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     &lt;h1 class="nhsw-h1"&gt;Default page template&lt;/h1&gt;
   &lt;/div&gt;
 &lt;/main&gt;
@@ -74,7 +74,7 @@ breadcrumb_parent_url: /styles.html
   &lt;/div&gt;
 &lt;/footer&gt;{% endraw %}{% endcapture %}
 {% capture njk_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;
       &lt;a class="nhsw-site-header__brand" href="/"&gt;
         &lt;span class="nhsw-site-header__logo"&gt;
@@ -86,7 +86,7 @@ breadcrumb_parent_url: /styles.html
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     &lt;h1 class="nhsw-h1"&gt;Default page template&lt;/h1&gt;
   &lt;/div&gt;
 &lt;/main&gt;
@@ -105,13 +105,13 @@ breadcrumb_parent_url: /styles.html
 {% include example-preview.html id="pt-full-width" open_url="/examples/page-template-full-width.html" body=example_body %}
 
 {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;&lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
     &lt;h1 class="nhsw-h1"&gt;Full width&lt;/h1&gt;
     &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
@@ -126,7 +126,7 @@ breadcrumb_parent_url: /styles.html
 {% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
 
 &lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;
       &lt;a class="nhsw-site-header__brand" href="/"&gt;
         &lt;span class="nhsw-site-header__logo"&gt;
@@ -138,7 +138,7 @@ breadcrumb_parent_url: /styles.html
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     {{ nhswBackLink({ href: "#" }) }}
     &lt;h1 class="nhsw-h1"&gt;Full width&lt;/h1&gt;
     &lt;p class="nhsw-body"&gt;Page content&lt;/p&gt;
@@ -159,13 +159,13 @@ breadcrumb_parent_url: /styles.html
 {% include example-preview.html id="pt-one-half" open_url="/examples/page-template-one-half.html" body=example_body %}
 
 {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;&lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
     &lt;div class="nhsw-grid-row"&gt;
       &lt;div class="nhsw-grid-column-one-half"&gt;
@@ -184,7 +184,7 @@ breadcrumb_parent_url: /styles.html
 {% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
 
 &lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;
       &lt;a class="nhsw-site-header__brand" href="/"&gt;
         &lt;span class="nhsw-site-header__logo"&gt;
@@ -196,7 +196,7 @@ breadcrumb_parent_url: /styles.html
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     {{ nhswBackLink({ href: "#" }) }}
     &lt;div class="nhsw-grid-row"&gt;
       &lt;div class="nhsw-grid-column-one-half"&gt;
@@ -221,13 +221,13 @@ breadcrumb_parent_url: /styles.html
 {% include example-preview.html id="pt-two-thirds" open_url="/examples/page-template-two-thirds.html" body=example_body %}
 
 {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;&lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
     &lt;div class="nhsw-grid-row"&gt;
       &lt;div class="nhsw-grid-column-two-thirds"&gt;
@@ -246,7 +246,7 @@ breadcrumb_parent_url: /styles.html
 {% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
 
 &lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;
       &lt;a class="nhsw-site-header__brand" href="/"&gt;
         &lt;span class="nhsw-site-header__logo"&gt;
@@ -258,7 +258,7 @@ breadcrumb_parent_url: /styles.html
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     {{ nhswBackLink({ href: "#" }) }}
     &lt;div class="nhsw-grid-row"&gt;
       &lt;div class="nhsw-grid-column-two-thirds"&gt;
@@ -283,13 +283,13 @@ breadcrumb_parent_url: /styles.html
 {% include example-preview.html id="pt-one-third" open_url="/examples/page-template-one-third.html" body=example_body %}
 
 {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;&lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     &lt;a class="nhsw-back-link" href="#"&gt;Back&lt;/a&gt;
     &lt;div class="nhsw-grid-row"&gt;
       &lt;div class="nhsw-grid-column-one-third"&gt;
@@ -308,7 +308,7 @@ breadcrumb_parent_url: /styles.html
 {% capture njk_sample %}{% raw %}{% from "back-link/macro.njk" import nhswBackLink %}
 
 &lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;
       &lt;a class="nhsw-site-header__brand" href="/"&gt;
         &lt;span class="nhsw-site-header__logo"&gt;
@@ -320,7 +320,7 @@ breadcrumb_parent_url: /styles.html
 &lt;/header&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     {{ nhswBackLink({ href: "#" }) }}
     &lt;div class="nhsw-grid-row"&gt;
       &lt;div class="nhsw-grid-column-one-third"&gt;
@@ -355,7 +355,7 @@ breadcrumb_parent_url: /styles.html
 {% include example-preview.html id="pt-customised" open_url="/examples/page-template-customised-content.html" body=example_body %}
 
 {% capture html_sample %}{% raw %}&lt;header class="nhsw-site-header"&gt;
-  &lt;div class="nhsw-site-header__container"&gt;
+  &lt;div class="nhsw-site-header__container nhsw-site-header__container--fluid"&gt;
     &lt;div class="nhsw-site-header__top"&gt;
       &lt;a class="nhsw-site-header__brand" href="/"&gt;&lt;span class="nhsw-site-header__logo"&gt;&lt;img src="/assets/nhsw-logo.svg" alt="Digital Health and Care Wales"&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__title"&gt;Service name&lt;/span&gt;&lt;/a&gt;
       &lt;div class="nhsw-site-header__account"&gt;&lt;div class="nhsw-site-header__account-info"&gt;&lt;span class="nhsw-site-header__user"&gt;&lt;span class="nhsw-site-header__user-icon" aria-hidden="true"&gt;&lt;svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"&gt;&lt;path fill="currentColor" d="M12 3a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9zm0 11c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z"/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span class="nhsw-site-header__user-name"&gt;Jane Doe&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;a class="nhsw-site-header__logout" href="#"&gt;Log out&lt;/a&gt;&lt;/div&gt;
@@ -386,7 +386,7 @@ breadcrumb_parent_url: /styles.html
 &lt;/div&gt;
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     &lt;nav class="nhsw-breadcrumb" aria-label="breadcrumb"&gt;
       &lt;p class="nhsw-breadcrumb__mobile-back"&gt;&lt;a class="nhsw-back-link" href="#"&gt;Back to Level&lt;/a&gt;&lt;/p&gt;
       &lt;ol class="nhsw-breadcrumb__list"&gt;
@@ -432,7 +432,7 @@ breadcrumb_parent_url: /styles.html
 {{ nhswPhaseBanner({ tag: "Alpha", text: "This is a new service. Help us improve it and give your feedback by email." }) }}
 
 &lt;main class="nhsw-main-wrapper" id="maincontent"&gt;
-  &lt;div class="nhsw-width-container"&gt;
+  &lt;div class="nhsw-fluid-container"&gt;
     {{ nhswBreadcrumb({
       items: [
         { text: "Level", href: "#" },

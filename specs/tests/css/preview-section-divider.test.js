@@ -26,4 +26,11 @@ describe('divider after the examples in a variants section', () => {
     expect(sections.length).toBeGreaterThan(0);
     for (const tag of sections) expect(tag).toContain('preview-section--no-divider');
   });
+
+  it.each(['summary-list', 'warning-callout'])('every variants section on the %s page uses it', (name) => {
+    const page = fs.readFileSync(path.join(root, `preview/components/${name}.html`), 'utf8');
+    const sections = page.match(/<section class="preview-section[^"]*">/g) || [];
+    expect(sections.length).toBeGreaterThan(0);
+    for (const tag of sections) expect(tag).toContain('preview-section--no-divider');
+  });
 });

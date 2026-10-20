@@ -227,6 +227,14 @@ describe('Back to top on every page', () => {
     expect(include).toContain('<p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent">');
     expect(fs.readFileSync(path.join(root, 'preview/_layouts/workshop.html'), 'utf8')).toContain('id="maincontent"');
   });
+
+  it.each(['colours', 'typography', 'icons', 'layout'])('the styles %s page has no static Back to top link, only the floating one from the layout', async (page) => {
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const root = path.resolve(import.meta.dirname, '../../../..');
+    const html = fs.readFileSync(path.join(root, `preview/styles/${page}.html`), 'utf8');
+    expect(html).not.toMatch(/<a class="nhsw-link" href="#maincontent">[\s\S]*?Back to top<\/a>/);
+  });
 });
 
 describe('component examples on the docs pages follow the design widths', () => {

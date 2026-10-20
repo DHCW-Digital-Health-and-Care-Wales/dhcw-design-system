@@ -50,10 +50,9 @@ describe('components use the icons documented on the Icons page', () => {
   });
 
   it('"Back to top" links use the up arrow icon instead of a text arrow', () => {
+    expect(read('preview/_includes/back-to-top.html')).toContain(`d="${UP}"`);
     for (const rel of ['preview/styles/colours.html', 'preview/styles/typography.html', 'preview/styles/icons.html']) {
-      const html = read(rel);
-      expect(html, rel).toContain(`d="${UP}"`);
-      expect(html, rel).not.toContain('&uarr; Back to top');
+      expect(read(rel), rel).not.toContain('&uarr; Back to top');
     }
   });
 });
