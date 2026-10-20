@@ -2,8 +2,12 @@
 layout: example
 title: Card with an image example
 ---
-<div class="nhsw-card">
-  <img class="nhsw-card__image" src="{{ '/assets/card-image-example.png' | relative_url }}" alt="">
-  <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Card Title</a></h3>
-  <p class="nhsw-card__description">See the latest guidance on seasonal flu vaccinations.</p>
-</div>
+<ul class="nhsw-grid-row nhsw-card-group" role="list">
+  <li class="nhsw-grid-column-one-half nhsw-card-group__item">
+    <div class="nhsw-card">
+      <img class="nhsw-card__image" src="{{ '/assets/card-image-example.png' | relative_url }}" alt="">
+      <h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="#">Card Title</a></h3>
+      <p class="nhsw-card__description">See the latest guidance on seasonal flu vaccinations.</p>
+    </div>
+  </li>
+</ul>

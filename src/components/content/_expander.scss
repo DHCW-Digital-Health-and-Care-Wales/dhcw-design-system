@@ -132,3 +132,9 @@ $nhsw-colour-expander-hover-border: #4c6272;
 .nhsw-expander__content {
   padding: 0 24px 24px;
 }
+
+.nhsw-expander--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}

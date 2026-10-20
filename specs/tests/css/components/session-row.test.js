@@ -27,10 +27,43 @@ describe('session row matches its list-item structure', () => {
     expect(detail).toMatch(/color:\s*#4c6272/);
   });
 
-  it('badge has a grey background and bold text', () => {
-    const badge = block(css, '\\.nhsw-session-row__badge');
-    expect(badge).toMatch(/background-color:\s*#f0f4f5/);
-    expect(badge).toMatch(/font-weight:\s*700/);
+  it('the statuses on the right are the Tag component, with no tag styles of their own', () => {
+    expect(css).not.toContain('.nhsw-session-row__badge {');
+    expect(block(css, '\\.nhsw-session-row__badges \\.nhsw-tag')).toMatch(/margin:\s*0/);
+  });
+
+  it('the time, divider and recurring link sit on one centred line, so they line up', () => {
+    const meta = block(css, '\\.nhsw-session-row__meta');
+    expect(meta).toMatch(/display:\s*flex/);
+    expect(meta).toMatch(/align-items:\s*center/);
+    expect(block(css, '\\.nhsw-session-row__divider')).toMatch(/width:\s*1px/);
+  });
+
+  it('a row with no location is clickable all over through its title link, and the recurring link stays above that', () => {
+    expect(css).toContain('.nhsw-session-row:not(:has(.nhsw-session-row__location)) .nhsw-session-row__title::after {');
+    expect(block(css, '\\.nhsw-session-row__recurring')).toMatch(/z-index:\s*1/);
+    expect(block(css, '\\.nhsw-session-row__location')).toMatch(/z-index:\s*1/);
+  });
+});
+
+describe('session row markup', () => {
+  it('the statuses render as Tag components and the recurring marker is a real link, outside the title link', async () => {
+    const nunjucks = (await import('nunjucks')).default;
+    const env = nunjucks.configure('src/components', { autoescape: true });
+    const html = env.renderString('{% from "session-row/macro.njk" import nhswSessionRow %}{{ nhswSessionRow({ title: "T", meta: "8am to 5pm", recurring: true, badges: [{ label: "To do", value: "21 of 87" }, { label: "Free", value: "11" }], href: "#" }) }}');
+    expect(html).toContain('<strong class="nhsw-tag nhsw-tag--blue">To do<br>21 of 87</strong>');
+    expect(html).toContain('<strong class="nhsw-tag nhsw-tag--white">Free<br>11</strong>');
+    expect(html).toContain('<a class="nhsw-link nhsw-session-row__recurring" href="#">');
+    expect(html).not.toContain('<a class="nhsw-session-row"');
+    expect(html).not.toContain('nhsw-session-row__badge"');
+  });
+
+  it('the two standalone examples start with valid front matter, so they load when opened in a new tab', async () => {
+    const fs = await import('node:fs');
+    for (const file of ['table-session-row.html', 'table-session-row-location.html']) {
+      const text = fs.readFileSync(`preview/examples/${file}`, 'utf8').replace(/\r\n/g, '\n');
+      expect(text, file).toMatch(/^---\nlayout: example\ntitle: [^\n]+\n---\n<div class="nhsw-session-row">/);
+    }
   });
 });
 

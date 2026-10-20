@@ -187,3 +187,178 @@ describe('textarea page: warning callout and width', () => {
     expect(css).toMatch(/\.nhsw-textarea--full\s*\{\s*width:\s*100%/);
   });
 });
+
+describe('textarea first example label', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/textarea.html'), 'utf8');
+  const first = page.slice(page.indexOf('id="panel-how-to-use"'), page.indexOf('{% include code-viewer.html id="ta-overview"'));
+
+  it('uses the extra large label in the example, its HTML sample and its Nunjucks sample', () => {
+    expect(first).toContain('<label class="nhsw-label nhsw-label--xl" for="ta-ov-mobility">');
+    expect(first).toContain('&lt;label class="nhsw-label nhsw-label--xl" for="mobility"&gt;');
+    expect(first).toContain('(your mobility)?", classes: "nhsw-label--xl" }');
+  });
+
+  it('the standalone example matches', () => {
+    const example = fs.readFileSync(path.join(root, 'preview/examples/textarea-default.html'), 'utf8');
+    expect(example).toContain('<label class="nhsw-label nhsw-label--xl" for="ta-mobility">');
+  });
+});
+
+describe('select page label weights', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/select.html'), 'utf8');
+
+  it('the error example label is regular weight too, in the example and both samples', () => {
+    expect(page).toContain('<label class="nhsw-label nhsw-label--regular" for="sel-htu-err">');
+    expect(page).toContain('&lt;label class="nhsw-label nhsw-label--regular" for="region"&gt;Choose region');
+    expect(page).toContain('label: { text: "Choose region", classes: "nhsw-label--regular" },');
+  });
+
+  it('every label on the page is regular weight, none left as the bold default', () => {
+    const labels = [...page.matchAll(/<label class="([^"]*)"/g)].map((m) => m[1]);
+    expect(labels.length).toBeGreaterThan(0);
+    for (const c of labels) expect(c).toContain('nhsw-label--regular');
+  });
+
+  it('the select examples follow the same rule, error example included', () => {
+    const dir = path.join(root, 'preview/examples');
+    for (const f of fs.readdirSync(dir).filter((n) => n.startsWith('select-'))) {
+      const html = fs.readFileSync(path.join(dir, f), 'utf8');
+      const expected = 'nhsw-label--regular';
+      for (const m of html.matchAll(/<label class="([^"]*)"/g)) expect(m[1], f).toContain(expected);
+    }
+  });
+});
+
+describe('select page: meaningful example copy and the multiple options heading', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/select.html'), 'utf8');
+
+  it('no example still uses placeholder copy', () => {
+    expect(page).not.toContain('Hint text goes here');
+    expect(page).not.toContain('Error message goes here');
+    expect(page).not.toContain('Label desktop');
+  });
+
+  it('the error and hint examples read: label, hint, error message, in the example and both samples', () => {
+    expect(page).toContain('<div class="nhsw-hint" id="sel-htu-err-hint">This can be different to what you selected before</div>');
+    expect(page).toContain('</span>Choose region</p>');
+    expect(page).toContain('hint: { text: "This can be different to what you selected before" },');
+    expect(page).toContain('errorMessage: { text: "Choose region" },');
+    expect(page).toContain('<div class="nhsw-hint" id="sel-hint-hint">This can be different to what you selected before</div>');
+  });
+
+  it('puts a heading before the paragraph about not selecting multiple options', () => {
+    const heading = page.indexOf('<h3 class="nhsw-h3">Avoid adding functionality to allow selecting multiple options</h3>');
+    const paragraph = page.indexOf('The select component does not support selecting multiple options');
+    expect(heading).toBeGreaterThan(-1);
+    expect(heading).toBeLessThan(paragraph);
+    expect(paragraph - heading).toBeLessThan(200);
+  });
+});
+
+describe('select page: when not to use select', () => {
+  it('links "radios" to the Radios page', () => {
+    const page = fs.readFileSync(path.join(root, 'preview/components/select.html'), 'utf8');
+    expect(page).toContain(`such as <a class="nhsw-link" href="{{ '/components/radios.html' | relative_url }}">radios</a>.`);
+  });
+});
+
+describe('cards page: heading sizes in the accessibility examples', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/cards.html'), 'utf8').replace(/\r\n/g, '\n');
+  const sizes = page.slice(page.indexOf('id="card-heading-sizes"') - 2500, page.indexOf('id="card-heading-sizes" html'));
+
+  it('size l is an h2, m is an h3 and s is an h4, in the example, the HTML sample and the Nunjucks sample', () => {
+    for (const [level, size] of [['2', 'l'], ['3', 'm'], ['4', 's']]) {
+      expect(sizes).toContain(`<h${level} class="nhsw-card__title nhsw-card__title--${size}">Heading level ${size}</h${level}>`);
+      expect(sizes).toContain(`&lt;h${level} class="nhsw-card__title nhsw-card__title--${size}"&gt;Heading level ${size}&lt;/h${level}&gt;`);
+      expect(sizes).toContain(`headingLevel: ${level},\n  titleSize: "${size}",`);
+    }
+  });
+});
+
+describe('styles home page', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/styles.html'), 'utf8').replace(/\r\n/g, '\n');
+
+  it('is the "All styles" page: heading, introduction, then a card for each style', () => {
+    expect(page).toContain('<h1 class="nhsw-h1">All styles</h1>');
+    expect(page).toContain('Make your service look and feel like other NHS Wales services with these tested styles.');
+    const cards = [...page.matchAll(/<h3 class="nhsw-card__title"><a class="nhsw-card__title-link" href="\{\{ '([^']+)' \| relative_url \}\}">([^<]+)<\/a><\/h3>\s*<p class="nhsw-card__description">([^<]+)<\/p>/g)]
+      .map((m) => [m[2], m[1], m[3]]);
+    expect(cards).toEqual([
+      ['Colours', '/styles/colours.html', 'Apply the NHS Wales colour palette consistently across your service.'],
+      ['Icons', '/styles/icons.html', 'Use approved icons to help users understand and navigate content.'],
+      ['Layout', '/styles/layout.html', 'Create clear, consistent and responsive page layouts.'],
+      ['Page templates', '/patterns/page-templates.html', 'Use templates to create pages that are consistent with other services.'],
+      ['Typography', '/styles/typography.html', 'Use typography standards to make content clear, readable and accessible.'],
+    ]);
+  });
+
+  it('lays the cards out three to a row, like the components page', () => {
+    expect(page).toContain('<ul class="nhsw-grid-row nhsw-card-group" role="list">');
+    expect(page.match(/nhsw-grid-column-one-third nhsw-card-group__item/g)).toHaveLength(5);
+  });
+
+  it('the side navigation calls the page "All styles"', () => {
+    expect(fs.readFileSync(path.join(root, 'preview/_data/styles_nav.yml'), 'utf8')).toContain('- title: All styles');
+  });
+});
+
+describe('card with an image example opened in a new tab', () => {
+  it('shows the card in a half width column, not the full width of the page', () => {
+    const example = fs.readFileSync(path.join(root, 'preview/examples/card-image.html'), 'utf8');
+    expect(example).toMatch(/<ul class="nhsw-grid-row nhsw-card-group" role="list">\s*<li class="nhsw-grid-column-one-half nhsw-card-group__item">\s*<div class="nhsw-card">/);
+  });
+});
+
+describe('select examples show the dropdown options', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/select.html'), 'utf8').replace(/\r\n/g, '\n');
+  const regions = ['Choose region', 'North Wales', 'Mid Wales', 'West Wales', 'South Wales'];
+
+  it.each([['sel-ov', 'overview'], ['sel-htu-err', 'error message'], ['sel-hint', 'select with hint (variants)']])('the %s (%s) live example lists every option', (id) => {
+    const start = page.indexOf(`id="${id}"`);
+    const select = page.slice(start, page.indexOf('</select>', start));
+    for (const region of regions) expect(select, `${id} is missing "${region}"`).toContain(`<option>${region}</option>`);
+  });
+
+  it('every HTML and Nunjucks sample on the page lists the same five options', () => {
+    expect(page.match(/&lt;option value="south-wales"&gt;South Wales&lt;\/option&gt;/g)).toHaveLength(3);
+    expect(page.match(/\{ value: "south-wales", text: "South Wales" \}/g)).toHaveLength(3);
+  });
+});
+
+describe('styles home page has no breadcrumb, like the design', () => {
+  it('turns the breadcrumb off for this page only', () => {
+    const page = fs.readFileSync(path.join(root, 'preview/styles.html'), 'utf8');
+    expect(page).toContain('no_breadcrumb: true');
+    const include = fs.readFileSync(path.join(root, 'preview/_includes/breadcrumb.html'), 'utf8');
+    expect(include).toMatch(/^\{% unless page\.no_breadcrumb %\}/);
+    expect(include.trimEnd()).toMatch(/\{% endunless %\}$/);
+    const others = ['preview/index.html', 'preview/components/index.html', 'preview/get-started/index.html'];
+    for (const file of others) expect(fs.readFileSync(path.join(root, file), 'utf8')).not.toContain('no_breadcrumb');
+  });
+});
+
+describe('panel without an icon: large is the default 48px title, small is 32px', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/panel.html'), 'utf8').replace(/\r\n/g, '\n');
+  const large = page.slice(page.indexOf('Panel without icon (large)'), page.indexOf('id="pn-no-icon" html'));
+
+  it('the large example, its HTML and its Nunjucks use the standard title, with the icon switched off by icon: false', () => {
+    expect(large).toContain('<h1 class="nhsw-panel__title">Application complete</h1>');
+    expect(large).toContain('&lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;');
+    expect(large).toContain('icon: false,');
+    expect(large).not.toContain('nhsw-panel__title--l');
+    expect(large).not.toContain('titleSize');
+  });
+
+  it('the standalone large example matches', () => {
+    const example = fs.readFileSync(path.join(root, 'preview/examples/panel-no-icon.html'), 'utf8');
+    expect(example).toContain('<h1 class="nhsw-panel__title">Application complete</h1>');
+    expect(example).not.toContain('title--l');
+  });
+
+  it('icon: false renders the plain, full size title with no icon', async () => {
+    const { configure } = await import('../../../src/nunjucks.config.js');
+    const html = configure({ noCache: true }).renderString('{% from "panel/macro.njk" import nhswPanel %}{{ nhswPanel({ titleText: "T", icon: false, html: "B" }) }}');
+    expect(html).toContain('<h1 class="nhsw-panel__title">T</h1>');
+    expect(html).not.toContain('nhsw-panel__icon');
+  });
+});

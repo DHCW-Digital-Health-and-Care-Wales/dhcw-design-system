@@ -40,3 +40,9 @@ $nhsw-colour-error-summary-link-hover: #951c13;
     }
   }
 }
+
+.nhsw-error-summary--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}

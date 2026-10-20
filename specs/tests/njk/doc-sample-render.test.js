@@ -66,3 +66,18 @@ describe('every documented njk_sample renders through the real macro environment
     });
   }
 });
+
+describe('card titleSize', () => {
+  const env = configure({ noCache: true });
+  const render = (params) => env.renderString(`{% from "card/macro.njk" import nhswCard %}{{ nhswCard(${params}) }}`);
+
+  it('adds the size modifier to the title, without changing the heading tag', () => {
+    expect(render('{ title: "T", headingLevel: 2, titleSize: "l" }')).toContain('<h2 class="nhsw-card__title nhsw-card__title--l">');
+    expect(render('{ title: "T", headingLevel: 4, titleSize: "s" }')).toContain('<h4 class="nhsw-card__title nhsw-card__title--s">');
+  });
+
+  it('keeps the plain title class when no size is set, including in a card with actions', () => {
+    expect(render('{ title: "T" }')).toContain('<h3 class="nhsw-card__title">');
+    expect(render('{ title: "T", titleSize: "l", actions: [{ text: "Edit", href: "#" }] }')).toContain('class="nhsw-card__title nhsw-card__title--l"');
+  });
+});

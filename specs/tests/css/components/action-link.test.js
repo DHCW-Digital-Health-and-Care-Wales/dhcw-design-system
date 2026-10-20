@@ -66,9 +66,13 @@ describe('action link matches Figma Action link component (icon+text row)', () =
     expect(visited).toMatch(/color:\s*#330072/);
   });
 
-  it('active state underlines the text', () => {
-    const active = block(css, '\\.nhsw-action-link:active \\.nhsw-action-link__text');
-    expect(active).toMatch(/text-decoration:\s*underline/);
+  it('focused text has no underline, so a click does not show a second underline above the focus bar', () => {
+    const focusText = block(css, '\\.nhsw-action-link:focus \\.nhsw-action-link__text');
+    expect(focusText).toMatch(/text-decoration:\s*none/);
+  });
+
+  it('has no separate active state that would re-add the text underline', () => {
+    expect(css).not.toMatch(/\.nhsw-action-link:active/);
   });
 
   it('on dark backgrounds, hover stays white — not the light-background hover colour', () => {

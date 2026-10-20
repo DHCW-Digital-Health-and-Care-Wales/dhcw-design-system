@@ -25,7 +25,11 @@ params:
   - name: headingLevel
     type: integer
     required: false
-    description: 2/3/4/5. Defaults to 3. Controls the title tag; the class is always nhsw-card__title.
+    description: 2/3/4/5. Defaults to 3. Controls the title tag. It does not change the size.
+  - name: titleSize
+    type: string
+    required: false
+    description: l, m or s. Adds nhsw-card__title--l, --m or --s to set the title size (l matches an h2, m an h3, s an h4). Defaults to the standard card title size.
   - name: description
     type: string
     required: false

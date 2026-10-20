@@ -34,8 +34,21 @@ describe('checkboxes: regular-weight labels, centred tick, no row hover, thicker
     css = compileProbe(`@use "components/forms/checkboxes";`);
   });
 
-  it('item row has no hover background', () => {
-    expect(css).not.toMatch(/\.nhsw-checkboxes__item:hover/);
+  it('item row has no hover background, and the default size has no hover ring: only the small checkboxes do', () => {
+    expect(css).not.toMatch(/(^|\n)\.nhsw-checkboxes__item:hover/);
+    expect(css).not.toMatch(/(^|\n)\.nhsw-checkboxes__input:hover/);
+    expect(block(css, '\\.nhsw-checkboxes__item:hover')).toBe('');
+  });
+
+  it('hovering a small checkbox rings just the box with a grey shadow, not a background wash, and not when it is disabled', () => {
+    const hoverRing = block(css, '\\.nhsw-checkboxes--small \\.nhsw-checkboxes__item:hover \\.nhsw-checkboxes__input:not\\(:disabled\\) \\+ \\.nhsw-checkboxes__label::before');
+    expect(hoverRing).toMatch(/box-shadow:\s*0 0 0 4px #afb8bf/);
+    expect(hoverRing).not.toMatch(/background/);
+  });
+
+  it('hovering a focused small checkbox layers the grey ring around the outside of the yellow focus ring (4px yellow, then grey out to 8px)', () => {
+    const combined = block(css, '\\.nhsw-checkboxes--small \\.nhsw-checkboxes__item:hover \\.nhsw-checkboxes__input:not\\(:disabled\\):focus \\+ \\.nhsw-checkboxes__label::before');
+    expect(combined).toMatch(/box-shadow:\s*0 0 0 4px #ffeb3b,\s*0 0 0 8px #afb8bf/);
   });
 
   it('focus adds a thicker near-black border alongside the yellow ring', () => {

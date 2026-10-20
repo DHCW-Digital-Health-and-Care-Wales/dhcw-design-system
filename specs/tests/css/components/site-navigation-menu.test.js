@@ -178,21 +178,15 @@ describe('card examples on the docs pages are sized to their content', () => {
     expect(preview).toMatch(/\.nhsw-card:has\(> \.nhsw-card__image\) \{\s*max-width: 27\.375rem/);
   });
 
-  it('clickable cards follow the Figma sizes: 440px wide with 32px padding, stat card 24px padding, top task card 264px with 48px padding, all left aligned', () => {
+  it('clickable cards follow the Figma sizes: 440px wide with 32px padding, stat card 24px padding, top task card 264px, all left aligned', () => {
     expect(preview).toMatch(/\.nhsw-card:not\(\.nhsw-card--top-task\):has\(> \.nhsw-card__title \.nhsw-card__title-link\) \{\s*width: 100%;\s*max-width: 440px;\s*min-height: 220px/);
     expect(card).toMatch(/\.nhsw-card:not\(\.nhsw-card--preview\):not\(\.nhsw-card--flat\):has\(\.nhsw-card__title-link\) \{[^}]*gap: 16px;\s*padding: 32px/);
     expect(card).toMatch(/\.nhsw-card:not\(\.nhsw-card--preview\):not\(\.nhsw-card--flat\):has\(> \.nhsw-card__stat\) \{\s*gap: 4px;\s*padding: 24px/);
     const top = block(card, '\\.nhsw-card\\.nhsw-card--top-task:not\\(\\.nhsw-card--preview\\):not\\(\\.nhsw-card--flat\\)');
     expect(top).toMatch(/width:\s*264px/);
-    expect(top).toMatch(/padding:\s*48px/);
+    expect(top).toMatch(/padding:\s*2rem/);
     expect(top).not.toMatch(/text-align/);
     expect(preview).not.toContain('.nhsw-card--top-task {');
-  });
-
-  it('the card image runs edge to edge across the top of the card', () => {
-    const image = block(card, '\.nhsw-card__image');
-    expect(image).toMatch(/margin:\s*-1rem -1rem 1rem/);
-    expect(image).toMatch(/width:\s*calc\(100% \+ 2rem\)/);
   });
 });
 
@@ -232,5 +226,145 @@ describe('Back to top on every page', () => {
     const include = fs.readFileSync(path.join(root, 'preview/_includes/back-to-top.html'), 'utf8');
     expect(include).toContain('<p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent">');
     expect(fs.readFileSync(path.join(root, 'preview/_layouts/workshop.html'), 'utf8')).toContain('id="maincontent"');
+  });
+});
+
+describe('component examples on the docs pages follow the design widths', () => {
+  const css = compileProbe(`@use "components/content/example-preview";`);
+  const rule = (selector) => {
+    const start = css.indexOf(selector);
+    return start === -1 ? '' : css.slice(start, css.indexOf('}', start));
+  };
+
+  it('holds error summary, file upload, tables and tabs to two-thirds (at least 640px), border-box so padding is included', () => {
+    const group = rule('.nhsw-example-preview__body > .nhsw-error-summary:not([class*="--full"]),');
+    for (const selector of ['.nhsw-error-summary', '.nhsw-error-summary:not([class*="--full"]) ~ .nhsw-form-group', '.nhsw-file-upload', '.nhsw-table', '.nhsw-summary-list', '.nhsw-summary-card', '.nhsw-table-responsive', '.nhsw-tabs']) {
+      expect(group).toContain(`.nhsw-example-preview__body > ${selector}`);
+    }
+    expect(group).toMatch(/box-sizing:\s*border-box/);
+    expect(group).toMatch(/max-width:\s*max\(66\.6667%,\s*640px\)/);
+  });
+
+  it('leaves the small screen file upload at its own 343px, which the 640px cap must not override', () => {
+    expect(css).toContain('.nhsw-file-upload:not([class*="--full"]):not(.nhsw-file-upload--reverse)');
+    const upload = compileProbe('@use "components/forms/file-upload";');
+    expect(block(upload, '\.nhsw-file-upload--reverse')).toMatch(/max-width:\s*343px/);
+  });
+
+  it('caps the panel at the 960px page width and sizes the site navigation to its content', () => {
+    expect(rule('.nhsw-example-preview__body > .nhsw-panel:not([class*="--full"])')).toMatch(/max-width:\s*960px/);
+    expect(rule('.nhsw-example-preview__body > .nhsw-site-header__nav:not([class*="--full"])')).toMatch(/width:\s*fit-content/);
+  });
+
+  it('keeps plain text inputs to 730px but leaves the fixed and fluid width classes alone', () => {
+    expect(css).toContain('.nhsw-example-preview__body .nhsw-input:not([class*=nhsw-input--]) {');
+    expect(rule('.nhsw-example-preview__body .nhsw-input:not([class*=nhsw-input--])')).toMatch(/max-width:\s*730px/);
+  });
+});
+
+describe('--full width modifiers', () => {
+  const cases = [
+    ['components/forms/error-summary', 'nhsw-error-summary'],
+    ['components/content/expander', 'nhsw-expander'],
+    ['components/forms/file-upload', 'nhsw-file-upload'],
+    ['components/callouts/notification-banner', 'nhsw-notification-banner'],
+    ['components/content/panel', 'nhsw-panel'],
+    ['components/content/table', 'nhsw-table'],
+    ['components/content/summary-list', 'nhsw-summary-list'],
+    ['components/content/summary-card', 'nhsw-summary-card'],
+    ['components/content/table', 'nhsw-table-responsive'],
+    ['components/content/tabs', 'nhsw-tabs'],
+    ['components/site/header', 'nhsw-site-header__nav'],
+    ['components/forms/textarea', 'nhsw-textarea'],
+    ['components/forms/input', 'nhsw-input'],
+  ];
+
+  it.each(cases)('%s has a %s--full modifier that fills the width', (module, cls) => {
+    const css = compileProbe(`@use "${module}";`);
+    const full = block(css, `\.${cls}--full`);
+    expect(full).toMatch(/width:\s*100%/);
+  });
+
+  it('the docs width caps step aside for any --full modifier', () => {
+    const css = compileProbe(`@use "components/content/example-preview";`);
+    expect(css.match(/:not\(\[class\*="--full"\]\)/g).length).toBeGreaterThanOrEqual(8);
+  });
+});
+
+describe('label weight modifiers', () => {
+  const label = compileProbe(`@use "components/forms/label";`);
+  const group = compileProbe(`@use "components/forms/form-group";`);
+
+  it('has a regular weight label modifier, and the default label stays bold', () => {
+    expect(block(label, '\.nhsw-label--regular')).toMatch(/font-weight:\s*400/);
+    expect(block(label, '\.nhsw-label')).toMatch(/font-weight:\s*700/);
+    expect(label).not.toContain('nhsw-label--bold');
+  });
+
+  it('an error group drops the label to regular weight', () => {
+    expect(group).toContain('.nhsw-form-group--error .nhsw-label {');
+  });
+});
+
+describe('non-clickable cards and heading sizes', () => {
+  const card = compileProbe(`@use "components/cards/card";`);
+
+  it('non-clickable cards have 2rem padding, with 1.5rem under a basic card title and nothing under its description', () => {
+    const selector = '.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):not(:has(.nhsw-card__title-link))';
+    const start = card.indexOf(`${selector} {`);
+    expect(start).toBeGreaterThan(-1);
+    expect(card.slice(start, card.indexOf('}', start))).toMatch(/padding:\s*2rem/);
+    const title = card.indexOf(`${selector} .nhsw-card__title:has(+ .nhsw-card__description) {`);
+    expect(card.slice(title, card.indexOf('}', title))).toMatch(/margin-bottom:\s*1\.5rem/);
+    const description = card.indexOf(`${selector} .nhsw-card__description {`);
+    expect(card.slice(description, card.indexOf('}', description))).toMatch(/margin-bottom:\s*0/);
+  });
+
+  it('card title sizes: l matches an h2, m an h3 and s an h4', () => {
+    expect(block(card, '\.nhsw-card__title--m')).toMatch(/font-size:\s*1\.625rem/);
+    expect(card).toMatch(/\.nhsw-card__title--l\s*\{\s*font-size:\s*1\.6875rem/);
+    expect(card).toMatch(/\.nhsw-card__title--s\s*\{\s*font-size:\s*1\.1875rem/);
+    expect(card).toMatch(/@media[^{]*\{\s*\.nhsw-card__title--l\s*\{\s*font-size:\s*2\.25rem/);
+    expect(card).toMatch(/@media[^{]*\{\s*\.nhsw-card__title--s\s*\{\s*font-size:\s*1\.375rem/);
+  });
+});
+
+describe('card padding and the card image', () => {
+  const card = compileProbe(`@use "components/cards/card";`);
+
+  it('the second top task card has the same 32px padding as the other cards', () => {
+    expect(block(card, '\\.nhsw-card\\.nhsw-card--top-task:not\\(\\.nhsw-card--preview\\):not\\(\\.nhsw-card--flat\\)')).toMatch(/padding:\s*2rem/);
+  });
+
+  it('the image runs edge to edge across the top, cancelling the 32px padding, with the padding kept for the content below', () => {
+    const image = block(card, '\\.nhsw-card__image');
+    expect(image).toMatch(/margin:\s*-2rem -2rem 2rem/);
+    expect(image).toMatch(/width:\s*calc\(100% \+ 4rem\)/);
+    expect(card).toMatch(/\.nhsw-card__image\s*\{\s*align-self:\s*stretch;\s*margin-bottom:\s*1rem/);
+  });
+});
+
+describe('pagination underline thickness is the same in every variant', () => {
+  const css = compileProbe(`@use "components/content/pagination";`);
+  const selectors = [
+    '.nhsw-pagination--numbered .nhsw-pagination__previous,\n.nhsw-pagination--numbered .nhsw-pagination__next',
+    '.nhsw-pagination--numbered .nhsw-pagination__number-link',
+    '.nhsw-pagination__link .nhsw-pagination__title',
+    '.nhsw-pagination__page',
+  ];
+
+  it.each(selectors)('%s is underlined at 1px', (selector) => {
+    const start = css.indexOf(`\n${selector} {`);
+    expect(start).toBeGreaterThan(-1);
+    expect(css.slice(start, css.indexOf('}', start))).toMatch(/text-decoration-thickness:\s*1px/);
+  });
+});
+
+describe('panel without an icon (small)', () => {
+  const css = compileProbe(`@use "components/content/panel";`);
+
+  it('keeps the standard 40px side padding from the tablet breakpoint, not the 80px of the icon version', () => {
+    expect(css).toMatch(/\.nhsw-panel--small:not\(:has\(\.nhsw-panel__icon\)\)\s*\{\s*padding:\s*32px 40px/);
+    expect(css).toMatch(/\.nhsw-panel--small\s*\{\s*padding:\s*32px 80px/);
   });
 });

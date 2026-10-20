@@ -1,9 +1,9 @@
 const { test, expect } = require('@playwright/test');
 
-const items = ['All Styles', 'Colours', 'Icons', 'Layout', 'Page templates', 'Typography'];
+const items = ['All styles', 'Colours', 'Icons', 'Layout', 'Page templates', 'Typography'];
 
 const pages = [
-  { url: '/styles.html', current: 'All Styles' },
+  { url: '/styles.html', current: 'All styles' },
   { url: '/styles/colours.html', current: 'Colours' },
   { url: '/styles/icons.html', current: 'Icons' },
   { url: '/styles/layout.html', current: 'Layout' },

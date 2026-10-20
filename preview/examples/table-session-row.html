@@ -1,15 +1,22 @@
 ---
 layout: example
 title: Standard session row example
----<a class="nhsw-session-row" href="#">
+---
+<div class="nhsw-session-row">
   <div class="nhsw-session-row__main">
-    <span class="nhsw-session-row__title">Children routine imms morning</span>
-    <span class="nhsw-session-row__meta">8am to 5pm &nbsp;|&nbsp; <span class="nhsw-session-row__recurring"><svg class="nhsw-session-row__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg> Recurring session</span></span>
+    <a class="nhsw-session-row__title" href="#">Children routine imms morning</a>
+    <div class="nhsw-session-row__meta">
+      <span class="nhsw-session-row__time">8am to 5pm</span>
+      <span class="nhsw-session-row__divider" aria-hidden="true"></span>
+      <a class="nhsw-link nhsw-session-row__recurring" href="#"><svg class="nhsw-session-row__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg> Recurring session</a>
+    </div>
   </div>
   <div class="nhsw-session-row__detail">Diphtheria, tetanus, pertussis, polio, Hib and hepatitis B, Pneumococcal, Rotavirus</div>
   <div class="nhsw-session-row__badges">
-    <span class="nhsw-session-row__badge">To do<br>21 of 87</span>
-    <span class="nhsw-session-row__badge">Free<br>11</span>
+    <strong class="nhsw-tag nhsw-tag--blue">To do<br>21 of 87</strong>
+    <strong class="nhsw-tag nhsw-tag--white">Free<br>11</strong>
   </div>
-  <svg class="nhsw-session-row__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true"><path d="M9 6l6 6-6 6" /></svg>
-</a>
+  <svg class="nhsw-session-row__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" focusable="false" aria-hidden="true">
+    <path d="M9 6l6 6-6 6" />
+  </svg>
+</div>

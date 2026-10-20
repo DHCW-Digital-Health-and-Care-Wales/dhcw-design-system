@@ -29,6 +29,7 @@ $nhsw-colour-action-link-hover-text: c.$nhswales-link-hover-colour;
 
     .nhsw-action-link__text {
       color: c.$nhswales-focus-text-colour;
+      text-decoration: none;
     }
 
     .nhsw-action-link__icon {
@@ -38,12 +39,6 @@ $nhsw-colour-action-link-hover-text: c.$nhswales-link-hover-colour;
 
   &:visited {
     color: c.$nhswales-link-visited-colour;
-  }
-
-  &:active {
-    .nhsw-action-link__text {
-      text-decoration: underline;
-    }
   }
 
   &__icon {

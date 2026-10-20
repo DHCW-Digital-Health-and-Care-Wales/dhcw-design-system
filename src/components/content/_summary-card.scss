@@ -57,3 +57,9 @@
   padding: 12px 24px;
   background-color: c.$nhswales-page-background-white;
 }
+
+.nhsw-summary-card--full {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
