@@ -3828,15 +3828,13 @@ body {
 }
 .nhsw-action-link:focus .nhsw-action-link__text {
   color: #212b32;
+  text-decoration: none;
 }
 .nhsw-action-link:focus .nhsw-action-link__icon {
   fill: #212b32;
 }
 .nhsw-action-link:visited {
   color: #330072;
-}
-.nhsw-action-link:active .nhsw-action-link__text {
-  text-decoration: underline;
 }
 .nhsw-action-link__icon {
   flex-shrink: 0;

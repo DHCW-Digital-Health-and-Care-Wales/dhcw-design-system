@@ -9,17 +9,17 @@ describe('site navigation: the "More" overflow menu is the default, as in the NH
   });
 
   it('the navigation is never hidden on a small screen, which is what keeps it available at 400% zoom', () => {
-    expect(block(css, '\.nhsw-site-header__nav')).not.toMatch(/display:\s*none/);
+    expect(block(css, '\\.nhsw-site-header__nav')).not.toMatch(/display:\s*none/);
     expect(css).not.toMatch(/@media \(max-width: 40rem\)\s*\{\s*\.nhsw-site-header__nav\s*\{[^}]*display:\s*none/);
   });
 
   it('the navigation has a zero-width bottom border in its own colour, which the script grows to make room for an open menu', () => {
-    expect(block(css, '\.nhsw-site-header__nav')).toMatch(/border:\s*0 solid #ffffff/);
-    expect(block(css, '\.nhsw-site-header__nav--reverse')).toMatch(/border-color:\s*#1b365d/);
+    expect(block(css, '\\.nhsw-site-header__nav')).toMatch(/border:\s*0 solid #ffffff/);
+    expect(block(css, '\\.nhsw-site-header__nav--reverse')).toMatch(/border-color:\s*#1b365d/);
   });
 
   it('the list is positioned, so the menu can sit directly under it', () => {
-    expect(block(css, '\.nhsw-site-header__nav \.nhsw-site-header__nav-list')).toMatch(/position:\s*relative/);
+    expect(block(css, '\\.nhsw-site-header__nav \\.nhsw-site-header__nav-list')).toMatch(/position:\s*relative/);
   });
 
   it('opting out (nav--no-menu) hides the navigation below 40rem, as the navigation used to behave', () => {
@@ -81,12 +81,12 @@ describe('example previews use the NHSW grey background', () => {
   const css = compileProbe(`@use "components/content/example-preview";`);
 
   it('the example body and the framed example are grey, not white', () => {
-    expect(block(css, '\.nhsw-example-preview__body')).toMatch(/background-color:\s*#f0f4f5/);
-    expect(block(css, '\.nhsw-example-preview__frame')).toMatch(/background-color:\s*#f0f4f5/);
+    expect(block(css, '\\.nhsw-example-preview__body')).toMatch(/background-color:\s*#f0f4f5/);
+    expect(block(css, '\\.nhsw-example-preview__frame')).toMatch(/background-color:\s*#f0f4f5/);
   });
 
   it('the dark variant keeps its blue background', () => {
-    expect(block(css, '\.nhsw-example-preview__body--dark')).toMatch(/background-color:\s*#1b365d/);
+    expect(block(css, '\\.nhsw-example-preview__body--dark')).toMatch(/background-color:\s*#1b365d/);
   });
 });
 
@@ -94,11 +94,11 @@ describe('code viewer matches the example window design', () => {
   const css = compileProbe(`@use "components/content/code-viewer";`);
 
   it('is grey with a white code panel, and the tabs are links with a blue bar under the active one', () => {
-    expect(block(css, '\.nhsw-code-viewer')).toMatch(/background-color:\s*#f0f4f5/);
-    expect(block(css, '\.nhsw-code-viewer__panel')).toMatch(/background-color:\s*#ffffff/);
-    expect(block(css, '\.nhsw-code-viewer__tab span, \.nhsw-code-viewer__link span')).toMatch(/text-decoration:\s*underline/);
-    expect(block(css, '\.nhsw-code-viewer__tab, \.nhsw-code-viewer__link')).toMatch(/text-decoration:\s*none/);
-    expect(block(css, '\.nhsw-code-viewer__tab--active, \.nhsw-code-viewer__link--active')).toMatch(/border-bottom-color:\s*#005aa8/);
+    expect(block(css, '\\.nhsw-code-viewer')).toMatch(/background-color:\s*#f0f4f5/);
+    expect(block(css, '\\.nhsw-code-viewer__panel')).toMatch(/background-color:\s*#ffffff/);
+    expect(block(css, '\\.nhsw-code-viewer__tab span, \\.nhsw-code-viewer__link span')).toMatch(/text-decoration:\s*underline/);
+    expect(block(css, '\\.nhsw-code-viewer__tab, \\.nhsw-code-viewer__link')).toMatch(/text-decoration:\s*none/);
+    expect(block(css, '\\.nhsw-code-viewer__tab--active, \\.nhsw-code-viewer__link--active')).toMatch(/border-bottom-color:\s*#005aa8/);
   });
 
   it('colours tags, attributes and values', () => {
@@ -116,15 +116,15 @@ describe('code window focus states behave like links, not buttons', () => {
   const preview = compileProbe(`@use "components/content/example-preview";`);
 
   it('focusing a tab highlights only its text, with a black bar underneath, and leaves the tab itself unfilled', () => {
-    expect(block(viewer, '\.nhsw-code-viewer__tab:focus, \.nhsw-code-viewer__link:focus')).toMatch(/outline:\s*none/);
-    expect(block(viewer, '\.nhsw-code-viewer__tab:focus, \.nhsw-code-viewer__link:focus')).not.toMatch(/background-color/);
-    const text = block(viewer, '\.nhsw-code-viewer__tab:focus span, \.nhsw-code-viewer__link:focus span');
+    expect(block(viewer, '\\.nhsw-code-viewer__tab:focus, \\.nhsw-code-viewer__link:focus')).toMatch(/outline:\s*none/);
+    expect(block(viewer, '\\.nhsw-code-viewer__tab:focus, \\.nhsw-code-viewer__link:focus')).not.toMatch(/background-color/);
+    const text = block(viewer, '\\.nhsw-code-viewer__tab:focus span, \\.nhsw-code-viewer__link:focus span');
     expect(text).toMatch(/background-color:\s*#ffeb3b/);
     expect(text).toMatch(/box-shadow:\s*0 4px 0 0 #212b32/);
   });
 
   it('the HTML, Nunjucks and Close links use the same link focus, with no outline', () => {
-    const focus = block(preview, '\.nhsw-example-preview__footer-button:focus');
+    const focus = block(preview, '\\.nhsw-example-preview__footer-button:focus');
     expect(focus).toMatch(/outline:\s*none/);
     expect(focus).toMatch(/background-color:\s*#ffeb3b/);
     expect(focus).toMatch(/box-shadow:\s*0 4px 0 0 #212b32/);
@@ -136,8 +136,8 @@ describe('code window: larger Close link and optional Figma tab', () => {
   const preview = compileProbe(`@use "components/content/example-preview";`);
 
   it('Close is larger than the example footer links', () => {
-    expect(block(viewer, '\.nhsw-code-viewer__footer \.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*1rem/);
-    expect(block(preview, '\.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*0\.9375rem/);
+    expect(block(viewer, '\\.nhsw-code-viewer__footer \\.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*1rem/);
+    expect(block(preview, '\\.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*0\.9375rem/);
   });
 
   it('the Figma link is styled like the tabs and takes the same link focus', () => {
@@ -146,7 +146,7 @@ describe('code window: larger Close link and optional Figma tab', () => {
   });
 
   it('the all-tag-colours example can opt into a temporary white background', () => {
-    expect(block(preview, '\.nhsw-example-preview__body--white')).toMatch(/background-color:\s*#ffffff/);
+    expect(block(preview, '\\.nhsw-example-preview__body--white')).toMatch(/background-color:\s*#ffffff/);
   });
 });
 
@@ -155,7 +155,7 @@ describe('temporary white example body for the tag colours page', () => {
     const fs = await import('node:fs');
     const path = await import('node:path');
     const css = compileProbe(`@use "components/content/example-preview";`);
-    expect(block(css, '\.nhsw-example-preview__body--white')).toMatch(/background-color:\s*#ffffff/);
+    expect(block(css, '\\.nhsw-example-preview__body--white')).toMatch(/background-color:\s*#ffffff/);
     const page = fs.readFileSync(path.resolve(import.meta.dirname, '../../../../preview/examples/tag-all-colours.html'), 'utf8');
     expect(page).toContain('nhsw-example-preview__body--white');
   });
@@ -208,11 +208,11 @@ describe('reverse breadcrumbs and card title links', () => {
 describe('example screenshots on the Examples tab', () => {
   it('have no grey background, border or padding behind or around the image', () => {
     const css = compileProbe(`@use "components/content/example-screenshot";`);
-    const frame = block(css, '\.nhsw-example-screenshot');
+    const frame = block(css, '\\.nhsw-example-screenshot');
     expect(frame).not.toMatch(/background/);
     expect(frame).not.toMatch(/border/);
     expect(frame).not.toMatch(/padding/);
-    expect(block(css, '\.nhsw-example-screenshot__image')).not.toMatch(/border/);
+    expect(block(css, '\\.nhsw-example-screenshot__image')).not.toMatch(/border/);
   });
 });
 
@@ -256,7 +256,7 @@ describe('component examples on the docs pages follow the design widths', () => 
   it('leaves the small screen file upload at its own 343px, which the 640px cap must not override', () => {
     expect(css).toContain('.nhsw-file-upload:not([class*="--full"]):not(.nhsw-file-upload--reverse)');
     const upload = compileProbe('@use "components/forms/file-upload";');
-    expect(block(upload, '\.nhsw-file-upload--reverse')).toMatch(/max-width:\s*343px/);
+    expect(block(upload, '\\.nhsw-file-upload--reverse')).toMatch(/max-width:\s*343px/);
   });
 
   it('caps the panel at the 960px page width and sizes the site navigation to its content', () => {
@@ -289,7 +289,7 @@ describe('--full width modifiers', () => {
 
   it.each(cases)('%s has a %s--full modifier that fills the width', (module, cls) => {
     const css = compileProbe(`@use "${module}";`);
-    const full = block(css, `\.${cls}--full`);
+    const full = block(css, `\\.${cls}--full`);
     expect(full).toMatch(/width:\s*100%/);
   });
 
@@ -304,8 +304,8 @@ describe('label weight modifiers', () => {
   const group = compileProbe(`@use "components/forms/form-group";`);
 
   it('has a regular weight label modifier, and the default label stays bold', () => {
-    expect(block(label, '\.nhsw-label--regular')).toMatch(/font-weight:\s*400/);
-    expect(block(label, '\.nhsw-label')).toMatch(/font-weight:\s*700/);
+    expect(block(label, '\\.nhsw-label--regular')).toMatch(/font-weight:\s*400/);
+    expect(block(label, '\\.nhsw-label')).toMatch(/font-weight:\s*700/);
     expect(label).not.toContain('nhsw-label--bold');
   });
 
@@ -329,7 +329,7 @@ describe('non-clickable cards and heading sizes', () => {
   });
 
   it('card title sizes: l matches an h2, m an h3 and s an h4', () => {
-    expect(block(card, '\.nhsw-card__title--m')).toMatch(/font-size:\s*1\.625rem/);
+    expect(block(card, '\\.nhsw-card__title--m')).toMatch(/font-size:\s*1\.625rem/);
     expect(card).toMatch(/\.nhsw-card__title--l\s*\{\s*font-size:\s*1\.6875rem/);
     expect(card).toMatch(/\.nhsw-card__title--s\s*\{\s*font-size:\s*1\.1875rem/);
     expect(card).toMatch(/@media[^{]*\{\s*\.nhsw-card__title--l\s*\{\s*font-size:\s*2\.25rem/);
