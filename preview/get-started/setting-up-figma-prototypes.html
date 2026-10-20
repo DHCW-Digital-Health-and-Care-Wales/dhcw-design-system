@@ -3,63 +3,54 @@ layout: simple
 title: Setting up Figma prototypes
 container: fluid
 side_nav_data: get_started_nav
-side_nav_heading: Setup
+side_nav_heading: Get started
 breadcrumb_parent_title: Home
 breadcrumb_parent_url: /index.html
 ---
 <h1 class="nhsw-h1">Setting up Figma prototypes</h1>
-<p class="nhsw-body">Prototype your service using the DHCW Design System's Figma prototyping kit.</p>
+<p class="nhsw-body">Create early prototypes for your service using the DHCW Design System in Figma. There are different ways to access the resources depending on whether you work for DHCW.</p>
 
 <div class="nhsw-tabs">
   <ul class="nhsw-tabs__list" role="tablist">
     <li role="presentation">
-      <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="panel-dhcw" id="tab-dhcw">DHCW staff</button>
+      <button class="nhsw-tabs__tab nhsw-tabs__tab--selected" role="tab" aria-selected="true" aria-controls="panel-dhcw" id="tab-dhcw">DHCW access</button>
     </li>
     <li role="presentation">
-      <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-non-dhcw" id="tab-non-dhcw">Non-DHCW staff</button>
+      <button class="nhsw-tabs__tab" role="tab" aria-selected="false" aria-controls="panel-other-organisations" id="tab-community-access">Community access</button>
     </li>
   </ul>
 
   <div class="nhsw-tabs__panel" id="panel-dhcw" role="tabpanel" aria-labelledby="tab-dhcw">
     <h3 class="nhsw-h3">If you work for DHCW</h3>
-    <p class="nhsw-body"><a class="nhsw-link" href="#">Use DHCW design system components in Figma</a> for rapid wireframing and basic prototyping. We recommend using the <a class="nhsw-link" href="#">prototype kit</a> to build prototypes for usability testing.</p>
+    <p class="nhsw-body">If you have access to the DHCW Figma workspace, you can enable the shared DHCW Design System as a library in your design files to create wireframes and early prototypes. If you do not have access but think you need it, email <a class="nhsw-link" href="mailto:dhcw.ucd@wales.nhs.uk">dhcw.ucd@wales.nhs.uk</a> for advice.</p>
+    <p class="nhsw-body">Enable the library in your Figma file to use the latest components, styles and design assets. The Design System team maintains and updates these resources as the Design System develops.</p>
 
     <div class="nhsw-inset-text">
       <span class="nhsw-visually-hidden">Information: </span>
-      <p class="nhsw-body">Do not download and use the DHCW Design System from the <a class="nhsw-link" href="#">Figma Community</a>.</p>
+      <p class="nhsw-body">Do not use the DHCW Design System from Figma Community if you have access to the NHS Wales Figma workspace. Use the shared library instead to make sure you are working with the latest version.</p>
     </div>
 
-    <h4 class="nhsw-h4">How to check that the Figma design system library is active in your file</h4>
+    <h4 class="nhsw-h4">Check the Design System library is active</h4>
     <ol class="nhsw-body">
-      <li>Open any Figma design file in the app or a browser.</li>
-      <li>Select 'Assets' from the side navigation and then the book icon.</li>
-    </ol>
-    {% include screenshot-placeholder.html text="Figma Assets panel with the book icon highlighted" %}
-    <ol class="nhsw-body" start="3">
-      <li>Look under the heading 'Libraries added to this file'. If there's 'DHCW Design System V2', the Figma library is active. You do not need to do anything else.</li>
-    </ol>
-    {% include screenshot-placeholder.html text="Libraries added to this file, showing DHCW Design System V2" %}
-
-    <h4 class="nhsw-h4">What to do if the DHCW Design System does not appear</h4>
-    <ol class="nhsw-body">
-      <li>Go to 'Manage libraries' in the side navigation and select 'Recommended' (it has a light bulb icon).</li>
-      <li>Hover the item and select the 'Add to file' button.</li>
-    </ol>
-    {% include screenshot-placeholder.html text="Manage libraries panel with Recommended libraries and an Add to file button" %}
-    <ol class="nhsw-body" start="3">
-      <li>To check that the files have been added, select 'This file' in the side navigation. You should now see the DHCW Design System. This means the Figma library is active. You do not need to do anything else.</li>
+      <li>Open a Figma design file</li>
+      <li>Select <b>Assets</b>, then select the <b>Libraries</b> icon.</li>
+      <li>Look under <b>Libraries added to this file</b>. If DHCW Design System V2 appears, the library is active and you do not need to do anything else.</li>
     </ol>
 
-    <h4 class="nhsw-h4">How to get updates from the Figma library</h4>
-    <p class="nhsw-body">When the Figma library is updated, you'll be notified in Figma. You can also check for updates by:</p>
+    <h4 class="nhsw-h4">If the Design System library is not active</h4>
     <ol class="nhsw-body">
-      <li>Going to any Figma design file which has the library activated.</li>
-      <li>Selecting 'Assets' from the left-hand side panel and then the book icon, or alternatively you can select the book icon at the left corner from the left-hand side panel.</li>
-      <li>Selecting 'Updates' from the side navigation. This shows a change summary, the author and date, and any 'breaking' changes.</li>
+      <li>Go to <b>Manage libraries</b> and select <b>Recommended</b></li>
+      <li>Find the DHCW Design System and select <b>Add to file</b>.</li>
+      <li>Select <b>This file</b>. You should now see the DHCW Design System listed as an active library.</li>
     </ol>
-    {% include screenshot-placeholder.html text="Updates from DHCW Design System V2 panel with an Update all button" %}
-    <ol class="nhsw-body" start="4">
-      <li>Either selecting the 'Update all' button, or selecting 'Update' for each component you want to update.</li>
+
+    <h4 class="nhsw-h4">Get updates to the Design System Library</h4>
+    <p class="nhsw-body">Figma will notify you when updates to the library are available. You can also check for updates:</p>
+    <ol class="nhsw-body">
+      <li>Open a Figma file that uses the DHCW Design System library.</li>
+      <li>Select <b>Assets</b>, then select the <b>Libraries</b> icon.</li>
+      <li>Select <b>Updates</b> from the side navigation. This shows a change summary, the author and date and any breaking changes.</li>
+      <li>Select <b>Update all</b>, or update individual components.</li>
     </ol>
 
     <p class="nhsw-body"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
