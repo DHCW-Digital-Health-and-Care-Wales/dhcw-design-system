@@ -30,11 +30,11 @@ test.describe('Setting up Figma prototypes tabs', () => {
 
   test('clicking "Community access" switches panels and updates aria-selected', async ({ page }) => {
     await page.goto('/get-started/setting-up-figma-prototypes.html');
-    await page.locator('#tab-community-access').click();
+    await page.locator('#tab-non-dhcw').click();
 
     await expect(page.locator('#panel-other-organisations')).toBeVisible();
     await expect(page.locator('#panel-dhcw')).toBeHidden();
-    await expect(page.locator('#tab-community-access')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('#tab-non-dhcw')).toHaveAttribute('aria-selected', 'true');
     await expect(page.locator('#tab-dhcw')).toHaveAttribute('aria-selected', 'false');
     await expect(page.locator('#panel-other-organisations h3').first()).toHaveText("If you don't work for DHCW");
   });
