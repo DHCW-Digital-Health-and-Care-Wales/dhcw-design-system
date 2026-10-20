@@ -56,9 +56,6 @@
   font-weight: 700;
   line-height: 1.5rem;
 }
-.nhsw-label:has(+ .nhsw-hint) {
-  margin-bottom: 16px;
-}
 @media (min-width: 40.0625em) {
   .nhsw-label {
     font-size: 1.1875rem;
@@ -106,7 +103,7 @@
 
 .nhsw-hint {
   display: block;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   color: #4c6272;
   font-size: 1rem;
   font-weight: 400;
@@ -1025,6 +1022,12 @@
 }
 .nhsw-checkboxes--small .nhsw-checkboxes__hint {
   font-size: 1rem;
+}
+.nhsw-checkboxes--small .nhsw-checkboxes__item:hover .nhsw-checkboxes__input:not(:disabled) + .nhsw-checkboxes__label::before {
+  box-shadow: 0 0 0 4px #afb8bf;
+}
+.nhsw-checkboxes--small .nhsw-checkboxes__item:hover .nhsw-checkboxes__input:not(:disabled):focus + .nhsw-checkboxes__label::before {
+  box-shadow: 0 0 0 4px #ffeb3b, 0 0 0 8px #afb8bf;
 }
 
 .nhsw-input-wrapper {
@@ -2078,6 +2081,11 @@ body {
     padding: 32px 80px;
   }
 }
+@media (min-width: 40.0625em) {
+  .nhsw-panel--small:not(:has(.nhsw-panel__icon)) {
+    padding: 32px 40px;
+  }
+}
 .nhsw-panel--small .nhsw-panel__icon {
   width: 32px;
   height: 32px;
@@ -2382,6 +2390,7 @@ body {
   color: #005aa8;
   font-weight: 400;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 .nhsw-pagination--numbered .nhsw-pagination__previous:hover,
 .nhsw-pagination--numbered .nhsw-pagination__next:hover {
@@ -2473,6 +2482,7 @@ body {
   font-weight: 400;
   text-align: center;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 .nhsw-pagination--numbered .nhsw-pagination__number-link:hover {
   background-color: #d8dde0;
@@ -2781,6 +2791,7 @@ body {
 }
 
 .nhsw-session-row {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2788,11 +2799,7 @@ body {
   padding: 12px 16px;
   background-color: #ffffff;
   border-bottom: 1px solid #d8dde0;
-  text-decoration: none;
   color: inherit;
-}
-.nhsw-session-row:hover .nhsw-session-row__title {
-  text-decoration: underline;
 }
 
 .nhsw-session-row__main {
@@ -2807,11 +2814,56 @@ body {
   font-weight: 700;
   text-decoration: underline;
 }
+.nhsw-session-row__title:hover {
+  color: #7c2855;
+  text-decoration: none;
+}
+.nhsw-session-row__title:focus {
+  outline: none;
+  background-color: #ffeb3b;
+  box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+  color: #212b32;
+  text-decoration: none;
+}
+
+.nhsw-session-row:not(:has(.nhsw-session-row__location)) .nhsw-session-row__title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.nhsw-session-row:not(:has(.nhsw-session-row__location)):has(.nhsw-session-row__title:hover) {
+  background-color: #f0f4f5;
+}
 
 .nhsw-session-row__meta {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 12px;
   color: #4c6272;
   font-size: 1rem;
+  line-height: 1.5;
+}
+
+.nhsw-session-row__divider {
+  flex-shrink: 0;
+  width: 1px;
+  height: 16px;
+  background-color: #4c6272;
+}
+
+.nhsw-session-row__recurring {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: underline;
+}
+
+.nhsw-session-row__icon {
+  flex-shrink: 0;
 }
 
 .nhsw-session-row__detail {
@@ -2826,17 +2878,9 @@ body {
   gap: 8px;
   flex-shrink: 0;
 }
-
-.nhsw-session-row__badge {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
+.nhsw-session-row__badges .nhsw-tag {
+  margin: 0;
   padding: 4px 10px;
-  border: 1px solid #1b365d;
-  background-color: #f0f4f5;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-align: center;
 }
 
 .nhsw-session-row__chevron {
@@ -2846,22 +2890,9 @@ body {
   color: #4c6272;
 }
 
-.nhsw-session-row__badge:first-child {
-  background-color: #cfe2f3;
-}
-
-.nhsw-session-row__recurring {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  text-decoration: underline;
-}
-
-.nhsw-session-row__icon {
-  flex-shrink: 0;
-}
-
 .nhsw-session-row__location {
+  position: relative;
+  z-index: 1;
   flex: 1 1 8rem;
   min-width: 6rem;
 }
@@ -4222,6 +4253,10 @@ body {
   gap: 16px;
   padding: 32px;
 }
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) .nhsw-card__image {
+  align-self: stretch;
+  margin-bottom: 1rem;
+}
 .nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) .nhsw-card__title,
 .nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(.nhsw-card__title-link) .nhsw-card__description {
   align-self: stretch;
@@ -4340,10 +4375,10 @@ body {
 
 .nhsw-card__image {
   display: block;
-  width: calc(100% + 2rem);
+  width: calc(100% + 4rem);
   max-width: none;
   height: auto;
-  margin: -1rem -1rem 1rem;
+  margin: -2rem -2rem 2rem;
 }
 
 .nhsw-card__preview {
@@ -4433,7 +4468,7 @@ body {
   width: 264px;
   max-width: 100%;
   min-height: 160px;
-  padding: 48px;
+  padding: 2rem;
 }
 .nhsw-card.nhsw-card--top-task:not(.nhsw-card--preview):not(.nhsw-card--flat) .nhsw-card__title {
   max-width: 168px;
