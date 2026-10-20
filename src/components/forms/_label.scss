@@ -10,10 +10,6 @@
   font-weight: t.$nhsw-font-weight-bold;
   line-height: t.$nhsw-line-height-body-small;
 
-  &:has(+ .nhsw-hint) {
-    margin-bottom: 16px;
-  }
-
   @include b.nhsw-from-tablet {
     font-size: t.$nhsw-font-size-body;
     line-height: t.$nhsw-line-height-body;

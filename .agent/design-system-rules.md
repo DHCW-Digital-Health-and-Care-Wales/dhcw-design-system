@@ -112,7 +112,7 @@ From `src/tokens/_spacing.scss`:
 ### Form spacing
 
 - Form group margin-bottom: 16px on mobile, 24px from tablet.
-- Label margin-bottom: 4px; 16px when the label is followed directly by a hint.
+- Label margin-bottom: 4px, with or without a hint after it. Hint margin-bottom: 8px.
 - Hint margin-bottom: 16px.
 - Error message margin-bottom: 8px.
 - Form group in error: 4px left border and 16px left padding.

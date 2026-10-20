@@ -62,8 +62,6 @@
     "components/table.html#tbl-caption",
     "components/table.html#tbl-numeric",
     "components/table.html#tbl-missing",
-    "components/table.html#tbl-session",
-    "components/table.html#tbl-session-location",
     "components/textarea.html#ta-overview",
     "components/textarea.html#ta-error"
   ]

@@ -366,3 +366,64 @@ describe('birthday confetti', () => {
     expect(window.localStorage.getItem('nhsw-birthday-confetti')).toBeNull();
   });
 });
+
+describe('birthday confetti only shows once on the day', () => {
+  const layer = () => document.querySelector('[data-nhsw-fx]');
+  const run = (date, search = '') => {
+    vi.setSystemTime(date);
+    window.history.replaceState(null, '', '/' + search);
+    runScript(SCRIPT);
+  };
+
+  beforeEach(() => {
+    vi.useFakeTimers();
+    window.localStorage.clear();
+    window.sessionStorage.clear();
+    setBody('<p>page</p>');
+    Element.prototype.animate = vi.fn(() => ({}));
+    window.matchMedia = vi.fn(() => ({ matches: false }));
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.restoreAllMocks();
+    delete Element.prototype.animate;
+    window.history.replaceState(null, '', '/');
+  });
+
+  it('does not come back on later pages or reloads the same day', () => {
+    run(new Date(2026, 9, 23, 9, 0));
+    expect(layer()).not.toBeNull();
+    vi.advanceTimersByTime(10000);
+    for (const hour of [9, 12, 18]) {
+      setBody('<p>another page</p>');
+      run(new Date(2026, 9, 23, hour, 30));
+      expect(layer()).toBeNull();
+    }
+  });
+
+  it('still only shows once if localStorage is blocked, using sessionStorage instead', () => {
+    vi.spyOn(window, 'localStorage', 'get').mockImplementation(() => {
+      throw new Error('blocked');
+    });
+    run(new Date(2026, 9, 23, 9, 0));
+    expect(layer()).not.toBeNull();
+    vi.advanceTimersByTime(10000);
+    expect(window.sessionStorage.getItem('nhsw-birthday-confetti')).toBe('2026-10-23');
+    run(new Date(2026, 9, 23, 10, 0));
+    expect(layer()).toBeNull();
+  });
+
+  it('?confetti always shows it, even on the day it has already been seen, and does not change what is remembered', () => {
+    run(new Date(2026, 9, 23));
+    vi.advanceTimersByTime(10000);
+    const remembered = window.localStorage.getItem('nhsw-birthday-confetti');
+    expect(remembered).toBe('2026-10-23');
+    run(new Date(2026, 9, 23, 16, 0), '?confetti');
+    expect(layer()).not.toBeNull();
+    vi.advanceTimersByTime(10000);
+    run(new Date(2026, 9, 23, 17, 0), '?confetti');
+    expect(layer()).not.toBeNull();
+    expect(window.localStorage.getItem('nhsw-birthday-confetti')).toBe(remembered);
+  });
+});

@@ -232,7 +232,7 @@
   }
 
   // The library's birthday: confetti once per visitor on 23 October, every year from 2026.
-  // Add ?confetti to any page to preview it on another day.
+  // ?confetti always shows it, on any day and any number of times.
   var BIRTHDAY_MONTH = 9;
   var BIRTHDAY_DAY = 23;
   var FIRST_BIRTHDAY_YEAR = 2026;
@@ -242,18 +242,32 @@
     return date.getMonth() === BIRTHDAY_MONTH && date.getDate() === BIRTHDAY_DAY && date.getFullYear() >= FIRST_BIRTHDAY_YEAR;
   }
 
-  function seenThisYear(year) {
+  var CONFETTI_KEY = 'nhsw-birthday-confetti';
+
+  function dayKey(date) {
+    return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+  }
+
+  function storedDay(storeName) {
     try {
-      return window.localStorage.getItem('nhsw-birthday-confetti') === String(year);
+      return window[storeName].getItem(CONFETTI_KEY);
     } catch (error) {
-      return false;
+      return null;
     }
   }
 
-  function rememberYear(year) {
-    try {
-      window.localStorage.setItem('nhsw-birthday-confetti', String(year));
-    } catch (error) {}
+  // Remembered in localStorage, and in sessionStorage too in case that one is unavailable.
+  function seenToday(date) {
+    var key = dayKey(date);
+    return storedDay('localStorage') === key || storedDay('sessionStorage') === key;
+  }
+
+  function rememberToday(date) {
+    ['localStorage', 'sessionStorage'].forEach(function (storeName) {
+      try {
+        window[storeName].setItem(CONFETTI_KEY, dayKey(date));
+      } catch (error) {}
+    });
   }
 
   function confetti() {
@@ -290,8 +304,8 @@
     var today = new Date();
     if (/[?&]confetti(=|&|$)/.test(window.location.search)) {
       confetti();
-    } else if (isBirthday(today) && !seenThisYear(today.getFullYear())) {
-      rememberYear(today.getFullYear());
+    } else if (isBirthday(today) && !seenToday(today)) {
+      rememberToday(today);
       confetti();
     }
   }
