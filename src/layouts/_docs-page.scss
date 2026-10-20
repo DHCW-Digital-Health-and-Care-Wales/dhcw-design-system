@@ -120,3 +120,15 @@
     transition: none;
   }
 }
+
+// The template examples are whole pages shown in a fixed-height frame, so the footer sits at
+// the bottom of the page with nothing below it, however short the content is.
+.nhsw-template-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  > .nhsw-main-wrapper {
+    flex: 1 0 auto;
+  }
+}

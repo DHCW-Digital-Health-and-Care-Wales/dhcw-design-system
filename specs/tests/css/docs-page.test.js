@@ -123,3 +123,19 @@ describe('links in page text use the NHSW link styling', () => {
     });
   }
 });
+
+describe('template examples keep the footer at the bottom of the page', () => {
+  const css = compileProbe('@use "layouts/docs-page";');
+
+  it('makes the page a full-height column where the main content takes the spare space', () => {
+    const page = block(css, '\.nhsw-template-page');
+    expect(page).toMatch(/display:\s*flex/);
+    expect(page).toMatch(/flex-direction:\s*column/);
+    expect(page).toMatch(/min-height:\s*100vh/);
+    expect(block(css, '\.nhsw-template-page > \.nhsw-main-wrapper')).toMatch(/flex:\s*1 0 auto/);
+  });
+
+  it('is applied to the template layout', () => {
+    expect(read('preview/_layouts/template.html')).toContain('<body class="nhsw-template-page">');
+  });
+});

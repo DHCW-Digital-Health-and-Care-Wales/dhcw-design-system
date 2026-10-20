@@ -63,22 +63,24 @@ describe('checkboxes: regular-weight labels, centred tick, no row hover, thicker
     expect(label).toMatch(/font-weight:\s*400/);
   });
 
-  it('tick is a thick (4px), slightly-flattened (23x10) glyph, vertically centred on its ink centroid (top: 12px)', () => {
-    // The glyph is an L-shape (adjacent border-left + border-bottom) rotated
-    // -45deg. Its ink isn't centred in its own bounding box, so naively
-    // centring the box overshoots — top has to be recomputed from the ink
-    // centroid whenever width/height/border here change.
+  it('tick is the Figma tick (20x17), centred in the 40px box, and dark', () => {
     const tick = block(css, '\\.nhsw-checkboxes__label::after');
-    expect(tick).toMatch(/width:\s*23px/);
-    expect(tick).toMatch(/height:\s*10px/);
-    expect(tick).toMatch(/border-left:\s*4px/);
-    expect(tick).toMatch(/border-bottom:\s*4px/);
-    expect(tick).toMatch(/top:\s*12px/);
+    expect(tick).toMatch(/width:\s*20px/);
+    expect(tick).toMatch(/height:\s*17px/);
+    expect(tick).toMatch(/left:\s*10px/);
+    expect(tick).toMatch(/top:\s*11\.5px/);
+    expect(tick).toMatch(/background-color:\s*#212b32/);
+    expect(tick).toContain('M6.66667%2016.1905L0%209.56777L2.96459%206.62272L6.66667%2010.3108L17.0354%200L20%202.94505L6.66667%2016.1905Z');
+    expect(tick).not.toMatch(/border-left/);
+    expect(tick).not.toMatch(/transform/);
   });
 
-  it('small variant tick is vertically centred by its ink centroid (top: 8px)', () => {
+  it('small variant tick is the same shape scaled down (12x10), centred in the 24px box', () => {
     const smallTick = block(css, '\\.nhsw-checkboxes--small \\.nhsw-checkboxes__label::after');
-    expect(smallTick).toMatch(/top:\s*8px/);
+    expect(smallTick).toMatch(/left:\s*6px/);
+    expect(smallTick).toMatch(/top:\s*7px/);
+    expect(smallTick).toMatch(/width:\s*12px/);
+    expect(smallTick).toMatch(/height:\s*10px/);
   });
 
   it('hint matches the label size (19px), and the "or" divider is near-black, not grey', () => {
