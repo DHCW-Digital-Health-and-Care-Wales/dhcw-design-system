@@ -5751,6 +5751,11 @@ body {
   padding-top: 40px;
   border-top: 1px solid #d8dde0;
 }
+.nhsw-layout__content.nhsw-layout__content--component #panel-variants .preview-section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
 
 .nhsw-back-to-top {
   position: fixed;
