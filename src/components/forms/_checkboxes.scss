@@ -70,14 +70,12 @@
     &::after {
       content: "";
       position: absolute;
-      left: 9px;
-      top: 12px;
-      box-sizing: border-box;
-      width: 23px;
-      height: 10px;
-      border-left: 4px solid c.$nhswales-primary-text-colour;
-      border-bottom: 4px solid c.$nhswales-primary-text-colour;
-      transform: rotate(-45deg);
+      left: 10px;
+      top: 11.5px;
+      width: 20px;
+      height: 17px;
+      background-color: c.$nhswales-primary-text-colour;
+      mask: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2020%2017%27%3E%3Cpath%20d=%27M6.66667%2016.1905L0%209.56777L2.96459%206.62272L6.66667%2010.3108L17.0354%200L20%202.94505L6.66667%2016.1905Z%27/%3E%3C/svg%3E") center / contain no-repeat;
       opacity: 0;
     }
   }
@@ -174,9 +172,9 @@
 
       &::after {
         left: 6px;
-        top: 8px;
+        top: 7px;
         width: 12px;
-        height: 6px;
+        height: 10px;
       }
     }
 

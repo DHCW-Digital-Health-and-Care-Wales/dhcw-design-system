@@ -931,14 +931,12 @@
 .nhsw-checkboxes__label::after {
   content: "";
   position: absolute;
-  left: 9px;
-  top: 12px;
-  box-sizing: border-box;
-  width: 23px;
-  height: 10px;
-  border-left: 4px solid #212b32;
-  border-bottom: 4px solid #212b32;
-  transform: rotate(-45deg);
+  left: 10px;
+  top: 11.5px;
+  width: 20px;
+  height: 17px;
+  background-color: #212b32;
+  mask: url("data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2020%2017%27%3E%3Cpath%20d=%27M6.66667%2016.1905L0%209.56777L2.96459%206.62272L6.66667%2010.3108L17.0354%200L20%202.94505L6.66667%2016.1905Z%27/%3E%3C/svg%3E") center/contain no-repeat;
   opacity: 0;
 }
 .nhsw-checkboxes__hint {
@@ -1016,9 +1014,9 @@
 }
 .nhsw-checkboxes--small .nhsw-checkboxes__label::after {
   left: 6px;
-  top: 8px;
+  top: 7px;
   width: 12px;
-  height: 6px;
+  height: 10px;
 }
 .nhsw-checkboxes--small .nhsw-checkboxes__hint {
   font-size: 1rem;
@@ -5794,6 +5792,15 @@ body {
   .nhsw-back-to-top {
     transition: none;
   }
+}
+
+.nhsw-template-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.nhsw-template-page > .nhsw-main-wrapper {
+  flex: 1 0 auto;
 }
 
 /*# sourceMappingURL=nhsw.css.map */
