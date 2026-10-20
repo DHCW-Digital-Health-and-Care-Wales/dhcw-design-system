@@ -34,3 +34,19 @@ describe('divider after the examples in a variants section', () => {
     for (const tag of sections) expect(tag).toContain('preview-section--no-divider');
   });
 });
+
+describe('no dividers between sections on any Variants tab', () => {
+  const docs = compileProbe('@use "layouts/docs-page";');
+
+  it('removes the divider and extra space from every preview section inside the Variants panel', () => {
+    const rule = block(docs, '\\.nhsw-layout__content\\.nhsw-layout__content--component #panel-variants \\.preview-section');
+    expect(rule).toMatch(/border-bottom:\s*none/);
+    expect(rule).toMatch(/margin-bottom:\s*0/);
+    expect(rule).toMatch(/padding-bottom:\s*0/);
+  });
+
+  it('leaves the other tabs alone: the default preview section keeps its divider', () => {
+    expect(block(css, '\\.preview-section')).toMatch(/border-bottom:\s*1px solid #d8dde0/);
+    expect(docs).not.toMatch(/#panel-(how-to-use|examples) \.preview-section/);
+  });
+});
