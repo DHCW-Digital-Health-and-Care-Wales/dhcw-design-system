@@ -70,14 +70,14 @@ tabs:
   <p class="nhsw-body">Do not show a notification banner and an error summary component on the same page. Just show the error summary.</p>
 
   <h2 class="nhsw-h2">How to use a notification banner</h2>
-  <p class="nhsw-body">Put the notification banner at top of the main container. If your page includes breadcrumbs or a back link, place it below these but before the <code style="color: #d4351c;">&lt;h1&gt;</code.</p>
+<p class="nhsw-body">Put the notification banner at top of the main container. If your page includes breadcrumbs or a back link, place it below these but before the <code style="color: #d4351c;"><h1></code>.</p> 
   <p class="nhsw-body">The notification banner should be the same width as the page's other content, such as components, headings and body text. For example, if the other content takes up two-thirds of the screen on desktop devices, then the notification banner should also take up two-thirds. <a class="nhsw-link" href="https://www.figma.com/design/pjWknZvvTMuVNKoMWvCfOc/Design-System-Website?node-id=1130-24460&t=Z5yEFWw4Lzj55snr-0">Read about how to lay out pages</a>.</p>
-  <p class="nhsw-body">Use <code style="color: #d4351c;">role="region"</code> and <code style="color: #d4351c;">aria-labelledby="nhsw-notification-banners-title"</code> (with <code style="color: #d4351c;">id="nhsw-notification-banners-title"</code> on <code>nhsw-notification-banners__title</code>) so that screen reader users can navigate to the notification banner.</p>
+  <p class="nhsw-body">Use <code style="color: #d4351c;">role="region"</code> and <code style="color: #d4351c;">aria-labelledby="nhsw-notification-banner-title"</code> (with <code style="color: #d4351c;">id="nhsw-notification-banners-title"</code> on <code>nhsw-notification-banner__title</code>) so that screen reader users can navigate to the notification banner.</p>
 
   <h3 class="nhsw-h3">Notification banner headings</h3>
   <p class="nhsw-body">The notification banner starts with a heading like "Important" or "Success". This is usually an <code style="color: #d4351c;">&lt;h2&gt;</code>.</p>
   <p class="nhsw-body">If you need a heading in the banner content, place it in <code style="color: #d4351c;">&lt;div class="nhsw-notification-banner__content"&gt;</code>. It will normally be an <code style="color: #d4351c;">&lt;h3&gt;</code>.</p>
-  <p class="nhsw-body">Do not use a heading for single line notifications. You can apply the <code style="color: #d4351c;">nhsw-notification-banners__heading</code> class to a paragraph to make it stand out.</p>
+  <p class="nhsw-body">Do not use a heading for single line notifications. You can apply the <code style="color: #d4351c;">nhsw-notification-banner__heading</code> class to a paragraph to make it stand out.</p>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
@@ -85,7 +85,7 @@ tabs:
 
   <p class="nhsw-body">Use the same heading for banners throughout a service so users learn to recognise and understand them consistently. Reusing the same language for components that perform the same function helps reduce cognitive effort and creates predictable user experiences. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification">WCAG 2.2 Success Criterion 3.2.4 Consistent Identification, level AA</a>.</p>
 
-  <p class="nhsw-body">The success banner should include <code style="color: #d4351c;">role="alert"</code> when a sucess message needs to be announced automatically by assitive technologies without moving keyboard focus. This helps to make users aware of important updates without needing to locate the banner themselves. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html">WCAG 2.2 Success Criterion 4.1.3: Status Messages at level AA</a>.</p>
+  <p class="nhsw-body">The success banner should include <code style="color: #d4351c;">role="alert"</code> when a success message needs to be announced automatically by assistive technologies without moving keyboard focus. This helps to make users aware of important updates without needing to locate the banner themselves. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html">WCAG 2.2 Success Criterion 4.1.3: Status Messages at level AA</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/notification-banner/">Notification banners in GOV.UK Design System</a>.</p>
@@ -179,7 +179,7 @@ tabs:
   <p class="nhsw-body">Use a success banner to confirm an action on a previous page was successful. For example, for steps in a long journey or small repeated tasks.</p>
   <p class="nhsw-body">Remove the success banner when the user moves to a new page.</p>
   <p class="nhsw-body">Use a <a class="nhsw-link" href="{{ '/components/panel.html' | relative_url }}">panel component</a> instead of a success banner when users have completed an entire journey or task. For example, after submitting a registration, application or consent form.</p>
-  <p class="nhsw-body">Since you're using the notification banner to tell the user about the outcome of something they've just done, add <code style="color: #d4351c;">role="alert"</code> so focus shifts to the notification banner on page load.</p>
+  <p class="nhsw-body">Since you're using the notification banner to tell the user about the outcome of something they've just done, add <code style="color: #d4351c;">role="alert"</code> so assistive technologies can announce the message without moving keyboard focus.</p>
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 </div>
