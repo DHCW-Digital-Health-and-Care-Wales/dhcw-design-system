@@ -3,7 +3,7 @@ layout: component
 title: Select
 container: fluid
 updated: October 2026
-intro: Use select to let users choose an option from a long list but only use it as a last resort.
+intro: Use select to let users choose an option from a long list, but only use it as a last resort.
 tabs:
   - id: how-to-use
     label: "How to use"
@@ -19,10 +19,10 @@ tabs:
   <div class="nhsw-warning-callout">
     <h3 class="nhsw-warning-callout__heading">
       <span class="nhsw-warning-callout__icon" aria-hidden="true">!</span>
-      <span class="nhsw-warning-callout__heading-text"><span class="nhsw-visually-hidden">Important: </span>Consider the risks</span>
+      <span class="nhsw-warning-callout__heading-text"><span class="nhsw-visually-hidden">Important: </span>Consider an alternative first</span>
     </h3>
     <div class="nhsw-warning-callout__content">
-      <p class="nhsw-body">Use select to let users choose an option from a long list but only use it as a last resort.</p>
+      <p class="nhsw-body">Use selects with caution. Hiding options can make them harder to understand and compare, so consider whether another component like radios would better meet users’ needs. </p>
     </div>
   </div>
 
@@ -134,7 +134,6 @@ tabs:
 
   <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/select/">Select in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system">Select on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
 
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
@@ -147,8 +146,6 @@ tabs:
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Select with hint</h3>
-    <p class="nhsw-body">You can add hint text to help the user understand the options and choose 1 of them.</p>
-
     {% capture example_body %}{% raw %}
       <div class="nhsw-form-group">
         <label class="nhsw-label nhsw-label--regular" for="sel-hint">Choose region</label>
@@ -190,6 +187,8 @@ tabs:
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sel-hint" html=html_sample njk=njk_sample toggleable=true %}
+        <p class="nhsw-body">Add hint text when users need help understanding the options or choosing the right one.</p>
+
   </section>
 
 

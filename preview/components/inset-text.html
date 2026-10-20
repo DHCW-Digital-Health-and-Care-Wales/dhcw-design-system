@@ -39,7 +39,7 @@ tabs:
   <p class="nhsw-body">Use inset text for content that needs to stand out from the rest of the page.</p>
 
   <h2 class="nhsw-h2">When not to use inset text</h2>
-  <p class="nhsw-body">Do not use inset text in transactional pages. This has not yet been tested by us or NHS England.</p>
+  <p class="nhsw-body">Do not use inset text on transactional pages. We have not yet tested it in this context. If you have a use case you think we should consider adding to the design system, <a class="nhsw-link">"mailto:email design.system@wales.nhs.uk</a>.</p>
   <p class="nhsw-body">Some users don't notice inset text on complex pages or near to other prominent elements, so we avoid using it for very important information that users need to see.</p>
   <p class="nhsw-body">Use a <a class="nhsw-link" href="{{ '/components/warning-callout.html' | relative_url }}">warning callout</a> instead if the information:</p>
   <ul class="nhsw-body">
@@ -53,12 +53,11 @@ tabs:
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">Some users may not be able to identify inset text from surrounding content using visual styling alone. To help screen reader users understand that the content is different from the main body text, include hidden text like <code style="color: #d4351c;">&lt;span class="nhsw-visually-hidden"&gt;Information: &lt;/span&gt;</code> at the start of the inset text to let users with screen readers know that this is different to the body text. The <code style="color: #d4351c;">nhswInsetText</code> Nunjucks macro adds it for you. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">Some users may not be able to identify inset text from surrounding content using visual styling alone.</p>
+   <p class="nhsw-body">To help screen reader users understand that the content is different from the main body text, include hidden text like <code style="color: #d4351c;">&lt;span class="nhsw-visually-hidden"&gt;Information: &lt;/span&gt;</code> at the start of the inset text to let users with screen readers know that this is different to the body text. The <code style="color: #d4351c;">nhswInsetText</code> Nunjucks macro adds it for you. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1: Info and Relationships, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://design-system.service.gov.uk/components/inset-text/">Inset text in the GOV.UK Design System</a>.</p>
-  <p class="nhsw-body">Follow discussions about <a class="nhsw-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/136">Inset text on GOV.UK GitHub</a> to see the latest updates and resolved issues.</p>
-
 
   <p class="nhsw-body nhsw-back-to-top"><a class="nhsw-link" href="#maincontent"><svg class="nhsw-link__icon" width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M8.07136 0.292892C7.68084 -0.0976315 7.04767 -0.0976314 6.65715 0.292892L0.29319 6.65685C-0.0973348 7.04738 -0.0973348 7.68054 0.29319 8.07107C0.683714 8.46159 1.31688 8.46159 1.7074 8.07107L7.36426 2.41421L13.0211 8.07107C13.4116 8.46159 14.0448 8.46159 14.4353 8.07107C14.8258 7.68054 14.8258 7.04738 14.4353 6.65685L8.07136 0.292892ZM7.36426 17L8.36426 17L8.36426 1L7.36426 1L6.36426 1L6.36426 17L7.36426 17Z" fill="#0E1B2F"/></svg> Back to top</a></p>
 
