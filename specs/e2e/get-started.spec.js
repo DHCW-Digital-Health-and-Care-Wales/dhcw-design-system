@@ -1,9 +1,9 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('Get started side navigation', () => {
-  test('shows the "Setup" heading and its link, highlighting the current page', async ({ page }) => {
+  test('shows the "Get started" heading and its link, highlighting the current page', async ({ page }) => {
     await page.goto('/get-started/setting-up-figma-prototypes.html');
-    await expect(page.locator('.nhsw-side-nav__heading')).toHaveText('Setup');
+    await expect(page.locator('.nhsw-side-nav__heading')).toHaveText('Get started');
     const links = page.locator('.nhsw-side-nav__link');
     await expect(links).toHaveCount(1);
     await expect(links).toContainText(['Setting up Figma prototypes']);
@@ -21,21 +21,21 @@ test.describe('Get started side navigation', () => {
 });
 
 test.describe('Setting up Figma prototypes tabs', () => {
-  test('DHCW staff panel is shown by default, Non-DHCW staff is hidden', async ({ page }) => {
+  test('DHCW access panel is shown by default, Community access is hidden', async ({ page }) => {
     await page.goto('/get-started/setting-up-figma-prototypes.html');
     await expect(page.locator('#panel-dhcw')).toBeVisible();
-    await expect(page.locator('#panel-non-dhcw')).toBeHidden();
+    await expect(page.locator('#panel-other-organisations')).toBeHidden();
     await expect(page.locator('#tab-dhcw')).toHaveAttribute('aria-selected', 'true');
   });
 
-  test('clicking "Non-DHCW staff" switches panels and updates aria-selected', async ({ page }) => {
+  test('clicking "Community access" switches panels and updates aria-selected', async ({ page }) => {
     await page.goto('/get-started/setting-up-figma-prototypes.html');
-    await page.locator('#tab-non-dhcw').click();
+    await page.locator('#tab-community-access').click();
 
-    await expect(page.locator('#panel-non-dhcw')).toBeVisible();
+    await expect(page.locator('#panel-other-organisations')).toBeVisible();
     await expect(page.locator('#panel-dhcw')).toBeHidden();
-    await expect(page.locator('#tab-non-dhcw')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('#tab-community-access')).toHaveAttribute('aria-selected', 'true');
     await expect(page.locator('#tab-dhcw')).toHaveAttribute('aria-selected', 'false');
-    await expect(page.locator('#panel-non-dhcw h3').first()).toHaveText("If you don't work for DHCW");
+    await expect(page.locator('#panel-other-organisations h3').first()).toHaveText("If you don't work for DHCW");
   });
 });
