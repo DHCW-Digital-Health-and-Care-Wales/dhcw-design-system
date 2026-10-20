@@ -137,7 +137,7 @@ tabs:
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-panel">
-        <h1 class="nhsw-panel__title nhsw-panel__title--l">Application complete</h1>
+        <h1 class="nhsw-panel__title">Application complete</h1>
         <div class="nhsw-panel__body">
           Your reference number<br>
           <strong>HDJ2123F</strong>
@@ -147,7 +147,7 @@ tabs:
     {% include example-preview.html id="pn-no-icon" open_url="/examples/panel-no-icon.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-panel"&gt;
-  &lt;h1 class="nhsw-panel__title nhsw-panel__title--l"&gt;Application complete&lt;/h1&gt;
+  &lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;
   &lt;div class="nhsw-panel__body"&gt;
     Your reference number&lt;br&gt;
     &lt;strong&gt;HDJ2123F&lt;/strong&gt;
@@ -155,7 +155,7 @@ tabs:
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswPanel({
   titleText: "Application complete",
-  titleSize: "l",
+  icon: false,
   html: "Your reference number&lt;br&gt;&lt;strong&gt;HDJ2123F&lt;/strong&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="pn-no-icon" html=html_sample njk=njk_sample toggleable=true %}

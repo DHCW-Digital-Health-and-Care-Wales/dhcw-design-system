@@ -336,3 +336,29 @@ describe('styles home page has no breadcrumb, like the design', () => {
     for (const file of others) expect(fs.readFileSync(path.join(root, file), 'utf8')).not.toContain('no_breadcrumb');
   });
 });
+
+describe('panel without an icon: large is the default 48px title, small is 32px', () => {
+  const page = fs.readFileSync(path.join(root, 'preview/components/panel.html'), 'utf8').replace(/\r\n/g, '\n');
+  const large = page.slice(page.indexOf('Panel without icon (large)'), page.indexOf('id="pn-no-icon" html'));
+
+  it('the large example, its HTML and its Nunjucks use the standard title, with the icon switched off by icon: false', () => {
+    expect(large).toContain('<h1 class="nhsw-panel__title">Application complete</h1>');
+    expect(large).toContain('&lt;h1 class="nhsw-panel__title"&gt;Application complete&lt;/h1&gt;');
+    expect(large).toContain('icon: false,');
+    expect(large).not.toContain('nhsw-panel__title--l');
+    expect(large).not.toContain('titleSize');
+  });
+
+  it('the standalone large example matches', () => {
+    const example = fs.readFileSync(path.join(root, 'preview/examples/panel-no-icon.html'), 'utf8');
+    expect(example).toContain('<h1 class="nhsw-panel__title">Application complete</h1>');
+    expect(example).not.toContain('title--l');
+  });
+
+  it('icon: false renders the plain, full size title with no icon', async () => {
+    const { configure } = await import('../../../src/nunjucks.config.js');
+    const html = configure({ noCache: true }).renderString('{% from "panel/macro.njk" import nhswPanel %}{{ nhswPanel({ titleText: "T", icon: false, html: "B" }) }}');
+    expect(html).toContain('<h1 class="nhsw-panel__title">T</h1>');
+    expect(html).not.toContain('nhsw-panel__icon');
+  });
+});
