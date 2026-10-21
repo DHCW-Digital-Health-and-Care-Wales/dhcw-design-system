@@ -1384,6 +1384,10 @@ body {
   margin-top: 40px;
 }
 
+.nhsw-inline-code {
+  color: #d4351c;
+}
+
 .nhsw-inset-text {
   margin: 0 0 2rem;
   padding: 1.5rem 1.5rem 1.5rem 2rem;
