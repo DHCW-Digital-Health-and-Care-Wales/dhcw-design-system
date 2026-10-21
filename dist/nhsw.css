@@ -1388,6 +1388,10 @@ body {
   color: #d4351c;
 }
 
+.nhsw-u-no-bullet {
+  list-style: none;
+}
+
 .nhsw-inset-text {
   margin: 0 0 2rem;
   padding: 1.5rem 1.5rem 1.5rem 2rem;
@@ -2150,6 +2154,7 @@ body {
 }
 @media (min-width: 40.0625em) {
   .nhsw-patient-header__name {
+    flex: 0 0 auto;
     font-size: 1.625rem;
     line-height: 2rem;
   }
@@ -2160,8 +2165,24 @@ body {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 24px;
+  min-width: 0;
   margin: 0;
   padding: 0;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-patient-header__details {
+    gap: 8px 8px;
+  }
+}
+@media (min-width: 48.0625em) {
+  .nhsw-patient-header__details {
+    gap: 8px 12px;
+  }
+}
+@media (min-width: 61.875em) {
+  .nhsw-patient-header__details {
+    gap: 8px 16px;
+  }
 }
 
 .nhsw-patient-header__item {
@@ -2170,6 +2191,21 @@ body {
   margin: 0;
   padding-right: 16px;
   border-right: 1px solid #d8dde0;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-patient-header__item {
+    padding-right: 8px;
+  }
+}
+@media (min-width: 48.0625em) {
+  .nhsw-patient-header__item {
+    padding-right: 12px;
+  }
+}
+@media (min-width: 61.875em) {
+  .nhsw-patient-header__item {
+    padding-right: 16px;
+  }
 }
 .nhsw-patient-header__item:last-child {
   padding-right: 0;
@@ -2184,6 +2220,43 @@ body {
 
 .nhsw-patient-header__row--identity .nhsw-patient-header__details {
   padding-left: 16px;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-patient-header__row--identity .nhsw-patient-header__details {
+    padding-left: 8px;
+  }
+}
+@media (min-width: 48.0625em) {
+  .nhsw-patient-header__row--identity .nhsw-patient-header__details {
+    padding-left: 12px;
+  }
+}
+@media (min-width: 61.875em) {
+  .nhsw-patient-header__row--identity .nhsw-patient-header__details {
+    padding-left: 16px;
+  }
+}
+
+@media (min-width: 40.0625em) {
+  .nhsw-patient-header__row--identity {
+    column-gap: 8px;
+  }
+}
+@media (min-width: 51.875em) {
+  .nhsw-patient-header__row--identity {
+    flex-wrap: nowrap;
+    align-items: baseline;
+  }
+}
+@media (min-width: 48.0625em) {
+  .nhsw-patient-header__row--identity {
+    column-gap: 12px;
+  }
+}
+@media (min-width: 61.875em) {
+  .nhsw-patient-header__row--identity {
+    column-gap: 16px;
+  }
 }
 
 .nhsw-back-link + .nhsw-patient-header {
