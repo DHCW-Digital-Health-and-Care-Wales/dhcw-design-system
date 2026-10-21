@@ -103,3 +103,17 @@ test.describe('Back to top', () => {
     await expect(page.locator('main a[href="#maincontent"], .nhsw-back-to-top a')).toHaveCount(1);
   });
 });
+
+test.describe('Placeholder links in the template examples', () => {
+  for (const url of ['/examples/page-template-default.html', '/examples/page-template-dashboard-default.html']) {
+    test(`${url} stays where it is when a "#" link is clicked`, async ({ page }) => {
+      await page.setViewportSize({ width: 800, height: 300 });
+      await page.goto(url);
+      await page.evaluate(() => window.scrollTo(0, 120));
+      const before = await page.evaluate(() => window.scrollY);
+      await page.evaluate(() => document.querySelector('a[href="#"]').click());
+      expect(await page.evaluate(() => window.scrollY)).toBe(before);
+      expect(page.url()).not.toContain('#');
+    });
+  }
+});

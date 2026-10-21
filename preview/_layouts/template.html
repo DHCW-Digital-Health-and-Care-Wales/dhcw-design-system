@@ -13,5 +13,11 @@
   {{ content }}
 
   <script src="{{ '/dist/nhsw-behaviours.js' | relative_url }}"></script>
+  <script>
+    document.addEventListener("click", function (event) {
+      var link = event.target.closest && event.target.closest("a[href=\"#\"]");
+      if (link) event.preventDefault();
+    });
+  </script>
 </body>
 </html>

@@ -32,8 +32,8 @@ describe('documentation page spacing follows the design screenshots', () => {
   });
 
   it('leaves 60px under the intro paragraph, and 40px above it after "Updated in"', () => {
-    expect(block(css, '\\.nhsw-layout__content--docs \\.nhsw-caption-xl')).toMatch(/margin-bottom:\s*60px/);
-    expect(block(css, '\\.nhsw-layout__content--docs \\.nhsw-body--secondary \\+ \\.nhsw-caption-xl')).toMatch(/margin-top:\s*40px/);
+    expect(block(css, '\\.nhsw-layout__content--docs \\.nhsw-lede-text')).toMatch(/margin-bottom:\s*60px/);
+    expect(block(css, '\\.nhsw-layout__content--docs \\.nhsw-body--secondary \\+ \\.nhsw-lede-text')).toMatch(/margin-top:\s*40px/);
   });
 
   it('the roomy variant used by the Typography page has 40px around H2, 40px above H3 and 80px under the intro', () => {
@@ -41,7 +41,7 @@ describe('documentation page spacing follows the design screenshots', () => {
     expect(h2).toMatch(/margin-top:\s*40px/);
     expect(h2).toMatch(/margin-bottom:\s*40px/);
     expect(block(css, '\\.nhsw-layout__content--docs\\.nhsw-layout__content--roomy \\.nhsw-h3')).toMatch(/margin-top:\s*40px/);
-    expect(block(css, '\\.nhsw-layout__content--docs\\.nhsw-layout__content--roomy \\.nhsw-caption-xl')).toMatch(/margin-bottom:\s*80px/);
+    expect(block(css, '\\.nhsw-layout__content--docs\\.nhsw-layout__content--roomy \\.nhsw-lede-text')).toMatch(/margin-bottom:\s*80px/);
   });
 
   it('is only applied to the documentation layout, not to component styles', () => {
@@ -138,4 +138,22 @@ describe('template examples keep the footer at the bottom of the page', () => {
   it('is applied to the template layout', () => {
     expect(read('preview/_layouts/template.html')).toContain('<body class="nhsw-template-page">');
   });
+});
+
+describe('the Styles pages use lede text for their intro paragraph', () => {
+  for (const page of ['patterns/page-templates', 'styles/branding', 'styles/colours', 'styles/icons', 'styles/layout', 'styles/typography', 'styles/wcag-guidance']) {
+    it(`${page} uses nhsw-lede-text, not nhsw-caption-xl`, () => {
+      const html = read(`preview/${page}.html`);
+      expect(html).toContain('<p class="nhsw-lede-text">');
+      expect(html).not.toContain('<p class="nhsw-caption-xl">');
+    });
+  }
+});
+
+describe('page template examples do not link away from the example', () => {
+  for (const file of fs.readdirSync(path.join(root, 'preview/examples')).filter((f) => f.startsWith('page-template-'))) {
+    it(`${file} has no links to the design system`, () => {
+      expect(read(`preview/examples/${file}`)).not.toMatch(/<a [^>]*href="\/[^"]*"/);
+    });
+  }
 });
