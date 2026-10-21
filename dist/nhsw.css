@@ -5716,10 +5716,10 @@ body {
   margin-top: 24px;
   margin-bottom: 28px;
 }
-.nhsw-layout__content--docs .nhsw-body--secondary + .nhsw-caption-xl {
+.nhsw-layout__content--docs .nhsw-body--secondary + .nhsw-lede-text {
   margin-top: 40px;
 }
-.nhsw-layout__content--docs .nhsw-caption-xl {
+.nhsw-layout__content--docs .nhsw-lede-text {
   margin-bottom: 60px;
 }
 .nhsw-layout__content--docs.nhsw-layout__content--roomy .nhsw-h2 {
@@ -5729,7 +5729,7 @@ body {
 .nhsw-layout__content--docs.nhsw-layout__content--roomy .nhsw-h3 {
   margin-top: 40px;
 }
-.nhsw-layout__content--docs.nhsw-layout__content--roomy .nhsw-caption-xl {
+.nhsw-layout__content--docs.nhsw-layout__content--roomy .nhsw-lede-text {
   margin-bottom: 80px;
 }
 
