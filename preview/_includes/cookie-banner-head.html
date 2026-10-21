@@ -1,0 +1,10 @@
+<script>
+  (function () {
+    var pending = true;
+    try {
+      var stored = JSON.parse(localStorage.getItem('nhsw_cookie_consent'));
+      pending = !(stored && stored.version === '1' && stored.choice);
+    } catch (e) {}
+    if (pending) document.documentElement.classList.add('nhsw-cookie-banner-pending');
+  })();
+</script>

@@ -5601,6 +5601,10 @@ body {
   display: none;
 }
 
+.nhsw-cookie-banner-pending .nhsw-cookie-banner[hidden] {
+  display: block;
+}
+
 .nhsw-cookie-banner__actions {
   display: flex;
   flex-wrap: wrap;

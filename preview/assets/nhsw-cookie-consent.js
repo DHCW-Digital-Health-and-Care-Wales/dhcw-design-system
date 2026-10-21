@@ -95,4 +95,5 @@
   } else if (existing === null) {
     showPrompt();
   }
+  document.documentElement.classList.remove('nhsw-cookie-banner-pending');
 })();

@@ -6,6 +6,7 @@
   <title>{% if page.title %}{{ page.title }} – {% endif %}DHCW Design System</title>
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/dhcw-icon.svg' | relative_url }}">
   {% include head-assets.html %}
+  {% if site.clarity_enabled %}{% include cookie-banner-head.html %}{% endif %}
   {% if page.extra_head %}{{ page.extra_head }}{% endif %}
 </head>
 <body{% if page.body_class %} class="{{ page.body_class }}"{% endif %}>
