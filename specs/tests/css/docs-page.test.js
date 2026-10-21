@@ -283,3 +283,18 @@ describe('pages use only the floating Back to top link', () => {
     expect(read('preview/get-started/setting-up-figma-prototypes.html')).not.toContain('Back to top');
   });
 });
+
+describe('side navigation highlights an index page served from its folder URL', () => {
+  const nav = read('preview/_includes/side-nav.html');
+
+  it('treats /folder/index.html as current when the page URL is /folder/', () => {
+    expect(nav).toContain('assign index_dir = target_url | remove: "index.html"');
+    expect(nav).toMatch(/target_url contains "\/index\.html" and page\.url == index_dir/);
+  });
+
+  it('lists Get started before Setting up Figma prototypes', () => {
+    const data = read('preview/_data/get_started_nav.yml');
+    expect(data.indexOf('title: Get started')).toBeGreaterThan(-1);
+    expect(data.indexOf('title: Get started')).toBeLessThan(data.indexOf('Setting up Figma prototypes'));
+  });
+});

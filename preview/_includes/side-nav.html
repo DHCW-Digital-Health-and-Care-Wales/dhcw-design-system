@@ -10,8 +10,9 @@
         <li><a class="nhsw-side-nav__link" href="#"><span>{{ item.title }}</span></a></li>
       {% else %}
         {% assign target_url = item.url %}
-        {% if target_url == "/components/index.html" and page.url == "/components/" %}
-          {% assign target_url = "/components/" %}
+        {% assign index_dir = target_url | remove: "index.html" %}
+        {% if target_url contains "/index.html" and page.url == index_dir %}
+          {% assign target_url = index_dir %}
         {% endif %}
         {% if in_testing %}
           {% assign basename = item.url | split: "/" | last | remove: ".html" %}
