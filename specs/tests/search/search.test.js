@@ -198,6 +198,7 @@ describe('search script', () => {
     });
 
     it('does not fetch it again when it is already there', () => {
+      document.head.querySelectorAll('script[src]').forEach((script) => script.remove());
       load('?q=buttons');
       expect(pageScripts()).not.toContain('/site/assets/search-index.js');
     });

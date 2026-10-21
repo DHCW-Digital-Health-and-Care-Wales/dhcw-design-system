@@ -347,3 +347,18 @@ describe('package scripts', () => {
     expect(JSON.parse(read('package.json')).scripts).not.toHaveProperty('sync:gptr');
   });
 });
+
+describe('footer variants', () => {
+  const page = read('preview/components/footer.html');
+
+  it('the Footer with navigation links variant is archived until after launch, and the other variants remain', () => {
+    expect(page).not.toContain('Footer with navigation links');
+    expect(page).not.toContain('id="ft-nav"');
+    expect(page).toContain('Footer without links');
+    expect(page).toContain('Footer with an open licence');
+  });
+
+  it('the archived example file is kept for when the variant comes back', () => {
+    expect(fs.existsSync(path.join(root, 'preview/examples/footer-navigation.html'))).toBe(true);
+  });
+});
