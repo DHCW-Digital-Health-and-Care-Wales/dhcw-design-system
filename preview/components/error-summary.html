@@ -72,9 +72,9 @@ tabs:
   <h2 class="nhsw-h2">How to use an error summary</h2>
   <p class="nhsw-body">You must:</p>
   <ul class="nhsw-body">
-    <li>add "Error: " to the beginning of the <code style="color: #d4351c;">&lt;title&gt;</code> so screen readers read it out as soon as possible</li>
+    <li>add "Error: " to the beginning of the <code class="nhsw-inline-code">&lt;title&gt;</code> so screen readers read it out as soon as possible</li>
     <li>show an error summary at the top of a page</li>
-    <li>move the keyboard focus to the error summary (<code style="color: #d4351c;">nhsw-behaviours.js</code> does this for you when the summary has <code style="color: #d4351c;">data-module="nhsw-error-summary"</code>, which the macro adds)</li>
+    <li>move the keyboard focus to the error summary (<code class="nhsw-inline-code">nhsw-behaviours.js</code> does this for you when the summary has <code class="nhsw-inline-code">data-module="nhsw-error-summary"</code>, which the macro adds)</li>
     <li>include the heading "There is a problem"</li>
     <li>link to each of the answers that have validation errors</li>
     <li>show the same error messages next to the inputs with errors</li>
@@ -252,7 +252,7 @@ tabs:
   {% include code-viewer.html id="es-checkboxes" html=html_sample njk=njk_sample toggleable=true %}
 
   <h3 class="nhsw-h3">Where to put the error summary</h3>
-  <p class="nhsw-body">Put the error summary at the top of the <code>main</code> container. If your page includes breadcrumbs or a back link, place it below these, but above the <code style="color: #d5281b;">&lt;h1&gt;</code>.</p>
+  <p class="nhsw-body">Put the error summary at the top of the <code>main</code> container. If your page includes breadcrumbs or a back link, place it below these, but above the <code class="nhsw-inline-code">&lt;h1&gt;</code>.</p>
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-error-summary" aria-labelledby="error-summary-title-timeout" role="alert" tabindex="-1">

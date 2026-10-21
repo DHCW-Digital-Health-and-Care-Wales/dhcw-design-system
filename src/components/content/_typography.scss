@@ -85,3 +85,8 @@ body {
 .nhsw-caption-xl + .nhsw-body {
   margin-top: 40px;
 }
+
+// Inline references to code, such as class names, attributes and elements, in the documentation.
+.nhsw-inline-code {
+  color: c.$nhswales-code-colour;
+}

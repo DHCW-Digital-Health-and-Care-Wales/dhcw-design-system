@@ -157,3 +157,23 @@ describe('page template examples do not link away from the example', () => {
     });
   }
 });
+
+describe('inline code references use the nhsw-inline-code class', () => {
+  const walk = (dir) => fs.readdirSync(path.join(root, dir), { withFileTypes: true }).flatMap((e) => {
+    const rel = path.join(dir, e.name);
+    if (e.isDirectory()) return e.name.startsWith('_site') || e.name === 'dist' ? [] : walk(rel);
+    return rel.endsWith('.html') ? [rel] : [];
+  });
+
+  it('is red', () => {
+    const css = compileProbe('@use "components/content/typography";');
+    expect(block(css, '\\.nhsw-inline-code')).toMatch(/color:\s*#d4351c/);
+  });
+
+  it('no page colours a code element with an inline style, or leaves one uncoloured on the Header page', () => {
+    for (const file of walk('preview')) {
+      expect(read(file), file).not.toMatch(/<code style=/);
+    }
+    expect(read('preview/components/header.html')).not.toMatch(/<code>/);
+  });
+});

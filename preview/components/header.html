@@ -127,12 +127,12 @@ tabs:
 
   <h3 class="nhsw-h3">With navigation</h3>
   <p class="nhsw-body">Add site navigation when users need to move between the main sections of your service.</p>
-  <p class="nhsw-body">Include a <code style="color: #d5281b;">&lt;nav class="nhsw-site-header__nav"&gt;</code> element immediately after the closing <code style="color: #d5281b;">&lt;/div&gt;</code> of <code style="color: #d5281b;">nhsw-site-header__container</code> to add a navigation row below the top bar. See the <a class="nhsw-link" href="{{ '/components/site-navigation.html' | relative_url }}">site navigation component</a> for more guidance</p>
+  <p class="nhsw-body">Include a <code class="nhsw-inline-code">&lt;nav class="nhsw-site-header__nav"&gt;</code> element immediately after the closing <code class="nhsw-inline-code">&lt;/div&gt;</code> of <code class="nhsw-inline-code">nhsw-site-header__container</code> to add a navigation row below the top bar. See the <a class="nhsw-link" href="{{ '/components/site-navigation.html' | relative_url }}">site navigation component</a> for more guidance</p>
   <p class="nhsw-body">On smaller screens, the navigation is hidden. Use the mobile bottom navigation instead.</p>
-  <p class="nhsw-body">Use <code style="color: #d5281b;">nhsw-site-header__nav-link--current</code> and <code style="color: #d5281b;">aria-current="page"</code> to show the current page.</p>
+  <p class="nhsw-body">Use <code class="nhsw-inline-code">nhsw-site-header__nav-link--current</code> and <code class="nhsw-inline-code">aria-current="page"</code> to show the current page.</p>
 
   <h3 class="nhsw-h3">Without navigation</h3>
-  <p class="nhsw-body">If your service does not need site navigation, do not include the <code style="color: #d5281b;">&lt;nav&gt;</code> element. The header can be used on its own.</p>
+  <p class="nhsw-body">If your service does not need site navigation, do not include the <code class="nhsw-inline-code">&lt;nav&gt;</code> element. The header can be used on its own.</p>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Without a search bar</h3>
@@ -168,27 +168,27 @@ tabs:
     {% capture njk_sample %}{% raw %}{{ nhswHeader({ serviceName: "Service name", serviceUrl: "/", search: false }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="hd-no-search" html=html_sample njk=njk_sample toggleable=true %}
 
-    <p class="nhsw-body">If your service does not need search, remove the <code style="color: #d5281b;">nhsw-site-header__search</code> element. The header can be used without search.</p>
+    <p class="nhsw-body">If your service does not need search, remove the <code class="nhsw-inline-code">nhsw-site-header__search</code> element. The header can be used without search.</p>
   </section>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Mobile bottom navigation</h3>
-    <p class="nhsw-body">On smaller screens, the header navigation is hidden. Use <code style="color: #d5281b;">nhsw-bottom-nav</code> to show the main navigation at the bottom of the screen instead.</p>
+    <p class="nhsw-body">On smaller screens, the header navigation is hidden. Use <code class="nhsw-inline-code">nhsw-bottom-nav</code> to show the main navigation at the bottom of the screen instead.</p>
     <p class="nhsw-body">The bottom navigation is only shown on mobile.</p>
 
     <h4 class="nhsw-h4">Preventing content overlap</h4>
-    <p class="nhsw-body">When using bottom navigation, add <code style="color: #d5281b;">nhsw-has-bottom-nav</code> to <code style="color: #d5281b;">&lt;body&gt;</code>. This adds space at the bottom of the page so content is not hidden behind the navigation.</p>
+    <p class="nhsw-body">When using bottom navigation, add <code class="nhsw-inline-code">nhsw-has-bottom-nav</code> to <code class="nhsw-inline-code">&lt;body&gt;</code>. This adds space at the bottom of the page so content is not hidden behind the navigation.</p>
 
     <h4 class="nhsw-h4">Current page</h4>
-    <p class="nhsw-body">Use <code style="color: #d5281b;">nhsw-bottom-nav__link--current</code> and <code>aria-current="page"</code> to show which page the user is currently viewing.</p>
+    <p class="nhsw-body">Use <code class="nhsw-inline-code">nhsw-bottom-nav__link--current</code> and <code class="nhsw-inline-code">aria-current="page"</code> to show which page the user is currently viewing.</p>
 
     <h4 class="nhsw-h4">Icons</h4>
-    <p class="nhsw-body">Place icons inside <code style="color: #d5281b;">nhsw-bottom-nav__icon</code>. If an icon is decorative, use <code style="color: #d5281b;">aria-hidden="true"</code> so screen readers ignore it. Use <code style="color: #d5281b;">nhsw-bottom-nav__label</code> for the visible link text.</p>
+    <p class="nhsw-body">Place icons inside <code class="nhsw-inline-code">nhsw-bottom-nav__icon</code>. If an icon is decorative, use <code class="nhsw-inline-code">aria-hidden="true"</code> so screen readers ignore it. Use <code class="nhsw-inline-code">nhsw-bottom-nav__label</code> for the visible link text.</p>
   </section>
 
   <h2 class="nhsw-h2">Accessibility</h2>
 
-  <p class="nhsw-body">Headers must use a semantic <code style="color: #d5281b;">&lt;header&gt;</code> element so assistive technologies can identify it as a landmark. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">Headers must use a semantic <code class="nhsw-inline-code">&lt;header&gt;</code> element so assistive technologies can identify it as a landmark. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
 
   <p class="nhsw-body">The search input must have a visible or programmatically associated label. Do not rely on placeholder text alone. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html">WCAG 2.2 Success Criterion 3.3.2 Labels or Instructions, level A</a>.</p>
 

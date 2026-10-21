@@ -73,11 +73,11 @@ tabs:
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "full-name", label: { text: "What is your full name?", classes: "nhsw-label--xl", isPageHeading: true } }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-page-question" html=html_sample njk=njk_sample toggleable=true %}
 
-  <p class="nhsw-body">You can set the contents of the <code style="color: #d4351c;">&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page. This is good practice as it means that screen reader users will only hear the contents once.</p>
+  <p class="nhsw-body">You can set the contents of the <code class="nhsw-inline-code">&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page. This is good practice as it means that screen reader users will only hear the contents once.</p>
   <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/get-started/labels-legends-headings/">Making labels and legends headings on the GOV.UK Design System</a>.</p>
 
   <h3 class="nhsw-h3">If you're asking more than 1 question on the page</h3>
-  <p class="nhsw-body">Do not set the contents of the <code style="color: #d4351c;">&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page.</p>
+  <p class="nhsw-body">Do not set the contents of the <code class="nhsw-inline-code">&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page.</p>
   <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/question-pages/">Asking multiple questions on question pages in the GOV.UK Design System</a>.</p>
 
   {% capture example_body %}{% raw %}
@@ -302,7 +302,7 @@ tabs:
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "account", label: { text: "What is your account number?" }, hint: { text: "Must be between 6 and 8 digits long" }, classes: "nhsw-input--width-10", inputmode: "numeric" }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-account" html=html_sample njk=njk_sample toggleable=true %}
-    <p class="nhsw-body">If you're asking the user to enter a whole number, set the <code style="color: #d4351c;">inputmode</code> attribute to <code style="color: #d4351c;">numeric</code> to use the numeric keypad on devices with on-screen keyboards.</p>
+    <p class="nhsw-body">If you're asking the user to enter a whole number, set the <code class="nhsw-inline-code">inputmode</code> attribute to <code class="nhsw-inline-code">numeric</code> to use the numeric keypad on devices with on-screen keyboards.</p>
 
 
   <h4 class="nhsw-h4">Decimal numbers</h4>

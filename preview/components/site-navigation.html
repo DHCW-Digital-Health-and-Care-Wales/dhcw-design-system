@@ -67,7 +67,7 @@ tabs:
 
   <p class="nhsw-body">Do not allow expanded menus to cover focused content. Avoid fixed or sticky elements that obscure the currently focused element or its focus indicator. Keyboard users must be able to see where focus is at all times. This supports <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html">WCAG 2.2 Success Criterion 2.4.11 Focus Not Obscured (Minimum), level AA</a>.</p>
 
-  <p class="nhsw-body">Make sure assistive technologies can identify the list of links as a structural roadmap. The element must use a semantic HTML <code style="color: #d4351c;">&lt;nav&gt;</code> or a <code style="color: #d4351c;">navigation</code> ARIA landmark role to ensure screen readers can announce the block correctly to meet <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
+  <p class="nhsw-body">Make sure assistive technologies can identify the list of links as a structural roadmap. The element must use a semantic HTML <code class="nhsw-inline-code">&lt;nav&gt;</code> or a <code class="nhsw-inline-code">navigation</code> ARIA landmark role to ensure screen readers can announce the block correctly to meet <a class="nhsw-link" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html">WCAG 2.2 Success Criterion 1.3.1 Info and Relationships, level A</a>.</p>
 
   <h2 class="nhsw-h2">Source</h2>
   <p class="nhsw-body">Learn more about <a class="nhsw-link" href="https://designsystem.gov.scot/components/site-navigation">Site navigation in the GOV.Scot Design System</a>.</p>
@@ -242,7 +242,7 @@ tabs:
     {% include code-viewer.html id="sn-overflow" html=html_sample njk=njk_sample toggleable=true %}
    <p class="nhsw-body">By default, site navigation is hidden on small screens. Use the overflow menu variant when users still need the navigation on a small screen, or when they zoom in. Links that do not fit move into a "More" menu, and the "More" button only appears when it is needed.</p>
     <p class="nhsw-body">Make your browser window narrower to see links move into the menu.</p>
-    <p class="nhsw-body">This variant needs the <code style="color: #d4351c;">nhsw-behaviours.js</code> script, which works out which links fit and moves the rest into the menu. Without it, the links wrap onto more lines and the "More" button stays hidden.</p>
+    <p class="nhsw-body">This variant needs the <code class="nhsw-inline-code">nhsw-behaviours.js</code> script, which works out which links fit and moves the rest into the menu. Without it, the links wrap onto more lines and the "More" button stays hidden.</p>
     <p class="nhsw-body">Users can open the menu with the keyboard, and close it with the Escape key. An open menu pushes the content below it down instead of covering it.</p>
   </section>
 
