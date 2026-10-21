@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Example - {{ page.title | replace_first: ' example', '' }} - DHCW Design System</title>
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/dhcw-icon.svg' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/dist/nhsw.css' | relative_url }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800&display=swap">
+  {% include head-assets.html %}
 </head>
 <body>
   <header class="nhsw-site-header">
@@ -35,7 +33,7 @@
     </div>
   </footer>
 
-  <script src="{{ '/dist/nhsw-behaviours.js' | relative_url }}"></script>
+  <script src="{{ '/dist/nhsw-behaviours.min.js' | relative_url }}"></script>
   <script src="{{ '/assets/nhsw-docs.js' | relative_url }}"></script>
 </body>
 </html>

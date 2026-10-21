@@ -298,3 +298,46 @@ describe('side navigation highlights an index page served from its folder URL', 
     expect(data.indexOf('title: Get started')).toBeLessThan(data.indexOf('Setting up Figma prototypes'));
   });
 });
+
+describe('the preview site loads quickly', () => {
+  const layouts = ['default', 'example', 'template'];
+
+  it.each(layouts)('the %s layout uses the shared head assets and not Google Fonts', (name) => {
+    const html = read(`preview/_layouts/${name}.html`);
+    expect(html).toContain('{% include head-assets.html %}');
+    expect(html).not.toContain('fonts.googleapis.com');
+    expect(html).not.toContain('fonts.gstatic.com');
+  });
+
+  it.each(layouts)('the %s layout loads the minified behaviours script', (name) => {
+    const html = read(`preview/_layouts/${name}.html`);
+    expect(html).toContain('/dist/nhsw-behaviours.min.js');
+    expect(html).not.toMatch(/\/dist\/nhsw-behaviours\.js/);
+  });
+
+  it('the head assets preload the main font and load the minified stylesheet', () => {
+    const head = read('preview/_includes/head-assets.html');
+    expect(head).toMatch(/rel="preload"[^>]*roboto-latin\.woff2[^>]*as="font"[^>]*crossorigin/);
+    expect(head).toContain('/assets/nhsw-fonts.css');
+    expect(head).toContain('/dist/nhsw.min.css');
+    expect(head).not.toMatch(/\/dist\/nhsw\.css/);
+  });
+
+  it('serves Roboto from the site with font-display swap, including Latin Extended for Welsh', () => {
+    const css = read('preview/assets/nhsw-fonts.css');
+    expect(css.match(/@font-face/g)).toHaveLength(2);
+    expect(css.match(/font-display:\s*swap/g)).toHaveLength(2);
+    expect(css).toMatch(/font-weight:\s*400 800/);
+    expect(css).not.toContain('http');
+    for (const file of ['roboto-latin', 'roboto-latin-ext']) {
+      expect(css).toContain(`fonts/${file}.woff2`);
+      expect(fs.readFileSync(path.join(root, `preview/assets/fonts/${file}.woff2`)).subarray(0, 4).toString()).toBe('wOF2');
+    }
+  });
+
+  it('example screenshots load lazily', () => {
+    const img = read('preview/_includes/example-screenshot.html');
+    expect(img).toContain('loading="lazy"');
+    expect(img).toContain('decoding="async"');
+  });
+});
