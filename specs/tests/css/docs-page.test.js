@@ -177,3 +177,103 @@ describe('inline code references use the nhsw-inline-code class', () => {
     expect(read('preview/components/header.html')).not.toMatch(/<code>/);
   });
 });
+
+describe('Buttons page wording and the Breadcrumbs page address', () => {
+  const buttons = () => read('preview/components/buttons.html');
+
+  it('uses meaningful button text in the examples', () => {
+    for (const file of [buttons(), read('preview/examples/button-exceptional.html'), read('preview/examples/button-grouping.html')]) {
+      expect(file).not.toContain('Exception desktop');
+      expect(file).not.toContain('Secondary-white desktop');
+    }
+    expect(buttons()).toContain('Override process');
+    expect(read('preview/examples/button-grouping.html')).toContain('Save and come back later');
+  });
+
+  it('has a comma and lower case "you" after setting the double click attribute to true', () => {
+    expect(buttons()).toContain('<code class="nhsw-inline-code">true</code>, you can do this directly in the HTML.');
+  });
+
+  it('serves the Breadcrumbs page as breadcrumbs.html, and nothing links to the old address', () => {
+    expect(fs.existsSync(path.join(root, 'preview/components/breadcrumbs.html'))).toBe(true);
+    expect(fs.existsSync(path.join(root, 'preview/components/breadcrumb.html'))).toBe(false);
+    expect(read('preview/_data/side_nav.yml')).toContain('url: /components/breadcrumbs.html');
+    expect(read('preview/components/index.html')).toContain("/components/breadcrumbs.html");
+    expect(read('preview/components/index.html')).not.toContain("/components/breadcrumb.html");
+  });
+});
+
+describe('a list item without a bullet', () => {
+  it('has no list marker, and the care card item on the Cards page uses it while the others keep theirs', () => {
+    const css = compileProbe('@use "components/content/typography";');
+    expect(block(css, '\.nhsw-u-no-bullet')).toMatch(/list-style:\s*none/);
+    const cards = read('preview/components/cards.html');
+    expect(cards).toContain('<li class="nhsw-u-no-bullet">the care card pattern');
+    expect(cards.match(/nhsw-u-no-bullet/g)).toHaveLength(1);
+  });
+});
+
+describe('component pages put the example before its description', () => {
+  const panel = (file, id) => {
+    const html = read(file);
+    const start = html.indexOf(`id="${id}"`);
+    const next = html.indexOf('<div class="nhsw-tabs__panel', start + 1);
+    return html.slice(start, next === -1 ? undefined : next);
+  };
+  const sectionsOf = (html) => html.split('<section').slice(1).map((s) => s.slice(0, s.indexOf('</section>')));
+  const textBeforeExample = (section) => {
+    const afterHeading = section.slice(section.search(/<\/h[2-4]>/));
+    const example = afterHeading.indexOf('{% capture example_body');
+    return afterHeading.slice(0, example).includes('<p class="nhsw-body"');
+  };
+
+  it.each([
+    ['preview/components/checkboxes.html', 'panel-variants'],
+    ['preview/components/cards.html', 'panel-variants'],
+    ['preview/components/text-input.html', 'panel-how-to-use'],
+  ])('%s %s: no section has text between its heading and its example', (file, id) => {
+    const sections = sectionsOf(panel(file, id)).filter((s) => s.includes('{% capture example_body'));
+    expect(sections.length).toBeGreaterThan(0);
+    for (const section of sections) expect(textBeforeExample(section), section.slice(0, 120)).toBe(false);
+  });
+
+  it('text input "more than 1 question" has its example before the description', () => {
+    const html = panel('preview/components/text-input.html', 'panel-how-to-use');
+    const heading = html.indexOf("asking more than 1 question on the page</h3>");
+    expect(html.indexOf('{% capture example_body', heading)).toBeLessThan(html.indexOf('Do not set the contents of the', heading));
+  });
+
+  it('text input How to use has no dividers between examples', () => {
+    const html = panel('preview/components/text-input.html', 'panel-how-to-use');
+    expect(html).not.toMatch(/<section class="preview-section">/);
+    expect(html).not.toContain('<hr');
+  });
+
+  it('the Cards page uses "Jobs" for the stat card, and the basic card advice appears once', () => {
+    const cards = read('preview/components/cards.html');
+    expect(cards).not.toContain('Link goes here');
+    expect(cards).toContain('>Jobs</a>');
+    expect(cards.match(/Use basic cards to highlight important information within a page\./g)).toHaveLength(1);
+    expect(cards).not.toContain('Consider using these components instead');
+  });
+
+  it('the Radios Variants tab does not repeat the error messages guidance from How to use', () => {
+    const variants = panel('preview/components/radios.html', 'panel-variants');
+    expect(variants).not.toContain('Error messages');
+    expect(panel('preview/components/radios.html', 'panel-how-to-use')).toContain('Error messages');
+  });
+});
+
+describe('the Site navigation examples open the same design as they show on the page', () => {
+  it('each example opened in a new tab matches the example beside it', () => {
+    const page = read('preview/components/site-navigation.html');
+    const norm = (s) => s.replace(/\s+/g, ' ').replace(/> </g, '><').trim();
+    const pattern = /\{% capture example_body %\}\{% raw %\}((?:(?!\{% capture)[\s\S])*?)\{% endraw %\}\{% endcapture %\}\s*\{% include example-preview\.html id="([^"]+)" open_url="([^"]+)"/g;
+    const examples = [...page.matchAll(pattern)];
+    expect(examples.length).toBe(5);
+    for (const [, body, id, url] of examples) {
+      const opened = read(`preview${url}`).replace(/^---[\s\S]*?---\s*/, '');
+      expect(norm(opened), id).toBe(norm(body));
+    }
+  });
+});

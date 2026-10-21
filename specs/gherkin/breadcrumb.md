@@ -1,7 +1,7 @@
 # Breadcrumb
 
 **Component classes:** `.nhsw-breadcrumb`
-**Doc page:** `preview/components/breadcrumb.html`
+**Doc page:** `preview/components/breadcrumbs.html`
 **Source:** `src/components/navigation/_breadcrumb.scss`
 **Example fixtures:** `breadcrumb-default.html`, `breadcrumb-dark.html`
 
@@ -15,7 +15,7 @@ Feature: Breadcrumb — automated coverage
     @automated
     # specs/tests/markup/documentation-gaps.test.js
     Scenario: Every live preview on the doc page has a matching code sample
-      Given preview/components/breadcrumb.html
+      Given preview/components/breadcrumbs.html
       Then the number of example-preview includes equals the number of code-viewer includes
       And no html_sample/njk_sample capture block is empty
 

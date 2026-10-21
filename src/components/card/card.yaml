@@ -89,7 +89,7 @@ examples:
   - name: stat
     data:
       stat: "10"
-      title: "Link goes here"
+      title: "Jobs"
       titleHref: "/destination"
   - name: basic-clickable
     data:

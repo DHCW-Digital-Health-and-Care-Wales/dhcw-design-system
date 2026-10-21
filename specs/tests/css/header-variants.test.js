@@ -156,3 +156,20 @@ describe('logged-in header markup follows the Figma account information', () => 
     expect(macro).not.toContain('fill="#005AA8"');
   });
 });
+
+describe('patient header keeps the name and details together as the screen narrows', () => {
+  const css = compileProbe('@use "components/content/patient-header";');
+
+  it('keeps the name and details side by side from 830px, drops them under the name below that, and the name does not shrink', () => {
+    expect(css).toMatch(/@media \(min-width: 51\.875em\)\s*\{\s*\.nhsw-patient-header__row--identity\s*\{[^}]*flex-wrap:\s*nowrap/);
+    expect(block(css, '\\.nhsw-patient-header__row')).toMatch(/flex-wrap:\s*wrap/);
+    expect(css).toMatch(/@media[^{]*\{\s*\.nhsw-patient-header__name\s*\{[^}]*flex:\s*0 0 auto/);
+  });
+
+  it('has smaller gaps between the details at tablet and desktop than at large desktop', () => {
+    const gaps = [...css.matchAll(/@media \(min-width: ([\d.]+)em\)\s*\{\s*\.nhsw-patient-header__details\s*\{\s*gap:\s*8px (\d+)px/g)]
+      .map((m) => [Number(m[1]), Number(m[2])]);
+    expect(gaps).toEqual([[40.0625, 8], [48.0625, 12], [61.875, 16]]);
+    expect(block(css, '\.nhsw-patient-header__details')).toMatch(/gap:\s*8px 24px/);
+  });
+});

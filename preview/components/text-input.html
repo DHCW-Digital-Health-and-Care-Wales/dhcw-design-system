@@ -77,8 +77,6 @@ tabs:
   <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/get-started/labels-legends-headings/">Making labels and legends headings on the GOV.UK Design System</a>.</p>
 
   <h3 class="nhsw-h3">If you're asking more than 1 question on the page</h3>
-  <p class="nhsw-body">Do not set the contents of the <code class="nhsw-inline-code">&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page.</p>
-  <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/question-pages/">Asking multiple questions on question pages in the GOV.UK Design System</a>.</p>
 
   {% capture example_body %}{% raw %}
     <div class="nhsw-form-group">
@@ -95,15 +93,16 @@ tabs:
   {% capture njk_sample %}{% raw %}{{ nhswInput({ id: "full-name", label: { text: "What is your full name?" } }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="ti-multi-question" html=html_sample njk=njk_sample toggleable=true %}
 
+  <p class="nhsw-body">Do not set the contents of the <code class="nhsw-inline-code">&lt;label&gt;</code> as the page heading if you're asking more than 1 question on a page.</p>
+  <p class="nhsw-body">Read more about <a class="nhsw-link" href="https://design-system.service.gov.uk/patterns/question-pages/">Asking multiple questions on question pages in the GOV.UK Design System</a>.</p>
+
   <h3 class="nhsw-h3">Make text inputs the right size</h3>
   <p class="nhsw-body">Help users understand what they should enter by making text inputs the right size for the information you want them to give you.</p>
   <p class="nhsw-body">By default, the width of text inputs is fluid and will fit the full width of the container they are placed into.</p>
   <p class="nhsw-body">If you want to make the input smaller, you can either use a fixed width input, or use the width override classes to create a smaller, fluid width input.</p>
 
-  <section class="preview-section">
+  <section class="preview-section preview-section--no-divider">
     <h4 class="nhsw-h4">Fixed width inputs</h4>
-    <p class="nhsw-body">Use fixed width inputs for content that has a specific, known length. For example, postcode inputs should be postcode-sized and phone number inputs should be phone-number-sized.</p>
-    <p class="nhsw-body">On fixed width inputs, the width will remain fixed on all screens unless it is wider than the viewport, in which case it will shrink to fit.</p>
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-form-group">
@@ -166,9 +165,12 @@ tabs:
 {{ nhswInput({ id: "fw-3", label: { text: "3 character width" }, classes: "nhsw-input--width-3" }) }}
 {{ nhswInput({ id: "fw-2", label: { text: "2 character width" }, classes: "nhsw-input--width-2" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="ti-fixed" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Use fixed width inputs for content that has a specific, known length. For example, postcode inputs should be postcode-sized and phone number inputs should be phone-number-sized.</p>
+    <p class="nhsw-body">On fixed width inputs, the width will remain fixed on all screens unless it is wider than the viewport, in which case it will shrink to fit.</p>
   </section>
 
-  <section class="preview-section">
+  <section class="preview-section preview-section--no-divider">
     <h4 class="nhsw-h4">Fluid width inputs</h4>
 
     {% capture example_body %}{% raw %}

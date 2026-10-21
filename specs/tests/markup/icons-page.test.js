@@ -74,7 +74,7 @@ describe('Icons page', () => {
   });
 
   it('links to the component each icon appears in', () => {
-    for (const slug of ['header', 'pagination', 'action-link', 'back-link', 'breadcrumb', 'warning-callout']) {
+    for (const slug of ['header', 'pagination', 'action-link', 'back-link', 'breadcrumbs', 'warning-callout']) {
       expect(page, slug).toContain(`/components/${slug}.html`);
       expect(fs.existsSync(path.join(projectRoot, `preview/components/${slug}.html`)), slug).toBe(true);
     }

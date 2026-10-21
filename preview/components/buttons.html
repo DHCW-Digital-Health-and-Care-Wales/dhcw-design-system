@@ -77,7 +77,7 @@ tabs:
     <li>have a motor impairment that causes an unintended second click</li>
   </ul>
   <p class="nhsw-body">In some cases, this can cause information to be submitted more than once.</p>
-  <p class="nhsw-body">If research shows this is a problem, you can configure the button to ignore a second click by setting <code class="nhsw-inline-code">data-prevent-double-click</code> attribute to <code class="nhsw-inline-code">true</code> You can do this directly in the HTML.</p>
+  <p class="nhsw-body">If research shows this is a problem, you can configure the button to ignore a second click by setting <code class="nhsw-inline-code">data-prevent-double-click</code> attribute to <code class="nhsw-inline-code">true</code>, you can do this directly in the HTML.</p>
   <p class="nhsw-body">This only prevents double clicks when JavaScript is enabled. You should also prevent duplicate submissions on the server side.</p>
   <p class="nhsw-body">For slow connections, give users clear feedback that something is happening before preventing double clicks, for example by showing a loading indicator.</p>
 
@@ -147,13 +147,13 @@ tabs:
     <h3 class="nhsw-h3">Exception buttons</h3>
 
     {% capture example_body %}{% raw %}
-      <button class="nhsw-button nhsw-button--exceptional" type="button">Exception desktop</button>
+      <button class="nhsw-button nhsw-button--exceptional" type="button">Override process</button>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-exceptional" open_url="/examples/button-exceptional.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--exceptional" type="button"&gt;Exception desktop&lt;/button&gt;{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;button class="nhsw-button nhsw-button--exceptional" type="button"&gt;Override process&lt;/button&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswButton({
-  text: "Exception desktop",
+  text: "Override process",
   classes: "nhsw-button--exceptional"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-exceptional" html=html_sample njk=njk_sample toggleable=true %}
@@ -277,17 +277,17 @@ tabs:
     {% capture example_body %}{% raw %}
       <div class="nhsw-button-group">
         <button class="nhsw-button nhsw-button--primary" type="button">Continue</button>
-        <button class="nhsw-button nhsw-button--secondary" type="button">Secondary-white desktop</button>
+        <button class="nhsw-button nhsw-button--secondary" type="button">Save and come back later</button>
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="btn-grouping" open_url="/examples/button-grouping.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-button-group"&gt;
   &lt;button class="nhsw-button nhsw-button--primary" type="button"&gt;Continue&lt;/button&gt;
-  &lt;button class="nhsw-button nhsw-button--secondary" type="button"&gt;Secondary-white desktop&lt;/button&gt;
+  &lt;button class="nhsw-button nhsw-button--secondary" type="button"&gt;Save and come back later&lt;/button&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Continue", classes: "nhsw-button--primary" }) }}
-{{ nhswButton({ text: "Secondary-white desktop", classes: "nhsw-button--secondary" }) }}{% endraw %}{% endcapture %}
+{{ nhswButton({ text: "Save and come back later", classes: "nhsw-button--secondary" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-grouping" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Use a button group when 2 or more buttons are placed together. The buttons will display side by side on wider screens. On smaller screens, such as on mobile, they'll appear above each other.</p>

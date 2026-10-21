@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.describe('Breadcrumb', () => {
   test('every breadcrumb item is a real link, on the doc page', async ({ page }) => {
-    await page.goto('/components/breadcrumb.html');
+    await page.goto('/components/breadcrumbs.html');
     const items = page.locator('.nhsw-breadcrumb .nhsw-breadcrumb__list-item');
     await expect(items.first()).toBeVisible();
     const count = await items.count();
@@ -12,10 +12,10 @@ test.describe('Breadcrumb', () => {
   });
 
   const pagesWithoutCurrentPage = [
-    '/components/breadcrumb.html',
+    '/components/breadcrumbs.html',
     '/examples/breadcrumb-default.html',
     '/examples/breadcrumb-dark.html',
-    '/testing/breadcrumb.html',
+    '/testing/breadcrumbs.html',
   ];
 
   for (const url of pagesWithoutCurrentPage) {

@@ -157,13 +157,6 @@ tabs:
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Inline checkboxes</h3>
-    <p class="nhsw-body">Use inline checkboxes when users need to choose from only 2 options and both option labels are short. Displaying checkboxes horizontally can reduce the amount of space needed and make related options easier to compare.</p>
-    <p class="nhsw-body">Do not use inline checkboxes if:</p>
-    <ul class="nhsw-body">
-      <li>there are more than 2 options</li>
-      <li>either option label is long or may wrap onto multiple lines</li>
-    </ul>
-    <p class="nhsw-body">On small screens, such as mobile devices, inline checkboxes automatically stack on top of each other (vertically) to maintain readability and usability.</p>
 
     {% capture example_body %}{% raw %}
       <fieldset class="nhsw-fieldset">
@@ -207,15 +200,20 @@ tabs:
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="cb-inline" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Use inline checkboxes when users need to choose from only 2 options and both option labels are short. Displaying checkboxes horizontally can reduce the amount of space needed and make related options easier to compare.</p>
+    <p class="nhsw-body">Do not use inline checkboxes if:</p>
+    <ul class="nhsw-body">
+      <li>there are more than 2 options</li>
+      <li>either option label is long or may wrap onto multiple lines</li>
+    </ul>
+    <p class="nhsw-body">On small screens, such as mobile devices, inline checkboxes automatically stack on top of each other (vertically) to maintain readability and usability.</p>
   </section>
 
   <h3 class="nhsw-h3">Checkboxes with hint text</h3>
-  <p class="nhsw-body">Unlike with <a class="nhsw-link" href="{{ '/components/radios.html' | relative_url }}">radios</a>, users can select more than 1 option from a list of checkboxes. Do not assume that users will know how many options they can select.</p>
-  <p class="nhsw-body">Use hint text to give users help in context. For example, say "Select all the options that are relevant to you". Read more about <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/hint-text">hint text</a>.</p>
 
   <section class="preview-section">
     <h4 class="nhsw-h4">Checkbox items with hints</h4>
-    <p class="nhsw-body">You can add hints to checkbox items to provide additional information about the options.</p>
 
     {% capture example_body %}{% raw %}
       <fieldset class="nhsw-fieldset" aria-describedby="conditions-hint">
@@ -279,16 +277,14 @@ tabs:
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="cb-hints" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Unlike with <a class="nhsw-link" href="{{ '/components/radios.html' | relative_url }}">radios</a>, users can select more than 1 option from a list of checkboxes. Do not assume that users will know how many options they can select.</p>
+    <p class="nhsw-body">Use hint text to give users help in context. For example, say "Select all the options that are relevant to you". Read more about <a class="nhsw-link" href="https://service-manual.nhs.uk/design-system/components/hint-text">hint text</a>.</p>
+    <p class="nhsw-body">You can add hints to checkbox items to provide additional information about the options.</p>
   </section>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Add an option for "none"</h3>
-    <p class="nhsw-body">You can give users the option to say none of the other options apply to them.</p>
-    <p class="nhsw-body">This option means users need to actively select "none" rather than leave all the boxes unchecked, which makes sure they do not skip the question by accident.</p>
-    <p class="nhsw-body">Remember to start by asking 1 question per page. You might be able to remove the need for a "none" option by asking the user a better question or by <a class="nhsw-link" href="https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/use-filter-questions-to-route-users">using filter questions</a> to filter users out beforehand.</p>
-    <p class="nhsw-body">Show the "none" option last. Separate it from the other options using a divider, normally the word "or".</p>
-    <p class="nhsw-body">Write a label that repeats the key part of the question. For example, for the question "Do you have any of these symptoms?", say "No, I do not have any of these symptoms". Avoid phrases like "none of the above" because this is a visual reference and might be hard for people who use screen readers to understand.</p>
-    <p class="nhsw-body">To enable some JavaScript that unchecks all other checkboxes when the user clicks "none", add the <code class="nhsw-inline-code">data-checkbox-exclusive</code> behaviour to the "none" checkbox.</p>
 
     {% capture example_body %}{% raw %}
       <fieldset class="nhsw-fieldset" aria-describedby="symptoms-hint">
@@ -354,13 +350,18 @@ tabs:
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="cb-none" html=html_sample njk=njk_sample toggleable=true %}
 
+    <p class="nhsw-body">You can give users the option to say none of the other options apply to them.</p>
+    <p class="nhsw-body">This option means users need to actively select "none" rather than leave all the boxes unchecked, which makes sure they do not skip the question by accident.</p>
+    <p class="nhsw-body">Remember to start by asking 1 question per page. You might be able to remove the need for a "none" option by asking the user a better question or by <a class="nhsw-link" href="https://service-manual.nhs.uk/content/how-to-write-good-questions-for-forms/use-filter-questions-to-route-users">using filter questions</a> to filter users out beforehand.</p>
+    <p class="nhsw-body">Show the "none" option last. Separate it from the other options using a divider, normally the word "or".</p>
+    <p class="nhsw-body">Write a label that repeats the key part of the question. For example, for the question "Do you have any of these symptoms?", say "No, I do not have any of these symptoms". Avoid phrases like "none of the above" because this is a visual reference and might be hard for people who use screen readers to understand.</p>
+    <p class="nhsw-body">To enable some JavaScript that unchecks all other checkboxes when the user clicks "none", add the <code class="nhsw-inline-code">data-checkbox-exclusive</code> behaviour to the "none" checkbox.</p>
+
     <p class="nhsw-body">If JavaScript is unavailable, and a user selects both the "none" checkbox and another checkbox, display an error message.</p>
   </section>
 
   <section class="preview-section">
     <h3 class="nhsw-h3">Conditionally revealing a related question</h3>
-    <p class="nhsw-body">You can add a conditionally revealing related question to checkboxes, so users only see the question when it's relevant to them.</p>
-    <p class="nhsw-body">For example, you could reveal a phone number input only when a user chooses to be contacted by phone.</p>
 
     {% capture example_body %}{% raw %}
       <fieldset class="nhsw-fieldset" aria-describedby="cb-contact2-hint">
@@ -473,6 +474,9 @@ tabs:
   ]
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="cb-conditional" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">You can add a conditionally revealing related question to checkboxes, so users only see the question when it's relevant to them.</p>
+    <p class="nhsw-body">For example, you could reveal a phone number input only when a user chooses to be contacted by phone.</p>
 
     <p class="nhsw-body">Keep it simple. If you need to add a lot of content, consider showing it on the next page in the process instead.</p>
     <p class="nhsw-body">Only conditionally reveal questions. Do not show or hide anything that is not a question.</p>

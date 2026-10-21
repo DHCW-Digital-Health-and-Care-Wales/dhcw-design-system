@@ -46,7 +46,7 @@ tabs:
   <p class="nhsw-body">Do not use a card to highlight content on a page of long form content.</p>
   <p class="nhsw-body">Before using a card, consider using:</p>
   <ul class="nhsw-body">
-    <li>the care card pattern to help users decide when and where to get care</li>
+    <li class="nhsw-u-no-bullet">the care card pattern to help users decide when and where to get care</li>
     <li><a class="nhsw-link" href="{{ '/components/details.html' | relative_url }}">details</a></li>
     <li><a class="nhsw-link" href="{{ '/components/expander.html' | relative_url }}">an expander</a></li>
     <li><a class="nhsw-link" href="{{ '/components/inset-text.html' | relative_url }}">inset text</a></li>
@@ -248,16 +248,16 @@ tabs:
     {% capture example_body %}{% raw %}
       <div class="nhsw-card">
         <span class="nhsw-card__stat">10</span>
-        <a class="nhsw-card__title-link" href="#">Link goes here</a>
+        <a class="nhsw-card__title-link" href="#">Jobs</a>
       </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="card-stat-how" open_url="/examples/card-stat.html" body=example_body %}
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-card"&gt;
   &lt;span class="nhsw-card__stat"&gt;10&lt;/span&gt;
-  &lt;a class="nhsw-card__title-link" href="/destination"&gt;Link goes here&lt;/a&gt;
+  &lt;a class="nhsw-card__title-link" href="/destination"&gt;Jobs&lt;/a&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswCard({ stat: "10", title: "Link goes here", titleHref: "/destination" }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{{ nhswCard({ stat: "10", title: "Jobs", titleHref: "/destination" }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="card-stat-how" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Use a card with a stat when you help users quickly highlight a key number or metric that helps users understand a status at a glance. This card type is useful when data is central to the task or when a user needs to make a decision.</p>
@@ -309,14 +309,6 @@ tabs:
 
   <section class="preview-section">
     <h4 class="nhsw-h4">Basic card</h4>
-    
-    <p class="nhsw-body">Use basic cards to highlight important information within a page. They are not clickable and should not be used for navigation.</p>
-        <p class="nhsw-body">Consider using these components, which may be more suitable for highlighting important information within a page:</p>
-     <ul class="nhsw-body">
-      <li> <a class="nhsw-link" href="https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/components/inset-text.html">inset text</a></li>
-       <li> <a class="nhsw-link" href="https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/components/warning-callout.html">a warning callout</a></li>
-    </ul>
-
 
     {% capture example_body %}{% raw %}
       <div class="nhsw-card">
@@ -332,17 +324,13 @@ tabs:
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswCard({ title: "Current service status", description: "There are no known issues affecting appointment bookings at this time." }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="card-basic-noclick" html=html_sample njk=njk_sample toggleable=true %}
-<p class="nhsw-body">Use basic cards to highlight important information within a page. They are not clickable and should not be used for navigation.</p>
-        <p class="nhsw-body">Consider using these components, which may be more suitable for highlighting important information within a page:</p>
-     <ul class="nhsw-body">
-      <li> <a class="nhsw-link" href="https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/components/inset-text.html">inset text</a></li>
-       <li> <a class="nhsw-link" href="https://dhcw-digital-health-and-care-wales.github.io/dhcw-design-system/components/warning-callout.html">a warning callout</a></li>
-    </ul>
-    <p class="nhsw-body">Consider using these components instead:</p>
+
+    <p class="nhsw-body">Use basic cards to highlight important information within a page. They are not clickable and should not be used for navigation.</p>
+    <p class="nhsw-body">Consider using these components, which may be more suitable for highlighting important information within a page:</p>
     <ul class="nhsw-body">
       <li>a card to help users decide when and where to get care (TBA)</li>
-      <li>inset text</li>
-      <li>a warning callout</li>
+      <li><a class="nhsw-link" href="{{ '/components/inset-text.html' | relative_url }}">inset text</a></li>
+      <li><a class="nhsw-link" href="{{ '/components/warning-callout.html' | relative_url }}">a warning callout</a></li>
     </ul>
   </section>
 
@@ -367,8 +355,9 @@ tabs:
   html: "&lt;p class=\"nhsw-body\"&gt;Heol Celyn, Newport, NP67 6FF&lt;br&gt;Phone: &lt;a class=\"nhsw-link\" href=\"tel:01111111111\"&gt;01111 111 111&lt;/a&gt;&lt;br&gt;Email: &lt;a class=\"nhsw-link\" href=\"mailto:example@wales.nhs.uk\"&gt;example@wales.nhs.uk&lt;/a&gt;&lt;/p&gt;&lt;p class=\"nhsw-body\"&gt;&lt;a class=\"nhsw-link\" href=\"#\"&gt;Get directions (opens in Google Maps)&lt;/a&gt;&lt;/p&gt;"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="card-links" html=html_sample njk=njk_sample toggleable=true %}
+
+    <p class="nhsw-body">Use the non-clickable card when you are using more than one link.</p>
   </section>
-      <p class="nhsw-body">Use the non-clickable card when you are using more than one link.</p>
 
 
   <section class="preview-section">

@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 const pages = [
-  'action-link', 'back-link', 'breadcrumb', 'buttons', 'cards', 'checkboxes',
+  'action-link', 'back-link', 'breadcrumbs', 'buttons', 'cards', 'checkboxes',
   'date-input', 'details', 'error-summary', 'expander', 'file-upload',
   'footer', 'header', 'input', 'inset-text', 'notification-banner',
   'pagination', 'panel', 'radios', 'select', 'site-navigation', 'skip-link',

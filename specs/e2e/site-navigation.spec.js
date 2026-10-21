@@ -68,7 +68,7 @@ test.describe('Site navigation overflow menu variant on a wide screen', () => {
 test.describe('Site navigation overflow menu variant at 400% zoom (a 320px wide viewport)', () => {
   test.use({ viewport: { width: 320, height: 700 } });
 
-  test('is still there: every item is reachable through the "More" menu, with no sideways scrolling', async ({ page }) => {
+  test('is still there: the items that do not fit are reachable through the "More" menu, with no sideways scrolling', async ({ page }) => {
     await page.goto('/examples/site-navigation-overflow.html');
 
     await expect(page.locator(NAV)).toBeVisible();
@@ -77,7 +77,8 @@ test.describe('Site navigation overflow menu variant at 400% zoom (a 320px wide 
 
     await toggle(page).click();
     await expect(toggle(page)).toHaveAttribute('aria-expanded', 'true');
-    await expect(menuLinks(page)).toHaveText(['Navigation Item 1', 'Navigation Item 2', 'Navigation Item 3']);
+    await expect(barLinks(page)).toHaveText(['Departments']);
+    await expect(menuLinks(page)).toHaveText(['Locations', 'Patient portal']);
     for (const link of await menuLinks(page).all()) {
       await expect(link).toBeVisible();
     }
@@ -86,11 +87,11 @@ test.describe('Site navigation overflow menu variant at 400% zoom (a 320px wide 
     expect(scrollsSideways).toBe(false);
   });
 
-  test('marks the current page in the menu and closes with Escape, returning focus to the button', async ({ page }) => {
+  test('keeps the current page in the bar and closes the menu with Escape, returning focus to the button', async ({ page }) => {
     await page.goto('/examples/site-navigation-overflow.html');
 
+    await expect(barLinks(page).first()).toHaveAttribute('aria-current', 'page');
     await toggle(page).click();
-    await expect(menuLinks(page).first()).toHaveAttribute('aria-current', 'page');
 
     await menuLinks(page).nth(1).focus();
     await page.keyboard.press('Escape');
@@ -139,7 +140,7 @@ test.describe('Site navigation overflow menu variant follows the available width
 
     await page.setViewportSize({ width: 320, height: 700 });
     await expect(toggle(page)).toBeVisible();
-    await expect(barLinks(page)).toHaveCount(0);
+    await expect(barLinks(page)).toHaveCount(1);
 
     await page.setViewportSize({ width: 1000, height: 700 });
     await expect(toggle(page)).toBeHidden();

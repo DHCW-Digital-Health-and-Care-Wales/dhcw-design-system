@@ -11,7 +11,7 @@ const previewDir = path.join(projectRoot, 'preview');
 const SCENARIOS = [
   ['SCEN-BACK-003', 'back-link', 'Enough space around it', 'back-link-button.html'],
   ['SCEN-BACK-004', 'back-link', '"Back link as a button" performs an action', 'back-link-button.html'],
-  ['SCEN-BREAD-008', 'breadcrumb', 'Long breadcrumb labels remain readable', 'breadcrumb-long-label.html'],
+  ['SCEN-BREAD-008', 'breadcrumbs', 'Long breadcrumb labels remain readable', 'breadcrumb-long-label.html'],
   ['SCEN-CARD-006', 'cards', 'Heading level matches the surrounding page structure', 'card-heading-level.html'],
   ['SCEN-CARD-008', 'cards', 'Clicking the card and link behave consistently', 'card-clickable.html'],
   ['SCEN-ERROR-003', 'error-summary', 'Keyboard focus moves to the error summary', 'error-summary-validation.html'],

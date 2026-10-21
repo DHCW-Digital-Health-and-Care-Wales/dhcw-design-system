@@ -28,8 +28,8 @@
   "nunjucksDiffersFromHtmlSample": [
     "components/action-link.html#al-overview",
     "components/action-link.html#al-dark",
-    "components/breadcrumb.html#bc-overview",
-    "components/breadcrumb.html#bc-dark",
+    "components/breadcrumbs.html#bc-overview",
+    "components/breadcrumbs.html#bc-dark",
     "components/buttons.html#btn-small",
     "components/buttons.html#btn-grouping",
     "components/cards.html#card-actions",
