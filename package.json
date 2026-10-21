@@ -51,7 +51,6 @@
     "postbuild:js": "node -e \"const f=require('fs');f.mkdirSync('preview/dist',{recursive:true});f.copyFileSync('dist/nhsw-behaviours.min.js','preview/dist/nhsw-behaviours.min.js');f.copyFileSync('dist/nhsw-date-picker.min.js','preview/dist/nhsw-date-picker.min.js');\"",
     "render:njk": "node scripts/render-njk-examples.js",
     "package:njk": "node scripts/package-njk-components.js",
-    "sync:gptr": "node -e \"const f=require('fs');const dist='dist';const targets=['../../../source/repos/GPTR/src/Presentation/Web/GPTR','../../../source/repos/GPTR/src/Presentation/Web/GPTR.Maintenance','../../../source/repos/GPTR_Dev_Wcp_Integration/NWIS.GPTR/Presentation/Web/GPTR','../../../source/repos/GPTR_Dev_Wcp_Integration/NWIS.GPTR/Presentation/Web/GPTR.Maintenance'];targets.forEach(t=>{f.mkdirSync(t+'/Content/nhsw',{recursive:true});f.mkdirSync(t+'/Scripts/nhsw',{recursive:true});f.copyFileSync(dist+'/nhsw.css',t+'/Content/nhsw/nhsw.css');f.copyFileSync(dist+'/nhsw.css.map',t+'/Content/nhsw/nhsw.css.map');f.copyFileSync(dist+'/nhsw-date-picker.js',t+'/Scripts/nhsw/nhsw-date-picker.js');f.copyFileSync(dist+'/nhsw-behaviours.js',t+'/Scripts/nhsw/nhsw-behaviours.js');console.log('Synced to '+t);});\"",
     "build:npm": "npm run build:css && npm run build:js && node scripts/prepare-npm-package.js",
     "report:tests": "node scripts/generate-test-report.js",
     "report:tests:reuse": "node scripts/generate-test-report.js --reuse",

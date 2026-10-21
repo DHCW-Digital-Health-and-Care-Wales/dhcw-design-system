@@ -341,3 +341,9 @@ describe('the preview site loads quickly', () => {
     expect(img).toContain('decoding="async"');
   });
 });
+
+describe('package scripts', () => {
+  it('has no sync:gptr script', () => {
+    expect(JSON.parse(read('package.json')).scripts).not.toHaveProperty('sync:gptr');
+  });
+});
