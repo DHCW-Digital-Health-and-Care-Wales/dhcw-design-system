@@ -55,6 +55,17 @@ $nhsw-example-component-width: max(66.6667%, 640px);
     }
   }
 
+  // The dark site navigation fills the example in its own colour, with its bottom stroke
+  // running the full width, instead of sitting on the navy used for other dark examples.
+  &__body--dark:has(> .nhsw-site-header__nav--reverse:only-child) {
+    padding: 0;
+    background-color: c.$nhswales-site-navigation-reverse-background;
+
+    > .nhsw-site-header__nav {
+      width: 100%;
+    }
+  }
+
   // A footer is the full width of the page, so it fills the example instead of sitting inside the padding.
   &__body:has(> .nhsw-site-footer:only-child) {
     padding: 0;

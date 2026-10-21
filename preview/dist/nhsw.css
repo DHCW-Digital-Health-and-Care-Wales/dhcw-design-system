@@ -3351,6 +3351,13 @@ body {
 .nhsw-example-preview__body .nhsw-site-header__nav {
   display: block;
 }
+.nhsw-example-preview__body--dark:has(> .nhsw-site-header__nav--reverse:only-child) {
+  padding: 0;
+  background-color: #004281;
+}
+.nhsw-example-preview__body--dark:has(> .nhsw-site-header__nav--reverse:only-child) > .nhsw-site-header__nav {
+  width: 100%;
+}
 .nhsw-example-preview__body:has(> .nhsw-site-footer:only-child) {
   padding: 0;
 }

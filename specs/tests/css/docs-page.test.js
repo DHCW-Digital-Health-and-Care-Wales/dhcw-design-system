@@ -362,3 +362,15 @@ describe('footer variants', () => {
     expect(fs.existsSync(path.join(root, 'preview/examples/footer-navigation.html'))).toBe(true);
   });
 });
+
+describe('dark site navigation example', () => {
+  const css = compileProbe('@use "components/content/example-preview";');
+
+  it('fills the example in the navigation colour, full width, instead of the navy used by other dark examples', () => {
+    const body = block(css, '\.nhsw-example-preview__body--dark:has\(> \.nhsw-site-header__nav--reverse:only-child\)');
+    expect(body).toMatch(/background-color:\s*#004281/);
+    expect(body).toMatch(/padding:\s*0/);
+    expect(block(css, '\.nhsw-example-preview__body--dark:has\(> \.nhsw-site-header__nav--reverse:only-child\) > \.nhsw-site-header__nav')).toMatch(/width:\s*100%/);
+    expect(block(css, '\.nhsw-example-preview__body--dark')).toMatch(/background-color:\s*#1b365d/);
+  });
+});
