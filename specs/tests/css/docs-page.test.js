@@ -277,3 +277,9 @@ describe('the Site navigation examples open the same design as they show on the 
     }
   });
 });
+
+describe('pages use only the floating Back to top link', () => {
+  it('the Setting up Figma prototypes page has no hard-coded Back to top link', () => {
+    expect(read('preview/get-started/setting-up-figma-prototypes.html')).not.toContain('Back to top');
+  });
+});

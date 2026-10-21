@@ -5,18 +5,27 @@ test.describe('Get started side navigation', () => {
     await page.goto('/get-started/setting-up-figma-prototypes.html');
     await expect(page.locator('.nhsw-side-nav__heading')).toHaveText('Get started');
     const links = page.locator('.nhsw-side-nav__link');
-    await expect(links).toHaveCount(1);
-    await expect(links).toContainText(['Setting up Figma prototypes']);
+    await expect(links).toHaveText(['Get started', 'Setting up Figma prototypes']);
+    await expect(links.first()).toHaveAttribute('href', /get-started\/index\.html$/);
     await expect(page.locator('.nhsw-side-nav__link--current')).toHaveText('Setting up Figma prototypes');
   });
 
-  test('legal pages and the Get started index page have no side nav at all', async ({ page }) => {
+  test('legal pages have no side nav, and the Get started index page highlights "Get started"', async ({ page }) => {
     await page.goto('/contact-us.html');
     await expect(page.locator('.nhsw-side-nav')).toHaveCount(0);
 
     await page.goto('/get-started/index.html');
     await expect(page.locator('.nhsw-side-nav')).toHaveCount(1);
-    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveCount(0);
+    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveText('Get started');
+  });
+});
+
+test.describe('Getting back to Get started', () => {
+  test('the "Get started" link in the menu returns from Setting up Figma prototypes', async ({ page }) => {
+    await page.goto('/get-started/setting-up-figma-prototypes.html');
+    await page.locator('.nhsw-side-nav__link', { hasText: /^Get started$/ }).click();
+    await expect(page).toHaveURL(/get-started\/(index\.html)?$/);
+    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveText('Get started');
   });
 });
 
