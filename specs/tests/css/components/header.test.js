@@ -60,9 +60,10 @@ describe('site header nav matches Figma Service navigation component', () => {
     expect(current).toMatch(/text-decoration:\s*none/);
   });
 
-  it('on a dark background, the grey line is removed and the current-page indicator is white', () => {
+  it('on a dark background, the bar is #004281 with the same 4px bottom stroke as the default, in #1b365d, and the current-page indicator is white', () => {
     const reverseNav = css.match(/\n\.nhsw-site-header__nav--reverse \{([^}]*)\}/)?.[1] ?? '';
-    expect(reverseNav).toMatch(/box-shadow:\s*none/);
+    expect(reverseNav).toMatch(/background-color:\s*#004281/);
+    expect(reverseNav).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #1b365d/);
     const current = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-link--current');
     expect(current).toMatch(/box-shadow:\s*inset 0 -4px 0 0 #ffffff/);
     const hover = block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__nav-link:hover');

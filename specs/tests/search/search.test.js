@@ -67,11 +67,12 @@ describe('search page', () => {
     expect(header).toContain('name="q"');
   });
 
-  it('is grey, has no header search or phase banner, and loads the index before the script', () => {
+  it('is grey, has no header search or phase banner, and does not load the index with the page', () => {
     expect(page).toContain('main_modifier: grey');
     expect(page).toContain('hide_header_search: true');
     expect(page).toContain('hide_phase_banner: true');
-    expect(page.indexOf('search-index.js')).toBeLessThan(page.indexOf('nhsw-search.js'));
+    expect(page).not.toContain('search-index.js');
+    expect(page).toContain('/assets/nhsw-search.js');
   });
 });
 
@@ -155,5 +156,50 @@ describe('search script', () => {
     document.getElementById('search-clear').click();
     expect(document.getElementById('search-query').value).toBe('');
     expect(document.getElementById('search-clear').hidden).toBe(true);
+  });
+
+  describe('fetching the list of pages', () => {
+    const pageScripts = () => [...document.head.querySelectorAll('script[src]')].map((script) => script.getAttribute('src'));
+
+    function loadWithoutIndex(queryString) {
+      document.head.querySelectorAll('script[src]').forEach((script) => script.remove());
+      delete window.NHSW_SEARCH_INDEX;
+      document.body.innerHTML = `
+        <div id="search-app" data-base="/site/">
+          <h1 id="search-heading">Search</h1>
+          <input id="search-query" type="search">
+          <button id="search-clear" type="button" hidden></button>
+          <div id="search-output"></div>
+        </div>`;
+      window.history.pushState({}, '', '/search.html' + queryString);
+      runScript('preview/assets/nhsw-search.js');
+    }
+
+    it('does not fetch it when the page is opened without a search', () => {
+      loadWithoutIndex('');
+      expect(pageScripts()).toEqual([]);
+      expect(document.getElementById('search-output').children.length).toBe(0);
+    });
+
+    it('fetches it from under the site base address when there is a search, and shows the results once it has arrived', () => {
+      loadWithoutIndex('?q=buttons');
+      expect(pageScripts()).toEqual(['/site/assets/search-index.js']);
+      expect(document.querySelector('.nhsw-search-results')).toBeNull();
+
+      window.NHSW_SEARCH_INDEX = INDEX;
+      document.head.querySelector('script[src]').onload();
+      expect([...document.querySelectorAll('.nhsw-search-results__title a')].map((a) => a.textContent)).toEqual(['Buttons', 'Back link', 'Colours']);
+    });
+
+    it('says search is not available when the list cannot be fetched', () => {
+      loadWithoutIndex('?q=buttons');
+      document.head.querySelector('script[src]').onerror();
+      expect(document.getElementById('search-output').textContent).toBe('Search is not available at the moment.');
+    });
+
+    it('does not fetch it again when it is already there', () => {
+      load('?q=buttons');
+      expect(pageScripts()).not.toContain('/site/assets/search-index.js');
+    });
   });
 });

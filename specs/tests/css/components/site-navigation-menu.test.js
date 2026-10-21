@@ -15,7 +15,7 @@ describe('site navigation: the "More" overflow menu is the default, as in the NH
 
   it('the navigation has a zero-width bottom border in its own colour, which the script grows to make room for an open menu', () => {
     expect(block(css, '\\.nhsw-site-header__nav')).toMatch(/border:\s*0 solid #ffffff/);
-    expect(block(css, '\\.nhsw-site-header__nav--reverse')).toMatch(/border-color:\s*#1b365d/);
+    expect(block(css, '\\.nhsw-site-header__nav--reverse')).toMatch(/border-color:\s*#004281/);
   });
 
   it('the list is positioned, so the menu can sit directly under it', () => {
@@ -65,7 +65,7 @@ describe('site navigation: the "More" overflow menu is the default, as in the NH
   });
 
   it('the reverse variant gets a dark menu with a white current-page marker', () => {
-    expect(block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__menu-list')).toMatch(/background-color:\s*#1b365d/);
+    expect(block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__menu-list')).toMatch(/background-color:\s*#004281/);
     expect(block(css, '\\.nhsw-site-header__nav--reverse \\.nhsw-site-header__menu-list \\.nhsw-site-header__nav-link--current')).toMatch(/inset 4px 0 0 0 #ffffff/);
   });
 });

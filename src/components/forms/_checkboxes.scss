@@ -182,11 +182,11 @@
       font-size: 1rem;
     }
 
-    // As in the small radios, the touch target is larger than the visible box, so the
-    // grey ring shows which one will be chosen. When focused too, the yellow focus
-    // ring sits inside the grey one.
+    // The touch target is larger than the visible box, so the grey ring shows which one
+    // will be chosen. It reaches out to the text (8px, the gap between the box and the
+    // label). When focused too, the yellow focus ring sits inside the grey one.
     .nhsw-checkboxes__item:hover .nhsw-checkboxes__input:not(:disabled) + .nhsw-checkboxes__label::before {
-      box-shadow: 0 0 0 4px c.$nhsw-colour-choice-hover-ring;
+      box-shadow: 0 0 0 8px c.$nhsw-colour-choice-hover-ring;
     }
 
     .nhsw-checkboxes__item:hover .nhsw-checkboxes__input:not(:disabled):focus + .nhsw-checkboxes__label::before {

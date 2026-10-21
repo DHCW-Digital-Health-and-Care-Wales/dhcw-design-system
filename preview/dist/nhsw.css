@@ -1022,7 +1022,7 @@
   font-size: 1rem;
 }
 .nhsw-checkboxes--small .nhsw-checkboxes__item:hover .nhsw-checkboxes__input:not(:disabled) + .nhsw-checkboxes__label::before {
-  box-shadow: 0 0 0 4px #afb8bf;
+  box-shadow: 0 0 0 8px #afb8bf;
 }
 .nhsw-checkboxes--small .nhsw-checkboxes__item:hover .nhsw-checkboxes__input:not(:disabled):focus + .nhsw-checkboxes__label::before {
   box-shadow: 0 0 0 4px #ffeb3b, 0 0 0 8px #afb8bf;
@@ -4955,12 +4955,12 @@ body {
 }
 
 .nhsw-site-header__nav--reverse {
-  border-color: #1b365d;
-  background-color: #1b365d;
-  box-shadow: none;
+  border-color: #004281;
+  background-color: #004281;
+  box-shadow: inset 0 -4px 0 0 #1b365d;
 }
 .nhsw-site-header__nav--reverse .nhsw-site-header__menu-list {
-  background-color: #1b365d;
+  background-color: #004281;
 }
 .nhsw-site-header__nav--reverse .nhsw-site-header__menu-list li {
   border-bottom-color: #337ec6;

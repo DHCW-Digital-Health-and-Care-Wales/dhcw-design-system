@@ -40,9 +40,9 @@ describe('checkboxes: regular-weight labels, centred tick, no row hover, thicker
     expect(block(css, '\\.nhsw-checkboxes__item:hover')).toBe('');
   });
 
-  it('hovering a small checkbox rings just the box with a grey shadow, not a background wash, and not when it is disabled', () => {
+  it('hovering a small checkbox rings the box with a grey shadow that reaches the text (8px), not a background wash, and not when it is disabled', () => {
     const hoverRing = block(css, '\\.nhsw-checkboxes--small \\.nhsw-checkboxes__item:hover \\.nhsw-checkboxes__input:not\\(:disabled\\) \\+ \\.nhsw-checkboxes__label::before');
-    expect(hoverRing).toMatch(/box-shadow:\s*0 0 0 4px #afb8bf/);
+    expect(hoverRing).toMatch(/box-shadow:\s*0 0 0 8px #afb8bf/);
     expect(hoverRing).not.toMatch(/background/);
   });
 

@@ -3,8 +3,7 @@
 
   var PAGE_SIZE = 10;
   var app = document.getElementById('search-app');
-  var index = window.NHSW_SEARCH_INDEX;
-  if (!app || !index) return;
+  if (!app) return;
 
   var base = app.getAttribute('data-base') || '/';
   var heading = document.getElementById('search-heading');
@@ -90,7 +89,7 @@
     var terms = parts.rest.split(' ').filter(Boolean);
     if (!terms.length && !parts.category) return [];
     var matches = [];
-    index.forEach(function (entry) {
+    window.NHSW_SEARCH_INDEX.forEach(function (entry) {
       if (parts.category && (entry.c || '').toLowerCase() !== parts.category) return;
       var total = 0;
       for (var i = 0; i < terms.length; i += 1) {
@@ -202,7 +201,7 @@
   input.value = query;
   updateClear();
 
-  if (hasQuery) {
+  function showResults() {
     var matches = search(query);
     if (matches.length) {
       renderResults(query, matches, parseInt(values.page, 10) || 1);
@@ -212,4 +211,21 @@
       document.title = 'No results – DHCW Design System';
     }
   }
+
+  // The list of pages is only fetched when there is something to search for.
+  function loadIndex(done) {
+    if (window.NHSW_SEARCH_INDEX) {
+      done();
+      return;
+    }
+    var script = document.createElement('script');
+    script.src = base + 'assets/search-index.js';
+    script.onload = done;
+    script.onerror = function () {
+      output.appendChild(el('p', 'nhsw-body', 'Search is not available at the moment.'));
+    };
+    document.head.appendChild(script);
+  }
+
+  if (hasQuery) loadIndex(showResults);
 })();
