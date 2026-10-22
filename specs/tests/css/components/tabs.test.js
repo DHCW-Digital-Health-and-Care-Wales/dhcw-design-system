@@ -140,10 +140,12 @@ describe('tabs below the tablet breakpoint: a list of jump links with every pane
   });
 });
 
-describe('tabs below the tablet breakpoint become a contents list with em dashes', () => {
-  it('puts an em dash before the Contents title as well as before each item', () => {
+describe('tabs below the tablet breakpoint become a contents list with a plain title and em dashes on each item', () => {
+  it('shows a plain, non-bold Contents title with no em dash', () => {
     const css = compileProbe(`@use "components/content/tabs";`);
-    expect(css).toMatch(/\.nhsw-tabs__list::before\s*\{[^}]*content:\s*"—\sContents"/);
+    expect(css).toMatch(/\.nhsw-tabs__list::before\s*\{[^}]*content:\s*"Contents"/);
+    expect(css).not.toMatch(/\.nhsw-tabs__list::before\s*\{[^}]*—/);
+    expect(css).not.toMatch(/\.nhsw-tabs__list::before\s*\{[^}]*font-weight:\s*(bold|700)/);
   });
 
   it('puts an em dash before each item, and the removed previous/next pagination styles are gone', () => {
