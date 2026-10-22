@@ -5,6 +5,7 @@
 
 .nhsw-side-nav {
   flex: 0 0 13.8125rem;
+  align-self: stretch;
   border-right: 1px solid c.$nhswales-grey-border-colour;
 
   @media (max-width: 40rem) {

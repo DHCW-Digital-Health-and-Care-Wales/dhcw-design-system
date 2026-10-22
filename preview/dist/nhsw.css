@@ -5508,6 +5508,7 @@ body {
 
 .nhsw-side-nav {
   flex: 0 0 13.8125rem;
+  align-self: stretch;
   border-right: 1px solid #d8dde0;
 }
 @media (max-width: 40rem) {
