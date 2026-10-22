@@ -19,6 +19,7 @@ tabs:
   {% capture example_body %}{% raw %}
     <div class="nhsw-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1">
       <h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title">There is a problem</h2>
+      <p class="nhsw-body">Optional description of the errors and how to correct them</p>
       <ul class="nhsw-error-summary__list">
         <li><a class="nhsw-link nhsw-error-summary__link" href="#full-name">Enter your full name</a></li>
       </ul>
@@ -35,6 +36,7 @@ tabs:
 
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="nhsw-error-summary"&gt;
   &lt;h2 class="nhsw-h3 nhsw-error-summary__title" id="error-summary-title"&gt;There is a problem&lt;/h2&gt;
+  &lt;p class="nhsw-body"&gt;Optional description of the errors and how to correct them&lt;/p&gt;
   &lt;ul class="nhsw-error-summary__list"&gt;
     &lt;li&gt;&lt;a class="nhsw-link nhsw-error-summary__link" href="#full-name"&gt;Enter your full name&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
@@ -51,6 +53,7 @@ tabs:
 
 {{ nhswErrorSummary({
   titleText: "There is a problem",
+  descriptionText: "Optional description of the errors and how to correct them",
   errorList: [
     { text: "Enter your full name", href: "#full-name" }
   ]
