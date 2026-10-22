@@ -1510,13 +1510,13 @@ body {
     border-bottom: 0;
   }
   .nhsw-tabs__list::before {
-    content: "— Contents";
+    content: "Contents";
     display: block;
     margin-bottom: 0.5rem;
     color: #212b32;
     font-family: Roboto, Arial, sans-serif;
     font-size: 1.1875rem;
-    font-weight: 700;
+    font-weight: 400;
   }
   .nhsw-tabs__tab,
   .nhsw-tabs__tab--selected {
@@ -3989,12 +3989,18 @@ body {
   display: inline-flex;
   align-items: center;
   position: relative;
+  min-height: 24px;
   max-width: 100%;
   padding-left: 14px;
   overflow-wrap: anywhere;
   color: #005aa8;
-  font-size: 1.1875rem;
+  font-size: 0.875rem;
   text-decoration: underline;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-back-link {
+    font-size: 1rem;
+  }
 }
 .nhsw-back-link::before {
   content: "";
@@ -4608,6 +4614,20 @@ body {
   list-style: none;
 }
 
+.nhsw-card-group.nhsw-grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.nhsw-card-group > .nhsw-card-group__item {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.nhsw-card-group > .nhsw-card-group__item > .nhsw-card {
+  height: calc(100% - 20px);
+  margin-bottom: 20px;
+}
+
 .nhsw-site-header {
   background-color: #1b365d;
   color: #ffffff;
@@ -5094,9 +5114,16 @@ body {
 }
 .nhsw-phase-banner__content {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: baseline;
   gap: 4px 20px;
+}
+@media (min-width: 40.0625em) {
+  .nhsw-phase-banner__content {
+    flex-wrap: wrap;
+  }
+}
+.nhsw-phase-banner__content {
   margin: 0;
   font-size: 1rem;
   line-height: 24px;
@@ -5487,6 +5514,7 @@ body {
 
 .nhsw-side-nav {
   flex: 0 0 13.8125rem;
+  align-self: stretch;
   border-right: 1px solid #d8dde0;
 }
 @media (max-width: 40rem) {
@@ -5591,7 +5619,7 @@ body {
 .nhsw-layout__content {
   flex: 1 1 15rem;
   min-width: 0;
-  padding: 1.25rem 1rem;
+  padding: 1.25rem 0;
 }
 @media (min-width: 40.0625em) {
   .nhsw-layout__content {
@@ -5647,6 +5675,10 @@ body {
 }
 .nhsw-breadcrumb__mobile-back {
   display: block;
+}
+.nhsw-breadcrumb__mobile-back,
+.nhsw-breadcrumb__mobile-back .nhsw-back-link {
+  font-size: 16px;
 }
 @media (min-width: 48.0625em) {
   .nhsw-breadcrumb__mobile-back {
