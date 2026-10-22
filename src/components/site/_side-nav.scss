@@ -114,7 +114,7 @@
 .nhsw-layout__content {
   flex: 1 1 15rem;
   min-width: 0;
-  padding: 1.25rem 1rem;
+  padding: 1.25rem 0;
 
   @include b.nhsw-from-tablet {
     min-width: 15rem;

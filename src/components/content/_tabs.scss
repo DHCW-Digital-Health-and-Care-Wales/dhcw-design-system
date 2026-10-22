@@ -100,13 +100,13 @@
   }
 
   .nhsw-tabs__list::before {
-    content: "\2014\00a0 Contents";
+    content: "Contents";
     display: block;
     margin-bottom: 0.5rem;
     color: c.$nhswales-primary-text-colour;
     font-family: t.$nhsw-font-family-base;
     font-size: t.$nhsw-font-size-body;
-    font-weight: t.$nhsw-font-weight-bold;
+    font-weight: t.$nhsw-font-weight-regular;
   }
 
   .nhsw-tabs__tab,

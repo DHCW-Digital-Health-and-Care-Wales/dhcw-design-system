@@ -21,9 +21,13 @@ $nhsw-colour-phase-banner-tag-background: #cce0f1;
 
   &__content {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: baseline;
     gap: 4px 20px;
+
+    @include b.nhsw-from-tablet {
+      flex-wrap: wrap;
+    }
     margin: 0;
     font-size: 1rem;
     line-height: 24px;

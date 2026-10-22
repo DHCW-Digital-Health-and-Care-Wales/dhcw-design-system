@@ -334,3 +334,19 @@
 .nhsw-card-group__item {
   list-style: none;
 }
+
+// Cards in a group sit 20px apart, rather than the full grid gutter.
+.nhsw-card-group.nhsw-grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.nhsw-card-group > .nhsw-card-group__item {
+  padding-left: 10px;
+  padding-right: 10px;
+
+  > .nhsw-card {
+    height: calc(100% - 20px);
+    margin-bottom: 20px;
+  }
+}

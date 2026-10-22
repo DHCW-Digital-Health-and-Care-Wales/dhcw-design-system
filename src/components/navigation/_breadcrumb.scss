@@ -11,6 +11,11 @@ $nhsw-colour-breadcrumb-link-hover: c.$nhswales-link-hover-colour;
   &__mobile-back {
     display: block;
 
+    &,
+    .nhsw-back-link {
+      font-size: 16px;
+    }
+
     @include b.nhsw-from-desktop {
       display: none;
     }
