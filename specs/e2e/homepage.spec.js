@@ -1,11 +1,11 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('Homepage', () => {
-  test('shows the hero title and a "Get started" button linking to the Get started section', async ({ page }) => {
+  test('shows the hero title and a "Start prototyping" button linking to the Start prototyping section', async ({ page }) => {
     await page.goto('/index.html');
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Design and build accessible digital services');
     const getStarted = page.locator('.nhsw-site-header__hero a.nhsw-button');
-    await expect(getStarted).toHaveAttribute('href', '/get-started/index.html');
+    await expect(getStarted).toHaveAttribute('href', '/get-started/start-prototyping.html');
   });
 
   test('"What\'s new" shows exactly 3 section cards, not 6', async ({ page }) => {

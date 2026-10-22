@@ -16,7 +16,7 @@ describe('search index', () => {
   it('holds every documentation page, but not examples, testing pages or the search page itself', () => {
     expect(byUrl['components/buttons.html']).toBeTruthy();
     expect(byUrl['styles/colours.html']).toBeTruthy();
-    expect(byUrl['get-started/index.html']).toBeTruthy();
+    expect(byUrl['get-started/start-prototyping.html']).toBeTruthy();
     expect(index.some((e) => e.u.startsWith('examples/') || e.u.startsWith('testing/') || e.u === 'search.html')).toBe(false);
   });
 
@@ -30,7 +30,7 @@ describe('search index', () => {
     expect(byUrl['components/buttons.html'].c).toBe('Components');
     expect(byUrl['styles/colours.html'].c).toBe('Styles');
     expect(byUrl['styles.html'].c).toBe('Styles');
-    expect(byUrl['get-started/setting-up-figma-prototypes.html'].c).toBe('Get started');
+    expect(byUrl['get-started/setting-up-figma-prototypes.html'].c).toBe('Start prototyping');
     expect(byUrl['patterns/page-templates.html'].c).toBe('Patterns');
     expect(byUrl['content-guide.html'].c).toBe('Content guide');
     expect(byUrl['contact-us.html'].c).toBe('');

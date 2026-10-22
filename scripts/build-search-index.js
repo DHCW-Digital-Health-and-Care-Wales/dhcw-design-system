@@ -22,7 +22,7 @@ const CATEGORIES = {
   components: 'Components',
   styles: 'Styles',
   patterns: 'Patterns',
-  'get-started': 'Get started',
+  'get-started': 'Start prototyping',
   'content-guide': 'Content guide',
 };
 

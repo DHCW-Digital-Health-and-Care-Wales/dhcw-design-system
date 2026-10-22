@@ -279,7 +279,7 @@ describe('the Site navigation examples open the same design as they show on the 
 });
 
 describe('pages use only the floating Back to top link', () => {
-  it('the Setting up Figma prototypes page has no hard-coded Back to top link', () => {
+  it('the Set up a Figma prototype page has no hard-coded Back to top link', () => {
     expect(read('preview/get-started/setting-up-figma-prototypes.html')).not.toContain('Back to top');
   });
 });
@@ -292,10 +292,10 @@ describe('side navigation highlights an index page served from its folder URL', 
     expect(nav).toMatch(/target_url contains "\/index\.html" and page\.url == index_dir/);
   });
 
-  it('lists Get started before Setting up Figma prototypes', () => {
+  it('lists Start prototyping before Set up a Figma prototype', () => {
     const data = read('preview/_data/get_started_nav.yml');
-    expect(data.indexOf('title: Get started')).toBeGreaterThan(-1);
-    expect(data.indexOf('title: Get started')).toBeLessThan(data.indexOf('Setting up Figma prototypes'));
+    expect(data.indexOf('title: Start prototyping')).toBeGreaterThan(-1);
+    expect(data.indexOf('title: Start prototyping')).toBeLessThan(data.indexOf('Set up a Figma prototype'));
   });
 });
 

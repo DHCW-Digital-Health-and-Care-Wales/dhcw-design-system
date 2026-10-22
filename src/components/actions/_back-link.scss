@@ -13,11 +13,11 @@ $nhsw-colour-back-link-hover: c.$nhswales-link-hover-colour;
   padding-left: 14px;
   overflow-wrap: anywhere;
   color: c.$nhswales-link-colour;
-  font-size: t.$nhsw-font-size-body-mobile;
+  font-size: t.$nhsw-font-size-body-extra-small;
   text-decoration: underline;
 
   @include b.nhsw-from-tablet {
-    font-size: t.$nhsw-font-size-body;
+    font-size: t.$nhsw-font-size-body-small;
   }
 
   &::before {

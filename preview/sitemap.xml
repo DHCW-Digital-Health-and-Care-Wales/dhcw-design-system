@@ -1,0 +1,14 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in site.pages %}
+  {%- if (p.url contains ".html" or p.name == "index.html") and p.layout != "example" and p.layout != "workshop" and p.layout != nil %}
+    {%- unless p.url contains "/examples/" or p.url contains "/testing/" or p.url contains "/workshop/" or p.url == "/search.html" or p.sitemap == false %}
+  <url>
+    <loc>{{ p.url | replace: "/index.html", "/" | prepend: site.baseurl | prepend: site.url }}</loc>
+  </url>
+    {%- endunless %}
+  {%- endif %}
+{%- endfor %}
+</urlset>

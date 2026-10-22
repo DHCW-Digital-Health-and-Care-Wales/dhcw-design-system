@@ -7,7 +7,7 @@ const pages = [
   '/styles/colours.html',
   '/styles.html',
   '/patterns/page-templates.html',
-  '/get-started/index.html',
+  '/get-started/start-prototyping.html',
   '/content-guide.html',
   '/privacy-policy.html',
 ];

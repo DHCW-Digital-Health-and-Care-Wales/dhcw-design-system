@@ -3993,12 +3993,12 @@ body {
   padding-left: 14px;
   overflow-wrap: anywhere;
   color: #005aa8;
-  font-size: 1rem;
+  font-size: 0.875rem;
   text-decoration: underline;
 }
 @media (min-width: 40.0625em) {
   .nhsw-back-link {
-    font-size: 1.1875rem;
+    font-size: 1rem;
   }
 }
 .nhsw-back-link::before {

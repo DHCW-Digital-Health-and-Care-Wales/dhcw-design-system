@@ -332,7 +332,7 @@ describe('styles home page has no breadcrumb, like the design', () => {
     const include = fs.readFileSync(path.join(root, 'preview/_includes/breadcrumb.html'), 'utf8');
     expect(include).toMatch(/^\{% unless page\.no_breadcrumb %\}/);
     expect(include.trimEnd()).toMatch(/\{% endunless %\}$/);
-    const others = ['preview/index.html', 'preview/components/index.html', 'preview/get-started/index.html'];
+    const others = ['preview/index.html', 'preview/components/index.html', 'preview/get-started/start-prototyping.html'];
     for (const file of others) expect(fs.readFileSync(path.join(root, file), 'utf8')).not.toContain('no_breadcrumb');
   });
 });

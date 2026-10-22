@@ -10,3 +10,6 @@ baseurl: ""
 
 clarity_enabled: false
 clarity_project_id: yrumq6ag2q
+
+url: "https://dhcw-digital-health-and-care-wales.github.io"
+description: "The DHCW Design System: components, styles and guidance for building consistent, accessible digital services for NHS Wales."

@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test.describe('Beta banner', () => {
-  for (const url of ['/index.html', '/get-started/index.html', '/components/tag.html', '/styles/colours.html', '/patterns/page-templates.html', '/privacy-policy.html']) {
+  for (const url of ['/index.html', '/get-started/start-prototyping.html', '/components/tag.html', '/styles/colours.html', '/patterns/page-templates.html', '/privacy-policy.html']) {
     test(`${url} shows the Beta banner directly under the primary navigation`, async ({ page }) => {
       await page.goto(url);
       const banner = page.locator('.nhsw-phase-banner').first();

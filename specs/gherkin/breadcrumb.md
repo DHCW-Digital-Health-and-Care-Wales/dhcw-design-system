@@ -53,10 +53,10 @@ Feature: Breadcrumb — automated coverage
 
     @automated
     # specs/e2e/navigation.spec.js
-    Scenario: A Get started sub-page's breadcrumb lists only its ancestors
+    Scenario: A Start prototyping sub-page's breadcrumb lists only its ancestors
       Given /get-started/setting-up-figma-prototypes.html, whose only ancestor is Home
       Then the breadcrumb trail has exactly 1 item ("Home")
-      And it does not contain the page's own title ("Setting up Figma prototypes")
+      And it does not contain the page's own title ("Set up a Figma prototype")
 
     @automated
     # specs/e2e/navigation.spec.js
