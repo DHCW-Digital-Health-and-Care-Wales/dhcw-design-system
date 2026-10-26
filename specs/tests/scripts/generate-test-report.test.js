@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const require = createRequire(import.meta.url);
-const { readUnit, readBrowser, build, mentions, percent } = require('../../../scripts/generate-test-report.js');
+const { readUnit, readBrowser, build, mentions, percent, runProblems } = require('../../../scripts/generate-test-report.js');
 
 const ROOT = path.resolve(import.meta.dirname, '../../..');
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
@@ -65,6 +65,16 @@ describe('test results report', () => {
     expect(percent(3941, 3942)).toBe('99.9%');
     expect(percent(4, 4)).toBe('100%');
     expect(percent(0, 0)).toBe('0%');
+  });
+
+  it('fails the run when a runner fails without any failed test', () => {
+    const ok = { vitest: 0, 'preview build': 0, playwright: 0 };
+    const green = { success: true, numFailedTestSuites: 0 };
+    expect(runProblems(ok, green, { errors: [] })).toEqual([]);
+    expect(runProblems({ ...ok, playwright: 1 }, green, { errors: [] })).toEqual(['playwright exited with 1']);
+    expect(runProblems(ok, green, { errors: [{ message: 'Cannot find module' }] })).toHaveLength(1);
+    expect(runProblems(ok, { success: false, numFailedTestSuites: 1 }, { errors: [] })).toHaveLength(1);
+    expect(runProblems(ok, green, null)).toEqual(['no browser test results were written']);
   });
 
   it('has npm scripts to run it and to rebuild the report from the last run', () => {
