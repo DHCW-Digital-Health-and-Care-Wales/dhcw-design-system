@@ -1,0 +1,29 @@
+name: Step list
+macro: nhswStepList
+description: >
+  An ordered list of instructions, with each step number in a square. Use it for
+  tasks that users follow one step at a time.
+params:
+  - name: items
+    type: array
+    required: true
+    description: The steps in order. Each is an object with text or html. html takes precedence over text.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes. Use nhsw-step-list--tight when a note about the list follows it.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: default
+    data:
+      items:
+        - text: Open GitHub Desktop.
+        - html: Select <b>File</b>, then <b>Clone repository</b>.
+  - name: tight
+    data:
+      classes: nhsw-step-list--tight
+      items:
+        - html: Type <code class="nhsw-code nhsw-code--highlight">npm run dev</code> and press <kbd class="nhsw-kbd">Enter</kbd>.

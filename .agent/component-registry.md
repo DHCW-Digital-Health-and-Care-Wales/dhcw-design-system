@@ -521,6 +521,29 @@ Colour swatches for the Colours page (`nhsw-colour-swatches` wrapper, `nhsw-colo
 ## nhsw-code
 Inline code in the destructive red colour, used for code and variable names in documentation text.
 
+Supports:
+- nhsw-code--highlight (monospace on a white background with ligatures off, for commands and values users need to type exactly)
+
+## nhsw-step-list
+Ordered list of instructions with each number in a navy square (macro: `nhswStepList`, `src/components/step-list/`).
+
+Supports:
+- nhsw-step-list__item
+- nhsw-step-list__sublist (a numbered list inside a step)
+- nhsw-step-list--tight (12px below the list, for a note that belongs to it)
+
+## nhsw-kbd
+A keyboard key in a dark outline, such as Enter (macro: `nhswKbd`, `src/components/kbd/`).
+
+## nhsw-prototype-kit
+Page styles for the prototype kit website in `preview/prototype-kit/`, set on `<body>`. It adjusts the header, navigation, side navigation, cards, pagination and footer to match the prototype kit designs.
+
+Supports:
+- nhsw-prototype-kit__content, __landing, __hero, __reading
+- nhsw-prototype-kit__spaced (40px above a paragraph)
+- nhsw-prototype-kit__screenshot, __screenshot-text
+- nhsw-prototype-kit__code (a block of example code on a white background that wraps long lines)
+
 ## nhsw-patient-header
 Patient banner shown above the page content, from the Figma banner: a white bar with 20px above and below and 32px of space after it, in 16px text. `nhsw-patient-header__inner` holds the rows (8px gap, 8px 40px 16px padding from desktop). A row (`nhsw-patient-header__row`, `--identity` for the first) holds the patient name (`nhsw-patient-header__name`, 26px bold) and a `nhsw-patient-header__details` description list of `nhsw-patient-header__item` entries (bold term, value), separated by 1px dividers. Further rows can hold items such as adverse reactions, with a `nhsw-link` such as View or change.
 

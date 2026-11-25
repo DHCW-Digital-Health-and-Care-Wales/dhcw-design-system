@@ -1,0 +1,55 @@
+@use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
+@use "../../utilities/breakpoints" as b;
+
+.nhsw-step-list {
+  counter-reset: nhsw-step;
+  margin: 40px 0;
+  padding: 0;
+  list-style: none;
+
+  &--tight {
+    margin-bottom: 12px;
+  }
+
+  &__item {
+    position: relative;
+    min-height: 32px;
+    margin-bottom: 12px;
+    padding: 4px 0 4px 44px;
+    box-sizing: border-box;
+    counter-increment: nhsw-step;
+    overflow-wrap: break-word;
+
+    @include b.nhsw-from-tablet {
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: counter(nhsw-step);
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      box-sizing: border-box;
+      border: 2px solid transparent;
+      background-color: c.$nhswales-page-background-blue;
+      color: c.$nhswales-exceptional-text-colour;
+      font-weight: t.$nhsw-font-weight-bold;
+    }
+  }
+
+  &__sublist {
+    margin: 0;
+    padding-left: 28px;
+  }
+}

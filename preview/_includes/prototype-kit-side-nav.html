@@ -1,0 +1,10 @@
+{% assign section_nav = site.data.prototype_kit_nav[page.side_nav] %}
+{% assign current_url = page.side_nav_current | default: page.url %}
+<nav class="nhsw-side-nav" aria-label="Section navigation">
+  <p class="nhsw-side-nav__heading">{{ section_nav.heading }}</p>
+  <ul class="nhsw-side-nav__list">
+    {% for item in section_nav.items %}
+    <li><a class="nhsw-side-nav__link{% if item.url == current_url %} nhsw-side-nav__link--current{% endif %}" href="{{ item.url | relative_url }}"{% if item.url == page.url %} aria-current="page"{% elsif item.url == current_url %} aria-current="true"{% endif %}><span>{{ item.title }}</span></a></li>
+    {% endfor %}
+  </ul>
+</nav>

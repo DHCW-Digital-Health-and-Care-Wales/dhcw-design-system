@@ -1,0 +1,21 @@
+name: Keyboard key
+macro: nhswKbd
+description: >
+  Shows a key that users need to press on their keyboard.
+params:
+  - name: text
+    type: string
+    required: true
+    description: The name of the key, for example Enter.
+  - name: classes
+    type: string
+    required: false
+    description: Extra classes.
+  - name: attributes
+    type: object
+    required: false
+    description: Extra HTML attributes.
+examples:
+  - name: enter
+    data:
+      text: Enter

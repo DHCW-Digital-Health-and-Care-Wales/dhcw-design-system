@@ -1,0 +1,24 @@
+---
+layout: prototype-kit
+---
+<main class="nhsw-main-wrapper" id="maincontent">
+  <div class="nhsw-fluid-container">
+    <div class="nhsw-layout">
+
+      {% include prototype-kit-side-nav.html %}
+
+      <div class="nhsw-layout__content nhsw-prototype-kit__content">
+
+        {% include prototype-kit-breadcrumb.html %}
+
+        {% if page.caption %}<span class="nhsw-caption-xl">{{ page.caption }}</span>{% endif %}
+        <h1 class="nhsw-h1">{{ page.title }}</h1>
+
+        {{ content }}
+
+        {% if page.prev_step or page.next_step %}{% include prototype-kit-pagination.html %}{% endif %}
+      </div>
+
+    </div>
+  </div>
+</main>

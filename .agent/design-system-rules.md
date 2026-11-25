@@ -195,7 +195,7 @@ Check the component's docs page before using it. The most common rules:
 - Use placeholder CSS
 - Hard-code colours: use the tokens
 - Use rem or em for spacing values — use px to match the layout spec
-- Use docs-site-only classes (`nhsw-side-nav`, `nhsw-type-specimen`, `nhsw-colour-swatch`, `nhsw-code`, `nhsw-code-example`, `nhsw-code-viewer`, `nhsw-example-preview`, `nhsw-example-screenshot`, `nhsw-back-to-top`) in services
+- Use docs-site-only classes (`nhsw-side-nav`, `nhsw-type-specimen`, `nhsw-colour-swatch`, `nhsw-code`, `nhsw-code-example`, `nhsw-code-viewer`, `nhsw-example-preview`, `nhsw-example-screenshot`, `nhsw-back-to-top`, `nhsw-prototype-kit`) in services
 - Change the written content of existing pages (headings, descriptions, guidance text, lists, links) outside the example areas unless explicitly asked to, and never as a side effect of another task. Report wording you think is wrong instead of editing it
 
 ## Accessibility rules

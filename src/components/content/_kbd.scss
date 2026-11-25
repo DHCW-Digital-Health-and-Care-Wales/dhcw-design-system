@@ -1,0 +1,12 @@
+@use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
+
+.nhsw-kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  border: 1px solid c.$nhswales-primary-border-colour;
+  border-radius: 4px;
+  font-family: t.$nhsw-font-family-monospace;
+  font-size: 1em;
+  font-variant-ligatures: none;
+}

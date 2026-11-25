@@ -1,0 +1,11 @@
+{% assign parent = page.breadcrumbs | last %}
+<nav class="nhsw-breadcrumb" aria-label="breadcrumb">
+  <p class="nhsw-breadcrumb__mobile-back">
+    <a class="nhsw-back-link" href="{{ parent.url | relative_url }}">Back to {{ parent.title }}</a>
+  </p>
+  <ol class="nhsw-breadcrumb__list">
+    {% for crumb in page.breadcrumbs %}
+    <li class="nhsw-breadcrumb__list-item"><a class="nhsw-breadcrumb__link" href="{{ crumb.url | relative_url }}">{{ crumb.title }}</a></li>
+    {% endfor %}
+  </ol>
+</nav>

@@ -1,0 +1,79 @@
+---
+layout: "prototype-kit-guide"
+title: "Step 5: Build the prototype"
+caption: "Create a new prototype"
+section: "guides"
+side_nav: "create"
+search_exclude: true
+breadcrumbs:
+  - title: "Home"
+    url: /prototype-kit/index.html
+  - title: "Guides"
+    url: /prototype-kit/guides.html
+  - title: "Create a new prototype"
+    url: /prototype-kit/create-a-new-prototype.html
+prev_step:
+  label: "Step 4: Make your first change"
+  url: /prototype-kit/create-a-new-prototype/make-your-first-change.html
+next_step:
+  label: "Step 6: Save the prototype to GitHub"
+  url: /prototype-kit/create-a-new-prototype/save-the-prototype-to-github.html
+---
+<h2 class="nhsw-h2">What you’ll do</h2>
+
+<p class="nhsw-body">Add more pages and use components from the DHCW Design System to build your prototype.</p>
+
+<h3 class="nhsw-h3">Add a new page</h3>
+
+<ol class="nhsw-step-list" role="list">
+  <li class="nhsw-step-list__item">In <b>Visual Studio Code</b>, use the Explorer to open the <b>src</b> folder, then the <b>app</b> folder, and find the <b>views</b> folder.</li>
+  <li class="nhsw-step-list__item">Right-click the folder and select <b>New File</b>.</li>
+  <li class="nhsw-step-list__item">Give the file a name, for example <code class="nhsw-code nhsw-code--highlight">start.html</code> .</li>
+  <li class="nhsw-step-list__item">Add your content and press <b>Ctrl+S</b> to save.</li>
+  <li class="nhsw-step-list__item">Open the page in your browser at <code class="nhsw-code nhsw-code--highlight">http://localhost:3000/start</code> .</li>
+</ol>
+
+<h3 class="nhsw-h3">Add a component</h3>
+
+<ol class="nhsw-body">
+  <li>Go to the <a class="nhsw-link" href="{{ '/index.html' | relative_url }}">DHCW design system</a> and find the component you want to use.</li>
+  <li>Copy the example code.</li>
+  <li>Paste it into your page in Visual Studio Code.</li>
+  <li>Press <b>Ctrl+S</b> to save.</li>
+  <li>Go back to your browser and check the page.</li>
+</ol>
+
+<h3 class="nhsw-h3">Link pages together</h3>
+
+<p class="nhsw-body">To link to another page, add a link to your page. The address is the file name without <code class="nhsw-code nhsw-code--highlight">.html</code>. For example, this links to <code class="nhsw-code nhsw-code--highlight">start.html</code>:</p>
+
+<pre class="nhsw-prototype-kit__code"><code>&lt;a class="nhsw-link" href="/start"&gt;Continue&lt;/a&gt;</code></pre>
+
+<p class="nhsw-body">To send people to different pages depending on their answer, you need a form and a small amount of JavaScript. This example asks how to contact someone.</p>
+
+<p class="nhsw-body">Add the form to a page:</p>
+
+<pre class="nhsw-prototype-kit__code"><code>{% raw %}&lt;form method="post" action="/contact"&gt;
+  {{ nhswRadios({
+    name: "contact",
+    fieldset: { legend: { text: "How should we contact you?" } },
+    items: [
+      { value: "email", text: "Email" },
+      { value: "phone", text: "Phone" }
+    ]
+  }) }}
+  {{ nhswButton({ text: "Continue", type: "submit", classes: "nhsw-button--primary" }) }}
+&lt;/form&gt;{% endraw %}</code></pre>
+
+<p class="nhsw-body">Then open <code class="nhsw-code nhsw-code--highlight">routes.js</code> in the <b>app</b> folder. Add this above the line <code class="nhsw-code nhsw-code--highlight">export default router</code>:</p>
+
+<pre class="nhsw-prototype-kit__code"><code>router.post('/contact', (request, response) =&gt; {
+  if (request.session.data.contact === 'email') {
+    response.redirect('/email')
+    return
+  }
+
+  response.redirect('/phone')
+})</code></pre>
+
+<p class="nhsw-body">Create <code class="nhsw-code nhsw-code--highlight">email.html</code> and <code class="nhsw-code nhsw-code--highlight">phone.html</code> in the <b>views</b> folder. If someone selects <b>Email</b>, they go to the email page. Otherwise they go to the phone page.</p>

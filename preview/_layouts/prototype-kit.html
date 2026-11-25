@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }}{% if page.caption and page.caption != page.title %} – {{ page.caption }}{% endif %} – {% endif %}Prototype kit</title>
+  <meta name="description" content="{{ page.description | default: page.title | escape }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/dhcw-icon.svg' | relative_url }}">
+  {% include head-assets.html %}
+</head>
+<body class="nhsw-prototype-kit">
+  <a class="nhsw-skip-link" href="#maincontent">Skip to main content</a>
+  {% include prototype-kit-header.html %}
+  {% include prototype-kit-nav.html %}
+  {% include phase-banner.html %}
+
+  {{ content }}
+
+  {% include prototype-kit-footer.html %}
+
+  <script src="{{ '/dist/nhsw-behaviours.min.js' | relative_url }}"></script>
+</body>
+</html>

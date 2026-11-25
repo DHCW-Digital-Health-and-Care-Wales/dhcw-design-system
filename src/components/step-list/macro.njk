@@ -1,0 +1,7 @@
+{%- macro nhswStepList(params) -%}
+<ol class="nhsw-step-list{% if params.classes %} {{ params.classes }}{% endif %}" role="list"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
+{%- for item in (params.items or []) %}
+  <li class="nhsw-step-list__item">{{ item.html | safe if item.html else item.text }}</li>
+{%- endfor %}
+</ol>
+{%- endmacro -%}

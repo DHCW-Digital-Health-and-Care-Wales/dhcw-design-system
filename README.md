@@ -11,7 +11,7 @@ behaviour without re-implementing it each time — in the spirit of
 [GOV.UK Frontend](https://github.com/alphagov/govuk-frontend) and
 [NHS.UK Frontend](https://github.com/nhsuk/nhsuk-frontend).
 
-- **40 components** — actions, forms, navigation, content, cards and
+- **42 components** — actions, forms, navigation, content, cards and
   layout — see [`src/components/`](src/components/) for the full list, or
   browse them with live examples on the docs site below.
 - **Accessible by default** — components are built and tested against

@@ -1,0 +1,89 @@
+---
+layout: "prototype-kit-guide"
+title: "Step 7: Publish and share the prototype"
+caption: "Create a new prototype"
+section: "guides"
+side_nav: "create"
+search_exclude: true
+breadcrumbs:
+  - title: "Home"
+    url: /prototype-kit/index.html
+  - title: "Guides"
+    url: /prototype-kit/guides.html
+  - title: "Create a new prototype"
+    url: /prototype-kit/create-a-new-prototype.html
+prev_step:
+  label: "Step 6: Save the prototype to GitHub"
+  url: /prototype-kit/create-a-new-prototype/save-the-prototype-to-github.html
+---
+<h2 class="nhsw-h2">What you’ll do</h2>
+
+<p class="nhsw-body">Publish your prototype so other people can open it in a web browser.</p>
+
+<h2 class="nhsw-h2">Before you publish</h2>
+
+<p class="nhsw-body">You must:</p>
+
+<ul class="nhsw-body">
+  <li>use fictional or test information, never real patient or identifiable personal information</li>
+  <li>check your prototype does not contain any sensitive information before you share it</li>
+  <li>add a <a class="nhsw-link" href="#">phase banner</a> to every page to make it clear that this is a prototype, not a live service</li>
+  <li>check with your digital team which hosting service you should use</li>
+</ul>
+
+<h2 class="nhsw-h2">Publish your prototype</h2>
+
+<h3 class="nhsw-h3">Store your prototype in GitHub</h3>
+
+<p class="nhsw-body">Before you publish your prototype, make sure your prototype is stored in GitHub.</p>
+
+<p class="nhsw-body">Hosting services can connect to your GitHub repository to publish your prototype and update it when you push changes.</p>
+
+<h3 class="nhsw-h3">Choose a hosting service</h3>
+
+<p class="nhsw-body">The prototype kit needs a hosting service that supports Node.js. It will not work with static hosting services such as GitHub Pages.</p>
+
+<p class="nhsw-body">Check with your team or technical lead which hosting service you should use.</p>
+
+<p class="nhsw-body">DHCW has tested the prototype kit with Render. You can use a different hosting service if your team already has one.</p>
+
+<h3 class="nhsw-h3">Publish with Render</h3>
+
+<p class="nhsw-body">Follow the <a class="nhsw-link" href="https://render.com/docs/deploys">Deploying on Render</a> guidance to publish your prototype.</p>
+
+<p class="nhsw-body">Once published, your prototype will have a web address that you can share with people who need to view or test it.</p>
+
+<h2 class="nhsw-h2">Configure your prototype</h2>
+
+<h3 class="nhsw-h3">Set environment variables</h3>
+
+<p class="nhsw-body">You may need to set environment variables when you publish your prototype.</p>
+
+<p class="nhsw-body">Check your hosting service’s guidance for how to do this.</p>
+
+<p class="nhsw-body">If you’re using Render, read <a class="nhsw-link" href="https://render.com/docs/configure-environment-variables">Environment Variables and Secrets</a>. Render lets you manage these from the Environment section of your service.</p>
+
+<h3 class="nhsw-h3">Set a password</h3>
+
+<p class="nhsw-body">If you publish your prototype online, protect it with a password. This helps prevent people finding the prototype and mistaking it for a live service.</p>
+
+<p class="nhsw-body nhsw-prototype-kit__spaced">Set the <code class="nhsw-code nhsw-code--highlight">PROTOTYPE_PASSWORD</code> environment variable to the password you want to use.</p>
+
+<img class="nhsw-prototype-kit__screenshot" src="{{ '/assets/prototype-kit/render-environment-variables.png' | relative_url }}" alt="The Environment page in Render, with a PROTOTYPE_PASSWORD environment variable and its value hidden" width="769" height="224">
+
+<h3 class="nhsw-h3">Run your prototype in production mode</h3>
+
+<p class="nhsw-body">When you publish your prototype, set the <code class="nhsw-code nhsw-code--highlight">NODE_ENV</code> variable to <code class="nhsw-code nhsw-code--highlight">production</code> .</p>
+
+<p class="nhsw-body nhsw-prototype-kit__spaced">Your hosting service may set this for you. Check its documentation before adding it yourself.</p>
+
+<h2 class="nhsw-h2">Share your prototype</h2>
+
+<p class="nhsw-body">Once your prototype is published:</p>
+
+<ol class="nhsw-body">
+  <li>Open it and check it works.</li>
+  <li>Check it is clearly marked as a prototype, for example by using a phase banner.</li>
+  <li>Copy the web address.</li>
+  <li>Share the web address with the people who need to view or test it.</li>
+</ol>

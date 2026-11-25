@@ -1,0 +1,63 @@
+set_up:
+  heading: Set up your computer
+  items:
+    - title: 1. Get a GitHub account
+      url: /prototype-kit/set-up-your-computer/get-a-github-account.html
+    - title: 2. Install GitHub Desktop
+      url: /prototype-kit/set-up-your-computer/install-github-desktop.html
+    - title: 3. Install Visual Studio Code
+      url: /prototype-kit/set-up-your-computer/install-visual-studio-code.html
+    - title: 4. Install Node.js
+      url: /prototype-kit/set-up-your-computer/install-node-js.html
+    - title: 5. Check your computer is ready
+      url: /prototype-kit/set-up-your-computer/check-your-computer-is-ready.html
+guides:
+  heading: Guides
+  items:
+    - title: Create a new prototype
+      url: /prototype-kit/create-a-new-prototype.html
+    - title: Work on an existing prototype
+      url: /prototype-kit/work-on-an-existing-prototype.html
+create:
+  heading: Create a new prototype
+  items:
+    - title: 1. Create the prototype
+      url: /prototype-kit/create-a-new-prototype/create-the-prototype.html
+    - title: 2. Get it onto your computer
+      url: /prototype-kit/create-a-new-prototype/get-it-onto-your-computer.html
+    - title: 3. Open and run it
+      url: /prototype-kit/create-a-new-prototype/open-and-run-the-prototype.html
+    - title: 4. Make your first change
+      url: /prototype-kit/create-a-new-prototype/make-your-first-change.html
+    - title: 5. Build the prototype
+      url: /prototype-kit/create-a-new-prototype/build-the-prototype.html
+    - title: 6. Save your work
+      url: /prototype-kit/create-a-new-prototype/save-the-prototype-to-github.html
+    - title: 7. Publish and share
+      url: /prototype-kit/create-a-new-prototype/publish-and-share.html
+existing:
+  heading: Work on an existing prototype
+  items:
+    - title: 1. Get access to the prototype
+      url: /prototype-kit/work-on-an-existing-prototype/get-access-to-the-prototype.html
+    - title: 2. Get the prototype onto your computer
+      url: /prototype-kit/work-on-an-existing-prototype/get-it-onto-your-computer.html
+    - title: 3. Open and run the prototype
+      url: /prototype-kit/work-on-an-existing-prototype/open-and-run-the-prototype.html
+    - title: 4. Make your first change
+      url: /prototype-kit/work-on-an-existing-prototype/make-your-first-change.html
+    - title: 5. Work on the prototype
+      url: /prototype-kit/work-on-an-existing-prototype/work-on-the-prototype.html
+    - title: 6. Save your changes to GitHub
+      url: /prototype-kit/work-on-an-existing-prototype/save-your-changes-to-github.html
+support:
+  heading: Get help
+  items:
+    - title: Check the guidance
+      url: /prototype-kit/support.html#check-the-guidance
+    - title: Ask someone in your team
+      url: /prototype-kit/support.html#ask-someone-in-your-team
+    - title: Contact the Service Desk
+      url: /prototype-kit/support.html#contact-the-service-desk
+    - title: Contact the Design System team
+      url: /prototype-kit/support.html#contact-the-design-system-team

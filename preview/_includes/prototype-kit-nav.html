@@ -1,0 +1,9 @@
+<nav class="nhsw-site-header__nav" aria-label="Primary navigation">
+  <div class="nhsw-site-header__nav-container">
+    <ul class="nhsw-site-header__nav-list">
+      <li><a class="nhsw-site-header__nav-link{% if page.section == "set-up" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/prototype-kit/set-up-your-computer.html' | relative_url }}"{% if page.section == "set-up" %} aria-current="page"{% endif %}><span>Set up your computer</span></a></li>
+      <li><a class="nhsw-site-header__nav-link{% if page.section == "guides" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/prototype-kit/guides.html' | relative_url }}"{% if page.section == "guides" %} aria-current="page"{% endif %}><span>Guides</span></a></li>
+      <li><a class="nhsw-site-header__nav-link{% if page.section == "support" %} nhsw-site-header__nav-link--current{% endif %}" href="{{ '/prototype-kit/support.html' | relative_url }}"{% if page.section == "support" %} aria-current="page"{% endif %}><span>Support</span></a></li>
+    </ul>
+  </div>
+</nav>

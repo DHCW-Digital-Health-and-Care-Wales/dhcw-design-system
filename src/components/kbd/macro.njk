@@ -1,0 +1,3 @@
+{%- macro nhswKbd(params) -%}
+<kbd class="nhsw-kbd{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>{{ params.text }}</kbd>
+{%- endmacro -%}
