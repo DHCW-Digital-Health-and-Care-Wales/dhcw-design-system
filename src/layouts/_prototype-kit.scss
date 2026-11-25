@@ -299,6 +299,14 @@
   }
 }
 
+.nhsw-prototype-kit__figure {
+  margin: 40px 0;
+
+  .nhsw-prototype-kit__screenshot {
+    margin: 0 0 8px;
+  }
+}
+
 .nhsw-prototype-kit__reading {
   @include b.nhsw-from-desktop {
     max-width: 66.6667%;

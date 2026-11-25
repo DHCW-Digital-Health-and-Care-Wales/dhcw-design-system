@@ -102,6 +102,22 @@ describe('prototype kit pages', () => {
     expect(unlinked.map((page) => page.url)).toEqual([]);
   });
 
+  it('only has text in place of a screenshot where one still needs a signed-in account', () => {
+    const waiting = pages.filter((page) => /SCREENSHOT[^<]*[\])]/.test(page.body)).map((page) => page.url);
+
+    expect(waiting.sort()).toEqual([
+      '/prototype-kit/create-a-new-prototype/create-the-prototype.html',
+      '/prototype-kit/set-up-your-computer/get-a-github-account.html',
+    ]);
+  });
+
+  it('uses every screenshot in the assets folder', () => {
+    const bodies = pages.map((page) => page.body).join('\n');
+    const unused = fs.readdirSync(path.join(preview, 'assets/prototype-kit')).filter((file) => !bodies.includes(file));
+
+    expect(unused).toEqual([]);
+  });
+
   it('gives every screenshot image a text alternative', () => {
     for (const page of pages) {
       for (const [img] of page.body.matchAll(/<img [^>]*>/g)) {

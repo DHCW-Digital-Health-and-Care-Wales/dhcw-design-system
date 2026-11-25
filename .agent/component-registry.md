@@ -542,6 +542,7 @@ Supports:
 - nhsw-prototype-kit__content, __landing, __hero, __reading
 - nhsw-prototype-kit__spaced (40px above a paragraph)
 - nhsw-prototype-kit__screenshot, __screenshot-text
+- nhsw-prototype-kit__figure (a screenshot with a caption, such as Before or After)
 - nhsw-prototype-kit__code (a block of example code on a white background that wraps long lines)
 
 ## nhsw-patient-header
