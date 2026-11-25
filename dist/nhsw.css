@@ -6247,6 +6247,13 @@ body {
   font-family: inherit;
 }
 
+.nhsw-prototype-kit__figure {
+  margin: 40px 0;
+}
+.nhsw-prototype-kit__figure .nhsw-prototype-kit__screenshot {
+  margin: 0 0 8px;
+}
+
 @media (min-width: 48.0625em) {
   .nhsw-prototype-kit__reading {
     max-width: 66.6667%;
