@@ -22,9 +22,28 @@ function run(command, args, env) {
 
 function runTests() {
   fs.mkdirSync(outDir, { recursive: true });
-  run('npx', ['vitest', 'run', '--reporter=json', '--outputFile=test-reports/unit-results.json']);
-  run('node', ['scripts/build-preview-site.js']);
-  run('npx', ['playwright', 'test', '--reporter=json'], { PLAYWRIGHT_JSON_OUTPUT_NAME: 'test-reports/browser-results.json' });
+  return {
+    vitest: run('npx', ['vitest', 'run', '--reporter=json', '--outputFile=test-reports/unit-results.json']),
+    'preview build': run('node', ['scripts/build-preview-site.js']),
+    playwright: run('npx', ['playwright', 'test', '--reporter=json'], { PLAYWRIGHT_JSON_OUTPUT_NAME: 'test-reports/browser-results.json' }),
+  };
+}
+
+// A suite can fail without a single failed test: a test file that cannot be
+// loaded, a beforeAll that throws (its tests are reported as skipped), or a
+// Playwright spec file whose error stops every browser test from running.
+// Those only show in the runner's own exit code or its suite-level result, so
+// the report must fail on them as well as on failed tests.
+function runProblems(statuses, unitData, browserData) {
+  const problems = [];
+  for (const [name, status] of Object.entries(statuses)) {
+    if (status !== 0) problems.push(`${name} exited with ${status}`);
+  }
+  if (!unitData) problems.push('no unit test results were written');
+  else if (unitData.success === false) problems.push(`vitest reported ${unitData.numFailedTestSuites || 0} failed test file(s)`);
+  if (!browserData) problems.push('no browser test results were written');
+  else if ((browserData.errors || []).length) problems.push(`playwright reported ${browserData.errors.length} error(s) outside any test`);
+  return problems;
 }
 
 function readJson(file) {
@@ -235,8 +254,11 @@ ${fileSections}
 }
 
 function main() {
-  if (!reuse) runTests();
-  const records = [...readUnit(readJson(unitJson)), ...readBrowser(readJson(browserJson))];
+  const statuses = reuse ? {} : runTests();
+  const unitData = readJson(unitJson);
+  const browserData = readJson(browserJson);
+  const problems = runProblems(statuses, unitData, browserData);
+  const records = [...readUnit(unitData), ...readBrowser(browserData)];
   if (records.length === 0) {
     console.error('No test results found. Run without --reuse to run the tests first.');
     process.exit(1);
@@ -245,11 +267,13 @@ function main() {
   const generated = new Date().toLocaleString('en-GB', { dateStyle: 'long', timeStyle: 'short' });
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'test-report.html'), html(records, report, generated));
-  fs.writeFileSync(path.join(outDir, 'test-report.md'), markdown(records, report, generated));
+  const problemBlock = problems.length ? `## The test run itself failed\n\n${problems.map((p) => `- ${p}`).join('\n')}\n\n` : '';
+  fs.writeFileSync(path.join(outDir, 'test-report.md'), problemBlock + markdown(records, report, generated));
   console.log(`\nTest report written to ${relative(path.join(outDir, 'test-report.html'))} (${report.overall.passed} of ${report.overall.total} passed).`);
-  process.exitCode = report.overall.failed ? 1 : 0;
+  for (const p of problems) console.error(`Test run failed: ${p}`);
+  process.exitCode = report.overall.failed || problems.length ? 1 : 0;
 }
 
 if (require.main === module) main();
 
-module.exports = { readUnit, readBrowser, build, mentions, percent };
+module.exports = { readUnit, readBrowser, build, mentions, percent, runProblems };
