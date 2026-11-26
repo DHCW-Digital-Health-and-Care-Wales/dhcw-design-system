@@ -138,3 +138,11 @@ describe('card minimum height', () => {
     expect(block(css, '\\.nhsw-card')).not.toMatch(/min-height/);
   });
 });
+
+describe('last paragraph in a card', () => {
+  const css = compileProbe(`@use "components/cards/card";`);
+
+  it('adds no space under the last body paragraph, so the card padding is even', () => {
+    expect(block(css, '\\.nhsw-card > \\.nhsw-body:last-child')).toMatch(/margin-bottom:\s*0/);
+  });
+});

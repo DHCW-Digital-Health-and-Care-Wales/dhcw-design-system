@@ -8,10 +8,11 @@ describe('side nav heading label (used above a grouped set of links, e.g. "Setup
     css = compileProbe(`@use "components/site/side-nav";`);
   });
 
-  it('is bold, dark text, sitting above the link list', () => {
+  it('is bold, 19px, secondary grey text, sitting above the link list', () => {
     const heading = block(css, '\\.nhsw-side-nav__heading');
     expect(heading).toMatch(/font-weight:\s*700/);
-    expect(heading).toMatch(/color:\s*#212b32/);
+    expect(heading).toMatch(/color:\s*#4c6272/);
+    expect(heading).toMatch(/font-size:\s*1\.1875rem/);
   });
 });
 
@@ -20,6 +21,17 @@ describe('side nav rail and link states', () => {
 
   beforeAll(() => {
     css = compileProbe(`@use "components/site/side-nav";`);
+  });
+
+  it('rail is 240px wide, including the space before its border', () => {
+    const nav = block(css, '\\.nhsw-side-nav\\b');
+    expect(nav).toMatch(/box-sizing:\s*border-box/);
+    expect(nav).toMatch(/flex:\s*0 0 240px/);
+  });
+
+  it('links are 16px and sit 12px apart', () => {
+    expect(block(css, '\\.nhsw-side-nav__link\\b')).toMatch(/font-size:\s*1rem/);
+    expect(block(css, '\\.nhsw-side-nav__list')).toMatch(/gap:\s*12px/);
   });
 
   it('rail has a grey right-hand border', () => {

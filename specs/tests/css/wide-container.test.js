@@ -22,11 +22,9 @@ describe('wide container', () => {
     expect(css).not.toMatch(/@media \(min-width: 1024px\)\s*\{\s*\.nhsw-wide-container\s*\{/);
   });
 
-  it('the side navigation drops from 19px to 16px inside a wide container', () => {
+  it('the side navigation is the same size inside a wide container as anywhere else', () => {
     const css = compileProbe('@use "components/site/side-nav";');
-    expect(block(css, '\\.nhsw-side-nav__link')).toMatch(/font-size:\s*1\.1875rem/);
-    expect(block(css, '\\.nhsw-wide-container \\.nhsw-side-nav__link')).toMatch(/font-size:\s*1rem/);
-    expect(css).toMatch(/\.nhsw-wide-container \.nhsw-side-nav__heading,\s*\.nhsw-wide-container \.nhsw-side-nav__link\s*\{/);
+    expect(css).not.toContain('.nhsw-wide-container .nhsw-side-nav');
   });
 });
 

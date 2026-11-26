@@ -44,3 +44,12 @@ describe('warning text icon aligns to the first line, not the vertical centre', 
     expect(reverseText).toMatch(/color:\s*#ffffff/);
   });
 });
+
+describe('warning text sits level with its icon', () => {
+  const css = compileProbe(`@use "components/content/warning-text";`);
+
+  it('the text line is as tall as the 32px icon', () => {
+    expect(block(css, '\\.nhsw-warning-text__text')).toMatch(/line-height:\s*2rem/);
+    expect(block(css, '\\.nhsw-warning-text__icon')).toMatch(/height:\s*32px/);
+  });
+});

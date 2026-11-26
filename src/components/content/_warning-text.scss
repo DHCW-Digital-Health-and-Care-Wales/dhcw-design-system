@@ -1,4 +1,5 @@
 @use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
 
 .nhsw-warning-text {
   position: relative;
@@ -28,6 +29,7 @@
 .nhsw-warning-text__text {
   color: c.$nhswales-primary-text-colour;
   font-weight: 700;
+  line-height: t.$nhsw-line-height-h3;
 }
 
 .nhsw-warning-text--reverse {

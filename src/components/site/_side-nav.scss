@@ -4,8 +4,10 @@
 @use "../../utilities/breakpoints" as b;
 
 .nhsw-side-nav {
-  flex: 0 0 13.8125rem;
+  box-sizing: border-box;
+  flex: 0 0 240px;
   align-self: flex-start;
+  padding-right: 32px;
   border-right: 1px solid c.$nhswales-grey-border-colour;
 
   @media (max-width: 40rem) {
@@ -14,16 +16,17 @@
 }
 
 .nhsw-side-nav__heading {
-  margin: 0 0 20px;
-  color: c.$nhswales-primary-text-colour;
+  margin: 0 0 12px;
+  color: c.$nhswales-secondary-text-colour;
   font-size: t.$nhsw-font-size-body;
   font-weight: t.$nhsw-font-weight-bold;
+  line-height: t.$nhsw-line-height-body;
 }
 
 .nhsw-side-nav__list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -32,12 +35,12 @@
 .nhsw-side-nav__link {
   display: block;
   position: relative;
+  margin-left: -12px;
   padding: 0 0 0 12px;
-  border-left: 4px solid transparent;
   color: c.$nhswales-link-colour;
-  font-size: t.$nhsw-font-size-body;
+  font-size: t.$nhsw-font-size-body-small;
   font-weight: t.$nhsw-font-weight-regular;
-  line-height: 1.4;
+  line-height: t.$nhsw-line-height-body-small;
   text-decoration: none;
 
   &:hover {
@@ -57,17 +60,15 @@
 
   &--current {
     color: c.$nhswales-link-colour;
-    font-weight: t.$nhsw-font-weight-bold;
     text-decoration: none;
 
     &::before {
       content: "";
       position: absolute;
-      left: -4px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 4px;
-      height: 1.75rem;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
       background-color: c.$nhswales-link-colour;
     }
   }
@@ -81,8 +82,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
-    width: 4px;
+    left: -12px;
+    width: 3px;
     background-color: c.$nhswales-link-colour;
   }
 }
@@ -94,15 +95,10 @@
 .nhsw-side-nav__sublist {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
   list-style: none;
-  margin: 20px 0 0;
+  margin: 12px 0 0;
   padding: 0;
-}
-
-.nhsw-wide-container .nhsw-side-nav__heading,
-.nhsw-wide-container .nhsw-side-nav__link {
-  font-size: t.$nhsw-font-size-body-small;
 }
 
 .nhsw-layout {

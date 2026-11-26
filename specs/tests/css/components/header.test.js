@@ -117,11 +117,12 @@ describe('site header top bar', () => {
     expect(title).toMatch(/font-family:\s*Roboto,\s*Arial,\s*sans-serif/);
   });
 
-  it('search button is link-blue, darkening to the link-hover colour on hover', () => {
+  it('search button is link-blue, turning pale blue with a navy magnifying glass on hover', () => {
     const button = block(css, '\\.nhsw-site-header__search-button\\b');
     expect(button).toMatch(/background-color:\s*#005aa8/);
     const hover = block(css, '\\.nhsw-site-header__search-button:hover');
-    expect(hover).toMatch(/background-color:\s*#003087/);
+    expect(hover).toMatch(/background-color:\s*#edf4fa/);
+    expect(hover).toMatch(/(^|;|\s)color:\s*#1b365d/);
   });
 
   it('search input focus adds a black inset border alongside the yellow outline, raised above the adjacent button so it is not painted over', () => {

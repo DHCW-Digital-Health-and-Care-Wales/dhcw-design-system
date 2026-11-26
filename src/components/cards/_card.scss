@@ -152,6 +152,10 @@
   color: c.$nhswales-link-hover-colour;
 }
 
+.nhsw-card > .nhsw-body:last-child {
+  margin-bottom: 0;
+}
+
 .nhsw-card__description {
   margin: 0 0 1.5rem;
   color: c.$nhswales-primary-text-colour;

@@ -75,42 +75,6 @@
     min-height: 0;
   }
 
-  .nhsw-side-nav {
-    box-sizing: border-box;
-    flex: 0 0 240px;
-    align-self: flex-start;
-    padding-right: 32px;
-  }
-
-  .nhsw-side-nav__heading {
-    margin-bottom: 12px;
-    color: c.$nhswales-secondary-text-colour;
-    line-height: t.$nhsw-line-height-body;
-  }
-
-  .nhsw-side-nav__list {
-    gap: 12px;
-  }
-
-  .nhsw-side-nav__link {
-    margin-left: -12px;
-    border-left: 0;
-    font-size: t.$nhsw-font-size-body-small;
-    line-height: t.$nhsw-line-height-body-small;
-  }
-
-  .nhsw-side-nav__link--current {
-    font-weight: t.$nhsw-font-weight-regular;
-
-    &::before {
-      top: 0;
-      left: 0;
-      width: 3px;
-      height: 100%;
-      transform: none;
-    }
-  }
-
   .nhsw-site-footer__container {
     padding-top: 30px;
     padding-bottom: 30px;

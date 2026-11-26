@@ -149,3 +149,15 @@ test.describe('Short cards', () => {
     expect((await page.locator('.nhsw-card').boundingBox()).height).toBeLessThan(80);
   });
 });
+
+for (const width of [375, 1440]) {
+  test(`the links card has the same space under its last link as at its sides, at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto('/examples/card-links.html');
+    const space = await page.locator('.nhsw-card').evaluate((card) => {
+      const last = card.lastElementChild;
+      return { below: Math.round(card.getBoundingClientRect().bottom - last.getBoundingClientRect().bottom), side: Math.round(last.getBoundingClientRect().left - card.getBoundingClientRect().left) };
+    });
+    expect(space.below).toBe(space.side);
+  });
+}

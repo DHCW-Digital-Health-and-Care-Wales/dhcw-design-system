@@ -220,7 +220,8 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #003087;
+    background-color: c.$nhsw-colour-search-button-hover;
+    color: c.$nhswales-blue-text-colour;
   }
 
   &:focus {
