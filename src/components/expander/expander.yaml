@@ -20,11 +20,11 @@ params:
     description: Content HTML, used as-is. Takes precedence over text.
   - name: id
     type: string
-    required: true
+    required: false
     description: >
-      Base id for the content element, referenced by the button's
-      aria-controls. Nunjucks has no built-in slugify filter, so callers
-      must supply this directly.
+      Id of the content element, referenced by the button's aria-controls.
+      Defaults to one made from linkText; set it when two expanders share
+      the same linkText.
   - name: open
     type: boolean
     required: false

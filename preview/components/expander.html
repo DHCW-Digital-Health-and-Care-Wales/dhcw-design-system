@@ -44,6 +44,7 @@ tabs:
   {% capture njk_sample %}{% raw %}{% from "expander/macro.njk" import nhswExpander %}
 
 {{ nhswExpander({
+  id: "expander-consent",
   linkText: "Digital consent",
   html: "&lt;p class=\"nhsw-body\"&gt;Digital consent lets patients give or withdraw consent for a service online, instead of over the phone or on paper.&lt;/p&gt;"
 }) }}{% endraw %}{% endcapture %}

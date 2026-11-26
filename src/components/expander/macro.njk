@@ -5,9 +5,9 @@
     linkText    string   (required) - button text
     text        string   - content, wrapped in <p class="nhsw-body"> (used if html is not set)
     html        string   - content HTML, used as-is. Takes precedence over text.
-    id          string   (required) - base id, used for the content element id
-                          (referenced by aria-controls) - since nunjucks has no
-                          slugify filter, callers must supply this directly.
+    id          string   - id of the content element, referenced by
+                          aria-controls. Defaults to one made from linkText;
+                          set it when two expanders share the same linkText.
     open        bool     - renders the expander open by default (initial
                             aria-expanded="true", content not hidden)
     classes     string   - extra classes, e.g. "nhsw-expander--reverse"
@@ -18,14 +18,15 @@
   that hooks .nhsw-expander__button, keyed off aria-controls.
 #}
 {%- macro nhswExpander(params) -%}
+{%- set contentId = params.id or ("expander-" ~ (params.linkText | lower | replace(" ", "-"))) -%}
 <div class="nhsw-expander{% if params.classes %} {{ params.classes }}{% endif %}"{% for name, value in (params.attributes or {}) %} {{ name }}="{{ value }}"{% endfor %}>
-  <button type="button" class="nhsw-expander__button" aria-expanded="{{ 'true' if params.open else 'false' }}" aria-controls="{{ params.id }}">
+  <button type="button" class="nhsw-expander__button" aria-expanded="{{ 'true' if params.open else 'false' }}" aria-controls="{{ contentId }}">
     <span class="nhsw-expander__heading">
       <span class="nhsw-expander__icon" aria-hidden="true"></span>
       <span class="nhsw-expander__link-text">{{ params.linkText }}</span>
     </span>
   </button>
-  <div class="nhsw-expander__content" id="{{ params.id }}"{% if not params.open %} hidden{% endif %}>
+  <div class="nhsw-expander__content" id="{{ contentId }}"{% if not params.open %} hidden{% endif %}>
 {%- if params.html %}
     {{ params.html | safe }}
 {%- else %}

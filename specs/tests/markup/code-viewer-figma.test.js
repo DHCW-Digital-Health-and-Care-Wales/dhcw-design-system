@@ -45,36 +45,26 @@ describe('file upload variants tab', () => {
   const page = fs.readFileSync(path.join(root, 'preview/components/file-upload.html'), 'utf8');
   const variants = page.slice(page.indexOf('id="panel-variants"'), page.indexOf('id="panel-examples"'));
 
-  it('follows the design: H2, then the small screens H3, then the example, then the two paragraphs', () => {
+  it('says there are no variants, with who to contact', () => {
     const order = [
       '<h2 class="nhsw-h2">File upload variants</h2>',
-      '<h3 class="nhsw-h3">File upload for small screens</h3>',
-      '{% include example-preview.html id="fu-mobile"',
-      '{% include code-viewer.html id="fu-mobile"',
-      'Use the small screen variant when file uploads need to be completed on mobile devices or narrow viewports.',
-      "The layout is optimised for smaller screens, helping users upload files easily without affecting the component's functionality or accessibility.",
+      'There are no variants available for this component.',
+      'href="mailto:dhcw.ucd@wales.nhs.uk">Contact the DHCW Design System team</a> if the existing component does not meet your requirements. Your feedback helps us understand gaps and prioritise future improvements.',
+      'If you adapt the component to meet a specific user need, share your findings with us to help build shared knowledge and support others using it.',
     ].map((text) => variants.indexOf(text));
     expect(order.every((i) => i > -1)).toBe(true);
     expect([...order].sort((a, b) => a - b)).toEqual(order);
   });
 
-  it('no longer has the old mobile version heading or intro', () => {
-    expect(variants).not.toContain('Mobile version of the file upload');
-    expect(variants).not.toContain('you can use the smaller file upload version');
+  it('shows no variant example', () => {
+    expect(variants).not.toContain('example-preview.html');
+    expect(variants).not.toContain('code-viewer.html');
+    expect(variants).not.toContain('File upload for small screens');
   });
 });
 
-describe('file upload small screen example', () => {
-  const page = fs.readFileSync(path.join(root, 'preview/components/file-upload.html'), 'utf8');
-  const variants = page.slice(page.indexOf('id="panel-variants"'), page.indexOf('id="panel-examples"'));
-
-  it('uses an h3 for "Upload a file", so it does not jump back up to an h2 under the h3 section heading', () => {
-    expect(variants).toContain('<h3 class="nhsw-h3">Upload a file</h3>');
-    expect(variants).toContain('&lt;h3 class="nhsw-h3"&gt;Upload a file&lt;/h3&gt;');
-    expect(variants).not.toMatch(/Upload a file<\/h2>|Upload a file&lt;\/h2&gt;/);
-  });
-
-  it('caps the small screen variant at a phone width of 343px', async () => {
+describe('file upload reverse style', () => {
+  it('caps the reversed layout at a phone width of 343px', async () => {
     const { compileProbe, block } = await import('../support/compile-scss.js');
     const css = compileProbe('@use "components/forms/file-upload";');
     expect(block(css, '\.nhsw-file-upload--reverse')).toMatch(/max-width:\s*343px/);

@@ -11,6 +11,8 @@ set_up:
       url: /prototype-kit/set-up-your-computer/install-node-js.html
     - title: 5. Check your computer is ready
       url: /prototype-kit/set-up-your-computer/check-your-computer-is-ready.html
+    - title: 6. Start prototyping
+      url: /prototype-kit/set-up-your-computer/your-computer-is-ready.html
 guides:
   heading: Guides
   items:

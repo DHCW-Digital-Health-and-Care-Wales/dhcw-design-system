@@ -18,10 +18,20 @@ test.describe('Prototype kit navigation', () => {
     await expect(page.locator('.nhsw-step-list__item')).toHaveCount(6);
   });
 
-  test('the ready page keeps step 5 highlighted without calling it the current page', async ({ page }) => {
-    await page.goto(`${KIT}/set-up-your-computer/your-computer-is-ready.html`);
-    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveText('5. Check your computer is ready');
-    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveAttribute('aria-current', 'true');
+  test('the last set up screen is step 6, Start prototyping', async ({ page }) => {
+    await page.goto(`${KIT}/set-up-your-computer/check-your-computer-is-ready.html`);
+    await page.locator('.nhsw-pagination-item--next a').click();
+    await expect(page.locator('h1')).toHaveText('Step 6: Start prototyping');
+    await expect(page.locator('.nhsw-side-nav__link')).toHaveCount(6);
+    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveText('6. Start prototyping');
+    await expect(page.locator('.nhsw-side-nav__link--current')).toHaveAttribute('aria-current', 'page');
+  });
+
+  test('the Service Desk section links to the Service Desk email address', async ({ page }) => {
+    await page.goto(`${KIT}/support.html`);
+    const section = page.locator('#contact-the-service-desk + p a');
+    await expect(section).toHaveText('Service Desk');
+    await expect(section).toHaveAttribute('href', 'mailto:it.servicedesk@wales.nhs.uk');
   });
 
   for (const journey of [
