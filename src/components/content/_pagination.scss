@@ -45,6 +45,7 @@
   width: 50%;
 
   .nhsw-pagination__link {
+    margin-left: auto;
     padding-right: 29px;
   }
 
@@ -57,7 +58,8 @@
   display: block;
   position: relative;
   text-decoration: none;
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   box-sizing: border-box;
   color: c.$nhswales-link-colour;
 

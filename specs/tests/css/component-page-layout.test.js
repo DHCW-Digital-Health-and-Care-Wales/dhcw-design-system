@@ -82,6 +82,7 @@ describe('Back to top at the bottom of every tab', () => {
 
   it('floats at the bottom right of the window and only appears once the page is scrolled', () => {
     const docs = compileProbe('@use "layouts/docs-page";');
+    expect(docs).not.toMatch(/\.nhsw-back-to-top\s*\{[^}]*(border:|box-shadow)/);
     const start = docs.indexOf('\n.nhsw-back-to-top {');
     expect(start).toBeGreaterThan(-1);
     const rule = docs.slice(start, docs.indexOf('}', start));

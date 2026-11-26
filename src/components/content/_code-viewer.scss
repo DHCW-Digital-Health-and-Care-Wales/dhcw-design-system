@@ -124,7 +124,7 @@
 
     code {
       font-family: 'Courier New', Courier, monospace;
-      font-size: 14px;
+      font-size: t.$nhsw-font-size-body;
       line-height: 1.6;
       color: c.$nhswales-primary-text-colour;
     }
@@ -150,8 +150,14 @@
       color: c.$nhswales-delete-button;
     }
 
+    &--keyword {
+      color: c.$nhswales-primary-text-colour;
+      font-weight: t.$nhsw-font-weight-bold;
+    }
+
     &--function {
       color: c.$nhsw-colour-code-function;
+      font-weight: t.$nhsw-font-weight-bold;
     }
 
     &--comment {

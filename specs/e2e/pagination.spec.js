@@ -42,6 +42,49 @@ test.describe('Numbered pagination', () => {
   });
 });
 
+test.describe('Previous and next content links', () => {
+  const pages = [
+    { url: '/examples/pagination-content.html', sides: ['previous', 'next'] },
+    { url: '/examples/pagination-next-only.html', sides: ['next'] },
+    { url: '/components/pagination.html', sides: ['previous', 'next'], tab: '#tab-variants' },
+    { url: '/prototype-kit/set-up-your-computer/install-github-desktop.html', sides: ['previous', 'next'] },
+    { url: '/prototype-kit/create-a-new-prototype/open-and-run-the-prototype.html', sides: ['previous', 'next'] },
+  ];
+
+  for (const { url, sides, tab } of pages) {
+    test(`the yellow focus highlight fits the text and arrow on ${url}`, async ({ page }) => {
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await page.goto(url);
+      if (tab) await page.locator(tab).click();
+      for (const side of sides) {
+        const link = page.locator(`.nhsw-pagination-item--${side} .nhsw-pagination__link:visible`).first();
+        await link.focus();
+        await expect(link).toHaveCSS('background-color', 'rgb(255, 235, 59)');
+        const sizes = await link.evaluate((el) => {
+          const textWidths = [...el.querySelectorAll('span')].map((span) => {
+            const range = document.createRange();
+            range.selectNodeContents(span);
+            return range.getBoundingClientRect().width;
+          });
+          const style = getComputedStyle(el);
+          const box = el.getBoundingClientRect();
+          const parent = el.parentElement.getBoundingClientRect();
+          const arrow = el.querySelector('.nhsw-icon').getBoundingClientRect();
+          return {
+            spare: box.width - Math.max(...textWidths) - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight),
+            fromLeft: box.left - parent.left,
+            fromRight: parent.right - box.right,
+            arrowInside: arrow.left >= box.left - 0.5 && arrow.right <= box.right + 0.5,
+          };
+        });
+        expect(Math.abs(sizes.spare), side).toBeLessThanOrEqual(1);
+        expect(Math.abs(side === 'previous' ? sizes.fromLeft : sizes.fromRight), side).toBeLessThanOrEqual(1);
+        expect(sizes.arrowInside, side).toBe(true);
+      }
+    });
+  }
+});
+
 test.describe('Numbered pagination on a narrow screen', () => {
   async function visible(page, example) {
     await page.setViewportSize({ width: 390, height: 800 });

@@ -225,11 +225,24 @@ describe('code viewer Nunjucks syntax colouring', () => {
     expect(tokens(code, 'value')).toEqual(['"name"']);
   });
 
-  it('leaves keywords uncoloured in tags and colours the imported name', () => {
+  it('marks the keywords in tags and colours the imported name', () => {
     const code = highlight('{% from "button/macro.njk" import nhswButton %}');
     expect(tokens(code, 'tag')).toEqual(['{%', '%}']);
+    expect(tokens(code, 'keyword')).toEqual(['from', 'import']);
     expect(tokens(code, 'value')).toEqual(['"button/macro.njk"']);
     expect(tokens(code, 'attr')).toEqual(['nhswButton']);
+  });
+
+  it('marks the opening and closing keywords of a call and its macro name', () => {
+    const code = highlight('{% call nhswDetails({ summaryText: "Help" }) %}{% endcall %}');
+    expect(tokens(code, 'keyword')).toEqual(['call', 'endcall']);
+    expect(tokens(code, 'function')).toEqual(['nhswDetails']);
+  });
+
+  it('does not treat words such as "for", "set" or "if" as keywords outside a tag, or when they are option names', () => {
+    const code = highlight('<p>Set up for you</p>{{ nhswLabel({ for: "set", with: x if y else z }) }}{% if a and not b %}');
+    expect(tokens(code, 'keyword')).toEqual(['if']);
+    expect(tokens(code, 'attr')).toEqual(['for', 'with', 'x', 'y', 'z', 'a', 'b']);
   });
 
   it('colours the whole of a comment', () => {

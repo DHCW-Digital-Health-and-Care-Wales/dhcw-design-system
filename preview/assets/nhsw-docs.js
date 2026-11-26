@@ -84,9 +84,10 @@
     return '<span class="nhsw-code-token--' + type + '">' + escapeHtml(text) + '</span>';
   }
 
-  var NUNJUCKS_KEYWORDS = /^(and|as|block|call|context|elif|else|endblock|endcall|endfilter|endfor|endif|endmacro|endraw|endset|extends|filter|for|from|if|import|in|include|is|macro|not|or|raw|set|with|without)$/;
+  var NUNJUCKS_KEYWORDS = /^(autoescape|block|call|elif|else|endautoescape|endblock|endcall|endfilter|endfor|endif|endmacro|endraw|endset|endwith|extends|filter|for|from|if|import|include|macro|raw|set|with)$/;
+  var NUNJUCKS_OPERATORS = /^(and|as|by|context|in|is|not|or|without)$/;
 
-  function highlightNunjucksExpression(source, start, closer) {
+  function highlightNunjucksExpression(source, start, closer, isTag) {
     var end = new RegExp('-?' + closer, 'y');
     var token = /("(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*')|([A-Za-z_$][\w$]*)|(\d+(?:\.\d+)?)|([\s\S])/y;
     var html = '';
@@ -108,7 +109,8 @@
         html += codeToken(isKey ? 'attr' : 'value', match[1]);
       } else if (match[2]) {
         if (isKey) html += codeToken('attr', match[2]);
-        else if (NUNJUCKS_KEYWORDS.test(match[2])) html += match[2];
+        else if (isTag && NUNJUCKS_KEYWORDS.test(match[2])) html += codeToken('keyword', match[2]);
+        else if (NUNJUCKS_OPERATORS.test(match[2]) || (!isTag && /^(if|else)$/.test(match[2]))) html += match[2];
         else if (/^\s*\(/.test(rest)) html += codeToken('function', match[2]);
         else html += codeToken('attr', match[2]);
       } else if (match[3]) {
@@ -135,7 +137,8 @@
         html += codeToken('comment', match[0]);
         index = opener.lastIndex;
       } else {
-        var expression = highlightNunjucksExpression(source, opener.lastIndex, match[0].charAt(1) === '{' ? '\\}\\}' : '%\\}');
+        var isTag = match[0].charAt(1) === '%';
+        var expression = highlightNunjucksExpression(source, opener.lastIndex, isTag ? '%\\}' : '\\}\\}', isTag);
         html += codeToken('tag', match[0]) + expression.html;
         index = opener.lastIndex = expression.index;
       }

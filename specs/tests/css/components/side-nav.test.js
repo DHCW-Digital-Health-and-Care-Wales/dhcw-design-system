@@ -27,6 +27,12 @@ describe('side nav rail and link states', () => {
     expect(nav).toMatch(/border-right:\s*1px solid #d8dde0/);
   });
 
+  it('rail is only as tall as its own links, however long the page content is', () => {
+    const nav = block(css, '\\.nhsw-side-nav\\b');
+    expect(nav).toMatch(/align-self:\s*flex-start/);
+    expect(css).not.toMatch(/\.nhsw-side-nav\s*\{[^}]*align-self:\s*stretch/);
+  });
+
   it('link is link-blue, darkening to the link-hover colour on hover', () => {
     const link = block(css, '\\.nhsw-side-nav__link\\b');
     expect(link).toMatch(/color:\s*#005aa8/);

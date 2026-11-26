@@ -41,11 +41,24 @@ test.describe('Code tabs text size', () => {
 });
 
 test.describe('Code samples', () => {
-  test('all the code, coloured or not, has a font weight of 400', async ({ page }) => {
+  test('all the code is 19px, bold only for Nunjucks keywords and macro names', async ({ page }) => {
+    test.slow();
     for (const name of pagesWithCode) {
       await page.goto(`/components/${name}`);
-      const weights = await page.locator('.nhsw-code-viewer__panel code, .nhsw-code-viewer__panel code span').evaluateAll((els) => [...new Set(els.map((el) => getComputedStyle(el).fontWeight))]);
-      expect(weights, name).toEqual(['400']);
+      const found = await page.locator('.nhsw-code-viewer__panel code, .nhsw-code-viewer__panel code span').evaluateAll((els) => {
+        const sizes = new Set();
+        const normal = new Set();
+        const bold = new Set();
+        for (const el of els) {
+          const s = getComputedStyle(el);
+          sizes.add(s.fontSize);
+          (el.matches('.nhsw-code-token--keyword, .nhsw-code-token--function') ? bold : normal).add(s.fontWeight);
+        }
+        return { sizes: [...sizes], normal: [...normal], bold: [...bold] };
+      });
+      expect(found.sizes, name).toEqual(['19px']);
+      expect(found.normal, name).toEqual(['400']);
+      expect(found.bold.filter((weight) => weight !== '700'), name).toEqual([]);
     }
   });
 
@@ -53,6 +66,8 @@ test.describe('Code samples', () => {
     await page.goto('/components/buttons.html');
     const code = page.locator('.nhsw-code-viewer__panel[id$="-njk"] code').first();
     await expect(code.locator('.nhsw-code-token--function').first()).toHaveCSS('color', 'rgb(153, 0, 0)');
+    await expect(code.locator('.nhsw-code-token--function').first()).toHaveCSS('font-weight', '700');
+    await expect(code.locator('.nhsw-code-token--keyword').first()).toHaveCSS('font-weight', '700');
     await expect(code.locator('.nhsw-code-token--value').first()).toHaveCSS('color', 'rgb(213, 40, 27)');
     await expect(code.locator('.nhsw-code-token--attr').first()).toHaveCSS('color', 'rgb(0, 127, 59)');
   });

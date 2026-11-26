@@ -106,10 +106,18 @@ describe('code viewer matches the example window design', () => {
     expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--value\s*\{\s*color:\s*#d5281b/);
   });
 
-  it('colours Nunjucks macro names and comments, without making any code bold', () => {
-    expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--function\s*\{\s*color:\s*#990000/);
+  it('makes Nunjucks keywords and macro names bold, as NHS.UK does', () => {
+    expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--keyword\s*\{\s*color:\s*#212b32;\s*font-weight:\s*700/);
+    expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--function\s*\{\s*color:\s*#990000;\s*font-weight:\s*700/);
+  });
+
+  it('shows comments in grey italic and leaves every other token at the normal weight', () => {
     expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--comment\s*\{\s*color:\s*#4c6272;\s*font-style:\s*italic/);
-    expect(css).not.toMatch(/\.nhsw-code-token[^{]*\{[^}]*font-weight/);
+    expect(css).not.toMatch(/\.nhsw-code-token--(tag|attr|value|comment)\s*\{[^}]*font-weight/);
+  });
+
+  it('shows the code at 1.1875rem', () => {
+    expect(block(css, '\\.nhsw-code-viewer__panel code')).toMatch(/font-size:\s*1\.1875rem/);
   });
 
   it('an open viewer joins the example above it and hides the example footer', () => {

@@ -23,6 +23,21 @@ describe('numbered pagination: underline is default, hover removes it (not the o
   });
 });
 
+describe('content pagination links are only as wide as their text and arrow', () => {
+  const css = compileProbe(`@use "components/content/pagination";`);
+
+  it('does not stretch the link, or its focus highlight, across half the page', () => {
+    const link = block(css, '\\.nhsw-pagination__link');
+    expect(link).toMatch(/width:\s*fit-content/);
+    expect(link).toMatch(/max-width:\s*100%/);
+    expect(link).not.toMatch(/(^|[\s;])width:\s*100%/);
+  });
+
+  it('keeps the next link against the right-hand side', () => {
+    expect(block(css, '\\.nhsw-pagination-item--next \\.nhsw-pagination__link')).toMatch(/margin-left:\s*auto/);
+  });
+});
+
 describe('pagination typography', () => {
   const css = compileProbe(`@use "components/content/pagination";`);
 
