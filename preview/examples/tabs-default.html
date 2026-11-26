@@ -19,29 +19,56 @@ title: Tabs example
   </ul>
   <div class="nhsw-tabs__panel" id="demo-panel-day" role="tabpanel" aria-labelledby="demo-tab-day">
     <h2 class="nhsw-h2">Past day</h2>
-    <table class="nhsw-table">
-      <thead class="nhsw-table__head">
-        <tr class="nhsw-table__row">
-          <th scope="col" class="nhsw-table__header">Case manager</th>
-          <th scope="col" class="nhsw-table__header">Cases opened</th>
-          <th scope="col" class="nhsw-table__header">Cases closed</th>
+    <table class="nhsw-table-responsive" role="table">
+      <thead class="nhsw-table__head" role="rowgroup">
+        <tr class="nhsw-table__row" role="row">
+          <th scope="col" class="nhsw-table__header" role="columnheader">Case manager</th>
+          <th scope="col" class="nhsw-table__header" role="columnheader">Cases opened</th>
+          <th scope="col" class="nhsw-table__header" role="columnheader">Cases closed</th>
         </tr>
       </thead>
-      <tbody class="nhsw-table__body">
-        <tr class="nhsw-table__row">
-          <td class="nhsw-table__cell">David Francis</td>
-          <td class="nhsw-table__cell">3</td>
-          <td class="nhsw-table__cell">0</td>
+      <tbody class="nhsw-table__body" role="rowgroup">
+        <tr class="nhsw-table__row" role="row">
+          <th scope="row" class="nhsw-table__header" role="rowheader">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+            Amina Rahman
+          </th>
+          <td class="nhsw-table__cell" role="cell">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+            3
+          </td>
+          <td class="nhsw-table__cell" role="cell">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+            0
+          </td>
         </tr>
-        <tr class="nhsw-table__row">
-          <td class="nhsw-table__cell">Paul Farmer</td>
-          <td class="nhsw-table__cell">1</td>
-          <td class="nhsw-table__cell">0</td>
+        <tr class="nhsw-table__row" role="row">
+          <th scope="row" class="nhsw-table__header" role="rowheader">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+            Daniel Chen
+          </th>
+          <td class="nhsw-table__cell" role="cell">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+            1
+          </td>
+          <td class="nhsw-table__cell" role="cell">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+            0
+          </td>
         </tr>
-        <tr class="nhsw-table__row">
-          <td class="nhsw-table__cell">Rita Patel</td>
-          <td class="nhsw-table__cell">2</td>
-          <td class="nhsw-table__cell">0</td>
+        <tr class="nhsw-table__row" role="row">
+          <th scope="row" class="nhsw-table__header" role="rowheader">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Case manager </span>
+            Nia Morgan
+          </th>
+          <td class="nhsw-table__cell" role="cell">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases opened </span>
+            2
+          </td>
+          <td class="nhsw-table__cell" role="cell">
+            <span class="nhsw-table-responsive__heading" aria-hidden="true">Cases closed </span>
+            0
+          </td>
         </tr>
       </tbody>
     </table>
