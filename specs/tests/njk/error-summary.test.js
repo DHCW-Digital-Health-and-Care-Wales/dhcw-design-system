@@ -16,6 +16,11 @@ describe('nhswErrorSummary opts in to the script that moves focus to it (SCEN-ER
     return new JSDOM(`<body>${html}</body>`).window.document.querySelector('.nhsw-error-summary');
   }
 
+  it('styles the description as body text, as the component page shows it', () => {
+    const description = render({ descriptionText: 'Check the following fields' }).querySelector('p');
+    expect(description.getAttribute('class')).toBe('nhsw-body');
+  });
+
   it('renders data-module="nhsw-error-summary", so nhsw-behaviours.js moves focus to it', () => {
     expect(render().getAttribute('data-module')).toBe('nhsw-error-summary');
   });

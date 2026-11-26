@@ -157,7 +157,7 @@ tabs:
 
     {% capture html_sample %}{% raw %}&lt;div class="nhsw-notification-banner nhsw-notification-banner--success" role="alert" aria-labelledby="notification-title-success"&gt;
   &lt;div class="nhsw-notification-banner__header"&gt;
-    &lt;h3 class="nhsw-notification-banner__title" id="notification-title-success"&gt;Success&lt;/h3&gt;
+    &lt;h2 class="nhsw-notification-banner__title" id="notification-title-success"&gt;Success&lt;/h2&gt;
   &lt;/div&gt;
   &lt;div class="nhsw-notification-banner__content"&gt;
     &lt;h3 class="nhsw-notification-banner__heading"&gt;Vaccination outcome recorded for HPV&lt;/h3&gt;
@@ -167,7 +167,6 @@ tabs:
     {% capture njk_sample %}{% raw %}{{ nhswNotificationBanner({
   type: "success",
   titleText: "Success",
-  titleHeadingLevel: "3",
   contentIsHeading: true,
   text: "Vaccination outcome recorded for HPV",
   bodyHtml: "Contact &lt;a class=\"nhsw-link nhsw-notification-banner__link\" href=\"#\"&gt;example@wales.nhs.uk&lt;/a&gt; if you think there's a problem."

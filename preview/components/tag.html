@@ -30,12 +30,53 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tag-overview" open_url="/examples/tag-status.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--red"&gt;Urgent&lt;/strong&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{% from "tag/macro.njk" import nhswTag %}
+  {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
+  &lt;thead class="nhsw-table__head"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Application&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Status&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="nhsw-table__body"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Lesley Okafor&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--red"&gt;Urgent&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Idris Jones&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--blue"&gt;New&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Anwen Peters&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--blue"&gt;New&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Rhys McDonald&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--blue"&gt;New&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Della Li&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--green"&gt;Finished&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Harri Singh&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--yellow"&gt;Waiting on&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "table/macro.njk" import nhswTable %}
+{% from "tag/macro.njk" import nhswTag %}
 
-{{ nhswTag({
-  text: "Urgent",
-  classes: "nhsw-tag--red"
+{{ nhswTable({
+  head: ["Application", "Status"],
+  rows: [
+    ["Lesley Okafor", { html: nhswTag({ text: "Urgent", classes: "nhsw-tag--red" }) }],
+    ["Idris Jones", { html: nhswTag({ text: "New", classes: "nhsw-tag--blue" }) }],
+    ["Anwen Peters", { html: nhswTag({ text: "New", classes: "nhsw-tag--blue" }) }],
+    ["Rhys McDonald", { html: nhswTag({ text: "New", classes: "nhsw-tag--blue" }) }],
+    ["Della Li", { html: nhswTag({ text: "Finished", classes: "nhsw-tag--green" }) }],
+    ["Harri Singh", { html: nhswTag({ text: "Waiting on", classes: "nhsw-tag--yellow" }) }]
+  ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-overview" html=html_sample njk=njk_sample toggleable=true %}
 
@@ -82,10 +123,54 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="tag-two-status" open_url="/examples/tag-two-status.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;
-&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;/strong&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }}
-{{ nhswTag({ text: "Active", classes: "nhsw-tag--dhcw-blue" }) }}{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
+  &lt;thead class="nhsw-table__head"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Application&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Status&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="nhsw-table__body"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Lesley Okafor&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Idris Jones&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Anwen Peters&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Rhys McDonald&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Della Li&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;Harri Singh&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "table/macro.njk" import nhswTable %}
+{% from "tag/macro.njk" import nhswTag %}
+
+{{ nhswTable({
+  head: ["Application", "Status"],
+  rows: [
+    ["Lesley Okafor", { html: nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }],
+    ["Idris Jones", { html: nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }],
+    ["Anwen Peters", { html: nhswTag({ text: "Active", classes: "nhsw-tag--dhcw-blue" }) }],
+    ["Rhys McDonald", { html: nhswTag({ text: "Active", classes: "nhsw-tag--dhcw-blue" }) }],
+    ["Della Li", { html: nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }],
+    ["Harri Singh", { html: nhswTag({ text: "Active", classes: "nhsw-tag--dhcw-blue" }) }]
+  ]
+}) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="tag-two-status" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Use a single status tag when users only need to know whether something has been completed. For example, you might show a “Completed tag” and leave incomplete items untagged.</p>
@@ -114,12 +199,79 @@ tabs:
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="tag-all-colours" open_url="/examples/tag-all-colours.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--white"&gt;In progress&lt;/strong&gt;
-&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;
-&lt;strong class="nhsw-tag nhsw-tag--aqua-green"&gt;Pending&lt;/strong&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswTag({ text: "In progress", classes: "nhsw-tag--white" }) }}
-{{ nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }}
-{{ nhswTag({ text: "Pending", classes: "nhsw-tag--aqua-green" }) }}{% endraw %}{% endcapture %}
+    {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
+  &lt;thead class="nhsw-table__head"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Class name&lt;/th&gt;
+      &lt;th scope="col" class="nhsw-table__header"&gt;Tag&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody class="nhsw-table__body"&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--white&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--white"&gt;In progress&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--grey&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--aqua-green&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--aqua-green"&gt;Pending&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--blue&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--blue"&gt;Active&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--green&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--green"&gt;New&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--orange&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--orange"&gt;Declined&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--pink&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--pink"&gt;Sent&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--purple&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--purple"&gt;Received&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--red&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--red"&gt;Rejected&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--yellow&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--yellow"&gt;Delayed&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class="nhsw-table__row"&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;code class="nhsw-inline-code"&gt;nhsw-tag--dhcw-blue&lt;/code&gt;&lt;/td&gt;
+      &lt;td class="nhsw-table__cell"&gt;&lt;strong class="nhsw-tag nhsw-tag--dhcw-blue"&gt;Active&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "table/macro.njk" import nhswTable %}
+{% from "tag/macro.njk" import nhswTag %}
+
+{{ nhswTable({
+  head: ["Class name", "Tag"],
+  rows: [
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--white&lt;/code&gt;' }, { html: nhswTag({ text: "In progress", classes: "nhsw-tag--white" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--grey&lt;/code&gt;' }, { html: nhswTag({ text: "Inactive", classes: "nhsw-tag--grey" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--aqua-green&lt;/code&gt;' }, { html: nhswTag({ text: "Pending", classes: "nhsw-tag--aqua-green" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--blue&lt;/code&gt;' }, { html: nhswTag({ text: "Active", classes: "nhsw-tag--blue" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--green&lt;/code&gt;' }, { html: nhswTag({ text: "New", classes: "nhsw-tag--green" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--orange&lt;/code&gt;' }, { html: nhswTag({ text: "Declined", classes: "nhsw-tag--orange" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--pink&lt;/code&gt;' }, { html: nhswTag({ text: "Sent", classes: "nhsw-tag--pink" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--purple&lt;/code&gt;' }, { html: nhswTag({ text: "Received", classes: "nhsw-tag--purple" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--red&lt;/code&gt;' }, { html: nhswTag({ text: "Rejected", classes: "nhsw-tag--red" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--yellow&lt;/code&gt;' }, { html: nhswTag({ text: "Delayed", classes: "nhsw-tag--yellow" }) }],
+    [{ html: '&lt;code class="nhsw-inline-code"&gt;nhsw-tag--dhcw-blue&lt;/code&gt;' }, { html: nhswTag({ text: "Active", classes: "nhsw-tag--dhcw-blue" }) }]
+  ]
+}) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="tag-all-colours" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Keep the number of status tags to a minimum. The more statuses you use, the harder they are for users to understand and remember.</p>
@@ -144,8 +296,20 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tag-solid" open_url="/examples/tag-colour-solid.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;strong class="nhsw-tag nhsw-tag--blue"&gt;Active&lt;br&gt;28 of 80&lt;/strong&gt;{% endraw %}{% endcapture %}
-  {% capture njk_sample %}{% raw %}{{ nhswTag({ html: "Active&lt;br&gt;28 of 80", classes: "nhsw-tag--blue" }) }}{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;p class="nhsw-body"&gt;
+  &lt;strong class="nhsw-tag nhsw-tag--white"&gt;In progress&lt;br&gt;21 of 80&lt;/strong&gt;
+  &lt;strong class="nhsw-tag nhsw-tag--grey"&gt;Inactive&lt;br&gt;9 of 80&lt;/strong&gt;
+  &lt;strong class="nhsw-tag nhsw-tag--blue"&gt;Active&lt;br&gt;28 of 80&lt;/strong&gt;
+  &lt;strong class="nhsw-tag nhsw-tag--green"&gt;New&lt;br&gt;22 of 80&lt;/strong&gt;
+&lt;/p&gt;{% endraw %}{% endcapture %}
+  {% capture njk_sample %}{% raw %}{% from "tag/macro.njk" import nhswTag %}
+
+&lt;p class="nhsw-body"&gt;
+  {{ nhswTag({ html: "In progress&lt;br&gt;21 of 80", classes: "nhsw-tag--white" }) }}
+  {{ nhswTag({ html: "Inactive&lt;br&gt;9 of 80", classes: "nhsw-tag--grey" }) }}
+  {{ nhswTag({ html: "Active&lt;br&gt;28 of 80", classes: "nhsw-tag--blue" }) }}
+  {{ nhswTag({ html: "New&lt;br&gt;22 of 80", classes: "nhsw-tag--green" }) }}
+&lt;/p&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-solid" html=html_sample njk=njk_sample toggleable=true %}
 
   <p class="nhsw-body">Use the subtext under the status tag to show key supporting information. This can help users understand the status at a glance without needing to view additional details.</p>
@@ -162,18 +326,52 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="tag-tint" open_url="/examples/tag-colour-tint.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;span class="nhsw-tag-group"&gt;
-  &lt;span class="nhsw-visually-hidden"&gt;Tag: &lt;/span&gt;
-  &lt;strong class="nhsw-tag nhsw-tag--white"&gt;Flu&lt;/strong&gt;
-  &lt;span class="nhsw-visually-hidden"&gt;: &lt;/span&gt;
-  &lt;strong class="nhsw-tag nhsw-tag--green"&gt;Due vaccination&lt;/strong&gt;
-&lt;/span&gt;{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;p class="nhsw-body"&gt;
+  &lt;span class="nhsw-tag-group"&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;Tag: &lt;/span&gt;
+    &lt;strong class="nhsw-tag nhsw-tag--white"&gt;Flu&lt;/strong&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;: &lt;/span&gt;
+    &lt;strong class="nhsw-tag nhsw-tag--green"&gt;Due vaccination&lt;/strong&gt;
+  &lt;/span&gt;
+  &lt;span class="nhsw-tag-group"&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;Tag: &lt;/span&gt;
+    &lt;strong class="nhsw-tag nhsw-tag--white"&gt;HPV&lt;/strong&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;: &lt;/span&gt;
+    &lt;strong class="nhsw-tag nhsw-tag--white"&gt;Vaccinated&lt;/strong&gt;
+  &lt;/span&gt;
+  &lt;span class="nhsw-tag-group"&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;Tag: &lt;/span&gt;
+    &lt;strong class="nhsw-tag nhsw-tag--white"&gt;MMRV&lt;/strong&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;: &lt;/span&gt;
+    &lt;strong class="nhsw-tag nhsw-tag--blue"&gt;Needs triage&lt;/strong&gt;
+  &lt;/span&gt;
+  &lt;span class="nhsw-tag-group"&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;Tag: &lt;/span&gt;
+    &lt;strong class="nhsw-tag nhsw-tag--white"&gt;MMRV&lt;/strong&gt;
+    &lt;span class="nhsw-visually-hidden"&gt;: &lt;/span&gt;
+    &lt;strong class="nhsw-tag nhsw-tag--yellow"&gt;Had a refusal&lt;/strong&gt;
+  &lt;/span&gt;
+&lt;/p&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "tag/macro.njk" import nhswTagGroup %}
 
-{{ nhswTagGroup({
-  category: { text: "Flu", classes: "nhsw-tag--white" },
-  status: { text: "Due vaccination", classes: "nhsw-tag--green" }
-}) }}{% endraw %}{% endcapture %}
+&lt;p class="nhsw-body"&gt;
+  {{ nhswTagGroup({
+    category: { text: "Flu", classes: "nhsw-tag--white" },
+    status: { text: "Due vaccination", classes: "nhsw-tag--green" }
+  }) }}
+  {{ nhswTagGroup({
+    category: { text: "HPV", classes: "nhsw-tag--white" },
+    status: { text: "Vaccinated", classes: "nhsw-tag--white" }
+  }) }}
+  {{ nhswTagGroup({
+    category: { text: "MMRV", classes: "nhsw-tag--white" },
+    status: { text: "Needs triage", classes: "nhsw-tag--blue" }
+  }) }}
+  {{ nhswTagGroup({
+    category: { text: "MMRV", classes: "nhsw-tag--white" },
+    status: { text: "Had a refusal", classes: "nhsw-tag--yellow" }
+  }) }}
+&lt;/p&gt;{% endraw %}{% endcapture %}
   {% include code-viewer.html id="tag-tint" html=html_sample njk=njk_sample toggleable=true %}
 
   <p class="nhsw-body">Use two-part (compound) tags when you need to combine a category name with its status. They are useful in complex views where users need to quickly understand both what something is and its current state.</p>

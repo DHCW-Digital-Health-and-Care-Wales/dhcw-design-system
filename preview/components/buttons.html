@@ -221,8 +221,14 @@ tabs:
   &lt;button class="nhsw-button nhsw-button--primary nhsw-button--small" type="button"&gt;Update results&lt;/button&gt;
   &lt;button class="nhsw-button nhsw-button--secondary nhsw-button--small" type="button"&gt;Clear filters&lt;/button&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Update results", classes: "nhsw-button--primary nhsw-button--small" }) }}
-{{ nhswButton({ text: "Clear filters", classes: "nhsw-button--secondary nhsw-button--small" }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "button/macro.njk" import nhswButtonGroup %}
+
+{{ nhswButtonGroup({
+  items: [
+    { text: "Update results", classes: "nhsw-button--primary nhsw-button--small" },
+    { text: "Clear filters", classes: "nhsw-button--secondary nhsw-button--small" }
+  ]
+}) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-small" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Use small buttons sparingly. Use a standard button by default.</p>
@@ -285,8 +291,14 @@ tabs:
   &lt;button class="nhsw-button nhsw-button--primary" type="button"&gt;Continue&lt;/button&gt;
   &lt;button class="nhsw-button nhsw-button--secondary" type="button"&gt;Save and come back later&lt;/button&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
-    {% capture njk_sample %}{% raw %}{{ nhswButton({ text: "Continue", classes: "nhsw-button--primary" }) }}
-{{ nhswButton({ text: "Save and come back later", classes: "nhsw-button--secondary" }) }}{% endraw %}{% endcapture %}
+    {% capture njk_sample %}{% raw %}{% from "button/macro.njk" import nhswButtonGroup %}
+
+{{ nhswButtonGroup({
+  items: [
+    { text: "Continue", classes: "nhsw-button--primary" },
+    { text: "Save and come back later", classes: "nhsw-button--secondary" }
+  ]
+}) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="btn-grouping" html=html_sample njk=njk_sample toggleable=true %}
 
     <p class="nhsw-body">Use a button group when 2 or more buttons are placed together. The buttons will display side by side on wider screens. On smaller screens, such as on mobile, they'll appear above each other.</p>

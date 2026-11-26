@@ -116,3 +116,25 @@ describe('preview card (All components page)', () => {
     expect(block(css, '\\.nhsw-card--preview \\.nhsw-card__content')).toMatch(/padding:\s*16px/);
   });
 });
+
+describe('card height', () => {
+  const css = compileProbe(`@use "components/cards/card";`);
+
+  it('a card is only as tall as its content, so it does not push out the content around it', () => {
+    expect(block(css, '\\.nhsw-card')).not.toMatch(/(^|[\s;])height:/);
+  });
+
+  it('cards that sit side by side still share the height of their row', () => {
+    expect(css).toMatch(/\.nhsw-grid-row > \[class\*=nhsw-grid-column-\]:not\(\.nhsw-card-group__item\) > \.nhsw-card:only-child\s*\{\s*height:\s*calc\(100% - 2rem\)/);
+    expect(css).toMatch(/\.nhsw-card-group > \.nhsw-card-group__item > \.nhsw-card\s*\{\s*height:\s*calc\(100% - 20px\)/);
+  });
+});
+
+describe('card minimum height', () => {
+  const css = compileProbe(`@use "components/cards/card";`);
+
+  it('bordered cards are at least 120px tall; flat and preview cards size to their content', () => {
+    expect(block(css, '\\.nhsw-card:where\\(:not\\(\\.nhsw-card--preview\\):not\\(\\.nhsw-card--flat\\)\\)')).toMatch(/min-height:\s*120px/);
+    expect(block(css, '\\.nhsw-card')).not.toMatch(/min-height/);
+  });
+});

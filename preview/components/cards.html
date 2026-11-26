@@ -386,11 +386,11 @@ tabs:
     &lt;/ul&gt;
   &lt;/div&gt;
   &lt;p class="nhsw-card__description"&gt;&lt;strong&gt;SenderID&lt;/strong&gt;: NHS Wales Test&lt;/p&gt;
-  &lt;p class="nhsw-card__description"&gt;Description text.&lt;/p&gt;
+  &lt;p class="nhsw-card__description"&gt;(firstName) (lastName), you are due for your blood test. Book your appointment or find out more at http://www.nhs.wales/service-name-invite.&lt;/p&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswCard({
   title: "Template: Appointment invitation 1",
-  description: "Description text.",
+  html: '&lt;p class="nhsw-card__description"&gt;&lt;strong&gt;SenderID&lt;/strong&gt;: NHS Wales Test&lt;/p&gt;&lt;p class="nhsw-card__description"&gt;(firstName) (lastName), you are due for your blood test. Book your appointment or find out more at http://www.nhs.wales/service-name-invite.&lt;/p&gt;',
   actions: [
     { text: "Edit", href: "/edit" },
     { text: "Delete", href: "/delete" }

@@ -327,7 +327,7 @@ tabs:
   &lt;label class="nhsw-label" for="cost"&gt;Cost per item, in pounds&lt;/label&gt;
   &lt;div class="nhsw-input-wrapper"&gt;
     &lt;div class="nhsw-input-wrapper__prefix" aria-hidden="true"&gt;&amp;pound;&lt;/div&gt;
-    &lt;input class="nhsw-input nhsw-input--width-5" id="cost" name="cost" type="text" inputmode="decimal"&gt;
+    &lt;input class="nhsw-input nhsw-input--width-5" id="cost" name="cost" type="text" inputmode="decimal" spellcheck="false"&gt;
     &lt;div class="nhsw-input-wrapper__suffix" aria-hidden="true"&gt;Number per item&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
@@ -336,6 +336,7 @@ tabs:
   label: { text: "Cost per item, in pounds" },
   classes: "nhsw-input--width-5",
   inputmode: "decimal",
+  spellcheck: false,
   prefix: { text: "£" },
   suffix: { text: "Number per item" }
 }) }}{% endraw %}{% endcapture %}

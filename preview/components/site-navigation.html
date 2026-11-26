@@ -236,7 +236,8 @@ tabs:
     { text: "Locations", href: "/item-2" },
     { text: "Patient portal", href: "/item-3" }
   ],
-  overflowMenu: true
+  overflowMenu: true,
+  classes: "nhsw-site-header__nav--overflow"
 }) }}{% endraw %}{% endcapture %}
     {% include code-viewer.html id="sn-overflow" html=html_sample njk=njk_sample toggleable=true %}
    <p class="nhsw-body">By default, site navigation is hidden on small screens. Use the overflow menu variant when users still need the navigation on a small screen, or when they zoom in. Links that do not fit move into a "More" menu, and the "More" button only appears when it is needed.</p>

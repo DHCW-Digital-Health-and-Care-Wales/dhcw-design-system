@@ -21,10 +21,7 @@ tabs:
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="sl-overview" open_url="/examples/skip-link-default.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;body&gt;
-  &lt;a class="nhsw-skip-link" href="#maincontent"&gt;Skip to main content&lt;/a&gt;
-  ...
-&lt;/body&gt;{% endraw %}{% endcapture %}
+  {% capture html_sample %}{% raw %}&lt;a class="nhsw-skip-link" href="#maincontent"&gt;Skip to main content&lt;/a&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "skip-link/macro.njk" import nhswSkipLink %}
 
 {{ nhswSkipLink({

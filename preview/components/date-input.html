@@ -16,45 +16,49 @@ tabs:
 <div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
-    <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint">
-      <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
-      <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
-      <div class="nhsw-date-input">
-        <div class="nhsw-date-input__item">
-          <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
-          <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1">
+    <div class="nhsw-form-group">
+      <fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint">
+        <legend class="nhsw-fieldset__legend nhsw-h2">What is your date of birth?</legend>
+        <div class="nhsw-hint" id="dob-hint">For example, 15 3 1984</div>
+        <div class="nhsw-date-input">
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
+            <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
+            <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12">
+          </div>
+          <div class="nhsw-date-input__item">
+            <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
+            <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" value="2000">
+          </div>
         </div>
-        <div class="nhsw-date-input__item">
-          <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
-          <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12">
-        </div>
-        <div class="nhsw-date-input__item">
-          <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
-          <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" value="2000">
-        </div>
-      </div>
-    </fieldset>
+      </fieldset>
+    </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="di-overview" open_url="/examples/date-input-default.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;What is your date of birth?&lt;/legend&gt;
-  &lt;div class="nhsw-hint" id="dob-hint"&gt;For example, 15 3 1984&lt;/div&gt;
-  &lt;div class="nhsw-date-input"&gt;
-    &lt;div class="nhsw-date-input__item"&gt;
-      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-day"&gt;Day&lt;/label&gt;
-      &lt;input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day"&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;fieldset class="nhsw-fieldset" role="group" aria-describedby="dob-hint"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;What is your date of birth?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="dob-hint"&gt;For example, 15 3 1984&lt;/div&gt;
+    &lt;div class="nhsw-date-input"&gt;
+      &lt;div class="nhsw-date-input__item"&gt;
+        &lt;label class="nhsw-label nhsw-date-input__label" for="dob-day"&gt;Day&lt;/label&gt;
+        &lt;input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day"&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-date-input__item"&gt;
+        &lt;label class="nhsw-label nhsw-date-input__label" for="dob-month"&gt;Month&lt;/label&gt;
+        &lt;input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month"&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-date-input__item"&gt;
+        &lt;label class="nhsw-label nhsw-date-input__label" for="dob-year"&gt;Year&lt;/label&gt;
+        &lt;input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year"&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="nhsw-date-input__item"&gt;
-      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-month"&gt;Month&lt;/label&gt;
-      &lt;input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month"&gt;
-    &lt;/div&gt;
-    &lt;div class="nhsw-date-input__item"&gt;
-      &lt;label class="nhsw-label nhsw-date-input__label" for="dob-year"&gt;Year&lt;/label&gt;
-      &lt;input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year"&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "date-input/macro.njk" import nhswDateInput %}
 
 {{ nhswDateInput({
@@ -99,15 +103,15 @@ tabs:
           <div class="nhsw-date-input">
             <div class="nhsw-date-input__item">
               <label class="nhsw-label nhsw-date-input__label" for="dob-error-day">Day</label>
-              <input id="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="1" aria-invalid="true">
+              <input id="dob-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1" aria-invalid="true">
             </div>
             <div class="nhsw-date-input__item">
               <label class="nhsw-label nhsw-date-input__label" for="dob-error-month">Month</label>
-              <input id="dob-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" value="12" aria-invalid="true">
+              <input id="dob-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month nhsw-is-invalid" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12" aria-invalid="true">
             </div>
             <div class="nhsw-date-input__item">
               <label class="nhsw-label nhsw-date-input__label" for="dob-error-year">Year</label>
-              <input id="dob-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" value="2000" aria-invalid="true">
+              <input id="dob-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" value="2000" aria-invalid="true">
             </div>
           </div>
         </fieldset>
@@ -162,15 +166,15 @@ tabs:
           <div class="nhsw-date-input">
             <div class="nhsw-date-input__item">
               <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-day">Day</label>
-              <input id="dob-year-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
+              <input id="dob-year-error-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1">
             </div>
             <div class="nhsw-date-input__item">
               <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-month">Month</label>
-              <input id="dob-year-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
+              <input id="dob-year-error-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12">
             </div>
             <div class="nhsw-date-input__item">
               <label class="nhsw-label nhsw-date-input__label" for="dob-year-error-year">Year</label>
-              <input id="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
+              <input id="dob-year-error-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" aria-invalid="true">
             </div>
           </div>
         </fieldset>

@@ -104,15 +104,15 @@ tabs:
       <tbody class="nhsw-table__body">
         <tr class="nhsw-table__row">
           <th scope="row" class="nhsw-table__header">January</th>
-          <td class="nhsw-table__cell">95</td>
+          <td class="nhsw-table__cell">&pound;95</td>
         </tr>
         <tr class="nhsw-table__row">
           <th scope="row" class="nhsw-table__header">February</th>
-          <td class="nhsw-table__cell">55</td>
+          <td class="nhsw-table__cell">&pound;55</td>
         </tr>
         <tr class="nhsw-table__row">
           <th scope="row" class="nhsw-table__header">March</th>
-          <td class="nhsw-table__cell">125</td>
+          <td class="nhsw-table__cell">&pound;125</td>
         </tr>
       </tbody>
     </table>
@@ -145,6 +145,7 @@ tabs:
   {% capture njk_sample %}{% raw %}{{ nhswTable({
   caption: "Months and rates",
   captionSize: "l",
+  firstCellIsHeader: true,
   head: [
     { text: "Month you apply" },
     { text: "Rate for vehicles" }
@@ -195,7 +196,7 @@ tabs:
   {% include example-preview.html id="tbl-numeric" open_url="/examples/table-numeric.html" body=example_body %}
 
   {% capture html_sample %}{% raw %}&lt;table class="nhsw-table"&gt;
-  &lt;caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m"&gt;Vaccination uptake&lt;/caption&gt;
+  &lt;caption class="nhsw-table__caption nhsw-table__caption--m nhsw-caption-m"&gt;Flu vaccination uptake&lt;/caption&gt;
   &lt;thead class="nhsw-table__head"&gt;
     &lt;tr class="nhsw-table__row"&gt;
       &lt;th scope="col" class="nhsw-table__header"&gt;Group&lt;/th&gt;
@@ -206,23 +207,24 @@ tabs:
   &lt;tbody class="nhsw-table__body"&gt;
     &lt;tr class="nhsw-table__row"&gt;
       &lt;th scope="row" class="nhsw-table__header"&gt;Aged 65 and over&lt;/th&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;25,430&lt;/td&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;20,782&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;25,430&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;20,782&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class="nhsw-table__row"&gt;
       &lt;th scope="row" class="nhsw-table__header"&gt;At-risk adults&lt;/th&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;14,215&lt;/td&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;10,663&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;14,215&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;10,663&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr class="nhsw-table__row"&gt;
       &lt;th scope="row" class="nhsw-table__header"&gt;Healthcare staff&lt;/th&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;8,942&lt;/td&gt;
-      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;&amp;pound;7,481&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;8,942&lt;/td&gt;
+      &lt;td class="nhsw-table__cell nhsw-table__cell--numeric"&gt;7,481&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswTable({
-  caption: "Vaccination uptake",
+  caption: "Flu vaccination uptake",
+  firstCellIsHeader: true,
   head: [
     { text: "Group" },
     { text: "Eligible people", format: "numeric" },
@@ -394,6 +396,7 @@ tabs:
 &lt;/table&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswTable({
   caption: "Vaccinations given",
+  firstCellIsHeader: true,
   head: [
     { text: "Date" },
     { text: "Vaccine" },

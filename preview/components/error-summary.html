@@ -28,7 +28,7 @@ tabs:
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="full-name">Full name</label>
       <p class="nhsw-error-message" id="full-name-error"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
-      <input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true">
+      <input class="nhsw-input nhsw-is-invalid" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-overview" open_url="/examples/error-summary-default.html" body=example_body %}
@@ -45,7 +45,7 @@ tabs:
 &lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
   &lt;label class="nhsw-label" for="full-name"&gt;Full name&lt;/label&gt;
   &lt;p class="nhsw-error-message" id="full-name-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Enter your full name&lt;/p&gt;
-  &lt;input class="nhsw-input" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true"&gt;
+  &lt;input class="nhsw-input nhsw-is-invalid" id="full-name" name="full-name" type="text" aria-describedby="full-name-error" aria-invalid="true"&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "error-summary/macro.njk" import nhswErrorSummary %}
 {% from "input/macro.njk" import nhswInput %}
@@ -105,15 +105,15 @@ tabs:
         <div class="nhsw-date-input">
           <div class="nhsw-date-input__item">
             <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
-            <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
+            <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1">
           </div>
           <div class="nhsw-date-input__item">
             <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
-            <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
+            <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12">
           </div>
           <div class="nhsw-date-input__item">
             <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
-            <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
+            <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" aria-invalid="true">
           </div>
         </div>
       </fieldset>
@@ -137,15 +137,15 @@ tabs:
     &lt;div class="nhsw-date-input"&gt;
       &lt;div class="nhsw-date-input__item"&gt;
         &lt;label class="nhsw-label nhsw-date-input__label" for="dob-day"&gt;Day&lt;/label&gt;
-        &lt;input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1"&gt;
+        &lt;input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1"&gt;
       &lt;/div&gt;
       &lt;div class="nhsw-date-input__item"&gt;
         &lt;label class="nhsw-label nhsw-date-input__label" for="dob-month"&gt;Month&lt;/label&gt;
-        &lt;input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12"&gt;
+        &lt;input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12"&gt;
       &lt;/div&gt;
       &lt;div class="nhsw-date-input__item"&gt;
         &lt;label class="nhsw-label nhsw-date-input__label" for="dob-year"&gt;Year&lt;/label&gt;
-        &lt;input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" aria-invalid="true"&gt;
+        &lt;input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" aria-invalid="true"&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/fieldset&gt;
@@ -190,15 +190,15 @@ tabs:
         <p class="nhsw-error-message" id="contact-error"><span class="nhsw-visually-hidden">Error: </span>Select how you want to be contacted</p>
         <div class="nhsw-checkboxes">
           <div class="nhsw-checkboxes__item">
-            <input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email">
+            <input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" aria-invalid="true" value="email">
             <label class="nhsw-label nhsw-checkboxes__label" for="contact-1">Email</label>
           </div>
           <div class="nhsw-checkboxes__item">
-            <input class="nhsw-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone">
+            <input class="nhsw-checkboxes__input" id="contact-2" name="contact" type="checkbox" aria-invalid="true" value="phone">
             <label class="nhsw-label nhsw-checkboxes__label" for="contact-2">Phone</label>
           </div>
           <div class="nhsw-checkboxes__item">
-            <input class="nhsw-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text">
+            <input class="nhsw-checkboxes__input" id="contact-3" name="contact" type="checkbox" aria-invalid="true" value="text">
             <label class="nhsw-label nhsw-checkboxes__label" for="contact-3">Text message</label>
           </div>
         </div>
@@ -222,15 +222,15 @@ tabs:
     &lt;p class="nhsw-error-message" id="contact-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Select how you want to be contacted&lt;/p&gt;
     &lt;div class="nhsw-checkboxes"&gt;
       &lt;div class="nhsw-checkboxes__item"&gt;
-        &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" value="email"&gt;
+        &lt;input class="nhsw-checkboxes__input" id="contact-1" name="contact" type="checkbox" aria-invalid="true" value="email"&gt;
         &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-1"&gt;Email&lt;/label&gt;
       &lt;/div&gt;
       &lt;div class="nhsw-checkboxes__item"&gt;
-        &lt;input class="nhsw-checkboxes__input" id="contact-2" name="contact" type="checkbox" value="phone"&gt;
+        &lt;input class="nhsw-checkboxes__input" id="contact-2" name="contact" type="checkbox" aria-invalid="true" value="phone"&gt;
         &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-2"&gt;Phone&lt;/label&gt;
       &lt;/div&gt;
       &lt;div class="nhsw-checkboxes__item"&gt;
-        &lt;input class="nhsw-checkboxes__input" id="contact-3" name="contact" type="checkbox" value="text"&gt;
+        &lt;input class="nhsw-checkboxes__input" id="contact-3" name="contact" type="checkbox" aria-invalid="true" value="text"&gt;
         &lt;label class="nhsw-label nhsw-checkboxes__label" for="contact-3"&gt;Text message&lt;/label&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -275,7 +275,7 @@ tabs:
     <div class="nhsw-form-group nhsw-form-group--error">
       <label class="nhsw-label" for="full-name-timeout">Full name</label>
       <p class="nhsw-error-message" id="full-name-timeout-error"><span class="nhsw-visually-hidden">Error: </span>Enter your full name</p>
-      <input class="nhsw-input" id="full-name-timeout" name="full-name" type="text" aria-describedby="full-name-timeout-error" aria-invalid="true">
+      <input class="nhsw-input nhsw-is-invalid" id="full-name-timeout" name="full-name" type="text" aria-describedby="full-name-timeout-error" aria-invalid="true">
     </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="es-timeout" open_url="/examples/error-summary-timeout.html" body=example_body %}
@@ -292,7 +292,7 @@ tabs:
 &lt;div class="nhsw-form-group nhsw-form-group--error"&gt;
   &lt;label class="nhsw-label" for="full-name-timeout"&gt;Full name&lt;/label&gt;
   &lt;p class="nhsw-error-message" id="full-name-timeout-error"&gt;&lt;span class="nhsw-visually-hidden"&gt;Error: &lt;/span&gt;Enter your full name&lt;/p&gt;
-  &lt;input class="nhsw-input" id="full-name-timeout" name="full-name" type="text" aria-describedby="full-name-timeout-error" aria-invalid="true"&gt;
+  &lt;input class="nhsw-input nhsw-is-invalid" id="full-name-timeout" name="full-name" type="text" aria-describedby="full-name-timeout-error" aria-invalid="true"&gt;
 &lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{{ nhswErrorSummary({
   titleText: "There is a problem",

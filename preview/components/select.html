@@ -42,7 +42,7 @@ tabs:
   {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
   &lt;label class="nhsw-label nhsw-label--regular" for="region"&gt;Choose region&lt;/label&gt;
   &lt;select id="region" name="region" class="nhsw-select"&gt;
-    &lt;option value="" selected&gt;Choose region&lt;/option&gt;
+    &lt;option value=""&gt;Choose region&lt;/option&gt;
     &lt;option value="north-wales"&gt;North Wales&lt;/option&gt;
     &lt;option value="mid-wales"&gt;Mid Wales&lt;/option&gt;
     &lt;option value="west-wales"&gt;West Wales&lt;/option&gt;
@@ -56,7 +56,7 @@ tabs:
   name: "region",
   label: { text: "Choose region", classes: "nhsw-label--regular" },
   items: [
-    { value: "", text: "Choose region", selected: true },
+    { value: "", text: "Choose region" },
     { value: "north-wales", text: "North Wales" },
     { value: "mid-wales", text: "Mid Wales" },
     { value: "west-wales", text: "West Wales" },

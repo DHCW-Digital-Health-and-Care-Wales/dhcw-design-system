@@ -16,37 +16,49 @@ tabs:
 <div class="nhsw-tabs__panel" id="panel-how-to-use" role="tabpanel" aria-labelledby="tab-how-to-use">
 
   {% capture example_body %}{% raw %}
-    <fieldset class="nhsw-fieldset" aria-describedby="rd-contact-hint">
-      <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
-      <div class="nhsw-hint" id="rd-contact-hint">Select 1 option</div>
-      <div class="nhsw-radios">
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="rd-contact-1" name="rd-contact" type="radio" value="email">
-          <label class="nhsw-label nhsw-radios__label" for="rd-contact-1">Email</label>
+    <div class="nhsw-form-group">
+      <fieldset class="nhsw-fieldset" aria-describedby="rd-contact-hint">
+        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+        <div class="nhsw-hint" id="rd-contact-hint">Select 1 option</div>
+        <div class="nhsw-radios">
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="rd-contact-1" name="rd-contact" type="radio" value="email">
+            <label class="nhsw-label nhsw-radios__label" for="rd-contact-1">Email</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="rd-contact-2" name="rd-contact" type="radio" value="phone">
+            <label class="nhsw-label nhsw-radios__label" for="rd-contact-2">Phone</label>
+          </div>
+          <div class="nhsw-radios__item">
+            <input class="nhsw-radios__input" id="rd-contact-3" name="rd-contact" type="radio" value="text">
+            <label class="nhsw-label nhsw-radios__label" for="rd-contact-3">Text message</label>
+          </div>
         </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="rd-contact-2" name="rd-contact" type="radio" value="phone">
-          <label class="nhsw-label nhsw-radios__label" for="rd-contact-2">Phone</label>
-        </div>
-        <div class="nhsw-radios__item">
-          <input class="nhsw-radios__input" id="rd-contact-3" name="rd-contact" type="radio" value="text">
-          <label class="nhsw-label nhsw-radios__label" for="rd-contact-3">Text message</label>
-        </div>
-      </div>
-    </fieldset>
+      </fieldset>
+    </div>
   {% endraw %}{% endcapture %}
   {% include example-preview.html id="rd-overview" open_url="/examples/radios-default.html" body=example_body %}
 
-  {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
-  &lt;div class="nhsw-hint" id="contact-hint"&gt;Select 1 option&lt;/div&gt;
-  &lt;div class="nhsw-radios"&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="contact-1" name="contact" type="radio" value="email"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="contact-1"&gt;Email&lt;/label&gt;
+  {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="contact-hint"&gt;Select 1 option&lt;/div&gt;
+    &lt;div class="nhsw-radios"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="contact-1" name="contact" type="radio" value="email"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="contact-1"&gt;Email&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="contact-2" name="contact" type="radio" value="phone"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="contact-2"&gt;Phone&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="contact-3" name="contact" type="radio" value="text"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="contact-3"&gt;Text message&lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
   {% capture njk_sample %}{% raw %}{% from "radios/macro.njk" import nhswRadios %}
 
 {{ nhswRadios({
@@ -54,7 +66,9 @@ tabs:
   fieldset: { legend: { text: "How do you want to be contacted about this?" } },
   hint: { text: "Select 1 option" },
   items: [
-    { text: "Email", value: "email" }
+    { text: "Email", value: "email" },
+    { text: "Phone", value: "phone" },
+    { text: "Text message", value: "text" }
   ]
 }) }}{% endraw %}{% endcapture %}
   {% include code-viewer.html id="rd-overview" html=html_sample njk=njk_sample toggleable=true %}
@@ -169,19 +183,21 @@ tabs:
     <h3 class="nhsw-h3">Inline radios</h3>
 
     {% capture example_body %}{% raw %}
-      <fieldset class="nhsw-fieldset">
-        <legend class="nhsw-fieldset__legend nhsw-h2">Are you 18 or over?</legend>
-        <div class="nhsw-radios nhsw-radios--inline">
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="over18-yes" name="over18" type="radio" value="yes">
-            <label class="nhsw-label nhsw-radios__label" for="over18-yes">Yes</label>
+      <div class="nhsw-form-group">
+        <fieldset class="nhsw-fieldset">
+          <legend class="nhsw-fieldset__legend nhsw-h2">Are you 18 or over?</legend>
+          <div class="nhsw-radios nhsw-radios--inline">
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="over18-yes" name="over18" type="radio" value="yes">
+              <label class="nhsw-label nhsw-radios__label" for="over18-yes">Yes</label>
+            </div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="over18-no" name="over18" type="radio" value="no">
+              <label class="nhsw-label nhsw-radios__label" for="over18-no">No</label>
+            </div>
           </div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="over18-no" name="over18" type="radio" value="no">
-            <label class="nhsw-label nhsw-radios__label" for="over18-no">No</label>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-inline" open_url="/examples/radios-inline.html" body=example_body %}
 
@@ -220,45 +236,49 @@ tabs:
     <h3 class="nhsw-h3">Radios with hints</h3>
 
     {% capture example_body %}{% raw %}
-      <fieldset class="nhsw-fieldset" aria-describedby="rd-contact2-hint">
-        <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
-        <div class="nhsw-hint" id="rd-contact2-hint">Select 1 option</div>
-        <div class="nhsw-radios">
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="rd-contact2-1" name="rd-contact2" type="radio" value="email">
-            <label class="nhsw-label nhsw-radios__label" for="rd-contact2-1">Email</label>
+      <div class="nhsw-form-group">
+        <fieldset class="nhsw-fieldset" aria-describedby="rd-contact2-hint">
+          <legend class="nhsw-fieldset__legend nhsw-h2">How do you want to be contacted about this?</legend>
+          <div class="nhsw-hint" id="rd-contact2-hint">Select 1 option</div>
+          <div class="nhsw-radios">
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="rd-contact2-1" name="rd-contact2" type="radio" value="email">
+              <label class="nhsw-label nhsw-radios__label" for="rd-contact2-1">Email</label>
+            </div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="rd-contact2-2" name="rd-contact2" type="radio" value="phone">
+              <label class="nhsw-label nhsw-radios__label" for="rd-contact2-2">Phone</label>
+            </div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="rd-contact2-3" name="rd-contact2" type="radio" value="text">
+              <label class="nhsw-label nhsw-radios__label" for="rd-contact2-3">Text message</label>
+            </div>
           </div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="rd-contact2-2" name="rd-contact2" type="radio" value="phone">
-            <label class="nhsw-label nhsw-radios__label" for="rd-contact2-2">Phone</label>
-          </div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="rd-contact2-3" name="rd-contact2" type="radio" value="text">
-            <label class="nhsw-label nhsw-radios__label" for="rd-contact2-3">Text message</label>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-hints-heading" open_url="/examples/radios-default.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
-  &lt;div class="nhsw-hint" id="contact-hint"&gt;Select 1 option&lt;/div&gt;
-  &lt;div class="nhsw-radios"&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="contact-1" name="contact" type="radio" value="email"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="contact-1"&gt;Email&lt;/label&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;fieldset class="nhsw-fieldset" aria-describedby="contact-hint"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;How do you want to be contacted about this?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="contact-hint"&gt;Select 1 option&lt;/div&gt;
+    &lt;div class="nhsw-radios"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="contact-1" name="contact" type="radio" value="email"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="contact-1"&gt;Email&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="contact-2" name="contact" type="radio" value="phone"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="contact-2"&gt;Phone&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="contact-3" name="contact" type="radio" value="text"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="contact-3"&gt;Text message&lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="contact-2" name="contact" type="radio" value="phone"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="contact-2"&gt;Phone&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="contact-3" name="contact" type="radio" value="text"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="contact-3"&gt;Text message&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{% from "radios/macro.njk" import nhswRadios %}
 
 {{ nhswRadios({
@@ -282,39 +302,43 @@ tabs:
     <h3 class="nhsw-h3">Radio items with hints</h3>
 
     {% capture example_body %}{% raw %}
-      <fieldset class="nhsw-fieldset">
-        <legend class="nhsw-fieldset__legend nhsw-h2">Do you have a mobile phone with signal?</legend>
-        <div class="nhsw-radios">
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="mobile-yes" name="mobile" type="radio" value="yes" aria-describedby="mobile-yes-hint">
-            <label class="nhsw-label nhsw-radios__label" for="mobile-yes">Yes, I have a mobile phone with signal</label>
-            <div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint">We will text you a 6 digit security code</div>
+      <div class="nhsw-form-group">
+        <fieldset class="nhsw-fieldset">
+          <legend class="nhsw-fieldset__legend nhsw-h2">Do you have a mobile phone with signal?</legend>
+          <div class="nhsw-radios">
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="mobile-yes" name="mobile" type="radio" value="yes" aria-describedby="mobile-yes-hint">
+              <label class="nhsw-label nhsw-radios__label" for="mobile-yes">Yes, I have a mobile phone with signal</label>
+              <div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint">We will text you a 6 digit security code</div>
+            </div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="mobile-no" name="mobile" type="radio" value="no" aria-describedby="mobile-no-hint">
+              <label class="nhsw-label nhsw-radios__label" for="mobile-no">No, I want to use my landline</label>
+              <div class="nhsw-hint nhsw-radios__hint" id="mobile-no-hint">We will call you to give you a 6 digit security code</div>
+            </div>
           </div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="mobile-no" name="mobile" type="radio" value="no" aria-describedby="mobile-no-hint">
-            <label class="nhsw-label nhsw-radios__label" for="mobile-no">No, I want to use my landline</label>
-            <div class="nhsw-hint nhsw-radios__hint" id="mobile-no-hint">We will call you to give you a 6 digit security code</div>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-item-hints" open_url="/examples/radios-hints.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Do you have a mobile phone with signal?&lt;/legend&gt;
-  &lt;div class="nhsw-radios"&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="mobile-yes" name="mobile" type="radio" value="yes" aria-describedby="mobile-yes-hint"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="mobile-yes"&gt;Yes, I have a mobile phone with signal&lt;/label&gt;
-      &lt;div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint"&gt;We will text you a 6 digit security code&lt;/div&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;fieldset class="nhsw-fieldset"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Do you have a mobile phone with signal?&lt;/legend&gt;
+    &lt;div class="nhsw-radios"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="mobile-yes" name="mobile" type="radio" value="yes" aria-describedby="mobile-yes-hint"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="mobile-yes"&gt;Yes, I have a mobile phone with signal&lt;/label&gt;
+        &lt;div class="nhsw-hint nhsw-radios__hint" id="mobile-yes-hint"&gt;We will text you a 6 digit security code&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="mobile-no" name="mobile" type="radio" value="no" aria-describedby="mobile-no-hint"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="mobile-no"&gt;No, I want to use my landline&lt;/label&gt;
+        &lt;div class="nhsw-hint nhsw-radios__hint" id="mobile-no-hint"&gt;We will call you to give you a 6 digit security code&lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="mobile-no" name="mobile" type="radio" value="no" aria-describedby="mobile-no-hint"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="mobile-no"&gt;No, I want to use my landline&lt;/label&gt;
-      &lt;div class="nhsw-hint nhsw-radios__hint" id="mobile-no-hint"&gt;We will call you to give you a 6 digit security code&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{% from "radios/macro.njk" import nhswRadios %}
 
 {{ nhswRadios({
@@ -335,47 +359,51 @@ tabs:
     <h3 class="nhsw-h3">Radio items with a text divider</h3>
 
     {% capture example_body %}{% raw %}
-      <fieldset class="nhsw-fieldset" aria-describedby="vacc-hint">
-        <legend class="nhsw-fieldset__legend nhsw-h2">Have you had all the vaccinations you're eligible for in the UK?</legend>
-        <div class="nhsw-hint" id="vacc-hint">You would have got these vaccinations at school, from your GP surgery or another healthcare provider</div>
-        <div class="nhsw-radios">
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="vacc-yes" name="vacc" type="radio" value="yes">
-            <label class="nhsw-label nhsw-radios__label" for="vacc-yes">Yes</label>
+      <div class="nhsw-form-group">
+        <fieldset class="nhsw-fieldset" aria-describedby="vacc-hint">
+          <legend class="nhsw-fieldset__legend nhsw-h2">Have you had all the vaccinations you're eligible for in the UK?</legend>
+          <div class="nhsw-hint" id="vacc-hint">You would have got these vaccinations at school, from your GP surgery or another healthcare provider</div>
+          <div class="nhsw-radios">
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="vacc-yes" name="vacc" type="radio" value="yes">
+              <label class="nhsw-label nhsw-radios__label" for="vacc-yes">Yes</label>
+            </div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="vacc-no" name="vacc" type="radio" value="no">
+              <label class="nhsw-label nhsw-radios__label" for="vacc-no">No</label>
+            </div>
+            <div class="nhsw-radios__divider">or</div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="vacc-dontknow" name="vacc" type="radio" value="dont-know">
+              <label class="nhsw-label nhsw-radios__label" for="vacc-dontknow">I do not know</label>
+            </div>
           </div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="vacc-no" name="vacc" type="radio" value="no">
-            <label class="nhsw-label nhsw-radios__label" for="vacc-no">No</label>
-          </div>
-          <div class="nhsw-radios__divider">or</div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="vacc-dontknow" name="vacc" type="radio" value="dont-know">
-            <label class="nhsw-label nhsw-radios__label" for="vacc-dontknow">I do not know</label>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-divider" open_url="/examples/radios-divider.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset" aria-describedby="vacc-hint"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Have you had all the vaccinations you're eligible for in the UK?&lt;/legend&gt;
-  &lt;div class="nhsw-hint" id="vacc-hint"&gt;You would have got these vaccinations at school, from your GP surgery or another healthcare provider&lt;/div&gt;
-  &lt;div class="nhsw-radios"&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="vacc-yes" name="vacc" type="radio" value="yes"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="vacc-yes"&gt;Yes&lt;/label&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;fieldset class="nhsw-fieldset" aria-describedby="vacc-hint"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Have you had all the vaccinations you're eligible for in the UK?&lt;/legend&gt;
+    &lt;div class="nhsw-hint" id="vacc-hint"&gt;You would have got these vaccinations at school, from your GP surgery or another healthcare provider&lt;/div&gt;
+    &lt;div class="nhsw-radios"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="vacc-yes" name="vacc" type="radio" value="yes"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="vacc-yes"&gt;Yes&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="vacc-no" name="vacc" type="radio" value="no"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="vacc-no"&gt;No&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__divider"&gt;or&lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="vacc-dontknow" name="vacc" type="radio" value="dont-know"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="vacc-dontknow"&gt;I do not know&lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="vacc-no" name="vacc" type="radio" value="no"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="vacc-no"&gt;No&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="nhsw-radios__divider"&gt;or&lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="vacc-dontknow" name="vacc" type="radio" value="dont-know"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="vacc-dontknow"&gt;I do not know&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{% from "radios/macro.njk" import nhswRadios %}
 
 {{ nhswRadios({
@@ -400,49 +428,53 @@ tabs:
     <p class="nhsw-body">You can add a conditionally revealing question to radios, so users only see the question when it's relevant to them. For example, you could reveal an email address input only when a user chooses to be contacted by email.</p>
 
     {% capture example_body %}{% raw %}
-      <fieldset class="nhsw-fieldset">
-        <legend class="nhsw-fieldset__legend nhsw-h2">Is Sam ready for their HPV vaccination?</legend>
-        <div class="nhsw-radios">
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="hpv-ready-yes" name="hpv-ready" type="radio" value="yes">
-            <label class="nhsw-label nhsw-radios__label" for="hpv-ready-yes">Yes</label>
-          </div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="hpv-ready-no" name="hpv-ready" type="radio" value="no" data-aria-controls="conditional-hpv-ready">
-            <label class="nhsw-label nhsw-radios__label" for="hpv-ready-no">No</label>
-          </div>
-          <div class="nhsw-radios__conditional" id="conditional-hpv-ready">
-            <div class="nhsw-form-group">
-              <label class="nhsw-label" for="hpv-ready-reason">Give details</label>
-              <textarea class="nhsw-textarea" id="hpv-ready-reason" name="hpv-ready-reason" rows="3" aria-describedby="hpv-ready-reason-count" data-max-length="150" data-max-length-target="hpv-ready-reason-count"></textarea>
-              <div class="nhsw-hint nhsw-textarea__count" id="hpv-ready-reason-count">You have 150 characters remaining</div>
+      <div class="nhsw-form-group">
+        <fieldset class="nhsw-fieldset">
+          <legend class="nhsw-fieldset__legend nhsw-h2">Is Sam ready for their HPV vaccination?</legend>
+          <div class="nhsw-radios">
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="hpv-ready-yes" name="hpv-ready" type="radio" value="yes">
+              <label class="nhsw-label nhsw-radios__label" for="hpv-ready-yes">Yes</label>
+            </div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="hpv-ready-no" name="hpv-ready" type="radio" value="no" data-aria-controls="conditional-hpv-ready">
+              <label class="nhsw-label nhsw-radios__label" for="hpv-ready-no">No</label>
+            </div>
+            <div class="nhsw-radios__conditional" id="conditional-hpv-ready">
+              <div class="nhsw-form-group">
+                <label class="nhsw-label" for="hpv-ready-reason">Give details</label>
+                <textarea class="nhsw-textarea" id="hpv-ready-reason" name="hpv-ready-reason" rows="3" aria-describedby="hpv-ready-reason-count" data-max-length="150" data-max-length-target="hpv-ready-reason-count"></textarea>
+                <div class="nhsw-hint nhsw-textarea__count" id="hpv-ready-reason-count">You have 150 characters remaining</div>
+              </div>
             </div>
           </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-conditional" open_url="/examples/radios-conditional.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Is Sam ready for their HPV vaccination?&lt;/legend&gt;
-  &lt;div class="nhsw-radios"&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="hpv-ready-yes" name="hpv-ready" type="radio" value="yes"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="hpv-ready-yes"&gt;Yes&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="hpv-ready-no" name="hpv-ready" type="radio" value="no" data-aria-controls="conditional-hpv-ready-no"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="hpv-ready-no"&gt;No&lt;/label&gt;
-    &lt;/div&gt;
-    &lt;div class="nhsw-radios__conditional" id="conditional-hpv-ready-no"&gt;
-      &lt;div class="nhsw-form-group"&gt;
-        &lt;label class="nhsw-label" for="hpv-ready-reason"&gt;Give details&lt;/label&gt;
-        &lt;textarea class="nhsw-textarea" id="hpv-ready-reason" name="hpv-ready-reason" rows="3" aria-describedby="hpv-ready-reason-count" data-max-length="150" data-max-length-target="hpv-ready-reason-count"&gt;&lt;/textarea&gt;
-        &lt;div class="nhsw-hint nhsw-textarea__count" id="hpv-ready-reason-count"&gt;You have 150 characters remaining&lt;/div&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;fieldset class="nhsw-fieldset"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Is Sam ready for their HPV vaccination?&lt;/legend&gt;
+    &lt;div class="nhsw-radios"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="hpv-ready-yes" name="hpv-ready" type="radio" value="yes"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="hpv-ready-yes"&gt;Yes&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="hpv-ready-no" name="hpv-ready" type="radio" value="no" data-aria-controls="conditional-hpv-ready-no"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="hpv-ready-no"&gt;No&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__conditional" id="conditional-hpv-ready-no"&gt;
+        &lt;div class="nhsw-form-group"&gt;
+          &lt;label class="nhsw-label" for="hpv-ready-reason"&gt;Give details&lt;/label&gt;
+          &lt;textarea class="nhsw-textarea" id="hpv-ready-reason" name="hpv-ready-reason" rows="3" aria-describedby="hpv-ready-reason-count" data-max-length="150" data-max-length-target="hpv-ready-reason-count"&gt;&lt;/textarea&gt;
+          &lt;div class="nhsw-hint nhsw-textarea__count" id="hpv-ready-reason-count"&gt;You have 150 characters remaining&lt;/div&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{% from "radios/macro.njk" import nhswRadios %}
 
 {{ nhswRadios({
@@ -474,35 +506,39 @@ tabs:
     <h3 class="nhsw-h3">Smaller radios</h3>
 
     {% capture example_body %}{% raw %}
-      <fieldset class="nhsw-fieldset">
-        <legend class="nhsw-fieldset__legend nhsw-h2">Filter</legend>
-        <div class="nhsw-radios nhsw-radios--small">
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="filter-monthly" name="filter" type="radio" value="monthly">
-            <label class="nhsw-label nhsw-radios__label" for="filter-monthly">Monthly</label>
+      <div class="nhsw-form-group">
+        <fieldset class="nhsw-fieldset">
+          <legend class="nhsw-fieldset__legend nhsw-h2">Filter</legend>
+          <div class="nhsw-radios nhsw-radios--small">
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="filter-monthly" name="filter" type="radio" value="monthly">
+              <label class="nhsw-label nhsw-radios__label" for="filter-monthly">Monthly</label>
+            </div>
+            <div class="nhsw-radios__item">
+              <input class="nhsw-radios__input" id="filter-yearly" name="filter" type="radio" value="yearly">
+              <label class="nhsw-label nhsw-radios__label" for="filter-yearly">Yearly</label>
+            </div>
           </div>
-          <div class="nhsw-radios__item">
-            <input class="nhsw-radios__input" id="filter-yearly" name="filter" type="radio" value="yearly">
-            <label class="nhsw-label nhsw-radios__label" for="filter-yearly">Yearly</label>
-          </div>
-        </div>
-      </fieldset>
+        </fieldset>
+      </div>
     {% endraw %}{% endcapture %}
     {% include example-preview.html id="rd-small" open_url="/examples/radios-small.html" body=example_body %}
 
-    {% capture html_sample %}{% raw %}&lt;fieldset class="nhsw-fieldset"&gt;
-  &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Filter&lt;/legend&gt;
-  &lt;div class="nhsw-radios nhsw-radios--small"&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="filter-monthly" name="filter" type="radio" value="monthly"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="filter-monthly"&gt;Monthly&lt;/label&gt;
+    {% capture html_sample %}{% raw %}&lt;div class="nhsw-form-group"&gt;
+  &lt;fieldset class="nhsw-fieldset"&gt;
+    &lt;legend class="nhsw-fieldset__legend nhsw-h2"&gt;Filter&lt;/legend&gt;
+    &lt;div class="nhsw-radios nhsw-radios--small"&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="filter-monthly" name="filter" type="radio" value="monthly"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="filter-monthly"&gt;Monthly&lt;/label&gt;
+      &lt;/div&gt;
+      &lt;div class="nhsw-radios__item"&gt;
+        &lt;input class="nhsw-radios__input" id="filter-yearly" name="filter" type="radio" value="yearly"&gt;
+        &lt;label class="nhsw-label nhsw-radios__label" for="filter-yearly"&gt;Yearly&lt;/label&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="nhsw-radios__item"&gt;
-      &lt;input class="nhsw-radios__input" id="filter-yearly" name="filter" type="radio" value="yearly"&gt;
-      &lt;label class="nhsw-label nhsw-radios__label" for="filter-yearly"&gt;Yearly&lt;/label&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/fieldset&gt;{% endraw %}{% endcapture %}
+  &lt;/fieldset&gt;
+&lt;/div&gt;{% endraw %}{% endcapture %}
     {% capture njk_sample %}{% raw %}{{ nhswRadios({
   name: "filter",
   fieldset: { legend: { text: "Filter" } },

@@ -56,15 +56,21 @@ const IGNORED_ATTRS = new Set([
   'data-max-length-target', 'data-module', 'tabindex',
 ]);
 
+function comparedValue(node, attribute) {
+  if (attribute.name === 'class') return [...node.classList].sort().join(' ');
+  if (attribute.name === 'data-aria-controls') return '';
+  return attribute.value.replace(/\s+/g, ' ').trim();
+}
+
 function canonical(node) {
   if (node.nodeType === 3) {
     const text = node.textContent.replace(/\s+/g, ' ').trim();
     return text ? JSON.stringify(text) : '';
   }
-  if (node.nodeType !== 1) return '';
+  if (node.nodeType !== 1 || node.matches('li.nhsw-site-header__menu[hidden]')) return '';
   const attrs = [...node.attributes]
     .filter((a) => !IGNORED_ATTRS.has(a.name))
-    .map((a) => `${a.name}="${a.name === 'class' ? [...node.classList].sort().join(' ') : a.value.replace(/\s+/g, ' ').trim()}"`)
+    .map((a) => `${a.name}="${comparedValue(node, a)}"`)
     .sort()
     .join(' ');
   const children = [...node.childNodes].map(canonical).filter(Boolean).join(' ');

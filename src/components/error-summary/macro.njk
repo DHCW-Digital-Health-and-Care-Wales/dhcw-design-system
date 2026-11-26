@@ -19,7 +19,7 @@
 <div class="nhsw-error-summary{% if params.classes %} {{ params.classes }}{% endif %}" aria-labelledby="{{ titleId }}" role="alert" tabindex="-1" data-module="nhsw-error-summary"{% if params.disableAutoFocus %} data-disable-auto-focus="true"{% endif %}{% for attrName, attrValue in (params.attributes or {}) %} {{ attrName }}="{{ attrValue }}"{% endfor %}>
   <h2 class="nhsw-h3 nhsw-error-summary__title" id="{{ titleId }}">{{ params.titleText or "There is a problem" }}</h2>
 {%- if params.descriptionHtml or params.descriptionText %}
-  <p>{{ params.descriptionHtml | safe if params.descriptionHtml else params.descriptionText }}</p>
+  <p class="nhsw-body">{{ params.descriptionHtml | safe if params.descriptionHtml else params.descriptionText }}</p>
 {%- endif %}
   <ul class="nhsw-error-summary__list">
 {%- for error in (params.errorList or []) %}

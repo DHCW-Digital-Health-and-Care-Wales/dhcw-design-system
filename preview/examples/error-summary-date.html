@@ -18,15 +18,15 @@ title: Error summary linking to a date input example
     <div class="nhsw-date-input">
       <div class="nhsw-date-input__item">
         <label class="nhsw-label nhsw-date-input__label" for="dob-day">Day</label>
-        <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" value="1">
+        <input id="dob-day" name="dob-day" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--day" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-day" value="1">
       </div>
       <div class="nhsw-date-input__item">
         <label class="nhsw-label nhsw-date-input__label" for="dob-month">Month</label>
-        <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" value="12">
+        <input id="dob-month" name="dob-month" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--month" type="text" inputmode="numeric" maxlength="2" autocomplete="bday-month" value="12">
       </div>
       <div class="nhsw-date-input__item">
         <label class="nhsw-label nhsw-date-input__label" for="dob-year">Year</label>
-        <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year" type="text" inputmode="numeric" maxlength="4" aria-invalid="true">
+        <input id="dob-year" name="dob-year" class="nhsw-input nhsw-date-input__input nhsw-date-input__input--year nhsw-is-invalid" type="text" inputmode="numeric" maxlength="4" autocomplete="bday-year" aria-invalid="true">
       </div>
     </div>
   </fieldset>
