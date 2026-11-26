@@ -16,7 +16,7 @@
                                to calling nhswSiteNavigation yourself directly afterwards.
                                Omit and call nhswSiteNavigation separately if you need it
                                placed anywhere non-standard.
-    hero           object   - { title, html, text, action: { text, href }, centered }
+    hero           object   - { title, html, text, action: { text, href }, centered, large }
                                renders the full-width hero band as a sibling
                                after the header (and after nav, if set). html/text is the
                                hero body (html takes precedence); action renders a
@@ -68,7 +68,7 @@
 {%- if params.hero %}
 <div class="nhsw-site-header__hero-band">
   <div class="nhsw-site-header__container{% if params.hero.centered %} nhsw-site-header__container--centered{% endif %}">
-    <div class="nhsw-site-header__hero">
+    <div class="nhsw-site-header__hero{% if params.hero.large %} nhsw-site-header__hero--large{% endif %}">
       <h1 class="nhsw-site-header__hero-title">{{ params.hero.title }}</h1>
 {%- if params.hero.html or params.hero.text %}
       <p class="nhsw-site-header__hero-text">{{ params.hero.html | safe if params.hero.html else params.hero.text }}</p>

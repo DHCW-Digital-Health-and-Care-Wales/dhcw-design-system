@@ -52,10 +52,10 @@ describe('grid gutters and page spacing follow the Layout page', () => {
     expect(layoutCss).toMatch(/@media \(min-width: 48\.0625em\)\s*\{[^@]*?\.nhsw-grid-column-three-quarters\s*\{[^}]*padding-left:\s*20px/);
   });
 
-  it('main content has 24px above it on mobile, then 32px top and bottom', () => {
+  it('main content has 24px above it on mobile, then 30px above and 32px below', () => {
     const wrapper = block(layoutCss, '\.nhsw-main-wrapper');
     expect(wrapper).toMatch(/padding-top:\s*24px/);
     expect(wrapper).toMatch(/padding-bottom:\s*32px/);
-    expect(layoutCss).toMatch(/@media \(min-width: 40\.0625em\)\s*\{\s*\.nhsw-main-wrapper\s*\{[^}]*padding-top:\s*32px[^}]*padding-bottom:\s*32px/);
+    expect(layoutCss).toMatch(/@media \(min-width: 40\.0625em\)\s*\{\s*\.nhsw-main-wrapper\s*\{[^}]*padding-top:\s*30px[^}]*padding-bottom:\s*32px/);
   });
 });

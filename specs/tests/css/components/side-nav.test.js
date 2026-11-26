@@ -59,9 +59,10 @@ describe('side nav rail and link states', () => {
     expect(focusSpan).toMatch(/box-shadow:\s*0 4px 0 0 #212b32/);
   });
 
-  it('current link stays link-blue with a matching link-blue rail indicator', () => {
+  it('current link is bold, staying link-blue with a matching link-blue rail indicator', () => {
     const current = block(css, '\\.nhsw-side-nav__link--current\\b');
     expect(current).toMatch(/color:\s*#005aa8/);
+    expect(current).toMatch(/font-weight:\s*700/);
     const indicator = block(css, '\\.nhsw-side-nav__link--current::before');
     expect(indicator).toMatch(/background-color:\s*#005aa8/);
   });

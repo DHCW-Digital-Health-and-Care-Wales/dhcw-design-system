@@ -492,6 +492,37 @@
   }
 }
 
+.nhsw-site-header__hero--large {
+  padding: 40px 0;
+
+  @include b.nhsw-from-desktop {
+    max-width: 66.6667%;
+  }
+
+  .nhsw-site-header__hero-title {
+    max-width: 27ch;
+    margin-bottom: 20px;
+  }
+
+  .nhsw-site-header__hero-text {
+    max-width: none;
+    margin-bottom: 20px;
+
+    @include b.nhsw-from-tablet {
+      font-size: t.$nhsw-font-size-h3;
+      line-height: t.$nhsw-line-height-h3;
+    }
+  }
+
+  .nhsw-button {
+    line-height: t.$nhsw-line-height-body;
+  }
+}
+
+.nhsw-phase-banner:has(+ .nhsw-site-header__hero-band) .nhsw-phase-banner__container {
+  border-bottom: 0;
+}
+
 @media (max-width: 40rem) {
   .nhsw-site-header__brand {
     align-items: center;

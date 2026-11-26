@@ -39,11 +39,13 @@ params:
     type: object
     required: false
     description: >
-      { title, html, text, action: { text, href }, centered } - renders the
+      { title, html, text, action: { text, href }, centered, large } - renders the
       full-width navy hero band as a sibling after the header (and after
       nav, if set). html/text is the hero body (html takes precedence);
       action renders a secondary inline button; centered adds
-      nhsw-site-header__container--centered on the hero's own container.
+      nhsw-site-header__container--centered on the hero's own container;
+      large adds nhsw-site-header__hero--large, a wider lead paragraph in
+      larger text.
   - name: phaseBanner
     type: object
     required: false

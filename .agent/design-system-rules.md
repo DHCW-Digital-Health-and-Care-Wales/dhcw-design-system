@@ -98,7 +98,7 @@ From `src/tokens/_spacing.scss`:
 - Max page width: 960px (`$nhsw-page-width`); wide variant 1200px. The container centres automatically above 1024px.
 - `nhsw-wide-container` is 1100px (`$nhsw-page-width-wide-container`) and centres from 1180px. Pair it with the `--wide` header, navigation, phase banner and footer containers.
 - Container side margins: 16px on mobile, 40px from desktop.
-- Main wrapper padding: 24px top and 32px bottom on mobile, 32px top and bottom from tablet. `nhsw-main-wrapper--s` and `--l` give smaller and larger padding.
+- Main wrapper padding: 24px top and 32px bottom on mobile, 30px top and 32px bottom from tablet. Content beside the side navigation has 24px left padding from tablet and 48px from desktop. `nhsw-main-wrapper--s` and `--l` give smaller and larger padding.
 - Grid gutter: 16px each side, 20px from desktop (40px between columns). Grid rows use negative margins to offset column padding. Columns stack full width below desktop.
 - Aim for a reading width of about 70 to 80 characters. Use a two-thirds column for forms and reading content.
 
@@ -196,7 +196,7 @@ Check the component's docs page before using it. The most common rules:
 - Use placeholder CSS
 - Hard-code colours: use the tokens
 - Use rem or em for spacing values — use px to match the layout spec
-- Use docs-site-only classes (`nhsw-side-nav`, `nhsw-type-specimen`, `nhsw-colour-swatch`, `nhsw-code`, `nhsw-code-example`, `nhsw-code-viewer`, `nhsw-example-preview`, `nhsw-example-screenshot`, `nhsw-back-to-top`, `nhsw-prototype-kit`) in services
+- Use docs-site-only classes (`nhsw-side-nav`, `nhsw-type-specimen`, `nhsw-colour-swatch`, `nhsw-code`, `nhsw-code-example`, `nhsw-code-viewer`, `nhsw-example-preview`, `nhsw-example-screenshot`, `nhsw-back-to-top`) in services
 - Change the written content of existing pages (headings, descriptions, guidance text, lists, links) outside the example areas unless explicitly asked to, and never as a side effect of another task. Report wording you think is wrong instead of editing it
 
 ## Accessibility rules

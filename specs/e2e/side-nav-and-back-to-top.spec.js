@@ -59,6 +59,7 @@ test.describe('Side navigation sizing', () => {
       }
       await expect(page.locator('.nhsw-side-nav__link').first()).toHaveCSS('font-size', '16px');
       await expect(page.locator('.nhsw-side-nav__list').first()).toHaveCSS('row-gap', '12px');
+      await expect(page.locator('.nhsw-side-nav__link--current')).toHaveCSS('font-weight', '700');
       const left = await page.locator('.nhsw-side-nav').evaluate((nav) => {
         const textLeft = (el) => {
           const range = document.createRange();
@@ -68,6 +69,24 @@ test.describe('Side navigation sizing', () => {
         return { rail: nav.getBoundingClientRect().left, link: textLeft(nav.querySelector('.nhsw-side-nav__link')) };
       });
       expect(Math.abs(left.rail - left.link)).toBeLessThanOrEqual(1);
+    });
+  }
+});
+
+test.describe('Space around the main content', () => {
+  const pages = [
+    '/get-started/start-prototyping.html',
+    '/components/buttons.html',
+    '/styles/layout.html',
+    '/prototype-kit/create-a-new-prototype/publish-and-share.html',
+  ];
+
+  for (const url of pages) {
+    test(`has 30px above it and 48px beside the side navigation on ${url}`, async ({ page }) => {
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await page.goto(url);
+      await expect(page.locator('.nhsw-main-wrapper')).toHaveCSS('padding-top', '30px');
+      await expect(page.locator('.nhsw-layout__content')).toHaveCSS('padding-left', '48px');
     });
   }
 });

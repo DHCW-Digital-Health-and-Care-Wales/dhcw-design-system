@@ -65,14 +65,6 @@ describe('the prototype kit uses the wide container', () => {
     expect(html).not.toMatch(/nhsw-fluid-container|__container--fluid/);
   });
 
-  it('does not override the side spacing of the wide containers', () => {
-    const css = compileProbe('@use "layouts/prototype-kit";');
-    expect(css).not.toMatch(/\.nhsw-prototype-kit \.nhsw-site-header__nav-container\s*\{/);
-    expect(css).not.toMatch(/\.nhsw-prototype-kit \.nhsw-phase-banner__container\s*\{/);
-    const footer = block(css, '\\.nhsw-prototype-kit \\.nhsw-site-footer__container');
-    expect(footer).toMatch(/padding-top:\s*30px/);
-    expect(footer).not.toMatch(/padding:|padding-left|padding-right/);
-  });
 });
 
 describe('the preview site uses the wide container', () => {

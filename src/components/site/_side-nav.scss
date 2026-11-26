@@ -60,6 +60,7 @@
 
   &--current {
     color: c.$nhswales-link-colour;
+    font-weight: t.$nhsw-font-weight-bold;
     text-decoration: none;
 
     &::before {
@@ -115,6 +116,10 @@
 
   @include b.nhsw-from-tablet {
     min-width: 15rem;
-    padding: 2.5rem 2.5rem 2.5rem 1.25rem;
+    padding: 2.5rem 2.5rem 2.5rem 24px;
+  }
+
+  @include b.nhsw-from-desktop {
+    padding-left: 48px;
   }
 }

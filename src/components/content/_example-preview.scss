@@ -21,7 +21,7 @@ $nhsw-example-component-width: max(66.6667%, 640px);
 
   &__footer {
     display: flex;
-    gap: 24px;
+    padding: 0;
     border-top: 1px solid c.$nhswales-grey-border-colour;
   }
 
@@ -136,13 +136,21 @@ $nhsw-example-component-width: max(66.6667%, 640px);
     background: none;
     border: 0;
     margin: 0;
-    padding: 0;
+    padding: 16px 12px;
     color: c.$nhswales-link-colour;
     font-family: inherit;
     font-size: t.$nhsw-font-size-body;
     line-height: 1.5;
-    text-decoration: underline;
     cursor: pointer;
+
+    @include b.nhsw-from-tablet {
+      padding-right: 24px;
+      padding-left: 24px;
+    }
+
+    span {
+      text-decoration: underline;
+    }
 
     &:hover {
       color: c.$nhswales-link-hover-colour;
@@ -150,10 +158,13 @@ $nhsw-example-component-width: max(66.6667%, 640px);
 
     &:focus {
       outline: none;
-      background-color: c.$nhswales-focus-colour;
-      box-shadow: 0 4px 0 0 c.$nhswales-focus-text-colour;
-      color: c.$nhswales-focus-text-colour;
-      text-decoration: none;
+
+      span {
+        background-color: c.$nhswales-focus-colour;
+        box-shadow: 0 4px 0 0 c.$nhswales-focus-text-colour;
+        color: c.$nhswales-focus-text-colour;
+        text-decoration: none;
+      }
     }
   }
 }

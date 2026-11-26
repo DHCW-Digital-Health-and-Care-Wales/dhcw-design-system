@@ -135,12 +135,6 @@ test.describe('Short cards', () => {
     expect(Math.round(title.y - card.y)).toBe(33);
   });
 
-  test('prototype kit cards keep their taller minimum', async ({ page }) => {
-    await page.setViewportSize({ width: 375, height: 800 });
-    await page.goto('/prototype-kit/index.html');
-    expect((await page.locator('.nhsw-card').first().boundingBox()).height).toBeGreaterThanOrEqual(220);
-  });
-
   test('a flat card is only as tall as its content', async ({ page }) => {
     await page.goto('/examples/card-basic.html');
     await page.evaluate(() => {

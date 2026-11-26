@@ -7,8 +7,8 @@ const include = fs.readFileSync(path.join(root, 'preview/_includes/example-previ
 
 describe('example preview footer', () => {
   it('has an HTML button and a Nunjucks button that open the same code viewer on their own tab', () => {
-    expect(include).toMatch(/data-toggle="code-\{\{ include\.id \}\}" data-tab="html"[^>]*aria-expanded="false">HTML<\/button>/);
-    expect(include).toMatch(/data-toggle="code-\{\{ include\.id \}\}" data-tab="njk"[^>]*aria-expanded="false">Nunjucks<\/button>/);
+    expect(include).toMatch(/data-toggle="code-\{\{ include\.id \}\}" data-tab="html"[^>]*aria-expanded="false"><span>HTML<\/span><\/button>/);
+    expect(include).toMatch(/data-toggle="code-\{\{ include\.id \}\}" data-tab="njk"[^>]*aria-expanded="false"><span>Nunjucks<\/span><\/button>/);
   });
 
   it('no longer offers Figma or a bare # link', () => {

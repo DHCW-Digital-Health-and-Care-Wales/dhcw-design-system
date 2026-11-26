@@ -138,8 +138,10 @@ describe('code window focus states behave like links, not buttons', () => {
   });
 
   it('the HTML, Nunjucks and Close links use the same link focus, with no outline', () => {
-    const focus = block(preview, '\\.nhsw-example-preview__footer-button:focus');
-    expect(focus).toMatch(/outline:\s*none/);
+    const button = block(preview, '\\.nhsw-example-preview__footer-button:focus');
+    expect(button).toMatch(/outline:\s*none/);
+    expect(button).not.toMatch(/background-color/);
+    const focus = block(preview, '\\.nhsw-example-preview__footer-button:focus span');
     expect(focus).toMatch(/background-color:\s*#ffeb3b/);
     expect(focus).toMatch(/box-shadow:\s*0 4px 0 0 #212b32/);
   });

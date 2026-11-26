@@ -47,13 +47,16 @@ next_step:
 
 <p class="nhsw-body">To link to another page, add a link to your page. The address is the file name without <code class="nhsw-code nhsw-code--highlight">.html</code>. For example, this links to <code class="nhsw-code nhsw-code--highlight">start.html</code>:</p>
 
-<pre class="nhsw-prototype-kit__code"><code>&lt;a class="nhsw-link" href="/start"&gt;Continue&lt;/a&gt;</code></pre>
+<div class="nhsw-code-example">
+<pre tabindex="0"><code>&lt;a class="nhsw-link" href="/start"&gt;Continue&lt;/a&gt;</code></pre>
+</div>
 
 <p class="nhsw-body">To send people to different pages depending on their answer, you need a form and a small amount of JavaScript. This example asks how to contact someone.</p>
 
 <p class="nhsw-body">Add the form to a page:</p>
 
-<pre class="nhsw-prototype-kit__code"><code>{% raw %}&lt;form method="post" action="/contact"&gt;
+<div class="nhsw-code-example">
+<pre tabindex="0"><code>{% raw %}&lt;form method="post" action="/contact"&gt;
   {{ nhswRadios({
     name: "contact",
     fieldset: { legend: { text: "How should we contact you?" } },
@@ -64,10 +67,12 @@ next_step:
   }) }}
   {{ nhswButton({ text: "Continue", type: "submit", classes: "nhsw-button--primary" }) }}
 &lt;/form&gt;{% endraw %}</code></pre>
+</div>
 
 <p class="nhsw-body">Then open <code class="nhsw-code nhsw-code--highlight">routes.js</code> in the <b>app</b> folder. Add this above the line <code class="nhsw-code nhsw-code--highlight">export default router</code>:</p>
 
-<pre class="nhsw-prototype-kit__code"><code>router.post('/contact', (request, response) =&gt; {
+<div class="nhsw-code-example">
+<pre tabindex="0"><code>router.post('/contact', (request, response) =&gt; {
   if (request.session.data.contact === 'email') {
     response.redirect('/email')
     return
@@ -75,5 +80,6 @@ next_step:
 
   response.redirect('/phone')
 })</code></pre>
+</div>
 
 <p class="nhsw-body">Create <code class="nhsw-code nhsw-code--highlight">email.html</code> and <code class="nhsw-code nhsw-code--highlight">phone.html</code> in the <b>views</b> folder. If someone selects <b>Email</b>, they go to the email page. Otherwise they go to the phone page.</p>

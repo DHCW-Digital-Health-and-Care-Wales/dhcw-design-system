@@ -85,3 +85,38 @@ test.describe('Code samples', () => {
     await plainContext.close();
   });
 });
+
+for (const [width, side] of [[375, '12px'], [1440, '24px']]) {
+  test(`the footer buttons have 16px above and below and ${side} at the sides at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/components/buttons.html');
+    for (const button of [page.locator('.nhsw-example-preview__footer [data-tab="html"]').first(), page.locator('.nhsw-example-preview__footer [data-tab="njk"]').first()]) {
+      await expect(button).toHaveCSS('padding', `16px ${side}`);
+    }
+  });
+}
+
+for (const width of [375, 1440]) {
+  test(`HTML and Nunjucks do not move when the code is opened, at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/components/buttons.html');
+    await page.evaluate(() => document.fonts.ready);
+    const preview = page.locator('.nhsw-example-preview').first();
+    const positions = (selector) => page.evaluate((query) => {
+      const body = document.querySelector('.nhsw-example-preview__body').getBoundingClientRect();
+      return [...document.querySelector(query).querySelectorAll('button')].slice(0, 2).map((button) => {
+        const range = document.createRange();
+        range.selectNodeContents(button.querySelector('span').firstChild);
+        const text = range.getBoundingClientRect();
+        return { left: text.left - body.left, top: text.top - body.bottom };
+      });
+    }, selector);
+    const closed = await positions('.nhsw-example-preview__footer');
+    await preview.locator('[data-tab="html"]').click();
+    const open = await positions('.nhsw-example-preview + .nhsw-code-viewer .nhsw-code-viewer__tabs');
+    for (const index of [0, 1]) {
+      expect(Math.abs(open[index].left - closed[index].left)).toBeLessThanOrEqual(1.5);
+      expect(Math.abs(open[index].top - closed[index].top)).toBeLessThanOrEqual(1.5);
+    }
+  });
+}
