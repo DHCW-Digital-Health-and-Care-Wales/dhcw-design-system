@@ -96,6 +96,7 @@ Use the breakpoint mixins in `src/utilities/_breakpoints.scss` rather than writi
 From `src/tokens/_spacing.scss`:
 
 - Max page width: 960px (`$nhsw-page-width`); wide variant 1200px. The container centres automatically above 1024px.
+- `nhsw-wide-container` is 1100px (`$nhsw-page-width-wide-container`) and centres from 1180px. Pair it with the `--wide` header, navigation, phase banner and footer containers.
 - Container side margins: 16px on mobile, 40px from desktop.
 - Main wrapper padding: 24px top and 32px bottom on mobile, 32px top and bottom from tablet. `nhsw-main-wrapper--s` and `--l` give smaller and larger padding.
 - Grid gutter: 16px each side, 20px from desktop (40px between columns). Grid rows use negative margins to offset column padding. Columns stack full width below desktop.
@@ -137,7 +138,7 @@ Every page has: a skip link, `nhsw-site-header`, `<main class="nhsw-main-wrapper
 
 Use the classes in [`component-registry.md`](component-registry.md). Common ones:
 
-- Layout: `nhsw-main-wrapper` (`--s`, `--l`, `--grey`), `nhsw-width-container`, `nhsw-fluid-container`, `nhsw-grid-row`, `nhsw-grid-column-full | one-half | one-third | two-thirds | one-quarter | three-quarters`
+- Layout: `nhsw-main-wrapper` (`--s`, `--l`, `--grey`), `nhsw-width-container`, `nhsw-wide-container`, `nhsw-fluid-container`, `nhsw-grid-row`, `nhsw-grid-column-full | one-half | one-third | two-thirds | one-quarter | three-quarters`
 - Type: `nhsw-h1` to `nhsw-h5`, `nhsw-body`, `nhsw-body-s`, `nhsw-lede-text` (`--small`), `nhsw-caption-s | m | l | xl`, `nhsw-link`
 - Forms: `nhsw-form-group` (`--error`), `nhsw-fieldset`, `nhsw-label` (`--s`, `--m`, `--l`, `--xl`), `nhsw-hint`, `nhsw-error-message`, `nhsw-input` (`--full`, `--half`, `--width-*` and others), `nhsw-input-wrapper`, `nhsw-select`, `nhsw-textarea`, `nhsw-radios`, `nhsw-checkboxes`, `nhsw-date-input`
 - Utilities: `nhsw-visually-hidden`, `nhsw-u-secondary-text-colour`

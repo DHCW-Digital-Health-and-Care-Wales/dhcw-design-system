@@ -14,7 +14,7 @@ body {
 }
 
 .nhsw-wide-container {
-  @include layout.nhsw-container($max-width: s.$nhsw-page-width-wide-container);
+  @include layout.nhsw-wide-container;
 }
 
 .nhsw-fluid-container {

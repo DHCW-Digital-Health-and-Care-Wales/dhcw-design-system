@@ -106,6 +106,12 @@ describe('code viewer matches the example window design', () => {
     expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--value\s*\{\s*color:\s*#d5281b/);
   });
 
+  it('colours Nunjucks macro names and comments, without making any code bold', () => {
+    expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--function\s*\{\s*color:\s*#990000/);
+    expect(css).toMatch(/\.nhsw-code-viewer \.nhsw-code-token--comment\s*\{\s*color:\s*#4c6272;\s*font-style:\s*italic/);
+    expect(css).not.toMatch(/\.nhsw-code-token[^{]*\{[^}]*font-weight/);
+  });
+
   it('an open viewer joins the example above it and hides the example footer', () => {
     expect(css).toContain('.nhsw-example-preview:has(+ .nhsw-code-viewer:not([hidden]))');
   });
@@ -135,9 +141,14 @@ describe('code window: larger Close link and optional Figma tab', () => {
   const viewer = compileProbe(`@use "components/content/code-viewer";`);
   const preview = compileProbe(`@use "components/content/example-preview";`);
 
-  it('Close is larger than the example footer links', () => {
-    expect(block(viewer, '\\.nhsw-code-viewer__footer \\.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*1rem/);
-    expect(block(preview, '\\.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*0\.9375rem/);
+  it('the HTML, Nunjucks and Close links are 19px, the same size as the open tabs', () => {
+    expect(block(preview, '\\.nhsw-example-preview__footer-button')).toMatch(/font-size:\s*1\.1875rem/);
+    expect(block(viewer, '\\.nhsw-code-viewer__tab, \\.nhsw-code-viewer__link')).toMatch(/font-size:\s*1\.1875rem/);
+    expect(viewer).not.toMatch(/\.nhsw-code-viewer__footer \.nhsw-example-preview__footer-button/);
+  });
+
+  it('no screen width changes the size of the tabs', () => {
+    expect(viewer).not.toMatch(/@media[^{]*\{\s*\.nhsw-code-viewer__tab[^{]*\{[^}]*font-size/);
   });
 
   it('the Figma link is styled like the tabs and takes the same link focus', () => {
@@ -162,10 +173,9 @@ describe('temporary white example body for the tag colours page', () => {
 });
 
 describe('code viewer Figma tab and larger Close', () => {
-  it('styles the Figma link like a tab and keeps Close at body size', () => {
+  it('styles the Figma link like a tab', () => {
     const css = compileProbe(`@use "components/content/code-viewer";`);
     expect(css).toMatch(/\.nhsw-code-viewer__link/);
-    expect(css).toMatch(/\.nhsw-code-viewer__footer \.nhsw-example-preview__footer-button\s*\{\s*font-size:\s*1rem/);
   });
 });
 

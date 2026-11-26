@@ -53,22 +53,8 @@
     min-height: 40px;
   }
 
-  .nhsw-site-header__nav-container {
-    padding: 0 12px;
-
-    @include b.nhsw-from-desktop {
-      padding: 0 40px;
-    }
-  }
-
   .nhsw-site-header__nav-list {
     column-gap: 24px;
-  }
-
-  .nhsw-phase-banner__container {
-    @include b.nhsw-from-desktop {
-      padding-left: 40px;
-    }
   }
 
   .nhsw-phase-banner:has(+ .nhsw-site-header__hero-band) .nhsw-phase-banner__container {
@@ -126,11 +112,8 @@
   }
 
   .nhsw-site-footer__container {
-    padding: 30px 16px;
-
-    @include b.nhsw-from-desktop {
-      padding: 30px 40px;
-    }
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .nhsw-site-footer__links {

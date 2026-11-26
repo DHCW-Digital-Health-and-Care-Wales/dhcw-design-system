@@ -1,4 +1,5 @@
 @use "../../tokens/colours" as c;
+@use "../../tokens/typography" as t;
 @use "../../utilities/breakpoints" as b;
 
 $nhsw-example-component-width: max(66.6667%, 640px);
@@ -138,7 +139,7 @@ $nhsw-example-component-width: max(66.6667%, 640px);
     padding: 0;
     color: c.$nhswales-link-colour;
     font-family: inherit;
-    font-size: 0.9375rem;
+    font-size: t.$nhsw-font-size-body;
     line-height: 1.5;
     text-decoration: underline;
     cursor: pointer;

@@ -432,7 +432,7 @@ Add `nhsw-has-bottom-nav` to `<body>` separately to give page content the bottom
 Site footer (macro: `nhswFooter`, `src/components/footer/`) with three mutually-exclusive modes: links/copyright (default, optionally with nav columns), org/version, or open-licence.
 
 Supports:
-- nhsw-site-footer__container (+ --stacked, licence mode)
+- nhsw-site-footer__container (+ --stacked, licence mode; --wide, lines up with nhsw-wide-container)
 - nhsw-site-footer__links, __copyright
 - nhsw-site-footer__nav, __nav-column, __nav-heading, __nav-list (when `navigation` is given)
 - nhsw-site-footer__meta (wraps nav + links together when `navigation` is given)
@@ -457,7 +457,7 @@ Requires:
 Site header (macro: `nhswHeader`, `src/components/header/`): logo/service name, optional search form, an optional nav row, and an optional full-width hero band.
 
 Supports:
-- nhsw-site-header__container (+ --centered)
+- nhsw-site-header__container (+ --centered; --wide, lines up with nhsw-wide-container)
 - nhsw-site-header__brand, __logo, __title
 - nhsw-site-header__search, __search-input, __search-button
 - nhsw-site-header__hero-band, __hero, __hero-title, __hero-text
@@ -475,7 +475,7 @@ Pass `phaseBanner` (`{ tag, text, html }`) to show an Alpha/Beta `nhsw-phase-ban
 Primary navigation row (macro: `nhswSiteNavigation`, `src/components/site-navigation/`) — never hidden: items that do not fit move into a "More" menu, as in the NHS.UK header. Pass `overflowMenu: false` to hide it below the tablet breakpoint instead. Callable standalone, or via `nhswHeader`'s `nav` param.
 
 Supports:
-- nhsw-site-header__nav-container
+- nhsw-site-header__nav-container (+ --wide, lines up with nhsw-wide-container)
 - nhsw-site-header__nav-list
 - nhsw-site-header__nav-link (+ --current)
 - nhsw-site-header__nav-badge
@@ -494,6 +494,7 @@ Phase banner (macro: `nhswPhaseBanner`, `src/components/phase-banner/`): a phase
 
 Supports:
 - nhsw-phase-banner__container, __content, __tag, __text
+- nhsw-phase-banner__container--wide (lines up with nhsw-wide-container)
 - nhsw-phase-banner--reverse (inside the dark header, white text and a solid blue tag)
 
 ## nhsw-dashboard

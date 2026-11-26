@@ -80,8 +80,76 @@
     }).join('');
   }
 
+  function codeToken(type, text) {
+    return '<span class="nhsw-code-token--' + type + '">' + escapeHtml(text) + '</span>';
+  }
+
+  var NUNJUCKS_KEYWORDS = /^(and|as|block|call|context|elif|else|endblock|endcall|endfilter|endfor|endif|endmacro|endraw|endset|extends|filter|for|from|if|import|in|include|is|macro|not|or|raw|set|with|without)$/;
+
+  function highlightNunjucksExpression(source, start, closer) {
+    var end = new RegExp('-?' + closer, 'y');
+    var token = /("(?:\\[\s\S]|[^"\\])*"|'(?:\\[\s\S]|[^'\\])*')|([A-Za-z_$][\w$]*)|(\d+(?:\.\d+)?)|([\s\S])/y;
+    var html = '';
+    var depth = 0;
+    var index = start;
+
+    while (index < source.length) {
+      end.lastIndex = index;
+      var closing = depth === 0 && end.exec(source);
+      if (closing) return { html: html + codeToken('tag', closing[0]), index: end.lastIndex };
+
+      token.lastIndex = index;
+      var match = token.exec(source);
+      index = token.lastIndex;
+      var rest = source.slice(index);
+      var isKey = /^\s*:/.test(rest);
+
+      if (match[1]) {
+        html += codeToken(isKey ? 'attr' : 'value', match[1]);
+      } else if (match[2]) {
+        if (isKey) html += codeToken('attr', match[2]);
+        else if (NUNJUCKS_KEYWORDS.test(match[2])) html += match[2];
+        else if (/^\s*\(/.test(rest)) html += codeToken('function', match[2]);
+        else html += codeToken('attr', match[2]);
+      } else if (match[3]) {
+        html += codeToken('attr', match[3]);
+      } else {
+        if (match[4] === '{') depth += 1;
+        if (match[4] === '}') depth -= 1;
+        html += escapeHtml(match[4]);
+      }
+    }
+
+    return { html: html, index: index };
+  }
+
+  function highlightNunjucks(source) {
+    var opener = /\{#[\s\S]*?(?:#\}|$)|\{\{-?|\{%-?/g;
+    var html = '';
+    var index = 0;
+    var match;
+
+    while ((match = opener.exec(source))) {
+      html += highlightHtml(source.slice(index, match.index));
+      if (match[0].indexOf('{#') === 0) {
+        html += codeToken('comment', match[0]);
+        index = opener.lastIndex;
+      } else {
+        var expression = highlightNunjucksExpression(source, opener.lastIndex, match[0].charAt(1) === '{' ? '\\}\\}' : '%\\}');
+        html += codeToken('tag', match[0]) + expression.html;
+        index = opener.lastIndex = expression.index;
+      }
+    }
+
+    return html + highlightHtml(source.slice(index));
+  }
+
   document.querySelectorAll('[data-module="nhsw-code-viewer"] .nhsw-code-viewer__panel[id$="-html"] code').forEach(function (code) {
     code.innerHTML = highlightHtml(code.textContent);
+  });
+
+  document.querySelectorAll('[data-module="nhsw-code-viewer"] .nhsw-code-viewer__panel[id$="-njk"] code').forEach(function (code) {
+    code.innerHTML = highlightNunjucks(code.textContent);
   });
 
   function showTabTarget(hash) {

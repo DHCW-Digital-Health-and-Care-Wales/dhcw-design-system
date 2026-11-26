@@ -1,5 +1,6 @@
 @use "../../tokens/colours" as c;
 @use "../../utilities/breakpoints" as b;
+@use "../../foundations/layout" as layout;
 
 .nhsw-site-footer {
   margin-top: 4rem;
@@ -17,6 +18,12 @@
   &--centered {
     max-width: 68.75rem;
     margin: 0 auto;
+  }
+
+  &--wide {
+    padding-right: 0;
+    padding-left: 0;
+    @include layout.nhsw-wide-container;
   }
 
   &--stacked {

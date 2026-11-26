@@ -26,9 +26,10 @@ When asked to create a page:
 - Use the standard page shell:
   - nhsw-site-header
   - nhsw-main-wrapper
-  - nhsw-width-container or nhsw-fluid-container
+  - nhsw-wide-container, nhsw-width-container or nhsw-fluid-container
   - nhsw-site-footer
 - Add the page under `preview/`.
+- Preview site and prototype kit pages use `nhsw-wide-container`, with the `--wide` header, navigation, phase banner and footer containers. Their layouts already apply these. Standalone examples and page templates stay fluid.
 - Link the page from `preview/index.html` if appropriate.
 - Do not add inline styles unless explicitly asked.
 - Do not invent colours, typography, spacing or one-off CSS.
@@ -48,6 +49,7 @@ Follow the spacing and breakpoint rules in `.agent/design-system-rules.md`. Key 
 
 - Breakpoints: tablet 40.0625em, desktop 48.0625em, large desktop 61.875em
 - Max page width: 960px, container auto-centres above 1024px
+- Wide container: 1100px (`nhsw-wide-container`), auto-centres from 1180px
 - Main wrapper: 24px above and 32px below (mobile), 32px top and bottom (tablet+)
 - Container margins: 16px (mobile), 40px (desktop)
 - Grid gutter: 16px, 20px from the desktop breakpoint (40px between columns); columns stack below desktop

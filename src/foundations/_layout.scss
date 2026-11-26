@@ -1,7 +1,7 @@
 @use "../tokens/spacing" as s;
 @use "../utilities/breakpoints" as b;
 
-@mixin nhsw-container($max-width: s.$nhsw-page-width) {
+@mixin nhsw-container($max-width: s.$nhsw-page-width, $centre-from: 1024px) {
   max-width: $max-width;
   margin-left: s.$nhsw-container-margin-mobile;
   margin-right: s.$nhsw-container-margin-mobile;
@@ -11,10 +11,17 @@
     margin-right: s.$nhsw-container-margin-desktop;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: $centre-from) {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+@mixin nhsw-wide-container {
+  @include nhsw-container(
+    $max-width: s.$nhsw-page-width-wide-container,
+    $centre-from: s.$nhsw-page-width-wide-container + 2 * s.$nhsw-container-margin-desktop
+  );
 }
 
 @mixin nhsw-grid-row {

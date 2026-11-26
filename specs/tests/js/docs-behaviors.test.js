@@ -207,6 +207,65 @@ describe('code viewer Close button and HTML syntax colouring', () => {
   });
 });
 
+describe('code viewer Nunjucks syntax colouring', () => {
+  const highlight = (source) => {
+    setBody('<div data-module="nhsw-code-viewer"><div id="cv-z-njk" class="nhsw-code-viewer__panel"><pre><code></code></pre></div></div>');
+    document.querySelector('code').textContent = source;
+    runScript(SCRIPT);
+    return document.querySelector('code');
+  };
+
+  const tokens = (code, type) => [...code.querySelectorAll(`.nhsw-code-token--${type}`)].map((el) => el.textContent);
+
+  it('colours delimiters, macro names, keys, strings, numbers and booleans', () => {
+    const code = highlight('{{ nhswInput({ id: "name", width: 20, disabled: true }) }}');
+    expect(tokens(code, 'tag')).toEqual(['{{', '}}']);
+    expect(tokens(code, 'function')).toEqual(['nhswInput']);
+    expect(tokens(code, 'attr')).toEqual(['id', 'width', '20', 'disabled', 'true']);
+    expect(tokens(code, 'value')).toEqual(['"name"']);
+  });
+
+  it('leaves keywords uncoloured in tags and colours the imported name', () => {
+    const code = highlight('{% from "button/macro.njk" import nhswButton %}');
+    expect(tokens(code, 'tag')).toEqual(['{%', '%}']);
+    expect(tokens(code, 'value')).toEqual(['"button/macro.njk"']);
+    expect(tokens(code, 'attr')).toEqual(['nhswButton']);
+  });
+
+  it('colours the whole of a comment', () => {
+    const code = highlight('{# Use "quotes" and {{ braces }} freely #}\n{{ x }}');
+    expect(tokens(code, 'comment')).toEqual(['{# Use "quotes" and {{ braces }} freely #}']);
+    expect(tokens(code, 'value')).toEqual([]);
+  });
+
+  it('does not end an expression at the closing braces of a nested object or inside a string', () => {
+    const code = highlight('{{ nhswCard({ a: { b: { c: "}}" }}}) }}');
+    expect(tokens(code, 'tag')).toEqual(['{{', '}}']);
+    expect(tokens(code, 'value')).toEqual(['"}}"']);
+  });
+
+  it('keeps HTML with escaped quotes inside a string as one string', () => {
+    const code = highlight('{{ nhswCard({ html: "<a class=\\"nhsw-link\\">Go</a>" }) }}');
+    expect(tokens(code, 'value')).toEqual(['"<a class=\\"nhsw-link\\">Go</a>"']);
+    expect(code.querySelector('a')).toBeNull();
+  });
+
+  it('colours HTML written around the Nunjucks like the HTML tab', () => {
+    const code = highlight('<div class="nhsw-button-group">\n  {{ nhswButton({ text: "Go" }) }}\n</div>');
+    expect(tokens(code, 'tag')).toEqual(['<div', '>', '{{', '}}', '</div', '>']);
+    expect(tokens(code, 'value')).toEqual(['"nhsw-button-group"', '"Go"']);
+  });
+
+  it.each([
+    '{%- set label = "A & B" -%}\n{{- label | safe -}}',
+    '{% call nhswDetails({ summaryText: \'Help\' }) %}\n  <p>Text</p>\n{% endcall %}',
+    '{{ unterminated({ text: "no end',
+    '{# unterminated comment',
+  ])('does not change the copied text of %s', (source) => {
+    expect(highlight(source).textContent).toBe(source);
+  });
+});
+
 describe('placeholder links inside embedded examples', () => {
   beforeEach(() => {
     setBody(`

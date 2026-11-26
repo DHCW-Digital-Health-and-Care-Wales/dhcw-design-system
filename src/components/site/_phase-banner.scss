@@ -1,5 +1,6 @@
 @use "../../tokens/colours" as c;
 @use "../../utilities/breakpoints" as b;
+@use "../../foundations/layout" as layout;
 
 $nhsw-colour-phase-banner-tag-border: #004281;
 $nhsw-colour-phase-banner-tag-background: #cce0f1;
@@ -16,6 +17,17 @@ $nhsw-colour-phase-banner-tag-background: #cce0f1;
     @include b.nhsw-from-tablet {
       margin-right: 2.5rem;
       padding: 10px 2rem 10px calc(2rem + 4px);
+    }
+  }
+
+  &__container--wide {
+    box-sizing: border-box;
+    padding-right: 0;
+    padding-left: 0;
+    @include layout.nhsw-wide-container;
+
+    @include b.nhsw-from-tablet {
+      padding-left: 4px;
     }
   }
 
