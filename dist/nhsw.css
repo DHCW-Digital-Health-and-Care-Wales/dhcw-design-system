@@ -4393,7 +4393,6 @@ body {
   background-color: #ffffff;
   border: 1px solid #d8dde0;
   padding: 1rem;
-  height: calc(100% - 2rem);
   margin-bottom: 2rem;
   box-sizing: border-box;
   overflow-wrap: anywhere;
@@ -4446,6 +4445,14 @@ body {
 }
 .nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):has(> .nhsw-card__stat) .nhsw-card__stat {
   margin: 0;
+}
+
+.nhsw-card:where(:not(.nhsw-card--preview):not(.nhsw-card--flat)) {
+  min-height: 120px;
+}
+
+.nhsw-card:not(.nhsw-card--preview):not(.nhsw-card--flat):not(.nhsw-card--top-task):has(.nhsw-card__title-link):has(> .nhsw-card__title:only-child) {
+  justify-content: center;
 }
 
 .nhsw-card__title {
@@ -4674,6 +4681,10 @@ body {
 
 .nhsw-card:has(.nhsw-card__title-link:hover).nhsw-card--chevron .nhsw-card__title-link::before {
   background-color: #7c2855;
+}
+
+.nhsw-grid-row > [class*=nhsw-grid-column-]:not(.nhsw-card-group__item) > .nhsw-card:only-child {
+  height: calc(100% - 2rem);
 }
 
 .nhsw-card-group {
